@@ -1,0 +1,81 @@
+//
+//  LogViewModel.m
+//  IDOBlue
+//
+//  Created by hedongyang on 2018/9/30.
+//  Copyright © 2018年 hedongyang. All rights reserved.
+//
+
+#import "LogViewModel.h"
+#import "FuncCellModel.h"
+#import "OneButtonTableViewCell.h"
+#import "FuncViewController.h"
+#import "ComLogViewModel.h"
+#import "RestartLogViewModel.h"
+
+@interface LogViewModel()
+@property (nonatomic,strong) NSArray * buttonTitles;
+@property (nonatomic,strong) NSArray * modelClasss;
+@property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
+@end
+
+@implementation LogViewModel
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self getButtonCallback];
+        [self getCellModels];
+    }
+    return self;
+}
+
+- (NSArray *)buttonTitles
+{
+    if (!_buttonTitles) {
+        _buttonTitles = @[@[@"重启日志"],@[@"命令日志"]];
+    }
+    return _buttonTitles;
+}
+
+- (NSArray *)modelClasss
+{
+    if (!_modelClasss) {
+        _modelClasss = @[[RestartLogViewModel class],[ComLogViewModel class]];
+    }
+    return _modelClasss;
+}
+
+- (void)getCellModels
+{
+    NSMutableArray * cellModels = [NSMutableArray array];
+    for (int i = 0; i < self.buttonTitles.count; i++) {
+        NSArray * data = [self.buttonTitles objectAtIndex:i];
+        FuncCellModel * model = [[FuncCellModel alloc]init];
+        model.typeStr = @"oneButton";
+        model.data    = data;
+        model.cellHeight = 70.0f;
+        model.cellClass  = [OneButtonTableViewCell class];
+        model.modelClass = self.modelClasss[i];
+        model.buttconCallback = self.buttconCallback;
+        [cellModels addObject:model];
+    }
+    self.cellModels = cellModels;
+}
+
+- (void)getButtonCallback
+{
+    __weak typeof(self) weakSelf = self;
+    self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
+        __strong typeof(self) strongSelf = weakSelf;
+        FuncViewController * funcVc = (FuncViewController *)viewController;
+        NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
+        BaseCellModel * model = [strongSelf.cellModels objectAtIndex:indexPath.row];
+        if ([NSStringFromClass(model.modelClass)isEqualToString:@"NSNull"])return;
+        FuncViewController * newFuncVc = [FuncViewController new];
+        newFuncVc.model = [model.modelClass new];
+        newFuncVc.title = [model.data firstObject];
+        [funcVc.navigationController pushViewController:newFuncVc animated:YES];
+    };
+}
+@end

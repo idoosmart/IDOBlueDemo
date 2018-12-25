@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JBa-JU-CBr"/>
+                        <viewControllerLayoutGuide type="bottom" id="imt-Yt-FXt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2015-2018年 IDO. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="wbe-kg-QS2">
+                                <rect key="frame" x="16" y="626.5" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDO SDK Demo" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="65u-b4-6q3">
+                                <rect key="frame" x="63" y="192" width="249.5" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Objective-c" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLQ-qB-LmV">
+                                <rect key="frame" x="16" y="260" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v3.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RS7-Q0-9jX">
+                                <rect key="frame" x="16" y="302" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="imt-Yt-FXt" firstAttribute="top" secondItem="wbe-kg-QS2" secondAttribute="bottom" constant="20" id="1A3-mc-TAN"/>
+                            <constraint firstItem="wbe-kg-QS2" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="16" id="GEL-PR-4fL"/>
+                            <constraint firstItem="RS7-Q0-9jX" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="GWZ-Fb-4LQ"/>
+                            <constraint firstAttribute="trailing" secondItem="wbe-kg-QS2" secondAttribute="trailing" constant="16" id="JcZ-Ea-ACW"/>
+                            <constraint firstItem="VLQ-qB-LmV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="hCJ-iZ-zcX"/>
+                            <constraint firstItem="VLQ-qB-LmV" firstAttribute="top" secondItem="65u-b4-6q3" secondAttribute="bottom" constant="25" id="r2F-rl-otJ"/>
+                            <constraint firstItem="RS7-Q0-9jX" firstAttribute="top" secondItem="VLQ-qB-LmV" secondAttribute="bottom" constant="18" id="rio-iy-Ojp"/>
+                            <constraint firstItem="65u-b4-6q3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-120" id="sGg-G2-zfO"/>
+                            <constraint firstItem="RS7-Q0-9jX" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="twO-TY-djK"/>
+                            <constraint firstItem="65u-b4-6q3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="yF3-1v-bR8"/>
+                            <constraint firstItem="VLQ-qB-LmV" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="yrA-ig-CFp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+</document>

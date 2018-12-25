@@ -1,0 +1,22 @@
+//
+//  IDOBluetoothDemo.pch
+//  IDOBluetoothDemo
+//
+//  Created by hedongyang on 2018/9/8.
+//  Copyright © 2018年 hedongyang. All rights reserved.
+//
+
+#ifndef IDOBluetoothDemo_pch
+#define IDOBluetoothDemo_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <IDOBluetooth/IDOBluetooth.h>
+#define PRODUCTION_MODE_KEY @"ido_demo_mode_key" //产线模式、普通模式
+#define RSSI_KEY @"ido_demo_rssi_key" //信号强弱
+#define FIRMWARE_FILE_PATH_KEY @"firmware_file_path_key" //固件文件路径
+#define AGPS_FILE_PATH_KEY @"agps_file_path_key" //agps文件路径
+#define FIRMWARE_FILE_TYPE_KEY @"firmware_file_type_key" //固件文件类型
+#endif /* IDOBluetoothDemo_pch */
