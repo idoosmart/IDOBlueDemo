@@ -3,7 +3,7 @@
 
 ## How To Get Started
 
-* Download IDOBluetooth and try the accompanying iPhone sample application;
+* Download [IDOBluetooth](https://github.com/idoosmart/IDOBluetooth/archive/master.zip) and try the accompanying iPhone sample application;
 * View the documentation to fully understand all apis provided in IDOBluetooth;
  
 ## Requirements
