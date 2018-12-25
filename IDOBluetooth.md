@@ -12,10 +12,23 @@
 | 3.0.0 | iOS 8.0 | Only the objective-c file in the project needs to add an empty swift file |
 
 ## Project configuration
+* Reference header file
+  <br>![image](/images/7.png)
+  <br>
 * Project demo directory
-  ![image](/images/1.png)
+  <br>![image](/images/1.png)
+  <br>
 * Project configuration
-
+  <br>![image](/images/2.png)
+  <br>
+  <br>![image](/images/3.png)
+  <br>
+  <br>![image](/images/4.png)
+  <br>
+  <br>![image](/images/5.png)
+  <br>
+  <br>![image](/images/6.png)
+  <br>
 ## Architecture
 
 ```
