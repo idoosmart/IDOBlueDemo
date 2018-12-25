@@ -11,6 +11,10 @@
 | :------:| :------: | :------: |
 | 3.0.0 | iOS 8.0 | Only the objective-c file in the project needs to add an empty swift file |
 
+## Project configuration
+* Project demo directory
+* Project configuration
+
 ## Architecture
 
 ```
@@ -93,6 +97,7 @@ registrationServices().outputSdkLog(YES).outputProtocolLog(YES);
 * <p>When you apply an unconnected binding device, you need to create a view controller to implement the SDK bluetooth proxy. Scanning peripheral devices, the agent will return device collection, display in the list, select the device that needs to be connected, and return device information and whether the device is in OTA mode after successful connection, and there will be an error callback if the connection fails. The default scanning signal filter parameter is 80, and the automatic scanning connection timeout time is 20 seconds.</p>
 
 ```objc
+<IDOBluetoothManagerDelegate>
 [IDOBluetoothManager registerWtihDelegate:self];
 [IDOBluetoothManager shareInstance].rssiNum = 100;
 
@@ -184,8 +189,7 @@ model.authCode = codeStr;
 IDOSyncManager.startSync(YES or NO);
 ```
 ## <span id="6.0">Query bracelet data</span>
-* <P>
-The general method of Bluetooth command initialization model is "+(__kindof IDOBluetoothBaseModel*)currentModel" in each class object. This method queries the database first, if the query fails to initialize the new model object. Synchronized data is an encapsulation method for querying data in each model class. Only encapsulated method queries will have detailed data, while the data queried by custom query methods will not have detailed data. It is recommended that database operations not delete database data, but only insert and update data. Current data can only be queried after synchronization is completed. The unsynchronized data is still in the hand ring, and the data can not be queried locally.</P>
+* <P>The general method of Bluetooth command initialization model is "+(__kindof IDOBluetoothBaseModel*)currentModel" in each class object. This method queries the database first, if the query fails to initialize the new model object. Synchronized data is an encapsulation method for querying data in each model class. Only encapsulated method queries will have detailed data, while the data queried by custom query methods will not have detailed data. It is recommended that database operations not delete database data, but only insert and update data. Current data can only be queried after synchronization is completed. The unsynchronized data is still in the hand ring, and the data can not be queried locally.</P>
 
 ```objc
 1、activity query
@@ -297,7 +301,386 @@ datesOfMonth:(NSArray <NSString *>**)dates;
 
 //Calculate the annual heart rate average
 + (__kindof IDOCalculateHrBluetoothModel *)calculateOneYearHrDataWithHrModels:(NSArray <NSArray<__kindof IDOSyncHrDataInfoBluetoothModel *>*> *)models;
+
+3、sleep
+//Calculate the average daily sleep
++ (__kindof IDOCalculateSleepBluetoothModel *)calculateOneDaySleepDataWithSleepModel:(__kindof IDOSyncSleepDataInfoBluetoothModel *)model;
+
+//Calculation - Week, January sleep average
++ (__kindof IDOCalculateSleepBluetoothModel *)calculateOneMonthOrWeekSleepDataWithSleepModels:(NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)models;
+
+//Calculate the average sleep value for one year
++ (__kindof IDOCalculateSleepBluetoothModel *)calculateOneYearSleepDataWithSleepModels:(NSArray <NSArray<__kindof IDOSyncSleepDataInfoBluetoothModel *>*> *)models;
+
+4、sport
+//Calculate the average number of steps per day
++ (__kindof IDOCalculateSportBluetoothModel *)calculateOneDaySportDataWithSportModel:(__kindof IDOSyncSportDataInfoBluetoothModel *)model;
+
+//Calculation - Week, January Step Average
++ (__kindof IDOCalculateSportBluetoothModel *)calculateOneMonthOrWeekSportDataWithSportModels:(NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)models;
+
+//Calculate the average number of steps in a year
++ (__kindof IDOCalculateSportBluetoothModel *)calculateOneYearSportDataWithSportModels:(NSArray <NSArray<__kindof IDOSyncSportDataInfoBluetoothModel *>*> *)models;
                                                              
+```
+## <span id="8.0">Bluetooth common commands</span>
+* <p>Introduction to Common Command Usage</p>
+
+```objc
+//get func table
+[IDOFoundationCommand getFuncTableCommand:^(int errorCode,   IDOGetDeviceFuncBluetoothModel * _Nullable data) {
+    if (errorCode == 0) {
+    }else {
+    }
+ }];
+ 
+// get mac address
+[IDOFoundationCommand getMacAddrCommand:^(int errorCode, IDOGetMacAddrInfoBluetoothModel * _Nullable data) {
+    if (errorCode == 0) {
+    }else {
+    }
+}];
+
+//get device info
+[IDOFoundationCommand getDeviceInfoCommand:^(int errorCode, IDOGetDeviceInfoBluetoothModel * _Nullable data) {
+    if (errorCode == 0) {
+        }else {
+        }
+}];
+
+//get live data
+[IDOFoundationCommand getLiveDataCommand:^(int errorCode, IDOGetLiveDataBluetoothModel * _Nullable data) {
+  if (errorCode == 0) {
+        }else {
+        }
+}];
+
+//get activity count
+[IDOFoundationCommand getActivityCountCommand:^(int errorCode, IDOGetActivityCountBluetoothModel * _Nullable data) {
+ if (errorCode == 0) {
+        }else {
+        }
+}];
+
+//get gps info
+[IDOFoundationCommand getGpsInfoCommand:^(int errorCode, IDOGetGpsInfoBluetoothModel * _Nullable data) {
+     if (errorCode == 0) {
+        }else {
+        }
+}];
+
+//get notice status
+[IDOFoundationCommand getNoticeStatusCommand:^(int errorCode, IDOSetNoticeInfoBuletoothModel * _Nullable data) {
+      if (errorCode == 0) {
+        }else {
+        }
+}];
+```
+
+```objc
+//set user info
+userModel = [IDOSetUserInfoBuletoothModel currentModel];
+[IDOFoundationCommand setUserInfoCommand:userModel callback:^(int errorCode) {
+   if (errorCode == 0) {
+    }else {
+    }
+}];
+
+//set target info
+userModel = [IDOSetUserInfoBuletoothModel currentModel];
+[IDOFoundationCommand setTargetInfoCommand:userModel callback:^(int errorCode) {
+    if (errorCode == 0) {
+    }else {
+    }
+}];
+
+//set find phone
+findPhoneModel = [IDOSetFindPhoneInfoBuletoothModel currentModel];
+[IDOFoundationCommand setFindPhoneCommand:findPhoneModel callback:^(int errorCode){
+    if (errorCode == 0) {
+    }else {
+    }
+}];
+
+//set hand up
+handUpModel = [IDOSetHandUpInfoBuletoothModel currentModel];
+[IDOFoundationCommand setHandUpCommand:handUpModel callback:^(int errorCode) {
+    if (errorCode == 0) {
+    }else {
+    }
+}];
+
+//set left right hand
+leftOrRightModel = [IDOSetLeftOrRightInfoBuletoothModel currentModel];
+[IDOFoundationCommand setLeftRightHandCommand:leftOrRightModel callback:^(int errorCode) {
+    if (errorCode == 0) {
+    }else {
+    }
+}];
+
+//set prevent lost
+preventLostModel = [IDOSetPreventLostInfoBuletoothModel currentModel];
+[IDOFoundationCommand setPreventLostCommand:preventLostModel callback:^(int errorCode) {
+      if (errorCode == 0) {
+     }else {
+     }
+}];
+
+//set display mode
+displayModel = [IDOSetDisplayModeInfoBluetoothModel currentModel];
+[IDOFoundationCommand setDisplayModeCommand:displayModel callback:^(int errorCode) {
+     if (errorCode == 0) {
+     }else {
+     }
+}];
+
+//set notice 
+noticeModel  = [IDOSetNoticeInfoBuletoothModel currentModel];
+pairingModel = [IDOSetPairingInfoBuletoothModel currentModel];
+if (!pairingModel.isPairing) {
+[IDOFoundationCommand setBluetoothPairingCommandWithCallback:^(int errorCode) {
+    if(errorCode == 0) {
+    }else {
+    }
+}];
+}else {
+    [IDOFoundationCommand setSwitchNoticeCommand:noticeModel callback:^(int errorCode) {
+        if(errorCode == 0) {
+        }else {
+        }
+    }];
+}
+
+// set time
+timeModel = [IDOSetTimeInfoBluetoothModel currentModel];
+[IDOFoundationCommand setCurrentTimeCommand:timeModel callback:^(int errorCode) {
+         if(errorCode == 0) {
+        }else {
+        }
+ }];
+ 
+//set one alarm 
+ NSArray * alarms = [IDOSetAlarmInfoBluetoothModel queryAllNoOpenAlarms];
+ alarmModel = [alarms firstObject];
+ [IDOFoundationCommand setAlarmCommand:alarmModel callback:^(int errorCode) {
+     if(errorCode == 0) {
+        }else {
+        }
+ }];
+ 
+ //set all alarms 
+ NSArray * alarms = [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
+ [IDOFoundationCommand setAllAlarmsCommand:alarms callback:^(int errorCode) {
+    if(errorCode == 0) {
+        }else {
+        }        
+ }];
+ 
+ //set long sit
+ longSitModel = [IDOSetLongSitInfoBuletoothModel currentModel];
+ [IDOFoundationCommand setLongSitCommand:longSitModel callback:^(int errorCode) {
+        if(errorCode == 0) {
+        }else {
+        }   
+ }];
+ 
+ //set weather 
+ weatherSwitchModel = [IDOSetWeatherSwitchInfoBluetoothModel currentModel];
+ weatherDataModel   = [IDOSetWeatherDataInfoBluetoothModel currentModel];
+ [IDOFoundationCommand setWeatherCommand:weatherSwitchModel callback:^(int errorCode) {
+        if(errorCode == 0) {
+        }else {
+        }   
+}];
+[IDOFoundationCommand setWeatherDataCommand:weatherDataModel callback:^(int errorCode) {
+        if(errorCode == 0) {
+        }else {
+        }  
+}];
+
+//set hr mode
+hrModel = [IDOSetHrModeInfoBluetoothModel currentModel];
+[IDOFoundationCommand setHrModeCommand:hrModel callback:^(int errorCode) {
+        if(errorCode == 0) {
+        }else {
+        }  
+}];
+
+//set hr interval
+hrIntervalModel = [IDOSetHrIntervalInfoBluetoothModel currentModel];
+[IDOFoundationCommand setHrIntervalCommand:hrIntervalModel callback:^(int errorCode) {
+        if(errorCode == 0) {
+        }else {
+        } 
+}];
+
+//set no disturb
+noDisturbMode = [IDOSetNoDisturbModeInfoBluetoothModel currentModel];
+[IDOFoundationCommand setNoDisturbModeCommand:noDisturbMode callback:^(int errorCode) {
+        if(errorCode == 0) {
+        }else {
+        } 
+}];
+
+//set unit
+unitMode = [IDOSetUnitInfoBluetoothModel currentModel];
+[IDOFoundationCommand setUnitCommand:unitMode callback:^(int errorCode) {
+       if(errorCode == 0) {
+        }else {
+        } 
+}];
+
+//set one key sos
+oneKeySosModel = [IDOSetOneKeySosInfoBuletoothModel currentModel];
+[IDOFoundationCommand setOneKeySosCommand:oneKeySosModel callback:^(int errorCode) {
+         if(errorCode == 0) {
+        }else {
+        } 
+}];
+
+//set shortcut
+shortcutModel = [IDOSetShortcutInfoBluetoothModel currentModel];
+[IDOFoundationCommand setShortcutCommand:shortcutModel callback:^(int errorCode) {
+         if(errorCode == 0) {
+        }else {
+        } 
+}];
+
+//set sport shortcut
+sportShortcutModel = [IDOSetSportShortcutInfoBluetoothModel currentModel];
+[IDOFoundationCommand setSportModeSelectCommand:sportShortcutModel callback:^(int errorCode) {
+           if(errorCode == 0) {
+        }else {
+        } 
+}];
+
+//set screen
+screenModel = [IDOSetScreenBrightnessInfoBluetoothModel currentModel];
+ [IDOFoundationCommand setScreenBrightnessCommand:screenModel callback:^(int errorCode) {
+            if(errorCode == 0) {
+        }else {
+        } 
+}];
+
+//set music switch
+musicModel = [IDOSetMusicOpenInfoBuletoothModel currentModel];
+pairingModel = [IDOSetPairingInfoBuletoothModel currentModel];
+if(!pairingModel.isPairing) {
+    [IDOFoundationCommand setBluetoothPairingCommandWithCallback:^(int errorCode) {
+            if(errorCode == 0) {
+              [IDOFoundationCommand setOpenMusicCommand:musicMode callback:^(int errorCode) {
+                     if(errorCode == 0) {
+                     }else {
+                     }
+               }];
+            }else {
+            } 
+    }];
+} else {
+[IDOFoundationCommand setOpenMusicCommand:musicModel callback:^(int errorCode) {
+     if(errorCode == 0) {
+     }else {
+     }
+ }];
+}
+
+//set gps info
+gpsMode = [IDOSetGpsConfigInfoBluetoothModel currentModel];
+[IDOFoundationCommand setGpsInfoCommand:gpsMode callback:^(int errorCode) {
+     if(errorCode == 0) {
+     }else {
+     }
+}];
+
+//set hot start 
+hotStartMode = [IDOGetHotStartParamBluetoothModel currentModel];
+[IDOFoundationCommand setHotStartParamCommand:hotStartMode callback:^(int errorCode) {
+     if(errorCode == 0) {
+     }else {
+     }
+}];
+
+//set watch dia
+watchDiaModel = [IDOSetWatchDiaInfoBluetoothModel currentModel];
+[IDOFoundationCommand setWatchDiaCommand:watchDiaModel callback:^(int errorCode) {
+     if(errorCode == 0) {
+     }else {
+     }
+}];
+
+```
+## <span id="9.0">AGPS file updates</span>
+* <p>AGPS file upgrade needs to be noted: 15 seconds after the hand ring connects app and the query GPS status is not running to update the AGPS file, otherwise it will cause update failure</p>
+
+```objc
+//get gps status
+[IDOFoundationCommand getGpsStatusCommand:^(int errorCode, IDOGetGpsStatusBluetoothModel * _Nullable data) {
+    if (data.gpsRunStatus == 0) {
+    //AGPS file start transfer
+[IDOUpdateAgpsManager updateAgpsWithPath:filePath prepareCallback:^(int errorCode) {
+        if(errorCode == 0) {
+         }else {
+         }                
+     }];
+     
+     //AGPS file transfer completed, start writing
+    [IDOUpdateAgpsManager updateAgpsTransmissionComplete:^(int errorCode){                         
+         if(errorCode == 0) {
+         }else {
+     }    
+        } updateComplete:^(int errorCode) { //Write file complete
+            if(errorCode == 0) {
+             }else {
+             }    
+     }];
+     
+     //AGPS file transfer schedule
+    [IDOUpdateAgpsManager updateAgpsProgressCallback:^(int progress) {                         
+    }];
+ }else {
+ }
+}];
+```
+## <span id="10.0">Firmware update (OTA)</span>
+* <P>SDK upgrade function is only responsible for firmware upgrade. As for firmware version judgment and firmware download, it is not handled. Attention should be paid to the integrity of firmware download, the firmware local sandbox path should be passed in when upgrading, and the upgrade progress and completion status should be monitored, as well as the error proxy callback.</P>
+
+```objc
+<IDOUpdateManagerDelegate>
+[IDOUpdateFirmwareManager registerWtihDelegate:self];
+- (NSString *)currentPackagePathWithUpdateManager:(IDOUpdateFirmwareManager *)manager
+{
+   // firmware file path
+    return filePath;
+}
+
+- (void)updateManager:(IDOUpdateFirmwareManager *)manager
+                state:(IDO_UPDATE_STATE)state
+{
+    if (state == IDO_UPDATE_COMPLETED) { //update complete
+    }else { //updating
+       
+    }
+}
+
+- (void)updateManager:(IDOUpdateFirmwareManager *)manager updateError:(NSError *)error
+{
+   // update error
+}
+
+- (void)updateManager:(IDOUpdateFirmwareManager *)manager
+             progress:(float)progress
+              message:(NSString *)message
+{
+ // update progress (0-1)
+}
+
+@optional
+- (IDO_UPDATE_DFU_FIRMWARE_TYPE)selectDfuFirmwareTypeWithUpdateManager:(IDOUpdateFirmwareManager * _Nullable)manager
+{
+    // update type
+    return IDO_DFU_FIRMWARE_APPLICATION_TYPE;
+}
+
 ```
 
 
