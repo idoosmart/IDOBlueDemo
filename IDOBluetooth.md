@@ -13,6 +13,7 @@
 
 ## Project configuration
 * Project demo directory
+  ![image](/images/1.png)
 * Project configuration
 
 ## Architecture
