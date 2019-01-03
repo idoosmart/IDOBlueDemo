@@ -63,10 +63,22 @@ typedef NS_ENUM(NSInteger, IDO_SYNC_COMPLETE_STATUS) {
     IDO_SYNC_CONFIG_COMPLETE,
     
     /**
+     * 配置同步完成异常
+     * Configure synchronization completion exception
+     */
+    IDO_SYNC_CONFIG_COMPLETE_EXCEPTION,
+    
+    /**
      * 健康同步完成
      * Health synchronization completed
      */
     IDO_SYNC_HEALTH_COMPLETE,
+    
+    /**
+     * 健康同步完成异常
+     * Health synchronization completes exception
+     */
+    IDO_SYNC_HEALTH_COMPLETE_EXCEPTION,
     
     /**
      * 活动同步完成
@@ -75,10 +87,22 @@ typedef NS_ENUM(NSInteger, IDO_SYNC_COMPLETE_STATUS) {
     IDO_SYNC_ACTIVITY_COMPLETE,
     
     /**
+     * 活动同步完成异常
+     * Activity synchronization completes exception
+     */
+    IDO_SYNC_ACTIVITY_COMPLETE_EXCEPTION,
+    
+    /**
      * GPS同步完成
      * GPS synchronization completed
      */
     IDO_SYNC_GPS_COMPLETE,
+    
+    /**
+     * GPS同步完成异常
+     * GPS synchronization completes exception
+     */
+    IDO_SYNC_GPS_COMPLETE_EXCEPTION,
     
 };
 
@@ -178,6 +202,12 @@ typedef NS_ENUM(NSInteger, IDO_BLUETOOTH_MANAGER_STATE) {
      * Normal mode automatic connection
      */
     IDO_MANAGER_STATE_AUTO_CONNECT,
+    
+    /**
+     * 蓝牙扫描停止
+     * Bluetooth scan stop
+     */
+    IDO_MANAGER_STATE_SCAN_STOP,
     
     /**
      * 蓝牙手动扫描中

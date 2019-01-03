@@ -11,10 +11,9 @@
 @interface IDOErrorCodeToStr : NSObject
 
 /**
- 错误码转字符串
-
- @param errorCode 错误码
- @return 字符串
+ * @brief 错误码转字符串 | Error code to string
+ * @param errorCode 错误码 | Error code
+ * @return 字符串 | string
  */
 + (NSString *)errorCodeToStr:(NSInteger)errorCode;
 @end

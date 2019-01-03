@@ -10,33 +10,30 @@
 
 @interface IDOSyncHealth : NSObject
 /**
- 健康 开始同步
+ 健康 开始同步 | Health Start syncing
  */
 + (void)startSync;
 
 /**
- 健康 停止同步
+ 健康 停止同步 | Health Stop syncing
  */
 + (void)stopSync;
 
 /**
- 健康 同步进度
- 
- @param callback 进度回调
+ * @brief 健康 同步进度 | Health Synchronization progress
+ * @param callback 进度回调 | Progress callback
  */
 + (void)syncHealthDataProgressCallback:(void(^_Nullable)(int progress))callback;
 
 /**
- 健康 同步完成
- 
- @param callback 完成回调
+ * @brief 健康 同步完成 | Health Synchronization completed
+ * @param callback 完成回调 | Complete callback
  */
 + (void)syncHealthDataCompleteCallback:(void(^_Nullable)(int errorCode))callback;
 
 /**
- 健康 同步日志
- 
- @param callback 日志回调
+ * @brief 健康 同步日志 | Health Synchronization Log
+ * @param callback 日志回调 | Log callback
  */
 + (void)syncHealthLogCallback:(void(^_Nullable)(NSString * _Nullable logStr))callback;
 

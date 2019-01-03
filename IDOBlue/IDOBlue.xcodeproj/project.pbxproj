@@ -97,7 +97,6 @@
 		9B437EF621393ADC00DE2FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B437EF521393ADC00DE2FC8 /* Assets.xcassets */; };
 		9B437EF921393ADC00DE2FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B437EF721393ADC00DE2FC8 /* LaunchScreen.storyboard */; };
 		9B437EFC21393ADC00DE2FC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437EFB21393ADC00DE2FC8 /* main.m */; };
-		9B437F2A21393DDD00DE2FC8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9B437F0921393DDD00DE2FC8 /* LICENSE */; };
 		9B437F2B21393DDD00DE2FC8 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F0C21393DDD00DE2FC8 /* MASCompositeConstraint.m */; };
 		9B437F2C21393DDD00DE2FC8 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F0F21393DDD00DE2FC8 /* MASConstraint.m */; };
 		9B437F2D21393DDD00DE2FC8 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F1121393DDD00DE2FC8 /* MASConstraintMaker.m */; };
@@ -138,7 +137,6 @@
 		9B9A9A3C21860C9F0025E6A1 /* ScanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9A9A3B21860C9F0025E6A1 /* ScanTableViewCell.m */; };
 		9BA7DE1A21806DC900FA67D2 /* QueryActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7DE1921806DC900FA67D2 /* QueryActivityViewModel.m */; };
 		9BA7DE1D2180757100FA67D2 /* TableViewFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7DE1C2180757100FA67D2 /* TableViewFootView.m */; };
-		9BAE77FD21D0709100E461CA /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
 		9BC1E451213E66ED008D832E /* IDODemoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E44B213E66EC008D832E /* IDODemoUtility.m */; };
 		9BC1E452213E66ED008D832E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E44E213E66EC008D832E /* BaseViewController.m */; };
 		9BC1E453213E66ED008D832E /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E450213E66EC008D832E /* ScanViewController.m */; };
@@ -149,6 +147,7 @@
 		9BCE554D216DDC00005B6F80 /* BlueDataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE554C216DDC00005B6F80 /* BlueDataInterchangeModel.m */; };
 		9BCE5552216F47BE005B6F80 /* CurveChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE5551216F47BE005B6F80 /* CurveChartView.m */; };
 		9BD348D3217EAC4500008142 /* QueryHrViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD348D2217EAC4500008142 /* QueryHrViewModel.m */; };
+		9BF70EE621DDB21300232F40 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
 		9BF7EC36219BC8E100572E70 /* BindDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC35219BC8E100572E70 /* BindDeviceView.m */; };
 		9BF7EC39219BCAB300572E70 /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC38219BCAB300572E70 /* SliderTableViewCell.m */; };
 		9BF7EC3C219BCFE900572E70 /* SliderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */; };
@@ -337,7 +336,6 @@
 		9B437EFA21393ADC00DE2FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B437EFB21393ADC00DE2FC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
-		9B437F0921393DDD00DE2FC8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9B437F0B21393DDD00DE2FC8 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		9B437F0C21393DDD00DE2FC8 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		9B437F0D21393DDD00DE2FC8 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -452,7 +450,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BAE77FD21D0709100E461CA /* IDOBluetooth.framework in Frameworks */,
+				9BF70EE621DDB21300232F40 /* IDOBluetooth.framework in Frameworks */,
 				9B5702A5213BEE1600BCE1CE /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -745,7 +743,6 @@
 		9B437F0821393DDD00DE2FC8 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
-				9B437F0921393DDD00DE2FC8 /* LICENSE */,
 				9B437F0A21393DDD00DE2FC8 /* Masonry */,
 				9B437F2421393DDD00DE2FC8 /* README.md */,
 			);
@@ -1011,7 +1008,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B437F2A21393DDD00DE2FC8 /* LICENSE in Resources */,
 				9B437EF921393ADC00DE2FC8 /* LaunchScreen.storyboard in Resources */,
 				9B437F3521393DDD00DE2FC8 /* README.md in Resources */,
 				9B94D5DC214BBF4700ACCF94 /* Firmwares in Resources */,
@@ -1306,7 +1302,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ido.sdk.three;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ido.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IDOBlue/IDOBlue-Bridging-Header.h";
@@ -1331,7 +1327,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ido.sdk.three;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ido.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IDOBlue/IDOBlue-Bridging-Header.h";

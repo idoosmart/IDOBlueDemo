@@ -31,7 +31,7 @@
 @property (nonatomic,assign) NSInteger hour;
 
 /**
- 分 | points
+ 分 | minutes
  */
 @property (nonatomic,assign) NSInteger minute;
 
@@ -71,7 +71,8 @@
 @property (nonatomic,assign) NSInteger  packetCount;
 
 /*
- 类型:0x01:走路, 0x02:跑步， 0x03:骑行 0x04:徒步 这些类型才有轨迹运动  |  Type: 0x01: Walk, 0x02: Running, 0x03: Cycling 0x04: Walking These types have track motion
+ 类型:0x01:走路, 0x02:跑步， 0x03:骑行 0x04:徒步 这些类型才有轨迹运动
+ Type: 0x01: Walk, 0x02: Running, 0x03: Cycling 0x04: Walking These types have track motion
  */
 @property (nonatomic,assign) NSInteger type;
 
@@ -861,7 +862,7 @@
 @property (nonatomic,assign) NSInteger hour;
 
 /**
- 分 | points
+ 分 | minutes
  */
 @property (nonatomic,assign) NSInteger minute;
 

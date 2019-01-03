@@ -54,7 +54,11 @@
     }];
     
     self.tableView.model = self.model;
-    self.tableView.tableHeaderView = self.statusLabel;
+    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0,0,self.view.frame.size.width,40)];
+    headView.backgroundColor = [UIColor colorWithRed:236/255.0f green:236/255.0f blue:236/255.0f alpha:1.0f];
+    [headView addSubview:self.statusLabel];
+    [headView addSubview:self.timerLabel];
+    self.tableView.tableHeaderView = headView;
     if (self.model.isFootButton)self.tableView.tableFooterView = self.footButton;
 }
 

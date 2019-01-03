@@ -32,24 +32,26 @@
 
 #pragma mark ==== 获取热启动参数model ====
 @interface IDOGetHotStartParamBluetoothModel:IDOBluetoothBaseModel
-
 /**
- 偏移量 |  Offset
+ 晶振偏移 默认 200 |  crystals offset default 200
  */
 @property (nonatomic,assign) NSInteger tcxoOffset;
 
 /**
- 经度 | longitude
+ 当前位置的经度 当前经度 x 10^6 , 去掉小数,注意西经为负数 默认 0
+ The current position of the longitude of the current longitude x 10 ^ 6, remove the decimal, pay attention to the scriptures is negative. default 0
  */
 @property (nonatomic,assign) NSInteger longitude;
 
 /**
- 纬度 | latitude
+ 当前位置的纬度, x10^6 ,去掉小数,注意南纬为负数 默认 0
+ The current position of latitude, x10 ^ 6, remove the decimal, pay attention to the south of the equator is negative. default 0
  */
 @property (nonatomic,assign) NSInteger latitude;
 
 /**
- 高度 | height
+ 当前位置的海拔高度 x10, 去掉小数 默认 0
+ The altitude of the current position x10, get rid of the decimal. default 0
  */
 @property (nonatomic,assign) NSInteger altitude;
 

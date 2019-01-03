@@ -18,6 +18,7 @@
 @property (nonatomic,strong) BasePickerView * pickerView;
 @property (nonatomic,strong) BaseDatePickerView * datePickerView;
 @property (nonatomic,strong) UILabel * statusLabel;
+@property (nonatomic,strong) UILabel * timerLabel;
 - (void)showLoadingWithMessage:(NSString *)message;
 - (void)showToastWithText:(NSString *)message;
 - (void)showUpdateProgress:(float)progress;

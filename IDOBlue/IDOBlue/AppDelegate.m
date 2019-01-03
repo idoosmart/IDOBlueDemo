@@ -33,7 +33,7 @@
             UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:home];
             self.window.rootViewController = nav;
         }else {
-            FuncViewController * update = [[FuncViewController alloc]init];i
+            FuncViewController * update = [[FuncViewController alloc]init];
             update.model = [UpdateFirmwareViewModel new];
             update.title = @"固件升级";
             UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:update];

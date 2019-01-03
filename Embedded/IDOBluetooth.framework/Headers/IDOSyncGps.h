@@ -12,33 +12,30 @@
 @interface IDOSyncGps : NSObject
 
 /**
- GPS 开始同步
+ GPS 开始同步 | GPS starts syncing
  */
 + (void)startSync;
 
 /**
- GPS 停止同步
+ GPS 停止同步 | GPS stops syncing
  */
 + (void)stopSync;
 
 /**
- GPS 同步进度
-
- @param callback 进度回调
+ * @brief GPS 同步进度 | GPS sync progress
+ * @param callback 进度回调 | Progress callback
  */
 + (void)syncGpsDataProgressCallback:(void(^_Nullable)(int progress))callback;
 
 /**
- GPS 同步完成
-
- @param callback 完成回调
+ * @brief GPS 同步完成 | GPS synchronization completed
+ * @param callback 完成回调 | Complete callback
  */
 + (void)syncGpsDataCompleteCallback:(void(^_Nullable)(int errorCode))callback;
 
 /**
- GPS 同步日志
- 
- @param callback 日志回调
+ * @brief GPS 同步日志 | GPS sync log
+ * @param callback 日志回调 | callback log callback
  */
 + (void)syncGpsLogCallback:(void(^_Nullable)(NSString * _Nullable logStr))callback;
 

@@ -22,16 +22,54 @@
 @property (nonatomic,strong)  IDOPeripheralModel * currentModel;
 @property (nonatomic,strong)  AuthTextFieldView * authView;
 @property (nonatomic,strong)  BindDeviceView * bindView;
-@property (nonatomic,strong) MBProgressHUD * progressHUD;
+@property (nonatomic,strong)  MBProgressHUD * progressHUD;
+@property (nonatomic,strong)  UILabel * statusLabel;
+@property (nonatomic,strong)  UILabel * timerLabel;
 @property (nonatomic,copy)    void(^modeSelectCallback)(UIViewController * viewController,NSInteger type);
 @end
 
 @implementation ScanViewController
 
+- (void)dealloc
+{
+    if (IDO_BLUE_ENGINE.managerEngine) {
+        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.state"];
+        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.errorCode"];
+        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.manualConnectTotalTime"];
+        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.autoConnectTotalTime"];
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.statusLabel.text = __IDO_PERIPHERAL__.state == CBPeripheralStateConnected ? @"已连接" : @"已断开";
 }
+
+- (UILabel *)statusLabel
+{
+    if (!_statusLabel) {
+        _statusLabel = [[UILabel alloc]initWithFrame:CGRectMake(16,0,(self.view.frame.size.width - 32)/2,40)];
+        _statusLabel.textColor = [UIColor blackColor];
+        _statusLabel.textAlignment = NSTextAlignmentLeft;
+        _statusLabel.font = [UIFont boldSystemFontOfSize:16];
+        _statusLabel.backgroundColor = [UIColor clearColor];
+    }
+    return _statusLabel;
+}
+
+- (UILabel *)timerLabel
+{
+    if (!_timerLabel) {
+        _timerLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2,0,(self.view.frame.size.width - 32)/2,40)];
+        _timerLabel.textColor = [UIColor blackColor];
+        _timerLabel.textAlignment = NSTextAlignmentCenter;
+        _timerLabel.font = [UIFont boldSystemFontOfSize:16];
+        _timerLabel.backgroundColor = [UIColor clearColor];
+    }
+    return _timerLabel;
+}
+
 
 - (void)refreshButtonState
 {
@@ -48,12 +86,24 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"扫描设备";
     
-   // [self addLeftButton];
+    if (IDO_BLUE_ENGINE.managerEngine) {
+        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.state" options:NSKeyValueObservingOptionNew context:nil];
+        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.errorCode" options:NSKeyValueObservingOptionNew context:nil];
+        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.manualConnectTotalTime" options:NSKeyValueObservingOptionNew context:nil];
+        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.autoConnectTotalTime" options:NSKeyValueObservingOptionNew context:nil];
+    }
+    
     [self addRightButton];
     [self creatRefreshing];
     
+    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0,0,self.view.frame.size.width,40)];
+    headView.backgroundColor = [UIColor colorWithRed:236/255.0f green:236/255.0f blue:236/255.0f alpha:1.0f];
+    [headView addSubview:self.statusLabel];
+    [headView addSubview:self.timerLabel];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.tableHeaderView = headView;
     self.tableView.tableFooterView = [UIView new];
     
     [IDOBluetoothManager registerWtihDelegate:self];
@@ -334,8 +384,6 @@
     if (!cell) {
         cell = [[ScanTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.selectionStyle =  UITableViewCellSelectionStyleNone;
-        //[cell.bindButton addTarget:self action:@selector(bindAction:) forControlEvents:UIControlEventTouchUpInside];
-        //[cell.updateButton addTarget:self action:@selector(updateAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     IDOPeripheralModel * model =  [self.devices objectAtIndex:indexPath.row];
@@ -351,5 +399,34 @@
     [self showLoadingWithMessage:@"设备连接中..."];
     [IDOBluetoothManager connectDeviceWithModel:self.currentModel];
 }
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:@"idoManager.state"]) {
+        IDO_BLUETOOTH_MANAGER_STATE state = (IDO_BLUETOOTH_MANAGER_STATE)[change[NSKeyValueChangeNewKey] integerValue];
+        if (state == IDO_MANAGER_STATE_DID_CONNECT) {
+            self.statusLabel.text = @"已连接";
+            [self showToastWithText:@"设备连接成功"];
+        }
+        else if(state == IDO_MANAGER_STATE_POWEREDOFF
+                || state == IDO_MANAGER_STATE_CONNECT_FAILED) {
+            self.statusLabel.text = @"已断开";
+            [self showToastWithText:@"设备已断开"];
+        }
+    }else if ([keyPath isEqualToString:@"idoManager.manualConnectTotalTime"]) {
+        NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
+        if (totalTime <= 0)return;
+        self.timerLabel.text = [NSString stringWithFormat:@"手动连接时长：%ld",totalTime];
+    }else if ([keyPath isEqualToString:@"idoManager.autoConnectTotalTime"]) {
+        NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
+        if (totalTime <= 0)return;
+        self.timerLabel.text = [NSString stringWithFormat:@"自动连接时长：%ld",totalTime];
+    }
+}
+
 
 @end

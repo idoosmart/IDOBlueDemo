@@ -8,33 +8,35 @@
 
 #import <Foundation/Foundation.h>
 
-// 蓝牙扫描、连接状态通知监听名字
+// 蓝牙扫描、连接状态通知监听名字 | Bluetooth scan, connection status notification listener name
 extern NSString * IDOBluetoothConnectStateNotifyName;
 
-// 蓝牙扫描、连接过程错误通知监听名字
+// 蓝牙扫描、连接过程错误通知监听名字 | Bluetooth scan, connection process error notification listener name
 extern NSString * IDOBluetoothConnectErrorNotifyName;
+
+// 当前连接的手环设备为OTA模式通知监听名字 | The currently connected bracelet device is OTA mode notification listener name
+extern NSString * IDOBluetoothOtaModeNotifyName;
 
 @interface IDOBluetoothServices : NSObject
 
 /*
- 是否输出蓝牙sdk运行日志
+ 是否输出蓝牙sdk运行日志 | Whether to output the Bluetooth sdk running log
  */
 @property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^outputSdkLog)(BOOL isOutput);
 
 /*
- 是否输出蓝牙协议运行日志
+ 是否输出蓝牙协议运行日志 | Whether to output the Bluetooth protocol running log
  */
 @property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^outputProtocolLog)(BOOL isOutput);
 
 /*
- 是否添加阿里云日志 默认 No
+ 是否添加阿里云日志 默认 No | Add Alibaba Cloud Log Default No
  */
 @property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^addAliYunLog)(BOOL isAdd);
 
 /**
- 注册蓝牙服务
-
- @return IDOBluetoothServices
+ * @brief  注册SDK服务 | Register for SDK service
+ * @return IDOBluetoothServices
  */
 IDOBluetoothServices * _Nonnull registrationServices(void);
 
