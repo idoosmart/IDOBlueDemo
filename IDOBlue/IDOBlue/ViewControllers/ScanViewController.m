@@ -15,6 +15,7 @@
 #import "BindDeviceView.h"
 #import "ScanTableViewCell.h"
 #import "MBProgressHUD.h"
+#import "TimerAnimatView.h"
 
 @interface ScanViewController ()<UITableViewDelegate,UITableViewDataSource,IDOBluetoothManagerDelegate,AuthTextFieldViewDelegate,BindDeviceViewDelegate>
 @property (nonatomic,strong)  NSArray * devices;
@@ -81,6 +82,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CGRect frame = CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height - 40);
+    TimerAnimatView * timerAnimatView = [[TimerAnimatView alloc]initWithFrame:frame];
+    __weak typeof(self) weakSelf = self;
+    timerAnimatView.TimeOverBlock = ^{
+        __strong typeof(self) strongSelf = weakSelf;
+        strongSelf.tableView.tableFooterView = [UIView new];
+    };
+    self.tableView.tableFooterView = timerAnimatView;
+    [timerAnimatView countDown:3];
     
     [self modificationNavigationBarStyle];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -104,7 +114,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableHeaderView = headView;
-    self.tableView.tableFooterView = [UIView new];
     
     [IDOBluetoothManager registerWtihDelegate:self];
     [IDOBluetoothManager shareInstance].rssiNum = 100;
@@ -373,7 +382,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70.0f;
+    return 85.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView

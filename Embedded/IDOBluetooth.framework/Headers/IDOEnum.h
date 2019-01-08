@@ -523,7 +523,6 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      */
     IDO_SYNC_GPS_LOG,
     /**
-     *
      * 同步结束
      * End of synchronization
      */
@@ -537,7 +536,27 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      * 蓝牙接收数据
      * Bluetooth receiving data
      */
-    IDO_RECEIVE_DATA_LOG
+    IDO_RECEIVE_DATA_LOG,
+    /**
+     * 手环启动配对
+     * Bracelet starts pairing
+     */
+    IDO_PAIRING_START_LOG,
+    /**
+     * 手环配对失败
+     * Bracelet pairing failed
+     */
+    IDO_PAIRING_FAILED_LOG,
+    /**
+     * 手环配对后重连失败
+     * The bracelet failed to reconnect after pairing
+     */
+    IDO_PAIRING_RECONNECT_FAILED_LOG,
+    /**
+     * 手环配对后重连成功
+     * The bracelet successfully to reconnect after pairing
+     */
+    IDO_PAIRING_RECONNECT_SUCCESS_LOG,
 };
 
 #endif /* IDOEnum_h */

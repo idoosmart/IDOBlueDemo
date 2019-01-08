@@ -129,17 +129,18 @@
 		9B7A13512160A86300CBA4BC /* SetSleepTimeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A13502160A86300CBA4BC /* SetSleepTimeViewModel.m */; };
 		9B7A135A2160D3DF00CBA4BC /* LogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A13592160D3DF00CBA4BC /* LogViewModel.m */; };
 		9B7A135D2160D59D00CBA4BC /* ComLogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A135C2160D59D00CBA4BC /* ComLogViewModel.m */; };
-		9B7A13602160D9A700CBA4BC /* ShowLogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A135F2160D9A700CBA4BC /* ShowLogViewModel.m */; };
 		9B7A4620214F40FE007A2DB6 /* FuncCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A461F214F40FE007A2DB6 /* FuncCellModel.m */; };
 		9B7A4623214F5BF2007A2DB6 /* TextViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A4622214F5BF2007A2DB6 /* TextViewCellModel.m */; };
 		9B7A4626214F633A007A2DB6 /* LabelCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A4625214F633A007A2DB6 /* LabelCellModel.m */; };
 		9B94D5DC214BBF4700ACCF94 /* Firmwares in Resources */ = {isa = PBXBuildFile; fileRef = 9B94D5DB214BBF4600ACCF94 /* Firmwares */; };
 		9B9A9A3C21860C9F0025E6A1 /* ScanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9A9A3B21860C9F0025E6A1 /* ScanTableViewCell.m */; };
+		9BA49E7021E45014001BDC86 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
 		9BA7DE1A21806DC900FA67D2 /* QueryActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7DE1921806DC900FA67D2 /* QueryActivityViewModel.m */; };
 		9BA7DE1D2180757100FA67D2 /* TableViewFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7DE1C2180757100FA67D2 /* TableViewFootView.m */; };
 		9BC1E451213E66ED008D832E /* IDODemoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E44B213E66EC008D832E /* IDODemoUtility.m */; };
 		9BC1E452213E66ED008D832E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E44E213E66EC008D832E /* BaseViewController.m */; };
 		9BC1E453213E66ED008D832E /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E450213E66EC008D832E /* ScanViewController.m */; };
+		9BCD04F221DE16DB00558AC0 /* TimerAnimatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD04F121DE16DB00558AC0 /* TimerAnimatView.m */; };
 		9BCD0E202178890C00587264 /* AuthTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD0E1F2178890C00587264 /* AuthTextFieldView.m */; };
 		9BCE553E216D9799005B6F80 /* Agps in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE553D216D9799005B6F80 /* Agps */; };
 		9BCE5544216DCA69005B6F80 /* UnbindingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE5543216DCA69005B6F80 /* UnbindingViewModel.m */; };
@@ -147,7 +148,6 @@
 		9BCE554D216DDC00005B6F80 /* BlueDataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE554C216DDC00005B6F80 /* BlueDataInterchangeModel.m */; };
 		9BCE5552216F47BE005B6F80 /* CurveChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE5551216F47BE005B6F80 /* CurveChartView.m */; };
 		9BD348D3217EAC4500008142 /* QueryHrViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD348D2217EAC4500008142 /* QueryHrViewModel.m */; };
-		9BF70EE621DDB21300232F40 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
 		9BF7EC36219BC8E100572E70 /* BindDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC35219BC8E100572E70 /* BindDeviceView.m */; };
 		9BF7EC39219BCAB300572E70 /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC38219BCAB300572E70 /* SliderTableViewCell.m */; };
 		9BF7EC3C219BCFE900572E70 /* SliderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */; };
@@ -401,8 +401,6 @@
 		9B7A13592160D3DF00CBA4BC /* LogViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogViewModel.m; sourceTree = "<group>"; };
 		9B7A135B2160D59D00CBA4BC /* ComLogViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComLogViewModel.h; sourceTree = "<group>"; };
 		9B7A135C2160D59D00CBA4BC /* ComLogViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComLogViewModel.m; sourceTree = "<group>"; };
-		9B7A135E2160D9A700CBA4BC /* ShowLogViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowLogViewModel.h; sourceTree = "<group>"; };
-		9B7A135F2160D9A700CBA4BC /* ShowLogViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowLogViewModel.m; sourceTree = "<group>"; };
 		9B7A461E214F40FE007A2DB6 /* FuncCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FuncCellModel.h; sourceTree = "<group>"; };
 		9B7A461F214F40FE007A2DB6 /* FuncCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FuncCellModel.m; sourceTree = "<group>"; };
 		9B7A4621214F5BF2007A2DB6 /* TextViewCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextViewCellModel.h; sourceTree = "<group>"; };
@@ -422,6 +420,8 @@
 		9BC1E44E213E66EC008D832E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		9BC1E44F213E66EC008D832E /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		9BC1E450213E66EC008D832E /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		9BCD04F021DE16DB00558AC0 /* TimerAnimatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerAnimatView.h; sourceTree = "<group>"; };
+		9BCD04F121DE16DB00558AC0 /* TimerAnimatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerAnimatView.m; sourceTree = "<group>"; };
 		9BCD0E1E2178890C00587264 /* AuthTextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthTextFieldView.h; sourceTree = "<group>"; };
 		9BCD0E1F2178890C00587264 /* AuthTextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthTextFieldView.m; sourceTree = "<group>"; };
 		9BCE553D216D9799005B6F80 /* Agps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Agps; sourceTree = "<group>"; };
@@ -450,7 +450,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BF70EE621DDB21300232F40 /* IDOBluetooth.framework in Frameworks */,
+				9BA49E7021E45014001BDC86 /* IDOBluetooth.framework in Frameworks */,
 				9B5702A5213BEE1600BCE1CE /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,8 +801,6 @@
 				9B7A135C2160D59D00CBA4BC /* ComLogViewModel.m */,
 				18376C662164725A009D68F5 /* RestartLogViewModel.h */,
 				18376C672164725A009D68F5 /* RestartLogViewModel.m */,
-				9B7A135E2160D9A700CBA4BC /* ShowLogViewModel.h */,
-				9B7A135F2160D9A700CBA4BC /* ShowLogViewModel.m */,
 			);
 			path = LogViewModel;
 			sourceTree = "<group>";
@@ -810,6 +808,8 @@
 		9BC1E445213E66EC008D832E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9BCD04F021DE16DB00558AC0 /* TimerAnimatView.h */,
+				9BCD04F121DE16DB00558AC0 /* TimerAnimatView.m */,
 				1835015121592CBE0076BC4F /* BaseDatePickerView.h */,
 				1835015021592CBE0076BC4F /* BaseDatePickerView.m */,
 				1835014F21592CBE0076BC4F /* BasePickerView.h */,
@@ -1035,7 +1035,6 @@
 				9B7A4626214F633A007A2DB6 /* LabelCellModel.m in Sources */,
 				9B222148215A37A7006A2F9F /* OneSwitchTableViewCell.m in Sources */,
 				18376C952165E9B5009D68F5 /* SyncActivityViewModel.m in Sources */,
-				9B7A13602160D9A700CBA4BC /* ShowLogViewModel.m in Sources */,
 				9BC1E452213E66ED008D832E /* BaseViewController.m in Sources */,
 				18376C6B2164ADA7009D68F5 /* GetFuncTableViewModel.m in Sources */,
 				9B16A8A82171C40E00DC199C /* BaseCurve.m in Sources */,
@@ -1116,6 +1115,7 @@
 				18376CA4216656D6009D68F5 /* UpdateAgpsViewModel.m in Sources */,
 				9B222151215A401E006A2F9F /* TwoTextFieldTableViewCell.m in Sources */,
 				9BCE5544216DCA69005B6F80 /* UnbindingViewModel.m in Sources */,
+				9BCD04F221DE16DB00558AC0 /* TimerAnimatView.m in Sources */,
 				9B16A8AB2171CEA700DC199C /* BasePolygon.m in Sources */,
 				1835014B2158EFA50076BC4F /* TwoButtonTableViewCell.m in Sources */,
 				9B437F2F21393DDD00DE2FC8 /* MASViewAttribute.m in Sources */,

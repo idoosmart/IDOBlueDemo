@@ -40,6 +40,7 @@
         self.subtitleLabel = [[UILabel alloc]init];
         self.subtitleLabel.font = [UIFont systemFontOfSize:10];
         self.subtitleLabel.textColor = [UIColor grayColor];
+        self.subtitleLabel.numberOfLines = 2;
         [self addSubview:self.subtitleLabel];
         [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.iconView.mas_right).offset(8);
@@ -139,11 +140,7 @@
 {
     _peripheralModel = peripheralModel;
     self.nameLabel.text = _peripheralModel.name;
-    if (_peripheralModel.isOta) {
-        self.subtitleLabel.text = [NSString stringWithFormat:@"MAC : %@",_peripheralModel.macAddr];
-    }else {
-        self.subtitleLabel.text = [NSString stringWithFormat:@"UUID : %@",_peripheralModel.uuidStr];
-    }
+    self.subtitleLabel.text = [NSString stringWithFormat:@"MAC  : %@ \nUUID : %@",_peripheralModel.macAddr?:@"",_peripheralModel.uuidStr];
     self.signalLabel.text   = [NSString stringWithFormat:@"%ld", (long)_peripheralModel.rssi];
     self.distanceLabel.text = [NSString stringWithFormat:@"%.2f m",_peripheralModel.distance];
 }

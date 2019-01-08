@@ -10,11 +10,11 @@
 #import "LabelCellModel.h"
 #import "OneLabelTableViewCell.h"
 #import "FuncViewController.h"
-#import "ShowLogViewModel.h"
+#import <QuickLook/QuickLook.h>
 
-
-@interface ComLogViewModel()
+@interface ComLogViewModel()<QLPreviewControllerDelegate,QLPreviewControllerDataSource>
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
+@property (nonatomic,copy)NSString * filePath;
 @end
 
 @implementation ComLogViewModel
@@ -66,15 +66,22 @@
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         LabelCellModel * labelModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
-        FuncViewController * newFunc = [FuncViewController new];
-        ShowLogViewModel * model = [ShowLogViewModel new];
         NSString * filePath = [[labelModel.data firstObject] lastPathComponent];
-        filePath = [[IDORecordDeviceLog recordLogFloaderPath] stringByAppendingPathComponent:filePath];
-        model.filePath = filePath;
-        newFunc.model = model;
-        newFunc.title = @"日志详情";
-        [funcVC.navigationController pushViewController:newFunc animated:YES];
+        strongSelf.filePath = [[IDORecordDeviceLog recordLogFloaderPath] stringByAppendingPathComponent:filePath];
+        QLPreviewController *QLPVC = [[QLPreviewController alloc] init];
+        QLPVC.delegate = strongSelf;
+        QLPVC.dataSource = strongSelf;
+        [funcVC presentViewController:QLPVC animated:YES completion:nil];
     };
 }
+
+- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller{
+    return 1;
+}
+- (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index{
+    NSArray *arr = @[self.filePath];
+    return [NSURL fileURLWithPath:arr[index]];
+}
+
 
 @end
