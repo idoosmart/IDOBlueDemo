@@ -205,7 +205,7 @@
 
 - (void)querySleepsYearDataWtithVc:(FuncViewController *)funcVc
 {
-    NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryOneYearSleepsWithYear:self.year];
+    NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryOneYearSleepsWithYear:self.year isQueryItems:YES];
     if (array.count == 0) {
         self.textView.text = @"当前年无数据";
         [funcVc showToastWithText:@"当前年无数据"];

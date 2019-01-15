@@ -36,17 +36,17 @@
 @property (nonatomic,assign) BOOL isOta;
 
 /**
- mac 地址(只有在OTA下的手环才有) | mac address (only available under the OTA bracelet)
+ mac 地址 | mac address 
  */
 @property (nullable,nonatomic,copy) NSString * macAddr;
 
 /**
- 设备ID (只有在OTA下的手环才有) | Device ID (only available under the OTA bracelet)
+ 设备ID  | Device ID
  */
 @property (nonatomic,assign) int deviceId;
 
 /**
- 固件版本 (只有在OTA下的手环才有) | Firmware version (only available under the OTA bracelet)
+ 固件版本  | Firmware version
  */
 @property (nonatomic,assign) int bltVersion;
 

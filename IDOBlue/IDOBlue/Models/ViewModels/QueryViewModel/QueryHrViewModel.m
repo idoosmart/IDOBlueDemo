@@ -202,7 +202,7 @@
 
 - (void)queryHrsYearDataWtithVc:(FuncViewController *)funcVc
 {
-     NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryOneYearHearRatesWithYear:self.year];
+     NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryOneYearHearRatesWithYear:self.year isQueryItems:YES];
     if (array.count == 0) {
         self.textView.text = @"当前年无数据";
         [funcVc showToastWithText:@"当前年无数据"];

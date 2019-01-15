@@ -23,7 +23,7 @@
 @property (nonatomic,assign,readonly) IDO_CURRENT_SYNC_TYPE syncType;
 
 /**
- 当前连接设备是否正在同步,⚠️配置同步不纳入正在同步中,其他(步数、心率、血压、睡眠、活动、gps)数据同步纳入其中
+ 当前连接设备是否正在同步,⚠️配置同步不纳入正在同步中,其他(步数、心率、血压、睡眠、血氧、压力、活动、gps)数据同步纳入其中
  Whether the currently connected device is synchronizing, ⚠️ configuration synchronization is not included in the synchronization,
  and other (step, heart rate, blood pressure, sleep, activity, gps) data synchronization is included.
  */
@@ -42,12 +42,10 @@ IDOSyncManager * _Nonnull instanceSyncManagerHandler(void);
 
 /**
  * @brief 同步完成,每同步完一项会回调一次 请根据上述枚举进行判断是否同步完成
- stateInfo : 从同步开始到同步结束,返回每项同步的状态信息,每项同步会累加记录,告知哪项成果或失败了
-  ---------------------------------------------->>>>>-------------------------------------------------------
-  Synchronization is completed, and each synchronization will be called once. Please judge whether it is synchronized according to the above enumeration.
+  stateInfo : 从同步开始到同步结束,返回每项同步的状态信息,每项同步会累加记录,告知哪项成果或失败了
+   Synchronization is completed, and each synchronization will be called once. Please judge whether it is synchronized according to the above enumeration.
    stateInfo : Returns the status information of each synchronization from the start of synchronization to the end of synchronization.
    Each synchronization will accumulate records to tell which results or failed.
-
  * @param callback 完成回调block | Complete callback block
  * @param failCallback 失败错误回调block | Failed error callback block
  */

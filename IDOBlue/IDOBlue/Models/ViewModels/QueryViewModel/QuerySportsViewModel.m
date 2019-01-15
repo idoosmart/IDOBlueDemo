@@ -205,7 +205,7 @@
 
 - (void)querySportsYearDataWtithVc:(FuncViewController *)funcVc
 {
-    NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneYearSportsWithYear:self.year];
+    NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneYearSportsWithYear:self.year isQueryItems:YES];
     if (array.count == 0) {
         self.textView.text = @"当前年无数据";
         [funcVc showToastWithText:@"当前年无数据"];

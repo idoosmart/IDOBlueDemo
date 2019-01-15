@@ -19,6 +19,37 @@ struct ido_blood_pressure_data
 
 @end
 
+@interface IDOCalculateBloodOxygenBluetoothModel : NSObject
+/**
+ 平均血氧 | Average blood oxygen
+ */
+@property (nonatomic,assign) NSInteger avgBloodOxygen;
+
+/**
+ 最大血氧 | Maximum blood oxygen
+ */
+@property (nonatomic,assign) NSInteger maxBloodOxygen;
+
+/**
+ 最小血氧 | Most blood oxygen
+ */
+@property (nonatomic,assign) NSInteger minBloodOxygen;
+
+/**
+ 计算一天血氧平均值 | Calculate the average blood oxygen per day
+ */
++ (__kindof IDOCalculateBloodOxygenBluetoothModel *)calculateOneDayBoDataWithHrModel:(__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *)model;
+/**
+ 计算一周、一月血氧平均值 | Calculate the blood oxygen average for one week and one month
+ */
++ (__kindof IDOCalculateBloodOxygenBluetoothModel *)calculateOneMonthOrWeekBoDataWithHrModels:(NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)models;
+/**
+ 计算一年血氧平均值 | Calculate the annual blood oxygen average
+ */
++ (__kindof IDOCalculateBloodOxygenBluetoothModel *)calculateOneYearBoDataWithHrModels:(NSArray <NSArray<__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*> *)models;
+
+@end
+
 @interface IDOCalculateBpBluetoothModel : NSObject
 
 /**

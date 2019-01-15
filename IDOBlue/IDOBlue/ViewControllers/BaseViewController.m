@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "TipPoweredOffView.h"
 
 @interface BaseViewController ()
 @end
@@ -113,24 +114,25 @@
             self.statusLabel.text = @"已连接";
             [self showToastWithText:@"设备连接成功"];
         }
-        else if(state == IDO_MANAGER_STATE_POWEREDOFF
-                || state == IDO_MANAGER_STATE_CONNECT_FAILED) {
+        else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
             self.statusLabel.text = @"已断开";
             [self showToastWithText:@"设备已断开"];
-        }
-        else if((   state == IDO_MANAGER_STATE_AUTO_OTA_CONNECT
+        }else if((   state == IDO_MANAGER_STATE_AUTO_OTA_CONNECT
                  || state == IDO_MANAGER_STATE_AUTO_CONNECT
                  || state == IDO_MANAGER_STATE_MANUAL_OTA_CONNECT
                  || state == IDO_MANAGER_STATE_MANUAL_CONNECT ) && (__IDO_BIND__ || __IDO_OTA__)){
             self.statusLabel.text = @"正在连接...";
             [self showLoadingWithMessage:@"正在连接..."];
-        }else if ((     state == IDO_MANAGER_STATE_POWEREDON
-                     || state == IDO_MANAGER_STATE_AUTO_SCANING ) && (__IDO_BIND__ || __IDO_OTA__)) {
+        }else if (state == IDO_MANAGER_STATE_AUTO_SCANING && (__IDO_BIND__ || __IDO_OTA__)) {
             self.statusLabel.text = @"正在扫描...";
             [self showLoadingWithMessage:@"正在扫描..."];
         }else if (state == IDO_MANAGER_STATE_SCAN_STOP) {
             self.statusLabel.text = @"暂停扫描";
             [self showToastWithText:@"设备暂停扫描"];
+        }else if (state == IDO_MANAGER_STATE_POWEREDOFF) {
+            [TipPoweredOffView show];
+        }else if (state == IDO_MANAGER_STATE_POWEREDON) {
+            [TipPoweredOffView hidView];
         }
     }else if ([keyPath isEqualToString:@"idoManager.manualConnectTotalTime"]) {
         NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];

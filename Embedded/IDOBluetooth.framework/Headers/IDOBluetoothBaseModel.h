@@ -65,11 +65,18 @@
 + (IDOBluetoothBaseModel *_Nullable)queryCurrentModel;
 
 /**
- * @brief 根据查询语句查询 对应model所有字段数据集合 (自定义查询) | Query according to the query statement corresponding model data set (custom query)
- * @param sqlStr 查询语句 | Database query
+ * @brief 自定义查询语句 | Custom query statements
+ * @param sqlStr 查询语句 | Database query for example @"WHERE mac_addr = '%@'"
  * @return model 集合 | Array
  */
 + (NSArray <IDOBluetoothBaseModel *>*_Nullable)queryModelsWithSqlStr:(NSString *_Nullable)sqlStr;
+
+/**
+ * @brief 自定义删除语句 | Custom delete statement
+ * @param sqlStr 删除语句 | Delete sqlStr for example @"WHERE mac_addr = '%@'"
+ * @return yes or no
+ */
++ (BOOL)deleteModelsWithSqlStr:(NSString *_Nullable)sqlStr;
 
 /**
  * @brief 批量存储或更新model | Bulk store or update models

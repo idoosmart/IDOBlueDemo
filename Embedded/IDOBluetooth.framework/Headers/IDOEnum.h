@@ -81,6 +81,18 @@ typedef NS_ENUM(NSInteger, IDO_SYNC_COMPLETE_STATUS) {
     IDO_SYNC_HEALTH_COMPLETE_EXCEPTION,
     
     /**
+     * 血氧和压力同步完成
+     * blood oxygen and pressure synchronization completed
+     */
+    IDO_SYNC_BOP_COMPLETE,
+    
+    /**
+     * 血氧和压力同步完成异常
+     * blood oxygen and pressure synchronization completes exception
+     */
+    IDO_SYNC_BOP_COMPLETE_EXCEPTION,
+    
+    /**
      * 活动同步完成
      * Activity synchronization completed
      */
@@ -122,6 +134,12 @@ typedef NS_ENUM(NSInteger, IDO_CURRENT_SYNC_TYPE) {
      * Current sync health
      */
     IDO_SYNC_HEALTH_TYPE,
+    
+    /**
+     * 当前同步血氧和压力
+     * Current sync Blood oxygen and pressure
+     */
+    IDO_SYNC_BLOOD_OXYGEN_PRESSURE_TYPE,
     
     /**
      * 当前同步活动
@@ -512,6 +530,18 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      * Synchronized Health Blood Pressure
      */
     IDO_SYNC_HEALTH_BP_LOG,
+    
+    /**
+     * 同步 血氧
+     * Synchronized blood oxygen
+     */
+    IDO_SYNC_BLOOD_OXYGEN_LOG,
+    
+    /**
+     * 同步 压力
+     * Synchronized Pressure
+     */
+    IDO_SYNC_PRESSURE_LOG,
     /**
      * 同步活动
      * Synchronous activity
@@ -557,6 +587,21 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      * The bracelet successfully to reconnect after pairing
      */
     IDO_PAIRING_RECONNECT_SUCCESS_LOG,
+    /**
+     * 手环配对后启动设置子开关
+     * After the bracelet is paired, start the setting sub-switch
+     */
+    IDO_PAIRING_RECONNECT_SET_SUB_SWITCH_LOG,
+    /**
+     * 手环配对后设置子开关失败
+     * Failed to set sub-switch after bracelet pairing
+     */
+    IDO_PAIRING_RECONNECT_SET_SUB_SWITCH_FAILED_LOG,
+    /**
+     * 手环配对后设置子开关成功
+     * Set the sub-switch successfully after the bracelet is paired
+     */
+    IDO_PAIRING_RECONNECT_SET_SUB_SWITCH_SUCCESS_LOG,
 };
 
 #endif /* IDOEnum_h */

@@ -16,6 +16,7 @@
 #import "ScanTableViewCell.h"
 #import "MBProgressHUD.h"
 #import "TimerAnimatView.h"
+#import "TipPoweredOffView.h"
 
 @interface ScanViewController ()<UITableViewDelegate,UITableViewDataSource,IDOBluetoothManagerDelegate,AuthTextFieldViewDelegate,BindDeviceViewDelegate>
 @property (nonatomic,strong)  NSArray * devices;
@@ -421,10 +422,13 @@
             self.statusLabel.text = @"已连接";
             [self showToastWithText:@"设备连接成功"];
         }
-        else if(state == IDO_MANAGER_STATE_POWEREDOFF
-                || state == IDO_MANAGER_STATE_CONNECT_FAILED) {
+        else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
             self.statusLabel.text = @"已断开";
             [self showToastWithText:@"设备已断开"];
+        }else if (state == IDO_MANAGER_STATE_POWEREDOFF) {
+            [TipPoweredOffView show];
+        }else if (state == IDO_MANAGER_STATE_POWEREDON) {
+            [TipPoweredOffView hidView];
         }
     }else if ([keyPath isEqualToString:@"idoManager.manualConnectTotalTime"]) {
         NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];

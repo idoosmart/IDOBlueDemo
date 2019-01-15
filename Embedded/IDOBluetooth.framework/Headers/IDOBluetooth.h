@@ -34,6 +34,7 @@ FOUNDATION_EXPORT const unsigned char IDOBluetoothVersionString[];
 #import <IDOBluetooth/IDOSyncManager.h>
 #import <IDOBluetooth/IDOSyncConfig.h>
 #import <IDOBluetooth/IDOSyncHealth.h>
+#import <IDOBluetooth/IDOSyncBop.h>
 #import <IDOBluetooth/IDOSyncActivity.h>
 #import <IDOBluetooth/IDOSyncGps.h>
 

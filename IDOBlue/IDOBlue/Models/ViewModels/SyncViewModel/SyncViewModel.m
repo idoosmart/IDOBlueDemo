@@ -13,6 +13,7 @@
 #import "SyncConfigViewModel.h"
 #import "SyncActivityViewModel.h"
 #import "SyncHealthViewModel.h"
+#import "SyncBopViewModel.h"
 #import "SyncGpsViewModel.h"
 #import "SyncAllViewModel.h"
 
@@ -36,7 +37,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"配置数据同步"],@[@"活动数据同步"],@[@"健康数据同步"],@[@"GPS数据同步"],@[@"所有数据同步"]];
+        _buttonTitles = @[@[@"配置数据同步"],@[@"活动数据同步"],@[@"健康数据同步"],@[@"血氧压力同步"],@[@"GPS数据同步"],@[@"所有数据同步"]];
     }
     return _buttonTitles;
 }
@@ -45,7 +46,7 @@
 {
     if (!_modelClasss) {
         _modelClasss = @[[SyncConfigViewModel class],[SyncActivityViewModel class],[SyncHealthViewModel class],
-                         [SyncGpsViewModel class],[SyncAllViewModel class]];
+                         [SyncBopViewModel class],[SyncGpsViewModel class],[SyncAllViewModel class]];
     }
     return _modelClasss;
 }

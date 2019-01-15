@@ -8,6 +8,55 @@
 
 #import "IDOBluetoothBaseModel.h"
 
+#pragma mark ==== 获取版本信息model ====
+@interface IDOGetVersionInfoBluetoothModel:IDOBluetoothBaseModel
+
+/**
+ SDK版本 数值为x10,11表示1.1的版本
+ */
+@property (nonatomic,assign) NSInteger sdkVersion;
+
+/**
+ 心率算法版本 数值为x10,11表示1.1的版本
+ */
+@property (nonatomic,assign) NSInteger hrAlgorithmVersion;
+
+/**
+ 睡眠算法版本 数值为x10,11表示1.1的版本
+ */
+@property (nonatomic,assign) NSInteger sleepAlgorithmVersion;
+
+/**
+ 计步算法版本 数值为x10,11表示1.1的版本
+ */
+@property (nonatomic,assign) NSInteger stepAlgorithmVersion;
+
+/**
+ 手势识别算法 数值为x10,11表示1.1的版本
+ */
+@property (nonatomic,assign) NSInteger gestureRecognitionVersion;
+
+/**
+ PCB 版本 数值为x10,11表示1.1的版本
+ */
+@property (nonatomic,assign) NSInteger pcbVersion;
+
+/**
+ * @brief 版本信息结构体转model (内部使用) | Version information  structure body model (internal use)
+ * @param data  结构体指针 | Structure pointer
+ * @return IDOGetVersionInfoBluetoothModel
+ */
++ (__kindof IDOGetVersionInfoBluetoothModel *)versionInfoStatusStructToModel:(void *)data;
+
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @return IDOGetVersionInfoBluetoothModel
+ */
++ (__kindof IDOGetVersionInfoBluetoothModel *)currentModel;
+
+@end
+
 #pragma mark ==== 获取GPS状态model ====
 @interface IDOGetGpsStatusBluetoothModel:IDOBluetoothBaseModel
 /**
@@ -361,6 +410,16 @@
  距离目标 | Distance target
  */
 @property (nonatomic,assign) BOOL distanceGoal;
+
+/**
+ 血氧数据 | Blood oxygen
+ */
+@property (nonatomic,assign) BOOL spo2Data;
+
+/**
+ 压力数据 | pressure data
+ */
+@property (nonatomic,assign) BOOL pressureData;
 
 /**
  * @brief 根据扩展功能2列表结构体转换model (内部使用) | Conversion model according to extended function 2 list structure (internal use)
@@ -1470,6 +1529,11 @@
  扩展功能列表2 | Extended Features List 2
  */
 @property (nonatomic,strong) IDOGetFuncExtend2BluetoothModel      * funcExtend2Model;
+
+/**
+ 是否支持版本信息 | version information is supported
+ */
+@property (nonatomic,assign) BOOL versionInfo;
 
 /**
  闹钟个数 | Number of alarms
