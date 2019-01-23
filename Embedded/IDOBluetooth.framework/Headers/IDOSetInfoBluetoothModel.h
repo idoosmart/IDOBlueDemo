@@ -1503,7 +1503,8 @@
 @property (nonatomic,assign) NSInteger goalWeightData;
 
 /**
- 目标类型 (类型 : 0 : 步数  1 : 卡路里  2 : 距离) 设置一种类型的目标需要执行一次命令 | Target type (type : 0 : step 1 : calories 2 : distance) Setting a type of target requires a command to be executed
+ 目标类型 (类型 : 0 : 步数  1 : 卡路里  2 : 距离) 设置一种类型的目标需要执行一次命令
+ Target type (type : 0 : step 1 : calories 2 : distance) Setting a type of target requires a command to be executed
  */
 @property (nonatomic,assign) NSInteger goalType;
 

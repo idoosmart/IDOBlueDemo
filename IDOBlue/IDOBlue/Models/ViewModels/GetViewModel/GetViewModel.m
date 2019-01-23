@@ -18,6 +18,7 @@
 #import "GetGpsInfoViewModel.h"
 #import "GetNotifyStateViewModel.h"
 #import "GetVersionInfoViewModel.h"
+#import "GetStartCountViewModel.h"
 
 @interface GetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -40,7 +41,7 @@
 {
     if (!_buttonTitles) {
         _buttonTitles = @[@[@"获取功能列表"],@[@"获取Mac地址"],@[@"获取设备信息"],@[@"获取实时数据"],
-                          @[@"获取活动数量"],@[@"获取GPS信息"],@[@"获取通知状态"],@[@"获取版本信息"]];
+                          @[@"获取活动数量"],@[@"获取GPS信息"],@[@"获取通知状态"],@[@"获取版本信息"],@[@"获取星星个数"]];
     }
     return _buttonTitles;
 }
@@ -50,7 +51,7 @@
     if (!_modelClasss) {
         _modelClasss = @[[GetFuncTableViewModel class],[GetMacViewModel class],[GetDeviceViewModel class],
                          [GetRealTimeViewModel class],[GetActivityViewModel class],[GetGpsInfoViewModel class],
-                         [GetNotifyStateViewModel class],[GetVersionInfoViewModel class]];
+                         [GetNotifyStateViewModel class],[GetVersionInfoViewModel class],[GetStartCountViewModel class]];
     }
     return _modelClasss;
 }

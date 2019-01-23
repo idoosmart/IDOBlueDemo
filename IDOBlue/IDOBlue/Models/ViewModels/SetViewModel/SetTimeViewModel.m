@@ -29,6 +29,7 @@
     if (self) {
         [self getButtonCallback];
         [self getCellModels];
+        [self getViewWillDisappearCallback];
     }
     return self;
 }
@@ -37,6 +38,15 @@
 {
     _timeModel = [IDOSetTimeInfoBluetoothModel currentModel];
     return _timeModel;
+}
+
+- (void)getViewWillDisappearCallback
+{
+    __weak typeof(self) weakSelf = self;
+    self.viewWillDisappearCallback = ^(UIViewController *viewController) {
+        __strong typeof(self) strongSelf = weakSelf;
+        [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(startTimer) object:nil];
+    };
 }
 
 - (void)getCellModels

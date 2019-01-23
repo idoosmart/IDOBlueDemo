@@ -216,7 +216,7 @@
 - (void)queryHrsMonthDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * days = nil;
-    NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryOneMonthHearRatesWithYear:self.year month:self.month datesOfMonth:&days];
+    NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryOneMonthHearRatesWithYear:self.year month:self.month datesOfMonth:&days isQueryItems:NO];
     if (array.count == 0) {
         self.textView.text = @"当前月无数据";
         [funcVc showToastWithText:@"当前月无数据"];
@@ -230,7 +230,7 @@
 - (void)queryHrsWeekDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * days = nil;
-    NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryOneWeekHearRatesWithWeekIndex:self.week weekStartDay:0 datesOfWeek:&days];
+    NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryOneWeekHearRatesWithWeekIndex:self.week weekStartDay:0 datesOfWeek:&days isQueryItems:NO];
     if (array.count == 0) {
         self.textView.text = @"当前周无数据";
         [funcVc showToastWithText:@"当前周无数据"];

@@ -104,6 +104,7 @@
         model.modelClass = [NSNull class];
         model.isShowLine = YES;
         model.isShowKeyboard = YES;
+        model.keyType = UIKeyboardTypeDecimalPad;
         model.textFeildCallback = self.textFeildCallback;
         [cellModels addObject:model];
     }

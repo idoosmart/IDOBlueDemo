@@ -148,7 +148,7 @@
                         [strongSelf addMessageText:@"agps file transmission failed"];
                         [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(computationTime) object:nil];
                     }
-                } updateComplete:^(int errorCode) {//写入文件成功
+                } writeComplete:^(int errorCode) {//写入文件成功
                     if (errorCode == 0) {
                         [funcVC showToastWithText:@"文件写入成功"];
                         [strongSelf addMessageText:@"agps file write sucess"];

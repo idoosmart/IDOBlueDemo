@@ -219,7 +219,7 @@
 - (void)querySleepsMonthDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * days = nil;
-    NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryOneMonthSleepsWithYear:self.year month:self.month datesOfMonth:&days];
+    NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryOneMonthSleepsWithYear:self.year month:self.month datesOfMonth:&days isQueryItems:NO];
     if (array.count == 0) {
         self.textView.text = @"当前月无数据";
         [funcVc showToastWithText:@"当前月无数据"];
@@ -233,7 +233,7 @@
 - (void)querySleepsWeekDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * days = nil;
-    NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryOneWeekSleepsWithWeekIndex:self.week weekStartDay:0 datesOfWeek:&days];
+    NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryOneWeekSleepsWithWeekIndex:self.week weekStartDay:0 datesOfWeek:&days isQueryItems:NO];
     if (array.count == 0) {
         self.textView.text = @"当前周无数据";
         [funcVc showToastWithText:@"当前周无数据"];

@@ -27,13 +27,13 @@
 
 /**
  * @brief agps 文件传输完成 | File transfer completed
- * @param complete 文件传输完成 (正在写入...) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * @param tranComplete 文件传输完成 (正在写入...) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  File transfer completed (writing...) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
- * @param callback 文件写入完成 (errorCode : 0 写入成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * @param writeComplete 文件写入完成 (errorCode : 0 写入成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  File write completed (errorCode : 0 write succeeded, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
-+ (void)updateAgpsTransmissionComplete:(void(^_Nullable)(int errorCode))complete
-                        updateComplete:(void(^_Nullable)(int errorCode))callback;
++ (void)updateAgpsTransmissionComplete:(void(^_Nullable)(int errorCode))tranComplete
+                         writeComplete:(void(^_Nullable)(int errorCode))writeComplete;
 
 /**
  * agps 文件更新开始 | agps file update begins

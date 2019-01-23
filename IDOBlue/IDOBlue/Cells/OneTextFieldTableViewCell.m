@@ -61,7 +61,7 @@
     self.title.text     = self.textFieldCellModel.titleStr;
     self.textField.placeholder = [self.textFieldCellModel.placeholders firstObject];
     if (self.textFieldCellModel.isShowKeyboard) {
-        self.textField.keyboardType = UIKeyboardTypeDecimalPad;
+        self.textField.keyboardType = self.textFieldCellModel.keyType;
     }
     if ([self.textFieldCellModel.data[0]isKindOfClass:[NSString class]]) {
         self.textField.text = self.textFieldCellModel.data[0];

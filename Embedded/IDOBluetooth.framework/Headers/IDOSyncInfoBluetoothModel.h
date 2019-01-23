@@ -85,22 +85,26 @@
  * @param year 年 (如 : 2018) | Year (eg: 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31]) | Pointer to all date collections for the current query month (format: [10/01...10/31])
+ * @param isQuery 是否查询items | is query items
  * @return 一个月的压力数据集合,其中IDOSyncPressureDataInfoBluetoothModel对象是一天总压力数据模型 | A one-month pressure data collection, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
 + (NSArray <__kindof IDOSyncPressureDataInfoBluetoothModel *>*)queryOneMonthPressureWithYear:(NSInteger)year
                                                                                      month:(NSInteger)month
-                                                                              datesOfMonth:(NSArray <NSString *>**)dates;
+                                                                              datesOfMonth:(NSArray <NSString *>**)dates
+                                                                              isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加) | Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created, and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07]) | Pointer to all date collections for the current query week (format: [10/01...10/07])
+ * @param isQuery 是否查询items | is query items
  * @return 一周的压力数据集合,其中IDOSyncPressureDataInfoBluetoothModel对象是一天总压力数据模型 | A week's pressure data collection, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
 + (NSArray <__kindof IDOSyncPressureDataInfoBluetoothModel *>*)queryOneWeekPressureWithWeekIndex:(NSInteger)weekIndex
                                                                                   weekStartDay:(NSInteger)weekStartDay
-                                                                                   datesOfWeek:(NSArray <NSString *>**)dates;
+                                                                                   datesOfWeek:(NSArray <NSString *>**)dates
+                                                                                  isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天压力数据并有详情数据 | Query current pressure data of the current device and have detailed data
@@ -198,22 +202,26 @@
  * @param year 年 (如 : 2018) | Year (eg: 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31]) | Pointer to all date collections for the current query month (format: [10/01...10/31])
+ * @param isQuery 是否查询items | is query items
  * @return 一个月的血氧数据集合,其中IDOSyncBloodOxygenDataInfoBluetoothModel对象是一天总血氧数据模型 | A one-month blood oxygen data collection, where the IDOSyncHrDataInfoBluetoothModel object is the total blood oxygen data model for the day
  */
 + (NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneMonthBloodOxygenWithYear:(NSInteger)year
                                                                                              month:(NSInteger)month
-                                                                                      datesOfMonth:(NSArray <NSString *>**)dates;
+                                                                                      datesOfMonth:(NSArray <NSString *>**)dates
+                                                                                      isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加) | Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created, and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07]) | Pointer to all date collections for the current query week (format: [10/01...10/07])
+ * @param isQuery 是否查询items | is query items
  * @return 一周的血氧数据集合,其中IDOSyncBloodOxygenDataInfoBluetoothModel对象是一天总血氧数据模型 | A week's blood oxygen data collection, where the IDOSyncBloodOxygenDataInfoBluetoothModel object is the total blood oxygen data model for the day
  */
 + (NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneWeekBloodOxygenWithWeekIndex:(NSInteger)weekIndex
                                                                                           weekStartDay:(NSInteger)weekStartDay
-                                                                                           datesOfWeek:(NSArray <NSString *>**)dates;
+                                                                                           datesOfWeek:(NSArray <NSString *>**)dates
+                                                                                          isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天血氧数据并有详情数据 | Query current blood oxygen data of the current device and have detailed data
@@ -520,22 +528,26 @@
  * @param year 年 (如 : 2018) | Year (eg: 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31]) | Pointer to all date collections for the current query month (format: [10/01...10/31])
+ * @param isQuery 是否查询items | is query items
  * @return 一个月的血压数据集合,其中IDOSyncBpDataInfoBluetoothModel对象是一天总血压数据模型 | One month blood pressure data set, where the IDOSyncBpDataInfoBluetoothModel object is the total day blood pressure data model
  */
 + (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryOneMonthBloodPressuresWithYear:(NSInteger)year
                                                                                        month:(NSInteger)month
-                                                                                datesOfMonth:(NSArray <NSString *>**)dates;
+                                                                                datesOfMonth:(NSArray <NSString *>**)dates
+                                                                                isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加) | Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created, and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07]) | Pointer to all date collections for the current query week (format: [10/01...10/07])
+ * @param isQuery 是否查询items | is query items
  * @return 一周的血压数据集合,其中IDOSyncBpDataInfoBluetoothModel对象是一天总血压数据模型 | A week's blood pressure data collection, where the IDOSyncBpDataInfoBluetoothModel object is the total day blood pressure data model
  */
 + (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryOneWeekBloodPressuresWithWeekIndex:(NSInteger)weekIndex
                                                                                     weekStartDay:(NSInteger)weekStartDay
-                                                                                     datesOfWeek:(NSArray <NSString *>**)dates;
+                                                                                     datesOfWeek:(NSArray <NSString *>**)dates
+                                                                                    isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天血压数据并有详情数据 | Query current device blood pressure data for one day and have detailed data
@@ -684,22 +696,26 @@
  * @param year 年 (如 : 2018) | Year (eg: 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31]) | Pointer to all date collections for the current query month (format: [10/01...10/31])
+ * @param isQuery 是否查询items | is query items
  * @return 一个月的心率数据集合,其中IDOSyncHrDataInfoBluetoothModel对象是一天总心率数据模型 | A one-month heart rate data collection, where the IDOSyncHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
 + (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryOneMonthHearRatesWithYear:(NSInteger)year
                                                                                   month:(NSInteger)month
-                                                                           datesOfMonth:(NSArray <NSString *>**)dates;
+                                                                           datesOfMonth:(NSArray <NSString *>**)dates
+                                                                           isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加) | Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created, and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07]) | Pointer to all date collections for the current query week (format: [10/01...10/07])
+ * @param isQuery 是否查询items | is query items
  * @return 一周的心率数据集合,其中IDOSyncHrDataInfoBluetoothModel对象是一天总心率数据模型 | A week's heart rate data collection, where the IDOSyncHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
 + (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryOneWeekHearRatesWithWeekIndex:(NSInteger)weekIndex
                                                                                weekStartDay:(NSInteger)weekStartDay
-                                                                                datesOfWeek:(NSArray <NSString *>**)dates;
+                                                                                datesOfWeek:(NSArray <NSString *>**)dates
+                                                                               isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天心率数据并有详情数据 | Query current heart rate data of the current device and have detailed data
@@ -845,25 +861,29 @@
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加) | Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created, which is larger than the data of the day)
  
- @param year 年 (如 : 2018) | year year (eg 2018)
- @param month 月 (如 : 9) | Month (eg: 9)
- @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31]) | Pointer to all date collections for the current query month (format: [10/01...10/31])
- @return 一个月的睡眠数据集合,其中IDOSyncSleepDataInfoBluetoothModel对象是一天总睡眠数据模型 | A one-month sleep data collection, where the IDOSyncSleepDataInfoBluetoothModel object is the total day sleep data model
+ * @param year 年 (如 : 2018) | year year (eg 2018)
+ * @param month 月 (如 : 9) | Month (eg: 9)
+ * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31]) | Pointer to all date collections for the current query month (format: [10/01...10/31])
+ * @param isQuery 是否查询items | is query items
+ * @return 一个月的睡眠数据集合,其中IDOSyncSleepDataInfoBluetoothModel对象是一天总睡眠数据模型 | A one-month sleep data collection, where the IDOSyncSleepDataInfoBluetoothModel object is the total day sleep data model
  */
 + (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneMonthSleepsWithYear:(NSInteger)year
                                                                                   month:(NSInteger)month
-                                                                           datesOfMonth:(NSArray <NSString *>**)dates;
+                                                                           datesOfMonth:(NSArray <NSString *>**)dates
+                                                                           isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加) | Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created, and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07]) | Pointer to all date collections for the current query week (format: [10/01...10/07])
+ * @param isQuery 是否查询items | is query items
  * @return 一周的睡眠数据集合,其中IDOSyncSleepDataInfoBluetoothModel对象是一天总睡眠数据模型 | A week's sleep data collection, where the IDOSyncSleepDataInfoBluetoothModel object is the total day sleep data model
  */
 + (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneWeekSleepsWithWeekIndex:(NSInteger)weekIndex
                                                                                weekStartDay:(NSInteger)weekStartDay
-                                                                                datesOfWeek:(NSArray <NSString *>**)dates;
+                                                                                datesOfWeek:(NSArray <NSString *>**)dates
+                                                                               isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天睡眠数据并有详情数据 | Query the current device's sleep data and have detailed data
@@ -1011,22 +1031,26 @@
  * @param year 年 (如 : 2018) | Year (eg: 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31]) | Pointer to all date collections for the current query month (format: [10/01...10/31])
+ * @param isQuery 是否查询items | is query items
  * @return 一个月的运动数据集合,其中IDOSyncSportDataInfoBluetoothModel对象是一天总运动数据模型  | One month of motion data collection, where the IDOSyncSportDataInfoBluetoothModel object is the total day motion data model
  */
 + (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryOneMonthSportsWithYear:(NSInteger)year
                                                                                   month:(NSInteger)month
-                                                                           datesOfMonth:(NSArray <NSString *>**)dates;
+                                                                           datesOfMonth:(NSArray <NSString *>**)dates
+                                                                           isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加) | Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created, and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07]) | Pointer to all date collections for the current query week (format: [10/01...10/07])
+ * @param isQuery 是否查询items | is query items
  * @return 一周的运动数据集合,其中IDOSyncSportDataInfoBluetoothModel对象是一天总运动数据模型 | A week of motion data collection, where the IDOSyncSportDataInfoBluetoothModel object is the total day motion data model
  */
 + (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryOneWeekSportsWithWeekIndex:(NSInteger)weekIndex
                                                                                weekStartDay:(NSInteger)weekStartDay
-                                                                                datesOfWeek:(NSArray <NSString *>**)dates;
+                                                                                datesOfWeek:(NSArray <NSString *>**)dates
+                                                                               isQueryItems:(BOOL)isQuery;
 
 
 /**

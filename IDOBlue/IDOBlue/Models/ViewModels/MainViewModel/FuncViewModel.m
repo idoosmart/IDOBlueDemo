@@ -19,6 +19,7 @@
 #import "UpdateMainViewModel.h"
 #import "LogViewModel.h"
 #import "QueryViewModel.h"
+#import "DataMigrationViewModel.h"
 #import "ScanViewController.h"
 
 @interface FuncViewModel()
@@ -62,8 +63,8 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"解绑设备"],@[@"设置功能"],@[@"获取功能"],@[@"控制功能"],
-                          @[@"同步功能"],@[@"数据交换"],@[@"设备升级"],@[@"数据查询"],@[@"日志查询"]];
+        _buttonTitles = @[@[@"解绑设备"],@[@"设置功能"],@[@"获取功能"],@[@"控制功能"],@[@"同步功能"],
+                          @[@"数据交换"],@[@"设备升级"],@[@"数据查询"],@[@"日志查询"],@[@"数据迁移"]];
     }
     return _buttonTitles;
 }
@@ -72,8 +73,8 @@
 {
     if (!_modelClasss) {
         _modelClasss = @[[UnbindingViewModel class],[SetViewModel class],[GetViewModel class],[ControlViewModel class],
-                         [SyncViewModel class],[DataInterchangeModel class],[UpdateMainViewModel class],
-                         [QueryViewModel class],[LogViewModel class]];
+                         [SyncViewModel class],[DataInterchangeModel class],[UpdateMainViewModel class],[QueryViewModel class],
+                         [LogViewModel class],[DataMigrationViewModel class]];
     }
     return _modelClasss;
 }

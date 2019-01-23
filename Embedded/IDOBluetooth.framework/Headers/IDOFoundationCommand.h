@@ -423,6 +423,38 @@
  */
 + (void)setMenstrualRemindCommand:(IDOSetMenstruationRemindBluetoothModel * _Nullable)remindModel callback:(void (^ _Nullable)(int errorCode))callback;
 
+/**
+ * @brief 设置星星数量 数据不作存储 (锐捷) | Set the number of stars (ruijie)
+ 
+ * @param startCount 星星数量 (1~5)| number of stars (1~5)
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str) | Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setStartCountCommand:(NSInteger)startCount callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+ * @brief 设置蓝牙短信推送 数据不作存储 (锐捷) | Set bluetooth SMS push (ruijie)
+ 
+ * @param content 蓝牙短信推送内容 (最长64个字节) | push content （Up to 64 bytes）
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str) | Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setContentCommand:(NSString * _Nullable)content callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+ * @brief 设置用户名字 数据不作存储 (锐捷) | Set user name (ruijie)
+ 
+ * @param userName 用户名字 (最长10个字节) | user name （Up to 10 bytes）
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str) | Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setUserNameCommand:(NSString * _Nullable)userName callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+ * @brief 设置用户号码 数据不作存储 (锐捷) | Set user number (ruijie)
+ 
+ * @param userNumber 用户号码 (最长10个字节) | user number （Up to 10 bytes）
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str) | Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setUserNumberCommand:(NSString * _Nullable)userNumber callback:(void (^ _Nullable)(int errorCode))callback;
+
 #pragma mark ======= get Command =======
 
 /**
@@ -522,6 +554,14 @@
  * @param callback 执行后回调 data (IDOGetVersionInfoBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str) | Post-execution callback data (IDOGetVersionInfoBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)getVersionInfoCommand:(void(^_Nullable)(int errorCode,IDOGetVersionInfoBluetoothModel * _Nullable data))callback;
+
+
+/**
+ * @brief  获取星星的数量（锐捷） | Get number of stars （ruijie）
+ 
+ * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str) |  (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getStartCountCommandCallback:(void (^ _Nullable)(int errorCode,NSInteger startCount))callback;
 
 #pragma mark ======= listen Command =======
 

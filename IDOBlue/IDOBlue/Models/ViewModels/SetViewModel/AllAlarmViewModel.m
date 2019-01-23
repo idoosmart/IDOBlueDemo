@@ -120,7 +120,7 @@
                                    [self weeksStrWithRepeats:alarmModel.repeat]];
             model.data = @[alarmStr];
             model.cellHeight = 80.0f;
-            model.cellClass = [OneLabelTableViewCell class];
+            model.cellClass  = [OneLabelTableViewCell class];
             model.modelClass = [NSNull class];
             model.labelSelectCallback = self.labelSelectCallback;
             model.isShowLine = YES;
@@ -139,7 +139,7 @@
         }
         FuncCellModel * model1 = [[FuncCellModel alloc]init];
         model1.typeStr = @"oneButton";
-        model1.data = @[@"添加闹钟"];
+        model1.data    = @[@"添加闹钟"];
         model1.cellHeight = 70.0f;
         model1.cellClass = [OneButtonTableViewCell class];
         model1.modelClass = [NSNull class];

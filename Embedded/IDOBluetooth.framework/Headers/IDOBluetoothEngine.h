@@ -105,6 +105,11 @@
 @property (nonatomic,strong) CBCharacteristic * healthCharacteristic;
 
 /**
+ 锐捷定制发送服务特征 | ruijie write service Features
+ */
+@property (nonatomic,strong) CBCharacteristic * ruijieWriteCharacteristic;
+
+/**
  IDO 蓝牙管理中心 | IDO Bluetooth Management Center
  */
 @property (nonatomic,strong,readonly) IDOBluetoothManager * idoManager;

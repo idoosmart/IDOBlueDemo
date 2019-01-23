@@ -130,8 +130,6 @@
                 textFieldModel.data = @[selectStr];
                 strongSelf.userModel.goalType  = [strongSelf.pickerDataModel.goalTypeArray containsObject:textField.text] ?
                 [strongSelf.pickerDataModel.goalTypeArray indexOfObject:textField.text] : 0 ;
-                [strongSelf getCellModels];
-                [(FuncViewController *)viewController reloadData];
             };
         }else {
             if (strongSelf.userModel.goalType == 0) {

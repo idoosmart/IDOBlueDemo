@@ -13,4 +13,5 @@
 @property (nonatomic,copy)   NSString * titleStr;
 @property (nonatomic,copy)   NSArray * placeholders;
 @property (nonatomic,assign)  BOOL isShowKeyboard;
+@property (nonatomic,assign)  UIKeyboardType keyType;
 @end

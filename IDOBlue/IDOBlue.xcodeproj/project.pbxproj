@@ -96,6 +96,7 @@
 		9B437F3321393DDD00DE2FC8 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2021393DDD00DE2FC8 /* View+MASAdditions.m */; };
 		9B437F3421393DDD00DE2FC8 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2321393DDD00DE2FC8 /* ViewController+MASAdditions.m */; };
 		9B437F3521393DDD00DE2FC8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B437F2421393DDD00DE2FC8 /* README.md */; };
+		9B437F3621393DDD00DE2FC8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9B437F2621393DDD00DE2FC8 /* LICENSE */; };
 		9B437F3721393DDD00DE2FC8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */; };
 		9B437F3821393DDD00DE2FC8 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 9B437F2921393DDD00DE2FC8 /* README.mdown */; };
 		9B4AF76321E6DA95006926CA /* GetVersionInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4AF76221E6DA95006926CA /* GetVersionInfoViewModel.m */; };
@@ -120,7 +121,7 @@
 		9B6F029321ECA5AF00AA0BCD /* BaseDashLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F027F21ECA5AF00AA0BCD /* BaseDashLine.m */; };
 		9B6F029421ECA5AF00AA0BCD /* BasePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F028221ECA5AF00AA0BCD /* BasePoint.m */; };
 		9B6F029721ECA62000AA0BCD /* TipPoweredOffView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F029621ECA62000AA0BCD /* TipPoweredOffView.m */; };
-		9B6F029821ED6C5500AA0BCD /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
+		9B6F029C21ED7CEB00AA0BCD /* DataMigrationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F029B21ED7CEB00AA0BCD /* DataMigrationViewModel.m */; };
 		9B7A1336215F4B2600CBA4BC /* SetOneKeySosViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A1335215F4B2600CBA4BC /* SetOneKeySosViewModel.m */; };
 		9B7A1339215F4CBD00CBA4BC /* SetShortcutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A1338215F4CBD00CBA4BC /* SetShortcutViewModel.m */; };
 		9B7A133C215F4F3500CBA4BC /* SetBloodPressureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A133B215F4F3500CBA4BC /* SetBloodPressureViewModel.m */; };
@@ -140,6 +141,12 @@
 		9B9A9A3C21860C9F0025E6A1 /* ScanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9A9A3B21860C9F0025E6A1 /* ScanTableViewCell.m */; };
 		9BA7DE1A21806DC900FA67D2 /* QueryActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7DE1921806DC900FA67D2 /* QueryActivityViewModel.m */; };
 		9BA7DE1D2180757100FA67D2 /* TableViewFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7DE1C2180757100FA67D2 /* TableViewFootView.m */; };
+		9BBAF48D21F6BDD3001BD3F9 /* SetStartCountViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF48C21F6BDD3001BD3F9 /* SetStartCountViewModel.m */; };
+		9BBAF49021F6BE19001BD3F9 /* SetContentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF48F21F6BE19001BD3F9 /* SetContentViewModel.m */; };
+		9BBAF49321F702D3001BD3F9 /* GetStartCountViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF49221F702D3001BD3F9 /* GetStartCountViewModel.m */; };
+		9BBAF49621F809A0001BD3F9 /* SetUserNameViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF49521F809A0001BD3F9 /* SetUserNameViewModel.m */; };
+		9BBAF49921F809BC001BD3F9 /* SetUserNumberViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF49821F809BC001BD3F9 /* SetUserNumberViewModel.m */; };
+		9BBAF49A21F85E7A001BD3F9 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
 		9BC1E451213E66ED008D832E /* IDODemoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E44B213E66EC008D832E /* IDODemoUtility.m */; };
 		9BC1E452213E66ED008D832E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E44E213E66EC008D832E /* BaseViewController.m */; };
 		9BC1E453213E66ED008D832E /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E450213E66EC008D832E /* ScanViewController.m */; };
@@ -340,6 +347,7 @@
 		9B437F2221393DDD00DE2FC8 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		9B437F2321393DDD00DE2FC8 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		9B437F2421393DDD00DE2FC8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9B437F2621393DDD00DE2FC8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9B437F2721393DDD00DE2FC8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9B437F2921393DDD00DE2FC8 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
@@ -387,6 +395,8 @@
 		9B6F028621ECA5AF00AA0BCD /* BaseText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseText.h; sourceTree = "<group>"; };
 		9B6F029521ECA62000AA0BCD /* TipPoweredOffView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TipPoweredOffView.h; sourceTree = "<group>"; };
 		9B6F029621ECA62000AA0BCD /* TipPoweredOffView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipPoweredOffView.m; sourceTree = "<group>"; };
+		9B6F029A21ED7CEB00AA0BCD /* DataMigrationViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataMigrationViewModel.h; sourceTree = "<group>"; };
+		9B6F029B21ED7CEB00AA0BCD /* DataMigrationViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataMigrationViewModel.m; sourceTree = "<group>"; };
 		9B7A1334215F4B2600CBA4BC /* SetOneKeySosViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetOneKeySosViewModel.h; sourceTree = "<group>"; };
 		9B7A1335215F4B2600CBA4BC /* SetOneKeySosViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetOneKeySosViewModel.m; sourceTree = "<group>"; };
 		9B7A1337215F4CBD00CBA4BC /* SetShortcutViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetShortcutViewModel.h; sourceTree = "<group>"; };
@@ -424,6 +434,16 @@
 		9BA7DE1921806DC900FA67D2 /* QueryActivityViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryActivityViewModel.m; sourceTree = "<group>"; };
 		9BA7DE1B2180757100FA67D2 /* TableViewFootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewFootView.h; sourceTree = "<group>"; };
 		9BA7DE1C2180757100FA67D2 /* TableViewFootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewFootView.m; sourceTree = "<group>"; };
+		9BBAF48B21F6BDD3001BD3F9 /* SetStartCountViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetStartCountViewModel.h; sourceTree = "<group>"; };
+		9BBAF48C21F6BDD3001BD3F9 /* SetStartCountViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetStartCountViewModel.m; sourceTree = "<group>"; };
+		9BBAF48E21F6BE19001BD3F9 /* SetContentViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetContentViewModel.h; sourceTree = "<group>"; };
+		9BBAF48F21F6BE19001BD3F9 /* SetContentViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetContentViewModel.m; sourceTree = "<group>"; };
+		9BBAF49121F702D3001BD3F9 /* GetStartCountViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetStartCountViewModel.h; sourceTree = "<group>"; };
+		9BBAF49221F702D3001BD3F9 /* GetStartCountViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetStartCountViewModel.m; sourceTree = "<group>"; };
+		9BBAF49421F809A0001BD3F9 /* SetUserNameViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetUserNameViewModel.h; sourceTree = "<group>"; };
+		9BBAF49521F809A0001BD3F9 /* SetUserNameViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetUserNameViewModel.m; sourceTree = "<group>"; };
+		9BBAF49721F809BC001BD3F9 /* SetUserNumberViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetUserNumberViewModel.h; sourceTree = "<group>"; };
+		9BBAF49821F809BC001BD3F9 /* SetUserNumberViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetUserNumberViewModel.m; sourceTree = "<group>"; };
 		9BC1E44A213E66EC008D832E /* IDODemoUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDODemoUtility.h; sourceTree = "<group>"; };
 		9BC1E44B213E66EC008D832E /* IDODemoUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDODemoUtility.m; sourceTree = "<group>"; };
 		9BC1E44D213E66EC008D832E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -458,7 +478,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B6F029821ED6C5500AA0BCD /* IDOBluetooth.framework in Frameworks */,
+				9BBAF49A21F85E7A001BD3F9 /* IDOBluetooth.framework in Frameworks */,
 				9B5702A5213BEE1600BCE1CE /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +518,7 @@
 		183FC062214D2DED00AD6484 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9B6F029921ED7BF600AA0BCD /* DataMigrationModel */,
 				9B16A8AF2171F15E00DC199C /* QueryViewModel */,
 				9BCE5541216DCA48005B6F80 /* Unbinding */,
 				9B7A13572160D3AD00CBA4BC /* LogViewModel */,
@@ -546,6 +567,8 @@
 				18376C7F2164E96C009D68F5 /* GetNotifyStateViewModel.m */,
 				9B4AF76121E6DA95006926CA /* GetVersionInfoViewModel.h */,
 				9B4AF76221E6DA95006926CA /* GetVersionInfoViewModel.m */,
+				9BBAF49121F702D3001BD3F9 /* GetStartCountViewModel.h */,
+				9BBAF49221F702D3001BD3F9 /* GetStartCountViewModel.m */,
 			);
 			path = GetViewModel;
 			sourceTree = "<group>";
@@ -639,6 +662,14 @@
 				9B7A134D2160A6AC00CBA4BC /* SetDialParamViewModel.m */,
 				9B7A134F2160A86300CBA4BC /* SetSleepTimeViewModel.h */,
 				9B7A13502160A86300CBA4BC /* SetSleepTimeViewModel.m */,
+				9BBAF48B21F6BDD3001BD3F9 /* SetStartCountViewModel.h */,
+				9BBAF48C21F6BDD3001BD3F9 /* SetStartCountViewModel.m */,
+				9BBAF48E21F6BE19001BD3F9 /* SetContentViewModel.h */,
+				9BBAF48F21F6BE19001BD3F9 /* SetContentViewModel.m */,
+				9BBAF49421F809A0001BD3F9 /* SetUserNameViewModel.h */,
+				9BBAF49521F809A0001BD3F9 /* SetUserNameViewModel.m */,
+				9BBAF49721F809BC001BD3F9 /* SetUserNumberViewModel.h */,
+				9BBAF49821F809BC001BD3F9 /* SetUserNumberViewModel.m */,
 			);
 			path = SetViewModel;
 			sourceTree = "<group>";
@@ -796,6 +827,7 @@
 		9B437F2521393DDD00DE2FC8 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				9B437F2621393DDD00DE2FC8 /* LICENSE */,
 				9B437F2721393DDD00DE2FC8 /* MBProgressHUD.h */,
 				9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */,
 				9B437F2921393DDD00DE2FC8 /* README.mdown */,
@@ -835,6 +867,15 @@
 				9B6F028621ECA5AF00AA0BCD /* BaseText.h */,
 			);
 			path = ChartViews;
+			sourceTree = "<group>";
+		};
+		9B6F029921ED7BF600AA0BCD /* DataMigrationModel */ = {
+			isa = PBXGroup;
+			children = (
+				9B6F029A21ED7CEB00AA0BCD /* DataMigrationViewModel.h */,
+				9B6F029B21ED7CEB00AA0BCD /* DataMigrationViewModel.m */,
+			);
+			path = DataMigrationModel;
 			sourceTree = "<group>";
 		};
 		9B7A13572160D3AD00CBA4BC /* LogViewModel */ = {
@@ -1035,6 +1076,7 @@
 				9B94D5DC214BBF4700ACCF94 /* Firmwares in Resources */,
 				9B437F3821393DDD00DE2FC8 /* README.mdown in Resources */,
 				9B437EF621393ADC00DE2FC8 /* Assets.xcassets in Resources */,
+				9B437F3621393DDD00DE2FC8 /* LICENSE in Resources */,
 				9BCE553E216D9799005B6F80 /* Agps in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1055,6 +1097,7 @@
 				9B222148215A37A7006A2F9F /* OneSwitchTableViewCell.m in Sources */,
 				18376C952165E9B5009D68F5 /* SyncActivityViewModel.m in Sources */,
 				9BC1E452213E66ED008D832E /* BaseViewController.m in Sources */,
+				9BBAF49621F809A0001BD3F9 /* SetUserNameViewModel.m in Sources */,
 				18376C6B2164ADA7009D68F5 /* GetFuncTableViewModel.m in Sources */,
 				9B437EFC21393ADC00DE2FC8 /* main.m in Sources */,
 				18376C772164C948009D68F5 /* GetRealTimeViewModel.m in Sources */,
@@ -1074,6 +1117,7 @@
 				9B437F2C21393DDD00DE2FC8 /* MASConstraint.m in Sources */,
 				9B7A1336215F4B2600CBA4BC /* SetOneKeySosViewModel.m in Sources */,
 				183501482158E7440076BC4F /* ThreeTextFieldTableViewCell.m in Sources */,
+				9BBAF49921F809BC001BD3F9 /* SetUserNumberViewModel.m in Sources */,
 				9B7A135D2160D59D00CBA4BC /* ComLogViewModel.m in Sources */,
 				9B7A134E2160A6AC00CBA4BC /* SetDialParamViewModel.m in Sources */,
 				9BCE554A216DDBE2005B6F80 /* AppDataInterchangeModel.m in Sources */,
@@ -1101,6 +1145,7 @@
 				9B437F2E21393DDD00DE2FC8 /* MASLayoutConstraint.m in Sources */,
 				183FC0A1214E87DE00AD6484 /* EmptyTableViewCell.m in Sources */,
 				9B6F029021ECA5AF00AA0BCD /* BasePickerView.m in Sources */,
+				9B6F029C21ED7CEB00AA0BCD /* DataMigrationViewModel.m in Sources */,
 				9B16A8B82171F53500DC199C /* CurveChartTableViewCell.m in Sources */,
 				9B7A13452160606C00CBA4BC /* SetMusicViewModel.m in Sources */,
 				9B16A8B22171F17F00DC199C /* QueryViewModel.m in Sources */,
@@ -1120,6 +1165,7 @@
 				9B4AF76621E6F797006926CA /* SyncBopViewModel.m in Sources */,
 				183FC089214E374500AD6484 /* BaseCellModel.m in Sources */,
 				9BC1E451213E66ED008D832E /* IDODemoUtility.m in Sources */,
+				9BBAF49021F6BE19001BD3F9 /* SetContentViewModel.m in Sources */,
 				183FC09E214E7FD900AD6484 /* OneTextViewTableViewCell.m in Sources */,
 				183FC08F214E4C9E00AD6484 /* GetViewModel.m in Sources */,
 				9B7A133C215F4F3500CBA4BC /* SetBloodPressureViewModel.m in Sources */,
@@ -1129,6 +1175,7 @@
 				9BF7EC3C219BCFE900572E70 /* SliderCellModel.m in Sources */,
 				18376C922165DCCB009D68F5 /* SyncConfigViewModel.m in Sources */,
 				18376C8C2165D91C009D68F5 /* ControlRestoreViewModel.m in Sources */,
+				9BBAF48D21F6BDD3001BD3F9 /* SetStartCountViewModel.m in Sources */,
 				9B575BAB215CE1AD00B433D0 /* SetWeatherViewModel.m in Sources */,
 				183FC07A214E323E00AD6484 /* BaseViewModel.m in Sources */,
 				9B2C6B36215B5C0500375FDA /* SetTimeViewModel.m in Sources */,
@@ -1185,6 +1232,7 @@
 				9B6F028B21ECA5AF00AA0BCD /* BaseShowValue.m in Sources */,
 				183FC098214E5A8E00AD6484 /* DataInterchangeModel.m in Sources */,
 				9B4AF76321E6DA95006926CA /* GetVersionInfoViewModel.m in Sources */,
+				9BBAF49321F702D3001BD3F9 /* GetStartCountViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
