@@ -52,7 +52,8 @@
 @optional
 /**
  * @brief 传入固件包的类型 （SOFTDEVICE、BOOTLOADER、SOFTDEVICE_BOOTLOADER、APPLICATION）默认 APPLICATION 暂时不支持其他类型
- Incoming firmware package type (SOFTDEVICE, BOOTLOADER, SOFTDEVICE_BOOTLOADER, APPLICATION) Default APPLICATION Temporarily does not support other types
+ * Incoming firmware package type (SOFTDEVICE, BOOTLOADER, SOFTDEVICE_BOOTLOADER, APPLICATION) Default APPLICATION
+   Temporarily does not support other types
  * @param manager 升级管理中心对象 | Upgrade Management Center Objects
  * @return 固件包的类型 | Type of firmware package
  */

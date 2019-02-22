@@ -90,7 +90,8 @@
 + (void)stopScan;
 
 /**
- * @brief 1、普通模式下选择外围设备连接 2、ota模式下选择外围设备连接 | 1. Select peripheral device connection in normal mode 2. Select peripheral device connection in ota mode
+ * @brief 1、普通模式下选择外围设备连接 2、ota模式下选择外围设备连接
+ * 1. Select peripheral device connection in normal mode 2. Select peripheral device connection in ota mode
  * @param model IDOPeripheralModel 对象 | IDOPeripheralModel object
  */
 + (void)connectDeviceWithModel:(IDOPeripheralModel *)model;

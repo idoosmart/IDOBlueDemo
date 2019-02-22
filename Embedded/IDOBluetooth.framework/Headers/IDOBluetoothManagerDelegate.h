@@ -30,7 +30,6 @@
 
 /**
  * @brief 连接设备成功回调 | Connected device successfully callback
- 
  * @param manager IDO蓝牙管理中心 | IDO Bluetooth Management Center
  * @param centerManager 蓝牙管理中心 | Bluetooth Management Center
  * @param peripheral 外围设备 | Peripherals
@@ -44,7 +43,6 @@
 
 /**
  * @brief 蓝牙管理状态 | Bluetooth management status
- 
  * @param manager IDO蓝牙管理中心 | IDO Bluetooth Management Center
  * @param state 状态 | Status
  */
@@ -53,7 +51,6 @@
 
 /**
  * @brief 连接设备错误回调 | Connection Device Error Callback
- 
  * @param manager IDO蓝牙管理中心 | IDO Bluetooth Management Center
  * @param error 错误信息 | Error message
  */

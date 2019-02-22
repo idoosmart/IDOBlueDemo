@@ -96,7 +96,6 @@
 		9B437F3321393DDD00DE2FC8 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2021393DDD00DE2FC8 /* View+MASAdditions.m */; };
 		9B437F3421393DDD00DE2FC8 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2321393DDD00DE2FC8 /* ViewController+MASAdditions.m */; };
 		9B437F3521393DDD00DE2FC8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B437F2421393DDD00DE2FC8 /* README.md */; };
-		9B437F3621393DDD00DE2FC8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9B437F2621393DDD00DE2FC8 /* LICENSE */; };
 		9B437F3721393DDD00DE2FC8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */; };
 		9B437F3821393DDD00DE2FC8 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 9B437F2921393DDD00DE2FC8 /* README.mdown */; };
 		9B4AF76321E6DA95006926CA /* GetVersionInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4AF76221E6DA95006926CA /* GetVersionInfoViewModel.m */; };
@@ -347,7 +346,6 @@
 		9B437F2221393DDD00DE2FC8 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		9B437F2321393DDD00DE2FC8 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		9B437F2421393DDD00DE2FC8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		9B437F2621393DDD00DE2FC8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9B437F2721393DDD00DE2FC8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9B437F2921393DDD00DE2FC8 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
@@ -827,7 +825,6 @@
 		9B437F2521393DDD00DE2FC8 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				9B437F2621393DDD00DE2FC8 /* LICENSE */,
 				9B437F2721393DDD00DE2FC8 /* MBProgressHUD.h */,
 				9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */,
 				9B437F2921393DDD00DE2FC8 /* README.mdown */,
@@ -1076,7 +1073,6 @@
 				9B94D5DC214BBF4700ACCF94 /* Firmwares in Resources */,
 				9B437F3821393DDD00DE2FC8 /* README.mdown in Resources */,
 				9B437EF621393ADC00DE2FC8 /* Assets.xcassets in Resources */,
-				9B437F3621393DDD00DE2FC8 /* LICENSE in Resources */,
 				9BCE553E216D9799005B6F80 /* Agps in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
