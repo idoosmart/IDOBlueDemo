@@ -707,7 +707,7 @@
 /**
  * 心率集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
  * Heart rate collection Only defined query methods can be converted into model collections. Custom query methods cannot be directly
-   converted into model collections. You need to query itemModel to assign current attributes.
+ *  converted into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy) NSArray <IDOSyncHrDataItemInfoBluetoothModel *>* heartRates;
 

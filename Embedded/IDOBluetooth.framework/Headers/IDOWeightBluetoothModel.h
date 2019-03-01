@@ -26,12 +26,14 @@
 @property (nonatomic,assign) NSInteger day;
 
 /*
- 日期时间戳 time interval since 1970 (如:1444361933) | Date Timestamp  time interval since 1970 (eg 14442361933)
+ * 日期时间戳 time interval since 1970 (如:1444361933)
+ * Date Timestamp  time interval since 1970 (eg 14442361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
 /*
- 时间戳 time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ * 时间戳 time interval since 1970 (如:1444361933)
+ * Timestamp time interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * timeStamp;
 
@@ -91,13 +93,15 @@
 @property (nonatomic,copy) NSString * bone;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOUserWeightModel
  */
 + (__kindof IDOWeightBluetoothModel *)currentModel;
 
 /**
- * @brief 查询指定日期前七次体重数据，如果没有数据会初始化体重为0的数据对象 | Query the weight data seven times before the specified date, if there is no data, initialize the data object with weight 0
+ * @brief 查询指定日期前七次体重数据，如果没有数据会初始化体重为0的数据对象
+ * Query the weight data seven times before the specified date, if there is no data, initialize the data object with weight 0
  * @return IDOUserWeightModel
  */
 + (NSArray <__kindof IDOWeightBluetoothModel *>*)querySevenTimesRecentlyWithDateStr:(NSString *)dateStr;

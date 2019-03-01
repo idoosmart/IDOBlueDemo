@@ -36,9 +36,10 @@
 
 /**
  * @brief 初始化同步管理对象 | Initialize synchronization management object
+ * @param isSave 同步的数据是否存入SDK数据库中
  * @return IDOSyncManager
  */
-IDOSyncManager * _Nonnull instanceSyncManagerHandler(void);
+IDOSyncManager * _Nonnull instanceSyncManagerHandler(BOOL isSave);
 
 /**
  * @brief 同步完成,每同步完一项会回调一次 请根据上述枚举进行判断是否同步完成
@@ -59,10 +60,10 @@ IDOSyncManager * _Nonnull instanceSyncManagerHandler(void);
 + (void)syncDataProgressCallback:(void(^_Nullable)(float progress))callback;
 
 /**
- * @brief 同步日志信息 | Synchronization log information
- * @param callback 日志信息回调block | log information callback block
+ * @brief 同步数据json格式 | Synchronization data
+ * @param callback 同步数据回调block | jsonStr callback block
  */
-+ (void)syncDataLogInfoCallback:(void(^_Nullable)(IDO_CURRENT_SYNC_TYPE syncType,NSString * _Nullable logStr))callback;
++ (void)syncDataJsonCallback:(void(^_Nullable)(IDO_CURRENT_SYNC_TYPE syncType,NSString * _Nullable jsonStr))callback;
 
 /**
  * 删除当前手环当天同步的数据

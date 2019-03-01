@@ -32,9 +32,9 @@
 + (void)syncHealthDataCompleteCallback:(void(^_Nullable)(int errorCode))callback;
 
 /**
- * @brief 健康 同步日志 | Health Synchronization Log
- * @param callback 日志回调 | Log callback
+ * @brief 健康 同步数据 | Health Synchronization data
+ * @param callback 健康数据回调 | jsonStr callback
  */
-+ (void)syncHealthLogCallback:(void(^_Nullable)(NSString * _Nullable logStr))callback;
++ (void)syncHealthDataCallback:(void(^_Nullable)(NSString * _Nullable jsonStr))callback;
 
 @end

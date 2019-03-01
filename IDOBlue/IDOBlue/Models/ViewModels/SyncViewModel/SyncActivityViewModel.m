@@ -56,12 +56,12 @@
             if (errorCode == 0) {
                 if (data.activityCount > 0) {
                     //活动同步日志
-                    [IDOSyncActivity syncActivityLogCallback:^(NSString * _Nullable logStr) {
-                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,logStr];
+                    [IDOSyncActivity syncActivityDataCallback:^(NSString * _Nullable jsonStr) {
+                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
                         TextViewCellModel * model = [strongSelf.cellModels firstObject];
                         model.data = @[newLogStr?:@""];
                         strongSelf.textView.text = newLogStr;
-                       // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
+                        // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
                     }];
                     //活动同步进度
                     [IDOSyncActivity syncAcitvityDataProgressCallback:^(int progress) {

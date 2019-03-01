@@ -11,7 +11,8 @@
 
 /**
  * @brief 传人agps文件路径,当回调后才可执行开始更新的方法,因为需要执行连接参数,设置传输速度
- * Pass the agps file path, the call to start the update method after the callback, because you need to execute the connection parameters, set the transfer speed
+ * Pass the agps file path, the call to start the update method after the callback, because you need to execute the connection parameters,
+ * set the transfer speed.
  * @param packagePath agps文件路径 | packagePath agps file path
  * @param callback 状态回调 (errorCode : 0 设置成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Status callback (errorCode : 0 set successfully, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
@@ -29,7 +30,8 @@
 /**
  * @brief agps 文件传输完成 | File transfer completed
  * @param tranComplete 文件传输完成 (正在写入...) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
- * File transfer completed (writing...) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ * File transfer completed (writing...) (errorCode : 0 The transfer was successful, the other values are errors,
+ * and the error code str can be obtained according to IDOErrorCodeToStr)
  * @param writeComplete 文件写入完成 (errorCode : 0 写入成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * File write completed (errorCode : 0 write succeeded, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */

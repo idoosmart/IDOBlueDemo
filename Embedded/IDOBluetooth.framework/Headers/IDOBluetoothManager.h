@@ -22,17 +22,20 @@
 @property (nonatomic,assign) NSInteger timeout;
 
 /**
- 设置扫描过滤信号弱的设备 默认值 80 大于80会被过滤 | Set the device with weak scan filtering signal. Default value 80 is greater than 80 will be filtered.
+ * 设置扫描过滤信号弱的设备 默认值 80 大于80会被过滤
+ * Set the device with weak scan filtering signal. Default value 80 is greater than 80 will be filtered.
  */
 @property (nonatomic,assign) NSInteger rssiNum;
 
 /**
- 是否启动超时,间隔扫描 默认 yes 最大间隔一分钟扫描一次 | Whether to start timeout, interval scan Default yes Maximum interval one minute scan
+ * 是否启动超时,间隔扫描 默认 yes 最大间隔一分钟扫描一次
+ * Whether to start timeout, interval scan Default yes Maximum interval one minute scan
  */
 @property (nonatomic,assign) BOOL isIntervalScan;
 
 /**
- 设置扫描间隔时长 默认 10秒 如果不启动超时间隔扫描，则无效 | Set the scan interval to 10 seconds by default.If timeout interval scanning is not started, it is not valid.
+ * 设置扫描间隔时长 默认 10秒 如果不启动超时间隔扫描，则无效
+ * Set the scan interval to 10 seconds by default.If timeout interval scanning is not started, it is not valid.
  */
 @property (nonatomic,assign) NSInteger autoScanInterval;
 
@@ -91,7 +94,8 @@
 
 /**
  * @brief 1、普通模式下选择外围设备连接 2、ota模式下选择外围设备连接
- * 1. Select peripheral device connection in normal mode 2. Select peripheral device connection in ota mode
+ * 1. Select peripheral device connection in normal mode
+ * 2. Select peripheral device connection in ota mode
  * @param model IDOPeripheralModel 对象 | IDOPeripheralModel object
  */
 + (void)connectDeviceWithModel:(IDOPeripheralModel *)model;
@@ -100,6 +104,17 @@
  断开当前外围设备的连接 | Disconnect the current peripheral device
  */
 + (void)cancelCurrentPeripheralConnection;
+
+/**
+ * 连接外围设备成功后发现外围设备特征，此方法针对蓝牙管理中心是受外边控制的场景下使用。
+ */
++ (void)findCharac:(CBPeripheral *)peripheral
+           service:(CBService *)service;
+
+/**
+ * 蓝牙接收到手环返回的数据，此方法针对蓝牙管理中心是受外边控制的场景下使用。
+ */
++ (void)idoDidUpdateValueForCharacteristic:(CBCharacteristic *)characteristic;
 
 
 @end

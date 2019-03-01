@@ -212,6 +212,26 @@
 + (void)setSwitchNoticeCommand:(IDOSetNoticeInfoBuletoothModel * _Nullable)noticModel callback:(void (^_Nullable)(int errorCode))callback;
 
 /**
+ * @brief 设置通知中心、来电提醒开关，此方法只设置子开关状态。
+ * Set up notification center, call alert switch.method sets only the subswitch state
+ * @param noticModel 通知开关信息 model (IDOSetNoticeInfoBuletoothModel)
+ * Notification switch information model (IDOSetNoticeInfoBuletoothModel)
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setChildSwitchNoticeStateCommand:(IDOSetNoticeInfoBuletoothModel * _Nullable)noticModel callback:(void (^_Nullable)(int errorCode))callback;
+
+
+/**
+ * @brief 设置蓝牙配对，此方法在不需要SDK蓝牙管理场景下使用。
+ * 此方法只是发起蓝牙配对，手环主动发起断开蓝牙连接，重连成功后返回配对状态，statusCode : 0x00 配对不知原因超时; 0x01 配对设置弹框用户点击确定按钮; 0x02 配对设置弹框用户点击取消按钮;
+ * 设置手环配对前需要获取查询当前手环配对状态。如果已经配对，就不需要再执行配对命令。只执行设置子开关的命令方法 ：setChildSwitchNoticeStateCommand
+ * statusCode 配对返回状态，当配对成功需要app主动断开连接，然后重连成功后，执行获取当前手环的通知状态方法 ：getNoticeStatusCommand
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ */
++ (void)setBluetoothPairingInNoNeedBlueManagerCommandCallback:(void (^_Nullable)(int statusCode,int errorCode))callback;
+
+/**
  * @brief 设置蓝牙配对 (不可重复设置,会引起无法再连接设备.只要配对成功,就不需要再设置,只有获取到系统配对设备被忽略,才可设置配对。⚠️在配对过程中不要执行其他命令。)
  * Set up Bluetooth pairing (cannot be set repeatedly, it will cause the device to be connected again. As long as the pairing is successful,
  * you don't need to set it again. Only when the system pairing device is ignored, the pairing can be set.⚠️Do not execute other commands during pairing.)

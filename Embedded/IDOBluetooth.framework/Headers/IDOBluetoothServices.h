@@ -36,8 +36,10 @@ extern NSString * IDOBluetoothOtaModeNotifyName;
 
 /**
  * @brief  注册SDK服务 | Register for SDK service
+ * @param  isNeedBlueManager 是否需要SDK蓝牙管理中心 默认 YES
+ * Whether SDK bluetooth management center is required Default YES
  * @return IDOBluetoothServices
  */
-IDOBluetoothServices * _Nonnull registrationServices(void);
+IDOBluetoothServices * _Nonnull registrationServices(BOOL isNeedBlueManager);
 
 @end

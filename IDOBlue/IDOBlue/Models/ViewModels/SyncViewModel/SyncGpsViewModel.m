@@ -56,12 +56,12 @@
             if (errorCode == 0) {
                 if (data.gpsCount > 0) {
                     //同步GPS日志
-                    [IDOSyncGps syncGpsLogCallback:^(NSString * _Nullable logStr) {
-                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,logStr];
+                    [IDOSyncGps syncGpsDataCallback:^(NSString * _Nullable jsonStr) {
+                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
                         TextViewCellModel * model = [strongSelf.cellModels firstObject];
                         model.data = @[newLogStr?:@""];
                         strongSelf.textView.text = newLogStr;
-                      //  [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
+                        //  [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
                     }];
                     //同步GPS完成
                     [IDOSyncGps syncGpsDataCompleteCallback:^(int errorCode) {

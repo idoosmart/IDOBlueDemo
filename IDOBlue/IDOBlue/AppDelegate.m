@@ -23,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:3];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    registrationServices().outputSdkLog(NO).outputProtocolLog(NO);    
+    registrationServices(YES).outputSdkLog(YES).outputProtocolLog(YES);
     if (__IDO_BIND__) {
         NSInteger type = [[[NSUserDefaults standardUserDefaults] objectForKey:PRODUCTION_MODE_KEY] integerValue];
         if (type == 1) {

@@ -137,11 +137,11 @@
     }else if ([keyPath isEqualToString:@"idoManager.manualConnectTotalTime"]) {
         NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
         if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"手动连接时长：%ld",totalTime];
+        self.timerLabel.text = [NSString stringWithFormat:@"手动连接时长：%ld",(long)totalTime];
     }else if ([keyPath isEqualToString:@"idoManager.autoConnectTotalTime"]) {
         NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
         if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"自动连接时长：%ld",totalTime];
+        self.timerLabel.text = [NSString stringWithFormat:@"自动连接时长：%ld",(long)totalTime];
     }
 }
 

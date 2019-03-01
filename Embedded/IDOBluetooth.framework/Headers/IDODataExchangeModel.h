@@ -112,7 +112,8 @@
 
 
 /**
- * @brief 根据结构体数据和事件类型为当前model赋值 （内部使用） | Assign values to the current model based on structure data and event type (internal use)
+ * @brief 根据结构体数据和事件类型为当前model赋值 （内部使用）
+ * Assign values to the current model based on structure data and event type (internal use)
  * @param data 结构体数据 | Structure data
  * @param model 当前运动model | current sports model
  * @param type 事件类型 | Event type

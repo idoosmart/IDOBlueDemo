@@ -14,6 +14,8 @@
 #import "OneButtonTableViewCell.h"
 #import "OneSwitchTableViewCell.h"
 #import "EmptyTableViewCell.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface SetFindPhoneViewModel()
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
@@ -104,5 +106,18 @@
             }
         }];
     };
+    
+    __block SystemSoundID sound = kSystemSoundID_Vibrate;
+    NSString *path = @"/System/Library/Audio/UISounds/sms-received6.caf";
+    OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path],&sound);
+    [IDOFoundationCommand listenFindPhoneStartCommand:^(int errorCode) {
+        if (errorCode == 0) {
+        if (error != kAudioServicesNoError) {
+            sound = 0;
+        }
+        AudioServicesPlaySystemSound(sound);//播放声音
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);//静音模式下震动
+        }
+    }];
 }
 @end

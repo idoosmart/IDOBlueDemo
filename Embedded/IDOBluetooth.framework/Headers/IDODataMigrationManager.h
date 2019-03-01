@@ -37,10 +37,11 @@
 + (void)dataMigrationProgressBlock:(void(^)(float progress))callback;
 
 /**
-  * 数据迁移完成 direNames 传入不能删除的目录名字集合，在Documents中其他的目录会在迁移完数据全部删除，⚠️如果不传入目录集合，除了sdk新创建的目录不删除之外其他都会删除，所以根据开发需求自行传入目录名字集合
+  * 数据迁移完成 direNames 传入不能删除的目录名字集合，在Documents中其他的目录会在迁移完数据全部删除，
+  * ⚠️如果不传入目录集合，除了sdk新创建的目录不删除之外其他都会删除，所以根据开发需求自行传入目录名字集合
   * Data migration is completed direNames is passed to the collection of directory names that cannot be deleted. In the other directories in Documents,
-  * all the data will be deleted after the migration.⚠️If you do not pass the directory collection, except for the newly created directory of sdk, it will be deleted,
-  * so you will pass the directory name collection according to the development requirements.
+  * all the data will be deleted after the migration.⚠️If you do not pass the directory collection, except for the newly created directory of sdk,
+  * it will be deleted,so you will pass the directory name collection according to the development requirements.
  */
 + (void)dataMigrationWithFileNames:(NSArray *)names
                      completeBlock:(void(^)(BOOL isSuccess))callback;
@@ -50,7 +51,8 @@
   * 启动数据库转换json文件 ⚠️ 在数据量大时比较耗时,尽量在执行完数据迁移再去执行其他工作.1、若传入json文件路径存在,先把json文件数据同步到数据库中，然后合并的数据库再转成json文件;
   * 2、若传入json文件路径为空,只把本地数据库转成json文件,并返回json文件目录路径;3、jsonDirePath 是从云端下载的健康json文件目录路径;
   * Start the database to convert the json file ⚠️ It is time consuming when the amount of data is large, try to perform other tasks after
-  * performing the data migration.1. If the path to the json file exists, synchronize the json file data to the database, and then merge the database into a json file.
+  * performing the data migration.1. If the path to the json file exists, synchronize the json file data to the database, and then merge
+  * the database into a json file.
   * 2. If the path to the json file is empty, only convert the local database to a json file and return the path to the json file directory.
   * 3. jsonDirePath is the path to the healthy json file directory downloaded from the cloud.
  */

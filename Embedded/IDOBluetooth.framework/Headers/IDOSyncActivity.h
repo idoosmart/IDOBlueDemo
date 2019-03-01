@@ -33,10 +33,10 @@
 + (void)syncAcitvityDataCompleteCallback:(void(^_Nullable)(int errorCode))callback;
 
 /**
- * @brief 活动 同步日志 | Activity Synchronization log
- * @param callback 日志回调 | Log callback
+ * @brief 活动 同步数据 | Activity Synchronization data
+ * @param callback 数据回调 | jsonStr callback
  */
-+ (void)syncActivityLogCallback:(void(^_Nullable)(NSString * _Nullable logStr))callback;
++ (void)syncActivityDataCallback:(void(^_Nullable)(NSString * _Nullable jsonStr))callback;
 
 
 @end

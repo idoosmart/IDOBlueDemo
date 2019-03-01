@@ -59,8 +59,10 @@
 - (BOOL)del;
 
 /**
- * @brief model 通过Mac地址查询单个数据 多用于蓝牙设置查询 | The model queries individual data by Mac address, which is mostly used for bluetooth setting query
- * @return 根据设备ID 查询获取最后一个model 不存在会初始化一个新的对象 | Getting the last model based on the device ID query does not initialize a new object
+ * @brief model 通过Mac地址查询单个数据 多用于蓝牙设置查询
+ * The model queries individual data by Mac address, which is mostly used for bluetooth setting query
+ * @return 根据设备ID 查询获取最后一个model 不存在会初始化一个新的对象
+ * Getting the last model based on the device ID query does not initialize a new object
  */
 + (IDOBluetoothBaseModel *_Nullable)queryCurrentModel;
 

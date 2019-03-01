@@ -33,10 +33,10 @@
 + (void)syncBloodOxygenPressureDataCompleteCallback:(void(^_Nullable)(int errorCode))callback;
 
 /**
- * @brief 血氧、压力 同步日志 | Blood oxygen, pressure Synchronization Log
- * @param callback 日志回调 | Log callback
+ * @brief 血氧、压力 同步数据 | Blood oxygen, pressure Synchronization data
+ * @param callback 数据回调 | jsonStr callback
  */
-+ (void)syncBloodOxygenPressureLogCallback:(void(^_Nullable)(NSString * _Nullable logStr))callback;
++ (void)syncBloodOxygenPressureDataCallback:(void(^_Nullable)(NSString * _Nullable jsonStr))callback;
 
 @end
 

@@ -103,7 +103,6 @@
 		9B568540217DD1B400462AE0 /* ThreeButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B56853F217DD1B400462AE0 /* ThreeButtonTableViewCell.m */; };
 		9B568543217DD60B00462AE0 /* TabCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B568542217DD60B00462AE0 /* TabCellModel.m */; };
 		9B568546217DFB3600462AE0 /* QuerySleepViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B568545217DFB3600462AE0 /* QuerySleepViewModel.m */; };
-		9B5702A5213BEE1600BCE1CE /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5702A4213BEE1500BCE1CE /* libsqlite3.0.tbd */; };
 		9B575BA8215CD05E00B433D0 /* SetLongSitViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B575BA7215CD05E00B433D0 /* SetLongSitViewModel.m */; };
 		9B575BAB215CE1AD00B433D0 /* SetWeatherViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B575BAA215CE1AD00B433D0 /* SetWeatherViewModel.m */; };
 		9B6F028721ECA5AF00AA0BCD /* BasePolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F026F21ECA5AF00AA0BCD /* BasePolygon.m */; };
@@ -145,7 +144,7 @@
 		9BBAF49321F702D3001BD3F9 /* GetStartCountViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF49221F702D3001BD3F9 /* GetStartCountViewModel.m */; };
 		9BBAF49621F809A0001BD3F9 /* SetUserNameViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF49521F809A0001BD3F9 /* SetUserNameViewModel.m */; };
 		9BBAF49921F809BC001BD3F9 /* SetUserNumberViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF49821F809BC001BD3F9 /* SetUserNumberViewModel.m */; };
-		9BBAF49A21F85E7A001BD3F9 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
+		9BBAF49B21F96D7A001BD3F9 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5702A4213BEE1500BCE1CE /* libsqlite3.0.tbd */; };
 		9BC1E451213E66ED008D832E /* IDODemoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E44B213E66EC008D832E /* IDODemoUtility.m */; };
 		9BC1E452213E66ED008D832E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E44E213E66EC008D832E /* BaseViewController.m */; };
 		9BC1E453213E66ED008D832E /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC1E450213E66EC008D832E /* ScanViewController.m */; };
@@ -160,6 +159,7 @@
 		9BF7EC39219BCAB300572E70 /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC38219BCAB300572E70 /* SliderTableViewCell.m */; };
 		9BF7EC3C219BCFE900572E70 /* SliderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */; };
 		9BFF80EB2189829300EFA848 /* FirmwareTypeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */; };
+		DDA9E1A42229330E00013308 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -476,8 +476,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BBAF49A21F85E7A001BD3F9 /* IDOBluetooth.framework in Frameworks */,
-				9B5702A5213BEE1600BCE1CE /* libsqlite3.0.tbd in Frameworks */,
+				DDA9E1A42229330E00013308 /* IDOBluetooth.framework in Frameworks */,
+				9BBAF49B21F96D7A001BD3F9 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1364,7 +1364,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T65EE75V48;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = ../Embedded;
+				FRAMEWORK_SEARCH_PATHS = (
+					../Embedded,
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
 				INFOPLIST_FILE = IDOBlue/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1389,7 +1392,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T65EE75V48;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = ../Embedded;
+				FRAMEWORK_SEARCH_PATHS = (
+					../Embedded,
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
 				INFOPLIST_FILE = IDOBlue/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

@@ -855,7 +855,8 @@
 @property (nonatomic,assign) NSInteger timeUnit;
 
 /**
- 星期的开始日 星期日：0 ，星期一 ：1 ，星期二 ： 2，星期三 ：3 ，星期四 ：4 ，星期五 ：5，星期六 ：6 | Start of the week Sunday: 0, Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6
+ * 星期的开始日 星期日：0 ，星期一 ：1 ，星期二 ： 2，星期三 ：3 ，星期四 ：4 ，星期五 ：5，星期六 ：6
+ * Start of the week Sunday: 0, Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6
  */
 @property (nonatomic,assign) NSInteger weekStart;
 
@@ -948,7 +949,8 @@
 @interface IDOSetHrModeInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
- 心率模式 0:关闭心率监测功能 1:手动模式 2:自动模式 （默认：自动模式）| Heart Rate Mode 0: Turn off heart rate monitoring function 1: Manual mode 2: Auto mode (Default: Auto mode)
+ * 心率模式 0:关闭心率监测功能 1:手动模式 2:自动模式 （默认：自动模式）
+ * Heart Rate Mode 0: Turn off heart rate monitoring function 1: Manual mode 2: Auto mode (Default: Auto mode)
  */
 @property (nonatomic,assign) NSInteger modeType;
 
@@ -1289,7 +1291,8 @@
 @property (nonatomic,assign) NSInteger  callDelay;
 
 /**
- 是否开启子开关 (只对智能提醒有效,对来电提醒无效) | Whether to enable the sub-switch (only valid for smart reminders, invalid for incoming call reminders)
+ * 是否开启子开关 (只对智能提醒有效,对来电提醒无效)
+ * Whether to enable the sub-switch (only valid for smart reminders, invalid for incoming call reminders)
  */
 @property (nonatomic,assign) BOOL isOnChild;
 
@@ -1498,8 +1501,8 @@
 @property (nonatomic,assign) NSInteger goalWeightData;
 
 /**
- 目标类型 (类型 : 0 : 步数  1 : 卡路里  2 : 距离) 设置一种类型的目标需要执行一次命令
- Target type (type : 0 : step 1 : calories 2 : distance) Setting a type of target requires a command to be executed
+ * 目标类型 (类型 : 0 : 步数  1 : 卡路里  2 : 距离) 设置一种类型的目标需要执行一次命令
+ * Target type (type : 0 : step 1 : calories 2 : distance) Setting a type of target requires a command to be executed
  */
 @property (nonatomic,assign) NSInteger goalType;
 

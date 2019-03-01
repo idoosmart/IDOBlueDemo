@@ -46,8 +46,8 @@
 + (void)syncConfigCompleteCallback:(void(^_Nullable)(int errorCode))callback;
 
 /**
- * @brief  配置 同步日志 | Configuration Synchronization Log
- * @param callback 日志回调 | Log callback
+ * @brief 配置 同步日志 | Configuration Synchronization log
+ * @param callback 日志回调 | logStr callback
  */
 + (void)syncConfigLogCallback:(void(^_Nullable)(NSString * _Nullable logStr))callback;
 

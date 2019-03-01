@@ -85,7 +85,7 @@
         
         FuncCellModel * model3 = [[FuncCellModel alloc]init];
         model3.typeStr = @"oneButton";
-        model3.data = @[@"设置寻找手机"];
+        model3.data = @[@"设置音乐开关"];
         model3.cellHeight = 70.0f;
         model3.cellClass = [OneButtonTableViewCell class];
         model3.modelClass = [NSNull class];

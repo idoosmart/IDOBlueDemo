@@ -80,6 +80,11 @@
 @property (nonatomic,strong) CBCentralManager * centralManager;
 
 /**
+ 外围设备 | Peripherals
+ */
+@property (nonatomic,strong) CBPeripheral  * peripheral;
+
+/**
  蓝牙是否开启 | Is Bluetooth enabled?
  */
 @property (nonatomic,assign,readonly,getter=isPoweredOn) BOOL poweredOn;
@@ -88,11 +93,6 @@
  蓝牙是否连接 | Bluetooth is connected
  */
 @property (nonatomic,assign,readonly,getter=isConnected) BOOL connected;
-
-/**
- 外围设备 | Peripherals
- */
-@property (nonatomic,strong) CBPeripheral  * peripheral;
 
 /**
  命令服务特征 | Command Service Features

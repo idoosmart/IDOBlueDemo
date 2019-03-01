@@ -52,8 +52,8 @@
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:@"同步血氧压力数据..."];
         //同步血氧压力日
-        [IDOSyncBop syncBloodOxygenPressureLogCallback:^(NSString * _Nullable logStr){
-            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,logStr];
+        [IDOSyncBop syncBloodOxygenPressureDataCallback:^(NSString * _Nullable jsonStr) {
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;

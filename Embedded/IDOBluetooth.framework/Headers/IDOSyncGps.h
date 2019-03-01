@@ -34,9 +34,9 @@
 + (void)syncGpsDataCompleteCallback:(void(^_Nullable)(int errorCode))callback;
 
 /**
- * @brief GPS 同步日志 | GPS sync log
- * @param callback 日志回调 | callback log callback
+ * @brief GPS 同步数据 | GPS sync data
+ * @param callback 数据回调 | callback jsonStr callback
  */
-+ (void)syncGpsLogCallback:(void(^_Nullable)(NSString * _Nullable logStr))callback;
++ (void)syncGpsDataCallback:(void(^_Nullable)(NSString * _Nullable jsonStr))callback;
 
 @end

@@ -75,26 +75,43 @@
 {
     self.textFieldCellModel = (TextFieldCellModel *)model;
     self.title.text = self.textFieldCellModel.titleStr;
+    if (self.textFieldCellModel.isShowKeyboard) {
+        self.textField1.keyboardType = self.textFieldCellModel.keyType;
+        self.textField2.keyboardType = self.textFieldCellModel.keyType;
+    }
     if ([self.textFieldCellModel.data[0]isKindOfClass:[NSString class]]) {
         self.textField1.text = self.textFieldCellModel.data[0];
     }else {
-        self.textField1.text = [NSString stringWithFormat:@"%ld",[self.textFieldCellModel.data[0] integerValue]];
+        self.textField1.text = [NSString stringWithFormat:@"%ld",(long)[self.textFieldCellModel.data[0] integerValue]];
     }
     if ([self.textFieldCellModel.data[1]isKindOfClass:[NSString class]]) {
-        self.textField2.text = self.textFieldCellModel.data[0];
+        self.textField2.text = self.textFieldCellModel.data[1];
     }else {
-        self.textField2.text = [NSString stringWithFormat:@"%ld",[self.textFieldCellModel.data[0] integerValue]];
+        self.textField2.text = [NSString stringWithFormat:@"%ld",(long)[self.textFieldCellModel.data[1] integerValue]];
     }
 }
 
 #pragma mark - ****************** UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    if (self.textFieldCellModel.isShowKeyboard) {
+        [self tableViewContentInset];
+        return YES;
+    }else {
+        if (self.textFieldCellModel.textFeildCallback) {
+            self.textFieldCellModel.textFeildCallback([IDODemoUtility getCurrentVC],textField,self);
+            [self tableViewContentInset];
+        }
+        return NO;
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
     if (self.textFieldCellModel.textFeildCallback) {
         self.textFieldCellModel.textFeildCallback([IDODemoUtility getCurrentVC],textField,self);
-        [self tableViewContentInset];
     }
-    return NO;
+    return self.textFieldCellModel.isShowKeyboard;
 }
 
 - (void)tableViewContentInset

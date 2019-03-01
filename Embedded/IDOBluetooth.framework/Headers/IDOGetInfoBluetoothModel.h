@@ -1568,12 +1568,13 @@
 @property (nonatomic,assign) NSUInteger mode;
 
 /**
- 电量状态 | Battery status
+ * 电量状态 （0x0:正常,0x01:正在充电,0x02:充满,0x03:电量低）
+ * Battery status (0x0: normal,0x01: charging,0x02: full,0x03: low power)
  */
 @property (nonatomic,assign) NSUInteger battStatus;
 
 /**
- 电量级别 | Battery level
+ 电量级别 （0～100）| Battery level
  */
 @property (nonatomic,assign) NSUInteger battLevel;
 
