@@ -9,7 +9,7 @@
 ## Requirements
 | IDOBluetooth version | minimum iOS target| notes |
 | :------:| :------: | :------: |
-| 3.0.0 | iOS 8.0 | Only the objective-c file in the project needs to add an empty swift file |
+| 3.1.1 | iOS 8.0 | Only the objective-c file in the project needs to add an empty swift file |
 
 ## Project configuration
 * Reference header file
@@ -105,14 +105,14 @@
 * <p>Register IDOBluetooth SDK service and control the running log output of SDK and protocol library. Aliyun log is temporarily invalid. Note: Bluetooth settings need to add a continuous background configuration when registering services.</p>
 
 ```objc
-registrationServices().outputSdkLog(YES).outputProtocolLog(YES);
+registrationServices(YES).outputSdkLog(YES).outputProtocolLog(YES);
 ```
 ## <span id="3.0">Start SDK bluetooth management</span>
 * <p>When you apply an unconnected binding device, you need to create a view controller to implement the SDK bluetooth proxy. Scanning peripheral devices, the agent will return device collection, display in the list, select the device that needs to be connected, and return device information and whether the device is in OTA mode after successful connection, and there will be an error callback if the connection fails. The default scanning signal filter parameter is 80, and the automatic scanning connection timeout time is 20 seconds.</p>
 
 ```objc
 <IDOBluetoothManagerDelegate>
-[IDOBluetoothManager registerWtihDelegate:self];
+[IDOBluetoothManager shareInstance].delegate = self;
 [IDOBluetoothManager shareInstance].rssiNum = 100;
 
 #pragma mark === IDOBluetoothManagerDelegate ===
@@ -200,6 +200,7 @@ model.authCode = codeStr;
 
  }];
  // Synchronization configuration is performed after the first binding of the connecting device is successful. In other cases, NO is not synchronized.
+[IDOSyncManager shareInstance].isSave = YES;
 IDOSyncManager.startSync(YES or NO);
 ```
 ## <span id="6.0">Query bracelet data</span>
@@ -208,92 +209,101 @@ IDOSyncManager.startSync(YES or NO);
 ```objc
 1、activity query
  //The current device queries an event details based on the event start time
-+ (__kindof IDOSyncActivityDataInfoBluetoothModel*)queryOneActivityDataWithTimeStr:(NSString *)timeStr;
+ + (__kindof IDOSyncActivityDataInfoBluetoothModel *)queryOneActivityDataWithTimeStr:(NSString *)timeStr macAddr:(NSString *)macAddr;
 
  //The current device queries the collection of events for a certain day based on the date
-+ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryOneDayActivityDataWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;                                     
+ + (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryOneDayActivityDataWithMacAddr:(NSString *)macAddr year:(NSInteger)year
+ month:(NSInteger)month day:(NSInteger)day;                                     
 
 //Current Device Activity Paging Query Activity Collection
-+ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryOnePageActivityDataWithPageIndex:(NSInteger)pageIndex numOfPage:(NSInteger)numOfPage;                                                             
++ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryOnePageActivityDataWithPageIndex:(NSInteger)pageIndex
+numOfPage:(NSInteger)numOfPage macAddr:(NSString *)macAddr;                                                             
 
 //Current track motion of all devices
-+ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryAllTrajectorySportActivitys;
++ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryAllTrajectorySportActivitysWithMac:(NSString *)macAddr;
 
 //Current equipment all light sports
-+ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryAllLightSportActivitys;
++ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryAllLightSportActivitysWithMac:(NSString *)macAddr;
 
 2、blood pressure query
 //Query all data of the current device for 12 months in a certain year (If there is no data in the current month, an empty data object will be created, and the data larger than the current month will not be accumulated)
-+ (NSArray <NSArray<__kindof IDOSyncBpDataInfoBluetoothModel *>*> *)queryOneYearBloodPressuresWithYear:(NSInteger)year;
++ (NSArray <NSArray<__kindof IDOSyncBpDataInfoBluetoothModel *>*> *)queryOneYearBloodPressuresWithYear:(NSInteger)year macAddr:(NSString *)macAddr isQueryItems:(BOOL)isQuery;
 
 //Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created, which is larger than the data of the day)
-+ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryOneMonthBloodPressuresWithYear:(NSInteger)year month:(NSInteger)month                     
-datesOfMonth:(NSArray <NSString *>**)dates;                                                                        
++ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryOneMonthBloodPressuresWithYear:(NSInteger)year month:(NSInteger)month
+macAddr:(NSString *)macAddr datesOfMonth:(NSArray <NSString *>**)dates isQueryItems:(BOOL)isQuery;                                                                        
 
 //Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created, and the data larger than the current day will not be accumulated)
-+ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryOneWeekBloodPressuresWithWeekIndex:(NSInteger)weekIndex weekStartDay:(NSInteger)weekStartDay datesOfWeek:(NSArray <NSString *>**)dates;                                                                                 
++ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryOneWeekBloodPressuresWithWeekIndex:(NSInteger)weekIndex weekStartDay:(NSInteger)weekStartDay macAddr:(NSString *)macAddr datesOfWeek:(NSArray <NSString *>**)dates isQueryItems:(BOOL)isQuery;                                                                                 
 
 //Query current device blood pressure data for one day and have detailed data
-+ (__kindof IDOSyncBpDataInfoBluetoothModel *)queryOneDayBloodPressureDetailWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;                                                                    
++ (__kindof IDOSyncBpDataInfoBluetoothModel *)queryOneDayBloodPressureDetailWithMac:(NSString *)macAddr year:(NSInteger)year
+month:(NSInteger)month day:(NSInteger)day;                                                                    
 
 //Query the current day's blood pressure data of the device and have detailed data
-+ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryAllBloodPressures;
++ (__kindof IDOSyncBpDataInfoBluetoothModel *)queryLastDayBloodPressureDetailWithMac:(NSString *)macAddr;
+
+//Query all blood pressure data The number of blood pressure packets is greater than 0
++ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryAllBloodPressuresWithMac:(NSString *)macAddr;
 
 3、heart rate query
 //Query all data of the current device for 12 months in a certain year (If there is no data in the query month, an empty data object will be created, and the data larger than the current month will not be accumulated)
-+ (NSArray <NSArray<__kindof IDOSyncHrDataInfoBluetoothModel *>*> *)queryOneYearHearRatesWithYear:(NSInteger)year;
++ (NSArray <NSArray<__kindof IDOSyncHrDataInfoBluetoothModel *>*> *)queryOneYearHearRatesWithYear:(NSInteger)year macAddr:(NSString *)macAddr isQueryItems:(BOOL)isQuery;
 
 //Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created, which is larger than the data of the day)
-+ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryOneMonthHearRatesWithYear:(NSInteger)year month:(NSInteger)month datesOfMonth:(NSArray <NSString *>**)dates;                                                                                                      
++ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryOneMonthHearRatesWithYear:(NSInteger)year month:(NSInteger)month
+macAddr:(NSString *)macAddr datesOfMonth:(NSArray <NSString *>**)dates isQueryItems:(BOOL)isQuery;                                                                                                      
 
 //Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created, and the data larger than the current day will not be accumulated)
-+ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryOneWeekHearRatesWithWeekIndex:(NSInteger)weekIndex weekStartDay:(NSInteger)weekStartDay datesOfWeek:(NSArray <NSString *>**)dates;                                                                   
++ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryOneWeekHearRatesWithWeekIndex:(NSInteger)weekIndex weekStartDay:(NSInteger)weekStartDay macAddr:(NSString *)macAddr datesOfWeek:(NSArray <NSString *>**)dates isQueryItems:(BOOL)isQuery;                                                                   
 
 //Query current heart rate data of the current device and have detailed data
-+ (__kindof IDOSyncHrDataInfoBluetoothModel *)queryOneDayHearRatesDetailWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
++ (__kindof IDOSyncHrDataInfoBluetoothModel *)queryOneDayHearRatesDetailWithMac:(NSString *)macAddr year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
                                                                                                                                                     
 //Query all heart rate data The number of heart rate packets is greater than 0
-+ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryAllHearRates;
++ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryAllHearRatesWithMac:(NSString *)macAddr;
 
 4、sleep query
 //Query all data of the current device for 12 months in a certain year (If there is no data in the current month, an empty data object will be created, and the data larger than the current month will not be accumulated)
-+ (NSArray <NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*>*)queryOneYearSleepsWithYear:(NSInteger)year;
++ (NSArray <NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*>*)queryOneYearSleepsWithYear:(NSInteger)year macAddr:(NSString *)macAddr isQueryItems:(BOOL)isQuery;
 
 // Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created, which is larger than the data of the day)
-+ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneMonthSleepsWithYear:(NSInteger)year month:(NSInteger)month datesOfMonth:(NSArray <NSString *>**)dates;
++ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneMonthSleepsWithYear:(NSInteger)year month:(NSInteger)month
+macAddr:(NSString *)macAddr datesOfMonth:(NSArray <NSString *>**)dates isQueryItems:(BOOL)isQuery;
                                                                                                                                                       
 //Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created, and the data larger than the current day will not be accumulated)
-+ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneWeekSleepsWithWeekIndex:(NSInteger)weekIndex weekStartDay:(NSInteger)weekStartDay datesOfWeek:(NSArray <NSString *>**)dates;
++ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneWeekSleepsWithWeekIndex:(NSInteger)weekIndex weekStartDay:(NSInteger)weekStartDay macAddr:(NSString *)macAddr datesOfWeek:(NSArray <NSString *>**)dates isQueryItems:(BOOL)isQuery;
                                                                                                                                                        
 //Query the current device's sleep data and have detailed data
-+ (__kindof IDOSyncSleepDataInfoBluetoothModel *)queryOneDaySleepsDetailWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
++ (__kindof IDOSyncSleepDataInfoBluetoothModel *)queryOneDaySleepsDetailWithMac:(NSString *)macAddr year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
                                                                                                                                                     
 //Query all sleep data Sleep duration is greater than 0
-+ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryAllSleeps;
++ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryAllSleepsWithMac:(NSString *)macAddr;
 
 5、sport query
 //Query all data of the current device for 12 months in a certain year (If there is no data in the current month, an empty data object will be created, and the data larger than the current month will not be accumulated)
-+ (NSArray <NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *> *>*)queryOneYearSportsWithYear:(NSInteger)year;
++ (NSArray <NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *> *>*)queryOneYearSportsWithYear:(NSInteger)year macAddr:(NSString *)macAddr isQueryItems:(BOOL)isQuery;
 
 //Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created, which is larger than the data of the day)
-+ (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryOneMonthSportsWithYear:(NSInteger)year month:(NSInteger)month datesOfMonth:(NSArray <NSString *>**)dates;
++ (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryOneMonthSportsWithYear:(NSInteger)year month:(NSInteger)month
+macAddr:(NSString *)macAddr datesOfMonth:(NSArray <NSString *>**)dates isQueryItems:(BOOL)isQuery;
                                                                                   
 //Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created, and the data larger than the current day will not be accumulated)                                                                       
-+ (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryOneWeekSportsWithWeekIndex:(NSInteger)weekIndex weekStartDay:(NSInteger)weekStartDay datesOfWeek:(NSArray <NSString *>**)dates;
++ (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryOneWeekSportsWithWeekIndex:(NSInteger)weekIndex weekStartDay:(NSInteger)weekStartDay macAddr:(NSString *)macAddr datesOfWeek:(NSArray <NSString *>**)dates isQueryItems:(BOOL)isQuery;
                                                                                
 //Query the current device's mobile data and have detailed data                                                                                
-+ (__kindof IDOSyncSportDataInfoBluetoothModel *)queryOneDaySportDetailWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
++ (__kindof IDOSyncSportDataInfoBluetoothModel *)queryOneDaySportDetailWithMac:(NSString *)macAddr year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
 //Query all motion data Steps greater than 0
-+ (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryAllSports;
++ (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryAllSportsWithMac:(NSString *)macAddr;
 
 6、GPS query
 
 //Querying the GPS information of an activity based on the timestamp
-+ (__kindof IDOSyncGpsDataInfoBluetoothModel *)queryOneActivityCoordinatesWithTimeStr:(NSString *)timeStr;
++ (__kindof IDOSyncGpsDataInfoBluetoothModel *)queryOneActivityCoordinatesWithTimeStr:(NSString *)timeStr macAddr:(NSString *)macAddr;
 
 //Query whether an activity has a track based on a timestamp
-+ (BOOL)queryActivityHasCoordinatesWithTimeStr:(NSString *)timeStr;
++ (BOOL)queryActivityHasCoordinatesWithTimeStr:(NSString *)timeStr macAddr:(NSString *)macAddr;
 ```
 ## <span id="7.0">Average method of health data calculation</span>
 * <p>The encapsulated method of calculating the average health data is designed according to the requirements of VeryFitPro project. If the project needs are different, the data can be calculated by itself according to the query data.</p>
@@ -660,7 +670,7 @@ watchDiaModel = [IDOSetWatchDiaInfoBluetoothModel currentModel];
 
 ```objc
 <IDOUpdateManagerDelegate>
-[IDOUpdateFirmwareManager registerWtihDelegate:self];
+[IDOUpdateFirmwareManager shareInstance].delegate = self;
 - (NSString *)currentPackagePathWithUpdateManager:(IDOUpdateFirmwareManager *)manager
 {
    // firmware file path
