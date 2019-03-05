@@ -182,13 +182,15 @@
 @property (nonatomic,assign) NSInteger diastolicBp;
 
 /**
- * @brief 血压测量指令model 转结构体数据 (内部使用) | Blood pressure measurement instruction model to structure data (internal use)
+ * @brief 血压测量指令model 转结构体数据 (内部使用)
+ * Blood pressure measurement instruction model to structure data (internal use)
  * @param data 结构体指针 | Structure pointer
  */
 - (void)bpMeasureModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetBpMeasureInfoBluetoothModel
  */
 + (__kindof IDOSetBpMeasureInfoBluetoothModel *)currentModel;
@@ -208,7 +210,8 @@
 - (void)watchDiaModelToStructure:(void *)data;
 
 /**
- * @brief  查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief  查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetWatchDiaInfoBluetoothModel
  */
 + (__kindof IDOSetWatchDiaInfoBluetoothModel *)currentModel;
@@ -234,7 +237,8 @@
 - (void)startMotorInfoModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetStartMotorInfoBluetoothModel
  */
 + (__kindof IDOSetStartMotorInfoBluetoothModel *)currentModel;
@@ -254,13 +258,15 @@
 @property (nonatomic,assign) NSInteger heartRateSensorStatus;
 
 /**
- * @brief 传感器实时参数 model 转结构体数据 (内部使用) | Sensor real-time parameters model to structure data (internal use)
+ * @brief 传感器实时参数 model 转结构体数据 (内部使用)
+ * Sensor real-time parameters model to structure data (internal use)
  * @param data 结构体指针
  */
 - (void)realTimeSensorDataInfoModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetRealTimeSensorDataInfoBluetoothModel
  */
 + (__kindof IDOSetRealTimeSensorDataInfoBluetoothModel *)currentModel;
@@ -300,12 +306,14 @@
 @property (nonatomic,assign) NSInteger connTimeout;
 
 /**
- * @brief 连接参数 model 转结构体数据 (内部使用) | Connection parameters model to structure data (internal use)
+ * @brief 连接参数 model 转结构体数据 (内部使用)
+ * Connection parameters model to structure data (internal use)
  * @param data 结构体指针
  */
 - (void)connParamInfoModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetConnParamInfoBluetoothModel
  */
 + (__kindof IDOSetConnParamInfoBluetoothModel *)currentModel;
@@ -320,7 +328,8 @@
 @property (nonatomic,assign) NSInteger operate;
 
 /**
- 0x01 开启log,0x02 关闭log,0x03 agps写入,0x04 agps 擦除,0x05 gps_fw 写入 | 0x01 turns on log, 0x02 turns off log, 0x03 agps writes, 0x04 agps erases, 0x05 gps_fw writes
+ * 0x01 开启log,0x02 关闭log,0x03 agps写入,0x04 agps 擦除,0x05 gps_fw 写入
+ * 0x01 turns on log, 0x02 turns off log, 0x03 agps writes, 0x04 agps erases, 0x05 gps_fw writes
  */
 @property (nonatomic,assign) NSInteger type;
 /**
@@ -329,7 +338,8 @@
  */
 - (void)gpsControlInfoModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetGpsControlInfoBluetoothModel
  */
 + (__kindof IDOSetGpsControlInfoBluetoothModel *)currentModel;
@@ -344,7 +354,8 @@
 @property (nonatomic,assign) NSInteger startMode;
 
 /**
- 操作模式,1为正常;2为低功耗;4为Balance,5为1PPS 默认1 | Operation mode, 1 is normal; 2 is low power consumption; 4 is Balance, 5 is 1PPS   default 1
+ * 操作模式,1为正常;2为低功耗;4为Balance,5为1PPS 默认1
+ * Operation mode, 1 is normal; 2 is low power consumption; 4 is Balance, 5 is 1PPS   default 1
  */
 @property (nonatomic,assign) NSInteger gsopOperationMode;
 
@@ -354,7 +365,8 @@
 @property (nonatomic,assign) NSInteger gsopCycleMs;
 
 /**
- 定位星mode,1为GPS,2为GLONASS,3为1为GPS + GLONASS 默认1 | Positioning star mode, 1 is GPS, 2 is GLONASS, 3 is 1 for GPS + GLONASS  Default 1
+ * 定位星mode,1为GPS,2为GLONASS,3为1为GPS + GLONASS 默认1
+ * Positioning star mode, 1 is GPS, 2 is GLONASS, 3 is 1 for GPS + GLONASS  Default 1
  */
 @property (nonatomic,assign) NSInteger gnsValue;
 
@@ -393,7 +405,8 @@
  */
 - (void)gpsInfoModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetGpsConfigInfoBluetoothModel
  */
 + (__kindof IDOSetGpsConfigInfoBluetoothModel *)currentModel;
@@ -422,7 +435,8 @@
 @interface IDOSetWeatherDataInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
- 天气预报更新的时间戳 time interval since 1970 (如:1444361933) | Time stamp of weather forecast update time interval since 1970 (eg 14442361933)
+ * 天气预报更新的时间戳 time interval since 1970 (如:1444361933)
+ * Time stamp of weather forecast update time interval since 1970 (eg 14442361933)
  */
 @property (nonatomic,copy) NSString * timeStr;
 
@@ -462,7 +476,8 @@
 @property (nonatomic,assign) NSInteger todayAqi;
 
 /**
- 后两天的天气集合  @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)} | Weather collection for the last two days @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
+ * 后两天的天气集合  @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
+ * Weather collection for the last two days @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
  */
 @property (nonatomic,strong)   NSArray<NSDictionary*>* future;
 
@@ -472,7 +487,8 @@
  */
 - (void)weatherDataModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetWeatherDataInfoBluetoothModel
  */
 + (__kindof IDOSetWeatherDataInfoBluetoothModel *)currentModel;
@@ -650,12 +666,15 @@
 @property (nonatomic,assign) NSInteger shrinkage;
 
 /**
- 返回校准状态  0x01.成功进入校准模式，正在校准 0x02.在运动模式, 0x03.设备忙碌 0x04.无效的状态 0x06.校准失败 0x00.校准成功 | Return to calibration status: 0x01. Successfully entered calibration mode, calibration;  0x02. In motion mode; 0x03. Device busy; 0x04. Invalid status; 0x06. Calibration failed; 0x00. Calibration successful
+ * 返回校准状态  0x01.成功进入校准模式，正在校准 0x02.在运动模式, 0x03.设备忙碌 0x04.无效的状态 0x06.校准失败 0x00.校准成功
+ * Return to calibration status: 0x01. Successfully entered calibration mode, calibration;
+ * 0x02. In motion mode; 0x03. Device busy; 0x04. Invalid status; 0x06. Calibration failed; 0x00. Calibration successful
  */
 @property (nonatomic,assign) NSInteger statusCode;
 
 /**
- 血压校准控制  0x01 血压校准开始 0x02 血压校准查询 | Blood Pressure Calibration Control 0x01 Blood Pressure Calibration Start 0x02 Blood Pressure Calibration Query
+ * 血压校准控制  0x01 血压校准开始 0x02 血压校准查询
+ * Blood Pressure Calibration Control 0x01 Blood Pressure Calibration Start 0x02 Blood Pressure Calibration Query
  */
 @property (nonatomic,assign) NSInteger flag;
 
@@ -684,7 +703,8 @@
  */
 - (void)shortcutModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetShortcutInfoBluetoothModel
  */
 + (__kindof IDOSetShortcutInfoBluetoothModel *)currentModel;
@@ -800,7 +820,8 @@
  */
 - (void)timeModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetTimeInfoBluetoothModel
  */
 + (__kindof IDOSetTimeInfoBluetoothModel *)currentModel;
@@ -825,32 +846,36 @@
 @property (nonatomic,assign) NSInteger tempUnit;
 
 /**
- 语言单位 无效:0,中文:1,英文:2,法语:3,德语:4,意大利语:5,西班牙语:6,日语:7,
-         波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
- 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19
- Language unit   Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
- Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
- Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19
+ * 语言单位 无效:0,中文:1,英文:2,法语:3,德语:4,意大利语:5,西班牙语:6,日语:7,
+ * 波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
+ * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19
+ * Language unit   Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
+ * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
+ * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19
  */
 @property (nonatomic,assign) NSInteger languageUnit;
 
 /**
- 走路步伐 根据男性换算 默认值 90 （单位 ：cm）| Walking pace According to male conversion Default value 90 (unit: cm)
+ * 走路步伐 根据男性换算 默认值 90 （单位 ：cm）
+ * Walking pace According to male conversion Default value 90 (unit: cm)
  */
 @property (nonatomic,assign) NSInteger strideWalk;
 
 /**
- 跑步步伐 根据男性换算 默认值 72 （单位 ：cm）| Running pace Converted by male Default 72 (Unit: cm)
+ * 跑步步伐 根据男性换算 默认值 72 （单位 ：cm）
+ * Running pace Converted by male Default 72 (Unit: cm)
  */
 @property (nonatomic,assign) NSInteger strideRun;
 
 /**
- gps校准步长 0x00:无效， 0x01:开， 0x02: 关 | gps calibration step size 0x00: invalid, 0x01: on, 0x02: off
+ * gps校准步长 0x00:无效， 0x01:开， 0x02: 关
+ * gps calibration step size 0x00: invalid, 0x01: on, 0x02: off
  */
 @property (nonatomic,assign) NSInteger strideGps;
 
 /**
- 时间单位 0x00:无效， 0x01:24 小时制，0x02: 12 小时制 | Time unit 0x00: Invalid, 0x01: 24-hour clock, 0x02: 12-hour clock
+ * 时间单位 0x00:无效， 0x01:24 小时制，0x02: 12 小时制
+ * Time unit 0x00: Invalid, 0x01: 24-hour clock, 0x02: 12-hour clock
  */
 @property (nonatomic,assign) NSInteger timeUnit;
 
@@ -866,7 +891,8 @@
  */
 - (void)unitModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetUnitInfoBluetoothModel
  */
 + (__kindof IDOSetUnitInfoBluetoothModel *)currentModel;
@@ -900,7 +926,8 @@
  */
 - (void)hrIntervalModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetHrIntervalInfoBluetoothModel
  */
 + (__kindof IDOSetHrIntervalInfoBluetoothModel *)currentModel;
@@ -934,12 +961,14 @@
  */
 @property (nonatomic,assign) NSInteger  endMinute;
 /**
- * @brief 勿扰模式 model 转结构体 (内部使用) | Do not disturb mode model to structure (internal use)
+ * @brief 勿扰模式 model 转结构体 (内部使用)
+ * Do not disturb mode model to structure (internal use)
  * @param data 结构体指针 | Structure pointer
  */
 - (void)noDisturbModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetNoDisturbModeInfoBluetoothModel
  */
 + (__kindof IDOSetNoDisturbModeInfoBluetoothModel *)currentModel;
@@ -998,12 +1027,14 @@
  */
 @property (nonatomic,assign) NSInteger modeType;
 /**
- * @brief 手环横竖屏 model 转结构体 (内部使用) | Bracelet horizontal and vertical screen model to structure (internal use)
+ * @brief 手环横竖屏 model 转结构体 (内部使用)
+ * Bracelet horizontal and vertical screen model to structure (internal use)
  * @param data 结构体指针 | Structure pointer
  */
 - (void)displayModeModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetDisplayModeInfoBluetoothModel
  */
 + (__kindof IDOSetDisplayModeInfoBluetoothModel *)currentModel;
@@ -1054,7 +1085,8 @@
 - (void)handUpModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetHandUpInfoBuletoothModel
  */
 + (__kindof IDOSetHandUpInfoBuletoothModel *)currentModel;
@@ -1103,7 +1135,8 @@
  */
 - (void)longSitModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetLongSitInfoBuletoothModel
  */
 + (__kindof IDOSetLongSitInfoBuletoothModel *)currentModel;
@@ -1122,7 +1155,8 @@
  */
 - (void)weatherModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetWeatherSwitchInfoBluetoothModel
  */
 + (__kindof IDOSetWeatherSwitchInfoBluetoothModel *)currentModel;
@@ -1153,7 +1187,8 @@
 - (void)musicOpenModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetMusicOpenInfoBuletoothModel
  */
 + (__kindof IDOSetMusicOpenInfoBuletoothModel *)currentModel;
@@ -1174,7 +1209,8 @@
 - (void)preventLostModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetPreventLostInfoBuletoothModel
  */
 + (__kindof IDOSetPreventLostInfoBuletoothModel *)currentModel;
@@ -1195,7 +1231,8 @@
 - (void)leftOrRightModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetLeftOrRightInfoBuletoothModel
  */
 + (__kindof IDOSetLeftOrRightInfoBuletoothModel *)currentModel;
@@ -1216,7 +1253,8 @@
 - (void)findPhoneModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetFindPhoneInfoBuletoothModel
  */
 + (__kindof IDOSetFindPhoneInfoBuletoothModel *)currentModel;
@@ -1237,7 +1275,8 @@
 - (void)oneKeySosModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetOneKeySosInfoBuletoothModel
  */
 + (__kindof IDOSetOneKeySosInfoBuletoothModel *)currentModel;
@@ -1247,7 +1286,8 @@
 @interface IDOSetPairingInfoBuletoothModel : IDOBluetoothBaseModel
 
 /**
- 配对时间戳 time interval since 1970 (如:1444361933) | Pairing timestamp time interval since 1970 (eg 14442361933)
+ 配对时间戳 time interval since 1970 (如:1444361933)
+ * Pairing timestamp time interval since 1970 (eg 14442361933)
  */
 @property (nonatomic,copy) NSString * pairingTimeStr;
 
@@ -1270,7 +1310,8 @@
 + (__kindof IDOSetPairingInfoBuletoothModel *)switchPairingStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetPairingInfoBuletoothModel
  */
 + (__kindof IDOSetPairingInfoBuletoothModel *)currentModel;

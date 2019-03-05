@@ -205,7 +205,7 @@
 
 - (void)querySportsYearDataWtithVc:(FuncViewController *)funcVc
 {
-    NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneYearSportsWithYear:self.year isQueryItems:YES];
+    NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneYearSportsWithYear:self.year macAddr:__IDO_MAC_ADDR__ isQueryItems:NO];
     if (array.count == 0) {
         self.textView.text = @"当前年无数据";
         [funcVc showToastWithText:@"当前年无数据"];
@@ -219,7 +219,7 @@
 - (void)querySportsMonthDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * days = nil;
-    NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneMonthSportsWithYear:self.year month:self.month datesOfMonth:&days isQueryItems:NO];
+    NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneMonthSportsWithYear:self.year month:self.month macAddr:__IDO_MAC_ADDR__ datesOfMonth:&days isQueryItems:NO];
     if (array.count == 0) {
         self.textView.text = @"当前月无数据";
         [funcVc showToastWithText:@"当前月无数据"];
@@ -233,7 +233,7 @@
 - (void)querySportsWeekDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * days = nil;
-    NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneWeekSportsWithWeekIndex:self.week weekStartDay:0 datesOfWeek:&days isQueryItems:NO];
+    NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneWeekSportsWithWeekIndex:self.week weekStartDay:0 macAddr:__IDO_MAC_ADDR__ datesOfWeek:&days isQueryItems:NO];
     if (array.count == 0) {
         self.textView.text = @"当前周无数据";
         [funcVc showToastWithText:@"当前周无数据"];

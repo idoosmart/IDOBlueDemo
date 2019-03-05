@@ -40,7 +40,7 @@
         [self getLabelSelectCallback];
         [self getTextViewCallback];
         [self getCellModels];
-        [IDOUpdateFirmwareManager registerWtihDelegate:self];
+        [IDOUpdateFirmwareManager shareInstance].delegate = self;
     }
     return self;
 }

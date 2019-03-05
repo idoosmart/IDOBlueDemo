@@ -124,7 +124,7 @@
                                                         type:(int)type;
 /**
  * @brief model构建发送运开始命令结构体数据 （内部使用）|  model builds the transport start command structure data
- *  @param data 运动开始命令的结构体数据 |  structure data of commands in sport start
+ * @param data 运动开始命令的结构体数据 |  structure data of commands in sport start
  */
 - (void)dataExchangeStartModelToStructure:(void *)data
                                      type:(int)type;

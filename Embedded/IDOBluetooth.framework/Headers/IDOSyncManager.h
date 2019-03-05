@@ -30,16 +30,22 @@
 @property (nonatomic,assign,readonly) BOOL isSyncing;
 
 /**
- 当前连接设备是否在同步配置信息 | Is the currently connected device synchronizing configuration information?
+ * 当前连接设备是否在同步配置信息
+ * Is the currently connected device synchronizing configuration information?
  */
 @property (nonatomic,assign,readonly) BOOL isSyncConfigRun;
 
 /**
+ * 同步的数据是否存入SDK数据库中,默认YES
+ * Whether the synchronized data is stored in the SDK database, the default is YES
+ */
+@property (nonatomic,assign) BOOL isSave;
+
+/**
  * @brief 初始化同步管理对象 | Initialize synchronization management object
- * @param isSave 同步的数据是否存入SDK数据库中
  * @return IDOSyncManager
  */
-IDOSyncManager * _Nonnull instanceSyncManagerHandler(BOOL isSave);
++ (__kindof IDOSyncManager *)shareInstance;
 
 /**
  * @brief 同步完成,每同步完一项会回调一次 请根据上述枚举进行判断是否同步完成

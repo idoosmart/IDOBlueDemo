@@ -76,13 +76,6 @@
 + (__kindof IDOBluetoothManager *)shareInstance;
 
 /**
- * @brief 初始化蓝牙管理中心对象 | Initialize the Bluetooth Management Center object
- * @param delgate 接收管理中心角色事件的委托 | Receiving delegates for Management Center role events
- * @return IDOBluetoothManager
- */
-+ (__kindof IDOBluetoothManager *)registerWtihDelegate:(id<IDOBluetoothManagerDelegate>)delgate;
-
-/**
  开始扫描 | Start scanning
  */
 + (void)startScan;
@@ -106,13 +99,15 @@
 + (void)cancelCurrentPeripheralConnection;
 
 /**
- * 连接外围设备成功后发现外围设备特征，此方法针对蓝牙管理中心是受外边控制的场景下使用。
+ * 连接外围设备成功后发现外围设备特征
+ * After successfully connecting the peripheral device, peripheral device characteristics are found.
  */
 + (void)findCharac:(CBPeripheral *)peripheral
            service:(CBService *)service;
 
 /**
- * 蓝牙接收到手环返回的数据，此方法针对蓝牙管理中心是受外边控制的场景下使用。
+ * 蓝牙接收到手环返回的数据
+ * Bluetooth receives data from the ring
  */
 + (void)idoDidUpdateValueForCharacteristic:(CBCharacteristic *)characteristic;
 

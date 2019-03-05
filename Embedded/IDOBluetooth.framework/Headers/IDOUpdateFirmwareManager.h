@@ -23,6 +23,11 @@
 @property (nonatomic,copy,nullable) NSString * packagePath;
 
 /**
+ 外部重连设备回调
+ */
+@property (nonatomic,copy,nullable) void(^outReconnectCallback)(BOOL isSuccess);
+
+/**
  升级错误码 | Upgrade error code
  */
 @property (nonatomic,assign,readonly) IDO_UPDATE_ERROR_TYPE errorCode;
@@ -34,10 +39,9 @@
 
 /**
  * @brief 初始化升级管理中心对象 | Initialize the Upgrade Management Center object
- * @param delgate 接收管理中心角色事件的委托 | Receiving delegates for Management Center role events
  * @return IDOUpdateManager
  */
-+ (__kindof IDOUpdateFirmwareManager * _Nullable)registerWtihDelegate:(id <IDOUpdateManagerDelegate> _Nullable)delgate;
++ (__kindof IDOUpdateFirmwareManager *)shareInstance;
 
 
 /**

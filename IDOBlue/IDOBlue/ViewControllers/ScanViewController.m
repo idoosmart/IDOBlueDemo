@@ -116,7 +116,7 @@
     self.tableView.dataSource = self;
     self.tableView.tableHeaderView = headView;
     
-    [IDOBluetoothManager registerWtihDelegate:self];
+    [IDOBluetoothManager shareInstance].delegate = self;
     [IDOBluetoothManager shareInstance].rssiNum = 100;
 
 }

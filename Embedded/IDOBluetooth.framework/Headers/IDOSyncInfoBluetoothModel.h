@@ -60,9 +60,9 @@
 @property (nonatomic,assign) NSInteger itemsCount;
 
 /**
- 压力集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
+ * @brief 压力集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
  * pressure collection Only defined query methods can be converted into model collections. Custom query methods cannot be directly converted
-   into model collections. You need to query itemModel to assign current attributes.
+ * into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy) NSArray <IDOSyncPressureItemInfoBluetoothModel *>* pressures;
 
@@ -76,21 +76,24 @@
 /**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
  * Query all data of the current device for 12 months in a certain year (If there is no data in the query month, an empty data object will be created,
-   and the data larger than the current month will not be accumulated)
+ * and the data larger than the current month will not be accumulated)
  * @param year 年 (如 : 2018) | Year (eg: 2018)
+ * @param macAddr  mac 地址  | mac address
  * @param isQuery 是否查询items | is query items
  * @return 一年12个月的压力数据集合,其中IDOSyncPressureDataInfoBluetoothModel对象是一天总血氧数据模型
  * pressure data collection for 12 months a year, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
 + (NSArray <NSArray<__kindof IDOSyncPressureDataInfoBluetoothModel *>*> *)queryOneYearPressureWithYear:(NSInteger)year
+                                                                                               macAddr:(NSString *)macAddr
                                                                                           isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created,
-   which is larger than the data of the day)
+ * which is larger than the data of the day)
  * @param year 年 (如 : 2018) | Year (eg: 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
+ * @param macAddr  mac 地址  | mac address
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31])
  * Pointer to all date collections for the current query month (format: [10/01...10/31])
  * @param isQuery 是否查询items | is query items
@@ -98,16 +101,18 @@
  * A one-month pressure data collection, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
 + (NSArray <__kindof IDOSyncPressureDataInfoBluetoothModel *>*)queryOneMonthPressureWithYear:(NSInteger)year
-                                                                                     month:(NSInteger)month
-                                                                              datesOfMonth:(NSArray <NSString *>**)dates
-                                                                              isQueryItems:(BOOL)isQuery;
+                                                                                       month:(NSInteger)month
+                                                                                     macAddr:(NSString *)macAddr
+                                                                                datesOfMonth:(NSArray <NSString *>**)dates
+                                                                                isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created,
-   and the data larger than the current day will not be accumulated)
+ * and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
+ * @param macAddr  mac 地址  | mac address
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07])
  * Pointer to all date collections for the current query week (format: [10/01...10/07])
  * @param isQuery 是否查询items | is query items
@@ -115,26 +120,33 @@
  * A week's pressure data collection, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
 + (NSArray <__kindof IDOSyncPressureDataInfoBluetoothModel *>*)queryOneWeekPressureWithWeekIndex:(NSInteger)weekIndex
-                                                                                  weekStartDay:(NSInteger)weekStartDay
-                                                                                   datesOfWeek:(NSArray <NSString *>**)dates
-                                                                                  isQueryItems:(BOOL)isQuery;
+                                                                                    weekStartDay:(NSInteger)weekStartDay
+                                                                                         macAddr:(NSString *)macAddr
+                                                                                     datesOfWeek:(NSArray <NSString *>**)dates
+                                                                                    isQueryItems:(BOOL)isQuery;
 
 /**
- * @brief 查询当前设备某天压力数据并有详情数据 | Query current pressure data of the current device and have detailed data
+ * @brief 查询当前设备某天压力数据并有详情数据
+ * Query current pressure data of the current device and have detailed data
+ * @param macAddr  mac 地址  | mac address
  * @param year  年份  | year
  * @param month 月份  | month
  * @param day   日期  | day
  * @return 一天压力数据的集合和详情数据 | Collection of day pressure data and details data
  */
-+ (__kindof IDOSyncPressureDataInfoBluetoothModel *)queryOneDayPressureDetailWithYear:(NSInteger)year
-                                                                                  month:(NSInteger)month
-                                                                                    day:(NSInteger)day;
++ (__kindof IDOSyncPressureDataInfoBluetoothModel *)queryOneDayPressureDetailWithMac:(NSString *)macAddr
+                                                                                Year:(NSInteger)year
+                                                                               month:(NSInteger)month
+                                                                                 day:(NSInteger)day;
 
 /**
- * @brief 查询所有压力数据 压力包个数大于0 | Query all pressure data The number of pressure packets is greater than 0
- * @return 所有压力数据的集合和详情数据 | Collection of all pressure data and details data
+ * @brief 查询所有压力数据，压力包个数大于0
+ * Query all pressure data The number of pressure packets is greater than 0
+ * @param macAddr  mac地址 | mac address
+ * @return 所有压力数据的集合和详情数据（不包括当天数据）
+ * Collection of all pressure data and details data（Data for the day are not included）
  */
-+ (NSArray <__kindof IDOSyncPressureDataInfoBluetoothModel *>*)queryAllPressures;
++ (NSArray <__kindof IDOSyncPressureDataInfoBluetoothModel *>*)queryAllPressuresWithMac:(NSString *)macAddr;
 
 @end
 
@@ -192,7 +204,7 @@
 /**
  * 血氧集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
  * blood oxygen collection Only defined query methods can be converted into model collections. Custom query methods cannot be directly converted
-   into model collections. You need to query itemModel to assign current attributes.
+ * into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy) NSArray <IDOSyncBloodOxygenItemInfoBluetoothModel *>* bloodOxygens;
 
@@ -206,21 +218,24 @@
 /**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
  * Query all data of the current device for 12 months in a certain year (If there is no data in the query month, an empty data object will be created,
-   and the data larger than the current month will not be accumulated)
+ * and the data larger than the current month will not be accumulated)
  * @param year 年 (如 : 2018) | Year (eg: 2018)
+ * @param macAddr  mac 地址  | mac address
  * @param isQuery 是否查询items | is query items
  * @return 一年12个月的血氧数据集合,其中IDOSyncBloodOxygenDataInfoBluetoothModel对象是一天总血氧数据模型
  * Blood oxygen data collection for 12 months a year, where the IDOSyncBloodOxygenDataInfoBluetoothModel object is the total blood oxygen data model for the day
  */
 + (NSArray <NSArray<__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*> *)queryOneYearBloodOxygenWithYear:(NSInteger)year
+                                                                                                     macAddr:(NSString *)macAddr
                                                                                                 isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created,
-   which is larger than the data of the day)
+ * which is larger than the data of the day)
  * @param year 年 (如 : 2018) | Year (eg: 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
+ * @param macAddr  mac 地址  | mac address
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31])
  * Pointer to all date collections for the current query month (format: [10/01...10/31])
  * @param isQuery 是否查询items | is query items
@@ -229,15 +244,17 @@
  */
 + (NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneMonthBloodOxygenWithYear:(NSInteger)year
                                                                                              month:(NSInteger)month
+                                                                                           macAddr:(NSString *)macAddr
                                                                                       datesOfMonth:(NSArray <NSString *>**)dates
                                                                                       isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created,
-   and the data larger than the current day will not be accumulated)
+ * and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
+ * @param macAddr  mac 地址  | mac address
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07])
  * Pointer to all date collections for the current query week (format: [10/01...10/07])
  * @param isQuery 是否查询items | is query items
@@ -246,25 +263,32 @@
  */
 + (NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneWeekBloodOxygenWithWeekIndex:(NSInteger)weekIndex
                                                                                           weekStartDay:(NSInteger)weekStartDay
+                                                                                               macAddr:(NSString *)macAddr
                                                                                            datesOfWeek:(NSArray <NSString *>**)dates
                                                                                           isQueryItems:(BOOL)isQuery;
 
 /**
- * @brief 查询当前设备某天血氧数据并有详情数据 | Query current blood oxygen data of the current device and have detailed data
+ * @brief 查询当前设备某天血氧数据并有详情数据
+ * Query current blood oxygen data of the current device and have detailed data
+ * @param macAddr  mac 地址  | mac address
  * @param year  年份  | year
  * @param month 月份  | month
  * @param day   日期  | day
  * @return 一天血氧数据的集合和详情数据 | Collection of day blood oxygen data and details data
  */
-+ (__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *)queryOneDayBloodOxygenDetailWithYear:(NSInteger)year
-                                                                                      month:(NSInteger)month
-                                                                                        day:(NSInteger)day;
++ (__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *)queryOneDayBloodOxygenDetailWithMac:(NSString *)macAddr
+                                                                                      year:(NSInteger)year
+                                                                                     month:(NSInteger)month
+                                                                                       day:(NSInteger)day;
 
 /**
- * @brief 查询所有血氧数据 血氧包个数大于0 | Query all blood oxygen data The number of blood oxygen packets is greater than 0
- * @return 所有血氧数据的集合和详情数据 | Collection of all blood oxygen data and details data
+ * @brief 查询所有血氧数据,血氧包个数大于0
+ * Query all blood oxygen data The number of blood oxygen packets is greater than 0
+ * @param macAddr  mac地址 | mac address
+ * @return 所有血氧数据的集合和详情数据（不包括当天数据）
+ * Collection of all blood oxygen data and details data
  */
-+ (NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryAllBloodOxygens;
++ (NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryAllBloodOxygensWithMac:(NSString *)macAddr;
 
 @end
 
@@ -331,8 +355,8 @@
 @property (nonatomic,assign) NSInteger  packetCount;
 
 /*
- 类型:0x01:走路, 0x02:跑步， 0x03:骑行 0x04:徒步 这些类型才有轨迹运动
- Type: 0x01: Walk, 0x02: Running, 0x03: Cycling 0x04: Walking These types have track motion
+ * 类型:0x01:走路, 0x02:跑步， 0x03:骑行 0x04:徒步 这些类型才有轨迹运动
+ * Type: 0x01: Walk, 0x02: Running, 0x03: Cycling 0x04: Walking These types have track motion
  */
 @property (nonatomic,assign) NSInteger type;
 
@@ -405,43 +429,52 @@
 
 /**
  * @brief 当前设备根据活动开始时间查询某个活动详情 | The current device queries an event details based on the event start time
+ * @param macAddr  mac地址 | Mac address
  * @param timeStr 活动开始时间 | Event start time
  * @return model IDOSyncActivityDataInfoBluetoothModel
  */
-+ (__kindof IDOSyncActivityDataInfoBluetoothModel *)queryOneActivityDataWithTimeStr:(NSString *)timeStr;
++ (__kindof IDOSyncActivityDataInfoBluetoothModel *)queryOneActivityDataWithTimeStr:(NSString *)timeStr
+                                                                            macAddr:(NSString *)macAddr;
 
 /**
- * @brief 当前设备根据日期查询某天的活动集合 | The current device queries the collection of events for a certain day based on the date
+ * @brief 当前设备根据日期查询某天的活动集合
+ * The current device queries the collection of events for a certain day based on the date
+ * @param macAddr  mac地址 | Mac address
  * @param year  年份 | year
  * @param month 月份 | month
  * @param day   日期 | day
  * @return 活动集合 | Activity collection
  */
-+ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryOneDayActivityDataWithYear:(NSInteger)year
-                                                                                         month:(NSInteger)month
-                                                                                           day:(NSInteger)day;
++ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryOneDayActivityDataWithMacAddr:(NSString *)macAddr
+                                                                                             year:(NSInteger)year
+                                                                                            month:(NSInteger)month
+                                                                                              day:(NSInteger)day;
 
 
 /**
  * @brief 当前设备活动分页查询活动集合 | Current Device Activity Paging Query Activity Collection
  * @param pageIndex 页码 第几页 (如 : 0,1,2,3,4,...) | Page Number of pages (eg : 0,1,2,3,4,...)
  * @param numOfPage 每页的数据个数 (如 : 10,20,30...) | The number of data per page (eg: 10, 20, 30...)
+ * @param macAddr  mac地址 | Mac address
  * @return 活动集合
  */
 + (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryOnePageActivityDataWithPageIndex:(NSInteger)pageIndex
-                                                                                           numOfPage:(NSInteger)numOfPage;
+                                                                                           numOfPage:(NSInteger)numOfPage
+                                                                                             macAddr:(NSString *)macAddr;
 
 /**
  * @brief 当前设备所有轨迹运动 | Current track motion of all devices
+ * @param macAddr mac 地址 | mac address
  * @return 活动集合 | Activity collection
  */
-+ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryAllTrajectorySportActivitys;
++ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryAllTrajectorySportActivitysWithMac:(NSString *)macAddr;
 
 /**
  * @brief 当前设备所有轻运动 | Current equipment all light sports
+ * @param macAddr mac 地址 | mac address
  * @return 活动集合 | Activity collection
  */
-+ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryAllLightSportActivitys;
++ (NSArray <__kindof IDOSyncActivityDataInfoBluetoothModel *>*)queryAllLightSportActivitysWithMac:(NSString *)macAddr;
 
 
 
@@ -516,7 +549,7 @@
 /**
  * 血压集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
  * Blood pressure collection Only defined query methods can be converted into model collections. Custom query methods cannot be directly
-   converted into model collections. You need to query itemModel to assign current attributes.
+ * converted into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy)   NSArray <IDOSyncBpDataItemInfoBluetoothModel *>* bloodbPressures;
 
@@ -545,19 +578,20 @@
 /**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
  * Query all data of the current device for 12 months in a certain year (If there is no data in the current month, an empty data object will be created,
-   and the data larger than the current month will not be accumulated)
+ * and the data larger than the current month will not be accumulated)
  * @param year 年 (如 : 2018) | year (eg 2018)
  * @param isQuery 是否查询items | is query items
  * @return 一年12个月的血压数据集合,其中IDOSyncBpDataInfoBluetoothModel对象是一天总血压数据模型
  * A 12-month blood pressure data collection, where the IDOSyncBpDataInfoBluetoothModel object is a total blood pressure data model for the day
  */
 + (NSArray <NSArray<__kindof IDOSyncBpDataInfoBluetoothModel *>*> *)queryOneYearBloodPressuresWithYear:(NSInteger)year
+                                                                                               macAddr:(NSString *)macAddr
                                                                                           isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created,
-   which is larger than the data of the day)
+ * which is larger than the data of the day)
  * @param year 年 (如 : 2018) | Year (eg: 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31])
@@ -568,13 +602,14 @@
  */
 + (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryOneMonthBloodPressuresWithYear:(NSInteger)year
                                                                                        month:(NSInteger)month
+                                                                                     macAddr:(NSString *)macAddr
                                                                                 datesOfMonth:(NSArray <NSString *>**)dates
                                                                                 isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created,
-   and the data larger than the current day will not be accumulated)
+ * and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07])
@@ -585,31 +620,39 @@
  */
 + (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryOneWeekBloodPressuresWithWeekIndex:(NSInteger)weekIndex
                                                                                     weekStartDay:(NSInteger)weekStartDay
+                                                                                         macAddr:(NSString *)macAddr
                                                                                      datesOfWeek:(NSArray <NSString *>**)dates
                                                                                     isQueryItems:(BOOL)isQuery;
 
 /**
- * @brief 查询当前设备某天血压数据并有详情数据 | Query current device blood pressure data for one day and have detailed data
+ * @brief 查询当前设备某天血压数据并有详情数据
+ * Query current device blood pressure data for one day and have detailed data
+ * @param macAddr mac 地址 | mac address
  * @param year  年份 | year
  * @param month 月份 | month
  * @param day   日期 | day
  * @return 一天血压数据的集合和详情数据 | Collection of day blood pressure data and detailed data
  */
-+ (__kindof IDOSyncBpDataInfoBluetoothModel *)queryOneDayBloodPressureDetailWithYear:(NSInteger)year
-                                                                               month:(NSInteger)month
-                                                                                 day:(NSInteger)day;
++ (__kindof IDOSyncBpDataInfoBluetoothModel *)queryOneDayBloodPressureDetailWithMac:(NSString *)macAddr
+                                                                               year:(NSInteger)year
+                                                                              month:(NSInteger)month
+                                                                                day:(NSInteger)day;
 
 /**
- * @brief 查询当前设备最近一天血压数据并有详情数据 | Query the current day's blood pressure data of the device and have detailed data
+ * @brief 查询当前设备最近一天血压数据并有详情数据
+ * Query the current day's blood pressure data of the device and have detailed data
+ * @param macAddr mac 地址 | mac address
  * @return 一天血压数据的集合和详情数据 | Collection of day blood pressure data and detailed data
  */
-+ (__kindof IDOSyncBpDataInfoBluetoothModel *)queryLastDayBloodPressureDetail;
++ (__kindof IDOSyncBpDataInfoBluetoothModel *)queryLastDayBloodPressureDetailWithMac:(NSString *)macAddr;
 
 /**
- * @brief 查询所有血压数据 血压包数大于0 | Query all blood pressure data The number of blood pressure packets is greater than 0
+ * @brief 查询所有血压数据 血压包数大于0
+ * Query all blood pressure data The number of blood pressure packets is greater than 0
+ * @param macAddr mac 地址 | mac address
  * @return 所有血压数据的集合和详情数据 | Collection and detailed data of all blood pressure data
  */
-+ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryAllBloodPressures;
++ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryAllBloodPressuresWithMac:(NSString *)macAddr;
 
 @end
 
@@ -707,7 +750,7 @@
 /**
  * 心率集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
  * Heart rate collection Only defined query methods can be converted into model collections. Custom query methods cannot be directly
- *  converted into model collections. You need to query itemModel to assign current attributes.
+ * converted into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy) NSArray <IDOSyncHrDataItemInfoBluetoothModel *>* heartRates;
 
@@ -726,21 +769,24 @@
 /**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
  * Query all data of the current device for 12 months in a certain year (If there is no data in the query month, an empty data object will be created,
-   and the data larger than the current month will not be accumulated)
+ * and the data larger than the current month will not be accumulated)
  * @param year 年 (如 : 2018) | Year (eg: 2018)
+ * @param macAddr mac 地址 | mac address
  * @param isQuery 是否查询items | is query items
  * @return 一年12个月的心率数据集合,其中IDOSyncHrDataInfoBluetoothModel对象是一天总心率数据模型
  * Heart rate data collection for 12 months a year, where the IDOSyncHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
 + (NSArray <NSArray<__kindof IDOSyncHrDataInfoBluetoothModel *>*> *)queryOneYearHearRatesWithYear:(NSInteger)year
+                                                                                          macAddr:(NSString *)macAddr
                                                                                      isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created,
-   which is larger than the data of the day)
+ * which is larger than the data of the day)
  * @param year 年 (如 : 2018) | Year (eg: 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
+ * @param macAddr mac 地址 | mac address
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31])
  * Pointer to all date collections for the current query month (format: [10/01...10/31])
  * @param isQuery 是否查询items | is query items
@@ -749,15 +795,17 @@
  */
 + (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryOneMonthHearRatesWithYear:(NSInteger)year
                                                                                   month:(NSInteger)month
+                                                                                macAddr:(NSString *)macAddr
                                                                            datesOfMonth:(NSArray <NSString *>**)dates
                                                                            isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created,
-   and the data larger than the current day will not be accumulated)
+ * and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
+ * @param macAddr mac 地址 | mac address
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07])
  * Pointer to all date collections for the current query week (format: [10/01...10/07])
  * @param isQuery 是否查询items | is query items
@@ -766,32 +814,37 @@
  */
 + (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryOneWeekHearRatesWithWeekIndex:(NSInteger)weekIndex
                                                                                weekStartDay:(NSInteger)weekStartDay
+                                                                                    macAddr:(NSString *)macAddr
                                                                                 datesOfWeek:(NSArray <NSString *>**)dates
                                                                                isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天心率数据并有详情数据 | Query current heart rate data of the current device and have detailed data
+ * @param macAddr mac 地址 | mac address
  * @param year  年份  | year
  * @param month 月份  | month
  * @param day   日期  | day
  * @return 一天心率数据的集合和详情数据 | Collection of day heart rate data and details data
  */
-+ (__kindof IDOSyncHrDataInfoBluetoothModel *)queryOneDayHearRatesDetailWithYear:(NSInteger)year
-                                                                           month:(NSInteger)month
-                                                                             day:(NSInteger)day;
++ (__kindof IDOSyncHrDataInfoBluetoothModel *)queryOneDayHearRatesDetailWithMac:(NSString *)macAddr
+                                                                           year:(NSInteger)year
+                                                                          month:(NSInteger)month
+                                                                            day:(NSInteger)day;
 
 /**
  * @brief 查询所有心率数据 心率包个数大于0 | Query all heart rate data The number of heart rate packets is greater than 0
+ * @param macAddr mac 地址 | mac address
  * @return 所有心率数据的集合和详情数据 | Collection of all heart rate data and details data
  */
-+ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryAllHearRates;
++ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryAllHearRatesWithMac:(NSString *)macAddr;
 
 @end
 
 @interface IDOSyncSleepDataItemInfoBluetoothModel : IDOBluetoothBaseModel
 
 /**
- 睡眠状态 睡眠状态(0x01: 醒着， 0x02:浅睡， 0x03:深睡) | Sleep state Sleep state (0x01: awake, 0x02: light sleep, 0x03: deep sleep)
+ * 睡眠状态 睡眠状态(0x01: 醒着， 0x02:浅睡， 0x03:深睡)
+ * Sleep state Sleep state (0x01: awake, 0x02: light sleep, 0x03: deep sleep)
  */
 @property (nonatomic,assign) NSInteger  sleepStatus;
 
@@ -870,9 +923,9 @@
 @property (nonatomic,assign) NSInteger goalSleepData;
 
 /**
- 睡眠数据集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
+ * 睡眠数据集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
  * Sleep data collection Only defined query methods can be converted into model collections. Custom query methods cannot be directly converted
-   into model collections. You need to query itemModel to assign current attributes.
+ * into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy) NSArray <IDOSyncSleepDataItemInfoBluetoothModel *> * sleepItems;
 
@@ -906,21 +959,24 @@
 /**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
  * Query all data of the current device for 12 months in a certain year (If there is no data in the current month, an empty data object will be created,
-   and the data larger than the current month will not be accumulated)
+ * and the data larger than the current month will not be accumulated)
  * @param year 年 (如 : 2018) | Year (eg: 2018)
+ * @param macAddr mac 地址 | mac address
  * @param isQuery 是否查询items | is query items
  * @return 一年12个月的睡眠数据集合,其中IDOSyncSleepDataInfoBluetoothModel对象是一天总睡眠数据模型
  * 12 months of sleep data collection, IDOSyncSleepDataInfoBluetoothModel object is the total day sleep data model
  */
 + (NSArray <NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*>*)queryOneYearSleepsWithYear:(NSInteger)year
+                                                                                          macAddr:(NSString *)macAddr
                                                                                      isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created,
-   which is larger than the data of the day)
+ * which is larger than the data of the day)
  * @param year 年 (如 : 2018) | year year (eg 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
+ * @param macAddr mac 地址 | mac address
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31])
  * Pointer to all date collections for the current query month (format: [10/01...10/31])
  * @param isQuery 是否查询items | is query items
@@ -929,15 +985,17 @@
  */
 + (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneMonthSleepsWithYear:(NSInteger)year
                                                                                   month:(NSInteger)month
+                                                                                macAddr:(NSString *)macAddr
                                                                            datesOfMonth:(NSArray <NSString *>**)dates
                                                                            isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created,
-   and the data larger than the current day will not be accumulated)
+ * and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
+ * @param macAddr mac 地址 | mac address
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07]) | Pointer to all date collections for the current query week (format: [10/01...10/07])
  * @param isQuery 是否查询items | is query items
  * @return 一周的睡眠数据集合,其中IDOSyncSleepDataInfoBluetoothModel对象是一天总睡眠数据模型
@@ -945,25 +1003,29 @@
  */
 + (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneWeekSleepsWithWeekIndex:(NSInteger)weekIndex
                                                                                weekStartDay:(NSInteger)weekStartDay
+                                                                                    macAddr:(NSString *)macAddr
                                                                                 datesOfWeek:(NSArray <NSString *>**)dates
                                                                                isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天睡眠数据并有详情数据 | Query the current device's sleep data and have detailed data
+ * @param macAddr mac 地址 | mac address
  * @param year  年份 | year
  * @param month 月份 |  month
  * @param day   日期 |  day
  * @return 一天睡眠数据的集合和详情数据 | Collection of daily sleep data and detailed data
  */
-+ (__kindof IDOSyncSleepDataInfoBluetoothModel *)queryOneDaySleepsDetailWithYear:(NSInteger)year
++ (__kindof IDOSyncSleepDataInfoBluetoothModel *)queryOneDaySleepsDetailWithMac:(NSString *)macAddr
+                                                                           year:(NSInteger)year
                                                                           month:(NSInteger)month
                                                                             day:(NSInteger)day;
 
 /**
  * @brief 查询所有睡眠数据 睡眠时长大于0 | Query all sleep data Sleep duration is greater than 0
+ * @param macAddr mac 地址 | mac address
  * @return 所有睡眠数据的集合和详情数据 | Collection and details of all sleep data
  */
-+ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryAllSleeps;
++ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryAllSleepsWithMac:(NSString *)macAddr;
 
 @end
 
@@ -1036,7 +1098,7 @@
 /**
  * 运动数据集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
  * Motion data collection Only defined query methods can be converted into model collections. Custom query methods cannot be directly
-   converted into model collections. You need to query itemModel to assign current attributes.
+ * converted into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy) NSArray  <IDOSyncSportDataItemInfoBluetoothModel *>* sportItems;
 
@@ -1085,21 +1147,24 @@
 /**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
  * Query all data of the current device for 12 months in a certain year (If there is no data in the current month, an empty data object will be created,
-   and the data larger than the current month will not be accumulated)
+ * and the data larger than the current month will not be accumulated)
  * @param year 年 (如 : 2018) | Year (eg: 2018)
+ * @param macAddr mac 地址 | mac address
  * @param isQuery 是否查询items | is query items
  * @return 一年12个月的运动数据集合，其中IDOSyncSportDataInfoBluetoothModel对象是一天总运动数据模型
  * A 12-month sports data collection, where the IDOSyncSportDataInfoBluetoothModel object is a total day motion data model
  */
 + (NSArray <NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *> *>*)queryOneYearSportsWithYear:(NSInteger)year
+                                                                                           macAddr:(NSString *)macAddr
                                                                                       isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created,
-   which is larger than the data of the day)
+ * which is larger than the data of the day)
  * @param year 年 (如 : 2018) | Year (eg: 2018)
  * @param month 月 (如 : 9) | Month (eg: 9)
+ * @param macAddr mac 地址 | mac address
  * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31])
  * Pointer to all date collections for the current query month (format: [10/01...10/31])
  * @param isQuery 是否查询items | is query items
@@ -1108,15 +1173,17 @@
  */
 + (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryOneMonthSportsWithYear:(NSInteger)year
                                                                                   month:(NSInteger)month
+                                                                                macAddr:(NSString *)macAddr
                                                                            datesOfMonth:(NSArray <NSString *>**)dates
                                                                            isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
  * Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created,
-   and the data larger than the current day will not be accumulated)
+ * and the data larger than the current day will not be accumulated)
  * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
  * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
+ * @param macAddr mac 地址 | mac address
  * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07])
  * Pointer to all date collections for the current query week (format: [10/01...10/07])
  * @param isQuery 是否查询items | is query items
@@ -1125,26 +1192,30 @@
  */
 + (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryOneWeekSportsWithWeekIndex:(NSInteger)weekIndex
                                                                                weekStartDay:(NSInteger)weekStartDay
+                                                                                    macAddr:(NSString *)macAddr
                                                                                 datesOfWeek:(NSArray <NSString *>**)dates
                                                                                isQueryItems:(BOOL)isQuery;
 
 
 /**
  * @brief 查询当前设备某天运动据并有详情数据 | Query the current device's mobile data and have detailed data
+ * @param macAddr mac 地址 | mac address
  * @param year  年份 | year
  * @param month 月份 | month
  * @param day   日期 | day
  * @return 一天运动数据的集合和详情数据 | Collection of daily exercise data and detailed data
  */
-+ (__kindof IDOSyncSportDataInfoBluetoothModel *)queryOneDaySportDetailWithYear:(NSInteger)year
-                                                                          month:(NSInteger)month
-                                                                            day:(NSInteger)day;
++ (__kindof IDOSyncSportDataInfoBluetoothModel *)queryOneDaySportDetailWithMac:(NSString *)macAddr
+                                                                          year:(NSInteger)year
+                                                                         month:(NSInteger)month
+                                                                           day:(NSInteger)day;
 
 /**
  * @brief 查询所有运动数据 步数大于0 | Query all motion data Steps greater than 0
+ * @param macAddr mac 地址 | mac address
  * @return 所有运动数据的集合和详情数据 | Collection and detailed data of all sports data
  */
-+ (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryAllSports;
++ (NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)queryAllSportsWithMac:(NSString *)macAddr;
 
 @end
 
@@ -1240,7 +1311,7 @@
 /**
  * GPS 坐标点集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
  * GPS coordinate point set Only defined query methods can be converted into model collections. Custom query methods cannot be directly
-   converted into model collections. You need to query itemModel to assign current attributes.
+ * converted into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy) NSArray <IDOSyncGpsDataItemInfoBluetoothModel *>* gpsItems;
 
@@ -1254,16 +1325,20 @@
 /**
  * @brief 根据时间戳查询某个活动的GPS信息 | Querying the GPS information of an activity based on the timestamp
  * @param timeStr 时间戳  time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ * @param macAddr mac 地址 | mac address
  * @return gps信息数据 坐标item对象集合 | gps information data coordinate item object collection
  */
-+ (__kindof IDOSyncGpsDataInfoBluetoothModel *)queryOneActivityCoordinatesWithTimeStr:(NSString *)timeStr;
++ (__kindof IDOSyncGpsDataInfoBluetoothModel *)queryOneActivityCoordinatesWithTimeStr:(NSString *)timeStr
+                                                                              macAddr:(NSString *)macAddr;
 
 /**
  * @brief 根据时间戳查询某个活动是否存在轨迹 | Query whether an activity has a track based on a timestamp
  * @param timeStr 时间戳  time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ * @param macAddr mac 地址 | mac address
  * @return 是否存在轨迹 yes or no | Is there a track?
  */
-+ (BOOL)queryActivityHasCoordinatesWithTimeStr:(NSString *)timeStr;
++ (BOOL)queryActivityHasCoordinatesWithTimeStr:(NSString *)timeStr
+                                       macAddr:(NSString *)macAddr;
 
 @end
 

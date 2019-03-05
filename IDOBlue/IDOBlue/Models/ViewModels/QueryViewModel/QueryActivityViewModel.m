@@ -52,8 +52,7 @@
 
 - (void)getCellModels
 {
-    NSArray <IDOSyncActivityDataInfoBluetoothModel *> * activitys = [IDOSyncActivityDataInfoBluetoothModel queryOnePageActivityDataWithPageIndex:self.pageIndex
-                                                                                                                                       numOfPage:self.pageNumber];
+    NSArray <IDOSyncActivityDataInfoBluetoothModel *> * activitys = [IDOSyncActivityDataInfoBluetoothModel queryOnePageActivityDataWithPageIndex:self.pageIndex numOfPage:self.pageNumber macAddr:__IDO_MAC_ADDR__];
     [self.allActivitys addObjectsFromArray:activitys];
     
     NSMutableArray * cellModels = [NSMutableArray array];
