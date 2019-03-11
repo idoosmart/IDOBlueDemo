@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <IDOBluetooth/IDOEnum.h>
 #import <IDOBluetooth/IDOGetInfoBluetoothModel.h>
 #import <IDOBluetooth/IDOSetInfoBluetoothModel.h>
 #import <IDOBluetooth/IDOBluetoothManager.h>
@@ -70,6 +71,10 @@
  */
 #define __IDO_PERIPHERAL__  IDO_BLUE_ENGINE.managerEngine.peripheral
 
+/**
+ IDO 当前升级框架类型 | updates framework type
+ */
+#define __IDO_UPDATE_FRAME_TYPE__  IDO_BLUE_ENGINE.managerEngine.updateFrameworkType
 
 
 @interface IDOBluetoothManagerInfoEngine : NSObject
@@ -123,6 +128,11 @@
  功能列表 | Function List
  */
 @property (nonatomic,strong) IDOGetDeviceFuncBluetoothModel * funcTableModel;
+
+/**
+ * 固件升级使用框架类型 | Firmware updates use the frame type
+ */
+@property (nonatomic,assign) IDO_UPDATE_FRAMEWORK_TYPE updateFrameworkType;
 
 /**
  当前手环活动个数 | Current number of bracelet events

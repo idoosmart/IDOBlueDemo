@@ -248,14 +248,11 @@
     for (NSArray<IDOSyncHrDataInfoBluetoothModel *> * oneMonthModels in models) {
         NSMutableArray * oneMonthAllItems = [NSMutableArray array];
         for (IDOSyncHrDataInfoBluetoothModel * hrData in oneMonthModels) {
-            if (hrData.heartRates.count > 0) {
-                [oneMonthAllItems addObjectsFromArray:hrData.heartRates];
-            }
+            if (hrData.silentHeartRate == 0)continue;
+            [oneMonthAllItems addObject:[NSNumber numberWithInteger:hrData.silentHeartRate]];
         }
-        NSPredicate * predicate     =  [NSPredicate predicateWithFormat:@"data > 0"];
-        NSArray * newModels         =  [oneMonthAllItems filteredArrayUsingPredicate:predicate];
-        if (newModels.count > 0) {
-            NSInteger totalHr =  (NSInteger)[[newModels valueForKeyPath:@"@avg.data"] floatValue];
+        if (oneMonthAllItems.count > 0) {
+            NSInteger totalHr =  (NSInteger)[[oneMonthAllItems valueForKeyPath:@"@avg.floatValue"] floatValue];
             [allMonths addObject:[NSNumber numberWithInteger:totalHr]];
         }else {
             [allMonths addObject:[NSNumber numberWithInt:0]];
@@ -278,18 +275,8 @@
     if (models.count == 0) return;
     NSMutableArray * allDays = [NSMutableArray array];
     for (IDOSyncHrDataInfoBluetoothModel * model in models) {
-        NSMutableArray * oneDayAllItems = [NSMutableArray array];
-        if (model.heartRates.count > 0) {
-            [oneDayAllItems addObjectsFromArray:model.heartRates];
-        }
-        NSPredicate * predicate     =  [NSPredicate predicateWithFormat:@"data > 0"];
-        NSArray * newModels         =  [oneDayAllItems filteredArrayUsingPredicate:predicate];
-        if (newModels.count > 0) {
-            NSInteger totalHr =  (NSInteger)[[newModels valueForKeyPath:@"@avg.data"] floatValue];
-            [allDays addObject:[NSNumber numberWithInteger:totalHr]];
-        }else {
-            [allDays addObject:[NSNumber numberWithInt:0]];
-        }
+        if (model.silentHeartRate == 0)continue;
+        [allDays addObject:[NSNumber numberWithInteger:model.silentHeartRate]];
     }
     NSMutableArray * titles = [NSMutableArray array];
     for (int i = 1; i <= days.count; i++) {

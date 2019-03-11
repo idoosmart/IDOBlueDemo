@@ -604,4 +604,21 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
     IDO_PAIRING_RECONNECT_SET_SUB_SWITCH_SUCCESS_LOG,
 };
 
+/**
+ * 固件升级使用框架类型
+ * Firmware updates use the frame type
+ */
+typedef NS_ENUM(NSInteger, IDO_UPDATE_FRAMEWORK_TYPE)  {
+    /**
+     * nordic 蓝牙升级
+     * nordic bluetooth update
+     */
+    IDO_NORDIC_FRAMEWORK_TYPE = 0,
+    /**
+     * realtk 蓝牙升级
+     * realtk bluetooth update
+     */
+    IDO_REALTK_FRAMEWORK_TYPE,
+};
+
 #endif /* IDOEnum_h */

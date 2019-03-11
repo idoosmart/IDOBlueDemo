@@ -11,8 +11,8 @@
 
 /**
  * @brief 传人agps文件路径,当回调后才可执行开始更新的方法,因为需要执行连接参数,设置传输速度
- * Pass the agps file path, the call to start the update method after the callback, because you need to execute the connection parameters,
- * set the transfer speed.
+ * Pass the agps file path, the call to start the update method after the callback,
+ * because you need to execute the connection parameters,set the transfer speed.
  * @param packagePath agps文件路径 | packagePath agps file path
  * @param callback 状态回调 (errorCode : 0 设置成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Status callback (errorCode : 0 set successfully, other values are wrong, you can get error code str according to IDOErrorCodeToStr)

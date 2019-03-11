@@ -109,19 +109,9 @@
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
                     [funcVC showToastWithText:@"退出成功"];
-                    UINavigationController * rootvc =  (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-                    UIViewController * firstvc = [rootvc.viewControllers firstObject];
-                    if ([firstvc isKindOfClass:[ScanViewController class]]) {
-                        [funcVC dismissViewControllerAnimated:YES completion:nil];
-                    }else {
-                        [funcVC.navigationController popToRootViewControllerAnimated:NO];
-                        ScanViewController * scanVC  = [[ScanViewController alloc]init];
-                        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-                        [firstvc presentViewController:nav animated:YES completion:nil];
-                    }
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [IDOBluetoothManager startScan];
-                    });
+                    ScanViewController * scanVC  = [[ScanViewController alloc]init];
+                    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+                    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
                 }else {
                     [funcVC showToastWithText:@"退出失败"];
                 }
@@ -216,35 +206,26 @@
 {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     if (state == IDO_UPDATE_COMPLETED) {
-        funcVC.statusLabel.text = @"  升级成功";
+        funcVC.statusLabel.text = @"升级成功";
         [funcVC showToastWithText:@"升级成功"];
-        NSInteger type = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-        if (type == 0) {
+        if (!__IDO_BIND__) {
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
-                    UINavigationController * rootvc =  (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-                    UIViewController * firstvc = [rootvc.viewControllers firstObject];
-                    if ([firstvc isKindOfClass:[ScanViewController class]]) {
-                        [funcVC dismissViewControllerAnimated:YES completion:nil];
-                    }else {
-                        [funcVC.navigationController popToRootViewControllerAnimated:NO];
-                        ScanViewController * scanVC  = [[ScanViewController alloc]init];
-                        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-                        [firstvc presentViewController:nav animated:YES completion:nil];
-                    }
-                    [IDOBluetoothManager startScan];
+                    ScanViewController * scanVC  = [[ScanViewController alloc]init];
+                    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+                    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
                 }
             }];
         }
     }else {
-       funcVC.statusLabel.text = @"  升级中...";
+       funcVC.statusLabel.text = @"升级中...";
     }
 }
 
 - (void)updateManager:(IDOUpdateFirmwareManager *)manager updateError:(NSError *)error
 {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
-    funcVC.statusLabel.text = @"  升级失败";
+    funcVC.statusLabel.text = @"升级失败";
     [funcVC showToastWithText:@"升级失败"];
     NSString * errorStr = [NSString stringWithFormat:@"%@\n",error.domain];
     [self addMessageText:errorStr];
@@ -262,6 +243,7 @@
     }
 }
 
+/********此方法可以忽略*********/
 - (IDO_UPDATE_DFU_FIRMWARE_TYPE)selectDfuFirmwareTypeWithUpdateManager:(IDOUpdateFirmwareManager * _Nullable)manager {
     NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
     if (!fileType) fileType = @"Application";

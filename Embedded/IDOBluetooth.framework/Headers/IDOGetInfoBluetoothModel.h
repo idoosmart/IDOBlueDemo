@@ -1546,14 +1546,16 @@
 @property (nonatomic,assign) NSInteger sportShowCount;
 
 /**
- * @brief 设备功能列表结构体转model (内部使用) | Device function list structure body model (internal use)
+ * @brief 设备功能列表结构体转model (内部使用)
+ * Device function list structure body model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetDeviceFuncBluetoothModel
  */
 + (__kindof IDOGetDeviceFuncBluetoothModel *)deviceFuncStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetDeviceFuncBluetoothModel
  */
 + (__kindof IDOGetDeviceFuncBluetoothModel *)currentModel;
@@ -1601,10 +1603,18 @@
 + (__kindof IDOGetDeviceInfoBluetoothModel *)deviceStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetDeviceInfoBluetoothModel
  */
 + (__kindof IDOGetDeviceInfoBluetoothModel *)currentModel;
+
+/**
+ * @brief 查询本地所有设备信息（不包括Mac地址不存在的设备）
+ * Query all local device information (excluding devices where Mac addresses do not exist)
+ * @return IDOGetDeviceInfoBluetoothModel array
+ */
++ (NSArray <__kindof IDOGetDeviceInfoBluetoothModel *>*)queryAllDeviceModels;
 
 @end
 

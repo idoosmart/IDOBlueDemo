@@ -11,6 +11,7 @@
 #import "OneButtonTableViewCell.h"
 #import "FuncViewController.h"
 #import "ComLogViewModel.h"
+#import "SwitchDeviceViewModel.h"
 #import "RestartLogViewModel.h"
 #import "ScanViewController.h"
 
@@ -33,7 +34,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"设备解绑"],@[@"强制解绑"]];
+        _buttonTitles = @[@[@"设备解绑"],@[@"强制解绑"],@[@"切换设备"]];
     }
     return _buttonTitles;
 }
@@ -65,41 +66,30 @@
             [IDOFoundationCommand unbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
                     [funcVc showToastWithText:@"解绑设备成功"];
-                    UINavigationController * rootvc =  (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-                    UIViewController * firstvc = [rootvc.viewControllers firstObject];
-                    if ([firstvc isKindOfClass:[ScanViewController class]]) {
-                        [funcVc dismissViewControllerAnimated:YES completion:nil];
-                    }else {
-                        [funcVc.navigationController popToRootViewControllerAnimated:NO];
-                        ScanViewController * scanVC  = [[ScanViewController alloc]init];
-                        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-                        [firstvc presentViewController:nav animated:YES completion:nil];
-                    }
-                    [IDOBluetoothManager startScan];
+                    ScanViewController * scanVC  = [[ScanViewController alloc]init];
+                    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+                    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
                 }else {
                     [funcVc showToastWithText:@"解绑设备失败"];
                 }
             }];
-        }else {
+        }else if(indexPath.row == 1){
             [funcVc showLoadingWithMessage:@"设备解绑..."];
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
                     [funcVc showToastWithText:@"解绑设备成功"];
-                    UINavigationController * rootvc =  (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-                    UIViewController * firstvc = [rootvc.viewControllers firstObject];
-                    if ([firstvc isKindOfClass:[ScanViewController class]]) {
-                        [funcVc dismissViewControllerAnimated:YES completion:nil];
-                    }else {
-                        [funcVc.navigationController popToRootViewControllerAnimated:NO];
-                        ScanViewController * scanVC  = [[ScanViewController alloc]init];
-                        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-                        [firstvc presentViewController:nav animated:YES completion:nil];
-                    }
-                    [IDOBluetoothManager startScan];
+                    ScanViewController * scanVC  = [[ScanViewController alloc]init];
+                    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+                    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
                 }else {
                     [funcVc showToastWithText:@"强制解绑失败"];
                 }
             }];
+        }else if (indexPath.row == 2) {
+            FuncViewController * newFuncVc = [FuncViewController new];
+            newFuncVc.model = [SwitchDeviceViewModel new];
+            newFuncVc.title = @"切换设备";
+            [funcVc.navigationController pushViewController:newFuncVc animated:YES];
         }
     };
 }

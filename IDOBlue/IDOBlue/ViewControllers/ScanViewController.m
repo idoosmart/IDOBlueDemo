@@ -45,7 +45,21 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.statusLabel.text = __IDO_PERIPHERAL__.state == CBPeripheralStateConnected ? @"已连接" : @"已断开";
+    self.statusLabel.text = __IDO_PERIPHERAL__.state == CBPeripheralStateConnected ? @"已连接" : @"扫描中...";
+    [IDOBluetoothManager shareInstance].delegate = self;
+    [IDOBluetoothManager shareInstance].rssiNum  = 100;
+    [IDOBluetoothManager startScan];
+    __weak typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf refreshButtonState];
+    });
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [IDOBluetoothManager shareInstance].delegate = nil;
 }
 
 - (UILabel *)statusLabel
@@ -83,15 +97,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CGRect frame = CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height - 40);
-    TimerAnimatView * timerAnimatView = [[TimerAnimatView alloc]initWithFrame:frame];
-    __weak typeof(self) weakSelf = self;
-    timerAnimatView.TimeOverBlock = ^{
-        __strong typeof(self) strongSelf = weakSelf;
-        strongSelf.tableView.tableFooterView = [UIView new];
-    };
-    self.tableView.tableFooterView = timerAnimatView;
-    [timerAnimatView countDown:3];
+    self.tableView.tableFooterView = [UIView new];
     
     [self modificationNavigationBarStyle];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -115,10 +121,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableHeaderView = headView;
-    
-    [IDOBluetoothManager shareInstance].delegate = self;
-    [IDOBluetoothManager shareInstance].rssiNum = 100;
-
 }
 
 
@@ -164,6 +166,10 @@
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"拼命扫描……"];
     self.refreshControl.tintColor = [UIColor grayColor];
     [self.refreshControl addTarget:self action:@selector(refreshAction)forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl beginRefreshing];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.refreshControl endRefreshing];
+    });
 }
 
 - (void)refreshAction
@@ -210,8 +216,10 @@
     [self.tableView reloadData];
 }
 
+static BOOL BIND_STATE = NO;
 - (void)bindAction:(UIButton *)sender
 {
+    BIND_STATE = NO;
     IDOSetBindingInfoBluetoothModel * model = [[IDOSetBindingInfoBluetoothModel alloc]init];
     __weak typeof(self) weakSelf = self;
     [IDOFoundationCommand bindingCommand:model callback:^(IDO_BIND_STATUS status, int errorCode) {
@@ -228,7 +236,7 @@
                 
             }else if (status == IDO_BLUETOOTH_NEED_AUTH) { //需要授权绑定
                 [strongSelf showAuthView];
-            }else if (status == IDO_BLUETOOTH_REFUSED_BINDED) {
+            }else if (status == IDO_BLUETOOTH_REFUSED_BINDED) { //拒绝绑定
                 [strongSelf showToastWithText:@"拒绝绑定"];
             }
         }else { //绑定失败
@@ -239,45 +247,22 @@
 
 - (void)updateAction:(UIButton *)sender
 {
-    UINavigationController * rootvc =  (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-    UIViewController * firstvc = [rootvc.viewControllers firstObject];
-    if ([firstvc isKindOfClass:[ScanViewController class]]) {
-        [IDOFoundationCommand getMacAddrCommand:nil];
-        FuncViewController * update = [[FuncViewController alloc]init];
-        update.model = [UpdateFirmwareViewModel new];
-        update.title = @"固件升级";
-        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:update];
-        [self presentViewController:nav animated:YES completion:nil];
-    }else {
-        FuncViewController * update = (FuncViewController *) firstvc;
-        UpdateFirmwareViewModel * updateModel = [UpdateFirmwareViewModel new];
-        updateModel.isLeftButton = NO;
-        update.model = updateModel;
-        update.title = @"固件升级";
-        [update reloadData];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
+    FuncViewController * update = [[FuncViewController alloc]init];
+    update.model = [UpdateFirmwareViewModel new];
+    update.title = @"固件升级";
+    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:update];
+    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
 }
 
 - (void)setRootViewController
 {
-    UINavigationController * rootvc =  (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-    UIViewController * firstvc = [rootvc.viewControllers firstObject];
-    if ([firstvc isKindOfClass:[ScanViewController class]]) {
-        FuncViewController * funcVc = [[FuncViewController alloc]init];
-        funcVc.model = [FuncViewModel new];
-        funcVc.title = @"功能列表";
-        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:funcVc];
-        [self presentViewController:nav animated:YES completion:nil];
-    }else {
-        FuncViewController * funcVc = (FuncViewController *) firstvc;
-        funcVc.title = @"功能列表";
-        FuncViewModel * funcModel = [FuncViewModel new];
-        funcModel.isRightButton = NO;
-        funcVc.model = funcModel;
-        [funcVc reloadData];
-       [self dismissViewControllerAnimated:YES completion:nil];
-    }
+    if (BIND_STATE)return; //有些固件不稳定防止绑定多次回调
+    BIND_STATE = YES;
+    FuncViewController * funcVc = [[FuncViewController alloc]init];
+    funcVc.model = [FuncViewModel new];
+    funcVc.title = @"功能列表";
+    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:funcVc];
+    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
 }
 
 - (void)showBindView

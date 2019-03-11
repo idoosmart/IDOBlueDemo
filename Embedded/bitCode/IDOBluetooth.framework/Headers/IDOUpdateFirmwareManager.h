@@ -23,7 +23,8 @@
 @property (nonatomic,copy,nullable) NSString * packagePath;
 
 /**
- 外部重连设备回调
+ * 外部重连设备回调（用于蓝牙外部控制）重连失败4次为最终失败
+ * External reconnect device callback (for bluetooth external control)
  */
 @property (nonatomic,copy,nullable) void(^outReconnectCallback)(BOOL isSuccess);
 

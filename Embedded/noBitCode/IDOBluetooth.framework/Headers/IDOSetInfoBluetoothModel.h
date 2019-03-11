@@ -30,7 +30,8 @@
 - (void)menstruationRemindModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetMenstruationRemindBluetoothModel
  */
 + (__kindof IDOSetMenstruationRemindBluetoothModel *)currentModel;
@@ -111,7 +112,8 @@
 - (void)authCodeModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 (只有在授权绑定才会存储数据) | Query the database, if the query does not initialize the new model object (only the authorization binding will store the data)
+ * @brief 查询数据库,如果查询不到初始化新的model对象 (只有在授权绑定才会存储数据)
+ * Query the database, if the query does not initialize the new model object (only the authorization binding will store the data)
  * @return IDOSetBindingInfoBluetoothModel
  */
 + (__kindof IDOSetBindingInfoBluetoothModel *)currentModel;
@@ -162,12 +164,14 @@
 @interface IDOSetBpMeasureInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
- 参数标志 0x01:开始测量，0x02:结束测量，0x03:获得血压数据 | Parameter flag 0x01: Start measurement, 0x02: End measurement, 0x03: Obtain blood pressure data
+ * 参数标志 0x01:开始测量，0x02:结束测量，0x03:获得血压数据
+ * Parameter flag 0x01: Start measurement, 0x02: End measurement, 0x03: Obtain blood pressure data
  */
 @property (nonatomic,assign) NSInteger flag;
 
 /**
- 返回状态 0x00:不支持，0x01:正 在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式 | Return status 0x00: Not supported, 0x01: Positive measurement, 0x02: Measurement success 0x03: Measurement failure 0x04: Device is in motion mode
+ * 返回状态 0x00:不支持，0x01:正 在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式
+ * Return status 0x00: Not supported, 0x01: Positive measurement, 0x02: Measurement success 0x03: Measurement failure 0x04: Device is in motion mode
  */
 @property (nonatomic,assign) NSInteger status;
 
@@ -420,12 +424,14 @@
  */
 @property (nonatomic,assign) NSInteger levelValue;
 /**
- * @brief 屏幕亮度 model 转结构体数据 (内部使用) | Screen brightness model Transfer structure data (internal use)
+ * @brief 屏幕亮度 model 转结构体数据 (内部使用)
+ * Screen brightness model Transfer structure data (internal use)
  * @param data 结构体指针 | Structure pointer
  */
 - (void)screenBrightnessModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetScreenBrightnessInfoBluetoothModel
  */
 + (__kindof IDOSetScreenBrightnessInfoBluetoothModel *)currentModel;
@@ -679,12 +685,14 @@
 @property (nonatomic,assign) NSInteger flag;
 
 /**
- * @brief 血压校准 model 转结构体数据 (内部使用) | Blood pressure calibration model Transfer structure data (internal use)
+ * @brief 血压校准 model 转结构体数据 (内部使用)
+ * Blood pressure calibration model Transfer structure data (internal use)
  * @param data 结构体指针 | Structure pointer
  */
 - (void)bloodPressureModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetBloodPressureInfoBluetoothModel
  */
 + (__kindof IDOSetBloodPressureInfoBluetoothModel *)currentModel;
@@ -1013,7 +1021,8 @@
  */
 - (void)hrModeModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetHRModeInfoBluetoothModel
  */
 + (__kindof IDOSetHrModeInfoBluetoothModel *)currentModel;
@@ -1464,13 +1473,15 @@
 - (void)switchChildModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetNoticeInfoBuletoothModel
  */
 + (__kindof IDOSetNoticeInfoBuletoothModel *)currentModel;
 
 /**
- * @brief 通知提醒开关状态结构体转model (内部使用) | Notification reminder switch status structure to model (internal use)
+ * @brief 通知提醒开关状态结构体转model (内部使用)
+ * Notification reminder switch status structure to model (internal use)
  * @param data 通知提醒开关状态结构体 | Notification Reminder Switch Status Structure
  * @return IDOSetNoticeInfoBuletoothModel
  */
@@ -1564,19 +1575,22 @@
 - (void)userInfoModelToStructure:(void *)data;
 
 /**
- * @brief 步数目标 model 转结构体 (内部使用) | Step target model Transfer structure (internal use)
+ * @brief 步数目标 model 转结构体 (内部使用)
+ * Step target model Transfer structure (internal use)
  * @param data 结构体指针 | Structure pointer
  */
 - (void)targetModelToStructure:(void *)data;
 
 /**
- * @brief 卡路里和距离目标 model 转结构体 (内部使用) | Calories and distances target model to structure (internal use)
+ * @brief 卡路里和距离目标 model 转结构体 (内部使用)
+ * Calories and distances target model to structure (internal use)
  * @param data 结构体指针 | Structure pointer
  */
 - (void)calorieAndDistanceModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetUserInfoBuletoothModel
  */
 + (__kindof IDOSetUserInfoBuletoothModel *)currentModel;

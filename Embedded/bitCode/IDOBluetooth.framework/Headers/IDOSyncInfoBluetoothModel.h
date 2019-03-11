@@ -416,19 +416,22 @@
 @property (nonatomic,assign) BOOL isSave;
 
 /**
- 运动发起端 (1 : 手环发起 0 : app发起) | Sports Initiator (1 : Bracelet Initiation  0 : app initiated)
+ * 运动发起端 (1 : 手环发起 0 : app发起)
+ * Sports Initiator (1 : Bracelet Initiation  0 : app initiated)
  */
 @property (nonatomic,assign) NSInteger startFrom;
 
 /**
- * @brief 初始化同步的活动数据模型 (内部使用) | Initialize synchronized active data model (internal use)
+ * @brief 初始化同步的活动数据模型 (内部使用)
+ * Initialize synchronized active data model (internal use)
  * @param data 活动结构体数据 | Active Structure Data
  * @return 是 或 否 |yes or no
  */
 + (BOOL)activityDataInfoStructToModel:(const void *)data;
 
 /**
- * @brief 当前设备根据活动开始时间查询某个活动详情 | The current device queries an event details based on the event start time
+ * @brief 当前设备根据活动开始时间查询某个活动详情
+ * The current device queries an event details based on the event start time
  * @param macAddr  mac地址 | Mac address
  * @param timeStr 活动开始时间 | Event start time
  * @return model IDOSyncActivityDataInfoBluetoothModel

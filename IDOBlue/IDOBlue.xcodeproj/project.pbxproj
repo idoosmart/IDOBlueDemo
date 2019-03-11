@@ -36,8 +36,6 @@
 		18376CA4216656D6009D68F5 /* UpdateAgpsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18376CA3216656D6009D68F5 /* UpdateAgpsViewModel.m */; };
 		183FC057214BF15F00AD6484 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC056214BF15F00AD6484 /* BaseTableViewCell.m */; };
 		183FC05A214D02B900AD6484 /* FuncTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC059214D02B900AD6484 /* FuncTableView.m */; };
-		183FC07A214E323E00AD6484 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC073214E323E00AD6484 /* BaseViewModel.m */; };
-		183FC07B214E323E00AD6484 /* FuncViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC074214E323E00AD6484 /* FuncViewModel.m */; };
 		183FC089214E374500AD6484 /* BaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC087214E374500AD6484 /* BaseCellModel.m */; };
 		183FC08C214E389B00AD6484 /* SetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC08B214E389B00AD6484 /* SetViewModel.m */; };
 		183FC08F214E4C9E00AD6484 /* GetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC08E214E4C9E00AD6484 /* GetViewModel.m */; };
@@ -62,12 +60,12 @@
 		9B222154215A46DC006A2F9F /* SetLeftRightHandViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B222153215A46DC006A2F9F /* SetLeftRightHandViewModel.m */; };
 		9B222157215A483D006A2F9F /* SetPreventLostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B222156215A483D006A2F9F /* SetPreventLostViewModel.m */; };
 		9B25E71D2174625C0013F427 /* CurveChartCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E71C2174625C0013F427 /* CurveChartCellModel.m */; };
-		9B25E720217481AF0013F427 /* ModeSelectViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E71F217481AF0013F427 /* ModeSelectViewModel.m */; };
 		9B2C6B2F215B1DF500375FDA /* SetDisplayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C6B2E215B1DF500375FDA /* SetDisplayViewModel.m */; };
 		9B2C6B32215B231E00375FDA /* SetNotfityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C6B31215B231E00375FDA /* SetNotfityViewModel.m */; };
 		9B2C6B36215B5C0500375FDA /* SetTimeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C6B35215B5C0500375FDA /* SetTimeViewModel.m */; };
 		9B2C6B39215B66D400375FDA /* AllAlarmViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C6B38215B66D400375FDA /* AllAlarmViewModel.m */; };
 		9B2C6B3F215B7FC400375FDA /* SetAlarmViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C6B3E215B7FC400375FDA /* SetAlarmViewModel.m */; };
+		9B3AAB5522350EC1009320CF /* SwitchDeviceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3AAB5422350EC1009320CF /* SwitchDeviceViewModel.m */; };
 		9B3D1320215DC42700B97ED1 /* SetHrModeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D131F215DC42700B97ED1 /* SetHrModeViewModel.m */; };
 		9B3D132E215E047D00B97ED1 /* SetHrIntervalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D132D215E047D00B97ED1 /* SetHrIntervalViewModel.m */; };
 		9B3D1333215E0C9500B97ED1 /* SetNoDisturbViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D1332215E0C9500B97ED1 /* SetNoDisturbViewModel.m */; };
@@ -105,6 +103,9 @@
 		9B568546217DFB3600462AE0 /* QuerySleepViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B568545217DFB3600462AE0 /* QuerySleepViewModel.m */; };
 		9B575BA8215CD05E00B433D0 /* SetLongSitViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B575BA7215CD05E00B433D0 /* SetLongSitViewModel.m */; };
 		9B575BAB215CE1AD00B433D0 /* SetWeatherViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B575BAA215CE1AD00B433D0 /* SetWeatherViewModel.m */; };
+		9B6614BF223263E3009488F9 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6614B9223263E3009488F9 /* BaseViewModel.m */; };
+		9B6614C0223263E3009488F9 /* ModeSelectViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6614BA223263E3009488F9 /* ModeSelectViewModel.m */; };
+		9B6614C1223263E3009488F9 /* FuncViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6614BB223263E3009488F9 /* FuncViewModel.m */; };
 		9B6F028721ECA5AF00AA0BCD /* BasePolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F026F21ECA5AF00AA0BCD /* BasePolygon.m */; };
 		9B6F028821ECA5AF00AA0BCD /* BasePillar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F027021ECA5AF00AA0BCD /* BasePillar.m */; };
 		9B6F028921ECA5AF00AA0BCD /* CurveChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F027121ECA5AF00AA0BCD /* CurveChartView.m */; };
@@ -159,23 +160,8 @@
 		9BF7EC39219BCAB300572E70 /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC38219BCAB300572E70 /* SliderTableViewCell.m */; };
 		9BF7EC3C219BCFE900572E70 /* SliderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */; };
 		9BFF80EB2189829300EFA848 /* FirmwareTypeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */; };
-		DDA9E1A5222936A000013308 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
-		DDA9E1A6222936A000013308 /* IDOBluetooth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD30B09322364516005903B5 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		DDA9E1A7222936A100013308 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DDA9E1A6222936A000013308 /* IDOBluetooth.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1817F4F1214B2BBF001C90D5 /* IDOBlue-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDOBlue-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -236,10 +222,6 @@
 		183FC056214BF15F00AD6484 /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		183FC058214D02B900AD6484 /* FuncTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FuncTableView.h; sourceTree = "<group>"; };
 		183FC059214D02B900AD6484 /* FuncTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FuncTableView.m; sourceTree = "<group>"; };
-		183FC073214E323E00AD6484 /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
-		183FC074214E323E00AD6484 /* FuncViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuncViewModel.m; sourceTree = "<group>"; };
-		183FC075214E323E00AD6484 /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
-		183FC076214E323E00AD6484 /* FuncViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuncViewModel.h; sourceTree = "<group>"; };
 		183FC087214E374500AD6484 /* BaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCellModel.m; sourceTree = "<group>"; };
 		183FC088214E374500AD6484 /* BaseCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellModel.h; sourceTree = "<group>"; };
 		183FC08A214E389B00AD6484 /* SetViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetViewModel.h; sourceTree = "<group>"; };
@@ -288,8 +270,6 @@
 		9B222156215A483D006A2F9F /* SetPreventLostViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPreventLostViewModel.m; sourceTree = "<group>"; };
 		9B25E71B2174625C0013F427 /* CurveChartCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurveChartCellModel.h; sourceTree = "<group>"; };
 		9B25E71C2174625C0013F427 /* CurveChartCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurveChartCellModel.m; sourceTree = "<group>"; };
-		9B25E71E217481AF0013F427 /* ModeSelectViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModeSelectViewModel.h; sourceTree = "<group>"; };
-		9B25E71F217481AF0013F427 /* ModeSelectViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModeSelectViewModel.m; sourceTree = "<group>"; };
 		9B2C6B2D215B1DF500375FDA /* SetDisplayViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetDisplayViewModel.h; sourceTree = "<group>"; };
 		9B2C6B2E215B1DF500375FDA /* SetDisplayViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetDisplayViewModel.m; sourceTree = "<group>"; };
 		9B2C6B30215B231E00375FDA /* SetNotfityViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetNotfityViewModel.h; sourceTree = "<group>"; };
@@ -300,6 +280,8 @@
 		9B2C6B38215B66D400375FDA /* AllAlarmViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllAlarmViewModel.m; sourceTree = "<group>"; };
 		9B2C6B3D215B7FC400375FDA /* SetAlarmViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetAlarmViewModel.h; sourceTree = "<group>"; };
 		9B2C6B3E215B7FC400375FDA /* SetAlarmViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetAlarmViewModel.m; sourceTree = "<group>"; };
+		9B3AAB5322350EC1009320CF /* SwitchDeviceViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchDeviceViewModel.h; sourceTree = "<group>"; };
+		9B3AAB5422350EC1009320CF /* SwitchDeviceViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchDeviceViewModel.m; sourceTree = "<group>"; };
 		9B3D131E215DC42700B97ED1 /* SetHrModeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetHrModeViewModel.h; sourceTree = "<group>"; };
 		9B3D131F215DC42700B97ED1 /* SetHrModeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetHrModeViewModel.m; sourceTree = "<group>"; };
 		9B3D132C215E047D00B97ED1 /* SetHrIntervalViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetHrIntervalViewModel.h; sourceTree = "<group>"; };
@@ -379,6 +361,12 @@
 		9B575BA7215CD05E00B433D0 /* SetLongSitViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetLongSitViewModel.m; sourceTree = "<group>"; };
 		9B575BA9215CE1AD00B433D0 /* SetWeatherViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetWeatherViewModel.h; sourceTree = "<group>"; };
 		9B575BAA215CE1AD00B433D0 /* SetWeatherViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetWeatherViewModel.m; sourceTree = "<group>"; };
+		9B6614B9223263E3009488F9 /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
+		9B6614BA223263E3009488F9 /* ModeSelectViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeSelectViewModel.m; sourceTree = "<group>"; };
+		9B6614BB223263E3009488F9 /* FuncViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuncViewModel.m; sourceTree = "<group>"; };
+		9B6614BC223263E3009488F9 /* ModeSelectViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeSelectViewModel.h; sourceTree = "<group>"; };
+		9B6614BD223263E3009488F9 /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
+		9B6614BE223263E3009488F9 /* FuncViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuncViewModel.h; sourceTree = "<group>"; };
 		9B6F026A21ECA5AF00AA0BCD /* BaseLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLine.h; sourceTree = "<group>"; };
 		9B6F026B21ECA5AF00AA0BCD /* BasePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePickerView.h; sourceTree = "<group>"; };
 		9B6F026C21ECA5AF00AA0BCD /* BaseDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDatePickerView.h; sourceTree = "<group>"; };
@@ -491,8 +479,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD30B09322364516005903B5 /* IDOBluetooth.framework in Frameworks */,
 				9BBAF49B21F96D7A001BD3F9 /* libsqlite3.0.tbd in Frameworks */,
-				DDA9E1A5222936A000013308 /* IDOBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +519,8 @@
 		183FC062214D2DED00AD6484 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9B3AAB5222350B7F009320CF /* SwitchDeviceModel */,
+				9B6614B8223263E3009488F9 /* MainViewModel */,
 				9B6F029921ED7BF600AA0BCD /* DataMigrationModel */,
 				9B16A8AF2171F15E00DC199C /* QueryViewModel */,
 				9BCE5541216DCA48005B6F80 /* Unbinding */,
@@ -538,7 +528,6 @@
 				183FC079214E323E00AD6484 /* ControlViewModel */,
 				183FC06F214E323E00AD6484 /* DataInterchangeModel */,
 				183FC070214E323E00AD6484 /* GetViewModel */,
-				183FC072214E323E00AD6484 /* MainViewModel */,
 				183FC077214E323E00AD6484 /* SetViewModel */,
 				183FC078214E323E00AD6484 /* SyncViewModel */,
 				183FC071214E323E00AD6484 /* UpdateViewModel */,
@@ -601,19 +590,6 @@
 				183FC0A6214E8E5200AD6484 /* FileViewModel.m */,
 			);
 			path = UpdateViewModel;
-			sourceTree = "<group>";
-		};
-		183FC072214E323E00AD6484 /* MainViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				183FC075214E323E00AD6484 /* BaseViewModel.h */,
-				183FC073214E323E00AD6484 /* BaseViewModel.m */,
-				183FC076214E323E00AD6484 /* FuncViewModel.h */,
-				183FC074214E323E00AD6484 /* FuncViewModel.m */,
-				9B25E71E217481AF0013F427 /* ModeSelectViewModel.h */,
-				9B25E71F217481AF0013F427 /* ModeSelectViewModel.m */,
-			);
-			path = MainViewModel;
 			sourceTree = "<group>";
 		};
 		183FC077214E323E00AD6484 /* SetViewModel */ = {
@@ -744,6 +720,15 @@
 			path = QueryViewModel;
 			sourceTree = "<group>";
 		};
+		9B3AAB5222350B7F009320CF /* SwitchDeviceModel */ = {
+			isa = PBXGroup;
+			children = (
+				9B3AAB5322350EC1009320CF /* SwitchDeviceViewModel.h */,
+				9B3AAB5422350EC1009320CF /* SwitchDeviceViewModel.m */,
+			);
+			path = SwitchDeviceModel;
+			sourceTree = "<group>";
+		};
 		9B437EE021393ADC00DE2FC8 = {
 			isa = PBXGroup;
 			children = (
@@ -845,6 +830,19 @@
 				9B437F2921393DDD00DE2FC8 /* README.mdown */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		9B6614B8223263E3009488F9 /* MainViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9B6614BD223263E3009488F9 /* BaseViewModel.h */,
+				9B6614B9223263E3009488F9 /* BaseViewModel.m */,
+				9B6614BC223263E3009488F9 /* ModeSelectViewModel.h */,
+				9B6614BA223263E3009488F9 /* ModeSelectViewModel.m */,
+				9B6614BE223263E3009488F9 /* FuncViewModel.h */,
+				9B6614BB223263E3009488F9 /* FuncViewModel.m */,
+			);
+			path = MainViewModel;
 			sourceTree = "<group>";
 		};
 		9B6F026921ECA5AF00AA0BCD /* ChartViews */ = {
@@ -1029,7 +1027,6 @@
 				9B437EE521393ADC00DE2FC8 /* Sources */,
 				9B437EE621393ADC00DE2FC8 /* Frameworks */,
 				9B437EE721393ADC00DE2FC8 /* Resources */,
-				DDA9E1A7222936A100013308 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1104,6 +1101,7 @@
 				9B7A13512160A86300CBA4BC /* SetSleepTimeViewModel.m in Sources */,
 				1817F4F3214B2BBF001C90D5 /* test.swift in Sources */,
 				9B437F2D21393DDD00DE2FC8 /* MASConstraintMaker.m in Sources */,
+				9B6614C1223263E3009488F9 /* FuncViewModel.m in Sources */,
 				183FC095214E57B900AD6484 /* SyncViewModel.m in Sources */,
 				9B7A4626214F633A007A2DB6 /* LabelCellModel.m in Sources */,
 				9B222148215A37A7006A2F9F /* OneSwitchTableViewCell.m in Sources */,
@@ -1116,7 +1114,6 @@
 				9B22214B215A3BAB006A2F9F /* SetHandUpViewModel.m in Sources */,
 				183FC0A7214E8E5200AD6484 /* FileViewModel.m in Sources */,
 				9BC1E453213E66ED008D832E /* ScanViewController.m in Sources */,
-				183FC07B214E323E00AD6484 /* FuncViewModel.m in Sources */,
 				9B6F029321ECA5AF00AA0BCD /* BaseDashLine.m in Sources */,
 				9B222157215A483D006A2F9F /* SetPreventLostViewModel.m in Sources */,
 				18376C7D2164E656009D68F5 /* GetGpsInfoViewModel.m in Sources */,
@@ -1145,7 +1142,6 @@
 				9B2C6B3F215B7FC400375FDA /* SetAlarmViewModel.m in Sources */,
 				9B437F3421393DDD00DE2FC8 /* ViewController+MASAdditions.m in Sources */,
 				9B4046052143C72D00ACDE9F /* NSObject+ModelToDic.m in Sources */,
-				9B25E720217481AF0013F427 /* ModeSelectViewModel.m in Sources */,
 				9B568540217DD1B400462AE0 /* ThreeButtonTableViewCell.m in Sources */,
 				9B6F028721ECA5AF00AA0BCD /* BasePolygon.m in Sources */,
 				9B575BA8215CD05E00B433D0 /* SetLongSitViewModel.m in Sources */,
@@ -1189,7 +1185,6 @@
 				18376C8C2165D91C009D68F5 /* ControlRestoreViewModel.m in Sources */,
 				9BBAF48D21F6BDD3001BD3F9 /* SetStartCountViewModel.m in Sources */,
 				9B575BAB215CE1AD00B433D0 /* SetWeatherViewModel.m in Sources */,
-				183FC07A214E323E00AD6484 /* BaseViewModel.m in Sources */,
 				9B2C6B36215B5C0500375FDA /* SetTimeViewModel.m in Sources */,
 				9B2C6B2F215B1DF500375FDA /* SetDisplayViewModel.m in Sources */,
 				18376C9E21660862009D68F5 /* SyncAllViewModel.m in Sources */,
@@ -1208,6 +1203,7 @@
 				9B7A4620214F40FE007A2DB6 /* FuncCellModel.m in Sources */,
 				9B7A135A2160D3DF00CBA4BC /* LogViewModel.m in Sources */,
 				9B3D1336215E0FBA00B97ED1 /* PickerDataModel.m in Sources */,
+				9B3AAB5522350EC1009320CF /* SwitchDeviceViewModel.m in Sources */,
 				9B437F3321393DDD00DE2FC8 /* View+MASAdditions.m in Sources */,
 				9BF7EC39219BCAB300572E70 /* SliderTableViewCell.m in Sources */,
 				18376C7A2164CD8C009D68F5 /* GetActivityViewModel.m in Sources */,
@@ -1216,6 +1212,7 @@
 				18376C9B21660464009D68F5 /* SyncGpsViewModel.m in Sources */,
 				9B6F028F21ECA5AF00AA0BCD /* BaseOption.m in Sources */,
 				9B7A1339215F4CBD00CBA4BC /* SetShortcutViewModel.m in Sources */,
+				9B6614C0223263E3009488F9 /* ModeSelectViewModel.m in Sources */,
 				1835014E2158F39C0076BC4F /* OneTextFieldTableViewCell.m in Sources */,
 				9B437EEE21393ADC00DE2FC8 /* AppDelegate.m in Sources */,
 				183FC0A4214E8D1E00AD6484 /* OneLabelTableViewCell.m in Sources */,
@@ -1237,6 +1234,7 @@
 				18376C832164EBDF009D68F5 /* TakePictureViewModel.m in Sources */,
 				18376C892165D4A0009D68F5 /* ControlNotifyViewModel.m in Sources */,
 				9B4045E12143BF5500ACDE9F /* UITableView+cellSeparator.m in Sources */,
+				9B6614BF223263E3009488F9 /* BaseViewModel.m in Sources */,
 				9B22213F215A307A006A2F9F /* SetTargetViewModel.m in Sources */,
 				9B3D1333215E0C9500B97ED1 /* SetNoDisturbViewModel.m in Sources */,
 				183501452158E5B60076BC4F /* TextFieldCellModel.m in Sources */,

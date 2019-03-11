@@ -34,6 +34,12 @@
 @property (nonatomic,assign) BOOL isIntervalScan;
 
 /**
+ * 是否需要重连机制 默认 YES
+ * Whether a reconnect mechanism is required
+ */
+@property (nonatomic,assign) BOOL isReconnect;
+
+/**
  * 设置扫描间隔时长 默认 10秒 如果不启动超时间隔扫描，则无效
  * Set the scan interval to 10 seconds by default.If timeout interval scanning is not started, it is not valid.
  */
