@@ -33,7 +33,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"OTA升级"],@[@"AGPS更新"]];
+        _buttonTitles = @[@[@"NORDIC 升级"],@[@"REALTK 升级"],@[@"AGPS 更新"]];
     }
     return _buttonTitles;
 }
@@ -41,7 +41,7 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateAgpsViewModel class]];
+        _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],[UpdateAgpsViewModel class]];
     }
     return _modelClasss;
 }
@@ -70,6 +70,11 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVc = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
+        if (indexPath.row == 0) {
+            IDO_BLUE_ENGINE.managerEngine.updateFrameworkType = IDO_NORDIC_FRAMEWORK_TYPE;
+        }else if (indexPath.row == 1) {
+            IDO_BLUE_ENGINE.managerEngine.updateFrameworkType = IDO_REALTK_FRAMEWORK_TYPE;
+        }
         BaseCellModel * model = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if ([NSStringFromClass(model.modelClass)isEqualToString:@"NSNull"])return;
         FuncViewController * newFuncVc = [FuncViewController new];

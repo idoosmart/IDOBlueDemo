@@ -72,4 +72,14 @@
  @return 时间字符串
  */
 + (NSString *)timeStrFromTimeStamp:(NSString *)timeStamp;
+
+/**
+ 查询
+ 
+ @param year 年
+ @param month 月
+ @return 当月的天数
+ */
++ (NSInteger)getDaysInMonthWithYear:(NSInteger)year
+                              month:(NSInteger)month;
 @end

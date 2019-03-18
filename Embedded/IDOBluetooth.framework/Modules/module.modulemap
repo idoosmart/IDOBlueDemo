@@ -1,0 +1,11 @@
+framework module IDOBluetooth {
+  umbrella header "IDOBluetooth.h"
+
+  export *
+  module * { export * }
+}
+
+module IDOBluetooth.Swift {
+    header "IDOBluetooth-Swift.h"
+    requires objc
+}

@@ -11,6 +11,7 @@
 #import "OneLabelTableViewCell.h"
 #import "FuncViewController.h"
 #import "IDODemoUtility.h"
+#import "QueryActivityDetailViewModel.h"
 
 @interface QueryActivityViewModel()
 @property (nonatomic,assign) NSInteger pageNumber;
@@ -26,9 +27,11 @@
 {
     self = [super init];
     if (self) {
-        self.pageIndex = 0;
+        self.pageIndex  = 0;
         self.pageNumber = 20;
         self.isFootButton = YES;
+        [self getLabelCallback];
+        [self getFootButtonCallback];
         [self getCellModels];
     }
     return self;
@@ -52,7 +55,9 @@
 
 - (void)getCellModels
 {
-    NSArray <IDOSyncActivityDataInfoBluetoothModel *> * activitys = [IDOSyncActivityDataInfoBluetoothModel queryOnePageActivityDataWithPageIndex:self.pageIndex numOfPage:self.pageNumber macAddr:__IDO_MAC_ADDR__];
+    NSArray <IDOSyncActivityDataInfoBluetoothModel *> * activitys = [IDOSyncActivityDataInfoBluetoothModel queryOnePageActivityDataWithPageIndex:self.pageIndex
+                                                                                                                                       numOfPage:self.pageNumber
+                                                                                                                                         macAddr:@""];
     [self.allActivitys addObjectsFromArray:activitys];
     
     NSMutableArray * cellModels = [NSMutableArray array];
@@ -74,10 +79,11 @@
 
 - (NSString *)dataStrWithModel:(IDOSyncActivityDataInfoBluetoothModel *)model
 {
-    NSString * titleStr = [self.pickerDataModel.sportTypes objectAtIndex:model.type];
+    NSString * titleStr = [NSString stringWithFormat:@"活动类型 ：%@",[self.pickerDataModel.sportTypes objectAtIndex:model.type]];
     NSString * timeStr  = [NSString stringWithFormat:@"时间 ：%@",[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];
-    NSString * dataStr  = [NSString stringWithFormat:@"卡路里 ：%ld 步数 ：%ld 平均心率 ：%ld",(long)model.calories,(long)model.step,model.avgHrValue];
-    NSString * str = [NSString stringWithFormat:@"%@\n%@\n%@",titleStr,timeStr,dataStr];
+    NSString * macAddrStr  = [NSString stringWithFormat:@"MAC ：%@",model.macAddr];
+    NSString * dataStr  = [NSString stringWithFormat:@"卡路里 ：%ld\n步数 ：%ld\n平均心率 ：%ld",(long)model.calories,(long)model.step,(long)model.avgHrValue];
+    NSString * str = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",titleStr,macAddrStr,timeStr,dataStr];
     return str;
 }
 
@@ -91,8 +97,15 @@
     __weak typeof(self) weakSelf = self;
     self.labelSelectCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
-        FuncViewController * funcVC = (FuncViewController *)viewController;
-        NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
+        FuncViewController * funcVc = (FuncViewController *)viewController;
+        NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
+        IDOSyncActivityDataInfoBluetoothModel * model = [strongSelf.allActivitys objectAtIndex:indexPath.row];
+        FuncViewController * newFuncVc = [FuncViewController new];
+        QueryActivityDetailViewModel * detailModel = [QueryActivityDetailViewModel new];
+        detailModel.activityModel = model;
+        newFuncVc.model = detailModel;
+        newFuncVc.title = @"活动详情";
+        [funcVc.navigationController pushViewController:newFuncVc animated:YES];
     };
 }
 
@@ -101,8 +114,14 @@
     __weak typeof(self) weakSelf = self;
     self.footButtonCallback = ^(UIViewController *viewController) {
         __strong typeof(self) strongSelf = weakSelf;
+        FuncViewController * funcVc = (FuncViewController *)viewController;
+        [funcVc showLoadingWithMessage:@"加载数据..."];
         strongSelf.pageIndex ++;
         [strongSelf getCellModels];
+        [funcVc.tableView reloadData];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [funcVc showToastWithText:@"加载完成"];
+        });
     };
 }
 

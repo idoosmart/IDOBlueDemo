@@ -149,4 +149,19 @@
     return [formatter stringFromDate:date];
 }
 
++ (NSInteger)getDaysInMonthWithYear:(NSInteger)year
+                              month:(NSInteger)month
+{
+    
+    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM"];
+    NSString * dateStr = [NSString stringWithFormat:@"%ld-%ld",(long)year,(long)month];
+    NSDate * date = [formatter dateFromString:dateStr];
+    NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay
+                                   inUnit:NSCalendarUnitMonth
+                                  forDate:date];
+    return range.length;
+}
+
 @end

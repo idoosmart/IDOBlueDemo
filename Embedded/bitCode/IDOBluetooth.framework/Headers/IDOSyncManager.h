@@ -42,6 +42,12 @@
 @property (nonatomic,assign) BOOL isSave;
 
 /**
+ * 同步的数据超时时长，默认 180秒
+ * Synchronous data timeout duration, default 180 seconds
+ */
+@property (nonatomic,assign) NSInteger syncTimeout;
+
+/**
  * @brief 初始化同步管理对象 | Initialize synchronization management object
  * @return IDOSyncManager
  */
