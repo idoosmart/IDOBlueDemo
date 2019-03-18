@@ -11,6 +11,11 @@
 @interface IDOPeripheralModel : NSObject
 
 /**
+ 外围设备 | peripheral
+ */
+@property (nullable,nonatomic,strong) CBPeripheral * peripheral;
+
+/**
  手环名字 | Bracelet name
  */
 @property (nullable,nonatomic,copy)   NSString * name;
