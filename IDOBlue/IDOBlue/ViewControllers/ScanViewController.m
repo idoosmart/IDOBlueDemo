@@ -45,7 +45,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.statusLabel.text = __IDO_PERIPHERAL__.state == CBPeripheralStateConnected ? @"已连接" : @"扫描中...";
+    self.statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? @"已连接" : @"扫描中...";
     [IDOBluetoothManager shareInstance].delegate = self;
     [IDOBluetoothManager shareInstance].rssiNum  = 100;
     [IDOBluetoothManager startScan];

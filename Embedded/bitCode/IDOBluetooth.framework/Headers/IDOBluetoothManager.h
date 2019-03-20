@@ -17,7 +17,8 @@
 @property (nonatomic,weak) id<IDOBluetoothManagerDelegate> delegate;
 
 /**
- 自动扫描连接超时时长 默认 30 | Auto Scan Connection Timeout Duration Default 30
+ * 自动扫描连接超时时长 默认 30
+ * Auto Scan Connection Timeout Duration Default 30
  */
 @property (nonatomic,assign) NSInteger timeout;
 
@@ -61,22 +62,26 @@
 @property (nonatomic,assign,readonly) IDO_BLUETOOTH_CONNECT_ERROR_TYPE errorCode;
 
 /**
- 手动点击连接设备的总时长 | Total time to manually click on the connected device
+ * 手动点击连接设备的总时长
+ * Total time to manually click on the connected device
  */
 @property (nonatomic,assign,readonly) NSInteger manualConnectTotalTime;
 
 /**
- 自动扫描到成功连接设备的总时长 | Total time from automatic scanning to successful connection to the device
+ * 自动扫描到成功连接设备的总时长
+ * Total time from automatic scanning to successful connection to the device
  */
 @property (nonatomic,assign,readonly) NSInteger autoConnectTotalTime;
 
 /**
- 自动连接设备block回调 | Automatically connect device block callbacks
+ * 自动连接设备block回调
+ * Automatically connect device block callbacks
  */
 @property (nonatomic,copy) void(^autoConnectDeviceComplete)(BOOL isConnected);
 
 /**
- * @brief 初始化蓝牙管理中心对象 | Initialize the Bluetooth Management Center object
+ * @brief 初始化蓝牙管理中心对象
+ * Initialize the Bluetooth Management Center object
  * @return IDOBluetoothManager
  */
 + (__kindof IDOBluetoothManager *)shareInstance;

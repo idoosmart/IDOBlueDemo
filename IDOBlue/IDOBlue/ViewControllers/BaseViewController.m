@@ -33,7 +33,7 @@
         _statusLabel.font = [UIFont boldSystemFontOfSize:16];
         _statusLabel.backgroundColor = [UIColor clearColor];
     }
-    _statusLabel.text = __IDO_PERIPHERAL__.state == CBPeripheralStateConnected ? @"已连接" : @"已断开";
+    _statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? @"已连接" : @"已断开";
     return _statusLabel;
 }
 

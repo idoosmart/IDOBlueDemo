@@ -50,7 +50,8 @@
 
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetVersionInfoBluetoothModel
  */
 + (__kindof IDOGetVersionInfoBluetoothModel *)currentModel;
@@ -60,12 +61,14 @@
 #pragma mark ==== 获取GPS状态model ====
 @interface IDOGetGpsStatusBluetoothModel:IDOBluetoothBaseModel
 /**
- GPS 运行状态 0 没有运行,1 正在搜星,2 为正在跟踪 | GPS running status 0 No running, 1 is searching for stars, 2 is tracking
+ * GPS 运行状态 0 没有运行,1 正在搜星,2 为正在跟踪
+ * GPS running status 0 No running, 1 is searching for stars, 2 is tracking
  */
 @property (nonatomic,assign) NSInteger gpsRunStatus;
 
 /**
- AGPS 是否有效,有效期剩余小时,非0为有效, | AGPS is valid, the remaining period is valid, non-zero is valid,
+ * AGPS 是否有效,有效期剩余小时,非0为有效,
+ * AGPS is valid, the remaining period is valid, non-zero is valid,
  */
 @property (nonatomic,assign) NSInteger isAgpsVaild;
 
@@ -87,14 +90,16 @@
 @property (nonatomic,assign) NSInteger tcxoOffset;
 
 /**
- 当前位置的经度 当前经度 x 10^6 , 去掉小数,注意西经为负数 默认 0
- The current position of the longitude of the current longitude x 10 ^ 6, remove the decimal, pay attention to the scriptures is negative. default 0
+ * 当前位置的经度 当前经度 x 10^6 , 去掉小数,注意西经为负数 默认 0
+ * The current position of the longitude of the current longitude x 10 ^ 6,
+ * remove the decimal, pay attention to the scriptures is negative. default 0
  */
 @property (nonatomic,assign) NSInteger longitude;
 
 /**
- 当前位置的纬度, x10^6 ,去掉小数,注意南纬为负数 默认 0
- The current position of latitude, x10 ^ 6, remove the decimal, pay attention to the south of the equator is negative. default 0
+ * 当前位置的纬度, x10^6 ,去掉小数,注意南纬为负数 默认 0
+ * The current position of latitude, x10 ^ 6, remove the decimal,
+ * pay attention to the south of the equator is negative. default 0
  */
 @property (nonatomic,assign) NSInteger latitude;
 
@@ -118,7 +123,8 @@
 - (void)hotStartParamModelToStruct:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetHotStartParamBluetoothModel
  */
 + (__kindof IDOGetHotStartParamBluetoothModel *)currentModel;
@@ -156,7 +162,8 @@
 + (__kindof IDOGetGpsInfoBluetoothModel *)gpsInfoStructToModel:(void *)data;
 
 /**
- * @brief  查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief  查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetGpsInfoBluetoothModel
  */
 + (__kindof IDOGetGpsInfoBluetoothModel *)currentModel;
@@ -179,7 +186,8 @@
 + (__kindof IDOGetHidInfoBluetoothModel *)hidInfoStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象  (暂停使用,无效) | Query the database, if the query does not initialize a new model object (suspended, invalid)
+ * @brief 查询数据库,如果查询不到初始化新的model对象  (暂停使用,无效)
+ * Query the database, if the query does not initialize a new model object (suspended, invalid)
  * @return IDOGetHidInfoBluetoothModel
  */
 + (__kindof IDOGetHidInfoBluetoothModel *)currentModel;
@@ -210,14 +218,16 @@
 @property (nonatomic,assign) NSInteger gpsPacketCount;
 
 /**
- * @brief 活动和GPS个数信息结构体转model (内部使用) | Activity and GPS number information structure to model (internal use)
+ * @brief 活动和GPS个数信息结构体转model (内部使用)
+ * Activity and GPS number information structure to model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetActivityCountBluetoothModel
  */
 + (__kindof IDOGetActivityCountBluetoothModel *)activityCountStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 (未作存储处理，只会初始化新对象) | Query the database, if the query does not initialize a new model object (not stored for processing, only the new object will be initialized)
+ * @brief 查询数据库,如果查询不到初始化新的model对象 (未作存储处理，只会初始化新对象)
+ * Query the database, if the query does not initialize a new model object (not stored for processing, only the new object will be initialized)
  * @return IDOGetActivityCountBluetoothModel
  */
 + (__kindof IDOGetActivityCountBluetoothModel *)currentModel;
@@ -243,20 +253,23 @@
 @property (nonatomic,assign) NSInteger threshold;
 
 /**
- * @brief 加速度传感器参数结构体转model (内部使用) | Acceleration sensor parameter structure body model (internal use)
+ * @brief 加速度传感器参数结构体转model (内部使用)
+ * Acceleration sensor parameter structure body model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetGsensorParamBluetoothModel
  */
 + (__kindof IDOGetGsensorParamBluetoothModel *)gsensorParamStructToModel:(void *)data;
 
 /**
- * @brief 加速度传感器参数model转结构体 (内部使用) | Acceleration sensor parameter model to structure (internal use)
+ * @brief 加速度传感器参数model转结构体 (内部使用)
+ * Acceleration sensor parameter model to structure (internal use)
  * @param data 结构体指针
  */
 - (void)gsensorParamModelToStruct:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 (暂停使用,无效) | Query the database, if the query does not initialize a new model object (suspended, invalid)
+ * @brief 查询数据库,如果查询不到初始化新的model对象 (暂停使用,无效)
+ * Query the database, if the query does not initialize a new model object (suspended, invalid)
  * @return IDOGetHrSensorParamBluetoothModel
  */
 + (__kindof IDOGetGsensorParamBluetoothModel *)currentModel;
@@ -276,20 +289,23 @@
 @property (nonatomic,assign) NSInteger ledSelect;
 
 /**
- * @brief 心率传感器参数结构体转model (内部使用) | Heart rate sensor parameter structure body model (internal use)
+ * @brief 心率传感器参数结构体转model (内部使用)
+ * Heart rate sensor parameter structure body model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetHrSensorParamBluetoothModel
  */
 + (__kindof IDOGetHrSensorParamBluetoothModel *)hrSensorParamStructToModel:(void *)data;
 
 /**
- * @brief 心率传感器参数model转结构体 (内部使用) | Heart rate sensor parameter model to structure (internal use)
+ * @brief 心率传感器参数model转结构体 (内部使用)
+ * Heart rate sensor parameter model to structure (internal use)
  * @param data 结构体指针  | Structure pointer
  */
 - (void)hrSensorParamModelToStruct:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 *(暂停使用,无效) | Query the database, if the query does not initialize a new model object (suspended, invalid)
+ * @brief 查询数据库,如果查询不到初始化新的model对象 *(暂停使用,无效)
+ * Query the database, if the query does not initialize a new model object (suspended, invalid)
  * @return IDOGetHrSensorParamBluetoothModel
  */
 + (__kindof IDOGetHrSensorParamBluetoothModel *)currentModel;
@@ -343,7 +359,8 @@
 + (__kindof IDOGetDeviceTimeBluetoothModel *)deviceTimeStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 *(暂停使用,无效) | Query the database, if the query does not initialize a new model object (suspended, invalid)
+ * @brief 查询数据库,如果查询不到初始化新的model对象 *(暂停使用,无效)
+ * Query the database, if the query does not initialize a new model object (suspended, invalid)
  * @return IDOGetDeviceTimeBluetoothModel
  */
 + (__kindof IDOGetDeviceTimeBluetoothModel *)currentModel;
@@ -386,11 +403,40 @@
 + (__kindof IDOGetLiveDataBluetoothModel *)liveDataStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetLiveDataBluetoothModel
  */
 + (__kindof IDOGetLiveDataBluetoothModel *)currentModel;
 
+@end
+
+#pragma mark ==== 获取新增消息提醒model ====
+@interface IDOGetExNotify4BluetoothModel:IDOBluetoothBaseModel
+/**
+ 聊天工作 | chatwork
+ */
+@property (nonatomic,assign) BOOL chatwork;
+
+/**
+ 松弛 | slack
+ */
+@property (nonatomic,assign) BOOL slack;
+
+/**
+ * @brief 根据扩展消息提醒功能表结构体转换model (内部使用)
+ * Conversion model according to extended function notify 4 structure (internal use)
+ * @param data 结构体指针 | Structure pointer
+ * @return IDOGetExNotify4BluetoothModel
+ */
++ (__kindof IDOGetExNotify4BluetoothModel *)funcNotify4StructToModel:(void *)data;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetExNotify4BluetoothModel
+ */
++ (__kindof IDOGetExNotify4BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取扩展功能2列表信息model ====
@@ -422,7 +468,8 @@
 @property (nonatomic,assign) BOOL pressureData;
 
 /**
- * @brief 根据扩展功能2列表结构体转换model (内部使用) | Conversion model according to extended function 2 list structure (internal use)
+ * @brief 根据扩展功能2列表结构体转换model (内部使用)
+ * Conversion model according to extended function 2 list structure (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetFuncExtend2BluetoothModel
  */
@@ -430,7 +477,8 @@
 + (__kindof IDOGetFuncExtend2BluetoothModel *)funcExtend2StructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncExtend2BluetoothModel
  */
 + (__kindof IDOGetFuncExtend2BluetoothModel *)currentModel;
@@ -481,14 +529,16 @@
 @property (nonatomic,assign) BOOL v3Log;
 
 /**
- * @brief 根据扩展功能列表结构体转换model (内部使用) | Convert model according to extended function list structure (internal use)
+ * @brief 根据扩展功能列表结构体转换model (内部使用)
+ * Convert model according to extended function list structure (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetFuncExtendBluetoothModel
  */
 + (__kindof IDOGetFuncExtendBluetoothModel *)funcExtendStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncExtendBluetoothModel
  */
 + (__kindof IDOGetFuncExtendBluetoothModel *)currentModel;
@@ -546,7 +596,8 @@
 + (__kindof IDOGetMainFunc1BluetoothModel *)mainFunc1StructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetMainFunc1BluetoothModel
  */
 + (__kindof IDOGetMainFunc1BluetoothModel *)currentModel;
@@ -589,7 +640,8 @@
 + (__kindof IDOGetSportType3BluetoothModel *)sportType3StructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetSportType3BluetoothModel
  */
 + (__kindof IDOGetSportType3BluetoothModel *)currentModel;
@@ -646,7 +698,8 @@
 + (__kindof IDOGetSportType2BluetoothModel *)sportType2StructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetSportType2BluetoothModel
  */
 + (__kindof IDOGetSportType2BluetoothModel *)currentModel;
@@ -704,7 +757,8 @@
 + (__kindof IDOGetSportType1BluetoothModel *)sportType1StructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetSportType1BluetoothModel
  */
 
@@ -762,7 +816,8 @@
 + (__kindof IDOGetSportType0BluetoothModel *)sportType0StructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetSportType0BluetoothModel
  */
 + (__kindof IDOGetSportType0BluetoothModel *)currentModel;
@@ -813,14 +868,16 @@
 @property (nonatomic,assign) BOOL flipScreen;
 
 /**
- *@brief其他扩展功能列表结构体转model (内部使用) | Other extended function list structure to model (internal use)
+ *@brief其他扩展功能列表结构体转model (内部使用)
+ * Other extended function list structure to model (internal use)
  *@param data 结构体指针 | Structure pointer
  *@return IDOGetOtherFuncExtendBluetoothModel
  */
 + (__kindof IDOGetOtherFuncExtendBluetoothModel *)otherFuncExtendStructToModel:(void *)data;
 
 /**
- *@brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ *@brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  *@return IDOGetOtherFuncExtendBluetoothModel
  */
 + (__kindof IDOGetOtherFuncExtendBluetoothModel *)currentModel;
@@ -846,14 +903,16 @@
 @property (nonatomic,assign) BOOL tipInfoContent;
 
 /**
- * @brief 信息提醒配置功能列表结构体转model (内部使用) | Information Reminder Configuration Function List Structure Transfer Model (internal use)
+ * @brief 信息提醒配置功能列表结构体转model (内部使用)
+ * Information Reminder Configuration Function List Structure Transfer Model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetSMSTableBluetoothModel
  */
 + (__kindof IDOGetSmsTableBluetoothModel *)smsTableStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetSmsTableBluetoothModel
  */
 + (__kindof IDOGetSmsTableBluetoothModel *)currentModel;
@@ -904,14 +963,16 @@
 @property (nonatomic,assign) BOOL weather;
 
 /**
- * @brief 其他功能列表结构体转model (内部使用) | Other function list structure to model (internal use)
+ * @brief 其他功能列表结构体转model (内部使用)
+ * Other function list structure to model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetOtherFuncBluetoothModel
  */
 + (__kindof IDOGetOtherFuncBluetoothModel *)otherFuncStructToModel:(void *)data;
 
 /**
-  * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+  * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
   * @return IDOGetOtherFuncBluetoothModel
  */
 + (__kindof IDOGetOtherFuncBluetoothModel *)currentModel;
@@ -957,14 +1018,16 @@
 @property (nonatomic,assign) BOOL snapchat;
 
 /**
- * @brief 信息2提醒功能列表结构体转model (内部使用) | Information 2 reminder function list structure body model (internal use)
+ * @brief 信息2提醒功能列表结构体转model (内部使用)
+ * Information 2 reminder function list structure body model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetNotify2BluetoothModel
  */
 + (__kindof IDOGetNotify2BluetoothModel *)notify2StructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetNotify2BluetoothModel
  */
 + (__kindof IDOGetNotify2BluetoothModel *)currentModel;
@@ -1010,14 +1073,16 @@
 @property (nonatomic,assign) BOOL alarmClock;
 
 /**
- * @brief 信息1提醒功能列表结构体转model (内部使用) | Information 1 Reminder function list structure body model (internal use)
+ * @brief 信息1提醒功能列表结构体转model (内部使用)
+ * Information 1 Reminder function list structure body model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetNotify1BluetoothModel
  */
 + (__kindof IDOGetNotify1BluetoothModel *)notify1StructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetNotify1BluetoothModel
  */
 + (__kindof IDOGetNotify1BluetoothModel *)currentModel;
@@ -1063,14 +1128,16 @@
 @property (nonatomic,assign) BOOL twitter;
 
 /**
- * @brief 信息0提醒功能列表结构体转model (内部使用) | Information 0 reminder function list structure body model (internal use)
+ * @brief 信息0提醒功能列表结构体转model (内部使用)
+ * Information 0 reminder function list structure body model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetNotify0BluetoothModel
  */
 + (__kindof IDOGetNotify0BluetoothModel *)notify0StructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetNotify0BluetoothModel
  */
 + (__kindof IDOGetNotify0BluetoothModel *)currentModel;
@@ -1095,14 +1162,16 @@
 @property (nonatomic,assign) BOOL callingNum;
 
 /**
- * @brief 来电提醒功能列表结构体转model (内部使用) | Call alert feature list structure to model (internal use)
+ * @brief 来电提醒功能列表结构体转model (内部使用)
+ * Call alert feature list structure to model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetTableCallBluetoothModel
  */
 + (__kindof IDOGetTableCallBluetoothModel *)tableCallStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetTableCallBluetoothModel
  */
 + (__kindof IDOGetTableCallBluetoothModel *)currentModel;
@@ -1152,14 +1221,16 @@
 @property (nonatomic,assign) BOOL custom;
 
 /**
- * @brief 闹钟功能列表结构体转model (内部使用) | Alarm function list structure structure model (internal use)
+ * @brief 闹钟功能列表结构体转model (内部使用)
+ * Alarm function list structure structure model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetAlarmBluetoothModel
  */
 + (__kindof IDOGetAlarmFuncBluetoothModel *)alarmStructToModel:(void *)data;
 
 /**
- * @brief  查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief  查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetAlarmFuncBluetoothModel
  */
 + (__kindof IDOGetAlarmFuncBluetoothModel *)currentModel;
@@ -1209,14 +1280,16 @@
 @property (nonatomic,assign) BOOL bindCodeAuth;
 
 /**
- * @brief  控制功能列表结构体转model (内部使用) | Control function list structure body model (internal use)
+ * @brief  控制功能列表结构体转model (内部使用)
+ * Control function list structure body model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetTableControlBluetoothModel
  */
 + (__kindof IDOGetTableControlBluetoothModel *)tableControlStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetTableControlBluetoothModel
  */
 + (__kindof IDOGetTableControlBluetoothModel *)currentModel;
@@ -1266,14 +1339,16 @@
 @property (nonatomic,assign) BOOL timeLine;
 
 /**
- * @brief 主功能列表结构体转model (内部使用) | Main function list structure to model (internal use)
+ * @brief 主功能列表结构体转model (内部使用)
+ * Main function list structure to model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetMainFuncBluetoothModel
  */
 + (__kindof IDOGetMainFuncBluetoothModel *)mainFuncStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetMainFuncBluetoothModel
  */
 + (__kindof IDOGetMainFuncBluetoothModel *)currentModel;
@@ -1299,14 +1374,16 @@
 @property (nonatomic,assign) BOOL croatian;
 
 /**
- * @brief 根据语言扩展2结构体初始化model (内部使用) | Initialize model according to language extension 2 structure (internal use)
+ * @brief 根据语言扩展2结构体初始化model (内部使用)
+ * Initialize model according to language extension 2 structure (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetLangExtend2SupportBluetoothModel
  */
 + (__kindof IDOGetLangExtend2SupportBluetoothModel *)langExtend2SupportStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetLangExtend2SupportBluetoothModel
  */
 + (__kindof IDOGetLangExtend2SupportBluetoothModel *)currentModel;
@@ -1358,14 +1435,16 @@
 @property (nonatomic,assign) BOOL ukrainian;
 
 /**
- * @brief 根据语言扩展结构体初始化model (内部使用) | Initialize model according to language extension structure (internal use)
+ * @brief 根据语言扩展结构体初始化model (内部使用)
+ * Initialize model according to language extension structure (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetLangExtendSupportBluetoothModel
  */
 + (__kindof IDOGetLangExtendSupportBluetoothModel *)langExtendSupportStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetLangExtendSupportBluetoothModel
  */
 + (__kindof IDOGetLangExtendSupportBluetoothModel *)currentModel;
@@ -1414,14 +1493,16 @@
  */
 @property (nonatomic,assign) BOOL czech;
 /**
- * @brief 根据语言结构体初始化model (内部使用) | Initialize model according to language structure (internal use)
+ * @brief 根据语言结构体初始化model (内部使用)
+ * Initialize model according to language structure (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetLangSupportBluetoothModel
  */
 + (__kindof IDOGetLangSupportBluetoothModel *)langSupportStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetLangSupportBluetoothModel
  */
 + (__kindof IDOGetLangSupportBluetoothModel *)currentModel;
@@ -1531,6 +1612,11 @@
 @property (nonatomic,strong) IDOGetFuncExtend2BluetoothModel      * funcExtend2Model;
 
 /**
+ 扩展提醒功能4 | Extended Notify 4
+ */
+@property (nonatomic,strong) IDOGetExNotify4BluetoothModel        * exNotify4Model;
+
+/**
  是否支持版本信息 | version information is supported
  */
 @property (nonatomic,assign) BOOL versionInfo;
@@ -1629,7 +1715,8 @@
 + (__kindof IDOGetMacAddrInfoBluetoothModel *)macAddrStructToModel:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOGetMacAddrInfoBluetoothModel
  */
 + (__kindof IDOGetMacAddrInfoBluetoothModel *)currentModel;

@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/IDOBluetoothManager.h</key>
 		<data>
-		S19Tkj3muyE7gnI5q8hY9CHiBfQ=
+		ESaa0PlOyh1hJaBA+3R/PxAVlnA=
 		</data>
 		<key>Headers/IDOBluetoothManagerDelegate.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/IDOGetInfoBluetoothModel.h</key>
 		<data>
-		vWuDbdLMJHIvb6ZPMylQ5BqTRmU=
+		+ZTb748HPT5gW4tUiedh7u9K9Hc=
 		</data>
 		<key>Headers/IDOPeripheralModel.h</key>
 		<data>
@@ -191,11 +191,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			S19Tkj3muyE7gnI5q8hY9CHiBfQ=
+			ESaa0PlOyh1hJaBA+3R/PxAVlnA=
 			</data>
 			<key>hash2</key>
 			<data>
-			7KPtnHEMa8tl1J19810ebtwTuyYdmUq9tklbyZoHmcg=
+			jieT9wU/lISlRyKVzPGZ/lzZShtf1kNpRdPzNC9bZvY=
 			</data>
 		</dict>
 		<key>Headers/IDOBluetoothManagerDelegate.h</key>
@@ -290,11 +290,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vWuDbdLMJHIvb6ZPMylQ5BqTRmU=
+			+ZTb748HPT5gW4tUiedh7u9K9Hc=
 			</data>
 			<key>hash2</key>
 			<data>
-			NMli5d6Gaxb7DytwfyMSVFChoX318xMFEcjKT3+KDvM=
+			tyREWoQkScyhA5osVmehvmN2JnVptW0CBsgVOSX0IJ0=
 			</data>
 		</dict>
 		<key>Headers/IDOPeripheralModel.h</key>
