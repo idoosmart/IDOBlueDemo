@@ -1682,6 +1682,25 @@
 @property (nonatomic,assign) NSInteger bindState;
 
 /**
+ * 绑定类型 | Binding type
+ * 0x00默认(注意以前ID号定制),超时时间无效,
+ * 0x01(单击[按键在下面]),
+ * 0x02(为长按[按键在下面]),
+ * 0x03(屏幕点击 横向确认和取消,确认在左边),
+ * 0x04(屏幕点击 横向确认和取消,确认在右边)，
+ * 0x05(屏幕点击 竖向确认和取消,确认在上边)，
+ * 0x06(屏幕点击 竖向确认和取消,确认在下边),
+ * 0x07点击(右边一个按键))
+ */
+@property (nonatomic,assign) NSInteger bindType;
+
+/**
+ * 绑定超时 | Binding timeout
+ * 最长为15秒,0表示不超时
+ */
+@property (nonatomic,assign) NSInteger bindTimeout;
+
+/**
  * @brief 设备信息结构体转model (内部使用) | Device information structure to model (internal use)
  * @param data 结构体指针 | Structure pointer
  * @return IDOGetDeviceInfoBluetoothModel

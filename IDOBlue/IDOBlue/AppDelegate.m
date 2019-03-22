@@ -11,7 +11,7 @@
 #import "ScanViewController.h"
 #import "FuncViewController.h"
 #import "FuncViewModel.h"
-#import "UpdateFirmwareViewModel.h"
+#import "UpdateMainViewModel.h"
 
 @interface AppDelegate ()
 
@@ -34,8 +34,8 @@
             self.window.rootViewController = nav;
         }else {
             FuncViewController * update = [[FuncViewController alloc]init];
-            update.model = [UpdateFirmwareViewModel new];
-            update.title = @"固件升级";
+            update.model = [UpdateMainViewModel new];
+            update.title = @"设备升级";
             UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:update];
             self.window.rootViewController = nav;
         }

@@ -86,7 +86,7 @@
         };
         newAlarmModel.addAlarmComplete = addAlarmComplete;
         newFuncVc.model = newAlarmModel;
-        newFuncVc.title = [NSString stringWithFormat:@"编辑闹钟(%ld)",alarmModel.alarmId];
+        newFuncVc.title = [NSString stringWithFormat:@"编辑闹钟(%ld)",(long)alarmModel.alarmId];
         [viewController.navigationController pushViewController:newFuncVc animated:YES];
     };
 }
@@ -116,7 +116,8 @@
         if(alarmModel.isOpen && alarmModel.isSync) {
             LabelCellModel * model = [[LabelCellModel alloc]init];
             model.typeStr = @"oneLabel";
-            NSString * alarmStr = [NSString stringWithFormat:@"闹钟 : %ld \n时间 : %02ld:%02ld \n重复 : %@",alarmModel.alarmId,alarmModel.hour,alarmModel.minute,
+            NSString * alarmStr = [NSString stringWithFormat:@"闹钟 : %ld \n时间 : %02ld:%02ld \n重复 : %@",(long)alarmModel.alarmId,
+                                   (long)alarmModel.hour,(long)alarmModel.minute,
                                    [self weeksStrWithRepeats:alarmModel.repeat]];
             model.data = @[alarmStr];
             model.cellHeight = 80.0f;

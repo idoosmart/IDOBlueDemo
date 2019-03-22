@@ -122,6 +122,11 @@
  */
 + (void)idoDidUpdateValueForCharacteristic:(CBCharacteristic *)characteristic;
 
-
+/**
+ * 蓝牙写完数据的回调
+ * Bluetooth writes a callback to the data
+ */
++ (void)idoDidWriteValueForCharacteristic:(CBCharacteristic *)characteristic
+                                    error:(NSError *)error;
 @end
 

@@ -80,7 +80,8 @@
 - (void)menstruationModelToStructure:(void *)data;
 
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetMenstruationInfoBluetoothModel
  */
 + (__kindof IDOSetMenstruationInfoBluetoothModel *)currentModel;

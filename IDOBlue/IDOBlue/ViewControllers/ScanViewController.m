@@ -8,7 +8,7 @@
 
 #import "ScanViewController.h"
 #import "FuncViewController.h"
-#import "UpdateFirmwareViewModel.h"
+#import "UpdateMainViewModel.h"
 #import "FuncViewModel.h"
 #import "ModeSelectViewModel.h"
 #import "AuthTextFieldView.h"
@@ -248,8 +248,8 @@ static BOOL BIND_STATE = NO;
 - (void)updateAction:(UIButton *)sender
 {
     FuncViewController * update = [[FuncViewController alloc]init];
-    update.model = [UpdateFirmwareViewModel new];
-    update.title = @"固件升级";
+    update.model = [UpdateMainViewModel new];
+    update.title = @"设备升级";
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:update];
     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
 }
@@ -418,11 +418,11 @@ static BOOL BIND_STATE = NO;
     }else if ([keyPath isEqualToString:@"idoManager.manualConnectTotalTime"]) {
         NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
         if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"手动连接时长：%ld",totalTime];
+        self.timerLabel.text = [NSString stringWithFormat:@"手动连接时长：%ld",(long)totalTime];
     }else if ([keyPath isEqualToString:@"idoManager.autoConnectTotalTime"]) {
         NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
         if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"自动连接时长：%ld",totalTime];
+        self.timerLabel.text = [NSString stringWithFormat:@"自动连接时长：%ld",(long)totalTime];
     }
 }
 
