@@ -486,7 +486,7 @@
  * 后两天的天气集合  @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
  * Weather collection for the last two days @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
  */
-@property (nonatomic,strong)   NSArray<NSDictionary*>* future;
+@property (nonatomic,strong) NSArray<NSDictionary*>* future;
 
 /**
  * @brief  天气数据 model 转结构体数据 (内部使用) | Weather data model to structure data (internal use)
@@ -500,7 +500,56 @@
  */
 + (__kindof IDOSetWeatherDataInfoBluetoothModel *)currentModel;
 @end
+
+#pragma mark ==== 设置运动快捷模式排序model ====
+
+@interface IDOSetSportSortingItemModel:IDOBluetoothBaseModel
+
+/**
+ 排序索引 | index //排序,从1、2、3、4....,0:无效
+ */
+@property (nonatomic,assign) NSInteger index;
+
+/**
+ * 运动模式 | Sport mode
+ * 0:无，1:走路，2:跑步，3:骑行，4:徒步，5:游泳，6:爬山，7:羽毛球，8:其他，
+ * 9:健身，10:动感单车，11:椭圆机，12:跑步机，13:仰卧起坐，14:俯卧撑，15:哑铃，16:举重，
+ * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
+ * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞
+ * 0: none, 1: walk, 2: run, 3: ride, 4: hike, 5: swim, 6: climb, 7: badminton, 8: others,
+ * 9: fitness, 10: spinning, 11: elliptical, 12: treadmill, 13: sit-ups, 14: push-ups, 15: dumbbells, 16: weightlifting,
+ * 17: aerobics, 18: yoga, 19: jump rope, 20: table tennis, 21: basketball, 22: football, 23: volleyball, 24: tennis,
+ * 25: golf, 26: baseball, 27: skiing, 28: roller skating, 29: dancing
+ */
+@property (nonatomic,assign) NSInteger type;
+
+@end
+
+@interface IDOSetSportSortingInfoBluetoothModel:IDOBluetoothBaseModel
+
+/**
+ 运动模式排序集合最多8个 | Sports mode sort set up to 8
+ */
+@property (nonatomic,strong)NSArray <IDOSetSportSortingItemModel *>* sportSortingItems;
+
+/**
+ * @brief 运动模式排序 model 转结构体数据 (内部使用)
+ * Motion shortcuts model to structure data (internal use)
+ * @param data 结构体指针 | Structure pointer
+ */
+- (void)sportSortingModelToStructure:(void *)data;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetSportSortingInfoBluetoothModel
+ */
++ (__kindof IDOSetSportSortingInfoBluetoothModel *)currentModel;
+
+@end
+
 #pragma mark ==== 设置运动快捷模式model ====
+
 @interface IDOSetSportShortcutInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
@@ -648,12 +697,14 @@
  */
 @property (nonatomic,assign) BOOL isDance;
 /**
- * @brief 运动快捷方式 model 转结构体数据 (内部使用) | Motion shortcuts model to structure data (internal use)
+ * @brief 运动快捷方式 model 转结构体数据 (内部使用)
+ * Motion shortcuts model to structure data (internal use)
  * @param data 结构体指针 | Structure pointer
  */
 - (void)sportShortcutModelToStructure:(void *)data;
 /**
- * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
  * @return IDOSetSportShortcutInfoBluetoothModel
  */
 + (__kindof IDOSetSportShortcutInfoBluetoothModel *)currentModel;
@@ -858,7 +909,7 @@
  * 语言单位 无效:0,中文:1,英文:2,法语:3,德语:4,意大利语:5,西班牙语:6,日语:7,
  * 波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
  * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19
- * Language unit   Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
+ * Language unit Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
  * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
  * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19
  */

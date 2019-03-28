@@ -50,7 +50,8 @@
           didUpdateState:(IDO_BLUETOOTH_MANAGER_STATE)state;
 
 /**
- * @brief 连接设备错误回调 | Connection Device Error Callback
+ * @brief 连接设备错误回调,当解绑设备断开连接时不会回调此方法
+ * Connection Device Error Callback,This method is not called back when the unbound device is disconnected.
  * @param manager IDO蓝牙管理中心 | IDO Bluetooth Management Center
  * @param error 错误信息 | Error message
  */

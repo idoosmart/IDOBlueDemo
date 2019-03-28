@@ -296,10 +296,16 @@ typedef NS_ENUM(NSInteger, IDO_BLUETOOTH_CONNECT_ERROR_TYPE) {
     IDO_BLUETOOTH_PERIPHERAL_DON_EXIST,
     
     /**
-     * 蓝牙断开连接
-     * Bluetooth disconnect
+     * 蓝牙自动断开连接
+     * Bluetooth auto disconnect
      */
-    IDO_BLUETOOTH_DIS_CONNECT_TYPE,
+    IDO_BLUETOOTH_AUTO_DIS_CONNECT_TYPE,
+    
+    /**
+     * 蓝牙手动断开连接
+     * Bluetooth manual disconnect
+     */
+    IDO_BLUETOOTH_MANUAL_DIS_CONNECT_TYPE,
     
     /**
      * 蓝牙连接失败

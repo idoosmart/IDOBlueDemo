@@ -364,6 +364,7 @@
  */
 + (void)setShortcutCommand:(IDOSetShortcutInfoBluetoothModel * _Nullable)shortcutModel callback:(void(^_Nullable)(int errorCode))callback;
 
+
 /**
  * @brief 设置血压舒张、收缩 | Set blood pressure to relax and contract
  * @param calModel 血压舒张、收缩 model (IDOSetBloodPressureInfoBluetoothModel)
@@ -382,6 +383,15 @@
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
 + (void)setSportModeSelectCommand:(IDOSetSportShortcutInfoBluetoothModel * _Nullable)sportSelectModel callback:(void(^_Nullable)(int errorCode))callback;
+
+/**
+ * @brief 设置运动模式排序 | Set motion shortcuts
+ * @param sportSortModel 运动模式排序 model (IDOSetSportSortingInfoBluetoothModel)
+ * sport mode sort Model (IDOSetSportSortingInfoBluetoothModel)
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setSportModeSortCommand:(IDOSetSportSortingInfoBluetoothModel * _Nullable)sportSortModel callback:(void(^_Nullable)(int errorCode))callback;
 
 /**
  * @brief 设置天气预报数据 | Set weather forecast data

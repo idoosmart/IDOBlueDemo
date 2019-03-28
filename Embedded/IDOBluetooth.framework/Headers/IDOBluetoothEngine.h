@@ -100,6 +100,11 @@
 @property (nonatomic,assign,readonly,getter=isConnected) BOOL connected;
 
 /**
+ 蓝牙是否正在连接中 | Bluetooth is connecting
+ */
+@property (nonatomic,assign,readonly,getter=isConnecting) BOOL connecting;
+
+/**
  命令服务特征 | Command Service Features
  */
 @property (nonatomic,strong) CBCharacteristic * commandCharacteristic;
@@ -142,11 +147,6 @@
 @end
 
 @interface IDOBluetoothPeripheralInfoEngine : NSObject
-
-/**
- 之前连接过的外围设备的uuid | uuid of previously connected peripherals
- */
-@property (nonatomic,copy)   NSString * beforuuidStr;
 
 /**
  当前连接外围设备的uuid | uuid currently connected to peripherals
