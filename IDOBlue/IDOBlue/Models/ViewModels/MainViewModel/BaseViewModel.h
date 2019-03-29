@@ -13,6 +13,9 @@
 @property (nonatomic,strong) PickerDataModel * pickerDataModel;
 @property (nonatomic,strong) NSArray * cellModels;
 @property (nonatomic,assign) BOOL is2dArray;
+@property (nonatomic,copy)   NSString * rightButtonTitle;
+@property (nonatomic,copy)   NSString * leftButtonTitle;
+@property (nonatomic,copy)   NSString * footButtonTitle;
 @property (nonatomic,assign) BOOL isRightButton;
 @property (nonatomic,assign) BOOL isLeftButton;
 @property (nonatomic,assign) BOOL isFootButton;
@@ -21,5 +24,6 @@
 @property (nonatomic,copy)   void(^viewWillDisappearCallback)(UIViewController * viewController);
 @property (nonatomic,copy)   void(^viewWillAppearCallback)(UIViewController * viewController);
 @property (nonatomic,copy)   void(^delectCellCallback)(UIViewController * viewController,NSIndexPath * indexPath);
+@property (nonatomic,copy)   void(^moveRowCellCallback)(UIViewController * viewController,NSIndexPath * sourceIndexPath,NSIndexPath * destinationIndexPath);
 @property (nonatomic,copy)   void(^footButtonCallback)(UIViewController * viewController);
 @end

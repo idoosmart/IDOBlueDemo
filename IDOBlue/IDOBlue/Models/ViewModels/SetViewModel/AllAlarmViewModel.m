@@ -125,7 +125,7 @@
             model.modelClass = [NSNull class];
             model.labelSelectCallback = self.labelSelectCallback;
             model.isShowLine = YES;
-            model.isDelete = YES;
+            model.isDelete   = YES;
             [cellModels addObject:model];
         }
     }

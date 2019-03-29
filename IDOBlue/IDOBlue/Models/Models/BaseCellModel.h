@@ -17,4 +17,5 @@
 @property (nonatomic,assign) NSInteger index;
 @property (nonatomic,assign) BOOL isShowLine;
 @property (nonatomic,assign) BOOL isDelete;
+@property (nonatomic,assign) BOOL isMoveRow;
 @end

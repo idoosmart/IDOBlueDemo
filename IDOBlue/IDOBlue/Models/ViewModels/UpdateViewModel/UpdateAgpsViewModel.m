@@ -31,6 +31,7 @@
 {
     self = [super init];
     if (self) {
+        self.rightButtonTitle = @"选择AGPS文件";
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
         [self getButtonCallback];

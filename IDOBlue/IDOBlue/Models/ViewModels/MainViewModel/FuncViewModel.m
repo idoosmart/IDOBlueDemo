@@ -34,6 +34,7 @@
 {
     self = [super init];
     if (self) {
+        self.leftButtonTitle = @"强制解绑";
         self.isLeftButton = YES;
         self.leftButton   = @selector(actionButton:);
         [self getButtonCallback];

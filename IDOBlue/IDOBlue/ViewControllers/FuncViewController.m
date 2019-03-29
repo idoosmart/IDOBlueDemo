@@ -107,7 +107,7 @@
 
 - (void)addLeftButton
 {
-    UIBarButtonItem * leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"强制解绑"
+    UIBarButtonItem * leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:_model.leftButtonTitle
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:_model
                                                                        action:_model.leftButton];
@@ -117,7 +117,7 @@
 
 - (void)addRightButton
 {
-    UIBarButtonItem * rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择"
+    UIBarButtonItem * rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:_model.rightButtonTitle
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:_model
                                                                         action:_model.rightButton];

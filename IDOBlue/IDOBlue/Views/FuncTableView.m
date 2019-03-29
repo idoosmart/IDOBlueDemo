@@ -113,12 +113,23 @@
     }else {
         cellModel = _model.cellModels[indexPath.row];
     }
-    return cellModel.isDelete;
+    return cellModel.isDelete || cellModel.isMoveRow;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return UITableViewCellEditingStyleDelete;
+    BaseCellModel * cellModel = nil;
+    if (_model.is2dArray) {
+        cellModel = _model.cellModels[indexPath.section][indexPath.row];
+    }else {
+        cellModel = _model.cellModels[indexPath.row];
+    }
+    if (cellModel.isDelete) {
+        return UITableViewCellEditingStyleDelete;
+    }else if (cellModel.isMoveRow) {
+        return UITableViewCellEditingStyleNone;
+    }
+    return UITableViewCellEditingStyleNone;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -138,6 +149,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self endEditing:YES];
+    
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    BaseCellModel * cellModel = nil;
+    if (_model.is2dArray) {
+        cellModel = _model.cellModels[indexPath.section][indexPath.row];
+    }else {
+        cellModel = _model.cellModels[indexPath.row];
+    }
+    if (cellModel.isMoveRow) {
+        return YES;
+    }
+    return NO;
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    if (_model.moveRowCellCallback) {
+        _model.moveRowCellCallback([IDODemoUtility getCurrentVC],sourceIndexPath,destinationIndexPath);
+    }
 }
 
 @end

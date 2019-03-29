@@ -74,7 +74,7 @@
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if (strongSelf.selectedCount >= __IDO_FUNCTABLE__.sportShowCount && onSwitch.isOn) {
-            [funcVC showToastWithText:[NSString stringWithFormat:@"最多支持%ld种类型",__IDO_FUNCTABLE__.sportShowCount]];
+            [funcVC showToastWithText:[NSString stringWithFormat:@"最多支持%ld种类型",(long)__IDO_FUNCTABLE__.sportShowCount]];
             switchCellModel.data = @[@(NO)];
             [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             return ;

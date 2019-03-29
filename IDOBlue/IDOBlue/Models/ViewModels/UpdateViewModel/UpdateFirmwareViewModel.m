@@ -34,6 +34,7 @@
 {
     self = [super init];
     if (self) {
+        self.rightButtonTitle = @"选择固件";
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
         [self getButtonCallback];

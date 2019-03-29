@@ -30,6 +30,7 @@
 #import "SetShortcutViewModel.h"
 #import "SetBloodPressureViewModel.h"
 #import "SetSportShortcutViewModel.h"
+#import "SetSportModeSortViewModel.h"
 #import "SetScreenViewModel.h"
 #import "SetMusicViewModel.h"
 #import "SetGpsInfoViewModel.h"
@@ -66,9 +67,9 @@
                           @[@"设置当前时间"],@[@"设置闹钟提醒"],@[@"设置久坐提醒"],@[@"设置天气预报"],
                           @[@"设置心率模式"],@[@"设置心率区间"],@[@"设置勿扰模式"],@[@"设置设备单位"],
                           @[@"设置一键呼叫"],@[@"设置快捷方式"],@[@"设置血压校准"],@[@"设置运动快捷"],
-                          @[@"设置屏幕亮度"],@[@"设置音乐开关"],@[@"设置GPS信息"],@[@"设置启动参数"],
-                          @[@"设置表盘参数"],@[@"设置睡眠时间"],@[@"设置星星个数"],@[@"设置短信推送"],
-                          @[@"设置用户名字"],@[@"设置用户号码"]];
+                          @[@"设置运动排序"],@[@"设置屏幕亮度"],@[@"设置音乐开关"],@[@"设置GPS信息"],
+                          @[@"设置启动参数"],@[@"设置表盘参数"],@[@"设置睡眠时间"],@[@"设置星星个数"],
+                          @[@"设置短信推送"],@[@"设置用户名字"],@[@"设置用户号码"]];
     }
     return _buttonTitles;
 }
@@ -81,9 +82,9 @@
                          [SetTimeViewModel class],[AllAlarmViewModel class],[SetLongSitViewModel class],[SetWeatherViewModel class],
                          [SetHrModeViewModel class],[SetHrIntervalViewModel class],[SetNoDisturbViewModel class],[SetUnitViewModel class],
                          [SetOneKeySosViewModel class],[SetShortcutViewModel class],[SetBloodPressureViewModel class],[SetSportShortcutViewModel class],
-                         [SetScreenViewModel class],[SetMusicViewModel class],[SetGpsInfoViewModel class],[SetHotStartViewModel class],
-                         [SetDialParamViewModel class],[SetSleepTimeViewModel class],[SetStartCountViewModel class],[SetContentViewModel class],
-                         [SetUserNameViewModel class],[SetUserNumberViewModel class]];
+                         [SetSportModeSortViewModel class],[SetScreenViewModel class],[SetMusicViewModel class],[SetGpsInfoViewModel class],
+                         [SetHotStartViewModel class],[SetDialParamViewModel class],[SetSleepTimeViewModel class],[SetStartCountViewModel class],
+                         [SetContentViewModel class],[SetUserNameViewModel class],[SetUserNumberViewModel class]];
     }
     return _modelClasss;
 }
