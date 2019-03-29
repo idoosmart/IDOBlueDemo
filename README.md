@@ -9,7 +9,7 @@
 ## Requirements
 | IDOBluetooth version | minimum iOS target| notes |
 | :------:| :------: | :------: |
-| 3.1.1 | iOS 8.0 | Only the objective-c file in the project needs to add an empty swift file |
+| 3.1.4 | iOS 8.0 | Only the objective-c file in the project needs to add an empty swift file |
 
 ## Project configuration
 * Reference header file
@@ -576,6 +576,16 @@ sportShortcutModel = [IDOSetSportShortcutInfoBluetoothModel currentModel];
            if(errorCode == 0) {
         }else {
         } 
+}];
+
+// set sport mode sort
+sportModeSortModel = [IDOSetSportSortingInfoBluetoothModel currentModel];
+[IDOFoundationCommand setSportModeSortCommand:sportModeSortModel callback:^(int errorCode) {
+    if(errorCode == 0) {
+
+    }else {
+
+    }
 }];
 
 //set screen
