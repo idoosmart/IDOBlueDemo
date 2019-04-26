@@ -77,13 +77,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置心率区间..."];
+        [funcVC showLoadingWithMessage: [NSString stringWithFormat:@"%@...",lang(@"set heart rate interval")] ];
         [IDOFoundationCommand setHrIntervalCommand:strongSelf.hrIntervalModel
                                           callback:^(int errorCode) {
               if(errorCode == 0) {
-                  [funcVC showToastWithText:@"设置心率区间成功"];
+                  [funcVC showToastWithText:lang(@"set heart rate interval success")];
               }else {
-                  [funcVC showToastWithText:@"设置心率区间失败"];
+                  [funcVC showToastWithText:lang(@"set heart rate interval failed")];
               }
         }];
     };
@@ -95,7 +95,7 @@
     
     TextFieldCellModel * model1 = [[TextFieldCellModel alloc]init];
     model1.typeStr = @"oneTextField";
-    model1.titleStr = @"燃烧脂肪 : ";
+    model1.titleStr = lang(@"burn fat:");
     model1.data = @[@(self.hrIntervalModel.burnFat)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneTextFieldTableViewCell class];
@@ -106,7 +106,7 @@
     
     TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
     model2.typeStr = @"oneTextField";
-    model2.titleStr = @"有氧锻炼 : ";
+    model2.titleStr = lang(@"aerobic exercise:");
     model2.data = @[@(self.hrIntervalModel.aerobic)];
     model2.cellHeight = 70.0f;
     model2.cellClass = [OneTextFieldTableViewCell class];
@@ -117,7 +117,7 @@
     
     TextFieldCellModel * model3 = [[TextFieldCellModel alloc]init];
     model3.typeStr = @"oneTextField";
-    model3.titleStr = @"极限锻炼 : ";
+    model3.titleStr =  lang(@"extreme exercise:") ;
     model3.data = @[@(self.hrIntervalModel.limitValue)];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneTextFieldTableViewCell class];
@@ -128,7 +128,7 @@
     
     TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
     model4.typeStr = @"oneTextField";
-    model4.titleStr = @"最大心率 : ";
+    model4.titleStr = lang(@"max heart rate:");
     model4.data = @[@(self.hrIntervalModel.userMaxHr)];
     model4.cellHeight = 70.0f;
     model4.cellClass = [OneTextFieldTableViewCell class];
@@ -146,7 +146,7 @@
     
     FuncCellModel * model6 = [[FuncCellModel alloc]init];
     model6.typeStr = @"oneButton";
-    model6.data = @[@"设置心率区间"];
+    model6.data = @[lang(@"set heart rate interval button")];
     model6.cellHeight = 70.0f;
     model6.cellClass = [OneButtonTableViewCell class];
     model6.modelClass = [NSNull class];

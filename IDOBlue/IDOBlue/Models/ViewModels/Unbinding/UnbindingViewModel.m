@@ -34,7 +34,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"设备解绑"],@[@"强制解绑"],@[@"切换设备"]];
+        _buttonTitles = @[@[lang(@"device unbind")],@[lang(@"mandatory unbind")],@[lang(@"device switch")]];
     }
     return _buttonTitles;
 }
@@ -62,33 +62,43 @@
         __block FuncViewController * funcVc = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 0) {
-            [funcVc showLoadingWithMessage:@"设备解绑..."];
+            [funcVc showLoadingWithMessage:lang(@"device unbinding")];
             [IDOFoundationCommand unbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
-                    [funcVc showToastWithText:@"解绑设备成功"];
+                    [funcVc showToastWithText:lang(@"unbind success")];
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];
                     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
                     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+                    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
+                        if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
+                            [view removeFromSuperview];
+                        }
+                    }
                 }else {
-                    [funcVc showToastWithText:@"解绑设备失败"];
+                    [funcVc showToastWithText:lang(@"unbind failed")];
                 }
             }];
         }else if(indexPath.row == 1){
-            [funcVc showLoadingWithMessage:@"设备解绑..."];
+            [funcVc showLoadingWithMessage:lang(@"device unbinding")];
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
-                    [funcVc showToastWithText:@"解绑设备成功"];
+                    [funcVc showToastWithText:lang(@"unbind success")];
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];
                     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
                     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+                    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
+                        if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
+                            [view removeFromSuperview];
+                        }
+                    }
                 }else {
-                    [funcVc showToastWithText:@"强制解绑失败"];
+                    [funcVc showToastWithText:lang(@"unbind failed")];
                 }
             }];
         }else if (indexPath.row == 2) {
             FuncViewController * newFuncVc = [FuncViewController new];
             newFuncVc.model = [SwitchDeviceViewModel new];
-            newFuncVc.title = @"切换设备";
+            newFuncVc.title = lang(@"device switch");
             [funcVc.navigationController pushViewController:newFuncVc animated:YES];
         }
     };

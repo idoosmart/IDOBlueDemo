@@ -57,32 +57,32 @@
                               bleStartCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf appSportStart];
-        [strongSelf addMessageText:[NSString stringWithFormat:@"手环运动开始:\n%@\n\n",model.dicFromObject]];
+        [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"bracelet start activity"),model.dicFromObject]];
     }];
     
     [IDOFoundationCommand blePauseSportCommand:self.dataModel
                               blePauseCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf addMessageText:[NSString stringWithFormat:@"手环运动暂停:\n%@\n\n",model.dicFromObject]];
+        [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"bracelet suspended activity"),model.dicFromObject]];
     }];
     
     [IDOFoundationCommand bleRestoreSportCommand:self.dataModel
                               bleRestoreCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf addMessageText:[NSString stringWithFormat:@"手环运动恢复:\n%@\n\n",model.dicFromObject]];
+        [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"bracelet restore activity"),model.dicFromObject]];
     }];
     
     [IDOFoundationCommand bleEndSportCommand:self.dataModel
                               bleEndCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf addMessageText:[NSString stringWithFormat:@"手环运动结束:\n%@\n\n",model.dicFromObject]];
+        [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"bracelet stop activity"),model.dicFromObject]];
         [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(appSportStart) object:nil];
     }];
     
     [IDOFoundationCommand bleIngSportCommand:self.dataModel
                               bleIngCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
           __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf addMessageText:[NSString stringWithFormat:@"手环发送数据:\n%@\n\n",model.dicFromObject]];
+        [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"bracelet send data"),model.dicFromObject]];
     }];
 }
 

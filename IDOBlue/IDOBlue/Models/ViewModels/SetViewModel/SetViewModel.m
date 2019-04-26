@@ -37,10 +37,9 @@
 #import "SetHotStartViewModel.h"
 #import "SetDialParamViewModel.h"
 #import "SetSleepTimeViewModel.h"
-#import "SetStartCountViewModel.h"
-#import "SetContentViewModel.h"
-#import "SetUserNameViewModel.h"
-#import "SetUserNumberViewModel.h"
+#import "SetMenstruationViewModel.h"
+#import "SetMenstruationRemindViewModel.h"
+#import "SetCustomFuncViewModel.h"
 
 @interface SetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -62,14 +61,14 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"设置个人信息"],@[@"设置目标信息"],@[@"设置寻找手机"],@[@"设置抬腕识别"],
-                          @[@"设置左右手穿戴"],@[@"设置丢失提醒"],@[@"设置显示模式"],@[@"设置智能提醒"],
-                          @[@"设置当前时间"],@[@"设置闹钟提醒"],@[@"设置久坐提醒"],@[@"设置天气预报"],
-                          @[@"设置心率模式"],@[@"设置心率区间"],@[@"设置勿扰模式"],@[@"设置设备单位"],
-                          @[@"设置一键呼叫"],@[@"设置快捷方式"],@[@"设置血压校准"],@[@"设置运动快捷"],
-                          @[@"设置运动排序"],@[@"设置屏幕亮度"],@[@"设置音乐开关"],@[@"设置GPS信息"],
-                          @[@"设置启动参数"],@[@"设置表盘参数"],@[@"设置睡眠时间"],@[@"设置星星个数"],
-                          @[@"设置短信推送"],@[@"设置用户名字"],@[@"设置用户号码"]];
+        _buttonTitles = @[@[lang(@"set user info")],@[lang(@"set target info")],@[lang(@"set find phone")],@[lang(@"set hand up identify")],
+                          @[lang(@"set left right hand")],@[lang(@"set prevent lost")],@[lang(@"set display mode")],@[lang(@"set smart notfity")],
+                          @[lang(@"set current time")],@[lang(@"set alarm remind")],@[lang(@"set long sit remind")],@[lang(@"set weather forecast")],
+                          @[lang(@"set heart rate mode")],@[lang(@"set heart rate interval")],@[lang(@"set no disturb mode")],@[lang(@"set device unit")],
+                          @[lang(@"set one key sos")],@[lang(@"set shortcut mode")],@[lang(@"set blood pressure calibration")],@[lang(@"set sport shortcut")],
+                          @[lang(@"set sport mode sort")],@[lang(@"set screen brightness")],@[lang(@"set music open off")],@[lang(@"set gps info")],
+                          @[lang(@"set hot start info")],@[lang(@"set dial parameters")],@[lang(@"set sleep time")],@[lang(@"set menstruation parameter")],
+                          @[lang(@"set menstruation remind")],@[lang(@"custom set func")]];
     }
     return _buttonTitles;
 }
@@ -83,8 +82,8 @@
                          [SetHrModeViewModel class],[SetHrIntervalViewModel class],[SetNoDisturbViewModel class],[SetUnitViewModel class],
                          [SetOneKeySosViewModel class],[SetShortcutViewModel class],[SetBloodPressureViewModel class],[SetSportShortcutViewModel class],
                          [SetSportModeSortViewModel class],[SetScreenViewModel class],[SetMusicViewModel class],[SetGpsInfoViewModel class],
-                         [SetHotStartViewModel class],[SetDialParamViewModel class],[SetSleepTimeViewModel class],[SetStartCountViewModel class],
-                         [SetContentViewModel class],[SetUserNameViewModel class],[SetUserNumberViewModel class]];
+                         [SetHotStartViewModel class],[SetDialParamViewModel class],[SetSleepTimeViewModel class],[SetMenstruationViewModel class],
+                         [SetMenstruationRemindViewModel class],[SetCustomFuncViewModel class]];
     }
     return _modelClasss;
 }

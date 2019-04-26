@@ -26,7 +26,7 @@
         
         self.setButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.setButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.setButton setTitle:@"查询数据" forState:UIControlStateNormal];
+        [self.setButton setTitle:lang(@"query data") forState:UIControlStateNormal];
         UIColor * color = [UIColor colorWithRed:142/255.0f green:91/255.0f blue:45/255.0f alpha:1.0];
         [self.setButton setBackgroundImage:[IDODemoUtility imageWithColor:color] forState:UIControlStateNormal];
         [self addSubview:self.setButton];

@@ -7,6 +7,7 @@
 //
 
 #import "BindDeviceView.h"
+#import "IDODemoUtility.h"
 #import "Masonry.h"
 
 @interface BindDeviceView()
@@ -34,7 +35,7 @@
         }];
         
         UILabel * title = [[UILabel alloc]init];
-        title.text = @"提示";
+        title.text = lang(@"tip");
         title.font = [UIFont systemFontOfSize:20];
         title.textAlignment = NSTextAlignmentCenter;
         [self.boxView addSubview:title];
@@ -70,7 +71,7 @@
         
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.cancelButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [self.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+        [self.cancelButton setTitle:lang(@"cancel") forState:UIControlStateNormal];
         [self.cancelButton addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
         [self.boxView addSubview:self.cancelButton];
         [self.cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -92,7 +93,7 @@
         
         self.okButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.okButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [self.okButton setTitle:@"确定" forState:UIControlStateNormal];
+        [self.okButton setTitle:lang(@"ok") forState:UIControlStateNormal];
         [self.okButton addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpInside];
         [self.boxView addSubview:self.okButton];
         [self.okButton mas_makeConstraints:^(MASConstraintMaker *make) {

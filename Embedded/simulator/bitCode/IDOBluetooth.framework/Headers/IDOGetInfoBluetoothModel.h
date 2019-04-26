@@ -468,6 +468,21 @@
 @property (nonatomic,assign) BOOL pressureData;
 
 /**
+ 获取勿扰模式 | get do not disturb
+ */
+@property (nonatomic,assign) BOOL getNoDisturb;
+
+/**
+ 运动模式排序 | sport mode sort
+ */
+@property (nonatomic,assign) BOOL sportModeSort;
+
+/**
+ 通知消息字节250 | notice message 250 byte
+ */
+@property (nonatomic,assign) BOOL noticeByte;
+
+/**
  * @brief 根据扩展功能2列表结构体转换model (内部使用)
  * Conversion model according to extended function 2 list structure (internal use)
  * @param data 结构体指针 | Structure pointer
@@ -1016,6 +1031,11 @@
  snapchat
  */
 @property (nonatomic,assign) BOOL snapchat;
+
+/**
+ telegram
+ */
+@property (nonatomic,assign) BOOL telegram;
 
 /**
  * @brief 信息2提醒功能列表结构体转model (内部使用)

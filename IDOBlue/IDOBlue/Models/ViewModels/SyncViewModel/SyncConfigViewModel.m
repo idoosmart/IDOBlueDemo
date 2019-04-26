@@ -50,18 +50,20 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"同步配置..."];
+        [funcVC showLoadingWithMessage:lang(@"sync config data...")];
         //同步配置日志
         [IDOSyncConfig syncConfigLogCallback:^(NSString * _Nullable logStr) {
-            NSString * newLogStr = [NSString stringWithFormat:@"%@\n%@",strongSelf.textView.text,logStr];
-            TextViewCellModel * model = [strongSelf.cellModels firstObject];
-            model.data = @[newLogStr?:@""];
-            strongSelf.textView.text = newLogStr;
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n%@",strongSelf.textView.text,logStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
            // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
         }];
         //同步配置完成
         [IDOSyncConfig syncConfigCompleteCallback:^(int errorCode) {
-            [funcVC showToastWithText:@"同步配置完成"];
+            [funcVC showToastWithText:lang(@"sync config data complete")];
         }];
         [IDOSyncConfig startSync];
     };
@@ -72,7 +74,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"同步配置"];
+    model.data = @[lang(@"config data sync")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

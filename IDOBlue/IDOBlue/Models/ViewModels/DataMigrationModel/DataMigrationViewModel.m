@@ -31,7 +31,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"数据库迁移"],@[@"数据转json"]];
+        _buttonTitles = @[@[lang(@"data migration")],@[lang(@"data to json")]];
     }
     return _buttonTitles;
 }
@@ -64,19 +64,19 @@
                     [funcVc showSyncProgress:progress];
                 }];
                 [IDODataMigrationManager dataMigrationWithFileNames:@[] completeBlock:^(BOOL isSuccess) {
-                    [funcVc showToastWithText:@"数据迁移完成"];
+                    [funcVc showToastWithText:lang(@"data migration complete")];
                 }];
                 [IDODataMigrationManager dataMigrationStart:NO];
             }else {
-                [funcVc showToastWithText:@"不需要数据迁移"];
+                [funcVc showToastWithText:lang(@"no need migration")];
             }
         }else {
-            [funcVc showLoadingWithMessage:@"数据正在转换中..."];
+            [funcVc showLoadingWithMessage:lang(@"data migration...")];
             [IDODataMigrationManager dataToJsonFileProgressBlock:^(float progress) {
                 [funcVc showSyncProgress:progress];
             }];
             [IDODataMigrationManager dataToJsonFileCompleteBlock:^(BOOL isSuccess, NSString *newDirePath) {
-                [funcVc showToastWithText:@"数据转json完成"];
+                [funcVc showToastWithText:lang(@"data to json commplete")];
             }];
             [IDODataMigrationManager dataToJsonFileStart:nil];
         }

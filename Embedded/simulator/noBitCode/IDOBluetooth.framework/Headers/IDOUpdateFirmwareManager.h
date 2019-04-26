@@ -42,7 +42,7 @@
  * @brief 初始化升级管理中心对象 | Initialize the Upgrade Management Center object
  * @return IDOUpdateManager
  */
-+ (__kindof IDOUpdateFirmwareManager *)shareInstance;
++ (__kindof IDOUpdateFirmwareManager *_Nonnull)shareInstance;
 
 
 /**

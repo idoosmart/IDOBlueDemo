@@ -38,7 +38,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     TextFieldCellModel * model1 = [[TextFieldCellModel alloc]init];
     model1.typeStr = @"oneTextField";
-    model1.titleStr = @"设置用户名字 : ";
+    model1.titleStr = [NSString stringWithFormat:@"%@ :",lang(@"set user name")];
     model1.data = @[@""];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneTextFieldTableViewCell class];
@@ -58,7 +58,7 @@
     
     FuncCellModel * model3 = [[FuncCellModel alloc]init];
     model3.typeStr = @"oneButton";
-    model3.data = @[@"设置用户名字"];
+    model3.data = @[lang(@"set user name")];
     model3.cellHeight = 70.0f;
     model3.cellClass  = [OneButtonTableViewCell class];
     model3.modelClass = [NSNull class];
@@ -87,12 +87,12 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置用户名字..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set user name")]];
         [IDOFoundationCommand setUserNameCommand:strongSelf.textField.text callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置用户名字成功"];
+                [funcVC showToastWithText:lang(@"set user name success")];
             }else {
-                [funcVC showToastWithText:@"设置用户名字失败"];
+                [funcVC showToastWithText:lang(@"set user name failed")];
             }
         }];
     };

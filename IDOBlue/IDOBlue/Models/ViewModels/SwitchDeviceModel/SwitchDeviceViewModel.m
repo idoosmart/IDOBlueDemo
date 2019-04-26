@@ -72,12 +72,12 @@
         IDOGetDeviceInfoBluetoothModel * model = strongSelf.allDevices[indexPath.row];
         CBPeripheral * peripheral = [SwitchDeviceViewModel getPeripheralWithUUIDStr:model.uuidStr];
         if (peripheral.state == CBPeripheralStateConnected){
-            [funcVc showToastWithText:@"设备已经连接"];
+            [funcVc showToastWithText:lang(@"connected success")];
             return;
         }
         strongSelf.needConnectDeviceMode = model;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [funcVc showLoadingWithMessage:@"设备切换中..."];
+            [funcVc showLoadingWithMessage:lang(@"device switching")];
         });
         [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(switchDeviceTimeout) object:nil];
         [strongSelf performSelector:@selector(switchDeviceTimeout) withObject:nil afterDelay:20]; //根据自身需求修改超时时长
@@ -85,7 +85,7 @@
             if (errorCode == 0) {
                 [IDOBluetoothManager startScan];
             }else {
-               [funcVc showToastWithText:@"设备切换失败"];
+               [funcVc showToastWithText:lang(@"device switch failed")];
             }
         }];
     };
@@ -94,7 +94,7 @@
 - (void)switchDeviceTimeout
 {
     FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
-    [funcVc showToastWithText:@"设备切换失败"];
+    [funcVc showToastWithText:lang(@"device switch failed")];
     [IDOBluetoothManager stopScan];
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(switchDeviceTimeout) object:nil];
 }
@@ -115,7 +115,7 @@
             FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
             if (errorCode == 0) {
                 if (status == IDO_BLUETOOTH_BIND_SUCCESS) { //绑定成功
-                    [funcVc showToastWithText:@"绑定成功"];
+                    [funcVc showToastWithText:lang(@"bind success")];
                     /*
                      [IDOSyncManager syncDataCompleteCallback:^(IDO_SYNC_COMPLETE_STATUS stateCode, NSString * _Nullable stateInfo) {
                      if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
@@ -138,10 +138,10 @@
                     
                 }else if (status == IDO_BLUETOOTH_NEED_AUTH) { //需要授权绑定
                 }else if (status == IDO_BLUETOOTH_REFUSED_BINDED) { //拒绝绑定
-                    [funcVc showToastWithText:@"拒绝绑定"];
+                    [funcVc showToastWithText:lang(@"rejected bind")];
                 }
             }else { //绑定失败
-                [funcVc showToastWithText:@"绑定失败"];
+                [funcVc showToastWithText:lang(@"bind failed")];
             }
         }];
     }
@@ -155,7 +155,7 @@
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(switchDeviceTimeout) object:nil];
     FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
-    [funcVc showToastWithText:@"设备切换成功"];
+    [funcVc showToastWithText:lang(@"device switch success")];
     /******************⚠️切换手环成功后要发起绑定***********************/
     [self bindDevice];
     return YES;
@@ -184,7 +184,7 @@
 {
     if (error.code != IDO_BLUETOOTH_MANUAL_DIS_CONNECT_TYPE) {
         FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
-        [funcVc showToastWithText:@"设备连接失败"];
+        [funcVc showToastWithText:lang(@"connected failed")];
         [IDOBluetoothManager stopScan];
     }
 }

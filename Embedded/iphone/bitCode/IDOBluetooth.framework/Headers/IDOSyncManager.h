@@ -42,8 +42,8 @@
 @property (nonatomic,assign) BOOL isSave;
 
 /**
- * 同步的数据超时时长，默认 180秒
- * Synchronous data timeout duration, default 180 seconds
+ * 同步的数据超时时长，默认 60秒
+ * Synchronous data timeout duration, default 60 seconds
  */
 @property (nonatomic,assign) NSInteger syncTimeout;
 
@@ -51,7 +51,7 @@
  * @brief 初始化同步管理对象 | Initialize synchronization management object
  * @return IDOSyncManager
  */
-+ (__kindof IDOSyncManager *)shareInstance;
++ (__kindof IDOSyncManager *_Nonnull)shareInstance;
 
 /**
  * @brief 同步完成,每同步完一项会回调一次 请根据上述枚举进行判断是否同步完成
@@ -63,8 +63,8 @@
  * @param failCallback 失败错误回调block | Failed error callback block
  */
 
-+ (void)syncDataCompleteCallback:(void (^)(IDO_SYNC_COMPLETE_STATUS stateCode, NSString * _Nullable stateInfo))callback
-                    failCallback:(void (^)(int errorCode))failCallback;
++ (void)syncDataCompleteCallback:(void (^_Nullable)(IDO_SYNC_COMPLETE_STATUS stateCode, NSString * _Nullable stateInfo))callback
+                    failCallback:(void (^_Nullable)(int errorCode))failCallback;
 /**
  * @brief 同步进度 *统一进度回调 0 ~ 1 | Synchronization progress, unified progress callback 0 ~ 1
  * @param callback 进度回调block | Progress callback block
@@ -78,8 +78,8 @@
 + (void)syncDataJsonCallback:(void(^_Nullable)(IDO_CURRENT_SYNC_TYPE syncType,NSString * _Nullable jsonStr))callback;
 
 /**
- * 删除当前手环当天同步的数据
- * ⚠️只有在解绑手环时作删除操作
+ * 删除当前手环当天同步的数据 | delete device current day sync data
+ * ⚠️只有在解绑手环时作删除操作 | only when unbundling bracelets for deletion
  */
 + (void)deleteSyncCurrentDayData;
 
@@ -87,7 +87,7 @@
 /**
  开始同步 | Start syncing
  */
-+ (void(^)(BOOL isConfig))startSync;
++ (void(^_Nullable)(BOOL isConfig))startSync;
 
 /**
  结束同步 | End synchronization

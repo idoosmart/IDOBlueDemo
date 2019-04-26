@@ -47,7 +47,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     TextFieldCellModel * model1 = [[TextFieldCellModel alloc]init];
     model1.typeStr = @"oneTextField";
-    model1.titleStr = @"舒张";
+    model1.titleStr = lang(@"diastolic");
     model1.data = @[@(self.bpModel.diastolic)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneTextFieldTableViewCell class];
@@ -58,7 +58,7 @@
     
     TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
     model2.typeStr = @"oneTextField";
-    model2.titleStr = @"收缩";
+    model2.titleStr = lang(@"shrinkage");
     model2.data = @[@(self.bpModel.shrinkage)];
     model2.cellHeight = 70.0f;
     model2.cellClass = [OneTextFieldTableViewCell class];
@@ -76,7 +76,7 @@
     
     FuncCellModel * model4 = [[FuncCellModel alloc]init];
     model4.typeStr = @"oneButton";
-    model4.data = @[@"设置血压数据"];
+    model4.data = @[lang(@"set blood pressure data")];
     model4.cellHeight = 70.0f;
     model4.cellClass = [OneButtonTableViewCell class];
     model4.modelClass = [NSNull class];
@@ -118,13 +118,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置血压数据..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set blood pressure data")] ];
         [IDOFoundationCommand setBpCalCommand:strongSelf.bpModel
                                      callback:^(int errorCode, IDOSetBloodPressureInfoBluetoothModel * _Nullable model) {
                  if(errorCode == 0) {
-                     [funcVC showToastWithText:@"设置血压数据成功"];
+                     [funcVC showToastWithText:lang(@"set blood pressure data success") ];
                  }else {
-                     [funcVC showToastWithText:@"设置血压数据失败"];
+                     [funcVC showToastWithText:lang(@"set blood pressure data failed") ];
                  }
         }];
     };

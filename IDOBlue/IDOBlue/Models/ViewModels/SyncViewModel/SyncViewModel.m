@@ -37,7 +37,8 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"配置数据同步"],@[@"活动数据同步"],@[@"健康数据同步"],@[@"血氧压力同步"],@[@"GPS数据同步"],@[@"所有数据同步"]];
+        _buttonTitles = @[@[lang(@"config data sync")],@[lang(@"activity data sync")],@[lang(@"health data sync")],
+                          @[lang(@"blood oxygen pressure sync")],@[lang(@"GPS data sync")],@[lang(@"all data sync")]];
     }
     return _buttonTitles;
 }

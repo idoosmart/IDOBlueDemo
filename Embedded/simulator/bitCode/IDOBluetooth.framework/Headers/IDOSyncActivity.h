@@ -21,6 +21,12 @@
 + (void)stopSync;
 
 /**
+ * 删除当天活动数据 | delete current day activity data
+ * ⚠️只有在解绑手环时作删除操作 | only when unbundling bracelets for deletion
+ */
++ (void)deleteActivityCurrentDayData;
+
+/**
  * @brief 活动 同步进度 (1-100) | Synchronization progress (1-100)
  * @param callback 进度回调 | Progress callback
  */

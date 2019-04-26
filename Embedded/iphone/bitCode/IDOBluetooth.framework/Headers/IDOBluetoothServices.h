@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 // 蓝牙扫描、连接状态通知监听名字 | Bluetooth scan, connection status notification listener name
-extern NSString * IDOBluetoothConnectStateNotifyName;
+extern NSString * _Nonnull IDOBluetoothConnectStateNotifyName;
 
 // 蓝牙扫描、连接过程错误通知监听名字 | Bluetooth scan, connection process error notification listener name
-extern NSString * IDOBluetoothConnectErrorNotifyName;
+extern NSString * _Nonnull IDOBluetoothConnectErrorNotifyName;
 
 // 当前连接的手环设备为OTA模式通知监听名字 | The currently connected bracelet device is OTA mode notification listener name
-extern NSString * IDOBluetoothOtaModeNotifyName;
+extern NSString * _Nonnull IDOBluetoothOtaModeNotifyName;
 
 @interface IDOBluetoothServices : NSObject
 

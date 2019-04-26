@@ -50,13 +50,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"获取GPS信息..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get GPS information")] ];
         [IDOFoundationCommand getGpsInfoCommand:^(int errorCode, IDOGetGpsInfoBluetoothModel * _Nullable data) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"获取GPS信息成功"];
+                [funcVC showToastWithText:lang(@"get GPS information success") ];
                 strongSelf.textView.text = [NSString stringWithFormat:@"%@",data.dicFromObject];
             }else {
-                [funcVC showToastWithText:@"获取GPS信息失败"];
+                [funcVC showToastWithText:lang(@"get GPS information failed")];
             }
         }];
     };
@@ -67,7 +67,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"获取GPS信息"];
+    model.data = @[lang(@"get GPS information")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

@@ -7,6 +7,7 @@
 //
 
 #import "PickerDataModel.h"
+#import "IDODemoUtility.h"
 
 @implementation PickerDataModel
 - (NSArray *)tenThousandArray
@@ -109,7 +110,7 @@
 {
     if (!_hourArray) {
         NSMutableArray * hourArray = [NSMutableArray array];
-        for (int i = 1; i< 24; i++) {
+        for (int i = 0; i< 24; i++) {
             [hourArray addObject:@(i)];
         }
         _hourArray = hourArray;
@@ -144,7 +145,7 @@
 - (NSArray *)goalTypeArray
 {
     if (!_goalTypeArray) {
-        _goalTypeArray = @[@"目标步数",@"目标卡路里",@"目标距离"];
+        _goalTypeArray = @[lang(@"target step"),lang(@"target calories"),lang(@"target distance")];
     }
     return _goalTypeArray;
 }
@@ -152,7 +153,7 @@
 - (NSArray *)weekArray
 {
     if (!_weekArray) {
-        _weekArray = @[@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六",@"星期日"];
+        _weekArray = @[lang(@"monday"),lang(@"tuesday"),lang(@"wednesday"),lang(@"thursday"),lang(@"friday"),lang(@"saturday"),lang(@"sunday")];
     }
     return _weekArray;
 }
@@ -160,7 +161,7 @@
 - (NSArray *)typeArray
 {
     if (!_typeArray) {
-        _typeArray = @[@"起床",@"睡觉",@"锻炼",@"吃药",@"约会",@"聚会",@"会议",@"自定义"];
+        _typeArray = @[lang(@"get up"),lang(@"sleep"),lang(@"exercise"),lang(@"take medicine"),lang(@"date"),lang(@"party"),lang(@"meeting"),lang(@"custom")];
     }
     return _typeArray;
 }
@@ -168,10 +169,11 @@
 - (NSArray *)notifyTitleArray
 {
     if (!_notifyTitleArray) {
-        _notifyTitleArray = @[@[@"子开关",@"延时时间",@"来电提醒"],
-                              @[@"短信",@"邮件",@"微信",@"QQ",@"新浪微博",@"facebook",@"twitter"],
-                              @[@"whatsApp",@"messenger",@"instagram",@"linked in",@"日历事件",@"skype",@"闹钟事件",@"pokeman"],
-                              @[@"vkontakte",@"line",@"viber",@"kakaoTalk",@"gmail",@"outlook",@"snapchat",@"telegram"]];
+        _notifyTitleArray = @[@[lang(@"sub-switch"),lang(@"delay time"),lang(@"call reminder")],
+                              @[lang(@"sms"),lang(@"email"),lang(@"wechat"),@"QQ",lang(@"sina weibo"),@"facebook",@"twitter"],
+                              @[@"whatsapp",@"messenger",@"instagram",@"linked in",lang(@"calendar event"),@"skype",lang(@"alarm event"),@"pokeman"],
+                              @[@"vkontakte",@"line",@"viber",@"kakaotalk",@"gmail",@"outlook",@"snapchat",@"telegram"],
+                              @[@"chatwork",@"slack"]];
     }
     return _notifyTitleArray;
 }
@@ -179,8 +181,9 @@
 - (NSArray *)weatherArray
 {
     if (!_weatherArray) {
-        _weatherArray =  @[@"其他",@"晴天",@"多云",@"阴天",@"雨",@"暴雨",@"雷阵雨",@"雪",@"雨夹雪",@"台风",@"沙尘暴",@"夜间晴",
-                           @"夜间多云",@"热",@"冷",@"清风",@"大风",@"雾霭",@"阵雨",@"多云转晴"];
+        _weatherArray =  @[lang(@"other"),lang(@"sunny days"),lang(@"cloudy1"),lang(@"cloudy2"),lang(@"rain1"),lang(@"rain2"),
+                           lang(@"thunder storm"),lang(@"snow"),lang(@"snow rain"),lang(@"typhoon"),lang(@"sandstorm"),lang(@"shine at night"),
+                           lang(@"cloudy at night"),lang(@"hot"),lang(@"cold"),lang(@"breezy"),lang(@"windy"),lang(@"misty"),lang(@"showers"),lang(@"cloudy to clear")];
     }
     return _weatherArray;
 }
@@ -188,7 +191,8 @@
 - (NSArray *)weatherTitleArray
 {
     if (!_weatherTitleArray) {
-        _weatherTitleArray = @[@"当前天气类型 : ",@"当前温度 : ",@"当天最高温度 : ",@"当天最低温度 : ",@"当前湿度 : ",@"当前紫外线强度 : ",@"当天空气指数 : "];
+        _weatherTitleArray = @[lang(@"current weather type:"),lang(@"current temperature:"),lang(@"current top temperature:"),
+                               lang(@"current minimum temperature:"),lang(@"current humidity:"),lang(@"current uv intensity:"),lang(@"current air index:")];
     }
     return _weatherTitleArray;
 }
@@ -196,7 +200,7 @@
 - (NSArray *)hrModeArray
 {
     if (!_hrModeArray) {
-        _hrModeArray = @[@"自动模式",@"手动模式",@"关闭"];
+        _hrModeArray = @[lang(@"auto mode"),lang(@"manual mode"),lang(@"off")];
     }
     return _hrModeArray;
 }
@@ -204,7 +208,7 @@
 - (NSArray *)distanceUnitArray
 {
     if (!_distanceUnitArray) {
-        _distanceUnitArray = @[@"无效",@"km",@"mi"];
+        _distanceUnitArray = @[lang(@"invalid"),lang(@"km"),lang(@"mi")];
     }
     return _distanceUnitArray;
 }
@@ -212,7 +216,7 @@
 - (NSArray *)weightUnitArray
 {
     if (!_weightUnitArray) {
-        _weightUnitArray = @[@"无效",@"kg",@"lb",@"英石"];
+        _weightUnitArray = @[lang(@"invalid"),lang(@"kg"),lang(@"lb"),lang(@"st")];
     }
     return _weightUnitArray;
 }
@@ -220,7 +224,7 @@
 - (NSArray *)tempUnitArray
 {
     if (!_tempUnitArray) {
-        _tempUnitArray = @[@"无效",@"°C",@"°F"];
+        _tempUnitArray = @[lang(@"invalid"),lang(@"°C"),lang(@"°F")];
     }
     return _tempUnitArray;
 }
@@ -228,11 +232,11 @@
 - (NSArray *)languageUnitArray
 {
     if (!_languageUnitArray) {
-        _languageUnitArray = @[@"无效",@"中文",@"英文",@"法语",
-                               @"德语",@"意大利语",@"西班牙语",@"日语",
-                               @"波兰语",@"捷克语",@"罗马尼亚",@"立陶宛语",
-                               @"荷兰语",@"斯洛文尼亚",@"匈牙利语",@"俄罗斯语",
-                               @"乌克兰语",@"斯洛伐克语",@"丹麦语",@"克罗地亚"];
+        _languageUnitArray = @[lang(@"invalid"),lang(@"chinese"),lang(@"english"),lang(@"french"),
+                               lang(@"german"),lang(@"italian"),lang(@"spanish"),lang(@"japanese"),
+                               lang(@"polish"),lang(@"czech"),lang(@"romania"),lang(@"lithuanian"),
+                               lang(@"dutch"),lang(@"slovenia"),lang(@"hungarian"),lang(@"russian"),
+                               lang(@"ukrainian"),lang(@"slovak"),lang(@"danish"),lang(@"croatia")];
     }
     return _languageUnitArray;
 }
@@ -240,7 +244,7 @@
 - (NSArray *)timeUnitArray
 {
     if (!_timeUnitArray) {
-        _timeUnitArray = @[@"无效",@"24小时制",@"12小时制"];
+        _timeUnitArray = @[lang(@"invalid"),lang(@"24 hours"),lang(@"12 hours")];
     }
     return _timeUnitArray;
 }
@@ -248,7 +252,7 @@
 - (NSArray *)strideGpsArray
 {
     if (!_strideGpsArray) {
-        _strideGpsArray = @[@"无效",@"开",@"关"];
+        _strideGpsArray = @[lang(@"invalid"),lang(@"open"),lang(@"off")];
     }
     return _strideGpsArray;
 }
@@ -256,7 +260,7 @@
 - (NSArray *)gpsInfoTitleArray
 {
     if (!_gpsInfoTitleArray) {
-        _gpsInfoTitleArray = @[@"启动模式 : ",@"操作模式 : ",@"定位周期 : ",@"定位模式 : ",];
+        _gpsInfoTitleArray = @[lang(@"startup mode:"),lang(@"operation mode:"),lang(@"positioning cycle:"),lang(@"positioning mode:")];
     }
     return _gpsInfoTitleArray;
 }
@@ -264,8 +268,8 @@
 - (NSArray *)unitTitleArray
 {
     if (!_unitTitleArray) {
-        _unitTitleArray = @[@"距离单位 : ",@"体重单位 : ",@"温度单位 : ",@"当前语言 : ",
-                            @"走路步长 : ",@"跑步步长 : ",@"GPS步幅校准 : ",@"时间格式 : "];
+        _unitTitleArray = @[lang(@"distance unit:"),lang(@"weight unit:"),lang(@"temperature unit:"),lang(@"current language:"),
+                            lang(@"walking step length:"),lang(@"running step length:"),lang(@"gps stride calibration:"),lang(@"time format:")];
     }
     return _unitTitleArray;
 }
@@ -273,10 +277,10 @@
 - (NSArray *)sportShortcutTitleArray
 {
     if (!_sportShortcutTitleArray) {
-        _sportShortcutTitleArray = @[@[@"走路",@"跑步",@"骑行",@"徒步",@"游泳",@"爬山",@"羽毛球",@"其他"],
-                                     @[@"健身",@"动感单车",@"椭圆球",@"跑步机",@"仰卧起坐",@"俯卧撑",@"哑铃",@"举重"],
-                                     @[@"健身操",@"瑜伽",@"跳绳",@"乒乓球",@"篮球",@"足球",@"排球",@"网球"],
-                                     @[@"高尔夫球",@"棒球",@"滑雪",@"轮滑",@"跳舞"]];
+        _sportShortcutTitleArray = @[@[lang(@"walk"),lang(@"run"),lang(@"ride"),lang(@"hike"),lang(@"swim"),lang(@"mountain climbing"),lang(@"badminton"),lang(@"other")],
+                                     @[lang(@"fitness"),lang(@"spinning"),lang(@"elliptical machine"),lang(@"treadmill"),lang(@"sit-ups"),lang(@"push-ups"),lang(@"dumbbells"),lang(@"weight lifting")],
+                                     @[lang(@"calisthenics"),lang(@"yoga"),lang(@"rope skipping"),lang(@"table tennis"),lang(@"basketball"),lang(@"football"),lang(@"volleyball"),lang(@"tennis")],
+                                     @[lang(@"golf"),lang(@"baseball"),lang(@"skiing"),lang(@"roller skating"),lang(@"dancing")]];
     }
     return _sportShortcutTitleArray;
 }
@@ -284,7 +288,7 @@
 - (NSArray *)bootModeArray
 {
     if (!_bootModeArray) {
-        _bootModeArray = @[@"无效",@"冷启动",@"热启动"];
+        _bootModeArray = @[lang(@"invalid"),lang(@"cold start"),lang(@"hot start")];
     }
     return _bootModeArray;
 }
@@ -292,7 +296,7 @@
 - (NSArray *)operatingModeArray
 {
     if (!_operatingModeArray) {
-        _operatingModeArray = @[@"无效",@"正常",@"低功耗",@"无效",@"Balance",@"1PPS"];
+        _operatingModeArray = @[lang(@"invalid"),lang(@"normal"),lang(@"low power"),lang(@"invalid"),lang(@"balance"),lang(@"1pps")];
     }
     return _operatingModeArray;
 }
@@ -300,7 +304,7 @@
 - (NSArray *)satelliteModeArray
 {
     if (!_satelliteModeArray) {
-        _satelliteModeArray = @[@"无效",@"GPS",@"GLONASS",@"GPS+GLONASS"];
+        _satelliteModeArray = @[lang(@"invalid"),lang(@"GPS"),lang(@"GLONASS"),lang(@"GPS+GLONASS")];
     }
     return _satelliteModeArray;
 }
@@ -308,7 +312,7 @@
 - (NSArray *)hotStartTitleArray
 {
     if (!_hotStartTitleArray) {
-        _hotStartTitleArray = @[@"晶振偏移 : ",@"经度 : ",@"纬度 : ",@"高度 : "];
+        _hotStartTitleArray = @[lang(@"crystal oscillation offset:"),lang(@"longitude:"),lang(@"latitude:"),lang(@"height:")];
     }
     return _hotStartTitleArray;
 }
@@ -316,7 +320,11 @@
 - (NSArray *)hotStartplaceholderArray
 {
     if (!_hotStartplaceholderArray) {
-        _hotStartplaceholderArray = @[@"精确到10^1",@"精确到10^6",@"精确到10^6",@"精确到10^1"];
+        NSString * str1 = [NSString stringWithFormat:@"%@10^1",lang(@"accurate to")];
+        NSString * str2 = [NSString stringWithFormat:@"%@10^6",lang(@"accurate to")];
+        NSString * str3 = [NSString stringWithFormat:@"%@10^6",lang(@"accurate to")];
+        NSString * str4 = [NSString stringWithFormat:@"%@10^1",lang(@"accurate to")];
+        _hotStartplaceholderArray = @[str1,str2,str3,str4];
     }
     return _hotStartplaceholderArray;
 }
@@ -324,7 +332,7 @@
 - (NSArray *)targetTypes
 {
     if (!_targetTypes) {
-        _targetTypes = @[@"无",@"次",@"米",@"大卡",@"分钟"];
+        _targetTypes = @[lang(@"none"),lang(@"times"),lang(@"meter"),lang(@"minute"),lang(@"calories")];
     }
     return _targetTypes;
 }
@@ -332,13 +340,12 @@
 - (NSArray *)sportTypes
 {
     if (!_sportTypes) {
-        _sportTypes =  @[@"走路",@"跑步",@"骑行",@"徒步",@"游泳"
-                        ,@"爬山",@"羽毛球",@"其他",@"健身",@"动感单车",@"椭圆机"
-                        ,@"跑步机",@"仰卧起坐",@"俯卧撑",@"哑铃",@"举重",@"健身操"
-                        ,@"瑜伽",@"跳绳",@"乒乓球",@"篮球",@"足球",@"排球"
-                        ,@"网球",@"高尔夫",@"棒球",@"滑雪",@"轮滑",@"跳舞"
-                        ,@"室内划船",@"普拉提",@"交叉训练",@"有氧运动",@"尊巴舞"
-                        ,@"广场舞",@"平板支撑",@"健身房"];
+        _sportTypes =  @[lang(@"walk"),lang(@"run"),lang(@"ride"),lang(@"hike"),lang(@"swim"),lang(@"mountain climbing"),lang(@"badminton"),lang(@"other"),
+                         lang(@"fitness"),lang(@"spinning"),lang(@"elliptical machine"),lang(@"treadmill"),lang(@"sit-ups"),lang(@"push-ups"),lang(@"dumbbells"),lang(@"weight lifting"),
+                         lang(@"calisthenics"),lang(@"yoga"),lang(@"rope skipping"),lang(@"table tennis"),lang(@"basketball"),lang(@"football"),lang(@"volleyball"),lang(@"tennis"),
+                         lang(@"golf"),lang(@"baseball"),lang(@"skiing"),lang(@"roller skating"),lang(@"dancing"),
+                         lang(@"indoor rowing"),lang(@"pilates"),lang(@"cross training"),lang(@"aerobics"),lang(@"zumba"),
+                         lang(@"square dance"),lang(@"plank"),lang(@"gym")];
     }
     return _sportTypes;
 }
@@ -346,7 +353,7 @@
 - (NSArray *)firmwareTypes
 {
     if (!_firmwareTypes) {
-        _firmwareTypes = @[@"SoftDevice",@"BootLoader",@"SoftDevice_BootLoader",@"Application"];
+        _firmwareTypes = @[@"soft_device",@"boot_loader",@"soft_device_boot_loader",@"application"];
     }
     return _firmwareTypes;
 }

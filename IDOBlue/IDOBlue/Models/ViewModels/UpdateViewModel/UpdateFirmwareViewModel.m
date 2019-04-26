@@ -23,6 +23,7 @@
 @property (nonatomic,copy) NSString * logStr;
 @property (nonatomic,strong) UITextView * textView;
 @property (nonatomic,strong) NSString * filePath;
+@property (nonatomic,assign) BOOL updating;
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^threeButtonCallback)(NSInteger index,UITableViewCell * tableViewCell);;
@@ -34,7 +35,8 @@
 {
     self = [super init];
     if (self) {
-        self.rightButtonTitle = @"选择固件";
+        self.updating = NO;
+        self.rightButtonTitle = lang(@"selected firmware");
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
         [self getButtonCallback];
@@ -59,7 +61,7 @@
         [strongSelf addMessageText:infoStr];
     };
     vc.model = fileModel;
-    vc.title = @"选择固件";
+    vc.title = lang(@"selected firmware");
     [[IDODemoUtility getCurrentVC].navigationController pushViewController:vc animated:YES];
 }
 
@@ -73,7 +75,7 @@
     
     TabCellModel * model1 = [[TabCellModel alloc]init];
     model1.typeStr = @"threeButton";
-    model1.data = @[@"退出升级",@"重新连接",@"固件升级"];
+    model1.data = @[lang(@"exit update"),lang(@"reconnect"),lang(@"firmware update")];
     model1.selectIndexs = @[[NSNumber numberWithBool:YES],[NSNumber numberWithBool:YES],[NSNumber numberWithBool:YES]];
     model1.cellHeight = 70.0f;
     model1.isShowLine = YES;
@@ -103,29 +105,38 @@
 
 - (void)getButtonCallback
 {
+    __weak typeof(self) weakself = self;
     self.threeButtonCallback = ^(NSInteger index, UITableViewCell *tableViewCell) {
+        __strong typeof(self) strongSelf = weakself;
       FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
         if (index == 0) {
-            [funcVC showLoadingWithMessage:@"退出升级..."];
+            [funcVC showLoadingWithMessage:lang(@"exit update...")];
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
-                    [funcVC showToastWithText:@"退出成功"];
+                    [funcVC showToastWithText:lang(@"exit success")];
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];
                     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
                     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+                    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
+                        if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
+                            [view removeFromSuperview];
+                        }
+                    }
                 }else {
-                    [funcVC showToastWithText:@"退出失败"];
+                    [funcVC showToastWithText:lang(@"exit failed")];
                 }
             }];
         }else if (index == 1) {
+            if (strongSelf.updating)return;
             if (IDO_BLUE_ENGINE.managerEngine.isConnected) {
-                 [funcVC showToastWithText:@"设备已连接无需再重连"];
+                 [funcVC showToastWithText:lang(@"device connected not need reconnected")];
                 return;
             }
             [IDOBluetoothManager startScan];
         }else if (index == 2) {
+            if (strongSelf.updating)return;
             if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
-            [funcVC showLoadingWithMessage:@"进入升级..."];
+            [funcVC showLoadingWithMessage:lang(@"enter update...")];
             [IDOUpdateFirmwareManager startUpdate];
         }
     };
@@ -148,7 +159,7 @@
             cell.title.text = [NSString stringWithFormat:@"Type : %@",fileType];
         };
         funcVc.model = typeModel;
-        funcVc.title = @"固件包类型";
+        funcVc.title = lang(@"firmware type");
         [viewController.navigationController pushViewController:funcVc animated:YES];
     };
 }
@@ -207,8 +218,9 @@
 {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     if (state == IDO_UPDATE_COMPLETED) {
-        funcVC.statusLabel.text = @"升级成功";
-        [funcVC showToastWithText:@"升级成功"];
+        self.updating = NO;
+        funcVC.statusLabel.text = lang(@"update success");
+        [funcVC showToastWithText:lang(@"update success")];
         if (!__IDO_BIND__) {
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
@@ -219,15 +231,17 @@
             }];
         }
     }else {
-       funcVC.statusLabel.text = @"升级中...";
+       self.updating = YES;
+       funcVC.statusLabel.text = lang(@"update...");
     }
 }
 
 - (void)updateManager:(IDOUpdateFirmwareManager *)manager updateError:(NSError *)error
 {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
-    funcVC.statusLabel.text = @"升级失败";
-    [funcVC showToastWithText:@"升级失败"];
+    funcVC.statusLabel.text = lang(@"update failed");
+    [funcVC showToastWithText:lang(@"update failed")];
+    self.updating = NO;
     NSString * errorStr = [NSString stringWithFormat:@"%@\n",error.domain];
     [self addMessageText:errorStr];
 }

@@ -48,4 +48,5 @@
  * agps 更新结束 | agps end of change
  */
 + (void)stopUpdate;
+
 @end

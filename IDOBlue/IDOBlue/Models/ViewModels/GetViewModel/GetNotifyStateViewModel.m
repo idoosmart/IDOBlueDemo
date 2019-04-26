@@ -50,13 +50,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"获取通知状态..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get notification status")]];
         [IDOFoundationCommand getNoticeStatusCommand:^(int errorCode, IDOSetNoticeInfoBuletoothModel * _Nullable data) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"获取通知状态成功"];
+                [funcVC showToastWithText:lang(@"get notification status success") ];
                 strongSelf.textView.text = [NSString stringWithFormat:@"%@",data.dicFromObject];
             }else {
-                [funcVC showToastWithText:@"获取通知状态失败"];
+                [funcVC showToastWithText:lang(@"get notification status failed") ];
             }
         }];
     };
@@ -67,7 +67,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"获取通知状态"];
+    model.data = @[lang(@"get notification status")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

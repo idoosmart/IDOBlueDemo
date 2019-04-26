@@ -32,7 +32,7 @@
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data = @[@"设置音乐开启"];
+    model1.data = @[lang(@"setting music open")];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneButtonTableViewCell class];
     model1.modelClass = [NSNull class];
@@ -42,7 +42,7 @@
     
     FuncCellModel * model2 = [[FuncCellModel alloc]init];
     model2.typeStr = @"oneButton";
-    model2.data = @[@"设置音乐结束"];
+    model2.data = @[lang(@"set music end")];
     model2.cellHeight = 70.0f;
     model2.cellClass = [OneButtonTableViewCell class];
     model2.modelClass = [NSNull class];
@@ -58,21 +58,21 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
-        [funcVC showLoadingWithMessage:@"设置音乐开启..."];
+        [funcVC showLoadingWithMessage:lang(@"setting music open...")];
         if (indexPath.row == 0) {
             [IDOFoundationCommand musicStartCommand:^(int errorCode) {
                 if (errorCode == 0) {
-                    [funcVC showToastWithText:@"设置音乐开启成功"];
+                    [funcVC showToastWithText:lang(@"setting music to open successfully")];
                 }else {
-                    [funcVC showToastWithText:@"设置音乐开启失败"];
+                    [funcVC showToastWithText:lang(@"failed to set music on")];
                 }
             }];
         }else {
             [IDOFoundationCommand musicStopCommand:^(int errorCode) {
                 if (errorCode == 0) {
-                    [funcVC showToastWithText:@"设置音乐结束成功"];
+                    [funcVC showToastWithText:lang(@"setting music to open successfully")];
                 }else {
-                    [funcVC showToastWithText:@"设置音乐结束失败"];
+                    [funcVC showToastWithText:lang(@"failed to set music on")];
                 }
             }];
         }

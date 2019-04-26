@@ -40,8 +40,8 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"获取功能列表"],@[@"获取Mac地址"],@[@"获取设备信息"],@[@"获取实时数据"],
-                          @[@"获取活动数量"],@[@"获取GPS信息"],@[@"获取通知状态"],@[@"获取版本信息"],@[@"获取星星个数"]];
+        _buttonTitles = @[@[lang(@"get function list")],@[lang(@"get Mac address")],@[lang(@"get device information")],@[lang(@"get real-time data")],
+                          @[lang(@"get the number of activities")],@[lang(@"get GPS information")],@[lang(@"get notification status")],@[lang(@"get version information")],@[lang(@"get the number of stars")]];
     }
     return _buttonTitles;
 }

@@ -33,7 +33,7 @@
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data = @[@"重启设备"];
+    model1.data = @[lang(@"reboot device")];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneButtonTableViewCell class];
     model1.modelClass = [NSNull class];
@@ -48,12 +48,12 @@
 {
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"重启设备..."];
+        [funcVC showLoadingWithMessage:lang(@"reboot device...")];
         [IDOFoundationCommand setAppRebootCommand:^(int errorCode) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"重启设备成功"];
+                [funcVC showToastWithText:lang(@"successful restart of equipment")];
             }else {
-                [funcVC showToastWithText:@"重启设备失败"];
+                [funcVC showToastWithText:lang(@"failure to restart equipment")];
             }
         }];
     };

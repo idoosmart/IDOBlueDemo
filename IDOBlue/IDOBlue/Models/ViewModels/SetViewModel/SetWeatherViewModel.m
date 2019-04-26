@@ -74,7 +74,7 @@
     if (!self.weatherSwitchModel.isOpen) {
         SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
         model1.typeStr = @"oneSwitch";
-        model1.titleStr = @"设置天气预报开关 : ";
+        model1.titleStr = lang(@"set weather forecast switch");
         model1.data = @[@(self.weatherSwitchModel.isOpen)];
         model1.cellHeight = 70.0f;
         model1.cellClass = [OneSwitchTableViewCell class];
@@ -92,7 +92,7 @@
         
         FuncCellModel * model3 = [[FuncCellModel alloc]init];
         model3.typeStr = @"oneButton";
-        model3.data = @[@"设置天气预报开关"];
+        model3.data = @[lang(@"set weather forecast button")];
         model3.cellHeight = 70.0f;
         model3.cellClass = [OneButtonTableViewCell class];
         model3.modelClass = [NSNull class];
@@ -128,7 +128,7 @@
         
         FuncCellModel * model7 = [[FuncCellModel alloc]init];
         model7.typeStr = @"oneButton";
-        model7.data = @[@"设置天气数据"];
+        model7.data = @[lang(@"set weather data")];
         model7.cellHeight = 70.0f;
         model7.cellClass = [OneButtonTableViewCell class];
         model7.modelClass = [NSNull class];
@@ -154,28 +154,28 @@
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 2) {
-            [funcVC showLoadingWithMessage:@"设置天气预报开关..."];
+            [funcVC showLoadingWithMessage:lang(@"set weather forecast switch...")];
             [IDOFoundationCommand setWeatherCommand:strongSelf.weatherSwitchModel
                                           callback:^(int errorCode) {
                   if(errorCode == 0) {
-                      [funcVC showToastWithText:@"设置天气预报开关成功"];
+                      [funcVC showToastWithText:lang(@"set weather forecast success")];
                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                           strongSelf.weatherSwitchModel = [IDOSetWeatherSwitchInfoBluetoothModel currentModel];
                           [strongSelf getCellModels];
                           [funcVC reloadData];
                       });
                   }else {
-                      [funcVC showToastWithText:@"设置天气预报开关失败"];
+                      [funcVC showToastWithText:lang(@"set weather forecast failed")];
                   }
             }];
         }else {
-            [funcVC showLoadingWithMessage:@"设置天气预报数据..."];
+            [funcVC showLoadingWithMessage:lang(@"set weather forecast data...")];
             [IDOFoundationCommand setWeatherDataCommand:strongSelf.weatherDataModel
                                               callback:^(int errorCode) {
                   if(errorCode == 0) {
-                      [funcVC showToastWithText:@"设置天气预报数据成功"];
+                      [funcVC showToastWithText:lang(@"set weather data success")];
                   }else {
-                      [funcVC showToastWithText:@"设置天气预报数据失败"];
+                      [funcVC showToastWithText:lang(@"set weather data failed")];
                   }
             }];
         }

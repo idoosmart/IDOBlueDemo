@@ -57,7 +57,7 @@
     if (!self.pairingModel.isPairing) {
         FuncCellModel * model = [[FuncCellModel alloc]init];
         model.typeStr = @"oneButton";
-        model.data = @[@"请先配对蓝牙"];
+        model.data = @[lang(@"first pairing bluetooth")];
         model.cellHeight = 70.0f;
         model.cellClass = [OneButtonTableViewCell class];
         model.modelClass = [NSNull class];
@@ -67,7 +67,7 @@
     }else {
         SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
         model1.typeStr = @"oneSwitch";
-        model1.titleStr = @"设置音乐开关 : ";
+        model1.titleStr = [NSString stringWithFormat:@"%@:",lang(@"set music open off")];
         model1.data = @[@(self.musicModel.isOpen)];
         model1.cellHeight = 70.0f;
         model1.cellClass = [OneSwitchTableViewCell class];
@@ -85,7 +85,7 @@
         
         FuncCellModel * model3 = [[FuncCellModel alloc]init];
         model3.typeStr = @"oneButton";
-        model3.data = @[@"设置音乐开关"];
+        model3.data = @[lang(@"set music open off")];
         model3.cellHeight = 70.0f;
         model3.cellClass = [OneButtonTableViewCell class];
         model3.modelClass = [NSNull class];
@@ -117,27 +117,33 @@
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 0) {
-            [funcVC showLoadingWithMessage:@"设置配对..."];
+            [funcVC showLoadingWithMessage:lang(@"set pairing...")];
             [IDOFoundationCommand setBluetoothPairingCommandWithCallback:^(int errorCode) {
                 if(errorCode == 0) {
-                    [funcVC showToastWithText:@"当前设备配对成功"];
+                    [funcVC showToastWithText:lang(@"current device pairing success")];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         strongSelf.pairingModel = [IDOSetPairingInfoBuletoothModel currentModel];
                         [strongSelf getCellModels];
                         [funcVC reloadData];
                     });
                 }else {
-                    [funcVC showToastWithText:@"当前设备配对失败"];
+                    [funcVC showToastWithText:lang(@"current device pairing failed")];
                 }
             }];
         }else {
-            [funcVC showLoadingWithMessage:@"设置音乐开关..."];
+            [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set music open off")]];
             [IDOFoundationCommand setOpenMusicCommand:strongSelf.musicModel
                                              callback:^(int errorCode) {
                  if(errorCode == 0) {
-                     [funcVC showToastWithText:@"设置音乐开关成功"];
+                     [IDOFoundationCommand musicStartCommand:^(int errorCode) {
+                         if (errorCode == 0) {
+                              [funcVC showToastWithText:lang(@"set music open off success")];
+                         }else {
+                           [funcVC showToastWithText:lang(@"set music open off failed")];
+                         }
+                     }];
                  }else {
-                     [funcVC showToastWithText:@"设置音乐开关失败"];
+                     [funcVC showToastWithText:lang(@"set music open off failed")];
                  }
                                              }];
         }

@@ -164,4 +164,34 @@
     return range.length;
 }
 
++ (NSString *)langWithKey:(NSString *)key
+{
+    NSString * currentLanguage = [IDODemoUtility getPreferredLanguage];
+    NSInteger currentLang = [[NSUserDefaults standardUserDefaults]integerForKey:LANG_KEY];
+    if (currentLang > 0) {
+        if (currentLang == 1) {
+            return NSLocalizedStringWithDefaultValue(key,@"Chinese",[NSBundle mainBundle],key,nil);
+        }else {
+            return NSLocalizedStringWithDefaultValue(key,@"English",[NSBundle mainBundle],key,nil);
+        }
+    }else {
+        if (   [currentLanguage hasPrefix:@"zh-Hant"]
+            || [currentLanguage hasPrefix:@"zh-Hans"]){//中文
+            return NSLocalizedStringWithDefaultValue(key,@"Chinese",[NSBundle mainBundle],key,nil);
+        }else { //英文
+            return NSLocalizedStringWithDefaultValue(key,@"English",[NSBundle mainBundle],key,nil);
+        }
+    }
+}
+
++ (NSString*)getPreferredLanguage
+{
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    NSArray  * allLanguages = [defaults objectForKey:@"AppleLanguages"];
+    NSString * preferredLang = [allLanguages firstObject];
+    return preferredLang;
+}
+
+
+
 @end

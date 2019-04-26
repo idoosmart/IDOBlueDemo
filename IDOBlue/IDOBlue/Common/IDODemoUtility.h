@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define lang(key) [IDODemoUtility langWithKey:key]
+
 @interface IDODemoUtility : NSObject
 /**
  固定高度和字符大小计算字符串宽度
@@ -82,4 +84,12 @@
  */
 + (NSInteger)getDaysInMonthWithYear:(NSInteger)year
                               month:(NSInteger)month;
+
+/**
+ 设置语言
+ 
+ @param key key value
+ */
++ (NSString *)langWithKey:(NSString *)key;
+
 @end

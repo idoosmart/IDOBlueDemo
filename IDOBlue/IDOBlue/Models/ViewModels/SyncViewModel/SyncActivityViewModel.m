@@ -50,53 +50,61 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"同步活动..."];
+        [funcVC showLoadingWithMessage:lang(@"sync activity data...")];
         [IDOFoundationCommand getActivityCountCommand:^(int errorCode,
                                                         IDOGetActivityCountBluetoothModel * _Nullable data) {
             if (errorCode == 0) {
                 if (data.activityCount > 0) {
                     //活动同步日志
                     [IDOSyncActivity syncActivityDataCallback:^(NSString * _Nullable jsonStr) {
-                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-                        TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                        model.data = @[newLogStr?:@""];
-                        strongSelf.textView.text = newLogStr;
+                        if (![IDOConsoleBoard borad].isShow) {
+                            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                            model.data = @[newLogStr?:@""];
+                            strongSelf.textView.text = newLogStr;
+                        }
                         // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
                     }];
                     //活动同步进度
                     [IDOSyncActivity syncAcitvityDataProgressCallback:^(int progress) {
-                        NSString * activityStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_ACTIVITY_PROGRESS",progress];
-                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
-                        TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                        model.data = @[newLogStr?:@""];
-                        strongSelf.textView.text = newLogStr;
-                        //[strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-                        [funcVC showSyncProgress:progress/100.0f];
+                        if (![IDOConsoleBoard borad].isShow) {
+                            NSString * activityStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_ACTIVITY_PROGRESS",progress];
+                            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
+                            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                            model.data = @[newLogStr?:@""];
+                            strongSelf.textView.text = newLogStr;
+                            //[strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
+                            [funcVC showSyncProgress:progress/100.0f];
+                        }
                     }];
                     //活动同步完成
                     [IDOSyncActivity syncAcitvityDataCompleteCallback:^(int errorCode) {
-                        NSString * errorStr = [IDOErrorCodeToStr errorCodeToStr:errorCode];
-                        NSString * activityStr = [NSString stringWithFormat:@"%@ ERROR_CODE = %@",@"SYNC_ACTIVITY_COMPLETE",errorStr];
-                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
-                        TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                        model.data = @[newLogStr?:@""];
-                        strongSelf.textView.text = newLogStr;
+                        if (![IDOConsoleBoard borad].isShow) {
+                            NSString * errorStr = [IDOErrorCodeToStr errorCodeToStr:errorCode];
+                            NSString * activityStr = [NSString stringWithFormat:@"%@ ERROR_CODE = %@",@"SYNC_ACTIVITY_COMPLETE",errorStr];
+                            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
+                            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                            model.data = @[newLogStr?:@""];
+                            strongSelf.textView.text = newLogStr;
+                        }
                      //   [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-                        //[funcVC showToastWithText:@"同步活动完成"];
+                        [funcVC showToastWithText:lang(@"sync activity data complete")];
                     }];
                     //活动同步开始
                     [IDOSyncActivity startSync];
                 }else {
-                    NSString * activityStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_ACTIVITY_COUNT",0];
-                    NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
-                    TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                    model.data = @[newLogStr?:@""];
-                    strongSelf.textView.text = newLogStr;
+                    if (![IDOConsoleBoard borad].isShow) {
+                        NSString * activityStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_ACTIVITY_COUNT",0];
+                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
+                        TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                        model.data = @[newLogStr?:@""];
+                        strongSelf.textView.text = newLogStr;
+                    }
                    // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-                    [funcVC showToastWithText:@"暂无活动数据可同步"];
+                    [funcVC showToastWithText:lang(@"no activity data sync")];
                 }
             }else {
-                [funcVC showToastWithText:@"获取活动数量失败"];
+                [funcVC showToastWithText:lang(@"get activity count failed")];
             }
         }];
     };
@@ -107,7 +115,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"同步活动"];
+    model.data = @[lang(@"activity data sync")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

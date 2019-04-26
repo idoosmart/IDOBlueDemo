@@ -199,9 +199,21 @@
             }else {
                isSupport = NO;
             }
+        }else if (switchCellModel.index == 26) {
+            if (__IDO_FUNCTABLE__.exNotify4Model.chatwork) {
+                strongSelf.noticeModel.isOnChatwork = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 27) {
+            if (__IDO_FUNCTABLE__.exNotify4Model.slack) {
+                strongSelf.noticeModel.isOnSlack = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
         }
         if (!isSupport){
-            [funcVC showToastWithText:@"当前设备不支持此功能"];
+            [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             switchCellModel.data = @[@(NO)];
             [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }else {
@@ -218,27 +230,27 @@
         FuncViewController * funcVC = (FuncViewController *)viewController;
         IDOSetPairingInfoBuletoothModel * model = [IDOSetPairingInfoBuletoothModel currentModel];
         if (!model.isPairing) {
-            [funcVC showLoadingWithMessage:@"设置配对..."];
+            [funcVC showLoadingWithMessage:lang(@"set pairing...")];
             [IDOFoundationCommand setBluetoothPairingCommandWithCallback:^(int errorCode) {
                 if(errorCode == 0) {
-                    [funcVC showToastWithText:@"当前设备配对成功"];
+                    [funcVC showToastWithText:lang(@"current device pairing success")];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         strongSelf.pairingModel = [IDOSetPairingInfoBuletoothModel currentModel];
                         [strongSelf getCellModels];
                         [funcVC reloadData];
                     });
                 }else {
-                    [funcVC showToastWithText:@"当前设备配对失败"];
+                    [funcVC showToastWithText:lang(@"current device pairing failed")];
                 }
             }];
         }else {
-            [funcVC showLoadingWithMessage:@"设置通知开关..."];
+            [funcVC showLoadingWithMessage:lang(@"set notice switch...")];
             [IDOFoundationCommand setSwitchNoticeCommand:strongSelf.noticeModel
                                                callback:^(int errorCode) {
                    if(errorCode == 0) {
-                       [funcVC showToastWithText:@"开关开启成功"];
+                       [funcVC showToastWithText:lang(@"set notice switch success")];
                    }else {
-                       [funcVC showToastWithText:@"开关开启失败"];
+                       [funcVC showToastWithText:lang(@"set notice switch failed")];
                    }
                }];
         }
@@ -275,7 +287,8 @@
                        @[@(self.noticeModel.isOnWhatsapp),@(self.noticeModel.isOnMessenger),@(self.noticeModel.isOnInstagram),@(self.noticeModel.isOnLinkedIn),
                          @(self.noticeModel.isOnCalendar),@(self.noticeModel.isOnSkype),@(self.noticeModel.isOnAlarm),@(self.noticeModel.isOnPokeman)],
                        @[@(self.noticeModel.isOnVkontakte),@(self.noticeModel.isOnLine),@(self.noticeModel.isOnViber),@(self.noticeModel.isOnKakaoTalk),
-                         @(self.noticeModel.isOnGmail),@(self.noticeModel.isOnOutlook),@(self.noticeModel.isOnSnapchat),@(self.noticeModel.isOnTelegram)]];
+                         @(self.noticeModel.isOnGmail),@(self.noticeModel.isOnOutlook),@(self.noticeModel.isOnSnapchat),@(self.noticeModel.isOnTelegram)],
+                       @[@(self.noticeModel.isOnChatwork),@(self.noticeModel.isOnSlack)]];
     }
     return _dataArray;
 }
@@ -286,7 +299,7 @@
     if (!self.pairingModel.isPairing) {
         FuncCellModel * model = [[FuncCellModel alloc]init];
         model.typeStr = @"oneButton";
-        model.data = @[@"请先配对蓝牙"];
+        model.data = @[lang(@"first pairing bluetooth")];
         model.cellHeight = 70.0f;
         model.cellClass = [OneButtonTableViewCell class];
         model.modelClass = [NSNull class];
@@ -338,7 +351,7 @@
         
         FuncCellModel * model = [[FuncCellModel alloc]init];
         model.typeStr = @"oneButton";
-        model.data = @[@"设置通知开关"];
+        model.data = @[lang(@"set notice switch button")];
         model.cellHeight = 70.0f;
         model.cellClass = [OneButtonTableViewCell class];
         model.modelClass = [NSNull class];

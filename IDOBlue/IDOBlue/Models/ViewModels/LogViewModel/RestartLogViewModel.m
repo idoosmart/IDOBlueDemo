@@ -50,7 +50,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data    = @[@"获取日志"];
+    model.data    = @[lang(@"get log")];
     model.cellHeight = 70.0f;
     model.cellClass  = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];
@@ -95,9 +95,9 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVc = (FuncViewController *)viewController;
-        [funcVc showLoadingWithMessage:@"获取设备日志..."];
+        [funcVc showLoadingWithMessage:lang(@"get the device logs...")];
         [IDORecordDeviceLog getDeviceLogWithCallback:^(BOOL isComplete) {
-            [funcVc showToastWithText:@"获取设备日志完成"];
+            [funcVc showToastWithText:lang(@"get device log completion")];
             if (isComplete) {
                 [strongSelf getCellModels];
                 [funcVc reloadData];

@@ -71,7 +71,7 @@
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data    = @[@"App发起运动"];
+    model1.data    = @[lang(@"app start activity")];
     model1.cellHeight = 70.0f;
     model1.isShowLine = YES;
     model1.index = 0;
@@ -81,7 +81,7 @@
     
     FuncCellModel * model2 = [[FuncCellModel alloc]init];
     model2.typeStr = @"oneButton";
-    model2.data    = @[@"APP发起暂停"];
+    model2.data    = @[lang(@"app suspended activity")];
     model2.cellHeight = 70.0f;
     model2.isShowLine = YES;
     model2.index = 1;
@@ -91,7 +91,7 @@
     
     FuncCellModel * model3 = [[FuncCellModel alloc]init];
     model3.typeStr = @"oneButton";
-    model3.data    = @[@"APP发起恢复"];
+    model3.data    = @[lang(@"app restore activity")];
     model3.cellHeight = 70.0f;
     model3.isShowLine = YES;
     model3.index = 2;
@@ -101,7 +101,7 @@
     
     FuncCellModel * model4 = [[FuncCellModel alloc]init];
     model4.typeStr = @"oneButton";
-    model4.data    = @[@"APP发起停止"];
+    model4.data    = @[lang(@"app stop activity")];
     model4.cellHeight = 70.0f;
     model4.isShowLine = YES;
     model4.index = 3;
@@ -111,7 +111,7 @@
     
     FuncCellModel * model10 = [[FuncCellModel alloc]init];
     model10.typeStr = @"oneButton";
-    model10.data    = @[@"APP发送数据"];
+    model10.data    = @[lang(@"app activity send data")];
     model10.cellHeight = 70.0f;
     model10.isShowLine = YES;
     model10.index = 4;
@@ -121,7 +121,7 @@
     
     TextFieldCellModel * model5 = [[TextFieldCellModel alloc]init];
     model5.typeStr = @"oneTextField";
-    model5.titleStr = @"运动类型 : ";
+    model5.titleStr = lang(@"activity type:");
     model5.data = @[self.pickerDataModel.sportTypes[0]];
     model5.cellHeight = 70.0f;
     model5.cellClass = [OneTextFieldTableViewCell class];
@@ -133,7 +133,7 @@
     
     TextFieldCellModel * model6 = [[TextFieldCellModel alloc]init];
     model6.typeStr = @"oneTextField";
-    model6.titleStr = @"目标单位 : ";
+    model6.titleStr = lang(@"target unit:");
     model6.data = @[self.pickerDataModel.targetTypes[0]];
     model6.cellHeight = 70.0f;
     model6.cellClass = [OneTextFieldTableViewCell class];
@@ -145,7 +145,7 @@
     
     TextFieldCellModel * model9 = [[TextFieldCellModel alloc]init];
     model9.typeStr = @"oneTextField";
-    model9.titleStr = @"目标值域 : ";
+    model9.titleStr = lang(@"target value:");
     model9.data = @[@(0)];
     model9.cellHeight = 70.0f;
     model9.cellClass = [OneTextFieldTableViewCell class];
@@ -191,7 +191,7 @@
         }else if (model.index == 2) {
             NSArray * pickerArray = [NSArray array];
             if (strongSelf.dataModel.targetType == 0) {
-                return ;
+                pickerArray = strongSelf.pickerDataModel.hundredArray;
             }else if (strongSelf.dataModel.targetType == 1) {
                 pickerArray = strongSelf.pickerDataModel.hundredArray;
             }else if (strongSelf.dataModel.targetType == 2) {
@@ -229,50 +229,50 @@
             strongSelf.dataModel.hour   = timeModel.hour;
             strongSelf.dataModel.minute = timeModel.minute;
             strongSelf.dataModel.second = timeModel.second;
-            [funcVC showLoadingWithMessage:@"发起运动..."];
+            [funcVC showLoadingWithMessage:lang(@"app start activity...")];
             [IDOFoundationCommand appStartSportCommand:strongSelf.dataModel
                                          startCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
                  __strong typeof(self) strongSelf = weakSelf;
-                 [strongSelf addMessageText:[NSString stringWithFormat:@"app发起运动:\n%@\n\n",model.dicFromObject]];
+                 [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"app start activity"),model.dicFromObject]];
                  if (errorCode == 0 && model.retCode == 0) {
-                     [funcVC showToastWithText:@"运动发起成功"];
+                     [funcVC showToastWithText:lang(@"app start activity success")];
                  }else if (model.retCode == 2) {
-                     [funcVC showToastWithText:@"设备电量低"];
+                     [funcVC showToastWithText:lang(@"device low power")];
                  }else {
-                     [funcVC showToastWithText:@"运动发起失败"];
+                     [funcVC showToastWithText:lang(@"app start activity failed")];
                  }
             }];
         }else if (model.index == 1) {
-            [funcVC showLoadingWithMessage:@"运动暂停..."];
+            [funcVC showLoadingWithMessage:lang(@"app suspended activity...")];
             [IDOFoundationCommand appPauseSportCommand:strongSelf.dataModel
                                          pauseCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
                  __strong typeof(self) strongSelf = weakSelf;
-                 [strongSelf addMessageText:[NSString stringWithFormat:@"app运动暂停:\n%@\n\n",strongSelf.dataModel.dicFromObject]];
+                 [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"app suspended activity"),strongSelf.dataModel.dicFromObject]];
                  if (errorCode == 0 && model.retCode == 0) {
-                     [funcVC showToastWithText:@"运动暂停成功"];
+                     [funcVC showToastWithText:lang(@"app suspended activity success")];
                  }else if (model.retCode == 2) {
-                     [funcVC showToastWithText:@"设备电量低"];
+                     [funcVC showToastWithText:lang(@"device low power")];
                  }else {
-                     [funcVC showToastWithText:@"运动暂停失败"];
+                     [funcVC showToastWithText:lang(@"app suspended activity failed")];
                  }
             }];
         }else if (model.index == 2) {
-            [funcVC showLoadingWithMessage:@"运动恢复..."];
+            [funcVC showLoadingWithMessage:lang(@"app restore activity...")];
             [IDOFoundationCommand appRestoreSportCommand:strongSelf.dataModel
                                       appRestoreCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
                 __strong typeof(self) strongSelf = weakSelf;
                 strongSelf.dataModel = model;
-                [strongSelf addMessageText:[NSString stringWithFormat:@"app运动恢复:\n%@\n\n",strongSelf.dataModel.dicFromObject]];
+                [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"app restore activity"),strongSelf.dataModel.dicFromObject]];
                 if (errorCode == 0 && model.retCode == 0) {
-                    [funcVC showToastWithText:@"运动恢复成功"];
+                    [funcVC showToastWithText:lang(@"app restore activity success")];
                 }else if (model.retCode == 2) {
-                    [funcVC showToastWithText:@"设备电量低"];
+                    [funcVC showToastWithText:lang(@"device low power")];
                 }else {
-                    [funcVC showToastWithText:@"运动恢复失败"];
+                    [funcVC showToastWithText:lang(@"app restore activity failed")];
                 }
             }];
         }else if (model.index == 3) {
-            [funcVC showLoadingWithMessage:@"运动停止..."];
+            [funcVC showLoadingWithMessage:lang(@"app stop activity...")];
             strongSelf.dataModel.durations = arc4random()%100;
             strongSelf.dataModel.calories  = arc4random()%1000;
             strongSelf.dataModel.distance  = arc4random()%50000;
@@ -282,15 +282,15 @@
                 __strong typeof(self) strongSelf = weakSelf;
                 [strongSelf addMessageText:[NSString stringWithFormat:@"app运动停止:\n%@\n\n",model.dicFromObject]];
                 if (errorCode == 0 && model.retCode == 0) {
-                    [funcVC showToastWithText:@"运动停止成功"];
+                    [funcVC showToastWithText:lang(@"app stop activity success")];
                 }else if (model.retCode == 2) {
-                    [funcVC showToastWithText:@"设备电量低"];
+                    [funcVC showToastWithText:lang(@"device low power")];
                 }else {
-                    [funcVC showToastWithText:@"运动停止失败"];
+                    [funcVC showToastWithText:lang(@"app stop activity failed")];
                 }
             }];
         }else if (model.index == 4) {
-            [funcVC showLoadingWithMessage:@"发送数据..."];
+            [funcVC showLoadingWithMessage:lang(@"send data...")];
             strongSelf.dataModel.durations = arc4random()%5;
             strongSelf.dataModel.calories  = arc4random()%1000;
             strongSelf.dataModel.distance  = arc4random()%50000;
@@ -298,13 +298,13 @@
             [IDOFoundationCommand appIngSportCommand:strongSelf.dataModel
                                       appIngCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
                 __strong typeof(self) strongSelf = weakSelf;
-                [strongSelf addMessageText:[NSString stringWithFormat:@"发送数据:\n%@\n\n",model.dicFromObject]];
+                [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"app activity send data"),model.dicFromObject]];
                 if (errorCode == 0 && model.retCode == 0) {
-                    [funcVC showToastWithText:@"发送数据成功"];
+                    [funcVC showToastWithText:lang(@"send data success")];
                 }else if (model.retCode == 2) {
-                    [funcVC showToastWithText:@"设备电量低"];
+                    [funcVC showToastWithText:lang(@"device low power")];
                 }else {
-                    [funcVC showToastWithText:@"发送数据失败"];
+                    [funcVC showToastWithText:lang(@"send data failed")];
                 }
             }];
         }
@@ -318,19 +318,19 @@
     [IDOFoundationCommand appBlePauseReplyCommand:self.dataModel
                               appBlePauseCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf addMessageText:[NSString stringWithFormat:@"蓝牙运动暂停:\n%@\n\n",model.dicFromObject]];
+        [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"bracelet suspended activity"),model.dicFromObject]];
     }];
     
     [IDOFoundationCommand appBleRestoreReplyCommand:self.dataModel
                               appBleRestoreCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf addMessageText:[NSString stringWithFormat:@"蓝牙运动恢复:\n%@\n\n",model.dicFromObject]];
+        [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"bracelet restore activity"),model.dicFromObject]];
     }];
     
     [IDOFoundationCommand appBleEndReplyCommand:self.dataModel
                               appBleEndCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf addMessageText:[NSString stringWithFormat:@"蓝牙运动停止:\n%@\n\n",model.dicFromObject]];
+        [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"bracelet stop activity"),model.dicFromObject]];
     }];
     
 }

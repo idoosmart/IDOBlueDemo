@@ -33,7 +33,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"重启日志"],@[@"命令日志"]];
+        _buttonTitles = @[@[lang(@"restart log")],@[lang(@"command log")]];
     }
     return _buttonTitles;
 }

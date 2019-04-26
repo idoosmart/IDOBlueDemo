@@ -55,7 +55,7 @@
     
     TextFieldCellModel * model1 = [[TextFieldCellModel alloc]init];
     model1.typeStr = @"oneTextField";
-    model1.titleStr = @"设置目标步数(S) : ";
+    model1.titleStr = lang(@"set target step");
     model1.data = @[@(self.userModel.goalStepData)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneTextFieldTableViewCell class];
@@ -68,7 +68,7 @@
     
     TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
     model2.typeStr = @"twoTextField";
-    model2.titleStr = @"设置睡眠时长(L) : ";
+    model2.titleStr = lang(@"set target sleep");
     model2.data = @[@(self.userModel.goalSleepDataHour),@(self.userModel.goalSleepDataMinute)];
     model2.cellHeight = 70.0f;
     model2.cellClass = [TwoTextFieldTableViewCell class];
@@ -81,7 +81,7 @@
     
     TextFieldCellModel * model3 = [[TextFieldCellModel alloc]init];
     model3.typeStr = @"oneTextField";
-    model3.titleStr = @"设置目标体重(W) : ";
+    model3.titleStr = lang(@"set target weight");
     model3.data = @[@(self.userModel.goalWeightData)];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneTextFieldTableViewCell class];
@@ -101,7 +101,7 @@
     
     FuncCellModel * model5 = [[FuncCellModel alloc]init];
     model5.typeStr = @"oneButton";
-    model5.data = @[@"设置步数|睡眠|体重目标"];
+    model5.data = @[lang(@"set target step|sleep|weight")];
     model5.cellHeight = 70.0f;
     model5.cellClass = [OneButtonTableViewCell class];
     model5.modelClass = [NSNull class];
@@ -111,7 +111,7 @@
     
     TextFieldCellModel * model6 = [[TextFieldCellModel alloc]init];
     model6.typeStr = @"oneTextField";
-    model6.titleStr = @"设置目标卡路里(J) : ";
+    model6.titleStr = lang(@"set target calorie");
     model6.data = @[@(self.userModel.goalCalorieData)];
     model6.cellHeight = 70.0f;
     model6.cellClass = [OneTextFieldTableViewCell class];
@@ -122,52 +122,35 @@
     model6.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model6];
     
-    EmpltyCellModel * model7 = [[EmpltyCellModel alloc]init];
-    model7.typeStr = @"empty";
-    model7.cellHeight = 30.0f;
+    TextFieldCellModel * model7 = [[TextFieldCellModel alloc]init];
+    model7.typeStr = @"oneTextField";
+    model7.titleStr = lang(@"set target distance");
+    model7.data = @[@(self.userModel.goalDistanceData)];
+    model7.cellHeight = 70.0f;
+    model7.cellClass = [OneTextFieldTableViewCell class];
+    model7.modelClass = [NSNull class];
     model7.isShowLine = YES;
-    model7.cellClass  = [EmptyTableViewCell class];
+    model7.isShowKeyboard = YES;
+    model7.keyType = UIKeyboardTypeDecimalPad;
+    model7.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model7];
     
-    FuncCellModel * model8 = [[FuncCellModel alloc]init];
-    model8.typeStr = @"oneButton";
-    model8.data = @[@"设置卡路里目标"];
-    model8.cellHeight = 70.0f;
-    model8.cellClass = [OneButtonTableViewCell class];
-    model8.modelClass = [NSNull class];
+    EmpltyCellModel * model8 = [[EmpltyCellModel alloc]init];
+    model8.typeStr = @"empty";
+    model8.cellHeight = 30.0f;
     model8.isShowLine = YES;
-    model8.buttconCallback = self.buttconCallback;
+    model8.cellClass  = [EmptyTableViewCell class];
     [cellModels addObject:model8];
     
-    TextFieldCellModel * model9 = [[TextFieldCellModel alloc]init];
-    model9.typeStr = @"oneTextField";
-    model9.titleStr = @"设置目标距离(M) : ";
-    model9.data = @[@(self.userModel.goalCalorieData)];
+    FuncCellModel * model9 = [[FuncCellModel alloc]init];
+    model9.typeStr = @"oneButton";
+    model9.data = @[lang(@"set target calorie|distance")];
     model9.cellHeight = 70.0f;
-    model9.cellClass = [OneTextFieldTableViewCell class];
+    model9.cellClass = [OneButtonTableViewCell class];
     model9.modelClass = [NSNull class];
     model9.isShowLine = YES;
-    model9.isShowKeyboard = YES;
-    model9.keyType = UIKeyboardTypeDecimalPad;
-    model9.textFeildCallback = self.textFeildCallback;
+    model9.buttconCallback = self.buttconCallback;
     [cellModels addObject:model9];
-    
-    EmpltyCellModel * model10 = [[EmpltyCellModel alloc]init];
-    model10.typeStr = @"empty";
-    model10.cellHeight = 30.0f;
-    model10.isShowLine = YES;
-    model10.cellClass  = [EmptyTableViewCell class];
-    [cellModels addObject:model10];
-    
-    FuncCellModel * model11 = [[FuncCellModel alloc]init];
-    model11.typeStr = @"oneButton";
-    model11.data = @[@"设置距离目标"];
-    model11.cellHeight = 70.0f;
-    model11.cellClass = [OneButtonTableViewCell class];
-    model11.modelClass = [NSNull class];
-    model11.isShowLine = YES;
-    model11.buttconCallback = self.buttconCallback;
-    [cellModels addObject:model11];
     
     self.cellModels = cellModels;
 }
@@ -180,6 +163,7 @@
         __block FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         if(indexPath.row == 0) {
+            strongSelf.userModel.goalType = 0;
             strongSelf.textField1 = textField;
         }else if (indexPath.row == 1) {
             TwoTextFieldTableViewCell * twoCell = (TwoTextFieldTableViewCell *)tableViewCell;
@@ -188,8 +172,10 @@
         }else if (indexPath.row == 2) {
             strongSelf.textField4 = textField;
         }else if (indexPath.row == 5) {
+            strongSelf.userModel.goalType = 1;
             strongSelf.textField5 = textField;
-        }else if (indexPath.row == 8) {
+        }else if (indexPath.row == 6) {
+            strongSelf.userModel.goalType = 2;
             strongSelf.textField6 = textField;
         }
     };
@@ -218,66 +204,41 @@
             strongSelf.userModel.goalSleepDataHour = goalSleepDataHour == 0 ? strongSelf.userModel.goalSleepDataHour : goalSleepDataHour;
             strongSelf.userModel.goalSleepDataMinute = goalSleepDataMinute == 0 ? strongSelf.userModel.goalSleepDataMinute : goalSleepDataMinute;
             strongSelf.userModel.goalWeightData = goalWeightData == 0 ? strongSelf.userModel.goalWeightData : goalWeightData;
-            [funcVC showLoadingWithMessage:@"设置目标信息..."];
+            [funcVC showLoadingWithMessage:lang(@"set target info...")];
             [IDOFoundationCommand setTargetInfoCommand:strongSelf.userModel
                                               callback:^(int errorCode) {
-              if(errorCode == 0) {
-                  [funcVC showToastWithText:@"设置目标信息成功"];
-              }else {
-                  [funcVC showToastWithText:@"设置目标信息失败"];
-              }
+                  if(errorCode == 0) {
+                      [funcVC showToastWithText:lang(@"set target info success")];
+                  }else {
+                      [funcVC showToastWithText:lang(@"set target info failed")];
+                  }
             }];
-        }else if (indexPath.row == 7) {
+        }else if (indexPath.row == 8) {
             TextFieldCellModel * textFieldModel4 = [strongSelf.cellModels objectAtIndex:5];
             textFieldModel4.data = @[@([strongSelf.textField5.text integerValue])];
-            strongSelf.userModel.goalType = 1;
-            strongSelf.userModel.goalCalorieData = [strongSelf.textField5.text integerValue];
-            if (__IDO_FUNCTABLE__.funcExtend2Model.calorieGoal) {
-                [funcVC showLoadingWithMessage:@"设置目标信息..."];
-                [IDOFoundationCommand setCalorieAndDistanceGoalCommand:strongSelf.userModel
-                                                              callback:^(int errorCode) {
-                      if(errorCode == 0) {
-                          [funcVC showToastWithText:@"设置目标信息成功"];
-                      }else {
-                          [funcVC showToastWithText:@"设置目标信息失败"];
-                      }
-                }];
-            }else {
-                [funcVC showLoadingWithMessage:@"设置目标信息..."];
-                [IDOFoundationCommand setTargetInfoCommand:strongSelf.userModel
-                                                  callback:^(int errorCode) {
-                  if(errorCode == 0) {
-                      [funcVC showToastWithText:@"设置目标信息成功"];
-                  }else {
-                      [funcVC showToastWithText:@"设置目标信息失败"];
-                  }
-               }];
-            }
-        }else if (indexPath.row == 10) {
-            TextFieldCellModel * textFieldModel5 = [strongSelf.cellModels objectAtIndex:8];
-            textFieldModel5.data = @[@([strongSelf.textField6.text integerValue])];
-            strongSelf.userModel.goalType = 2;
+            strongSelf.userModel.goalCalorieData  = [strongSelf.textField5.text integerValue];
             strongSelf.userModel.goalDistanceData = [strongSelf.textField6.text integerValue];
-            if (__IDO_FUNCTABLE__.funcExtend2Model.distanceGoal) {
-                [funcVC showLoadingWithMessage:@"设置目标信息..."];
+            if (   __IDO_FUNCTABLE__.funcExtend2Model.calorieGoal
+                && __IDO_FUNCTABLE__.funcExtend2Model.distanceGoal) {
+                [funcVC showLoadingWithMessage:lang(@"set target info...")];
                 [IDOFoundationCommand setCalorieAndDistanceGoalCommand:strongSelf.userModel
                                                               callback:^(int errorCode) {
                       if(errorCode == 0) {
-                          [funcVC showToastWithText:@"设置目标信息成功"];
+                          [funcVC showToastWithText:lang(@"set target info success")];
                       }else {
-                          [funcVC showToastWithText:@"设置目标信息失败"];
+                          [funcVC showToastWithText:lang(@"set target info failed")];
                       }
-                  }];
+                }];
             }else {
-                [funcVC showLoadingWithMessage:@"设置目标信息..."];
+                [funcVC showLoadingWithMessage:lang(@"set target info...")];
                 [IDOFoundationCommand setTargetInfoCommand:strongSelf.userModel
                                                   callback:^(int errorCode) {
                       if(errorCode == 0) {
-                          [funcVC showToastWithText:@"设置目标信息成功"];
+                          [funcVC showToastWithText:lang(@"set target info success")];
                       }else {
-                          [funcVC showToastWithText:@"设置目标信息失败"];
+                          [funcVC showToastWithText:lang(@"set target info failed")];
                       }
-                }];
+                 }];
             }
         }
     };

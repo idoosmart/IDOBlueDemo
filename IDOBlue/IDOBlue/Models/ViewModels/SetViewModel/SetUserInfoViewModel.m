@@ -19,8 +19,6 @@
 #import "EmptyTableViewCell.h"
 #import "FuncViewController.h"
 
-static NSString * tipText = @"设置用户信息:用户信息中的身高和性别等参数是计算手环的步长,卡路里,公里数等的重要参数,请在第一时间将升高性别身高体重参数设置好,以免手环上的步数显示错误";
-
 @interface SetUserInfoViewModel()
 @property (nonatomic,copy)void(^textFeildCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
@@ -48,21 +46,27 @@ static NSString * tipText = @"设置用户信息:用户信息中的身高和性�
     return _userModel;
 }
 
++ (CGFloat)getOneCellHeight
+{
+    CGFloat width = [UIApplication sharedApplication].delegate.window.frame.size.width;
+    return [IDODemoUtility getLabelheight:lang(@"set user info annotation") width:width font:[UIFont systemFontOfSize:14]] + 20;
+}
+
 - (void)getCellModels
 {
     NSMutableArray * cellModels = [NSMutableArray array];
     LabelCellModel * model1 = [[LabelCellModel alloc]init];
     model1.typeStr = @"oneLabel";
-    model1.data = @[tipText];
-    model1.cellHeight = 100.0f;
-    model1.cellClass = [OneLabelTableViewCell class];
+    model1.data = @[lang(@"set user info annotation")];
+    model1.cellHeight = [[self class] getOneCellHeight];
+    model1.cellClass  = [OneLabelTableViewCell class];
     model1.modelClass = [NSNull class];
     model1.isShowLine = YES;
     [cellModels addObject:model1];
     
     TextFieldCellModel * model8 = [[TextFieldCellModel alloc]init];
     model8.typeStr = @"oneTextField";
-    model8.titleStr = @"用户ID : ";
+    model8.titleStr = lang(@"user id:");
     model8.data = @[self.userModel.userId?:@""];
     model8.cellHeight = 70.0f;
     model8.cellClass = [OneTextFieldTableViewCell class];
@@ -73,7 +77,7 @@ static NSString * tipText = @"设置用户信息:用户信息中的身高和性�
     
     TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
     model2.typeStr = @"threeTextField";
-    model2.titleStr = @"生日 : ";
+    model2.titleStr = lang(@"birthday:");
     model2.data = @[@(self.userModel.year),@(self.userModel.month),@(self.userModel.day)];
     model2.cellHeight = 70.0f;
     model2.cellClass = [ThreeTextFieldTableViewCell class];
@@ -84,8 +88,8 @@ static NSString * tipText = @"设置用户信息:用户信息中的身高和性�
     
     FuncCellModel * model3 = [[FuncCellModel alloc]init];
     model3.typeStr = @"twoButton";
-    model3.titleStr = @"性别 : ";
-    model3.data = @[@{@"title":@"男",@"state":@1},@{@"title":@"女",@"state":@0}];
+    model3.titleStr = lang(@"gender:");
+    model3.data = @[@{@"title":lang(@"man"),@"state":@1},@{@"title":lang(@"woman"),@"state":@0}];
     model3.cellHeight = 70.0f;
     model3.cellClass = [TwoButtonTableViewCell class];
     model3.modelClass = [NSNull class];
@@ -95,7 +99,7 @@ static NSString * tipText = @"设置用户信息:用户信息中的身高和性�
     
     TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
     model4.typeStr = @"oneTextField";
-    model4.titleStr = @"身高 : ";
+    model4.titleStr = lang(@"height:");
     model4.data = @[@(self.userModel.height)];
     model4.cellHeight = 70.0f;
     model4.cellClass = [OneTextFieldTableViewCell class];
@@ -106,7 +110,7 @@ static NSString * tipText = @"设置用户信息:用户信息中的身高和性�
     
     TextFieldCellModel * model5 = [[TextFieldCellModel alloc]init];
     model5.typeStr = @"oneTextField";
-    model5.titleStr = @"体重 : ";
+    model5.titleStr = lang(@"weight:");
     model5.data = @[@(self.userModel.weight)];
     model5.cellHeight = 70.0f;
     model5.cellClass = [OneTextFieldTableViewCell class];
@@ -124,7 +128,7 @@ static NSString * tipText = @"设置用户信息:用户信息中的身高和性�
     
     FuncCellModel * model7 = [[FuncCellModel alloc]init];
     model7.typeStr = @"oneButton";
-    model7.data = @[@"设置个人信息"];
+    model7.data = @[lang(@"set user button")];
     model7.cellHeight = 70.0f;
     model7.cellClass = [OneButtonTableViewCell class];
     model7.modelClass = [NSNull class];
@@ -210,16 +214,16 @@ static NSString * tipText = @"设置用户信息:用户信息中的身高和性�
             FuncCellModel * funcCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
             strongSelf.userModel.gender = twoCell.button1.isSelected ? 1 : 2;
             BOOL isMan = twoCell.button1.isSelected ? YES : NO;
-            funcCellModel.data = @[@{@"title":@"男",@"state":[NSNumber numberWithBool:isMan]},@{@"title":@"女",@"state":[NSNumber numberWithBool:!isMan]}];
+            funcCellModel.data = @[@{@"title":lang(@"man"),@"state":[NSNumber numberWithBool:isMan]},@{@"title":lang(@"woman"),@"state":[NSNumber numberWithBool:!isMan]}];
         }else {
-            [funcVC showLoadingWithMessage:@"设置用户信息..."];
+            [funcVC showLoadingWithMessage:lang(@"set user info...")];
             strongSelf.userModel.isLogin = YES;
             [IDOFoundationCommand setUserInfoCommand:strongSelf.userModel
                                             callback:^(int errorCode) {
                 if(errorCode == 0) {
-                    [funcVC showToastWithText:@"设置用户信息成功"];
+                    [funcVC showToastWithText:lang(@"set user info success")];
                 }else {
-                    [funcVC showToastWithText:@"设置用户信息失败"];
+                    [funcVC showToastWithText:lang(@"set user info failed")];
                 }
             }];
         }

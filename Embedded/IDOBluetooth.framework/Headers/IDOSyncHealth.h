@@ -20,6 +20,12 @@
 + (void)stopSync;
 
 /**
+ * 删除当天健康数据 | delete current day health data
+ * ⚠️只有在解绑手环时作删除操作 | only when unbundling bracelets for deletion
+ */
++ (void)deleteHealthCurrentDayData;
+
+/**
  * @brief 健康 同步进度 | Health Synchronization progress
  * @param callback 进度回调 | Progress callback
  */

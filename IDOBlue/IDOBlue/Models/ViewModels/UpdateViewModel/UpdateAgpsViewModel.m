@@ -31,7 +31,7 @@
 {
     self = [super init];
     if (self) {
-        self.rightButtonTitle = @"选择AGPS文件";
+        self.rightButtonTitle = lang(@"selected AGPS file");
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
         [self getButtonCallback];
@@ -54,7 +54,7 @@
         [strongSelf addMessageText:infoStr];
     };
     vc.model = fileModel;
-    vc.title = @"选择AGPS文件";
+    vc.title = lang(@"selected AGPS file");
     [[IDODemoUtility getCurrentVC].navigationController pushViewController:vc animated:YES];
 }
 
@@ -65,7 +65,7 @@
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data    = @[@"AGPS更新"];
+    model1.data    = @[lang(@"AGPS update")];
     model1.cellHeight = 70.0f;
     model1.buttconCallback = self.buttconCallback;
     model1.cellClass  = [OneButtonTableViewCell class];
@@ -129,12 +129,12 @@
             if (data.gpsRunStatus == 0) {
                 [IDOUpdateAgpsManager updateAgpsWithPath:strongSelf.filePath prepareCallback:^(int errorCode) {
                     if (errorCode == 0) {
-                        [funcVC showLoadingWithMessage:@"文件准备传输..."];
+                        [funcVC showLoadingWithMessage:lang(@"file ready for transfer...")];
                         [strongSelf addMessageText:@"agps file is prepare transmission"];
                         [IDOUpdateAgpsManager startUpdate];
                     }else {
                         [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(computationTime) object:nil];
-                        [funcVC showToastWithText:@"文件不存在"];
+                        [funcVC showToastWithText:lang(@"file does not exist")];
                         [strongSelf addMessageText:@"agps file is no exist"];
                     }
                 }];
@@ -142,21 +142,21 @@
                 [IDOUpdateAgpsManager updateAgpsTransmissionComplete:^(int errorCode) {
                     __strong typeof(self) strongSelf = weakSelf;
                     if(errorCode == 0) {
-                        [funcVC showLoadingWithMessage:@"文件写入..."];
+                        [funcVC showLoadingWithMessage:lang(@"file write...")];
                         [strongSelf addMessageText:@"agps file writing..."];
                     }else {
-                        [funcVC showToastWithText:@"文件传输失败"];
+                        [funcVC showToastWithText:lang(@"file transfer failed")];
                         [strongSelf addMessageText:@"agps file transmission failed"];
                         [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(computationTime) object:nil];
                     }
                 } writeComplete:^(int errorCode) {//写入文件成功
                     if (errorCode == 0) {
-                        [funcVC showToastWithText:@"文件写入成功"];
+                        [funcVC showToastWithText:lang(@"file write success")];
                         [strongSelf addMessageText:@"agps file write sucess"];
-                        [strongSelf addMessageText:[NSString stringWithFormat:@"agps file time of update : %ld",strongSelf.theLength]];
+                        [strongSelf addMessageText:[NSString stringWithFormat:@"agps file time of update : %ld",(long)strongSelf.theLength]];
                         [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(computationTime) object:nil];
                     }else {
-                        [funcVC showToastWithText:@"文件写入失败"];
+                        [funcVC showToastWithText:lang(@"file write failed")];
                         [strongSelf addMessageText:@"agps file write failed"];
                         [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(computationTime) object:nil];
                     }

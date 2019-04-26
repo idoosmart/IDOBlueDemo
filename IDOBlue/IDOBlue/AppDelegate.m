@@ -23,19 +23,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:3];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+#ifdef DEBUG
     registrationServices(YES).outputSdkLog(YES).outputProtocolLog(YES);
+#else
+    registrationServices(YES).outputSdkLog(NO).outputProtocolLog(NO);
+#endif
     if (__IDO_BIND__) {
         NSInteger type = [[[NSUserDefaults standardUserDefaults] objectForKey:PRODUCTION_MODE_KEY] integerValue];
         if (type == 1) {
             FuncViewController * home = [[FuncViewController alloc]init];
             home.model = [FuncViewModel new];
-            home.title = @"功能列表";
+            home.title = lang(@"function list");
             UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:home];
             self.window.rootViewController = nav;
         }else {
             FuncViewController * update = [[FuncViewController alloc]init];
             update.model = [UpdateMainViewModel new];
-            update.title = @"设备升级";
+            update.title = lang(@"device update");
             UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:update];
             self.window.rootViewController = nav;
         }

@@ -50,14 +50,14 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"获取星星个数..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get the number of stars")] ];
         [IDOFoundationCommand getStartCountCommandCallback:^(int errorCode, NSInteger startCount) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"获取星星个数成功"];
-                NSString * str = [NSString stringWithFormat:@"星星个数 ：%ld",(long)startCount];
+                [funcVC showToastWithText:lang(@"get the number of stars success")];
+                NSString * str = [NSString stringWithFormat:@"%@ ：%ld",lang(@"the number of stars"),(long)startCount];
                 strongSelf.textView.text = str;
             }else {
-                [funcVC showToastWithText:@"获取星星个数失败"];
+                [funcVC showToastWithText:lang(@"get the number of stars failed")];
             }
         }];
     };
@@ -68,7 +68,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"获取星星个数"];
+    model.data = @[lang(@"get the number of stars")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];
@@ -81,7 +81,7 @@
     model2.cellHeight = [IDODemoUtility getCurrentVC].view.bounds.size.height-110;
     model2.cellClass  = [OneTextViewTableViewCell class];
     model2.textViewCallback = self.textViewCallback;
-    NSString * str = [NSString stringWithFormat:@"星星个数 ：%d",0];
+    NSString * str = [NSString stringWithFormat:@"%@ ：%d",lang(@"the number of stars"),0];
     model2.data = @[str];
     [cellModels addObject:model2];
     

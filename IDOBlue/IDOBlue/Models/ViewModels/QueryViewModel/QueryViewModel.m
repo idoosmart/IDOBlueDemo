@@ -43,8 +43,8 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"步数数据查询"],@[@"睡眠数据查询"],@[@"心率数据查询"],@[@"血压数据查询"],
-                          @[@"血氧数据查询"],@[@"压力数据查询"],@[@"活动数据查询"],@[@"GPS数据查询"]];
+        _buttonTitles = @[@[lang(@"step data query")],@[lang(@"sleep data query")],@[lang(@"heart rate data query")],@[lang(@"blood pressure data query")],
+                          @[lang(@"blood oxygen data query")],@[lang(@"pressure data query")],@[lang(@"activity data query")],@[lang(@"GPS data query")]];
     }
     return _buttonTitles;
 }

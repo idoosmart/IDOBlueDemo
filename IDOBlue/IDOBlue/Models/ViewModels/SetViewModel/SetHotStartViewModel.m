@@ -76,13 +76,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置热启动信息..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set hot start information")]];
         [IDOFoundationCommand setHotStartParamCommand:strongSelf.hotStartMode
                                              callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置热启动信息成功"];
+                [funcVC showToastWithText:lang(@"set hot start information success")];
             }else {
-                [funcVC showToastWithText:@"设置热启动信息失败"];
+                [funcVC showToastWithText:lang(@"set hot start information failed")];
             }
         }];
     };
@@ -118,7 +118,7 @@
     
     FuncCellModel * model5 = [[FuncCellModel alloc]init];
     model5.typeStr = @"oneButton";
-    model5.data = @[@"设置热启动信息"];
+    model5.data = @[lang(@"set hot start information")];
     model5.cellHeight = 70.0f;
     model5.cellClass = [OneButtonTableViewCell class];
     model5.modelClass = [NSNull class];

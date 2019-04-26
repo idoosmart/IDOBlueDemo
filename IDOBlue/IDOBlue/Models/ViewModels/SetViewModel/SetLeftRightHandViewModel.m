@@ -47,7 +47,7 @@
     
     SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
     model1.typeStr = @"oneSwitch";
-    model1.titleStr = @"左右手穿戴开关 : ";
+    model1.titleStr = lang(@"set left right hand switch");
     model1.data = @[@(self.leftOrRightModel.isRight)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneSwitchTableViewCell class];
@@ -65,7 +65,7 @@
     
     FuncCellModel * model3 = [[FuncCellModel alloc]init];
     model3.typeStr = @"oneButton";
-    model3.data = @[@"设置左右手开关"];
+    model3.data = @[lang(@"set left right hand button")];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneButtonTableViewCell class];
     model3.modelClass = [NSNull class];
@@ -94,13 +94,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置左右手开关..."];
+        [funcVC showLoadingWithMessage:lang(@"set left right switch...")];
         [IDOFoundationCommand setLeftRightHandCommand:strongSelf.leftOrRightModel
                                             callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置左右手开关成功"];
+                [funcVC showToastWithText:lang(@"set left right switch success")];
             }else {
-                [funcVC showToastWithText:@"设置左右手开关失败"];
+                [funcVC showToastWithText:lang(@"set left right switch failed")];
             }
         }];
     };

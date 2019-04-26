@@ -61,7 +61,7 @@
         };
         alarmModel.addAlarmComplete = addAlarmComplete;
         newFuncVc.model = alarmModel;
-        newFuncVc.title = @"添加闹钟";
+        newFuncVc.title = lang(@"add alarm");
         [viewController.navigationController pushViewController:newFuncVc animated:YES];
     };
 }
@@ -86,7 +86,7 @@
         };
         newAlarmModel.addAlarmComplete = addAlarmComplete;
         newFuncVc.model = newAlarmModel;
-        newFuncVc.title = [NSString stringWithFormat:@"编辑闹钟(%ld)",(long)alarmModel.alarmId];
+        newFuncVc.title = [NSString stringWithFormat:@"%@(%ld)",lang(@"edit alarm"),(long)alarmModel.alarmId];
         [viewController.navigationController pushViewController:newFuncVc animated:YES];
     };
 }
@@ -116,8 +116,8 @@
         if(alarmModel.isOpen && alarmModel.isSync) {
             LabelCellModel * model = [[LabelCellModel alloc]init];
             model.typeStr = @"oneLabel";
-            NSString * alarmStr = [NSString stringWithFormat:@"闹钟 : %ld \n时间 : %02ld:%02ld \n重复 : %@",(long)alarmModel.alarmId,
-                                   (long)alarmModel.hour,(long)alarmModel.minute,
+            NSString * alarmStr = [NSString stringWithFormat:@"%@ %ld \n%@ %02ld:%02ld \n%@ %@",lang(@"alarm"),(long)alarmModel.alarmId,lang(@"time"),
+                                   (long)alarmModel.hour,(long)alarmModel.minute,lang(@"repeat"),
                                    [self weeksStrWithRepeats:alarmModel.repeat]];
             model.data = @[alarmStr];
             model.cellHeight = 80.0f;
@@ -140,7 +140,7 @@
         }
         FuncCellModel * model1 = [[FuncCellModel alloc]init];
         model1.typeStr = @"oneButton";
-        model1.data    = @[@"添加闹钟"];
+        model1.data    = @[lang(@"add alarm")];
         model1.cellHeight = 70.0f;
         model1.cellClass = [OneButtonTableViewCell class];
         model1.modelClass = [NSNull class];

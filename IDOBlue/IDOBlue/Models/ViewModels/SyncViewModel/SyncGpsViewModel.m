@@ -50,53 +50,61 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"同步GPS..."];
+        [funcVC showLoadingWithMessage:lang(@"sync GPS data...")];
         [IDOFoundationCommand getActivityCountCommand:^(int errorCode,
                                                         IDOGetActivityCountBluetoothModel * _Nullable data) {
             if (errorCode == 0) {
                 if (data.gpsCount > 0) {
                     //同步GPS日志
                     [IDOSyncGps syncGpsDataCallback:^(NSString * _Nullable jsonStr) {
-                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-                        TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                        model.data = @[newLogStr?:@""];
-                        strongSelf.textView.text = newLogStr;
+                        if (![IDOConsoleBoard borad].isShow) {
+                            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                            model.data = @[newLogStr?:@""];
+                            strongSelf.textView.text = newLogStr;
+                        }
                         //  [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
                     }];
                     //同步GPS完成
                     [IDOSyncGps syncGpsDataCompleteCallback:^(int errorCode) {
-                        NSString * errorStr = [IDOErrorCodeToStr errorCodeToStr:errorCode];
-                        NSString * activityStr = [NSString stringWithFormat:@"%@ ERROR_CODE = %@",@"SYNC_GPS_COMPLETE",errorStr];
-                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
-                        TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                        model.data = @[newLogStr?:@""];
-                        strongSelf.textView.text = newLogStr;
+                        if (![IDOConsoleBoard borad].isShow) {
+                            NSString * errorStr = [IDOErrorCodeToStr errorCodeToStr:errorCode];
+                            NSString * activityStr = [NSString stringWithFormat:@"%@ ERROR_CODE = %@",@"SYNC_GPS_COMPLETE",errorStr];
+                            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
+                            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                            model.data = @[newLogStr?:@""];
+                            strongSelf.textView.text = newLogStr;
+                        }
                       //  [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-                        [funcVC showToastWithText:@"同步GPS完成"];
+                        [funcVC showToastWithText:lang(@"sync GPS data complete")];
                     }];
                     //同步GPS进度
                     [IDOSyncGps syncGpsDataProgressCallback:^(int progress) {
-                        NSString * gpsStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_GPS_PROGRESS",progress];
-                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,gpsStr];
-                        TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                        model.data = @[newLogStr?:@""];
-                        strongSelf.textView.text = newLogStr;
-                      //  [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-                        [funcVC showSyncProgress:progress/100.0f];
+                        if (![IDOConsoleBoard borad].isShow) {
+                            NSString * gpsStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_GPS_PROGRESS",progress];
+                            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,gpsStr];
+                            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                            model.data = @[newLogStr?:@""];
+                            strongSelf.textView.text = newLogStr;
+                            //  [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
+                            [funcVC showSyncProgress:progress/100.0f];
+                        }
                     }];
                     //同步GPS开始
                     [IDOSyncGps startSync];
                 }else {
-                    NSString * activityStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_GPS_COUNT",0];
-                    NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
-                    TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                    model.data = @[newLogStr?:@""];
-                    strongSelf.textView.text = newLogStr;
+                    if (![IDOConsoleBoard borad].isShow) {
+                        NSString * activityStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_GPS_COUNT",0];
+                        NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
+                        TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                        model.data = @[newLogStr?:@""];
+                        strongSelf.textView.text = newLogStr;
+                    }
                    // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-                    [funcVC showToastWithText:@"暂无GPS数据可同步"];
+                    [funcVC showToastWithText:lang(@"no GPS data sync")];
                 }
             }else {
-                [funcVC showToastWithText:@"获取GPS数量失败"];
+                [funcVC showToastWithText:lang(@"get GPS data count failed")];
             }
         }];
     };
@@ -107,7 +115,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"同步GPS"];
+    model.data = @[lang(@"GPS data sync")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

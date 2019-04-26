@@ -34,7 +34,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"按年查询"],@[@"按月查询"],@[@"按周查询"],@[@"按日查询"],@[@"查询所有"]];
+        _buttonTitles = @[@[lang(@"one year query")],@[lang(@"one month query")],@[lang(@"one week query")],@[lang(@"one day query")],@[lang(@"all data query")]];
     }
     return _buttonTitles;
 }

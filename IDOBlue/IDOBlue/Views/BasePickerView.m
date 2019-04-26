@@ -53,12 +53,15 @@
 {
     self.coverView.hidden = YES;
     self.hidden = NO;
+    __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.25f animations:^{
-        [self mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.superview.mas_bottom).offset(-216);
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(strongSelf.superview.mas_bottom).offset(-216);
         }];
     } completion:^(BOOL finished) {
-        _coverView.hidden = NO;
+        __strong typeof(self) strongSelf = weakSelf;
+        strongSelf.coverView.hidden = NO;
     }];
 }
 
@@ -91,11 +94,14 @@
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.superview.mas_bottom);
     }];
+    __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.25f animations:^{
-        [self setNeedsLayout];
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf setNeedsLayout];
     } completion:^(BOOL finished) {
-        self.hidden = YES;
-        _coverView.hidden = YES;
+        __strong typeof(self) strongSelf = weakSelf;
+        strongSelf.hidden = YES;
+        strongSelf.coverView.hidden = YES;
     }];
 }
 

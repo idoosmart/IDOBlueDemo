@@ -55,7 +55,7 @@
     LabelCellModel * model1 = [[LabelCellModel alloc]init];
     model1.typeStr = @"oneLabel";
     IDOSetTimeInfoBluetoothModel * timeModel = self.timeModel;
-    NSString * currentTimeStr = [NSString stringWithFormat:@"当前时间 : %ld-%02d-%02d %02d:%02d:%02d",timeModel.year,(int)timeModel.month,
+    NSString * currentTimeStr = [NSString stringWithFormat:@"%@ %ld-%02d-%02d %02d:%02d:%02d",lang(@"current time"),timeModel.year,(int)timeModel.month,
                                  (int)timeModel.day,(int)timeModel.hour,(int)timeModel.minute,(int)timeModel.second];
     model1.data = @[currentTimeStr];
     model1.cellHeight = 70.0f;
@@ -76,7 +76,7 @@
     
     LabelCellModel * model3 = [[LabelCellModel alloc]init];
     model3.typeStr = @"oneLabel";
-    NSString * sysTimeZone = [NSString stringWithFormat:@"系统时区 : %@",[NSTimeZone systemTimeZone].name];
+    NSString * sysTimeZone = [NSString stringWithFormat:@"%@ %@",lang(@"system time zone"),[NSTimeZone systemTimeZone].name];
     model3.data = @[sysTimeZone];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneLabelTableViewCell class];
@@ -93,7 +93,7 @@
     
     FuncCellModel * model5 = [[FuncCellModel alloc]init];
     model5.typeStr = @"oneButton";
-    model5.data = @[@"设置当前时间"];
+    model5.data = @[lang(@"set current time button")];
     model5.cellHeight = 70.0f;
     model5.cellClass = [OneButtonTableViewCell class];
     model5.modelClass = [NSNull class];
@@ -108,7 +108,7 @@
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startTimer) object:nil];
     IDOSetTimeInfoBluetoothModel * timeModel = self.timeModel;
-    NSString * currentTimeStr = [NSString stringWithFormat:@"当前时间 : %ld-%02d-%02d %02d:%02d:%02d",timeModel.year,(int)timeModel.month,
+    NSString * currentTimeStr = [NSString stringWithFormat:@"%@ %ld-%02d-%02d %02d:%02d:%02d",lang(@"current time"),timeModel.year,(int)timeModel.month,
                                  (int)timeModel.day,(int)timeModel.hour,(int)timeModel.minute,(int)timeModel.second];
     LabelCellModel * cellModel = [self.cellModels firstObject];
     cellModel.data = @[currentTimeStr];
@@ -124,13 +124,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置当前时间..."];
+        [funcVC showLoadingWithMessage:lang(@"set current time...")];
         [IDOFoundationCommand setCurrentTimeCommand:strongSelf.timeModel
                                           callback:^(int errorCode) {
               if(errorCode == 0) {
-                  [funcVC showToastWithText:@"设置当前时间成功"];
+                  [funcVC showToastWithText:lang(@"set current time success")];
               }else {
-                  [funcVC showToastWithText:@"设置当前时间失败"];
+                  [funcVC showToastWithText:lang(@"set current time failed")];
               }
         }];
     };

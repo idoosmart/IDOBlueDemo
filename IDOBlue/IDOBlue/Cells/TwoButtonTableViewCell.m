@@ -46,7 +46,7 @@
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(strongSelf.title.mas_right).offset(10);
             make.centerY.equalTo(strongSelf.mas_centerY);
-            make.width.equalTo(@60);
+            make.width.equalTo(@120);
             make.height.equalTo(@30);
         }];
         
@@ -64,7 +64,7 @@
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(strongSelf.button1.mas_right).offset(10);
             make.centerY.equalTo(strongSelf.mas_centerY);
-            make.width.equalTo(@60);
+            make.width.equalTo(@120);
             make.height.equalTo(@30);
         }];
         self.button1.selected = YES;

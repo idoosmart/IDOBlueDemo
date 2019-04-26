@@ -98,13 +98,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置睡眠时间..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set sleep time")]];
         [IDOFoundationCommand setSleepPeriodCommand:strongSelf.sleepModel
                                            callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置睡眠时间成功"];
+                [funcVC showToastWithText:lang(@"set sleep time success")];
             }else {
-                [funcVC showToastWithText:@"设置睡眠时间失败"];
+                [funcVC showToastWithText:lang(@"set sleep time failed")];
             }
         }];
     };
@@ -130,7 +130,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
     model1.typeStr = @"oneSwitch";
-    model1.titleStr = @"设置睡眠时间开关 : ";
+    model1.titleStr = lang(@"set sleep time switch:");
     model1.data = @[@(self.sleepModel.OnOff)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneSwitchTableViewCell class];
@@ -141,7 +141,7 @@
     
     TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
     model4.typeStr = @"twoTextField";
-    model4.titleStr = @"设置开始时间 : ";
+    model4.titleStr = lang(@"set start time") ;
     model4.data = @[@(self.sleepModel.startHour),@(self.sleepModel.startMinute)];
     model4.cellHeight = 70.0f;
     model4.cellClass = [TwoTextFieldTableViewCell class];
@@ -152,7 +152,7 @@
     
     TextFieldCellModel * model5 = [[TextFieldCellModel alloc]init];
     model5.typeStr = @"twoTextField";
-    model5.titleStr = @"设置结束时间 : ";
+    model5.titleStr = lang(@"set end time");
     model5.data = @[@(self.sleepModel.endHour),@(self.sleepModel.endMinute)];
     model5.cellHeight = 70.0f;
     model5.cellClass = [TwoTextFieldTableViewCell class];
@@ -170,7 +170,7 @@
     
     FuncCellModel * model7 = [[FuncCellModel alloc]init];
     model7.typeStr = @"oneButton";
-    model7.data = @[@"设置睡眠时间"];
+    model7.data = @[lang(@"set sleep time")];
     model7.cellHeight = 70.0f;
     model7.cellClass = [OneButtonTableViewCell class];
     model7.modelClass = [NSNull class];

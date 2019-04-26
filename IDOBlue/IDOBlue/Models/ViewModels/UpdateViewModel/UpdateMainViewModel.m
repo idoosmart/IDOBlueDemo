@@ -33,7 +33,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"NORDIC 升级"],@[@"REALTK 升级"],@[@"AGPS 更新"]];
+        _buttonTitles = @[@[lang(@"nordic update")],@[lang(@"realtk update")],@[lang(@"agps update")]];
     }
     return _buttonTitles;
 }

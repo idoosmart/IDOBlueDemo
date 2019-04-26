@@ -356,6 +356,13 @@ typedef NS_ENUM(NSInteger, IDO_BLUETOOTH_CONNECT_ERROR_TYPE) {
  * OTA upgrade status enumeration
  */
 typedef NS_ENUM(NSInteger, IDO_UPDATE_STATE) {
+    
+    /**
+     * 升级初始状态
+     * Update initial state
+     */
+    IDO_UPDATE_START_INIT = 0,
+    
     /**
      * 开始进入OTA
      * Start entering OTA
@@ -390,6 +397,7 @@ typedef NS_ENUM(NSInteger, IDO_UPDATE_STATE) {
      * Firmware upgrade
      */
     IDO_UPDATE_UPLOADING,
+    
     /**
      * 固件升级完成
      * Firmware upgrade completed
@@ -517,6 +525,11 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      */
     IDO_SYNC_CONFIG_LOG,
     /**
+     * 同步健康
+     * Synchronous Health
+     */
+    IDO_SYNC_HEALTH_LOG,
+    /**
      * 同步健康 步数
      * Synchronous Health Steps
      */
@@ -536,13 +549,11 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      * Synchronized Health Blood Pressure
      */
     IDO_SYNC_HEALTH_BP_LOG,
-    
     /**
      * 同步 血氧
      * Synchronized blood oxygen
      */
     IDO_SYNC_BLOOD_OXYGEN_LOG,
-    
     /**
      * 同步 压力
      * Synchronized Pressure

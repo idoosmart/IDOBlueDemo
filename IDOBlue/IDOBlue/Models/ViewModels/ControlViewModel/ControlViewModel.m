@@ -36,7 +36,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"拍照控制"],@[@"音乐控制"],@[@"通知控制"],@[@"恢复控制"],@[@"重启控制"]];
+        _buttonTitles = @[@[lang(@"photo control")],@[lang(@"music control")],@[lang(@"notification control")],@[lang(@"recovery control")],@[lang(@"reboot control")]];
     }
     return _buttonTitles;
 }

@@ -14,7 +14,9 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <IDOBluetooth/IDOBluetooth.h>
+#import "IDOConsoleBoard.h"
 #define PRODUCTION_MODE_KEY @"ido_demo_mode_key" //产线模式、普通模式
+#define LANG_KEY @"lang_key" //语言
 #define RSSI_KEY @"ido_demo_rssi_key" //信号强弱
 #define FIRMWARE_FILE_PATH_KEY @"firmware_file_path_key" //固件文件路径
 #define AGPS_FILE_PATH_KEY @"agps_file_path_key" //agps文件路径

@@ -50,35 +50,41 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"同步数据..."];
+        [funcVC showLoadingWithMessage:lang(@"sync data...")];
         //同步日志
         [IDOSyncManager syncDataJsonCallback:^(IDO_CURRENT_SYNC_TYPE syncType, NSString * _Nullable jsonStr) {
-            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-            TextViewCellModel * model = [strongSelf.cellModels firstObject];
-            model.data = @[newLogStr?:@""];
-            strongSelf.textView.text = newLogStr;
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
             // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
         }];
         //同步完成
         [IDOSyncManager syncDataCompleteCallback:^(IDO_SYNC_COMPLETE_STATUS stateCode, NSString * _Nullable stateInfo) {
-            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,stateInfo];
-            TextViewCellModel * model = [strongSelf.cellModels firstObject];
-            model.data = @[newLogStr?:@""];
-            strongSelf.textView.text = newLogStr;
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,stateInfo];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
            // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
             if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
-              [funcVC showToastWithText:@"同步数据完成"];
+              [funcVC showToastWithText:lang(@"sync data complete")];
             }
         } failCallback:^(int errorCode) {
-            [funcVC showToastWithText:@"同步失败"];
+            [funcVC showToastWithText:lang(@"sync data failed")];
         }];
         //同步进度
         [IDOSyncManager syncDataProgressCallback:^(float progress) {
-            NSString * allStr = [NSString stringWithFormat:@"%@...%.2f",@"SYNC_DATA_PROGRESS",progress * 100.0f];
-            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,allStr];
-            TextViewCellModel * model = [strongSelf.cellModels firstObject];
-            model.data = @[newLogStr?:@""];
-            strongSelf.textView.text = newLogStr;
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * allStr = [NSString stringWithFormat:@"%@...%.2f",@"SYNC_DATA_PROGRESS",progress * 100.0f];
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,allStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
             //[strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
             [funcVC showSyncProgress:progress];
         }];
@@ -93,7 +99,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"同步数据"];
+    model.data = @[lang(@"all data sync")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

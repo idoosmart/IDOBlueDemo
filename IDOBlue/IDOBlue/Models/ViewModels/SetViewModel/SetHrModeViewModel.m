@@ -123,13 +123,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置心率模式..."];
+        [funcVC showLoadingWithMessage:lang(@"set heart rate mode...")];
         [IDOFoundationCommand setHrModeCommand:strongSelf.hrModel
                                       callback:^(int errorCode) {
               if(errorCode == 0) {
-                  [funcVC showToastWithText:@"设置心率模式成功"];
+                  [funcVC showToastWithText:lang(@"set heart rate mode success")];
               }else {
-                  [funcVC showToastWithText:@"设置心率模式失败"];
+                  [funcVC showToastWithText:lang(@"set heart rate mode failed")];
               }
         }];
     };
@@ -141,7 +141,7 @@
     
     TextFieldCellModel * model1 = [[TextFieldCellModel alloc]init];
     model1.typeStr = @"oneTextField";
-    model1.titleStr = @"心率模式 : ";
+    model1.titleStr = lang(@"heart rate mode:");
     model1.data = @[self.pickerDataModel.hrModeArray[self.hrModel.modeType]];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneTextFieldTableViewCell class];
@@ -152,7 +152,7 @@
     
     SwitchCellModel * model2 = [[SwitchCellModel alloc]init];
     model2.typeStr = @"oneSwitch";
-    model2.titleStr = @"寻找抬腕手势开关 : ";
+    model2.titleStr = lang(@"heart rate time range");
     model2.data = @[@(self.hrModel.isHasTimeRange)];
     model2.cellHeight = 70.0f;
     model2.cellClass = [OneSwitchTableViewCell class];
@@ -163,7 +163,7 @@
     
     TextFieldCellModel * model3 = [[TextFieldCellModel alloc]init];
     model3.typeStr = @"twoTextField";
-    model3.titleStr = @"设置开始时间 : ";
+    model3.titleStr = lang(@"set start time");
     model3.data = @[@(self.hrModel.startHour),@(self.hrModel.startMinute)];
     model3.cellHeight = 70.0f;
     model3.cellClass = [TwoTextFieldTableViewCell class];
@@ -174,7 +174,7 @@
     
     TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
     model4.typeStr = @"twoTextField";
-    model4.titleStr = @"设置结束时间 : ";
+    model4.titleStr = lang(@"set end time");
     model4.data = @[@(self.hrModel.endHour),@(self.hrModel.endMinute)];
     model4.cellHeight = 70.0f;
     model4.cellClass = [TwoTextFieldTableViewCell class];
@@ -192,7 +192,7 @@
     
     FuncCellModel * model6 = [[FuncCellModel alloc]init];
     model6.typeStr = @"oneButton";
-    model6.data = @[@"设置心率模式"];
+    model6.data = @[lang(@"set heart rate mode button")];
     model6.cellHeight = 70.0f;
     model6.cellClass = [OneButtonTableViewCell class];
     model6.modelClass = [NSNull class];

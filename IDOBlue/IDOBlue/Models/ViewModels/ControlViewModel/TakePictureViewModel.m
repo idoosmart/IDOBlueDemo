@@ -34,7 +34,7 @@
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data = @[@"打开相机"];
+    model1.data = @[lang(@"turn on the camera")];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneButtonTableViewCell class];
     model1.modelClass = [NSNull class];
@@ -44,7 +44,7 @@
     
     FuncCellModel * model2 = [[FuncCellModel alloc]init];
     model2.typeStr = @"oneButton";
-    model2.data = @[@"关闭相机"];
+    model2.data = @[lang(@"turn off camera")];
     model2.cellHeight = 70.0f;
     model2.cellClass = [OneButtonTableViewCell class];
     model2.modelClass = [NSNull class];
@@ -61,22 +61,22 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
-        [funcVC showLoadingWithMessage:@"设置相机开关..."];
+        [funcVC showLoadingWithMessage:lang(@"set the camera switch...")];
         if (indexPath.row == 0) {
             [IDOFoundationCommand cameraStartCommand:^(int errorCode) {
                 if (errorCode == 0) {
-                    [funcVC showToastWithText:@"设置相机成功"];
+                    [funcVC showToastWithText:lang(@"setting up Camera Successfully")];
                     [strongSelf openCameraWithViewController:funcVC];
                 }else {
-                    [funcVC showToastWithText:@"设置相机失败"];
+                    [funcVC showToastWithText:lang(@"failed to set up camera")];
                 }
             }];
         }else {
             [IDOFoundationCommand cameraStopCommand:^(int errorCode) {
                 if (errorCode == 0) {
-                    [funcVC showToastWithText:@"设置相机成功"];
+                    [funcVC showToastWithText:lang(@"setting up Camera Successfully")];
                 }else {
-                    [funcVC showToastWithText:@"设置相机失败"];
+                    [funcVC showToastWithText:lang(@"failed to set up camera")];
                 }
             }];
         }

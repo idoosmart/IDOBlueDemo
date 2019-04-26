@@ -51,14 +51,14 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"获取功能列表..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get function list")]];
         [IDOFoundationCommand getFuncTableCommand:^(int errorCode, IDOGetDeviceFuncBluetoothModel * _Nullable data) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"获取功能列表成功"];
+                [funcVC showToastWithText:lang(@"get function list success")];
                 NSString * str = [NSString stringWithFormat:@"%@",data.dicFromObject];
                 strongSelf.textView.text = str;
             }else {
-                [funcVC showToastWithText:@"获取功能列表失败"];
+                [funcVC showToastWithText:lang(@"get function list failed") ];
             }
         }];
     };
@@ -69,7 +69,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"获取功能列表"];
+    model.data = @[lang(@"get function list")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

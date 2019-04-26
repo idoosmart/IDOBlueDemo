@@ -97,13 +97,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置勿扰模式..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set no disturb mode")]];
         [IDOFoundationCommand setNoDisturbModeCommand:strongSelf.noDisturbMode
                                              callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置勿扰模式成功"];
+                [funcVC showToastWithText:lang(@"set no disturb mode success")];
             }else {
-                [funcVC showToastWithText:@"设置勿扰模式失败"];
+                [funcVC showToastWithText:lang(@"set no disturb mode failed")];
             }
         }];
     };
@@ -128,7 +128,7 @@
     
     SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
     model1.typeStr = @"oneSwitch";
-    model1.titleStr = @"设置勿扰模式开关 : ";
+    model1.titleStr = lang(@"set the do not disturb mode switch：");
     model1.data = @[@(self.noDisturbMode.isOpen)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneSwitchTableViewCell class];
@@ -139,7 +139,7 @@
     
     TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
     model2.typeStr = @"twoTextField";
-    model2.titleStr = @"设置开始时间 : ";
+    model2.titleStr = lang(@"set start time");
     model2.data = @[@(self.noDisturbMode.startHour),@(self.noDisturbMode.startMinute)];
     model2.cellHeight = 70.0f;
     model2.cellClass = [TwoTextFieldTableViewCell class];
@@ -150,7 +150,7 @@
     
     TextFieldCellModel * model3 = [[TextFieldCellModel alloc]init];
     model3.typeStr = @"twoTextField";
-    model3.titleStr = @"设置结束时间 : ";
+    model3.titleStr = lang(@"set end time");
     model3.data = @[@(self.noDisturbMode.endHour),@(self.noDisturbMode.endMinute)];
     model3.cellHeight = 70.0f;
     model3.cellClass = [TwoTextFieldTableViewCell class];
@@ -168,7 +168,7 @@
     
     FuncCellModel * model5 = [[FuncCellModel alloc]init];
     model5.typeStr = @"oneButton";
-    model5.data = @[@"设置勿扰模式"];
+    model5.data = @[lang(@"set no disturb mode")];
     model5.cellHeight = 70.0f;
     model5.cellClass = [OneButtonTableViewCell class];
     model5.modelClass = [NSNull class];

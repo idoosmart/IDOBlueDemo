@@ -33,7 +33,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"APP发起数据交换"],@[@"手环发起数据交换"]];
+        _buttonTitles = @[@[lang(@"app initiates data exchange")],@[lang(@"bracelet initiates data exchange")]];
     }
     return _buttonTitles;
 }

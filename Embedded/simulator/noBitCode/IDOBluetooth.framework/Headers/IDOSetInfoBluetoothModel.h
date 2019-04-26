@@ -41,9 +41,9 @@
 #pragma mark ====  设置经期 model ====
 @interface IDOSetMenstruationInfoBluetoothModel:IDOBluetoothBaseModel
 /**
- 开关 0xAA开,0x55关闭 | Switch 0xAA on, 0x55 off
+ 开关 | onoff
  */
-@property (nonatomic,assign) NSInteger onOff;
+@property (nonatomic,assign) BOOL onOff;
 /**
  经期长度 | length of menstruation
  */
@@ -65,7 +65,7 @@
  */
 @property (nonatomic,assign) NSInteger lastMenstrualDay;
 /**
- 经期长度 | length of menstruation
+ 排卵日的间隔 | ovulation interval day
  */
 @property (nonatomic,assign) NSInteger ovulationIntervalDay;
 /**
@@ -1115,7 +1115,7 @@
 @property (nonatomic,assign) BOOL isHasTimeRange;
 
 /**
- 显示时长 | Display time
+ 显示时长 3～10 秒 | Display time 3～10 second
  */
 @property (nonatomic,assign) NSInteger  showSecond;
 
@@ -1517,6 +1517,16 @@
  Telegram 提醒 | Telegram Reminder
  */
 @property (nonatomic,assign) BOOL isOnTelegram;
+
+/**
+ Chatwork 提醒 | Chatwork
+ */
+@property (nonatomic,assign) BOOL isOnChatwork;
+
+/**
+ Slack 提醒 | Slack
+ */
+@property (nonatomic,assign) BOOL isOnSlack;
 
 /**
  * @brief 智能提醒 model 转结构体 (内部使用) | Smart reminder model to structure (internal use)

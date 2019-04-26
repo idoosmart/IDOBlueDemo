@@ -50,13 +50,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"获取活动数量..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get the number of activities")] ];
         [IDOFoundationCommand getActivityCountCommand:^(int errorCode, IDOGetActivityCountBluetoothModel * _Nullable data) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"获取活动数量成功"];
+                [funcVC showToastWithText:lang(@"get the number of activities success")];
                 strongSelf.textView.text = [NSString stringWithFormat:@"%@",data.dicFromObject];
             }else {
-                [funcVC showToastWithText:@"获取活动数量失败"];
+                [funcVC showToastWithText:lang(@"get the number of activities failed")];
             }
         }];
     };
@@ -67,7 +67,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"获取活动数量"];
+    model.data = @[lang(@"get the number of activities")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

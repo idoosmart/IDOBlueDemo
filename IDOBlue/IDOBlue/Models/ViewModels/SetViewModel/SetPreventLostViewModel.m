@@ -46,7 +46,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     LabelCellModel * model1 = [[LabelCellModel alloc]init];
     model1.typeStr = @"oneLabel";
-    model1.data = @[@"不防丢"];
+    model1.data = @[lang(@"no prevent lost")];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneLabelTableViewCell class];
     model1.modelClass = [NSNull class];
@@ -57,7 +57,7 @@
     
     LabelCellModel * model2 = [[LabelCellModel alloc]init];
     model2.typeStr = @"oneLabel";
-    model2.data = @[@"近距离防丢"];
+    model2.data = @[lang(@"near prevent lost")];
     model2.cellHeight = 70.0f;
     model2.cellClass = [OneLabelTableViewCell class];
     model2.modelClass = [NSNull class];
@@ -68,7 +68,7 @@
     
     LabelCellModel * model3 = [[LabelCellModel alloc]init];
     model3.typeStr = @"oneLabel";
-    model3.data = @[@"中距离防丢"];
+    model3.data = @[lang(@"mid distance prevent lost")];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneLabelTableViewCell class];
     model3.modelClass = [NSNull class];
@@ -79,7 +79,7 @@
     
     LabelCellModel * model4 = [[LabelCellModel alloc]init];
     model4.typeStr = @"oneLabel";
-    model4.data = @[@"远距离防丢"];
+    model4.data = @[lang(@"far distance prevent lost")];
     model4.cellHeight = 70.0f;
     model4.cellClass = [OneLabelTableViewCell class];
     model4.modelClass = [NSNull class];
@@ -97,7 +97,7 @@
     
     FuncCellModel * model6 = [[FuncCellModel alloc]init];
     model6.typeStr = @"oneButton";
-    model6.data = @[@"设置防丢失开关"];
+    model6.data = @[lang(@"set prevent lost button")];
     model6.cellHeight = 70.0f;
     model6.cellClass = [OneButtonTableViewCell class];
     model6.modelClass = [NSNull class];
@@ -114,13 +114,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置防丢失开关..."];
+        [funcVC showLoadingWithMessage:lang(@"set prevent lost switch...")];
         [IDOFoundationCommand setPreventLostCommand:strongSelf.preventLostModel
                                           callback:^(int errorCode) {
               if(errorCode == 0) {
-                  [funcVC showToastWithText:@"设置防丢失开关成功"];
+                  [funcVC showToastWithText:lang(@"set prevent lost success")];
               }else {
-                  [funcVC showToastWithText:@"设置防丢失开关失败"];
+                  [funcVC showToastWithText:lang(@"set prevent lost failed")];
               }
         }];
     };

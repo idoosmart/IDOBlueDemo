@@ -96,16 +96,16 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置闹钟..."];
+        [funcVC showLoadingWithMessage:lang(@"set alarm...")];
         [IDOFoundationCommand setAlarmCommand:strongSelf.alarmModel
                                     callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置闹钟成功"];
+                [funcVC showToastWithText:lang(@"set alarm success")];
                 if (strongSelf.addAlarmComplete) {
                     strongSelf.addAlarmComplete(YES);
                 }
             }else {
-                [funcVC showToastWithText:@"设置闹钟失败"];
+                [funcVC showToastWithText:lang(@"set alarm failed")];
                 if (strongSelf.addAlarmComplete) {
                     strongSelf.addAlarmComplete(NO);
                 }
@@ -150,7 +150,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
     model1.typeStr = @"oneSwitch";
-    model1.titleStr = @"设置闹钟提醒开关 : ";
+    model1.titleStr = lang(@"set alarm notice switch");
     model1.data = @[@(self.alarmModel.isOpen)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneSwitchTableViewCell class];
@@ -161,7 +161,7 @@
     
     TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
     model2.typeStr = @"twoTextField";
-    model2.titleStr = @"设置时间 : ";
+    model2.titleStr = lang(@"set time:");
     model2.data = @[@(self.alarmModel.hour),@(self.alarmModel.minute)];
     model2.cellHeight = 70.0f;
     model2.cellClass = [TwoTextFieldTableViewCell class];
@@ -222,7 +222,7 @@
     
     FuncCellModel * model8 = [[FuncCellModel alloc]init];
     model8.typeStr = @"oneButton";
-    model8.data = @[@"编辑闹钟"];
+    model8.data = @[lang(@"edit alarm")];
     model8.cellHeight = 70.0f;
     model8.cellClass = [OneButtonTableViewCell class];
     model8.modelClass = [NSNull class];

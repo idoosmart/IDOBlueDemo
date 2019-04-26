@@ -10,6 +10,7 @@
 | IDOBluetooth version | minimum iOS target| notes |
 | :------:| :------: | :------: |
 | 3.1.4 | iOS 8.0 | Only the objective-c file in the project needs to add an empty swift file |
+| 3.1.8 | iOS 8.0 | Xcode 10.2.1 |
 
 ## Project configuration
 * Reference header file

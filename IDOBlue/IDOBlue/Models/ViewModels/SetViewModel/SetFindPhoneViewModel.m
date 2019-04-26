@@ -49,7 +49,7 @@
     
     SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
     model1.typeStr = @"oneSwitch";
-    model1.titleStr = @"寻找手机开关 : ";
+    model1.titleStr = lang(@"set find phone switch");
     model1.data = @[@(self.findPhoneModel.isOpen)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneSwitchTableViewCell class];
@@ -67,7 +67,7 @@
     
     FuncCellModel * model3 = [[FuncCellModel alloc]init];
     model3.typeStr = @"oneButton";
-    model3.data = @[@"设置寻找手机"];
+    model3.data = @[lang(@"set find phone button")];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneButtonTableViewCell class];
     model3.modelClass = [NSNull class];
@@ -96,13 +96,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置寻找手机开关..."];
+        [funcVC showLoadingWithMessage:lang(@"set find phone switch...")];
         [IDOFoundationCommand setFindPhoneCommand:strongSelf.findPhoneModel
                                         callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置寻找手机开关成功"];
+                [funcVC showToastWithText:lang(@"set find phone success")];
             }else {
-                [funcVC showToastWithText:@"设置寻找手机开关失败"];
+                [funcVC showToastWithText:lang(@"set find phone failed")];
             }
         }];
     };

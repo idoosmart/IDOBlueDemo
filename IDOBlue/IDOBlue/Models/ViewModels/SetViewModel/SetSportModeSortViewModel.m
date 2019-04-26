@@ -27,8 +27,8 @@
 {
     self = [super init];
     if (self) {
-        self.rightButtonTitle = @"编辑";
-        self.footButtonTitle  = @"设置运动模式排序";
+        self.rightButtonTitle = lang(@"edit");
+        self.footButtonTitle  = lang(@"set sports mode sort");
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
         [self getMoveRowCallback];
@@ -42,7 +42,7 @@
     if (self.cellModels.count == 0)return;
     FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
     BOOL isEditing =  !funcVc.tableView.isEditing;
-    sender.title = isEditing ? @"完成" : @"编辑";
+    sender.title = isEditing ? lang(@"complete") : lang(@"edit");
     [funcVc.tableView setEditing:isEditing animated:YES];
     if (!isEditing) {
         NSMutableArray * sportSortModels = [NSMutableArray array];
@@ -55,13 +55,13 @@
             [sportSortModels addObject:item];
         }
         self.sportModeSortModel.sportSortingItems = sportSortModels;
-        [funcVc showLoadingWithMessage:@"设置运动模式排序..."];
+        [funcVc showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set sports mode sort")]];
         [IDOFoundationCommand setSportModeSortCommand:self.sportModeSortModel
                                              callback:^(int errorCode) {
              if(errorCode == 0) {
-                 [funcVc showToastWithText:@"设置运动模式排序成功"];
+                 [funcVc showToastWithText:lang(@"set sports mode sort success")];
              }else {
-                 [funcVc showToastWithText:@"设置运动模式排序失败"];
+                 [funcVc showToastWithText:lang(@"set sports mode sort failed")];
              }
          }];
     }

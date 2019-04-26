@@ -67,13 +67,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置屏幕亮度..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set screen brightness")] ];
         [IDOFoundationCommand setScreenBrightnessCommand:strongSelf.screenModel
                                                 callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置屏幕亮度成功"];
+                [funcVC showToastWithText:lang(@"set screen brightness success")];
             }else {
-                [funcVC showToastWithText:@"设置屏幕亮度失败"];
+                [funcVC showToastWithText:lang(@"set screen brightness failed")];
             }
         }];
     };
@@ -85,7 +85,7 @@
     
     TextFieldCellModel * model1 = [[TextFieldCellModel alloc]init];
     model1.typeStr = @"oneTextField";
-    model1.titleStr = @"屏幕亮度等级 : ";
+    model1.titleStr = lang(@"screen brightness level：");
     model1.data = @[@(self.screenModel.levelValue)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneTextFieldTableViewCell class];
@@ -103,7 +103,7 @@
     
     FuncCellModel * model3 = [[FuncCellModel alloc]init];
     model3.typeStr = @"oneButton";
-    model3.data = @[@"设置屏幕亮度"];
+    model3.data = @[lang(@"set screen brightness")];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneButtonTableViewCell class];
     model3.modelClass = [NSNull class];

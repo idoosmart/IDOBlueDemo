@@ -9,6 +9,7 @@
 #import "FuncViewController.h"
 #import "TableViewFootView.h"
 #import "FileViewModel.h"
+#import "IDOConsoleBoard.h"
 #import "Masonry.h"
 
 @interface FuncViewController ()
@@ -40,7 +41,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
+    if ([IDOConsoleBoard borad].isShow) {
+        [[IDOConsoleBoard borad] show];
+    }
     if (self.model.isRightButton) [self addRightButton];
     if (self.model.isLeftButton)  [self addLeftButton];
     

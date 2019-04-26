@@ -74,10 +74,11 @@
 - (NSString *)dataStrWithModel:(IDOSyncActivityDataInfoBluetoothModel *)model
 {
     BOOL isGps = [IDOSyncGpsDataInfoBluetoothModel queryActivityHasCoordinatesWithTimeStr:model.timeStr macAddr:@""];
-    NSString * titleStr = [NSString stringWithFormat:@"活动类型 ：%@ [%@]",[self.pickerDataModel.sportTypes objectAtIndex:model.type],isGps ? @"有轨迹":@"无轨迹"];
-    NSString * timeStr  = [NSString stringWithFormat:@"时间 ：%@",[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];
-    NSString * macAddrStr  = [NSString stringWithFormat:@"MAC ：%@",model.macAddr];
-    NSString * dataStr  = [NSString stringWithFormat:@"卡路里 ：%ld\n步数 ：%ld\n平均心率 ：%ld",(long)model.calories,(long)model.step,(long)model.avgHrValue];
+    NSString * titleStr = [NSString stringWithFormat:@"%@:%@ [%@]",lang(@"activty type"),[self.pickerDataModel.sportTypes objectAtIndex:model.type],isGps ? lang(@"trajectory"):lang(@"no trajectory")];
+    NSString * timeStr  = [NSString stringWithFormat:@"%@%@",lang(@"time"),[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];
+    NSString * macAddrStr  = [NSString stringWithFormat:@"MAC:%@",model.macAddr];
+    NSString * dataStr  = [NSString stringWithFormat:@"%@:%ld\n%@:%ld\n%@:%ld",lang(@"calories"),(long)model.calories,
+                           lang(@"step"),(long)model.step,lang(@"avg heart rate"),(long)model.avgHrValue];
     NSString * str = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",titleStr,macAddrStr,timeStr,dataStr];
     return str;
 }
@@ -100,7 +101,7 @@
         QueryActivityDetailViewModel * detailModel = [QueryActivityDetailViewModel new];
         detailModel.activityModel = gpsModel ? gpsModel : model;
         newFuncVc.model = detailModel;
-        newFuncVc.title = gpsModel ? @"GPS详情" : @"活动详情";
+        newFuncVc.title = gpsModel ? lang(@"GPS detail") : lang(@"activity detail");
         [funcVc.navigationController pushViewController:newFuncVc animated:YES];
     };
 }

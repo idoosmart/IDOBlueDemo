@@ -50,14 +50,14 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"获取Mac地址..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get Mac address")]];
         [IDOFoundationCommand getMacAddrCommand:^(int errorCode, IDOGetMacAddrInfoBluetoothModel * _Nullable data) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"获取Mac地址成功"];
-                NSString * macStr = [NSString stringWithFormat:@"mac 地址 ： %@",data.macAddr?:@""];
+                [funcVC showToastWithText:lang(@"get Mac address success")];
+                NSString * macStr = [NSString stringWithFormat:@"%@ ： %@",lang(@"Mac address"),data.macAddr?:@""];
                 strongSelf.textView.text = macStr;
             }else {
-                [funcVC showToastWithText:@"获取Mac地址失败"];
+                [funcVC showToastWithText:lang(@"get Mac address failed")];
             }
         }];
     };
@@ -68,7 +68,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"获取Mac地址"];
+    model.data = @[lang(@"get Mac address")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];
@@ -82,7 +82,7 @@
     model2.cellClass  = [OneTextViewTableViewCell class];
     model2.textViewCallback = self.textViewCallback;
     IDOGetMacAddrInfoBluetoothModel * macModel = [IDOGetMacAddrInfoBluetoothModel currentModel];
-    NSString * macStr = [NSString stringWithFormat:@"mac 地址 ： %@",macModel.macAddr?:@""];
+    NSString * macStr = [NSString stringWithFormat:@"%@ ： %@",lang(@"Mac address"),macModel.macAddr?:@""];
     model2.data = @[macStr];
     [cellModels addObject:model2];
     

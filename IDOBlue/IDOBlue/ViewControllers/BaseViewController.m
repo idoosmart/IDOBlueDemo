@@ -33,7 +33,7 @@
         _statusLabel.font = [UIFont boldSystemFontOfSize:16];
         _statusLabel.backgroundColor = [UIColor clearColor];
     }
-    _statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? @"已连接" : @"已断开";
+    _statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? lang(@"connected") : IDO_BLUE_ENGINE.managerEngine.isConnecting ? lang(@"connecting") : lang(@"scanning");
     return _statusLabel;
 }
 
@@ -67,7 +67,7 @@
 - (void)showUpdateProgress:(float)progress
 {
     self.progressHUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
-    self.progressHUD.label.text = [NSString stringWithFormat:@"文件升级:%.0f%@",progress*100.0f,@"%"];
+    self.progressHUD.label.text = [NSString stringWithFormat:@"%@%.2f%@",lang(@"file update"),progress*100.0f,@"%"];
     self.progressHUD.progress = progress;
     [self.progressHUD showAnimated:YES];
 }
@@ -75,7 +75,7 @@
 - (void)showSyncProgress:(float)progress
 {
     self.progressHUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
-    self.progressHUD.label.text = [NSString stringWithFormat:@"同步数据:%.0f%@",progress*100.0f,@"%"];
+    self.progressHUD.label.text = [NSString stringWithFormat:@"%@%.2f%@",lang(@"sync data"),progress*100.0f,@"%"];
     self.progressHUD.progress = progress;
     [self.progressHUD showAnimated:YES];
 }
@@ -111,25 +111,28 @@
     if ([keyPath isEqualToString:@"idoManager.state"]) {
         IDO_BLUETOOTH_MANAGER_STATE state = (IDO_BLUETOOTH_MANAGER_STATE)[change[NSKeyValueChangeNewKey] integerValue];
         if (state == IDO_MANAGER_STATE_DID_CONNECT) {
-            self.statusLabel.text = @"已连接";
-            [self showToastWithText:@"设备连接成功"];
+            self.statusLabel.text = lang(@"connected");
+            [self showToastWithText:lang(@"connected")];
         }
         else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
-            self.statusLabel.text = @"已断开";
-            [self showToastWithText:@"设备已断开"];
+            self.statusLabel.text = lang(@"disconnected");
+            [self showToastWithText:lang(@"device disconnected")];
         }else if((   state == IDO_MANAGER_STATE_AUTO_OTA_CONNECT
                  || state == IDO_MANAGER_STATE_AUTO_CONNECT
                  || state == IDO_MANAGER_STATE_MANUAL_OTA_CONNECT
-                 || state == IDO_MANAGER_STATE_MANUAL_CONNECT ) && (__IDO_BIND__ || __IDO_OTA__)){
-            self.statusLabel.text = @"正在连接...";
-            [self showLoadingWithMessage:@"正在连接..."];
-        }else if (state == IDO_MANAGER_STATE_AUTO_SCANING && (__IDO_BIND__ || __IDO_OTA__)) {
-            self.statusLabel.text = @"正在扫描...";
-            [self showLoadingWithMessage:@"正在扫描..."];
+                 || state == IDO_MANAGER_STATE_MANUAL_CONNECT )
+                 && (__IDO_BIND__ || __IDO_OTA__)){
+            self.statusLabel.text = lang(@"connecting");
+            [self showLoadingWithMessage:lang(@"connecting")];
+        }else if (state == IDO_MANAGER_STATE_AUTO_SCANING) {
+            self.statusLabel.text = lang(@"scanning");
+            [self showLoadingWithMessage:lang(@"scanning")];
         }else if (state == IDO_MANAGER_STATE_SCAN_STOP) {
-            self.statusLabel.text = @"暂停扫描";
-            [self showToastWithText:@"设备暂停扫描"];
+            self.statusLabel.text = lang(@"suspend scan");
+            [self showToastWithText: lang(@"device suspend scan")];
         }else if (state == IDO_MANAGER_STATE_POWEREDOFF) {
+            self.statusLabel.text = lang(@"disconnected");
+            [self showToastWithText:lang(@"device disconnected")];
             [TipPoweredOffView show];
         }else if (state == IDO_MANAGER_STATE_POWEREDON) {
             [TipPoweredOffView hidView];
@@ -137,11 +140,11 @@
     }else if ([keyPath isEqualToString:@"idoManager.manualConnectTotalTime"]) {
         NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
         if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"手动连接时长：%ld",(long)totalTime];
+        self.timerLabel.text = [NSString stringWithFormat:@"%@ %ld",lang(@"manual connect time"),(long)totalTime];
     }else if ([keyPath isEqualToString:@"idoManager.autoConnectTotalTime"]) {
         NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
         if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"自动连接时长：%ld",(long)totalTime];
+        self.timerLabel.text = [NSString stringWithFormat:@"%@ %ld",lang(@"auto connect time"),(long)totalTime];
     }
 }
 

@@ -79,10 +79,12 @@
 
 - (NSString *)dataStrWithModel:(IDOSyncActivityDataInfoBluetoothModel *)model
 {
-    NSString * titleStr = [NSString stringWithFormat:@"活动类型 ：%@",[self.pickerDataModel.sportTypes objectAtIndex:model.type]];
-    NSString * timeStr  = [NSString stringWithFormat:@"时间 ：%@",[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];
-    NSString * macAddrStr  = [NSString stringWithFormat:@"MAC ：%@",model.macAddr];
-    NSString * dataStr  = [NSString stringWithFormat:@"卡路里 ：%ld\n步数 ：%ld\n平均心率 ：%ld",(long)model.calories,(long)model.step,(long)model.avgHrValue];
+    BOOL isGps = [IDOSyncGpsDataInfoBluetoothModel queryActivityHasCoordinatesWithTimeStr:model.timeStr macAddr:@""];
+    NSString * titleStr = [NSString stringWithFormat:@"%@:%@ [%@]",lang(@"activty type"),[self.pickerDataModel.sportTypes objectAtIndex:model.type],isGps ? lang(@"trajectory"):lang(@"no trajectory")];
+    NSString * timeStr  = [NSString stringWithFormat:@"%@%@",lang(@"time"),[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];
+    NSString * macAddrStr  = [NSString stringWithFormat:@"MAC:%@",model.macAddr];
+    NSString * dataStr  = [NSString stringWithFormat:@"%@:%ld\n%@:%ld\n%@:%ld",lang(@"calories"),(long)model.calories,
+                           lang(@"step"),(long)model.step,lang(@"avg heart rate"),(long)model.avgHrValue];
     NSString * str = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",titleStr,macAddrStr,timeStr,dataStr];
     return str;
 }
@@ -104,7 +106,7 @@
         QueryActivityDetailViewModel * detailModel = [QueryActivityDetailViewModel new];
         detailModel.activityModel = model;
         newFuncVc.model = detailModel;
-        newFuncVc.title = @"活动详情";
+        newFuncVc.title = lang(@"activity detail");
         [funcVc.navigationController pushViewController:newFuncVc animated:YES];
     };
 }
@@ -115,12 +117,12 @@
     self.footButtonCallback = ^(UIViewController *viewController) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVc = (FuncViewController *)viewController;
-        [funcVc showLoadingWithMessage:@"加载数据..."];
+        [funcVc showLoadingWithMessage:lang(@"loading data...")];
         strongSelf.pageIndex ++;
         [strongSelf getCellModels];
         [funcVc.tableView reloadData];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [funcVc showToastWithText:@"加载完成"];
+            [funcVc showToastWithText:lang(@"loading complete")];
         });
     };
 }

@@ -115,13 +115,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置设备单位..."];
+        [funcVC showLoadingWithMessage: [NSString stringWithFormat:@"%@...",lang(@"set device unit")] ];
         [IDOFoundationCommand setUnitCommand:strongSelf.unitMode
                                     callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置设备单位成功"];
+                [funcVC showToastWithText:lang(@"set device unit success")];
             }else {
-                [funcVC showToastWithText:@"设置设备单位失败"];
+                [funcVC showToastWithText:lang(@"set device unit failed")];
             }
         }];
     };

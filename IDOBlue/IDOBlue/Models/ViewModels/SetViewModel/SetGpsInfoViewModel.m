@@ -104,12 +104,12 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置GPS配置信息..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set GPS configuration information")]];
         [IDOFoundationCommand setGpsInfoCommand:strongSelf.gpsMode callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置GPS配置信息成功"];
+                [funcVC showToastWithText:lang(@"set GPS configuration information success")];
             }else {
-                [funcVC showToastWithText:@"设置GPS配置信息失败"];
+                [funcVC showToastWithText:lang(@"set GPS configuration information failed")];
             }
         }];
     };
@@ -146,7 +146,7 @@
     
     FuncCellModel * model5 = [[FuncCellModel alloc]init];
     model5.typeStr = @"oneButton";
-    model5.data = @[@"设置GPS配置信息"];
+    model5.data = @[lang(@"set GPS configuration information")];
     model5.cellHeight = 70.0f;
     model5.cellClass = [OneButtonTableViewCell class];
     model5.modelClass = [NSNull class];

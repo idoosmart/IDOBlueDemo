@@ -74,7 +74,7 @@
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if (strongSelf.selectedCount >= __IDO_FUNCTABLE__.sportShowCount && onSwitch.isOn) {
-            [funcVC showToastWithText:[NSString stringWithFormat:@"最多支持%ld种类型",(long)__IDO_FUNCTABLE__.sportShowCount]];
+            [funcVC showToastWithText:[NSString stringWithFormat:@"%@%ld%@",lang(@"most support"),(long)__IDO_FUNCTABLE__.sportShowCount,lang(@"type")]];
             switchCellModel.data = @[@(NO)];
             [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             return ;
@@ -263,7 +263,7 @@
             }
             switchCellModel.data = @[@(onSwitch.isOn)];
         }else {
-            [funcVC showToastWithText:@"当前设备不支持此功能"];
+            [funcVC showToastWithText:lang(@"this feature is not supported on the current device")];
             switchCellModel.data = @[@(NO)];
             [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }
@@ -276,13 +276,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置运动快捷方式..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set sport shortcuts")]];
         [IDOFoundationCommand setSportModeSelectCommand:strongSelf.sportShortcutModel
                                                callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置运动快捷方式成功"];
+                [funcVC showToastWithText:lang(@"set sport shortcuts success")];
             }else {
-                [funcVC showToastWithText:@"设置运动快捷方式失败"];
+                [funcVC showToastWithText:lang(@"set sport shortcuts failed")];
             }
         }];
     };
@@ -321,7 +321,7 @@
     
     FuncCellModel * model3 = [[FuncCellModel alloc]init];
     model3.typeStr = @"oneButton";
-    model3.data = @[@"设置运动快捷方式"];
+    model3.data = @[lang(@"set sport shortcuts")];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneButtonTableViewCell class];
     model3.modelClass = [NSNull class];

@@ -52,7 +52,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
     model1.typeStr = @"oneSwitch";
-    model1.titleStr = @"寻找抬腕手势开关 : ";
+    model1.titleStr = lang(@"set hand up switch");
     model1.data = @[@(self.handUpModel.isOpen)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneSwitchTableViewCell class];
@@ -63,7 +63,7 @@
     
     TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
     model2.typeStr = @"oneTextField";
-    model2.titleStr = @"显示时长 : ";
+    model2.titleStr = lang(@"set show long time");
     model2.data = @[@(self.handUpModel.showSecond)];
     model2.cellHeight = 70.0f;
     model2.cellClass = [OneTextFieldTableViewCell class];
@@ -74,7 +74,7 @@
     
     SwitchCellModel * model3 = [[SwitchCellModel alloc]init];
     model3.typeStr = @"oneSwitch";
-    model3.titleStr = @"是否有时间区间 : ";
+    model3.titleStr = lang(@"set time range");
     model3.data = @[@(self.handUpModel.isHasTimeRange)];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneSwitchTableViewCell class];
@@ -85,7 +85,7 @@
     
     TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
     model4.typeStr = @"twoTextField";
-    model4.titleStr = @"设置开始时间 : ";
+    model4.titleStr = lang(@"set start time");
     model4.data = @[@(self.handUpModel.startHour),@(self.handUpModel.startMinute)];
     model4.cellHeight = 70.0f;
     model4.cellClass = [TwoTextFieldTableViewCell class];
@@ -96,7 +96,7 @@
     
     TextFieldCellModel * model5 = [[TextFieldCellModel alloc]init];
     model5.typeStr = @"twoTextField";
-    model5.titleStr = @"设置结束时间 : ";
+    model5.titleStr = lang(@"set end time");
     model5.data = @[@(self.handUpModel.endHour),@(self.handUpModel.endMinute)];
     model5.cellHeight = 70.0f;
     model5.cellClass = [TwoTextFieldTableViewCell class];
@@ -113,8 +113,8 @@
     [cellModels addObject:model6];
     
     FuncCellModel * model7 = [[FuncCellModel alloc]init];
-    model7.typeStr = @"oneButton";
-    model7.data = @[@"设置抬腕识别"];
+    model7.typeStr = @"set end time";
+    model7.data = @[lang(@"set hand up button")];
     model7.cellHeight = 70.0f;
     model7.cellClass = [OneButtonTableViewCell class];
     model7.modelClass = [NSNull class];
@@ -131,13 +131,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置抬腕识别开关..."];
+        [funcVC showLoadingWithMessage:lang(@"set hand up switch...")];
         [IDOFoundationCommand setHandUpCommand:strongSelf.handUpModel
                                      callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置抬腕识别开关成功"];
+                [funcVC showToastWithText:lang(@"set hand up success")];
             }else {
-                [funcVC showToastWithText:@"设置抬腕识别开关失败"];
+                [funcVC showToastWithText:lang(@"set hand up failed")];
             }
         }];
     };

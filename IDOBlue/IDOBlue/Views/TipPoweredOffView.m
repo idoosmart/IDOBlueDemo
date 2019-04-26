@@ -7,6 +7,7 @@
 //
 
 #import "TipPoweredOffView.h"
+#import "IDODemoUtility.h"
 
 @interface TipPoweredOffView ()
 
@@ -30,10 +31,10 @@
         self.iconView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:self.iconView];
         self.tipLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,CGRectGetMaxY(self.iconView.frame),frame.size.width,40)];
-        self.tipLabel.font = [UIFont systemFontOfSize:20];
+        self.tipLabel.font = [UIFont systemFontOfSize:18];
         self.tipLabel.textColor = [UIColor blackColor];
         self.tipLabel.textAlignment = NSTextAlignmentCenter;
-        self.tipLabel.text = @"请开启蓝牙继续使用当前应用";
+        self.tipLabel.text = lang(@"please enable bluetooth to continue using the current app");
         [self addSubview:self.tipLabel];
     }
     return self;

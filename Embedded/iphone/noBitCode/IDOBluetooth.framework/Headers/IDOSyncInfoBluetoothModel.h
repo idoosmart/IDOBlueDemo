@@ -762,6 +762,7 @@
  */
 @property (nonatomic,copy) NSString * dateStr;
 
+
 /**
  * @brief 初始化同步的心率数据模型 （内部使用） | Initialize synchronized heart rate data model (internal use)
  * @param data 心率结构体数据 | Heart rate structure data
@@ -1141,6 +1142,11 @@
 @property (nonatomic,assign) NSInteger goalSportData;
 
 /**
+ 一天步数items个数 | one day total items count
+ */
+@property (nonatomic,assign) NSInteger totalCount;
+
+/**
  * @brief 初始化同步的运动数据模型 (内部使用) | Initialize synchronized motion data model (internal use)
  * @param data 运动结构体数据 | Sports Structure Data
  * @return 是或否 | yes or no
@@ -1321,9 +1327,13 @@
 /**
  * @brief 初始化同步的GPS数据模型 (内部使用) | Initialize synchronized GPS data model (internal use)
  * @param data GPS data 结构体数据 | data GPS data structure data
+ * @param head GPS head 结构体数据 | data GPS head structure data
+ * @param count GPS count 个数 | data GPS count 
  * @return 是或否 | yes or no
  */
-+ (BOOL)gpsDataInfoStructToModel:(void *)data;
++ (BOOL)gpsDataInfoStructToModel:(void *)data
+                            head:(const void *)head
+                        gpsCount:(uint32_t)count;
 
 /**
  * @brief 根据时间戳查询某个活动的GPS信息 | Querying the GPS information of an activity based on the timestamp

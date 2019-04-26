@@ -57,7 +57,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
     model1.typeStr = @"oneSwitch";
-    model1.titleStr = @"设置久坐提醒开关 : ";
+    model1.titleStr = lang(@"set long sit notice switch");
     model1.data = @[@(self.longSitModel.isOpen)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneSwitchTableViewCell class];
@@ -68,7 +68,7 @@
     
     TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
     model2.typeStr = @"oneTextField";
-    model2.titleStr = @"设置未活动多少分钟后提醒 : ";
+    model2.titleStr = lang(@"set how many minutes later notice");
     model2.data = @[@(self.longSitModel.interval)];
     model2.cellHeight = 70.0f;
     model2.cellClass = [OneTextFieldTableViewCell class];
@@ -79,7 +79,7 @@
     
     TextFieldCellModel * model3 = [[TextFieldCellModel alloc]init];
     model3.typeStr = @"twoTextField";
-    model3.titleStr = @"设置开始时间 : ";
+    model3.titleStr = lang(@"set start time");
     model3.data = @[@(self.longSitModel.startHour),@(self.longSitModel.startMinute)];
     model3.cellHeight = 70.0f;
     model3.cellClass = [TwoTextFieldTableViewCell class];
@@ -90,7 +90,7 @@
     
     TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
     model4.typeStr = @"twoTextField";
-    model4.titleStr = @"设置结束时间 : ";
+    model4.titleStr = lang(@"set end time");
     model4.data = @[@(self.longSitModel.endHour),@(self.longSitModel.endMinute)];
     model4.cellHeight = 70.0f;
     model4.cellClass = [TwoTextFieldTableViewCell class];
@@ -130,7 +130,7 @@
     
     FuncCellModel * model7 = [[FuncCellModel alloc]init];
     model7.typeStr = @"oneButton";
-    model7.data = @[@"设置久坐提醒"];
+    model7.data = @[lang(@"set long sit notice button")];
     model7.cellHeight = 70.0f;
     model7.cellClass = [OneButtonTableViewCell class];
     model7.modelClass = [NSNull class];
@@ -147,13 +147,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置久坐提醒..."];
+        [funcVC showLoadingWithMessage:lang(@"set long sit notice...")];
         [IDOFoundationCommand setLongSitCommand:strongSelf.longSitModel
                                       callback:^(int errorCode) {
           if(errorCode == 0) {
-              [funcVC showToastWithText:@"设置久坐提醒成功"];
+              [funcVC showToastWithText:lang(@"set long sit notice success")];
           }else {
-              [funcVC showToastWithText:@"设置久坐提醒失败"];
+              [funcVC showToastWithText:lang(@"set long sit notice failed")];
           }
         }];
     };

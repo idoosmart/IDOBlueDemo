@@ -50,35 +50,41 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"同步健康数据..."];
+        [funcVC showLoadingWithMessage:lang(@"sync health data...")];
         //同步健康日志
         [IDOSyncHealth syncHealthDataCallback:^(NSString * _Nullable jsonStr) {
-            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-            TextViewCellModel * model = [strongSelf.cellModels firstObject];
-            model.data = @[newLogStr?:@""];
-            strongSelf.textView.text = newLogStr;
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
             // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
         }];
         //同步健康完成
         [IDOSyncHealth syncHealthDataCompleteCallback:^(int errorCode) {
-            NSString * errorStr = [IDOErrorCodeToStr errorCodeToStr:errorCode];
-            NSString * activityStr = [NSString stringWithFormat:@"%@ ERROR_CODE = %@",@"SYNC_HEALTH_COMPLETE",errorStr];
-            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
-            TextViewCellModel * model = [strongSelf.cellModels firstObject];
-            model.data = @[newLogStr?:@""];
-            strongSelf.textView.text = newLogStr;
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * errorStr = [IDOErrorCodeToStr errorCodeToStr:errorCode];
+                NSString * activityStr = [NSString stringWithFormat:@"%@ ERROR_CODE = %@",@"SYNC_HEALTH_COMPLETE",errorStr];
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
           //  [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-            [funcVC showToastWithText:@"同步健康完成"];
+            [funcVC showToastWithText:lang(@"sync health data complete")];
         }];
         //同步健康进度
         [IDOSyncHealth syncHealthDataProgressCallback:^(int progress) {
-            NSString * healthStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_HEALTH_PROGRESS",progress];
-            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,healthStr];
-            TextViewCellModel * model = [strongSelf.cellModels firstObject];
-            model.data = @[newLogStr?:@""];
-            strongSelf.textView.text = newLogStr;
-           // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-            [funcVC showSyncProgress:progress/100.0f];
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * healthStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_HEALTH_PROGRESS",progress];
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,healthStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+                // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
+                [funcVC showSyncProgress:progress/100.0f];
+            }
         }];
         //同步健康开始
         [IDOSyncHealth startSync];
@@ -90,7 +96,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"同步健康数据"];
+    model.data = @[lang(@"health data sync")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

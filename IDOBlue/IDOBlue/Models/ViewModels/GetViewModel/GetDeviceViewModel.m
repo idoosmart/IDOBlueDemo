@@ -50,16 +50,16 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"获取设备信息..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get device information")]];
         [IDOFoundationCommand getDeviceInfoCommand:^(int errorCode, IDOGetDeviceInfoBluetoothModel * _Nullable data) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"获取设备信息成功"];
+                [funcVC showToastWithText:lang(@"get device information success")];
                 NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithDictionary:data.dicFromObject];
                 [dic setValue:data.deviceId?:@"" forKey:@"deviceId"];
                 [dic setValue:data.version?:@"" forKey:@"version"];
                 strongSelf.textView.text = [NSString stringWithFormat:@"%@",dic];
             }else {
-                [funcVC showToastWithText:@"获取设备信息失败"];
+                [funcVC showToastWithText:lang(@"get device information failed")];
             }
         }];
     };
@@ -70,7 +70,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"获取设备信息"];
+    model.data = @[lang(@"get device information")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

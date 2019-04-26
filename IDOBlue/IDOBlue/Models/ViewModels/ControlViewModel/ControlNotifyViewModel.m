@@ -32,7 +32,7 @@
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data = @[@"设置ANCS通知"];
+    model1.data = @[lang(@"setting up ANCS notification")];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneButtonTableViewCell class];
     model1.modelClass = [NSNull class];
@@ -47,12 +47,12 @@
 {
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置ANCS通知..."];
+        [funcVC showLoadingWithMessage:lang(@"setting up ANCS notification...")];
         [IDOFoundationCommand belOpenAncsCommand:^(int errorCode) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"设置ANCS通知成功"];
+                [funcVC showToastWithText:lang(@"successful setting of ANCS notification")];
             }else {
-                [funcVC showToastWithText:@"设置ANCS通知失败"];
+                [funcVC showToastWithText:lang(@"failure to set up ANCS notification")];
             }
         }];
     };

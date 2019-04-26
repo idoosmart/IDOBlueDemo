@@ -53,10 +53,10 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"获取版本信息..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get version information")] ];
         [IDOFoundationCommand getVersionInfoCommand:^(int errorCode, IDOGetVersionInfoBluetoothModel * _Nullable data) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"获取版本信息成功"];
+                [funcVC showToastWithText:lang(@"get version information success") ];
                 NSString * sdkv   = [NSString stringWithFormat:@"sdk : %ld",(long)data.sdkVersion];
                 NSString * hrv    = [NSString stringWithFormat:@"hr : %ld",(long)data.hrAlgorithmVersion];
                 NSString * sleepv = [NSString stringWithFormat:@"sleep : %ld",(long)data.sleepAlgorithmVersion];
@@ -65,7 +65,7 @@
                 NSString * pcbv     = [NSString stringWithFormat:@"pcb : %ld",(long)data.pcbVersion];
                 strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n%@\n",sdkv,hrv,sleepv,stepv,gesturev,pcbv];
             }else {
-                [funcVC showToastWithText:@"获取版本信息失败"];
+                [funcVC showToastWithText:lang(@"get version information failed")];
             }
         }];
     };
@@ -76,7 +76,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"获取版本信息"];
+    model.data = @[lang(@"get version information")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

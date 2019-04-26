@@ -50,13 +50,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"获取实时数据..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get real-time data")] ];
         [IDOFoundationCommand getLiveDataCommand:^(int errorCode, IDOGetLiveDataBluetoothModel * _Nullable data) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:@"获取实时数据成功"];
+                [funcVC showToastWithText:lang(@"get real-time data success")];
                 strongSelf.textView.text = [NSString stringWithFormat:@"%@",data.dicFromObject];
             }else {
-                [funcVC showToastWithText:@"获取实时数据失败"];
+                [funcVC showToastWithText:lang(@"get real-time data failed")];
             }
         }];
     };
@@ -67,7 +67,7 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     FuncCellModel * model = [[FuncCellModel alloc]init];
     model.typeStr = @"oneButton";
-    model.data = @[@"获取实时数据"];
+    model.data = @[lang(@"get real-time data")];
     model.cellHeight = 70.0f;
     model.cellClass = [OneButtonTableViewCell class];
     model.modelClass = [NSNull class];

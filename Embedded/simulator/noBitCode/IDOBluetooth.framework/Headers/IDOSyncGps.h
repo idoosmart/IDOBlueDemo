@@ -22,6 +22,12 @@
 + (void)stopSync;
 
 /**
+ * 删除当天GPS数据 | delete current day gps data
+ * ⚠️只有在解绑手环时作删除操作 | only when unbundling bracelets for deletion
+ */
++ (void)deleteGpsCurrentDayData;
+
+/**
  * @brief GPS 同步进度 | GPS sync progress
  * @param callback 进度回调 | Progress callback
  */

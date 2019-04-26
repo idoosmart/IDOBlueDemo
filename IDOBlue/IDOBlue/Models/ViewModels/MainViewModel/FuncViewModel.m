@@ -34,7 +34,7 @@
 {
     self = [super init];
     if (self) {
-        self.leftButtonTitle = @"强制解绑";
+        self.leftButtonTitle = lang(@"mandatory unbind");
         self.isLeftButton = YES;
         self.leftButton   = @selector(actionButton:);
         [self getButtonCallback];
@@ -47,16 +47,14 @@
 {
     [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
         if (errorCode == 0) {
-            UINavigationController * rootvc =  (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-            UIViewController * firstvc = [rootvc.viewControllers firstObject];
-            if ([firstvc isKindOfClass:[ScanViewController class]]) {
-                [[IDODemoUtility getCurrentVC] dismissViewControllerAnimated:YES completion:nil];
-            }else {
-                ScanViewController * scanVC  = [[ScanViewController alloc]init];
-                UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-                [firstvc presentViewController:nav animated:YES completion:nil];
+            ScanViewController * scanVC  = [[ScanViewController alloc]init];
+            UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+            [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+            for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
+                if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
+                    [view removeFromSuperview];
+                }
             }
-            [IDOBluetoothManager startScan];
         }
     }];
 }
@@ -64,8 +62,8 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[@"解绑设备"],@[@"设置功能"],@[@"获取功能"],@[@"控制功能"],@[@"同步功能"],
-                          @[@"数据交换"],@[@"设备升级"],@[@"数据查询"],@[@"日志查询"],@[@"数据迁移"]];
+        _buttonTitles = @[@[lang(@"device unbind")],@[lang(@"set function")],@[lang(@"get function")],@[lang(@"control function")],@[lang(@"sync function")],
+                          @[lang(@"data interchange")],@[lang(@"device update")],@[lang(@"data query")],@[lang(@"log query")],@[lang(@"data migration")]];
     }
     return _buttonTitles;
 }

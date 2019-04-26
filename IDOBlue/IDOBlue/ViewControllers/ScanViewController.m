@@ -17,6 +17,7 @@
 #import "MBProgressHUD.h"
 #import "TimerAnimatView.h"
 #import "TipPoweredOffView.h"
+#import "IDOConsoleBoard.h"
 
 @interface ScanViewController ()<UITableViewDelegate,UITableViewDataSource,IDOBluetoothManagerDelegate,AuthTextFieldViewDelegate,BindDeviceViewDelegate>
 @property (nonatomic,strong)  NSArray * devices;
@@ -45,7 +46,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? @"已连接" : @"扫描中...";
+    self.title = lang(@"scan device");
+    self.statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? lang(@"connected") : IDO_BLUE_ENGINE.managerEngine.isConnecting ? lang(@"connecting") : lang(@"scanning");
+    self.navigationItem.rightBarButtonItem.title = lang(@"🔧");
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lang(@"very hard scan")];
+    
     [IDOBluetoothManager shareInstance].delegate = self;
     [IDOBluetoothManager shareInstance].rssiNum  = 100;
     [IDOBluetoothManager startScan];
@@ -97,11 +102,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([IDOConsoleBoard borad].isShow) {
+        [[IDOConsoleBoard borad] show];
+    }
     self.tableView.tableFooterView = [UIView new];
-    
     [self modificationNavigationBarStyle];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"扫描设备";
     
     if (IDO_BLUE_ENGINE.managerEngine) {
         [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.state" options:NSKeyValueObservingOptionNew context:nil];
@@ -163,7 +169,7 @@
 
 - (void)creatRefreshing {
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"拼命扫描……"];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lang(@"very hard scan")];
     self.refreshControl.tintColor = [UIColor grayColor];
     [self.refreshControl addTarget:self action:@selector(refreshAction)forControlEvents:UIControlEventValueChanged];
     [self.refreshControl beginRefreshing];
@@ -174,6 +180,7 @@
 
 - (void)refreshAction
 {
+    self.statusLabel.text = lang(@"scanning");
     NSInteger rssiNum = [[NSUserDefaults standardUserDefaults]integerForKey:RSSI_KEY];
     [IDOBluetoothManager shareInstance].rssiNum = rssiNum > 0 ? rssiNum : 80;
     [IDOBluetoothManager startScan];
@@ -184,7 +191,7 @@
 
 - (void)addRightButton
 {
-    UIBarButtonItem * rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"参数选择"
+    UIBarButtonItem * rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:lang(@"🔧")
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(rightAction)];
@@ -193,7 +200,7 @@
 
 - (void)addLeftButton
 {
-    UIBarButtonItem * leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"解绑"
+    UIBarButtonItem * leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:lang(@"unbind")
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(leftAction)];
@@ -205,7 +212,7 @@
     FuncViewController * vc = [[FuncViewController alloc]init];
     ModeSelectViewModel * selectModel = [ModeSelectViewModel new];
     vc.model = selectModel;
-    vc.title = @"参数选择";
+    vc.title = lang(@"parameter select");
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -226,7 +233,7 @@ static BOOL BIND_STATE = NO;
         __strong typeof(self) strongSelf = weakSelf;
         if (errorCode == 0) {
             if (status == IDO_BLUETOOTH_BIND_SUCCESS) { //绑定成功
-                [strongSelf showToastWithText:@"绑定成功"];
+                [strongSelf showToastWithText:lang(@"bind success")];
                 IDOSetBindingInfoBluetoothModel * model1 = [IDOSetBindingInfoBluetoothModel currentModel];
                 if (model1.authLength > 0)return;
                 [strongSelf setRootViewController];
@@ -237,10 +244,10 @@ static BOOL BIND_STATE = NO;
             }else if (status == IDO_BLUETOOTH_NEED_AUTH) { //需要授权绑定
                 [strongSelf showAuthView];
             }else if (status == IDO_BLUETOOTH_REFUSED_BINDED) { //拒绝绑定
-                [strongSelf showToastWithText:@"拒绝绑定"];
+                [strongSelf showToastWithText:lang(@"rejected bind")];
             }
         }else { //绑定失败
-            [strongSelf showToastWithText:@"绑定失败"];
+            [strongSelf showToastWithText:lang(@"bind failed")];
         }
     }];
 }
@@ -249,7 +256,7 @@ static BOOL BIND_STATE = NO;
 {
     FuncViewController * update = [[FuncViewController alloc]init];
     update.model = [UpdateMainViewModel new];
-    update.title = @"设备升级";
+    update.title = lang(@"device update");
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:update];
     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
 }
@@ -260,9 +267,14 @@ static BOOL BIND_STATE = NO;
     BIND_STATE = YES;
     FuncViewController * funcVc = [[FuncViewController alloc]init];
     funcVc.model = [FuncViewModel new];
-    funcVc.title = @"功能列表";
+    funcVc.title = lang(@"function list");
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:funcVc];
     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
+        if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
+            [view removeFromSuperview];
+        }
+    }
 }
 
 - (void)showBindView
@@ -273,7 +285,7 @@ static BOOL BIND_STATE = NO;
         [self.view addSubview:_bindView];
     }
     NSInteger mode = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-    _bindView.tipLabel.text = [NSString stringWithFormat:@"设备已连接成功\n是否需要%@设备",mode == 0 ? @"升级":self.currentModel.isOta ? @"升级":@"绑定"];
+    _bindView.tipLabel.text = [NSString stringWithFormat:lang(@"send bind or update"),mode == 0 ? lang(@"update"):self.currentModel.isOta ? lang(@"update"):lang(@"bind")];
     [_bindView show];
 }
 
@@ -316,10 +328,10 @@ static BOOL BIND_STATE = NO;
     [IDOFoundationCommand setAuthCodeCommand:model callback:^(int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
         if (errorCode == 0) {
-            [strongSelf showToastWithText:@"绑定成功"];
+            [strongSelf showToastWithText:lang(@"bind success")];
             [strongSelf setRootViewController];
         }else {
-            [strongSelf showToastWithText:@"绑定失败"];
+            [strongSelf showToastWithText:lang(@"bind failed")];
         }
     }];
 }
@@ -330,7 +342,7 @@ static BOOL BIND_STATE = NO;
     didConnectPeripheral:(CBPeripheral *)peripheral
                isOatMode:(BOOL)isOtaMode
 {
-    [self showToastWithText:@"设备连接成功"];
+    [self showToastWithText:lang(@"connected success")];
     [self showBindView];
     return YES;
 }
@@ -353,7 +365,7 @@ static BOOL BIND_STATE = NO;
 - (void)bluetoothManager:(IDOBluetoothManager *)manager
   connectPeripheralError:(NSError *)error
 {
-    [self showToastWithText:@"设备连接失败"];
+    [self showToastWithText:lang(@"connected failed")];
     [self.refreshControl endRefreshing];
 }
 
@@ -391,7 +403,7 @@ static BOOL BIND_STATE = NO;
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.currentModel = self.devices[indexPath.row];
-    [self showLoadingWithMessage:@"设备连接中..."];
+    [self showLoadingWithMessage:lang(@"connecting")];
     [IDOBluetoothManager connectDeviceWithModel:self.currentModel];
 }
 
@@ -404,13 +416,15 @@ static BOOL BIND_STATE = NO;
     if ([keyPath isEqualToString:@"idoManager.state"]) {
         IDO_BLUETOOTH_MANAGER_STATE state = (IDO_BLUETOOTH_MANAGER_STATE)[change[NSKeyValueChangeNewKey] integerValue];
         if (state == IDO_MANAGER_STATE_DID_CONNECT) {
-            self.statusLabel.text = @"已连接";
-            [self showToastWithText:@"设备连接成功"];
+            self.statusLabel.text = lang(@"connected");
+            [self showToastWithText:lang(@"connected success")];
         }
         else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
-            self.statusLabel.text = @"已断开";
-            [self showToastWithText:@"设备已断开"];
+            self.statusLabel.text = lang(@"disconnected");
+            [self showToastWithText:lang(@"device disconnected")];
         }else if (state == IDO_MANAGER_STATE_POWEREDOFF) {
+             self.statusLabel.text = lang(@"disconnected");
+            [self showToastWithText:lang(@"device disconnected")];
             [TipPoweredOffView show];
         }else if (state == IDO_MANAGER_STATE_POWEREDON) {
             [TipPoweredOffView hidView];
@@ -418,11 +432,11 @@ static BOOL BIND_STATE = NO;
     }else if ([keyPath isEqualToString:@"idoManager.manualConnectTotalTime"]) {
         NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
         if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"手动连接时长：%ld",(long)totalTime];
+        self.timerLabel.text = [NSString stringWithFormat:@"%@ %ld",lang(@"manual connect time"),(long)totalTime];
     }else if ([keyPath isEqualToString:@"idoManager.autoConnectTotalTime"]) {
         NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
         if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"自动连接时长：%ld",(long)totalTime];
+        self.timerLabel.text = [NSString stringWithFormat:@"%@ %ld",lang(@"auto connect time"),(long)totalTime];
     }
 }
 

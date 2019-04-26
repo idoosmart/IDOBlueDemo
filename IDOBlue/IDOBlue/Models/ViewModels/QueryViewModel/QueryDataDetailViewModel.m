@@ -18,6 +18,7 @@
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
 @property (nonatomic,strong) UITextView * textView;
+@property (nonatomic,copy) NSString * macAddr;
 @property (nonatomic,assign) NSInteger year;
 @property (nonatomic,assign) NSInteger month;
 @property (nonatomic,assign) NSInteger day;
@@ -31,6 +32,10 @@
 {
     self = [super init];
     if (self) {
+        self.macAddr = @"";
+        self.rightButtonTitle = @"🔒";
+        self.isRightButton = YES;
+        self.rightButton   = @selector(actionButton:);
         IDOSetTimeInfoBluetoothModel * time = [IDOSetTimeInfoBluetoothModel new];
         self.year  = time.year;
         self.month = time.month;
@@ -41,6 +46,17 @@
         [self getCellModels];
     }
     return self;
+}
+
+- (void)actionButton:(UIBarButtonItem *)sender
+{
+    if ([sender.title isEqualToString:@"🔒"]) {
+        self.macAddr = __IDO_MAC_ADDR__;
+        [sender setTitle:@"🔓"];
+    }else {
+        self.macAddr = @"";
+        [sender setTitle:@"🔒"];
+    }
 }
 
 - (void)getCellModels
@@ -58,7 +74,7 @@
     
     FuncCellModel * model2 = [[FuncCellModel alloc]init];
     model2.typeStr = @"oneButton";
-    model2.data    = @[@"上一年"];
+    model2.data    = @[lang(@"previous year")];
     model2.cellHeight = 70.0f;
     model2.index = 0;
     model2.cellClass  = [OneButtonTableViewCell class];
@@ -69,7 +85,7 @@
     
     FuncCellModel * model3 = [[FuncCellModel alloc]init];
     model3.typeStr = @"oneButton";
-    model3.data    = @[@"下一年"];
+    model3.data    = @[lang(@"next year")];
     model3.cellHeight = 70.0f;
     model3.index = 1;
     model3.cellClass  = [OneButtonTableViewCell class];
@@ -92,8 +108,8 @@
             NSIndexPath * indexPath2 = [NSIndexPath indexPathForRow:2 inSection:0];
             FuncCellModel * model1 = [self.cellModels objectAtIndex:1];
             FuncCellModel * model2 = [self.cellModels lastObject];
-            model1.data = @[@"上一年"];
-            model2.data = @[@"下一年"];
+            model1.data = @[lang(@"previous year")];
+            model2.data = @[lang(@"next year")];
             [funcVc.tableView reloadRowsAtIndexPaths:@[indexPath1,indexPath2] withRowAnimation:UITableViewRowAnimationNone];
         }
             break;
@@ -104,8 +120,8 @@
             NSIndexPath * indexPath2 = [NSIndexPath indexPathForRow:2 inSection:0];
             FuncCellModel * model1 = [self.cellModels objectAtIndex:1];
             FuncCellModel * model2 = [self.cellModels lastObject];
-            model1.data = @[@"上一月"];
-            model2.data = @[@"下一月"];
+            model1.data = @[lang(@"previous month")];
+            model2.data = @[lang(@"next month")];
             [funcVc.tableView reloadRowsAtIndexPaths:@[indexPath1,indexPath2] withRowAnimation:UITableViewRowAnimationNone];
         }
             break;
@@ -116,8 +132,8 @@
             NSIndexPath * indexPath2 = [NSIndexPath indexPathForRow:2 inSection:0];
             FuncCellModel * model1 = [self.cellModels objectAtIndex:1];
             FuncCellModel * model2 = [self.cellModels lastObject];
-            model1.data = @[@"上一周"];
-            model2.data = @[@"下一周"];
+            model1.data = @[lang(@"previous week")];
+            model2.data = @[lang(@"next week")];
             [funcVc.tableView reloadRowsAtIndexPaths:@[indexPath1,indexPath2] withRowAnimation:UITableViewRowAnimationNone];
         }
             break;
@@ -128,8 +144,8 @@
             NSIndexPath * indexPath2 = [NSIndexPath indexPathForRow:2 inSection:0];
             FuncCellModel * model1 = [self.cellModels objectAtIndex:1];
             FuncCellModel * model2 = [self.cellModels lastObject];
-            model1.data = @[@"前一天"];
-            model2.data = @[@"后一天"];
+            model1.data = @[lang(@"previous day")];
+            model2.data = @[lang(@"next day")];
             [funcVc.tableView reloadRowsAtIndexPaths:@[indexPath1,indexPath2] withRowAnimation:UITableViewRowAnimationNone];
         }
             break;
@@ -138,7 +154,7 @@
             FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
             TextViewCellModel * model1 = [self.cellModels firstObject];
             FuncCellModel * model2 = [self.cellModels objectAtIndex:1];
-            model2.data = @[@"查询所有"];
+            model2.data = @[lang(@"query all data")];
             self.cellModels = @[model1,model2];
             [funcVc.tableView reloadData];
         }
@@ -337,11 +353,11 @@
 - (void)querySportsYearDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneYearSportsWithYear:self.year
-                                                                             macAddr:@""
+                                                                             macAddr:self.macAddr
                                                                         isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前年无数据";
-        [funcVc showToastWithText:@"当前年无数据"];
+        self.textView.text = lang(@"current year no data");
+        [funcVc showToastWithText:lang(@"current year no data")];
     }else {
         NSMutableArray * oneYearSports = [NSMutableArray array];
         for (NSArray * oneMonthSports in array) {
@@ -351,7 +367,7 @@
             }
         }
         IDOCalculateSportBluetoothModel * sport = [IDOCalculateSportBluetoothModel calculateOneYearSportDataWithSportModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,sport.dicFromObject,oneYearSports.count > 0 ? oneYearSports : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,sport.dicFromObject,oneYearSports.count > 0 ? oneYearSports : lang(@"no data")];
     }
 }
 
@@ -360,12 +376,12 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneMonthSportsWithYear:self.year
                                                                                 month:self.month
-                                                                              macAddr:@""
+                                                                              macAddr:self.macAddr
                                                                          datesOfMonth:&days
                                                                          isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前月无数据";
-        [funcVc showToastWithText:@"当前月无数据"];
+        self.textView.text = lang(@"current month no data");
+        [funcVc showToastWithText:lang(@"current month no data")];
     }else {
         NSMutableArray * oneMonthSports = [NSMutableArray array];
         for (IDOSyncSportDataInfoBluetoothModel * oneDaySport in array) {
@@ -373,7 +389,7 @@
             [oneMonthSports addObject:dic];
         }
         IDOCalculateSportBluetoothModel * sport = [IDOCalculateSportBluetoothModel calculateOneMonthOrWeekSportDataWithSportModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],sport.dicFromObject,oneMonthSports.count > 0 ? oneMonthSports : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],sport.dicFromObject,oneMonthSports.count > 0 ? oneMonthSports : lang(@"no data")];
     }
 }
 
@@ -382,12 +398,12 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryOneWeekSportsWithWeekIndex:self.week
                                                                              weekStartDay:0
-                                                                                  macAddr:@""
+                                                                                  macAddr:self.macAddr
                                                                               datesOfWeek:&days
                                                                              isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前周无数据";
-        [funcVc showToastWithText:@"当前周无数据"];
+        self.textView.text = lang(@"current week no data");
+        [funcVc showToastWithText:lang(@"current week no data")];
     }else {
         NSMutableArray * oneWeekSports = [NSMutableArray array];
         for (IDOSyncSportDataInfoBluetoothModel * oneDaySport in array) {
@@ -395,33 +411,33 @@
             [oneWeekSports addObject:dic];
         }
         IDOCalculateSportBluetoothModel * sport = [IDOCalculateSportBluetoothModel calculateOneMonthOrWeekSportDataWithSportModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],sport.dicFromObject,oneWeekSports.count > 0 ? oneWeekSports : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],sport.dicFromObject,oneWeekSports.count > 0 ? oneWeekSports : lang(@"no data")];
     }
 }
 
 - (void)querySportsDayDataWtithVc:(FuncViewController *)funcVc
 {
-    IDOSyncSportDataInfoBluetoothModel * model = [IDOSyncSportDataInfoBluetoothModel queryOneDaySportDetailWithMac:@""
+    IDOSyncSportDataInfoBluetoothModel * model = [IDOSyncSportDataInfoBluetoothModel queryOneDaySportDetailWithMac:self.macAddr
                                                                                                               year:self.year
                                                                                                              month:self.month
                                                                                                                day:self.day];
     if (!model) {
-        self.textView.text = @"无数据";
-        [funcVc showToastWithText:@"无数据"];
+        self.textView.text = lang(@"current day no data");
+        [funcVc showToastWithText:lang(@"current day no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : lang(@"no data")];
     }
 }
 
 
 - (void)queryAllSportsDataWtithVc:(FuncViewController *)funcVc
 {
-    NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryAllSportsWithMac:@""];
+    NSArray * array = [IDOSyncSportDataInfoBluetoothModel queryAllSportsWithMac:self.macAddr];
     if (!array || array.count == 0) {
-        self.textView.text = @"无数据";
-        [funcVc showToastWithText:@"无数据"];
+        self.textView.text = lang(@"no data");
+        [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"数据个数:%ld\n%@",(long)array.count,array.count > 0 ? array : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
     }
 }
 
@@ -429,11 +445,11 @@
 - (void)queryHrsYearDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryOneYearHearRatesWithYear:self.year
-                                                                             macAddr:@""
+                                                                             macAddr:self.macAddr
                                                                         isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前年无数据";
-        [funcVc showToastWithText:@"当前年无数据"];
+        self.textView.text = lang(@"current year no data");
+        [funcVc showToastWithText:lang(@"current year no data")];
     }else {
         NSMutableArray * oneYearHrs = [NSMutableArray array];
         for (NSArray * oneMonthHrs in array) {
@@ -443,7 +459,7 @@
             }
         }
         IDOCalculateHrBluetoothModel * hr = [IDOCalculateHrBluetoothModel calculateOneYearHrDataWithHrModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,hr.dicFromObject,oneYearHrs.count > 0 ? oneYearHrs : @"空数据"];
+        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,hr.dicFromObject,oneYearHrs.count > 0 ? oneYearHrs : lang(@"no data")];
     }
 }
 
@@ -452,12 +468,12 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryOneMonthHearRatesWithYear:self.year
                                                                                 month:self.month
-                                                                              macAddr:@""
+                                                                              macAddr:self.macAddr
                                                                          datesOfMonth:&days
                                                                          isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前月无数据";
-        [funcVc showToastWithText:@"当前月无数据"];
+        self.textView.text = lang(@"current month no data");
+        [funcVc showToastWithText:lang(@"current month no data")];
     }else {
         NSMutableArray * oneMonthHrs = [NSMutableArray array];
         for (IDOSyncHrDataInfoBluetoothModel * oneDayHr in array) {
@@ -465,7 +481,7 @@
             [oneMonthHrs addObject:dic];
         }
         IDOCalculateHrBluetoothModel * hr = [IDOCalculateHrBluetoothModel calculateOneMonthOrWeekHrDataWithHrModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],hr.dicFromObject,oneMonthHrs.count > 0 ? oneMonthHrs : @"空数据"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],hr.dicFromObject,oneMonthHrs.count > 0 ? oneMonthHrs : lang(@"no data")];
     }
 }
 
@@ -474,12 +490,12 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryOneWeekHearRatesWithWeekIndex:self.week
                                                                              weekStartDay:0
-                                                                                  macAddr:@""
+                                                                                  macAddr:self.macAddr
                                                                               datesOfWeek:&days
                                                                              isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前周无数据";
-        [funcVc showToastWithText:@"当前周无数据"];
+        self.textView.text = lang(@"current week no data");
+        [funcVc showToastWithText:lang(@"current week no data")];
     }else {
         NSMutableArray * oneWeekHrs = [NSMutableArray array];
         for (IDOSyncHrDataInfoBluetoothModel * oneDayHr in array) {
@@ -487,32 +503,32 @@
             [oneWeekHrs addObject:dic];
         }
         IDOCalculateHrBluetoothModel * hr = [IDOCalculateHrBluetoothModel calculateOneMonthOrWeekHrDataWithHrModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],hr.dicFromObject,oneWeekHrs.count > 0 ? oneWeekHrs : @"空数据"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],hr.dicFromObject,oneWeekHrs.count > 0 ? oneWeekHrs : lang(@"no data")];
     }
 }
 
 - (void)queryHrsDayDataWtithVc:(FuncViewController *)funcVc
 {
-    IDOSyncHrDataInfoBluetoothModel * model = [IDOSyncHrDataInfoBluetoothModel queryOneDayHearRatesDetailWithMac:@""
+    IDOSyncHrDataInfoBluetoothModel * model = [IDOSyncHrDataInfoBluetoothModel queryOneDayHearRatesDetailWithMac:self.macAddr
                                                                                                             year:self.year
                                                                                                            month:self.month
                                                                                                              day:self.day];
     if (!model) {
-        self.textView.text = @"当天无数据";
-        [funcVc showToastWithText:@"当天无数据"];
+        self.textView.text = lang(@"current day no data");
+        [funcVc showToastWithText:lang(@"current day no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : lang(@"no data")];
     }
 }
 
 - (void)queryAllHrsDataWtithVc:(FuncViewController *)funcVc
 {
-    NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryAllHearRatesWithMac:@""];
+    NSArray * array = [IDOSyncHrDataInfoBluetoothModel queryAllHearRatesWithMac:self.macAddr];
     if (!array || array.count == 0) {
-        self.textView.text = @"无数据";
-        [funcVc showToastWithText:@"无数据"];
+        self.textView.text = lang(@"no data");
+        [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"数据个数:%ld\n%@",(long)array.count,array.count > 0 ? array : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
     }
 }
 
@@ -520,11 +536,11 @@
 - (void)queryBpsYearDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * array = [IDOSyncBpDataInfoBluetoothModel queryOneYearBloodPressuresWithYear:self.year
-                                                                                  macAddr:@""
+                                                                                  macAddr:self.macAddr
                                                                              isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前年无数据";
-        [funcVc showToastWithText:@"当前年无数据"];
+        self.textView.text = lang(@"current year no data");
+        [funcVc showToastWithText:lang(@"current year no data")];
     }else {
         NSMutableArray * oneYearBps = [NSMutableArray array];
         for (NSArray * oneMonthBps in array) {
@@ -533,7 +549,7 @@
                 [oneYearBps addObject:dic];
             }
         }
-        self.textView.text = [NSString stringWithFormat:@"%ld\n%@",(long)self.year,oneYearBps.count > 0 ? oneYearBps : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld\n%@",(long)self.year,oneYearBps.count > 0 ? oneYearBps : lang(@"no data")];
     }
 }
 
@@ -542,12 +558,12 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncBpDataInfoBluetoothModel queryOneMonthBloodPressuresWithYear:self.year
                                                                                      month:self.month
-                                                                                   macAddr:@""
+                                                                                   macAddr:self.macAddr
                                                                               datesOfMonth:&days
                                                                               isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前月无数据";
-        [funcVc showToastWithText:@"当前月无数据"];
+        self.textView.text = lang(@"current month no data");
+        [funcVc showToastWithText:lang(@"current month no data")];
     }else {
         NSMutableArray * oneMonthBps = [NSMutableArray array];
         for (IDOSyncSportDataInfoBluetoothModel * oneDayBp in array) {
@@ -555,7 +571,7 @@
             [oneMonthBps addObject:dic];
         }
         IDOCalculateBpBluetoothModel * bp = [IDOCalculateBpBluetoothModel calculateOneMonthOrWeekBpDataWithBpModels:array allDayCalculateBpModels:nil];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],bp.dicFromObject,oneMonthBps.count > 0 ? oneMonthBps : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],bp.dicFromObject,oneMonthBps.count > 0 ? oneMonthBps : lang(@"no data")];
     }
 }
 
@@ -564,44 +580,44 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncBpDataInfoBluetoothModel queryOneWeekBloodPressuresWithWeekIndex:self.week
                                                                                   weekStartDay:0
-                                                                                       macAddr:@""
+                                                                                       macAddr:self.macAddr
                                                                                    datesOfWeek:&days
                                                                                   isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前周无数据";
-        [funcVc showToastWithText:@"当前周无数据"];
+        self.textView.text = lang(@"current week no data");
+        [funcVc showToastWithText:lang(@"current week no data")];
     }else {
         NSMutableArray * oneWeekBps = [NSMutableArray array];
         for (IDOSyncBpDataInfoBluetoothModel * oneDayBp in array) {
             NSDictionary * dic = oneDayBp.dicFromObject;
             [oneWeekBps addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneWeekBps.count > 0 ? oneWeekBps : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneWeekBps.count > 0 ? oneWeekBps : lang(@"no data")];
     }
 }
 
 - (void)queryBpsDayDataWtithVc:(FuncViewController *)funcVc
 {
-    IDOSyncBpDataInfoBluetoothModel * model = [IDOSyncBpDataInfoBluetoothModel queryOneDayBloodPressureDetailWithMac:@""
+    IDOSyncBpDataInfoBluetoothModel * model = [IDOSyncBpDataInfoBluetoothModel queryOneDayBloodPressureDetailWithMac:self.macAddr
                                                                                                                 year:self.year
                                                                                                                month:self.month
                                                                                                                  day:self.day];
     if (!model) {
-        self.textView.text = @"当天无数据";
-        [funcVc showToastWithText:@"当天无数据"];
+        self.textView.text = lang(@"current day no data");
+        [funcVc showToastWithText:lang(@"current day no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : lang(@"no data")];
     }
 }
 
 - (void)queryAllBpsDataWtithVc:(FuncViewController *)funcVc
 {
-    NSArray * array = [IDOSyncBpDataInfoBluetoothModel queryAllBloodPressuresWithMac:@""];
+    NSArray * array = [IDOSyncBpDataInfoBluetoothModel queryAllBloodPressuresWithMac:self.macAddr];
     if (!array || array.count == 0) {
-        self.textView.text = @"无数据";
-        [funcVc showToastWithText:@"无数据"];
+        self.textView.text = lang(@"no data");
+        [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"数据个数:%ld\n%@",(long)array.count,array.count > 0 ? array : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
     }
 }
 
@@ -609,11 +625,11 @@
 - (void)querySleepsYearDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryOneYearSleepsWithYear:self.year
-                                                                             macAddr:@""
+                                                                             macAddr:self.macAddr
                                                                         isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前年无数据";
-        [funcVc showToastWithText:@"当前年无数据"];
+        self.textView.text = lang(@"current year no data");
+        [funcVc showToastWithText:lang(@"current year no data")];
     }else {
         NSMutableArray * oneYearSleeps = [NSMutableArray array];
         for (NSArray * oneMonthSleeps in array) {
@@ -623,7 +639,7 @@
             }
         }
         IDOCalculateSleepBluetoothModel * sleep = [IDOCalculateSleepBluetoothModel calculateOneYearSleepDataWithSleepModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,sleep.dicFromObject,oneYearSleeps.count > 0 ? oneYearSleeps : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,sleep.dicFromObject,oneYearSleeps.count > 0 ? oneYearSleeps : lang(@"no data")];
     }
 }
 
@@ -632,12 +648,12 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryOneMonthSleepsWithYear:self.year
                                                                                 month:self.month
-                                                                              macAddr:@""
+                                                                              macAddr:self.macAddr
                                                                          datesOfMonth:&days
                                                                          isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前月无数据";
-        [funcVc showToastWithText:@"当前月无数据"];
+        self.textView.text = lang(@"current month no data");
+        [funcVc showToastWithText:lang(@"current month no data")];
     }else {
         NSMutableArray * oneMonthSleeps = [NSMutableArray array];
         for (IDOSyncSleepDataInfoBluetoothModel * oneDaySleep in array) {
@@ -645,7 +661,7 @@
             [oneMonthSleeps addObject:dic];
         }
         IDOCalculateSleepBluetoothModel * sleep = [IDOCalculateSleepBluetoothModel calculateOneMonthOrWeekSleepDataWithSleepModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],sleep.dicFromObject,oneMonthSleeps.count > 0 ? oneMonthSleeps : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],sleep.dicFromObject,oneMonthSleeps.count > 0 ? oneMonthSleeps : lang(@"no data")];
     }
 }
 
@@ -654,12 +670,12 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryOneWeekSleepsWithWeekIndex:self.week
                                                                              weekStartDay:0
-                                                                                  macAddr:@""
+                                                                                  macAddr:self.macAddr
                                                                               datesOfWeek:&days
                                                                              isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前周无数据";
-        [funcVc showToastWithText:@"当前周无数据"];
+        self.textView.text = lang(@"current week no data");
+        [funcVc showToastWithText:lang(@"current week no data")];
     }else {
         NSMutableArray * oneWeekSleeps = [NSMutableArray array];
         for (IDOSyncSleepDataInfoBluetoothModel * oneDaySleep in array) {
@@ -673,26 +689,26 @@
 
 - (void)querySleepsDayDataWtithVc:(FuncViewController *)funcVc
 {
-    IDOSyncSleepDataInfoBluetoothModel * model = [IDOSyncSleepDataInfoBluetoothModel queryOneDaySleepsDetailWithMac:@""
+    IDOSyncSleepDataInfoBluetoothModel * model = [IDOSyncSleepDataInfoBluetoothModel queryOneDaySleepsDetailWithMac:self.macAddr
                                                                                                                year:self.year
                                                                                                               month:self.month
                                                                                                                 day:self.day];
     if (!model) {
-        self.textView.text = @"当天无数据";
-        [funcVc showToastWithText:@"当天无数据"];
+        self.textView.text = lang(@"current day no data");
+        [funcVc showToastWithText:lang(@"current day no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : lang(@"no data")];
     }
 }
 
 - (void)queryAllSleepcsDataWtithVc:(FuncViewController *)funcVc
 {
-    NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryAllSleepsWithMac:@""];
+    NSArray * array = [IDOSyncSleepDataInfoBluetoothModel queryAllSleepsWithMac:self.macAddr];
     if (!array || array.count == 0) {
-        self.textView.text = @"无数据";
-        [funcVc showToastWithText:@"无数据"];
+        self.textView.text = lang(@"no data");
+        [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"数据个数:%ld\n%@",(long)array.count,array.count > 0 ? array : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
     }
 }
 
@@ -701,11 +717,11 @@
 - (void)queryBopsYearDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * array = [IDOSyncBloodOxygenDataInfoBluetoothModel queryOneYearBloodOxygenWithYear:self.year
-                                                                                        macAddr:@""
+                                                                                        macAddr:self.macAddr
                                                                                    isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前年无数据";
-        [funcVc showToastWithText:@"当前年无数据"];
+        self.textView.text = lang(@"current year no data");
+        [funcVc showToastWithText:lang(@"current year no data")];
     }else {
         NSMutableArray * oneYearBops = [NSMutableArray array];
         for (NSArray * oneMonthBops in array) {
@@ -714,7 +730,7 @@
                 [oneYearBops addObject:dic];
             }
         }
-        self.textView.text = [NSString stringWithFormat:@"%ld\n%@",(long)self.year,oneYearBops.count > 0 ? oneYearBops : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld\n%@",(long)self.year,oneYearBops.count > 0 ? oneYearBops : lang(@"no data")];
     }
 }
 
@@ -723,19 +739,19 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncBloodOxygenDataInfoBluetoothModel queryOneMonthBloodOxygenWithYear:self.year
                                                                                            month:self.month
-                                                                                         macAddr:@""
+                                                                                         macAddr:self.macAddr
                                                                                     datesOfMonth:&days
                                                                                     isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前月无数据";
-        [funcVc showToastWithText:@"当前月无数据"];
+        self.textView.text = lang(@"current month no data");
+        [funcVc showToastWithText:lang(@"current month no data")];
     }else {
         NSMutableArray * oneMonthBops = [NSMutableArray array];
         for (IDOSyncBloodOxygenDataInfoBluetoothModel * oneDayBop in array) {
             NSDictionary * dic = oneDayBop.dicFromObject;
             [oneMonthBops addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneMonthBops.count > 0 ? oneMonthBops : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneMonthBops.count > 0 ? oneMonthBops : lang(@"no data")];
     }
 }
 
@@ -744,44 +760,44 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncBloodOxygenDataInfoBluetoothModel queryOneWeekBloodOxygenWithWeekIndex:self.week
                                                                                         weekStartDay:0
-                                                                                             macAddr:@""
+                                                                                             macAddr:self.macAddr
                                                                                          datesOfWeek:&days
                                                                                         isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前周无数据";
-        [funcVc showToastWithText:@"当前周无数据"];
+        self.textView.text = lang(@"current week no data");
+        [funcVc showToastWithText:lang(@"current week no data")];
     }else {
         NSMutableArray * oneWeekBops = [NSMutableArray array];
         for (IDOSyncBloodOxygenDataInfoBluetoothModel * oneDayBop in array) {
             NSDictionary * dic = oneDayBop.dicFromObject;
             [oneWeekBops addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneWeekBops.count > 0 ? oneWeekBops : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneWeekBops.count > 0 ? oneWeekBops : lang(@"no data")];
     }
 }
 
 - (void)queryBopsDayDataWtithVc:(FuncViewController *)funcVc
 {
-    IDOSyncBloodOxygenDataInfoBluetoothModel * model = [IDOSyncBloodOxygenDataInfoBluetoothModel queryOneDayBloodOxygenDetailWithMac:@""
+    IDOSyncBloodOxygenDataInfoBluetoothModel * model = [IDOSyncBloodOxygenDataInfoBluetoothModel queryOneDayBloodOxygenDetailWithMac:self.macAddr
                                                                                                                              year:self.year
                                                                                                                             month:self.month
                                                                                                                               day:self.day];
     if (!model) {
-        self.textView.text = @"当天无数据";
-        [funcVc showToastWithText:@"当天无数据"];
+        self.textView.text = lang(@"current day no data");
+        [funcVc showToastWithText:lang(@"current day no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : lang(@"no data")];
     }
 }
 
 - (void)queryAllBopsDataWtithVc:(FuncViewController *)funcVc
 {
-    NSArray * array = [IDOSyncBloodOxygenDataInfoBluetoothModel queryAllBloodOxygensWithMac:@""];
+    NSArray * array = [IDOSyncBloodOxygenDataInfoBluetoothModel queryAllBloodOxygensWithMac:self.macAddr];
     if (!array || array.count == 0) {
-        self.textView.text = @"无数据";
-        [funcVc showToastWithText:@"无数据"];
+        self.textView.text = lang(@"no data");
+        [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"数据个数:%ld\n%@",(long)array.count,array.count > 0 ? array : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
     }
 }
 
@@ -790,11 +806,11 @@
 - (void)queryPressuresYearDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * array = [IDOSyncPressureDataInfoBluetoothModel queryOneYearPressureWithYear:self.year
-                                                                                  macAddr:@""
+                                                                                  macAddr:self.macAddr
                                                                              isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前年无数据";
-        [funcVc showToastWithText:@"当前年无数据"];
+        self.textView.text = lang(@"current year no data");
+        [funcVc showToastWithText:lang(@"current year no data")];
     }else {
         NSMutableArray * oneYearPressures = [NSMutableArray array];
         for (NSArray * oneMonthPressures in array) {
@@ -803,7 +819,7 @@
                 [oneYearPressures addObject:dic];
             }
         }
-        self.textView.text = [NSString stringWithFormat:@"%ld\n%@",(long)self.year,oneYearPressures.count > 0 ? oneYearPressures : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld\n%@",(long)self.year,oneYearPressures.count > 0 ? oneYearPressures : lang(@"no data")];
     }
 }
 
@@ -812,19 +828,19 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncPressureDataInfoBluetoothModel queryOneMonthPressureWithYear:self.year
                                                                                      month:self.month
-                                                                                   macAddr:@""
+                                                                                   macAddr:self.macAddr
                                                                               datesOfMonth:&days
                                                                               isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前月无数据";
-        [funcVc showToastWithText:@"当前月无数据"];
+        self.textView.text = lang(@"current month no data");
+        [funcVc showToastWithText:lang(@"current month no data")];
     }else {
         NSMutableArray * oneMonthPressures = [NSMutableArray array];
         for (IDOSyncPressureDataInfoBluetoothModel * oneDayPressure in array) {
             NSDictionary * dic = oneDayPressure.dicFromObject;
             [oneMonthPressures addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneMonthPressures.count > 0 ? oneMonthPressures : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneMonthPressures.count > 0 ? oneMonthPressures : lang(@"no data")];
     }
 }
 
@@ -833,44 +849,44 @@
     NSArray * days = nil;
     NSArray * array = [IDOSyncPressureDataInfoBluetoothModel queryOneWeekPressureWithWeekIndex:self.week
                                                                                   weekStartDay:0
-                                                                                       macAddr:@""
+                                                                                       macAddr:self.macAddr
                                                                                    datesOfWeek:&days
                                                                                   isQueryItems:NO];
     if (array.count == 0) {
-        self.textView.text = @"当前周无数据";
-        [funcVc showToastWithText:@"当前周无数据"];
+        self.textView.text = lang(@"current week no data");
+        [funcVc showToastWithText:lang(@"current week no data")];
     }else {
         NSMutableArray * oneWeekPressures = [NSMutableArray array];
         for (IDOSyncPressureDataInfoBluetoothModel * oneDayPressure in array) {
             NSDictionary * dic = oneDayPressure.dicFromObject;
             [oneWeekPressures addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneWeekPressures.count > 0 ? oneWeekPressures : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneWeekPressures.count > 0 ? oneWeekPressures : lang(@"no data")];
     }
 }
 
 - (void)queryPressuresDayDataWtithVc:(FuncViewController *)funcVc
 {
-    IDOSyncPressureDataInfoBluetoothModel * model = [IDOSyncPressureDataInfoBluetoothModel queryOneDayPressureDetailWithMac:@""
+    IDOSyncPressureDataInfoBluetoothModel * model = [IDOSyncPressureDataInfoBluetoothModel queryOneDayPressureDetailWithMac:self.macAddr
                                                                                                                        Year:self.year
                                                                                                                       month:self.month
                                                                                                                         day:self.day];
     if (!model) {
-        self.textView.text = @"当天无数据";
-        [funcVc showToastWithText:@"当天无数据"];
+        self.textView.text = lang(@"current day no data");
+        [funcVc showToastWithText:lang(@"current day no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,model ? model.dicFromObject : lang(@"no data")];
     }
 }
 
 - (void)queryAllPressuresDataWtithVc:(FuncViewController *)funcVc
 {
-    NSArray * array = [IDOSyncPressureDataInfoBluetoothModel queryAllPressuresWithMac:@""];
+    NSArray * array = [IDOSyncPressureDataInfoBluetoothModel queryAllPressuresWithMac:self.macAddr];
     if (!array || array.count == 0) {
-        self.textView.text = @"无数据";
-        [funcVc showToastWithText:@"无数据"];
+        self.textView.text = lang(@"no data");
+        [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"数据个数:%ld\n%@",(long)array.count,array.count > 0 ? array : @"数据空"];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
     }
 }
 

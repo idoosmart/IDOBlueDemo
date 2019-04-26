@@ -67,13 +67,13 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:@"设置表盘参数..."];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set dial parameters")]];
         [IDOFoundationCommand setWatchDiaCommand:strongSelf.watchDiaModel
                                         callback:^(int errorCode) {
             if(errorCode == 0) {
-                [funcVC showToastWithText:@"设置表盘参数成功"];
+                [funcVC showToastWithText:lang(@"set dial parameters success")];
             }else {
-                [funcVC showToastWithText:@"设置表盘参数失败"];
+                [funcVC showToastWithText:lang(@"set dial parameters failed")];
             }
         }];
     };
@@ -85,7 +85,7 @@
     
     TextFieldCellModel * model1 = [[TextFieldCellModel alloc]init];
     model1.typeStr = @"oneTextField";
-    model1.titleStr = @"设置表盘参数 : ";
+    model1.titleStr = [NSString stringWithFormat:@"%@:",lang(@"set dial parameters")];
     model1.data = @[@(self.watchDiaModel.dialId)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneTextFieldTableViewCell class];
@@ -103,7 +103,7 @@
     
     FuncCellModel * model3 = [[FuncCellModel alloc]init];
     model3.typeStr = @"oneButton";
-    model3.data = @[@"设置表盘参数"];
+    model3.data = @[lang(@"set dial parameters")];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneButtonTableViewCell class];
     model3.modelClass = [NSNull class];

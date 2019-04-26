@@ -52,8 +52,8 @@
   * 1、若传入json文件路径存在,先把json文件数据同步到数据库中，然后合并的数据库再转成json文件;
   * 2、若传入json文件路径为空,只把本地数据库转成json文件,并返回json文件目录路径;
   * 3、jsonDirePath 是从云端下载的健康json文件目录路径;
-  * Start the database to convert the json file ⚠️ It is time consuming when the amount of data is large, try to perform other tasks after
-  * performing the data migration.
+  * Start the database to convert the json file ⚠️ It is time consuming when the amount of data is large,
+  * try to perform other tasks after performing the data migration.
   * 1. If the path to the json file exists, synchronize the json file data to the database, and then merge the database into a json file.
   * 2. If the path to the json file is empty, only convert the local database to a json file and return the path to the json file directory.
   * 3. jsonDirePath is the path to the healthy json file directory downloaded from the cloud.
