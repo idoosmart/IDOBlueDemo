@@ -1,5 +1,5 @@
-# IDOBluetooth IDOBlueProtocol IDOBlueUpdate
->IDOBluetooth is suitable for iOS devices and IDO company's bracelet to achieve bluetooth connection control framework library. Based on the bluetooth framework of iOS system, it extends the abstraction of bluetooth scanning, connection, binding, control, setting, reading, listening and other functions. It USES the protocol library written by c to realize the conversion of bluetooth data and logical processing of data synchronization process, which reduces the error of bluetooth communication and improves the speed and accuracy of bluetooth communication. The feature-rich API is easy to use and very enjoyable to use.
+# IDOBluetooth 、IDOBlueProtocol 、IDOBlueUpdate
+>IDOBluetooth 、IDOBlueProtocol 、IDOBlueUpdate is suitable for iOS devices and IDO company's bracelet to achieve bluetooth connection control framework library. Based on the bluetooth framework of iOS system, it extends the abstraction of bluetooth scanning, connection, binding, control, setting, reading, listening and other functions. It USES the protocol library written by c to realize the conversion of bluetooth data and logical processing of data synchronization process, which reduces the error of bluetooth communication and improves the speed and accuracy of bluetooth communication. The feature-rich API is easy to use and very enjoyable to use.
 
 ## How To Get Started
 
@@ -7,10 +7,12 @@
 * View the <a href="https://idoosmart.github.io/IDOBluetooth.API/" target="_blank">documentation</a> to fully understand all apis provided in IDOBluetooth;
  
 ## Requirements
-| IDOBluetooth version | minimum iOS target| notes |
+| SDK version | minimum iOS target| notes |
 | :------:| :------: | :------: |
 | 3.1.4 | iOS 8.0 | Only the objective-c file in the project needs to add an empty swift file |
 | 3.1.8 | iOS 8.0 | Xcode 10.2.1 |
+| 3.2.5 | iOS 8.0 | Break up the SDK|
+
 
 ## Project configuration
 * Reference header file
@@ -108,10 +110,21 @@
  [IDODataMigrationManager dataToJsonFileStart:@""];
 ```
 ## <span id="2.0">Register SDK services</span>
-* <p>Register IDOBluetooth SDK service and control the running log output of SDK and protocol library. Aliyun log is temporarily invalid. Note: Bluetooth settings need to add a continuous background configuration when registering services.</p>
+* <p>Register SDK service and control the running log output of SDK and protocol library. Aliyun log is temporarily invalid. Note: Bluetooth settings need to add a continuous background configuration when registering services.</p>
 
 ```objc
-registrationServices(YES).outputSdkLog(YES).outputProtocolLog(YES);
+
+#ifdef DEBUG
+    registrationServices().outputSdkLog(YES).outputProtocolLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+        //You can use your own bluetooth management here
+       if(__IDO_BIND__)[IDOBluetoothManager startScan];
+    });
+#else
+    registrationServices().outputSdkLog(NO).outputProtocolLog(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+        //You can use your own bluetooth management here
+        if(__IDO_BIND__)[IDOBluetoothManager startScan];
+    });
+#endif
 ```
 ## <span id="3.0">Start SDK bluetooth management</span>
 * <p>When you apply an unconnected binding device, you need to create a view controller to implement the SDK bluetooth proxy. Scanning peripheral devices, the agent will return device collection, display in the list, select the device that needs to be connected, and return device information and whether the device is in OTA mode after successful connection, and there will be an error callback if the connection fails. The default scanning signal filter parameter is 80, and the automatic scanning connection timeout time is 20 seconds.</p>
@@ -657,28 +670,30 @@ watchDiaModel = [IDOSetWatchDiaInfoBluetoothModel currentModel];
 [IDOFoundationCommand getGpsStatusCommand:^(int errorCode, IDOGetGpsStatusBluetoothModel * _Nullable data) {
     if (data.gpsRunStatus == 0) {
     //AGPS file start transfer
-[IDOUpdateAgpsManager updateAgpsWithPath:filePath prepareCallback:^(int errorCode) {
-        if(errorCode == 0) {
-         }else {
-         }                
-     }];
+    [IDOUpdateAgpsManager updateAgpsWithPath:strongSelf.filePath 
+                                    isSetParam:YES 
+                prepareCallback:^(int errorCode) {
+            if (errorCode == 0) {
+            }else {
+            }
+        }];
      
      //AGPS file transfer completed, start writing
     [IDOUpdateAgpsManager updateAgpsTransmissionComplete:^(int errorCode){                         
          if(errorCode == 0) {
          }else {
-     }    
+         }    
         } updateComplete:^(int errorCode) { //Write file complete
             if(errorCode == 0) {
-             }else {
-             }    
+            }else {
+            }    
      }];
      
      //AGPS file transfer schedule
     [IDOUpdateAgpsManager updateAgpsProgressCallback:^(int progress) {                         
     }];
  }else {
- }
+  }
 }];
 ```
 ## <span id="10.0">Firmware update (OTA)</span>
