@@ -1,4 +1,4 @@
-# IDOBluetooth
+# IDOBluetooth IDOBlueProtocol IDOBlueUpdate
 >IDOBluetooth is suitable for iOS devices and IDO company's bracelet to achieve bluetooth connection control framework library. Based on the bluetooth framework of iOS system, it extends the abstraction of bluetooth scanning, connection, binding, control, setting, reading, listening and other functions. It USES the protocol library written by c to realize the conversion of bluetooth data and logical processing of data synchronization process, which reduces the error of bluetooth communication and improves the speed and accuracy of bluetooth communication. The feature-rich API is easy to use and very enjoyable to use.
 
 ## How To Get Started
@@ -33,33 +33,38 @@
 ## Architecture
 
 ```
-#import <IDOBluetooth/IDOEnum.h>
-#import <IDOBluetooth/IDOBluetoothEngine.h>
-#import <IDOBluetooth/IDOErrorCodeToStr.h>
-#import <IDOBluetooth/IDORecordDeviceLog.h>
-
-#import <IDOBluetooth/IDOBluetoothServices.h>
-#import <IDOBluetooth/IDOFoundationCommand.h>
-
-#import <IDOBluetooth/IDOBluetoothBaseModel.h>
-#import <IDOBluetooth/IDODataExchangeModel.h>
-#import <IDOBluetooth/IDOGetInfoBluetoothModel.h>
-#import <IDOBluetooth/IDOSetInfoBluetoothModel.h>
-#import <IDOBluetooth/IDOSyncInfoBluetoothModel.h>
-#import <IDOBluetooth/IDOCalculateBluetoothModel.h>
-#import <IDOBluetooth/IDOWeightBluetoothModel.h>
-#import <IDOBluetooth/IDOPeripheralModel.h>
-
-#import <IDOBluetooth/IDOSyncManager.h>
-#import <IDOBluetooth/IDOSyncConfig.h>
-#import <IDOBluetooth/IDOSyncHealth.h>
-#import <IDOBluetooth/IDOSyncActivity.h>
-#import <IDOBluetooth/IDOSyncGps.h>
-
+1、IDOBluetooth 
+#import <IDOBluetooth/IDOBluetoothManagerDelegate.h>
 #import <IDOBluetooth/IDOBluetoothManager.h>
-#import <IDOBluetooth/IDODataMigrationManager.h>
-#import <IDOBluetooth/IDOUpdateFirmwareManager.h>
-#import <IDOBluetooth/IDOUpdateAgpsManager.h>
+
+2、IDOBlueUpdate 
+#import <IDOBlueUpdate/IDOUpdateManagerDelegate.h>
+#import <IDOBlueUpdate/IDOUpdateFirmwareManager.h>
+
+3、IDOBlueProtocol 
+#import <IDOBlueProtocol/IDOEnum.h>
+#import <IDOBlueProtocol/IDOBluetoothBaseModel.h>
+#import <IDOBlueProtocol/IDODataExchangeModel.h>
+#import <IDOBlueProtocol/IDOGetInfoBluetoothModel.h>
+#import <IDOBlueProtocol/IDOSetInfoBluetoothModel.h>
+#import <IDOBlueProtocol/IDOSyncInfoBluetoothModel.h>
+#import <IDOBlueProtocol/IDOCalculateBluetoothModel.h>
+#import <IDOBlueProtocol/IDOWeightBluetoothModel.h>
+#import <IDOBlueProtocol/IDOPeripheralModel.h>
+#import <IDOBlueProtocol/IDOSyncManager.h>
+#import <IDOBlueProtocol/IDOSyncConfig.h>
+#import <IDOBlueProtocol/IDOSyncHealth.h>
+#import <IDOBlueProtocol/IDOSyncBop.h>
+#import <IDOBlueProtocol/IDOSyncActivity.h>
+#import <IDOBlueProtocol/IDOSyncGps.h>
+#import <IDOBlueProtocol/IDOBluetoothEngine.h>
+#import <IDOBlueProtocol/IDOBluetoothServices.h>
+#import <IDOBlueProtocol/IDOErrorCodeToStr.h>
+#import <IDOBlueProtocol/IDORecordDeviceLog.h>
+#import <IDOBlueProtocol/IDOBlueDataResponse.h>
+#import <IDOBlueProtocol/IDOFoundationCommand.h>
+#import <IDOBlueProtocol/IDODataMigrationManager.h>
+#import <IDOBlueProtocol/IDOUpdateAgpsManager.h>
 ```
 ## Introduction to main function API
 
