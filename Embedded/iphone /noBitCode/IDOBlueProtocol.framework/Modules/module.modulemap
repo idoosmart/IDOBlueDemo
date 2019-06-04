@@ -1,0 +1,6 @@
+framework module IDOBlueProtocol {
+  umbrella header "IDOBlueProtocol.h"
+
+  export *
+  module * { export * }
+}

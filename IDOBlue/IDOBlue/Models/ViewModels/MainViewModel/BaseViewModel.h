@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PickerDataModel.h"
+#import "IDOConsoleBoard.h"
 
 @interface BaseViewModel : NSObject
 @property (nonatomic,strong) PickerDataModel * pickerDataModel;

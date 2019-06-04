@@ -51,7 +51,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get the number of stars")] ];
-        [IDOFoundationCommand getStartCountCommandCallback:^(int errorCode, NSInteger startCount) {
+        [IDOFoundationCommand getStartCountCommand:^(int errorCode, NSInteger startCount) {
             if (errorCode == 0) {
                 [funcVC showToastWithText:lang(@"get the number of stars success")];
                 NSString * str = [NSString stringWithFormat:@"%@ ：%ld",lang(@"the number of stars"),(long)startCount];

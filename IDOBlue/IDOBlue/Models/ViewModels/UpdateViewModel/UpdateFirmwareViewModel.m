@@ -31,6 +31,11 @@
 
 @implementation UpdateFirmwareViewModel
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -44,6 +49,10 @@
         [self getTextViewCallback];
         [self getCellModels];
         [IDOUpdateFirmwareManager shareInstance].delegate = self;
+        [[NSNotificationCenter defaultCenter]addObserver:self
+                                                selector:@selector(selectFileNotice:)
+                                                    name:@"idoDemoSelectFileNotice"
+                                                  object:nil];
     }
     return self;
 }
@@ -53,16 +62,16 @@
     FuncViewController * vc = [[FuncViewController alloc]init];
     FileViewModel * fileModel = [FileViewModel new];
     fileModel.type = 0;
-    __weak typeof(self) weakSelf = self;
-    fileModel.viewWillDisappearCallback = ^(UIViewController *viewController) {
-        __strong typeof(self) strongSelf = weakSelf;
-        NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_PATH_KEY];
-        NSString * infoStr = [strongSelf getCuttentFirmwareFileInfo:filePath];
-        [strongSelf addMessageText:infoStr];
-    };
     vc.model = fileModel;
     vc.title = lang(@"selected firmware");
     [[IDODemoUtility getCurrentVC].navigationController pushViewController:vc animated:YES];
+}
+
+- (void)selectFileNotice:(NSNotification*)notice
+{
+    NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_PATH_KEY];
+    NSString * infoStr = [self getCuttentFirmwareFileInfo:filePath];
+    [self addMessageText:infoStr];
 }
 
 - (void)getCellModels
@@ -176,22 +185,29 @@
 - (NSString *)getCuttentFirmwareFileInfo:(NSString *)filePath
 {
     if (filePath.length == 0) return @"";
-    NSURL * fileUrl = [NSURL URLWithString:filePath];
-    NSInteger type = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-    NSString * path = nil;
-    if(type == 0) {
-        NSString * docsdir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
-        path = [docsdir stringByAppendingPathComponent:@"Firmwares"];
-    }else {
-        NSString * filePath = [NSBundle mainBundle].bundlePath;
-        path = [filePath stringByAppendingPathComponent:@"Firmwares"];
+    NSInteger fileMode  = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
+    NSString * fileName = @"";
+    NSString * path     = @"";
+    if (fileMode == 0) { // bundle
+        NSString * mainPath = [NSBundle mainBundle].bundlePath;
+        path = [mainPath stringByAppendingPathComponent:@"Firmwares"];
+        NSURL * fileUrl = [NSURL URLWithString:filePath];
+        fileName = fileUrl.lastPathComponent;
+        path = [path stringByAppendingPathComponent:fileName];
+    }else { // sandbox
+        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
+        NSRange range = [filePath rangeOfString:@"Documents"];
+        if (range.location != NSNotFound) {
+           fileName = [filePath substringFromIndex:range.location + range.length];
+           path = [path stringByAppendingPathComponent: fileName];
+        }
     }
-    filePath = [path stringByAppendingPathComponent:fileUrl.lastPathComponent];
-    self.filePath = filePath;
     
-    NSData * data = [NSData dataWithContentsOfFile:filePath];
+    self.filePath = path;
+    
+    NSData * data = [NSData dataWithContentsOfFile:self.filePath];
     NSString * dataSize = [NSString stringWithFormat:@"%ld bytes",(long)data.length];
-    NSString * nameStr = [@"Name : "stringByAppendingString:fileUrl.lastPathComponent];
+    NSString * nameStr = [@"Name : "stringByAppendingString:fileName];
     NSString * sizeStr = [@"Size : "stringByAppendingString:dataSize];
     NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
     if (!fileType) fileType = @"Application";
@@ -221,7 +237,8 @@
         self.updating = NO;
         funcVC.statusLabel.text = lang(@"update success");
         [funcVC showToastWithText:lang(@"update success")];
-        if (!__IDO_BIND__) {
+        int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+        if (!__IDO_BIND__ || mode == 0) {
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];

@@ -49,6 +49,7 @@
 		183FC0A7214E8E5200AD6484 /* FileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC0A6214E8E5200AD6484 /* FileViewModel.m */; };
 		9B16A8B22171F17F00DC199C /* QueryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16A8B12171F17F00DC199C /* QueryViewModel.m */; };
 		9B16A8B52171F41F00DC199C /* QuerySportsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16A8B42171F41F00DC199C /* QuerySportsViewModel.m */; };
+		9B1C8BBE22A53B48005A5955 /* OtherFileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C8BBD22A53B48005A5955 /* OtherFileViewModel.m */; };
 		9B22213F215A307A006A2F9F /* SetTargetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B22213E215A307A006A2F9F /* SetTargetViewModel.m */; };
 		9B222142215A3569006A2F9F /* SetFindPhoneViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B222141215A3569006A2F9F /* SetFindPhoneViewModel.m */; };
 		9B222145215A3602006A2F9F /* SwitchCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B222144215A3602006A2F9F /* SwitchCellModel.m */; };
@@ -182,11 +183,15 @@
 		9BCE554A216DDBE2005B6F80 /* AppDataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE5549216DDBE2005B6F80 /* AppDataInterchangeModel.m */; };
 		9BCE554D216DDC00005B6F80 /* BlueDataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE554C216DDC00005B6F80 /* BlueDataInterchangeModel.m */; };
 		9BD348D3217EAC4500008142 /* QueryHrViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD348D2217EAC4500008142 /* QueryHrViewModel.m */; };
+		9BE865AD227E9E180028D8BE /* BpMeasureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE865AC227E9E180028D8BE /* BpMeasureViewModel.m */; };
+		9BE865B0227EABD30028D8BE /* MainMeasureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE865AF227EABD30028D8BE /* MainMeasureViewModel.m */; };
 		9BF7EC36219BC8E100572E70 /* BindDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC35219BC8E100572E70 /* BindDeviceView.m */; };
 		9BF7EC39219BCAB300572E70 /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC38219BCAB300572E70 /* SliderTableViewCell.m */; };
 		9BF7EC3C219BCFE900572E70 /* SliderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */; };
 		9BFF80EB2189829300EFA848 /* FirmwareTypeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */; };
-		DD0F3F952272FE62004A5BAC /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */; };
+		DDA104CF22A61D6F0028E424 /* IDOBlueUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA104CC22A61D6F0028E424 /* IDOBlueUpdate.framework */; };
+		DDA104D022A61D6F0028E424 /* IDOBlueProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA104CD22A61D6F0028E424 /* IDOBlueProtocol.framework */; };
+		DDA104D122A61D6F0028E424 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA104CE22A61D6F0028E424 /* IDOBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -274,6 +279,9 @@
 		9B16A8B12171F17F00DC199C /* QueryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryViewModel.m; sourceTree = "<group>"; };
 		9B16A8B32171F41F00DC199C /* QuerySportsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuerySportsViewModel.h; sourceTree = "<group>"; };
 		9B16A8B42171F41F00DC199C /* QuerySportsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuerySportsViewModel.m; sourceTree = "<group>"; };
+		9B1C8BB722A52EEC005A5955 /* IDOBluetoothInternal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetoothInternal.framework; path = ../Embedded/IDOBluetoothInternal.framework; sourceTree = "<group>"; };
+		9B1C8BBC22A53B48005A5955 /* OtherFileViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherFileViewModel.h; sourceTree = "<group>"; };
+		9B1C8BBD22A53B48005A5955 /* OtherFileViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherFileViewModel.m; sourceTree = "<group>"; };
 		9B22213D215A307A006A2F9F /* SetTargetViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetTargetViewModel.h; sourceTree = "<group>"; };
 		9B22213E215A307A006A2F9F /* SetTargetViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetTargetViewModel.m; sourceTree = "<group>"; };
 		9B222140215A3569006A2F9F /* SetFindPhoneViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetFindPhoneViewModel.h; sourceTree = "<group>"; };
@@ -340,7 +348,6 @@
 		9B437EF821393ADC00DE2FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B437EFA21393ADC00DE2FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B437EFB21393ADC00DE2FC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
 		9B437F0B21393DDD00DE2FC8 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		9B437F0C21393DDD00DE2FC8 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		9B437F0D21393DDD00DE2FC8 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -539,6 +546,10 @@
 		9BCE554C216DDC00005B6F80 /* BlueDataInterchangeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueDataInterchangeModel.m; sourceTree = "<group>"; };
 		9BD348D1217EAC4500008142 /* QueryHrViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueryHrViewModel.h; sourceTree = "<group>"; };
 		9BD348D2217EAC4500008142 /* QueryHrViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryHrViewModel.m; sourceTree = "<group>"; };
+		9BE865AB227E9E180028D8BE /* BpMeasureViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BpMeasureViewModel.h; sourceTree = "<group>"; };
+		9BE865AC227E9E180028D8BE /* BpMeasureViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BpMeasureViewModel.m; sourceTree = "<group>"; };
+		9BE865AE227EABD30028D8BE /* MainMeasureViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMeasureViewModel.h; sourceTree = "<group>"; };
+		9BE865AF227EABD30028D8BE /* MainMeasureViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMeasureViewModel.m; sourceTree = "<group>"; };
 		9BF7EC34219BC8E100572E70 /* BindDeviceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindDeviceView.h; sourceTree = "<group>"; };
 		9BF7EC35219BC8E100572E70 /* BindDeviceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindDeviceView.m; sourceTree = "<group>"; };
 		9BF7EC37219BCAB300572E70 /* SliderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SliderTableViewCell.h; sourceTree = "<group>"; };
@@ -547,6 +558,9 @@
 		9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderCellModel.m; sourceTree = "<group>"; };
 		9BFF80E92189829300EFA848 /* FirmwareTypeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirmwareTypeViewModel.h; sourceTree = "<group>"; };
 		9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirmwareTypeViewModel.m; sourceTree = "<group>"; };
+		DDA104CC22A61D6F0028E424 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueUpdate.framework; path = ../Embedded/IDOBlueUpdate.framework; sourceTree = "<group>"; };
+		DDA104CD22A61D6F0028E424 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueProtocol.framework; path = ../Embedded/IDOBlueProtocol.framework; sourceTree = "<group>"; };
+		DDA104CE22A61D6F0028E424 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -554,7 +568,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD0F3F952272FE62004A5BAC /* IDOBluetooth.framework in Frameworks */,
+				DDA104CF22A61D6F0028E424 /* IDOBlueUpdate.framework in Frameworks */,
+				DDA104D022A61D6F0028E424 /* IDOBlueProtocol.framework in Frameworks */,
+				DDA104D122A61D6F0028E424 /* IDOBluetooth.framework in Frameworks */,
 				9BBAF49B21F96D7A001BD3F9 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,6 +608,7 @@
 		183FC062214D2DED00AD6484 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9BE865AA227E9D800028D8BE /* MeasureViewModels */,
 				9B3AAB5222350B7F009320CF /* SwitchDeviceModel */,
 				9B6614B8223263E3009488F9 /* MainViewModel */,
 				9B6F029921ED7BF600AA0BCD /* DataMigrationModel */,
@@ -661,6 +678,8 @@
 				9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */,
 				183FC0A5214E8E5200AD6484 /* FileViewModel.h */,
 				183FC0A6214E8E5200AD6484 /* FileViewModel.m */,
+				9B1C8BBC22A53B48005A5955 /* OtherFileViewModel.h */,
+				9B1C8BBD22A53B48005A5955 /* OtherFileViewModel.m */,
 			);
 			path = UpdateViewModel;
 			sourceTree = "<group>";
@@ -871,7 +890,10 @@
 		9B437F0521393CED00DE2FC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B437F0621393CEE00DE2FC8 /* IDOBluetooth.framework */,
+				DDA104CD22A61D6F0028E424 /* IDOBlueProtocol.framework */,
+				DDA104CE22A61D6F0028E424 /* IDOBluetooth.framework */,
+				DDA104CC22A61D6F0028E424 /* IDOBlueUpdate.framework */,
+				9B1C8BB722A52EEC005A5955 /* IDOBluetoothInternal.framework */,
 				9B5702A4213BEE1500BCE1CE /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
@@ -1190,6 +1212,17 @@
 			path = Unbinding;
 			sourceTree = "<group>";
 		};
+		9BE865AA227E9D800028D8BE /* MeasureViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9BE865AE227EABD30028D8BE /* MainMeasureViewModel.h */,
+				9BE865AF227EABD30028D8BE /* MainMeasureViewModel.m */,
+				9BE865AB227E9E180028D8BE /* BpMeasureViewModel.h */,
+				9BE865AC227E9E180028D8BE /* BpMeasureViewModel.m */,
+			);
+			path = MeasureViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1285,6 +1318,7 @@
 				183FC095214E57B900AD6484 /* SyncViewModel.m in Sources */,
 				9B7A4626214F633A007A2DB6 /* LabelCellModel.m in Sources */,
 				9B222148215A37A7006A2F9F /* OneSwitchTableViewCell.m in Sources */,
+				9BE865B0227EABD30028D8BE /* MainMeasureViewModel.m in Sources */,
 				18376C952165E9B5009D68F5 /* SyncActivityViewModel.m in Sources */,
 				9BC1E452213E66ED008D832E /* BaseViewController.m in Sources */,
 				9BBAF49621F809A0001BD3F9 /* SetUserNameViewModel.m in Sources */,
@@ -1309,6 +1343,7 @@
 				9B96ECB72238B5E900C905AF /* QueryGpsViewModel.m in Sources */,
 				9B7A1336215F4B2600CBA4BC /* SetOneKeySosViewModel.m in Sources */,
 				183501482158E7440076BC4F /* ThreeTextFieldTableViewCell.m in Sources */,
+				9B1C8BBE22A53B48005A5955 /* OtherFileViewModel.m in Sources */,
 				9BBAF49921F809BC001BD3F9 /* SetUserNumberViewModel.m in Sources */,
 				9B7A135D2160D59D00CBA4BC /* ComLogViewModel.m in Sources */,
 				9B7A134E2160A6AC00CBA4BC /* SetDialParamViewModel.m in Sources */,
@@ -1318,6 +1353,7 @@
 				18376C8F2165DB32009D68F5 /* ControlRestartViewModel.m in Sources */,
 				9B62FA972265987A000ACCDE /* YYTextWeakProxy.m in Sources */,
 				9B7F44832237A2B200671B31 /* BaseDatePickerView.m in Sources */,
+				9BE865AD227E9E180028D8BE /* BpMeasureViewModel.m in Sources */,
 				9B2C6B39215B66D400375FDA /* AllAlarmViewModel.m in Sources */,
 				9B62FA922265987A000ACCDE /* NSAttributedString+YYText.m in Sources */,
 				9BCD0E202178890C00587264 /* AuthTextFieldView.m in Sources */,
@@ -1492,6 +1528,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[arch=*]" = default;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1549,6 +1587,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1578,14 +1617,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T65EE75V48;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					../Embedded,
-					"$(PROJECT_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = ../Embedded;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
 				INFOPLIST_FILE = IDOBlue/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = ../thirdParty/RtkOta2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ido.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1607,14 +1644,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T65EE75V48;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					../Embedded,
-					"$(PROJECT_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = ../Embedded;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
 				INFOPLIST_FILE = IDOBlue/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = ../thirdParty/RtkOta2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ido.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";

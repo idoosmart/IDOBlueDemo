@@ -27,6 +27,12 @@
 @end
 
 @implementation UpdateAgpsViewModel
+
+- (void)dealloc
+{
+   [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -37,6 +43,10 @@
         [self getButtonCallback];
         [self getTextViewCallback];
         [self getCellModels];
+        [[NSNotificationCenter defaultCenter]addObserver:self
+                                                selector:@selector(selectFileNotice:)
+                                                    name:@"idoDemoSelectFileNotice"
+                                                  object:nil];
     }
     return self;
 }
@@ -46,16 +56,16 @@
     FuncViewController * vc = [[FuncViewController alloc]init];
     FileViewModel * fileModel = [FileViewModel new];
     fileModel.type = 1;
-    __weak typeof(self) weakSelf = self;
-    fileModel.viewWillDisappearCallback = ^(UIViewController *viewController) {
-        __strong typeof(self) strongSelf = weakSelf;
-        NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:AGPS_FILE_PATH_KEY];
-        NSString * infoStr = [strongSelf selectedFileWithFilePath:filePath];
-        [strongSelf addMessageText:infoStr];
-    };
     vc.model = fileModel;
     vc.title = lang(@"selected AGPS file");
     [[IDODemoUtility getCurrentVC].navigationController pushViewController:vc animated:YES];
+}
+
+- (void)selectFileNotice:(NSNotification*)notice
+{
+    NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:AGPS_FILE_PATH_KEY];
+    NSString * infoStr = [self selectedFileWithFilePath:filePath];
+    [self addMessageText:infoStr];
 }
 
 - (void)getCellModels
@@ -83,16 +93,27 @@
 - (NSString *)selectedFileWithFilePath:(NSString *)filePath
 {
     if (filePath.length == 0) return @"";
-    
-    NSURL * fileUrl = [NSURL URLWithString:filePath];
-    NSString * fileName = [fileUrl lastPathComponent];
-    NSString * path = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"Agps"];
-    filePath = [path stringByAppendingPathComponent:fileName];
-    self.filePath = filePath;
+    NSInteger fileMode  = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
+    NSString * fileName = @"";
+    NSString * path = @"";
+    if (fileMode == 0) { // bundle
+        NSString * mainPath = [NSBundle mainBundle].bundlePath;
+        path = [mainPath stringByAppendingPathComponent:@"Agps"];
+        NSURL * fileUrl = [NSURL URLWithString:filePath];
+        fileName = fileUrl.lastPathComponent;
+        path = [path stringByAppendingPathComponent:fileName];
+    }else { // sandbox
+        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
+        NSRange range = [filePath rangeOfString:@"Documents"];
+        if (range.location != NSNotFound) {
+            fileName = [filePath substringFromIndex:range.location + range.length];
+            path = [path stringByAppendingPathComponent: fileName];
+        }
+    }
+    self.filePath = path;
     NSData * data = [NSData dataWithContentsOfFile:filePath];
-    
     NSString * dataSize = [NSString stringWithFormat:@"%ld bytes",(long)data.length];
-    NSString * nameStr = [@"Name : "stringByAppendingString:fileUrl.lastPathComponent];
+    NSString * nameStr = [@"Name : "stringByAppendingString:fileName];
     NSString * sizeStr = [@"Size : "stringByAppendingString:dataSize];
     NSString * typeStr = [@"Type : "stringByAppendingString:@"AGPS File"];
     NSString * fileStr = [NSString stringWithFormat:@"%@\n%@\n%@",nameStr,sizeStr,typeStr];
@@ -127,7 +148,7 @@
         //agps文件启动传输
         [IDOFoundationCommand getGpsStatusCommand:^(int errorCode, IDOGetGpsStatusBluetoothModel * _Nullable data) {
             if (data.gpsRunStatus == 0) {
-                [IDOUpdateAgpsManager updateAgpsWithPath:strongSelf.filePath prepareCallback:^(int errorCode) {
+                [IDOUpdateAgpsManager updateAgpsWithPath:strongSelf.filePath isSetParam:YES prepareCallback:^(int errorCode) {
                     if (errorCode == 0) {
                         [funcVC showLoadingWithMessage:lang(@"file ready for transfer...")];
                         [strongSelf addMessageText:@"agps file is prepare transmission"];

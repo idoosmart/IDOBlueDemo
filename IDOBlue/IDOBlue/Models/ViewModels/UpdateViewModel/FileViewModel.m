@@ -11,9 +11,11 @@
 #import "LabelCellModel.h"
 #import "OneLabelTableViewCell.h"
 #import "FuncViewController.h"
+#import "OtherFileViewModel.h"
 
 @interface FileViewModel()
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
+@property (nonatomic,copy) NSString * dirPath;
 @end
 
 @implementation FileViewModel
@@ -21,52 +23,73 @@
 {
     self = [super init];
     if (self) {
+        NSInteger fileMode = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
+        self.rightButtonTitle = fileMode == 1 ? lang(@"sandbox") : lang(@"bundle");
+        self.isRightButton    = YES;
+        self.rightButton      = @selector(actionButton:);
         [self getLabelSelectCallback];
     }
     return self;
 }
 
+- (void)actionButton:(UIBarButtonItem *)sender
+{
+    if ([sender.title isEqualToString:lang(@"sandbox")]) {
+        sender.title = lang(@"bundle");
+        [[NSUserDefaults standardUserDefaults] setValue:@(0) forKey:FILE_MODE_KEY];
+    }else {
+        sender.title = lang(@"sandbox");
+        [[NSUserDefaults standardUserDefaults] setValue:@(1) forKey:FILE_MODE_KEY];
+    }
+    [self getFiles];
+    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    [funcVC reloadData];
+    
+}
+
 - (NSArray *)otaLocalFileArr
 {
-    NSInteger type = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-    NSString * filePath = nil;
-    if(type == 0) {
-        NSString * docsdir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
-        filePath = [docsdir stringByAppendingPathComponent:@"Firmwares"];
+    NSInteger fileMode = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
+    NSString * dirPath = nil;
+    if (fileMode == 0) {
+        NSString * filePath = [NSBundle mainBundle].bundlePath;
+        dirPath = [filePath stringByAppendingPathComponent:@"Firmwares"];
     }else {
-        NSString * docsdir = [NSBundle mainBundle].bundlePath;
-        filePath = [docsdir stringByAppendingPathComponent:@"Firmwares"];
+        dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
     }
-    NSURL * url = [NSURL URLWithString:filePath];
-    NSError * error = nil;
-    if (!url) return [NSArray array];
-    NSArray * fileList =  [[NSFileManager defaultManager] contentsOfDirectoryAtURL:url
-                                                        includingPropertiesForKeys:nil
-                                                                           options:0
-                                                                             error:&error];
+    if (!dirPath) return [NSArray array];
+    self.dirPath = dirPath;
+    NSArray * fileList =  [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
     return fileList;
 }
 
 - (NSArray *)agpsLocalFileArr
 {
-    NSString * filePath = [NSBundle mainBundle].bundlePath;
-    filePath = [filePath stringByAppendingPathComponent:@"Agps"];
-    NSURL * url = [NSURL URLWithString:filePath];
-    NSError * error = nil;
-    if (!url) return [NSArray array];
-    NSArray * fileList =  [[NSFileManager defaultManager] contentsOfDirectoryAtURL:url
-                                                        includingPropertiesForKeys:nil
-                                                                           options:0
-                                                                             error:&error];
+    NSInteger fileMode = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
+    NSString * dirPath = nil;
+    if (fileMode == 0) {
+        NSString * filePath = [NSBundle mainBundle].bundlePath;
+        dirPath = [filePath stringByAppendingPathComponent:@"Agps"];
+    }else {
+        dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
+    }
+    if (!dirPath) return [NSArray array];
+    self.dirPath = dirPath;
+    NSArray * fileList =  [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
     return fileList;
 }
 
 - (void)setType:(NSInteger)type
 {
     _type = type;
-    if (type == 0) {
+    [self getFiles];
+}
+
+- (void)getFiles
+{
+    if (_type == 0) { //固件文件
         [self getCellModels:self.otaLocalFileArr];
-    }else {
+    }else { //agps文件
         [self getCellModels:self.agpsLocalFileArr];
     }
 }
@@ -97,13 +120,56 @@
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         LabelCellModel * cellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
-        NSString * filepath = [[cellModel.data firstObject] absoluteString];
-        if (strongSelf.type == 0) {
-           [[NSUserDefaults standardUserDefaults] setValue:filepath forKey:FIRMWARE_FILE_PATH_KEY];
+        NSString * fileName = [cellModel.data firstObject];
+        NSInteger fileMode  = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
+        if (fileMode == 0) {
+            if (strongSelf.type == 0) {
+                NSString * filePath = [NSBundle mainBundle].bundlePath;
+                NSString * dirPath = [filePath stringByAppendingPathComponent:@"Firmwares"];
+                filePath = [dirPath stringByAppendingPathComponent:fileName];
+                [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
+            }else {
+                NSString * filePath = [NSBundle mainBundle].bundlePath;
+                NSString * dirPath = [filePath stringByAppendingPathComponent:@"Agps"];
+                filePath = [dirPath stringByAppendingPathComponent:fileName];
+                [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
+            [funcVC.navigationController popViewControllerAnimated:YES];
         }else {
-           [[NSUserDefaults standardUserDefaults] setValue:filepath forKey:AGPS_FILE_PATH_KEY];
+            BOOL isDir = NO;
+            NSString * filePath = [strongSelf.dirPath stringByAppendingPathComponent:fileName];
+            [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir];
+            if(isDir) { //目录有下级文件
+                FuncViewController * vc = [[FuncViewController alloc]init];
+                OtherFileViewModel * fileModel = [OtherFileViewModel new];
+                fileModel.type    = strongSelf.type;
+                fileModel.dirPath = filePath;
+                vc.model = fileModel;
+                vc.title = lang(@"selected firmware");
+                fileModel.selectFileCallback = ^(NSString * _Nonnull filePath) {
+                    if (strongSelf.type == 0) {
+                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
+                    }else {
+                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                    }
+                    [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
+                    NSInteger index = [funcVC.navigationController.viewControllers indexOfObject:funcVC];
+                    UIViewController * vc = [funcVC.navigationController.viewControllers objectAtIndex:index >= 1 ? (index - 1) : 0];
+                    [funcVC.navigationController popToViewController:vc animated:YES];
+                };
+                [funcVC.navigationController pushViewController:vc animated:YES];
+            }else { //文件无下级文件
+                if (strongSelf.type == 0) {
+                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
+                }else {
+                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                }
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
+                [funcVC.navigationController popViewControllerAnimated:YES];
+            }
         }
-        [funcVC.navigationController popViewControllerAnimated:YES];
+       
     };
 }
 

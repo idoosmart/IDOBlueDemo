@@ -20,6 +20,7 @@
 #import "LogViewModel.h"
 #import "QueryViewModel.h"
 #import "DataMigrationViewModel.h"
+#import "MainMeasureViewModel.h"
 #import "ScanViewController.h"
 
 @interface FuncViewModel()
@@ -63,7 +64,7 @@
 {
     if (!_buttonTitles) {
         _buttonTitles = @[@[lang(@"device unbind")],@[lang(@"set function")],@[lang(@"get function")],@[lang(@"control function")],@[lang(@"sync function")],
-                          @[lang(@"data interchange")],@[lang(@"device update")],@[lang(@"data query")],@[lang(@"log query")],@[lang(@"data migration")]];
+                          @[lang(@"data interchange")],@[lang(@"device update")],@[lang(@"data query")],@[lang(@"log query")],@[lang(@"data migration")],@[lang(@"measure data")]];
     }
     return _buttonTitles;
 }
@@ -73,7 +74,7 @@
     if (!_modelClasss) {
         _modelClasss = @[[UnbindingViewModel class],[SetViewModel class],[GetViewModel class],[ControlViewModel class],
                          [SyncViewModel class],[DataInterchangeModel class],[UpdateMainViewModel class],[QueryViewModel class],
-                         [LogViewModel class],[DataMigrationViewModel class]];
+                         [LogViewModel class],[DataMigrationViewModel class],[MainMeasureViewModel class]];
     }
     return _modelClasss;
 }

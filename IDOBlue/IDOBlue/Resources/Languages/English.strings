@@ -651,3 +651,16 @@
 "file transfer failed" = "file transfer failed";
 "file write success" = "file write success";
 "file write failed" = "file write failed";
+
+/**
+ measure
+ */
+"measure data" = "measure data";
+"measure blood pressure" = "measure blood pressure";
+"measure blood pressure..." = "measure blood pressure...";
+"not support blood pressure measure" = "not support blood pressure measure";
+"%ld seconds in blood pressure measure" = "%ld seconds in blood pressure measure";
+"successful blood pressure measure" = "successful blood pressure measure";
+"failure blood pressure measure" = "failure blood pressure measure";
+"device in sport mode" = "device in sport mode";
+"abnormal device measure" = "abnormal device measure";

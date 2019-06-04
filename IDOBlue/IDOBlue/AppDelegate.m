@@ -7,11 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import <IDOBluetooth/IDOBluetooth.h>
 #import "ScanViewController.h"
 #import "FuncViewController.h"
 #import "FuncViewModel.h"
 #import "UpdateMainViewModel.h"
+
 
 @interface AppDelegate ()
 
@@ -24,39 +24,44 @@
     [NSThread sleepForTimeInterval:3];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 #ifdef DEBUG
-    registrationServices(YES).outputSdkLog(YES).outputProtocolLog(YES);
+    registrationServices().outputSdkLog(YES).outputProtocolLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+        //此处可以使用自己的蓝牙管理
+       if(__IDO_BIND__)[IDOBluetoothManager startScan];
+    });
 #else
-    registrationServices(YES).outputSdkLog(NO).outputProtocolLog(NO);
+    registrationServices().outputSdkLog(NO).outputProtocolLog(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+        //此处可以使用自己的蓝牙管理
+        if(__IDO_BIND__)[IDOBluetoothManager startScan];
+    });
 #endif
+    
     if (__IDO_BIND__) {
-        NSInteger type = [[[NSUserDefaults standardUserDefaults] objectForKey:PRODUCTION_MODE_KEY] integerValue];
-        if (type == 1) {
-            FuncViewController * home = [[FuncViewController alloc]init];
-            home.model = [FuncViewModel new];
-            home.title = lang(@"function list");
-            UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:home];
-            self.window.rootViewController = nav;
-        }else {
+        int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+        if (mode == 0) {
             FuncViewController * update = [[FuncViewController alloc]init];
             update.model = [UpdateMainViewModel new];
             update.title = lang(@"device update");
             UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:update];
             self.window.rootViewController = nav;
+        }else {
+            FuncViewController * home = [[FuncViewController alloc]init];
+            home.model = [FuncViewModel new];
+            home.title = lang(@"function list");
+            UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:home];
+            self.window.rootViewController = nav;
         }
     } else {
-        ScanViewController * scanVC = [[ScanViewController alloc]init];
+        ScanViewController * scanVC  = [[ScanViewController alloc]init];
         UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
         self.window.rootViewController = nav;
     }
-
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
-    NSString * docsdirPath = nil;
-    [self createDirectoryWithPath:&docsdirPath];
+    NSString * docsdirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
     if (url != nil) {
         NSString *path = [url absoluteString];
         path = [path stringByRemovingPercentEncoding];
@@ -66,10 +71,9 @@
         }
         NSArray  * tempArray  = [string componentsSeparatedByString:@"/"];
         NSString * fileName   = tempArray.lastObject;
-        //NSString * sourceName = options[@"UIApplicationOpenURLOptionsSourceApplicationKey"];
+        //        NSString * sourceName = options[@"UIApplicationOpenURLOptionsSourceApplicationKey"];
         NSFileManager * fileManager = [NSFileManager defaultManager];
-        //IDODB.sqlite Andriod_ios.db
-        NSString * filePath = [docsdirPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"Andriod_ios.db"]];
+        NSString * filePath = [docsdirPath stringByAppendingPathComponent:fileName];
         if ([fileManager fileExistsAtPath:filePath]) {
             [fileManager removeItemAtPath:filePath error:nil];
         }
@@ -78,21 +82,6 @@
     return  YES;
 }
 
-- (BOOL)createDirectoryWithPath:(NSString **)path
-{
-    //IDODB
-    NSString * docsdir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
-    docsdir = [docsdir stringByAppendingPathComponent:@"db"];
-    if (path) {
-       *path = docsdir;
-    }
-    NSError * error;
-    BOOL isSuccess = [[NSFileManager defaultManager] createDirectoryAtPath:docsdir
-                                               withIntermediateDirectories:YES
-                                                                attributes:nil
-                                                                     error:&error];
-    return (isSuccess && !error);
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

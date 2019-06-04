@@ -16,12 +16,7 @@
 
 - (void)dealloc
 {
-    if (IDO_BLUE_ENGINE.managerEngine) {
-        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.state"];
-        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.errorCode"];
-        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.manualConnectTotalTime"];
-        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.autoConnectTotalTime"];
-    }
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (UILabel *)statusLabel
@@ -95,57 +90,53 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.translucent=NO;
     self.view.backgroundColor = [UIColor whiteColor];
-    if (IDO_BLUE_ENGINE.managerEngine) {
-        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.state" options:NSKeyValueObservingOptionNew context:nil];
-        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.errorCode" options:NSKeyValueObservingOptionNew context:nil];
-        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.manualConnectTotalTime" options:NSKeyValueObservingOptionNew context:nil];
-        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.autoConnectTotalTime" options:NSKeyValueObservingOptionNew context:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(listenConnectState:)
+                                                name:IDOBluetoothConnectStateNotifyName
+                                              object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(listenConnectError:)
+                                                name:IDOBluetoothConnectErrorNotifyName
+                                              object:nil];
+}
+
+- (void)listenConnectState:(NSNotification *)notivication
+{
+    NSDictionary * dic = notivication.object;
+    if (!dic)return;
+    IDO_BLUETOOTH_MANAGER_STATE state = [[dic valueForKey:@"state"] integerValue];
+    if (state == IDO_MANAGER_STATE_DID_CONNECT) {
+        self.statusLabel.text = lang(@"connected");
+        [self showToastWithText:lang(@"connected")];
+    }
+    else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
+        self.statusLabel.text = lang(@"disconnected");
+        [self showToastWithText:lang(@"device disconnected")];
+    }else if((  state == IDO_MANAGER_STATE_AUTO_OTA_CONNECT
+              || state == IDO_MANAGER_STATE_AUTO_CONNECT
+              || state == IDO_MANAGER_STATE_MANUAL_OTA_CONNECT
+              || state == IDO_MANAGER_STATE_MANUAL_CONNECT )
+             && (__IDO_BIND__ || __IDO_OTA__)){
+        self.statusLabel.text = lang(@"connecting");
+        [self showLoadingWithMessage:lang(@"connecting")];
+    }else if (state == IDO_MANAGER_STATE_AUTO_SCANING) {
+        self.statusLabel.text = lang(@"scanning");
+        [self showLoadingWithMessage:lang(@"scanning")];
+    }else if (state == IDO_MANAGER_STATE_SCAN_STOP) {
+        self.statusLabel.text = lang(@"suspend scan");
+        [self showToastWithText: lang(@"device suspend scan")];
+    }else if (state == IDO_MANAGER_STATE_POWEREDOFF) {
+        self.statusLabel.text = lang(@"disconnected");
+        [self showToastWithText:lang(@"device disconnected")];
+        [TipPoweredOffView show];
+    }else if (state == IDO_MANAGER_STATE_POWEREDON) {
+        [TipPoweredOffView hidView];
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
-                       context:(void *)context
+- (void)listenConnectError:(NSNotification *)notivication
 {
-    if ([keyPath isEqualToString:@"idoManager.state"]) {
-        IDO_BLUETOOTH_MANAGER_STATE state = (IDO_BLUETOOTH_MANAGER_STATE)[change[NSKeyValueChangeNewKey] integerValue];
-        if (state == IDO_MANAGER_STATE_DID_CONNECT) {
-            self.statusLabel.text = lang(@"connected");
-            [self showToastWithText:lang(@"connected")];
-        }
-        else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
-            self.statusLabel.text = lang(@"disconnected");
-            [self showToastWithText:lang(@"device disconnected")];
-        }else if((   state == IDO_MANAGER_STATE_AUTO_OTA_CONNECT
-                 || state == IDO_MANAGER_STATE_AUTO_CONNECT
-                 || state == IDO_MANAGER_STATE_MANUAL_OTA_CONNECT
-                 || state == IDO_MANAGER_STATE_MANUAL_CONNECT )
-                 && (__IDO_BIND__ || __IDO_OTA__)){
-            self.statusLabel.text = lang(@"connecting");
-            [self showLoadingWithMessage:lang(@"connecting")];
-        }else if (state == IDO_MANAGER_STATE_AUTO_SCANING) {
-            self.statusLabel.text = lang(@"scanning");
-            [self showLoadingWithMessage:lang(@"scanning")];
-        }else if (state == IDO_MANAGER_STATE_SCAN_STOP) {
-            self.statusLabel.text = lang(@"suspend scan");
-            [self showToastWithText: lang(@"device suspend scan")];
-        }else if (state == IDO_MANAGER_STATE_POWEREDOFF) {
-            self.statusLabel.text = lang(@"disconnected");
-            [self showToastWithText:lang(@"device disconnected")];
-            [TipPoweredOffView show];
-        }else if (state == IDO_MANAGER_STATE_POWEREDON) {
-            [TipPoweredOffView hidView];
-        }
-    }else if ([keyPath isEqualToString:@"idoManager.manualConnectTotalTime"]) {
-        NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
-        if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"%@ %ld",lang(@"manual connect time"),(long)totalTime];
-    }else if ([keyPath isEqualToString:@"idoManager.autoConnectTotalTime"]) {
-        NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
-        if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"%@ %ld",lang(@"auto connect time"),(long)totalTime];
-    }
+    
 }
 
 - (void)modificationNavigationBarStyle

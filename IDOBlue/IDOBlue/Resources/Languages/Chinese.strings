@@ -650,3 +650,16 @@
 "file transfer failed" = "文件传输失败";
 "file write success" = "文件写入成功";
 "file write failed" = "文件写入失败";
+
+/**
+ 测量模块
+ */
+"measure data" = "测量数据";
+"measure blood pressure" = "测量血压";
+"measure blood pressure..." = "测量血压中...";
+"not support blood pressure measure" = "设备不支持血压测量";
+"%ld seconds in blood pressure measure" = "血压测量中%ld秒";
+"successful blood pressure measure" = "血压测量成功";
+"failure blood pressure measure" = "血压测量失败";
+"device in sport mode" = "设备正在运动模式";
+"abnormal device measure" = "设备测量异常";

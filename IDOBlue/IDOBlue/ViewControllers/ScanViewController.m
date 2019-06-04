@@ -35,12 +35,7 @@
 
 - (void)dealloc
 {
-    if (IDO_BLUE_ENGINE.managerEngine) {
-        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.state"];
-        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.errorCode"];
-        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.manualConnectTotalTime"];
-        [IDO_BLUE_ENGINE.managerEngine removeObserver:self forKeyPath:@"idoManager.autoConnectTotalTime"];
-    }
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -108,14 +103,7 @@
     self.tableView.tableFooterView = [UIView new];
     [self modificationNavigationBarStyle];
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    if (IDO_BLUE_ENGINE.managerEngine) {
-        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.state" options:NSKeyValueObservingOptionNew context:nil];
-        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.errorCode" options:NSKeyValueObservingOptionNew context:nil];
-        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.manualConnectTotalTime" options:NSKeyValueObservingOptionNew context:nil];
-        [IDO_BLUE_ENGINE.managerEngine addObserver:self forKeyPath:@"idoManager.autoConnectTotalTime" options:NSKeyValueObservingOptionNew context:nil];
-    }
-    
+
     [self addRightButton];
     [self creatRefreshing];
     
@@ -127,8 +115,42 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableHeaderView = headView;
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(listenConnectState:)
+                                                name:IDOBluetoothConnectStateNotifyName
+                                              object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(listenConnectError:)
+                                                name:IDOBluetoothConnectErrorNotifyName
+                                              object:nil];
 }
 
+- (void)listenConnectState:(NSNotification *)notivication
+{
+    NSDictionary * dic = notivication.object;
+    if (!dic)return;
+    IDO_BLUETOOTH_MANAGER_STATE state = [[dic valueForKey:@"state"] integerValue];
+    if (state == IDO_MANAGER_STATE_DID_CONNECT) {
+        self.statusLabel.text = lang(@"connected");
+        [self showToastWithText:lang(@"connected success")];
+    }
+    else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
+        self.statusLabel.text = lang(@"disconnected");
+        [self showToastWithText:lang(@"device disconnected")];
+    }else if (state == IDO_MANAGER_STATE_POWEREDOFF) {
+        self.statusLabel.text = lang(@"disconnected");
+        [self showToastWithText:lang(@"device disconnected")];
+        [TipPoweredOffView show];
+    }else if (state == IDO_MANAGER_STATE_POWEREDON) {
+        [TipPoweredOffView hidView];
+    }
+}
+
+- (void)listenConnectError:(NSNotification *)notivication
+{
+    
+}
 
 - (MBProgressHUD *)progressHUD
 {
@@ -284,8 +306,10 @@ static BOOL BIND_STATE = NO;
         _bindView.delegate = self;
         [self.view addSubview:_bindView];
     }
-    NSInteger mode = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-    _bindView.tipLabel.text = [NSString stringWithFormat:lang(@"send bind or update"),mode == 0 ? lang(@"update"):self.currentModel.isOta ? lang(@"update"):lang(@"bind")];
+    
+    int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+    NSString * str = (self.currentModel.isOta || mode == 0) ?  lang(@"update"):lang(@"bind");
+    _bindView.tipLabel.text = [NSString stringWithFormat:lang(@"send bind or update"),str];
     [_bindView show];
 }
 
@@ -296,8 +320,8 @@ static BOOL BIND_STATE = NO;
 
 - (void)allowBinding
 {
-    NSInteger mode = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-    if (mode == 0 || self.currentModel.isOta) {
+    int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+    if (self.currentModel.isOta || mode == 0) {
         [self updateAction:nil];
     }else {
         [self bindAction:nil];
@@ -405,39 +429,6 @@ static BOOL BIND_STATE = NO;
     self.currentModel = self.devices[indexPath.row];
     [self showLoadingWithMessage:lang(@"connecting")];
     [IDOBluetoothManager connectDeviceWithModel:self.currentModel];
-}
-
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
-                       context:(void *)context
-{
-    if ([keyPath isEqualToString:@"idoManager.state"]) {
-        IDO_BLUETOOTH_MANAGER_STATE state = (IDO_BLUETOOTH_MANAGER_STATE)[change[NSKeyValueChangeNewKey] integerValue];
-        if (state == IDO_MANAGER_STATE_DID_CONNECT) {
-            self.statusLabel.text = lang(@"connected");
-            [self showToastWithText:lang(@"connected success")];
-        }
-        else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
-            self.statusLabel.text = lang(@"disconnected");
-            [self showToastWithText:lang(@"device disconnected")];
-        }else if (state == IDO_MANAGER_STATE_POWEREDOFF) {
-             self.statusLabel.text = lang(@"disconnected");
-            [self showToastWithText:lang(@"device disconnected")];
-            [TipPoweredOffView show];
-        }else if (state == IDO_MANAGER_STATE_POWEREDON) {
-            [TipPoweredOffView hidView];
-        }
-    }else if ([keyPath isEqualToString:@"idoManager.manualConnectTotalTime"]) {
-        NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
-        if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"%@ %ld",lang(@"manual connect time"),(long)totalTime];
-    }else if ([keyPath isEqualToString:@"idoManager.autoConnectTotalTime"]) {
-        NSInteger totalTime = [change[NSKeyValueChangeNewKey] integerValue];
-        if (totalTime <= 0)return;
-        self.timerLabel.text = [NSString stringWithFormat:@"%@ %ld",lang(@"auto connect time"),(long)totalTime];
-    }
 }
 
 

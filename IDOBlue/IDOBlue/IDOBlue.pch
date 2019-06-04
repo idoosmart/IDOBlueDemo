@@ -11,11 +11,24 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
+#import <IDOBluetoothInternal/IDOBluetoothInternal.h>
+#endif
+#if __has_include(<IDOBluetooth/IDOBluetooth.h>)
 #import <IDOBluetooth/IDOBluetooth.h>
-#import "IDOConsoleBoard.h"
-#define PRODUCTION_MODE_KEY @"ido_demo_mode_key" //产线模式、普通模式
+#endif
+#if __has_include(<IDOBlueUpdate/IDOBlueUpdate.h>)
+#import <IDOBlueUpdate/IDOBlueUpdate.h>
+#endif
+#if __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
+#import <IDOBlueProtocol/IDOBlueProtocol.h>
+#endif
+#endif
+#define PRODUCTION_MODE_KEY @"ido_demo_mode_key" //0: 产线模式  1: 普通模式
+#define FILE_MODE_KEY @"ido_file_mode_key" //文件模式 0: mainBundle 1: sandbox
 #define LANG_KEY @"lang_key" //语言
 #define RSSI_KEY @"ido_demo_rssi_key" //信号强弱
 #define FIRMWARE_FILE_PATH_KEY @"firmware_file_path_key" //固件文件路径
