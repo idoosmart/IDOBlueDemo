@@ -12,6 +12,7 @@
 | 3.1.4 | iOS 8.0 | Only the objective-c file in the project needs to add an empty swift file |
 | 3.1.8 | iOS 8.0 | Xcode 10.2.1 |
 | 3.2.5 | iOS 8.0 | Break up the SDK|
+| 3.2.7 | iOS 8.0 | device reconnection|
 
 
 ## Project configuration
