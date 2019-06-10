@@ -650,6 +650,7 @@
 "file transfer failed" = "文件传输失败";
 "file write success" = "文件写入成功";
 "file write failed" = "文件写入失败";
+"selected files" = "文件选择";
 
 /**
  测量模块

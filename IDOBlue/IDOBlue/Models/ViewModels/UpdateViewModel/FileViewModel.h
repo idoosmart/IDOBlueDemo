@@ -9,5 +9,5 @@
 #import "BaseViewModel.h"
 
 @interface FileViewModel : BaseViewModel
-@property (nonatomic,assign) NSInteger type;
+@property (nonatomic,assign) NSInteger type; /*0:固件 1:AGPS 2:沙盒文件*/
 @end

@@ -82,26 +82,7 @@
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         LabelCellModel * cellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         NSString * fileName = [cellModel.data firstObject];
-        NSInteger fileMode  = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
-        if (fileMode == 0) {
-            if (strongSelf.type == 0) {
-                NSString * filePath = [NSBundle mainBundle].bundlePath;
-                NSString * dirPath = [filePath stringByAppendingPathComponent:@"Firmwares"];
-                filePath = [dirPath stringByAppendingPathComponent:fileName];
-                [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
-                if (strongSelf.selectFileCallback) {
-                    strongSelf.selectFileCallback(filePath);
-                }
-            }else {
-                NSString * filePath = [NSBundle mainBundle].bundlePath;
-                NSString * dirPath = [filePath stringByAppendingPathComponent:@"Agps"];
-                filePath = [dirPath stringByAppendingPathComponent:fileName];
-                [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
-                if (strongSelf.selectFileCallback) {
-                    strongSelf.selectFileCallback(filePath);
-                }
-            }
-        }else {
+        if (strongSelf.type == 2) {
             BOOL isDir = NO;
             NSString * filePath = [strongSelf.dirPath stringByAppendingPathComponent:fileName];
             [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir];
@@ -111,17 +92,57 @@
                 fileModel.type    = strongSelf.type;
                 fileModel.dirPath = filePath;
                 vc.model = fileModel;
-                vc.title = lang(@"selected firmware");
+                vc.title = fileName?:lang(@"selected files");
                 fileModel.selectFileCallback = strongSelf.selectFileCallback;
                 [funcVC.navigationController pushViewController:vc animated:YES];
             }else { //文件无下级文件
-                if (strongSelf.type == 0) {
-                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
-                }else {
-                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
-                }
+                [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:SANDBOX_FILE_PATH_KEY];
                 if (strongSelf.selectFileCallback) {
                     strongSelf.selectFileCallback(filePath);
+                }
+            }
+        }else {
+            NSInteger fileMode  = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
+            if (fileMode == 0) {
+                if (strongSelf.type == 0) {
+                    NSString * filePath = [NSBundle mainBundle].bundlePath;
+                    NSString * dirPath = [filePath stringByAppendingPathComponent:@"Firmwares"];
+                    filePath = [dirPath stringByAppendingPathComponent:fileName];
+                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
+                    if (strongSelf.selectFileCallback) {
+                        strongSelf.selectFileCallback(filePath);
+                    }
+                }else {
+                    NSString * filePath = [NSBundle mainBundle].bundlePath;
+                    NSString * dirPath = [filePath stringByAppendingPathComponent:@"Agps"];
+                    filePath = [dirPath stringByAppendingPathComponent:fileName];
+                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                    if (strongSelf.selectFileCallback) {
+                        strongSelf.selectFileCallback(filePath);
+                    }
+                }
+            }else {
+                BOOL isDir = NO;
+                NSString * filePath = [strongSelf.dirPath stringByAppendingPathComponent:fileName];
+                [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir];
+                if(isDir) { //目录有下级文件
+                    FuncViewController * vc = [[FuncViewController alloc]init];
+                    OtherFileViewModel * fileModel = [OtherFileViewModel new];
+                    fileModel.type    = strongSelf.type;
+                    fileModel.dirPath = filePath;
+                    vc.model = fileModel;
+                    vc.title = fileName?:lang(@"selected firmware");
+                    fileModel.selectFileCallback = strongSelf.selectFileCallback;
+                    [funcVC.navigationController pushViewController:vc animated:YES];
+                }else { //文件无下级文件
+                    if (strongSelf.type == 0) {
+                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
+                    }else {
+                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                    }
+                    if (strongSelf.selectFileCallback) {
+                        strongSelf.selectFileCallback(filePath);
+                    }
                 }
             }
         }

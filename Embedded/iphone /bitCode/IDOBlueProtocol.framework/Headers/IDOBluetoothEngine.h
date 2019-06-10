@@ -113,11 +113,6 @@
 @property (nonatomic,strong) CBCharacteristic * customWriteCharacteristic;
 
 /**
- IDO 同步管理中心 | IDO Synchronization Management Center
- */
-@property (nonatomic,strong,readonly) IDOSyncManager * syncManager;
-
-/**
  功能列表 | Function List
  */
 @property (nonatomic,strong) IDOGetDeviceFuncBluetoothModel * funcTableModel;
@@ -126,11 +121,6 @@
  * 固件升级使用框架类型 | Firmware updates use the frame type
  */
 @property (nonatomic,assign) IDO_UPDATE_FRAMEWORK_TYPE updateFrameworkType;
-
-/**
- 当前手环活动个数 | Current number of bracelet events
- */
-@property (nonatomic,assign) NSInteger activityCount;
 
 @end
 
@@ -327,6 +317,7 @@
 
 @interface IDOBluetoothEngine : NSObject
 + (IDOBluetoothEngine *)shareInstance;
+- (void)deserialization;
 @property (nonatomic,strong) IDOBluetoothManagerInfoEngine    * managerEngine;
 @property (nonatomic,strong) IDOBluetoothPeripheralInfoEngine * peripheralEngine;
 @property (nonatomic,strong) IDOBluetoothUserInfoEngine       * userEngine;

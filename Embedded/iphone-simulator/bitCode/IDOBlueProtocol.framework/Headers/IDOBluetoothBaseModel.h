@@ -103,4 +103,10 @@
  */
 + (BOOL)deleteModels:(NSArray <IDOBluetoothBaseModel *>*_Nullable)models;
 
+/**
+ * @brief 删除对应的数据库表数据 (*不建议使用) | Delete the corresponding database table data (*Not recommended)
+ * @return 是 或 否 | yes or no
+ */
++ (BOOL)deleteCurrentTable;
+
 @end

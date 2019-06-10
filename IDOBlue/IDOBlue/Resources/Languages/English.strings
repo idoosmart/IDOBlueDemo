@@ -651,6 +651,7 @@
 "file transfer failed" = "file transfer failed";
 "file write success" = "file write success";
 "file write failed" = "file write failed";
+"selected files" = "selected files";
 
 /**
  measure

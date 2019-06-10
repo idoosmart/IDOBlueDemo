@@ -10,10 +10,12 @@
 #import "FuncCellModel.h"
 #import "OneButtonTableViewCell.h"
 #import "FuncViewController.h"
+#import "FileViewModel.h"
 
 @interface DataMigrationViewModel ()
 @property (nonatomic,strong) NSArray * buttonTitles;
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
+@property (nonatomic,copy)NSString * jsonPath;
 @end
 
 @implementation DataMigrationViewModel
@@ -22,10 +24,35 @@
 {
     self = [super init];
     if (self) {
+        self.rightButtonTitle = lang(@"selected files");
+        self.isRightButton = YES;
+        self.rightButton   = @selector(actionButton:);
         [self getButtonCallback];
         [self getCellModels];
     }
     return self;
+}
+
+- (NSString *)getFilePath
+{
+    NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:SANDBOX_FILE_PATH_KEY];
+    NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
+    NSRange range   = [filePath rangeOfString:@"Documents"];
+    if (range.location != NSNotFound) {
+        NSString * fileName = [filePath substringFromIndex:range.location + range.length];
+        path = [path stringByAppendingPathComponent:fileName];
+    }
+    return path;
+}
+
+- (void)actionButton:(UIBarButtonItem *)sender
+{
+    FuncViewController * vc = [[FuncViewController alloc]init];
+    FileViewModel * fileModel = [FileViewModel new];
+    fileModel.type = 2;
+    vc.model = fileModel;
+    vc.title = lang(@"selected files");
+    [[IDODemoUtility getCurrentVC].navigationController pushViewController:vc animated:YES];
 }
 
 - (NSArray *)buttonTitles
@@ -55,6 +82,7 @@
 
 - (void)getButtonCallback
 {
+    __weak typeof(self) weakSelf = self;
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         FuncViewController * funcVc = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
@@ -71,6 +99,7 @@
                 [funcVc showToastWithText:lang(@"no need migration")];
             }
         }else {
+            __strong typeof(self) strongSelf = weakSelf;
             [funcVc showLoadingWithMessage:lang(@"data migration...")];
             [IDODataMigrationManager dataToJsonFileProgressBlock:^(float progress) {
                 [funcVc showSyncProgress:progress];
@@ -78,7 +107,7 @@
             [IDODataMigrationManager dataToJsonFileCompleteBlock:^(BOOL isSuccess, NSString *newDirePath) {
                 [funcVc showToastWithText:lang(@"data to json commplete")];
             }];
-            [IDODataMigrationManager dataToJsonFileStart:nil];
+            [IDODataMigrationManager dataToJsonFileStart:[strongSelf getFilePath]];
         }
     };
 }

@@ -33,5 +33,6 @@
 #define RSSI_KEY @"ido_demo_rssi_key" //信号强弱
 #define FIRMWARE_FILE_PATH_KEY @"firmware_file_path_key" //固件文件路径
 #define AGPS_FILE_PATH_KEY @"agps_file_path_key" //agps文件路径
+#define SANDBOX_FILE_PATH_KEY @"sandbox_file_path_key" //沙盒文件路径
 #define FIRMWARE_FILE_TYPE_KEY @"firmware_file_type_key" //固件文件类型
 #endif /* IDOBluetoothDemo_pch */

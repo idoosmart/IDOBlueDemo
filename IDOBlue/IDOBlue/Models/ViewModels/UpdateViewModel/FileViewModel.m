@@ -79,6 +79,15 @@
     return fileList;
 }
 
+- (NSArray *)sandboxLocalFileArr
+{
+    NSString * dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
+    if (!dirPath) return [NSArray array];
+    self.dirPath = dirPath;
+    NSArray * fileList =  [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
+    return fileList;
+}
+
 - (void)setType:(NSInteger)type
 {
     _type = type;
@@ -89,8 +98,11 @@
 {
     if (_type == 0) { //固件文件
         [self getCellModels:self.otaLocalFileArr];
-    }else { //agps文件
+    }else if(_type == 1){ //agps文件
         [self getCellModels:self.agpsLocalFileArr];
+    }else if (_type == 2) { //获取沙盒文件
+        self.isRightButton = NO;
+        [self getCellModels:self.sandboxLocalFileArr];
     }
 }
 
@@ -121,22 +133,7 @@
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         LabelCellModel * cellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         NSString * fileName = [cellModel.data firstObject];
-        NSInteger fileMode  = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
-        if (fileMode == 0) {
-            if (strongSelf.type == 0) {
-                NSString * filePath = [NSBundle mainBundle].bundlePath;
-                NSString * dirPath = [filePath stringByAppendingPathComponent:@"Firmwares"];
-                filePath = [dirPath stringByAppendingPathComponent:fileName];
-                [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
-            }else {
-                NSString * filePath = [NSBundle mainBundle].bundlePath;
-                NSString * dirPath = [filePath stringByAppendingPathComponent:@"Agps"];
-                filePath = [dirPath stringByAppendingPathComponent:fileName];
-                [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
-            }
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
-            [funcVC.navigationController popViewControllerAnimated:YES];
-        }else {
+        if (strongSelf.type == 2) {
             BOOL isDir = NO;
             NSString * filePath = [strongSelf.dirPath stringByAppendingPathComponent:fileName];
             [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir];
@@ -146,13 +143,9 @@
                 fileModel.type    = strongSelf.type;
                 fileModel.dirPath = filePath;
                 vc.model = fileModel;
-                vc.title = lang(@"selected firmware");
+                vc.title = fileName?:lang(@"selected files");
                 fileModel.selectFileCallback = ^(NSString * _Nonnull filePath) {
-                    if (strongSelf.type == 0) {
-                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
-                    }else {
-                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
-                    }
+                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:SANDBOX_FILE_PATH_KEY];
                     [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
                     NSInteger index = [funcVC.navigationController.viewControllers indexOfObject:funcVC];
                     UIViewController * vc = [funcVC.navigationController.viewControllers objectAtIndex:index >= 1 ? (index - 1) : 0];
@@ -160,16 +153,60 @@
                 };
                 [funcVC.navigationController pushViewController:vc animated:YES];
             }else { //文件无下级文件
+                [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:SANDBOX_FILE_PATH_KEY];
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
+                [funcVC.navigationController popViewControllerAnimated:YES];
+            }
+        }else {
+            NSInteger fileMode  = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
+            if (fileMode == 0) {
                 if (strongSelf.type == 0) {
+                    NSString * filePath = [NSBundle mainBundle].bundlePath;
+                    NSString * dirPath = [filePath stringByAppendingPathComponent:@"Firmwares"];
+                    filePath = [dirPath stringByAppendingPathComponent:fileName];
                     [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
                 }else {
+                    NSString * filePath = [NSBundle mainBundle].bundlePath;
+                    NSString * dirPath = [filePath stringByAppendingPathComponent:@"Agps"];
+                    filePath = [dirPath stringByAppendingPathComponent:fileName];
                     [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
                 }
                 [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
                 [funcVC.navigationController popViewControllerAnimated:YES];
+            }else {
+                BOOL isDir = NO;
+                NSString * filePath = [strongSelf.dirPath stringByAppendingPathComponent:fileName];
+                [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir];
+                if(isDir) { //目录有下级文件
+                    FuncViewController * vc = [[FuncViewController alloc]init];
+                    OtherFileViewModel * fileModel = [OtherFileViewModel new];
+                    fileModel.type    = strongSelf.type;
+                    fileModel.dirPath = filePath;
+                    vc.model = fileModel;
+                    vc.title = fileName?:lang(@"selected firmware");
+                    fileModel.selectFileCallback = ^(NSString * _Nonnull filePath) {
+                        if (strongSelf.type == 0) {
+                            [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
+                        }else {
+                            [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                        }
+                        [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
+                        NSInteger index = [funcVC.navigationController.viewControllers indexOfObject:funcVC];
+                        UIViewController * vc = [funcVC.navigationController.viewControllers objectAtIndex:index >= 1 ? (index - 1) : 0];
+                        [funcVC.navigationController popToViewController:vc animated:YES];
+                    };
+                    [funcVC.navigationController pushViewController:vc animated:YES];
+                }else { //文件无下级文件
+                    if (strongSelf.type == 0) {
+                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
+                    }else {
+                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                    }
+                    [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
+                    [funcVC.navigationController popViewControllerAnimated:YES];
+                }
             }
         }
-       
     };
 }
 

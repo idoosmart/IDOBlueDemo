@@ -9,7 +9,7 @@
 @interface IDOSyncPressureItemInfoBluetoothModel : IDOBluetoothBaseModel
 
 /**
- 日期 time interval since 1970 (如:1444361933) | Date time interval since 1970 (eg 14442361933)
+ 日期 精确到日期 date interval since 1970 (如:1444361933) | Date time interval since 1970 (eg 14442361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
@@ -43,7 +43,7 @@
 @property (nonatomic,assign) NSInteger day;
 
 /**
- 日期 time interval since 1970 (如:1444361933) | Date time interval since 1970 (eg 14442361933)
+ 日期 精确到日期 date interval since 1970 (如:1444361933) | Date time interval since 1970 (eg 14442361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
@@ -185,7 +185,7 @@
 @property (nonatomic,assign) NSInteger day;
 
 /**
- 日期 time interval since 1970 (如:1444361933) | Date time interval since 1970 (eg 14442361933)
+ 日期 精确到日期 date interval since 1970 (如:1444361933) | Date time interval since 1970 (eg 14442361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
@@ -323,12 +323,12 @@
 @property (nonatomic,assign) NSInteger second;
 
 /**
- 日期 time interval since 1970 (如:1444361933) | Date time interval since 1970 (eg 14442361933)
+ 日期 精确到日期 date interval since 1970 (如:1444361933) | Date time interval since 1970 (eg 14442361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
 /**
- 开始时间 | Start time
+ 开始时间 精确到秒 | start time interval since 1970 (eg 14442361933)
  */
 @property (nonatomic,copy) NSString * timeStr;
 
@@ -504,9 +504,14 @@
 @property (nonatomic,assign) NSInteger  serialNumber;
 
 /**
- 时间戳 time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ 时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy)   NSString * dateStr;
+
+/**
+ 时间戳 精确到分钟 time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ */
+@property (nonatomic,copy)   NSString * timeStr;
 
 /**
  本地设置数据，区分手环同步的数据 | Locally set data to distinguish the data of the bracelet synchronization
@@ -555,7 +560,7 @@
 @property (nonatomic,copy)   NSArray <IDOSyncBpDataItemInfoBluetoothModel *>* bloodbPressures;
 
 /**
- 时间戳 time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ 时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy)   NSString * dateStr;
 
@@ -670,7 +675,7 @@
 @property (nonatomic,assign) NSInteger data;
 
 /**
- 时间戳 time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ 时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
@@ -756,7 +761,7 @@
 @property (nonatomic,copy) NSArray <IDOSyncHrDataItemInfoBluetoothModel *>* heartRates;
 
 /**
- 时间戳 time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ 时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
@@ -856,7 +861,7 @@
 @property (nonatomic,assign) NSInteger  durations;
 
 /**
- 时间戳 time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ 时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
@@ -947,7 +952,7 @@
 @property (nonatomic,assign) NSInteger day;
 
 /**
- 时间戳 time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ 时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
@@ -1059,7 +1064,7 @@
 @property (nonatomic,assign) NSInteger distance;
 
 /**
- 运动时间日期 | Sports time and date
+ 运动时间日期 精确到日期 | Sports time and date
  */
 @property (nonatomic,copy) NSString * dateStr;
 
@@ -1093,7 +1098,7 @@
 @property (nonatomic,assign) NSInteger day;
 
 /**
- 时间戳 time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ 时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
@@ -1244,13 +1249,13 @@
 @property (nonatomic,copy) NSString * longitudeStr;
 
 /**
-  * 发起运动时间 时间戳 time interval since 1970 (如:1444361933)
+  * 发起运动时间 时间戳 精确到秒 time interval since 1970 (如:1444361933)
   * Initiate exercise time Timestamp time interval since 1970 (eg 14442361933)
  */
 @property (nonatomic,copy) NSString * timeStr;
 
 /**
- 日期 date interval since 1970 (如:1444361933) | date interval since 1970 (eg: 14443361933)
+ 日期 精确到日期 date interval since 1970 (如:1444361933) | date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 
@@ -1290,13 +1295,13 @@
 @property (nonatomic,assign) NSInteger second;
 
 /**
- * 发起运动时间 时间戳 time interval since 1970 (如:1444361933)
+ * 发起运动时间 时间戳 精确到秒 time interval since 1970 (如:1444361933)
  * Initiate exercise time Timestamp time interval since 1970 (eg 14442361933)
  */
 @property (nonatomic,copy) NSString * timeStr;
 
 /**
- 日期 date interval since 1970 (如:1444361933) | date interval since 1970 (eg: 14443361933)
+ 日期 精确到日期 date interval since 1970 (如:1444361933) | date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
 

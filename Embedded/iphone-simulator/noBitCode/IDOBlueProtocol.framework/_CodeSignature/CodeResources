@@ -14,11 +14,11 @@
 		</data>
 		<key>Headers/IDOBluetoothBaseModel.h</key>
 		<data>
-		u5dRDWoNzCOh/Ac5M7OCEjtpRCs=
+		g0sHpH8YIHe0gehr1/9To4VHZvs=
 		</data>
 		<key>Headers/IDOBluetoothEngine.h</key>
 		<data>
-		gUbCqNuCUdUqIMny4Wx342Jz8G4=
+		yhWnwDStFYQqGovGFBdyWzHAgqk=
 		</data>
 		<key>Headers/IDOBluetoothServices.h</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Headers/IDOSyncInfoBluetoothModel.h</key>
 		<data>
-		ATgaviR8XIEvP9mSsFVbxg2OBU0=
+		VSn5Ic3tjttBNY6+GV6EF8O4Vf8=
 		</data>
 		<key>Headers/IDOSyncManager.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		+TLYqii+0BK2wfmc62SPw4D35to=
+		uydI1dmkeIg+vqzR9ADVDJjsVt8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -137,22 +137,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			u5dRDWoNzCOh/Ac5M7OCEjtpRCs=
+			g0sHpH8YIHe0gehr1/9To4VHZvs=
 			</data>
 			<key>hash2</key>
 			<data>
-			mfrTVgp/0VI5tg1p9s6L5Vv9FUlJ/IgN//ZcyJR2fg8=
+			S2fPi+Smc9i0xUlaMuQ4GLaqHnoZxyYntBpnknhE/N8=
 			</data>
 		</dict>
 		<key>Headers/IDOBluetoothEngine.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gUbCqNuCUdUqIMny4Wx342Jz8G4=
+			yhWnwDStFYQqGovGFBdyWzHAgqk=
 			</data>
 			<key>hash2</key>
 			<data>
-			hsQha2PMrI7VtemuxZ4/yZtqfMooqdxnz8RtrPmQM8k=
+			QdGxpQzoelE3rB7XUIGpR/R4gVm3Bz6J/XOWOHXszMo=
 			</data>
 		</dict>
 		<key>Headers/IDOBluetoothServices.h</key>
@@ -335,11 +335,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ATgaviR8XIEvP9mSsFVbxg2OBU0=
+			VSn5Ic3tjttBNY6+GV6EF8O4Vf8=
 			</data>
 			<key>hash2</key>
 			<data>
-			++MD26A9SaSzQtSWy9s6htAUVlOaBPItP62OGjXaAW8=
+			7r3o0dnoJ5eTbKCr53Yqh+R79KcIluKfI+8u0G+J1MU=
 			</data>
 		</dict>
 		<key>Headers/IDOSyncManager.h</key>
