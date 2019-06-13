@@ -100,16 +100,39 @@
             }
         }else {
             __strong typeof(self) strongSelf = weakSelf;
+            [strongSelf deleteHealthData];
             [funcVc showLoadingWithMessage:lang(@"data migration...")];
             [IDODataMigrationManager dataToJsonFileProgressBlock:^(float progress) {
                 [funcVc showSyncProgress:progress];
             }];
-            [IDODataMigrationManager dataToJsonFileCompleteBlock:^(BOOL isSuccess, NSString *newDirePath) {
+            [IDODataMigrationManager dataToJsonFileCompleteBlock:^(BOOL isSuccess, NSString *zipPath) {
                 [funcVc showToastWithText:lang(@"data to json commplete")];
             }];
             [IDODataMigrationManager dataToJsonFileStart:[strongSelf getFilePath]];
         }
     };
+}
+
+- (void)deleteHealthData
+{
+    [IDOSyncSportDataInfoBluetoothModel deleteCurrentTable];
+    [IDOSyncSportDataItemInfoBluetoothModel deleteCurrentTable];
+    //睡眠
+    [IDOSyncSleepDataInfoBluetoothModel deleteCurrentTable];
+    [IDOSyncSleepDataItemInfoBluetoothModel deleteCurrentTable];
+    //心率
+    [IDOSyncHrDataInfoBluetoothModel deleteCurrentTable];
+    [IDOSyncHrDataItemInfoBluetoothModel deleteCurrentTable];
+    //血压
+    [IDOSyncBpDataInfoBluetoothModel deleteCurrentTable];
+    [IDOSyncBpDataItemInfoBluetoothModel deleteCurrentTable];
+    //运动
+    [IDOSyncActivityDataInfoBluetoothModel deleteCurrentTable];
+    //轨迹
+    [IDOSyncGpsDataInfoBluetoothModel deleteCurrentTable];
+    [IDOSyncGpsDataItemInfoBluetoothModel deleteCurrentTable];
+    //体重
+    [IDOWeightBluetoothModel deleteCurrentTable];
 }
 
 @end

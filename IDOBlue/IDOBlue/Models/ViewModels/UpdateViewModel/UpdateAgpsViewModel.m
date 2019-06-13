@@ -37,7 +37,7 @@
 {
     self = [super init];
     if (self) {
-        self.rightButtonTitle = lang(@"selected AGPS file");
+        self.rightButtonTitle = lang(@"selected agps file");
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
         [self getButtonCallback];
@@ -57,7 +57,7 @@
     FileViewModel * fileModel = [FileViewModel new];
     fileModel.type = 1;
     vc.model = fileModel;
-    vc.title = lang(@"selected AGPS file");
+    vc.title = lang(@"selected agps file");
     [[IDODemoUtility getCurrentVC].navigationController pushViewController:vc animated:YES];
 }
 
@@ -75,7 +75,7 @@
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data    = @[lang(@"AGPS update")];
+    model1.data    = @[lang(@"agps update")];
     model1.cellHeight = 70.0f;
     model1.buttconCallback = self.buttconCallback;
     model1.cellClass  = [OneButtonTableViewCell class];
@@ -111,11 +111,11 @@
         }
     }
     self.filePath = path;
-    NSData * data = [NSData dataWithContentsOfFile:filePath];
+    NSData * data = [NSData dataWithContentsOfFile:self.filePath];
     NSString * dataSize = [NSString stringWithFormat:@"%ld bytes",(long)data.length];
     NSString * nameStr = [@"Name : "stringByAppendingString:fileName];
     NSString * sizeStr = [@"Size : "stringByAppendingString:dataSize];
-    NSString * typeStr = [@"Type : "stringByAppendingString:@"AGPS File"];
+    NSString * typeStr = [@"Type : "stringByAppendingString:@"agps File"];
     NSString * fileStr = [NSString stringWithFormat:@"%@\n%@\n%@",nameStr,sizeStr,typeStr];
     return fileStr;
 }
@@ -146,6 +146,7 @@
         strongSelf.theLength = 0;
         [strongSelf computationTime];
         //agps文件启动传输
+        __IDO_FUNCTABLE__.funcExtendModel.gps = YES;
         [IDOFoundationCommand getGpsStatusCommand:^(int errorCode, IDOGetGpsStatusBluetoothModel * _Nullable data) {
             if (data.gpsRunStatus == 0) {
                 [IDOUpdateAgpsManager updateAgpsWithPath:strongSelf.filePath isSetParam:YES prepareCallback:^(int errorCode) {

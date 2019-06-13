@@ -802,9 +802,10 @@
 @property (nonatomic,assign) NSInteger minute;
 
 /**
- 重复 | Repeat
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
-@property (nonatomic,strong)   NSArray * repeat;
+@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
 
 /**
  贪睡时长 | Sleepy time
@@ -1185,7 +1186,8 @@
 @property (nonatomic,assign) BOOL isOpen;
 
 /**
- 重复集合  | Repeat collection
+  * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
 @property (nonatomic,strong) NSArray <NSNumber *>* selectWeeks;
 /**

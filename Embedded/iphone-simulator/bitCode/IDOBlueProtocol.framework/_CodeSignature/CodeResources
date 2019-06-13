@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/IDOBlueDataResponse.h</key>
 		<data>
-		Zc0KkwlFgXvihHsouuRdqj/CvoM=
+		XRnsFJizmXRdK6XeVHLvLxXCdDo=
 		</data>
 		<key>Headers/IDOBlueProtocol.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/IDOBluetoothServices.h</key>
 		<data>
-		XgCKcMGrRyDstqh3EyFUioP51Us=
+		gEnp5aEB8APJd2g+9/Ign4SooB4=
 		</data>
 		<key>Headers/IDOCalculateBluetoothModel.h</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/IDODataMigrationManager.h</key>
 		<data>
-		8TAxdDft/Zhg+b+lpCjw2o7CzS0=
+		mVDuKUav9/2FxdyL0B9UTrDfolQ=
 		</data>
 		<key>Headers/IDOEnum.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/IDOGetInfoBluetoothModel.h</key>
 		<data>
-		Q+W5cTSm+r8KY1ONxShdX0tvigo=
+		Lm1hEX23Y59NWEhdfriPoBm3Hlw=
 		</data>
 		<key>Headers/IDOPeripheralModel.h</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Headers/IDOSetInfoBluetoothModel.h</key>
 		<data>
-		8aw03CfQiRpbPlSOEj80R7KW+oA=
+		ERfvOxelvthikKZ8LSOXFvPB47w=
 		</data>
 		<key>Headers/IDOSyncActivity.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		uydI1dmkeIg+vqzR9ADVDJjsVt8=
+		iK+7tuRB48czD0Vmu5VfNlWvMRw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -115,11 +115,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Zc0KkwlFgXvihHsouuRdqj/CvoM=
+			XRnsFJizmXRdK6XeVHLvLxXCdDo=
 			</data>
 			<key>hash2</key>
 			<data>
-			niMCTB8Pg58ZwpNhkpbj6yWPmy1D8Hd9hsOW8iaFD0k=
+			IDlE/16oXglomIZI8epN2eAFOvlg35L32AJedYzkEBY=
 			</data>
 		</dict>
 		<key>Headers/IDOBlueProtocol.h</key>
@@ -159,11 +159,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XgCKcMGrRyDstqh3EyFUioP51Us=
+			gEnp5aEB8APJd2g+9/Ign4SooB4=
 			</data>
 			<key>hash2</key>
 			<data>
-			gMPPVu/HSsJOLdFagWxlhUNNjWvwl8btDEnMLp363fc=
+			xepFOVFtNgte1+vnwL1P57DU5UDemS+yngaZ3bbRgYI=
 			</data>
 		</dict>
 		<key>Headers/IDOCalculateBluetoothModel.h</key>
@@ -192,11 +192,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8TAxdDft/Zhg+b+lpCjw2o7CzS0=
+			mVDuKUav9/2FxdyL0B9UTrDfolQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			arm3ftiYDxCj1Be/KeA/7SJN91LtLkc331pkxr05RAo=
+			sQm1XKdR6sTEW7VQrcDwbJhCnZti/7ZfJa8c1+WdANE=
 			</data>
 		</dict>
 		<key>Headers/IDOEnum.h</key>
@@ -236,11 +236,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Q+W5cTSm+r8KY1ONxShdX0tvigo=
+			Lm1hEX23Y59NWEhdfriPoBm3Hlw=
 			</data>
 			<key>hash2</key>
 			<data>
-			FKNA6AAHlOUjEnrcwmXdmL4Fz+yOKYpAUx4m+oFRg5w=
+			J2MHkyc0rIiXbPD0wrwPbO1M9jnxGBrJIrMz7OLV/ek=
 			</data>
 		</dict>
 		<key>Headers/IDOPeripheralModel.h</key>
@@ -269,11 +269,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8aw03CfQiRpbPlSOEj80R7KW+oA=
+			ERfvOxelvthikKZ8LSOXFvPB47w=
 			</data>
 			<key>hash2</key>
 			<data>
-			qr3LsodpwVgyvrcs3sVCUs0RYkf/R7SHRE3Emfc4B38=
+			5fq1CpQLD0t4k/f82N/iqs5jBVHZmtrWq3VSarKHo1Y=
 			</data>
 		</dict>
 		<key>Headers/IDOSyncActivity.h</key>

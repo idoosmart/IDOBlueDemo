@@ -643,7 +643,7 @@
 "update..." = "升级中...";
 "update success" = "升级成功";
 "update failed" = "升级失败";
-"selected AGPS file" = "选择文件";
+"selected agps file" = "选择文件";
 "file ready for transfer..." = "文件准备传输";
 "file does not exist" = "文件不存在";
 "file write..." = "文件写入...";

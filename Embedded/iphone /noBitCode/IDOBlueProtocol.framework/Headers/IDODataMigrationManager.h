@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface IDODataMigrationManager : NSObject
+
+/**
+ * 删除本地数据迁移状态(用于本地数据库表删除数据使用) | Delete local data migration state (used for local database table deletion data)
+ */
++ (BOOL)deleteDataMigrationState;
+
 /**
   * 是否需要数据迁移,只有需要迁移才会有下面迁移的启动和回调,新的项目不需要执行数据迁移,注意的问题数据迁移是在异步操作,⚠️在数据量大时比较耗时,尽量在执行完数据迁移再去执行其他工作.
   * Whether data migration is required, only the migration and the callback of the following migration are required.

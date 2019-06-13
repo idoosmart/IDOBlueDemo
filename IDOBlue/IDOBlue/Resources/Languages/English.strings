@@ -644,7 +644,7 @@
 "update..." = "update...";
 "update success" = "update success";
 "update failed" = "update failed";
-"selected AGPS file" = "files";
+"selected agps file" = "files";
 "file ready for transfer..." = "file ready for transfer...";
 "file does not exist" = "file does not exist";
 "file write..." = "file write...";

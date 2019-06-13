@@ -54,7 +54,7 @@ extern NSString * _Nonnull IDOBluetoothDataMigrationNotifyName;
  * After the SDK service is registered, the device information is initialized and returned, and bluetooth needs to be started.
  * According to their business needs, they can choose their own APP to create bluetooth management, or they can use the library we provide to create bluetooth management.
  */
-@property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^startScanBule)(void(^ _Nullable getDeviceInfoBlock)(IDOGetDeviceInfoBluetoothModel * _Nullable model));
+@property (nonatomic,copy,nullable) void(^startScanBule)(void(^ _Nullable getDeviceInfoBlock)(IDOGetDeviceInfoBluetoothModel * _Nullable model));
 
 /**
  * @brief  注册SDK服务,初始化设备信息 | Register for SDK service,initializes device info

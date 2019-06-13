@@ -1668,6 +1668,11 @@
  * @return IDOGetDeviceFuncBluetoothModel
  */
 + (__kindof IDOGetDeviceFuncBluetoothModel *)currentModel;
+
+/**
+ * @brief 判断是否有运动模式 | Determine if there are movement patterns
+ */
++ (BOOL)isHaveMovment;
 @end
 
 #pragma mark ==== 获取设备信息model ====
