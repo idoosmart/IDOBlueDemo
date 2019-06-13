@@ -13,6 +13,7 @@
 | 3.1.8 | iOS 8.0 | Xcode 10.2.1 |
 | 3.2.5 | iOS 8.0 | Break up the SDK|
 | 3.2.7 | iOS 8.0 | Device reconnection|
+| 3.2.9| iOS 8.0 | Add swift demo|
 
 
 ## Project configuration
@@ -81,6 +82,7 @@
 * [8.0 Bluetooth common commands](#8.0) 
 * [9.0 AGPS file updates](#9.0) 
 * [10.0 Firmware update (OTA)](#10.0) 
+* [11.0 Not use SDK bluetooth manager](#11.0) 
 
 ## <span id="1.0">Old data migration</span>
 * <p>Only in the old project need to do data migration, the old database needs to be migrated to the new database, optimize the operation of the database, reduce data redundancy, improve program performance. Before performing data migration, it is necessary to determine whether the old database exists or not, and after data migration, it is necessary to pass in a collection of directory names that cannot be deleted to ensure data integrity. After the migration, the data that is not retained will be deleted and the old database will be copied to the new directory, which can be obtained through the path.</p>
@@ -738,5 +740,42 @@ watchDiaModel = [IDOSetWatchDiaInfoBluetoothModel currentModel];
 }
 
 ```
+## <span id="11.0">Not use SDK bluetooth manager</span>
 
+```objc
+// services to add when scanning
+[your blue manager scanForPeripheralsWithServices:[IDOBlueDataResponse getScanServices]
+                                          options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
 
+// bluetooth delegate methods that need to be implemented
+- (void)peripheral:(CBPeripheral *)peripheral
+didDiscoverCharacteristicsForService:(CBService *)service
+             error:(NSError *)error
+{
+    if (!error) {
+        [IDOBlueDataResponse findCharac:peripheral service:service];
+        [IDOBlueDataResponse blueManager:blueCenterManager
+                              peripheral:peripheral
+                            serviceIndex:0
+                            didConnected:^(BOOL isOta) {
+            
+        }];
+    }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral
+didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
+             error:(NSError *)error
+{
+    if (!error) {
+        [IDOBlueDataResponse didUpdateValueForCharacteristic:characteristic];
+    }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral
+didWriteValueForCharacteristic:(CBCharacteristic *)characteristic
+             error:(nullable NSError *)error
+{
+    [IDOBlueDataResponse didWriteValueForCharacteristic:characteristic error:error];
+}
+```
