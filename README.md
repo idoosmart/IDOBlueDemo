@@ -13,6 +13,7 @@
 | 3.1.8 | iOS 8.0 | Xcode 10.2.1 |
 | 3.2.5 | iOS 8.0 | Break up the SDK|
 | 3.2.7 | iOS 8.0 | Device reconnection|
+| 3.2.9| iOS 8.0 | Add swift demo|
 
 
 ## Project configuration
@@ -755,7 +756,7 @@ didDiscoverCharacteristicsForService:(CBService *)service
         [IDOBlueDataResponse findCharac:peripheral service:service];
         [IDOBlueDataResponse blueManager:blueCenterManager
                               peripheral:peripheral
-                            serviceIndex:serviceIndex
+                            serviceIndex:0
                             didConnected:^(BOOL isOta) {
             
         }];
