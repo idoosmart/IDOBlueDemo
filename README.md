@@ -752,15 +752,13 @@ didDiscoverCharacteristicsForService:(CBService *)service
              error:(NSError *)error
 {
     if (!error) {
-        [IDOBlueDataResponse currentPeripheral:peripheral];
-        [IDOBlueDataResponse currentBlueManager:your blue manager];
-        if ([IDOBlueDataResponse isOtaModeWithPeripheral:peripheral]) { //is ota mode
-             [IDOFoundationCommand didOta];
-          }else {
-            [IDOBlueDataResponse findCharac:peripheral service:service];
-            [IDOFoundationCommand disOta];
-            [IDOFoundationCommand didConnect];
-         }
+        [IDOBlueDataResponse findCharac:peripheral service:service];
+        [IDOBlueDataResponse blueManager:blueCenterManager
+                              peripheral:peripheral
+                            serviceIndex:serviceIndex
+                            didConnected:^(BOOL isOta) {
+            
+        }];
     }
 }
 
