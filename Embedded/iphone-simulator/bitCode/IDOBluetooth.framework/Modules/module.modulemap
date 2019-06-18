@@ -1,6 +1,0 @@
-framework module IDOBluetooth {
-  umbrella header "IDOBluetooth.h"
-
-  export *
-  module * { export * }
-}

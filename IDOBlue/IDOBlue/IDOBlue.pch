@@ -14,18 +14,54 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+
 #if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #import <IDOBluetoothInternal/IDOBluetoothInternal.h>
 #endif
+
 #if __has_include(<IDOBluetooth/IDOBluetooth.h>)
 #import <IDOBluetooth/IDOBluetooth.h>
+#else
+#import "IDOBluetoothManagerDelegate.h"
+#import "IDOBluetoothManager.h"
 #endif
+
 #if __has_include(<IDOBlueUpdate/IDOBlueUpdate.h>)
 #import <IDOBlueUpdate/IDOBlueUpdate.h>
+#else
+#import "IDOUpdateManagerDelegate.h"
+#import "IDOUpdateFirmwareManager.h"
 #endif
+
 #if __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
 #import <IDOBlueProtocol/IDOBlueProtocol.h>
+#else
+#import "IDOEnum.h"
+#import "IDOBluetoothBaseModel.h"
+#import "IDODataExchangeModel.h"
+#import "IDOGetInfoBluetoothModel.h"
+#import "IDOSetInfoBluetoothModel.h"
+#import "IDOSyncInfoBluetoothModel.h"
+#import "IDOCalculateBluetoothModel.h"
+#import "IDOWeightBluetoothModel.h"
+#import "IDOPeripheralModel.h"
+#import "IDOSyncManager.h"
+#import "IDOSyncConfig.h"
+#import "IDOSyncHealth.h"
+#import "IDOSyncBop.h"
+#import "IDOSyncActivity.h"
+#import "IDOSyncGps.h"
+#import "IDOBluetoothEngine.h"
+#import "IDOBluetoothServices.h"
+#import "IDOErrorCodeToStr.h"
+#import "IDORecordDeviceLog.h"
+#import "IDOBlueDataResponse.h"
+#import "IDOFoundationCommand.h"
+#import "IDODataMigrationManager.h"
+#import "IDOUpdateAgpsManager.h"
 #endif
+
+
 #endif
 #define PRODUCTION_MODE_KEY @"ido_demo_mode_key" //0: 产线模式  1: 普通模式
 #define FILE_MODE_KEY @"ido_file_mode_key" //文件模式 0: mainBundle 1: sandbox
