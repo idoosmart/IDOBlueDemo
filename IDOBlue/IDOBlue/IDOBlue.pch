@@ -21,6 +21,7 @@
 
 #if __has_include(<IDOBluetooth/IDOBluetooth.h>)
 #import <IDOBluetooth/IDOBluetooth.h>
+#elif __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #else
 #import "IDOBluetoothManagerDelegate.h"
 #import "IDOBluetoothManager.h"
@@ -28,6 +29,7 @@
 
 #if __has_include(<IDOBlueUpdate/IDOBlueUpdate.h>)
 #import <IDOBlueUpdate/IDOBlueUpdate.h>
+#elif __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #else
 #import "IDOUpdateManagerDelegate.h"
 #import "IDOUpdateFirmwareManager.h"
@@ -35,6 +37,7 @@
 
 #if __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
 #import <IDOBlueProtocol/IDOBlueProtocol.h>
+#elif __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #else
 #import "IDOEnum.h"
 #import "IDOBluetoothBaseModel.h"
@@ -60,7 +63,6 @@
 #import "IDODataMigrationManager.h"
 #import "IDOUpdateAgpsManager.h"
 #endif
-
 
 #endif
 #define PRODUCTION_MODE_KEY @"ido_demo_mode_key" //0: 产线模式  1: 普通模式

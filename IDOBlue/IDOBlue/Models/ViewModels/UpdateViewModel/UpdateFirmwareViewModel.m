@@ -23,7 +23,6 @@
 @property (nonatomic,copy) NSString * logStr;
 @property (nonatomic,strong) UITextView * textView;
 @property (nonatomic,strong) NSString * filePath;
-@property (nonatomic,assign) BOOL updating;
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^threeButtonCallback)(NSInteger index,UITableViewCell * tableViewCell);;
@@ -40,7 +39,6 @@
 {
     self = [super init];
     if (self) {
-        self.updating = NO;
         self.rightButtonTitle = lang(@"selected firmware");
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
@@ -136,14 +134,12 @@
                 }
             }];
         }else if (index == 1) {
-            if (strongSelf.updating)return;
             if (IDO_BLUE_ENGINE.managerEngine.isConnected) {
                  [funcVC showToastWithText:lang(@"device connected not need reconnected")];
                 return;
             }
             [IDOBluetoothManager startScan];
         }else if (index == 2) {
-            if (strongSelf.updating)return;
             if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
             [funcVC showLoadingWithMessage:lang(@"enter update...")];
             [IDOUpdateFirmwareManager startUpdate];
@@ -234,7 +230,6 @@
 {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     if (state == IDO_UPDATE_COMPLETED) {
-        self.updating = NO;
         funcVC.statusLabel.text = lang(@"update success");
         [funcVC showToastWithText:lang(@"update success")];
         int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
@@ -248,7 +243,6 @@
             }];
         }
     }else {
-       self.updating = YES;
        funcVC.statusLabel.text = lang(@"update...");
     }
 }
@@ -258,7 +252,6 @@
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     funcVC.statusLabel.text = lang(@"update failed");
     [funcVC showToastWithText:lang(@"update failed")];
-    self.updating = NO;
     NSString * errorStr = [NSString stringWithFormat:@"%@\n",error.domain];
     [self addMessageText:errorStr];
 }

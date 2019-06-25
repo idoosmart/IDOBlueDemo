@@ -249,6 +249,7 @@ static BOOL BIND_STATE = NO;
 - (void)bindAction:(UIButton *)sender
 {
     BIND_STATE = NO;
+    [self showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"bind")]];
     IDOSetBindingInfoBluetoothModel * model = [[IDOSetBindingInfoBluetoothModel alloc]init];
     __weak typeof(self) weakSelf = self;
     [IDOFoundationCommand bindingCommand:model callback:^(IDO_BIND_STATUS status, int errorCode) {

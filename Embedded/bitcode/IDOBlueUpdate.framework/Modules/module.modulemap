@@ -1,0 +1,11 @@
+framework module IDOBlueUpdate {
+  umbrella header "IDOBlueUpdate.h"
+
+  export *
+  module * { export * }
+}
+
+module IDOBlueUpdate.Swift {
+    header "IDOBlueUpdate-Swift.h"
+    requires objc
+}

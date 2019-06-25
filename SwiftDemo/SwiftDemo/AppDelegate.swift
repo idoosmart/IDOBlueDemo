@@ -8,7 +8,7 @@
 
 import UIKit
 import IDOBlueProtocol
-import IDOBluetoothb
+import IDOBluetooth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

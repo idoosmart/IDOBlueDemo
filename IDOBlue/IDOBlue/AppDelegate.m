@@ -34,7 +34,6 @@
         if(__IDO_BIND__)[IDOBluetoothManager startScan];
     });
 #endif
-    
     if (__IDO_BIND__) {
         int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
         if (mode == 0) {

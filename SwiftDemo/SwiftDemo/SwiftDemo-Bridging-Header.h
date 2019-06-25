@@ -15,6 +15,7 @@
 #import "NSObject+ModelToDic.h"
 #import "NSObject+ModelToDic.h"
 
+/*
 #import "IDOEnum.h"
 #import "IDOBluetoothBaseModel.h"
 #import "IDODataExchangeModel.h"
@@ -47,7 +48,7 @@
 
 #import "IDOUpdateManagerDelegate.h"
 #import "IDOUpdateFirmwareManager.h"
-
+*/
 #endif
 
 #endif /* testDemo_Bridging_Header_h */

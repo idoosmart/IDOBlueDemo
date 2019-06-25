@@ -431,7 +431,8 @@
  * @param data 活动结构体数据 | Active Structure Data
  * @return 是 或 否 |yes or no
  */
-+ (BOOL)activityDataInfoStructToModel:(const void *)data;
++ (BOOL)activityDataInfoStructToModel:(const void *)data
+                        hrDataJsonStr:(NSString *)jsonStr;
 
 /**
  * @brief 当前设备根据活动开始时间查询某个活动详情
