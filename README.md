@@ -14,10 +14,8 @@
 | 3.2.5 | iOS 8.0 | Break up the SDK|
 | 3.2.7 | iOS 8.0 | Device reconnection|
 | 3.2.9| iOS 8.0 | Add swift demo|
-cIDOBlueProtocol.framework
-IDOBluetooth.framework
-IDOBlueUpdate.framework
-
+| 3.3.0| iOS 8.0 | Add .a lib|
+| 3.3.2| iOS 8.0 | Modify pairing logic|
 
 ## Project configuration
 * Reference header file
