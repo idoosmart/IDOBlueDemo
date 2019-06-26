@@ -65,6 +65,10 @@
         [IDOSyncConfig syncConfigCompleteCallback:^(int errorCode) {
             [funcVC showToastWithText:lang(@"sync config data complete")];
         }];
+        //同步进度
+        [IDOSyncConfig syncConfigProgressCallback:^(int progress) {
+             [funcVC showSyncProgress:progress/100.0f];
+        }];
         [IDOSyncConfig startSync];
     };
 }

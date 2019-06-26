@@ -27,7 +27,12 @@
 + (void)stopSync;
 
 /**
- * @brief 闹钟 同步进度 (暂时不能使用) | Alarm clock Synchronization progress (not available at the moment)
+ 当前同步配置是否在运行 | get current sync config is run
+ */
++ (BOOL)getSyncConfigRun;
+
+/**
+ * @brief 闹钟 同步进度 (0-100) (暂时不能使用) | Alarm clock Synchronization progress (0-100) (not available at the moment)
  * @param callback 进度回调 | Progress callback
  */
 + (void)syncAlarmsProgressCallback:(void(^_Nullable)(int progress))callback;
@@ -39,7 +44,7 @@
 + (void)syncAlarmsCompleteCallback:(void (^_Nullable)(int errorCode))callback;
 
 /**
- * @brief 配置 同步进度（1-10）| Configuration Synchronization progress （1-10）
+ * @brief 配置 同步进度（0-100）| Configuration Synchronization progress （0-100）
  * @param callback 进度回调 | Progress callback
  */
 + (void)syncConfigProgressCallback:(void(^_Nullable)(int progress))callback;

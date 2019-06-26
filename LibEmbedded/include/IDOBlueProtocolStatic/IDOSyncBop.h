@@ -26,6 +26,11 @@
 + (void)stopSync;
 
 /**
+ 当前同步血氧、压力是否在运行 | get current sync blood oxygen, pressure is run
+ */
++ (BOOL)getSyncBpRun;
+
+/**
  * @brief 血氧、压力 同步进度 | Blood oxygen, pressure Synchronization progress
  * @param callback 进度回调 | Progress callback
  */

@@ -27,6 +27,11 @@
 + (void)stopSync;
 
 /**
+ 当前同步GPS是否在运行 | get current sync GPS is run
+ */
++ (BOOL)getSyncGpsRun;
+
+/**
  * 删除当天GPS数据 | delete current day gps data
  * ⚠️只有在解绑手环时作删除操作 | only when unbundling bracelets for deletion
  */

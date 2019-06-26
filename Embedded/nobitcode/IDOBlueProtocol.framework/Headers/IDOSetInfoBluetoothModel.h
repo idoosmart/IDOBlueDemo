@@ -1561,12 +1561,12 @@
 @interface IDOSetUserInfoBuletoothModel : IDOBluetoothBaseModel
 
 /**
- 身高 | Height
+ 身高(厘米) | Height(cm)
  */
 @property (nonatomic,assign) NSInteger height;
 
 /**
- 当前体重 | Current weight
+ 当前体重(千克) | Current weight(kg)
  */
 @property (nonatomic,assign) NSInteger weight;
 
@@ -1611,12 +1611,12 @@
 @property (nonatomic,assign) NSInteger goalCalorieData;
 
 /**
- 目标距离 | Target distance
+ 目标距离(米) | Target distance(m)
  */
 @property (nonatomic,assign) NSInteger goalDistanceData;
 
 /**
- 目标体重 | Target weight
+ 目标体重(千克) | Target weight(kg)
  */
 @property (nonatomic,assign) NSInteger goalWeightData;
 

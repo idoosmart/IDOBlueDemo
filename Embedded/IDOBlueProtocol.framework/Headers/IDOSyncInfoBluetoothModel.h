@@ -1336,14 +1336,19 @@
 
 /**
  * @brief 初始化同步的GPS数据模型 (内部使用) | Initialize synchronized GPS data model (internal use)
- * @param data GPS data 结构体数据 | data GPS data structure data
  * @param head GPS head 结构体数据 | data GPS head structure data
  * @param count GPS count 个数 | data GPS count 
  * @return 是或否 | yes or no
  */
-+ (BOOL)gpsDataInfoStructToModel:(void *)data
-                            head:(const void *)head
-                        gpsCount:(uint32_t)count;
++ (BOOL)gpsDataInfoStructWithHead:(const void *)head
+                         gpsCount:(uint32_t)count;
+
+/**
+ * @brief 初始化同步的GPS items 数据模型 (内部使用) | Initialize synchronized GPS items data model (internal use)
+ * @param dic 经纬度数据 | Latitude and longitude data
+ * @return 是或否 | yes or no
+ */
++ (BOOL)gpsDataItemsWithDic:(NSDictionary *)dic;
 
 /**
  * @brief 根据时间戳查询某个活动的GPS信息 | Querying the GPS information of an activity based on the timestamp

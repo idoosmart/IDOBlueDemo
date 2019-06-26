@@ -26,6 +26,11 @@
 + (void)stopSync;
 
 /**
+ 当前同步健康是否在运行 | get current sync health is run
+ */
++ (BOOL)getSyncHealthRun;
+
+/**
  * 删除当天健康数据 | delete current day health data
  * ⚠️只有在解绑手环时作删除操作 | only when unbundling bracelets for deletion
  */

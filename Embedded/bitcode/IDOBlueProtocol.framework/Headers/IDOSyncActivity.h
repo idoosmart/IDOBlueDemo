@@ -27,6 +27,11 @@
 + (void)stopSync;
 
 /**
+ 当前同步活动是否在运行 | get current sync activity is run
+ */
++ (BOOL)getSyncActivityRun;
+
+/**
  * 删除当天活动数据 | delete current day activity data
  * ⚠️只有在解绑手环时作删除操作 | only when unbundling bracelets for deletion
  */
