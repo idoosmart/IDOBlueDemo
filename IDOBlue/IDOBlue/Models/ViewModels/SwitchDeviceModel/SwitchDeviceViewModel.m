@@ -51,7 +51,7 @@
         IDOGetDeviceInfoBluetoothModel * deviceModel = [self.allDevices objectAtIndex:i];
         FuncCellModel * model = [[FuncCellModel alloc]init];
         model.typeStr = @"oneButton";
-        NSString * deviceName = [NSString stringWithFormat:@"%@:%@",deviceModel.deviceName,deviceModel.macAddr];
+        NSString * deviceName = [NSString stringWithFormat:@"%@:%@",deviceModel.deviceName?:@"null",deviceModel.macAddr];
         model.data    = @[deviceName];
         model.cellHeight = 70.0f;
         model.cellClass  = [OneButtonTableViewCell class];

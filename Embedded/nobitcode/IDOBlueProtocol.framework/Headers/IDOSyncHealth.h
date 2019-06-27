@@ -37,7 +37,7 @@
 + (void)deleteHealthCurrentDayData;
 
 /**
- * @brief 健康 同步进度 | Health Synchronization progress
+ * @brief 健康 同步进度 (0-100)| Health Synchronization progress (0-100)
  * @param callback 进度回调 | Progress callback
  */
 + (void)syncHealthDataProgressCallback:(void(^_Nullable)(int progress))callback;

@@ -585,6 +585,21 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      */
     IDO_RECEIVE_DATA_LOG,
     /**
+     * 手环开始升级
+     * The bracelet starts to upgrade
+     */
+    IDO_START_UPDATE_LOG,
+    /**
+     * 手环升级失败
+     * Failed to upgrade the bracelet
+     */
+    IDO_UPDATE_FAILED_LOG,
+    /**
+     * 手环升级成功
+     * Bracelet upgraded successfully
+     */
+    IDO_UPDATE_SUCCESS_LOG,
+    /**
      * 手环启动配对
      * Bracelet starts pairing
      */

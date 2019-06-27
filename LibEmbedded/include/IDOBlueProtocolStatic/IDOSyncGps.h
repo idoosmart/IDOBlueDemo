@@ -38,7 +38,7 @@
 + (void)deleteGpsCurrentDayData;
 
 /**
- * @brief GPS 同步进度 | GPS sync progress
+ * @brief GPS 同步进度 (0-100)| GPS sync progress (0-100)
  * @param callback 进度回调 | Progress callback
  */
 + (void)syncGpsDataProgressCallback:(void(^_Nullable)(int progress))callback;

@@ -187,20 +187,10 @@
 		9BF7EC39219BCAB300572E70 /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC38219BCAB300572E70 /* SliderTableViewCell.m */; };
 		9BF7EC3C219BCFE900572E70 /* SliderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */; };
 		9BFF80EB2189829300EFA848 /* FirmwareTypeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */; };
+		DDD2FA3A22C4D7650018C164 /* IDOBlueProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD2FA2E22C4D3C90018C164 /* IDOBlueProtocol.framework */; };
+		DDD2FA3B22C4D7650018C164 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD2FA2F22C4D3C90018C164 /* IDOBluetooth.framework */; };
+		DDD2FA3C22C4D7650018C164 /* IDOBlueUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD2FA3022C4D3C90018C164 /* IDOBlueUpdate.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		9B8EF94622C202430048D512 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1817F4F1214B2BBF001C90D5 /* IDOBlue-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDOBlue-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -590,6 +580,9 @@
 		9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderCellModel.m; sourceTree = "<group>"; };
 		9BFF80E92189829300EFA848 /* FirmwareTypeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirmwareTypeViewModel.h; sourceTree = "<group>"; };
 		9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirmwareTypeViewModel.m; sourceTree = "<group>"; };
+		DDD2FA2E22C4D3C90018C164 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueProtocol.framework; path = ../Embedded/IDOBlueProtocol.framework; sourceTree = "<group>"; };
+		DDD2FA2F22C4D3C90018C164 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
+		DDD2FA3022C4D3C90018C164 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueUpdate.framework; path = ../Embedded/IDOBlueUpdate.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -597,6 +590,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD2FA3A22C4D7650018C164 /* IDOBlueProtocol.framework in Frameworks */,
+				DDD2FA3B22C4D7650018C164 /* IDOBluetooth.framework in Frameworks */,
+				DDD2FA3C22C4D7650018C164 /* IDOBlueUpdate.framework in Frameworks */,
 				9BBAF49B21F96D7A001BD3F9 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -917,6 +913,9 @@
 		9B437F0521393CED00DE2FC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDD2FA2E22C4D3C90018C164 /* IDOBlueProtocol.framework */,
+				DDD2FA2F22C4D3C90018C164 /* IDOBluetooth.framework */,
+				DDD2FA3022C4D3C90018C164 /* IDOBlueUpdate.framework */,
 				9B5702A4213BEE1500BCE1CE /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
@@ -1313,7 +1312,6 @@
 				9B437EE521393ADC00DE2FC8 /* Sources */,
 				9B437EE621393ADC00DE2FC8 /* Frameworks */,
 				9B437EE721393ADC00DE2FC8 /* Resources */,
-				9B8EF94622C202430048D512 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

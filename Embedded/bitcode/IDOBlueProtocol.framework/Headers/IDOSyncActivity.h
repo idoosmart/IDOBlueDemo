@@ -38,7 +38,7 @@
 + (void)deleteActivityCurrentDayData;
 
 /**
- * @brief 活动 同步进度 (1-100) | Synchronization progress (1-100)
+ * @brief 活动 同步进度 (0-100) | Synchronization progress (0-100)
  * @param callback 进度回调 | Progress callback
  */
 + (void)syncAcitvityDataProgressCallback:(void(^_Nullable)(int progress))callback;

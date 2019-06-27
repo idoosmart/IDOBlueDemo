@@ -60,7 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)didWriteValueForCharacteristic:(CBCharacteristic *)characteristic
                                  error:(NSError *)error;
-
 @end
 
 NS_ASSUME_NONNULL_END

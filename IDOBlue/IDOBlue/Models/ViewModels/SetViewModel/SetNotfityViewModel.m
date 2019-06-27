@@ -245,14 +245,26 @@
             }];
         }else {
             [funcVC showLoadingWithMessage:lang(@"set notice switch...")];
-            [IDOFoundationCommand setSwitchNoticeCommand:strongSelf.noticeModel
-                                               callback:^(int errorCode) {
-                   if(errorCode == 0) {
-                       [funcVC showToastWithText:lang(@"set notice switch success")];
-                   }else {
-                       [funcVC showToastWithText:lang(@"set notice switch failed")];
-                   }
-               }];
+            /* This method is used after a successful pairing, setting only the subswitch state.*/
+            [IDOFoundationCommand setChildSwitchNoticeStateCommand:strongSelf.noticeModel
+                                                          callback:^(int errorCode) {
+                 if(errorCode == 0) {
+                 [funcVC showToastWithText:lang(@"set notice switch success")];
+                 }else {
+                 [funcVC showToastWithText:lang(@"set notice switch failed")];
+                 }
+            }];
+            
+            /*If there is no pair, a pair is initiated and the subswitch state is set after the pair is successful*/
+//            [IDOFoundationCommand setSwitchNoticeCommand:strongSelf.noticeModel
+//                                               callback:^(int errorCode) {
+//                   if(errorCode == 0) {
+//                       [funcVC showToastWithText:lang(@"set notice switch success")];
+//                   }else {
+//                       [funcVC showToastWithText:lang(@"set notice switch failed")];
+//                   }
+//            }];
+
         }
     };
 }

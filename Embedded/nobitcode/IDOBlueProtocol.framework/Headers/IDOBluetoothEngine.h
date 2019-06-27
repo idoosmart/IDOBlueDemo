@@ -72,11 +72,6 @@
  */
 #define __IDO_PERIPHERAL__  IDO_BLUE_ENGINE.managerEngine.peripheral
 
-/**
- IDO 当前升级框架类型 | updates framework type
- */
-#define __IDO_UPDATE_FRAME_TYPE__  IDO_BLUE_ENGINE.managerEngine.updateFrameworkType
-
 
 @interface IDOBluetoothManagerInfoEngine : NSObject
 
@@ -126,9 +121,9 @@
 @property (nonatomic,strong) IDOGetDeviceFuncBluetoothModel * funcTableModel;
 
 /**
- * 固件升级使用框架类型 | Firmware updates use the frame type
+ 当前发送的数据 | current send data
  */
-@property (nonatomic,assign) IDO_UPDATE_FRAMEWORK_TYPE updateFrameworkType;
+@property (nonatomic,strong) NSData * currentData;
 
 @end
 

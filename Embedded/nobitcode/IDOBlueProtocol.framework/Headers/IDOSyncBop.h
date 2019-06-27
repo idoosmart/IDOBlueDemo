@@ -31,7 +31,7 @@
 + (BOOL)getSyncBpRun;
 
 /**
- * @brief 血氧、压力 同步进度 | Blood oxygen, pressure Synchronization progress
+ * @brief 血氧、压力 同步进度 (0-100) | Blood oxygen, pressure Synchronization progress (0-100)
  * @param callback 进度回调 | Progress callback
  */
 + (void)syncBloodOxygenPressureDataProgressCallback:(void(^_Nullable)(int progress))callback;
