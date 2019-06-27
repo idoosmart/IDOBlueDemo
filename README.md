@@ -745,9 +745,16 @@ watchDiaModel = [IDOSetWatchDiaInfoBluetoothModel currentModel];
 
 ```objc
 // services to add when scanning
-[your blue manager scanForPeripheralsWithServices:[IDOBlueDataResponse getScanServices]
+[blueCenterManager scanForPeripheralsWithServices:[IDOBlueDataResponse getScanServices]
                                           options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
 
+// bluetooth dis connect delegate
+- (void)centralManager:(CBCentralManager *)central
+didDisconnectPeripheral:(CBPeripheral *)peripheral
+                 error:(NSError *)error {
+    [IDOFoundationCommand disConnect];
+ }
+ 
 // bluetooth delegate methods that need to be implemented
 - (void)peripheral:(CBPeripheral *)peripheral
 didDiscoverCharacteristicsForService:(CBService *)service
@@ -777,6 +784,9 @@ didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
 didWriteValueForCharacteristic:(CBCharacteristic *)characteristic
              error:(nullable NSError *)error
 {
+    if (error) {
+        [blueCenterManager connectPeripheral:peripheral options:nil];
+    }
     [IDOBlueDataResponse didWriteValueForCharacteristic:characteristic error:error];
 }
 ```
