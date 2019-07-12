@@ -25,7 +25,7 @@
  * Whether the currently connected device is synchronizing, ⚠️ configuration synchronization is not included in the synchronization,
  * and other (step, heart rate, blood pressure, sleep, activity, gps) data synchronization is included.
  */
-@property (nonatomic,assign,readonly) BOOL isSyncing;
+@property (nonatomic,assign,readonly) BOOL isSyncHealthRun;
 
 /**
  * 当前连接设备是否在同步配置信息
@@ -55,8 +55,7 @@
  * @brief 同步完成,每同步完一项会回调一次 请根据上述枚举进行判断是否同步完成
  * stateInfo : 从同步开始到同步结束,返回每项同步的状态信息,每项同步会累加记录,告知哪项成功或失败了
  * Synchronization is completed, and each synchronization will be called once. Please judge whether it is synchronized according to the above enumeration.
- * stateInfo : Returns the status information of each synchronization from the start of synchronization to the end of synchronization.Each synchronization
- * will accumulate records to tell which results or failed.
+ * stateInfo : Returns the status information of each sync from the start of sync to the end of sync.Each sync will accumulate records to tell which results or failed.
  * @param callback 完成回调block | Complete callback block
  * @param failCallback 失败错误回调block | Failed error callback block
  */

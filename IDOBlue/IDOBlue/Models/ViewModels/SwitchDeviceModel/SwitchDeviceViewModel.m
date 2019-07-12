@@ -116,22 +116,6 @@
             if (errorCode == 0) {
                 if (status == IDO_BLUETOOTH_BIND_SUCCESS) { //绑定成功
                     [funcVc showToastWithText:lang(@"bind success")];
-                    /*
-                     [IDOSyncManager syncDataCompleteCallback:^(IDO_SYNC_COMPLETE_STATUS stateCode, NSString * _Nullable stateInfo) {
-                     if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
-                     [funcVc showToastWithText:@"同步数据完成"];
-                     }
-                     } failCallback:^(int errorCode) {
-                     [funcVc showToastWithText:@"同步失败"];
-                     }];
-                     [IDOSyncManager syncDataJsonCallback:^(IDO_CURRENT_SYNC_TYPE syncType, NSString * _Nullable jsonStr) {
-                     
-                     }];
-                     [IDOSyncManager syncDataProgressCallback:^(float progress) {
-                     [funcVc showSyncProgress:progress];
-                     }];
-                     IDOSyncManager.startSync(YES);
-                     */
                 }else if (status == IDO_BLUETOOTH_BINDED) { //已经绑定
                     
                 }else if (status == IDO_BLUETOOTH_BIND_FAILED) { //绑定失败

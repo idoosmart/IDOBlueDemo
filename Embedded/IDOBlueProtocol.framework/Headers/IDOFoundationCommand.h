@@ -35,7 +35,7 @@
 /**
  连接发送通知 | Connection to send notifications
  */
-+ (void)didConnect;
++ (void)didConnectCallback:(void(^_Nullable)(int errorCode))callback;
 
 /**
  断开发送通知 | Disconnect notification
@@ -137,7 +137,7 @@
 + (void)setDefaultConfigCommand:(void(^_Nullable)(int errorCode))callback;
 
 /**
- * @brief 控制设备重启 | Control device restart
+ * @brief 控制设备重启(重启设备后手环会马上断线) | Control device restart （The bracelet disconnects immediately after restarting the device）
  * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Post-execution callback (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
@@ -219,8 +219,10 @@
 + (void)setTargetInfoCommand:(IDOSetUserInfoBuletoothModel * _Nullable)targetModel callback:(void(^_Nullable)(int errorCode))callback;
 
 /**
- * @brief 设置通知中心、来电提醒开关 ⚠️在配对过程中不要执行其他命令。
+ * @brief 设置通知中心、来电提醒开关 ⚠️在配对过程中不要执行其他命令。如果设备没有配对，会发起配对，等配对成功后再执行设置子开关状态，需要配对耗时比较长请监听回调。
  * Set up notification center, call alert switch.⚠️Do not execute other commands during pairing.
+ * If there is no pairing on the device, a pairing will be initiated, and the sub-switch state will be set after the pairing is successful.
+ * If pairing takes a long time, please listen for the callback.
  * @param noticModel 通知开关信息 model (IDOSetNoticeInfoBuletoothModel)
  * Notification switch information model (IDOSetNoticeInfoBuletoothModel)
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)

@@ -23,5 +23,6 @@
 - (void)showToastWithText:(NSString *)message;
 - (void)showUpdateProgress:(float)progress;
 - (void)showSyncProgress:(float)progress;
+- (void)startSync;
 @end
 

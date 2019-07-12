@@ -79,11 +79,17 @@
 @property (nonatomic,assign,readonly) NSInteger autoConnectTotalTime;
 
 /**
- * @brief 初始化蓝牙管理中心对象
- * Initialize the Bluetooth Management Center object
+ * @brief 初始化IDO蓝牙管理中心对象
+ * Initialize IDO the Bluetooth Management Center object
  * @return IDOBluetoothManager
  */
 + (__kindof IDOBluetoothManager *)shareInstance;
+
+/**
+ * @brief 初始化系统蓝牙管理中心对象并刷新蓝牙代理
+ * Initializes the system bluetooth management center object and refreshes the bluetooth delegate
+ */
++ (void)refreshDelegate;
 
 /**
  开始扫描 | Start scanning

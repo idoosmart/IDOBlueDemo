@@ -17,6 +17,7 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <IDOBlueProtocol/PublicHeader.h>
 
 #import <IDOBlueProtocol/IDOEnum.h>
+#import <IDOBlueProtocol/IDOCommonMacro.h>
 #import <IDOBlueProtocol/IDOBluetoothBaseModel.h>
 #import <IDOBlueProtocol/IDODataExchangeModel.h>
 #import <IDOBlueProtocol/IDOGetInfoBluetoothModel.h>

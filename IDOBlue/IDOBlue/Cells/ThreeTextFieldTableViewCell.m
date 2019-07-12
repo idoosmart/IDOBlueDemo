@@ -33,6 +33,7 @@
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(@16);
             make.centerY.equalTo(strongSelf.mas_centerY);
+            make.width.lessThanOrEqualTo(@100);
         }];
         
         self.textField1 = [[UITextField alloc]init];
@@ -46,7 +47,6 @@
             __strong typeof(self) strongSelf = weakSelf;
             make.centerY.equalTo(strongSelf.mas_centerY);
             make.left.equalTo(strongSelf.title.mas_right).offset(10);
-            make.width.equalTo(@60);
         }];
         
         self.textField2 = [[UITextField alloc]init];
@@ -60,7 +60,7 @@
             __strong typeof(self) strongSelf = weakSelf;
             make.centerY.equalTo(strongSelf.mas_centerY);
             make.left.equalTo(strongSelf.textField1.mas_right).offset(10);
-            make.width.equalTo(@60);
+            make.width.equalTo(strongSelf.textField1.mas_width);
         }];
         
         self.textField3 = [[UITextField alloc]init];
@@ -74,9 +74,14 @@
             __strong typeof(self) strongSelf = weakSelf;
             make.centerY.equalTo(strongSelf.mas_centerY);
             make.left.equalTo(strongSelf.textField2.mas_right).offset(10);
-            make.width.equalTo(@60);
+            make.width.equalTo(strongSelf.textField2.mas_width);
+            make.right.equalTo(@(-16));
         }];
         
+        [self.title setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [self.textField1 setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+        [self.textField2 setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+        [self.textField3 setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
     }
     return self;
 }

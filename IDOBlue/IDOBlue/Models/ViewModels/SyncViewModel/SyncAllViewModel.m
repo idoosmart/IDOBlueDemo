@@ -79,7 +79,7 @@
         //同步进度
         [IDOSyncManager syncDataProgressCallback:^(float progress) {
             if (![IDOConsoleBoard borad].isShow) {
-                NSString * allStr = [NSString stringWithFormat:@"%@...%.2f",@"SYNC_DATA_PROGRESS",progress * 100.0f];
+                NSString * allStr = [NSString stringWithFormat:@"%@...%.1f",@"SYNC_DATA_PROGRESS",progress * 100.0f];
                 NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,allStr];
                 TextViewCellModel * model = [strongSelf.cellModels firstObject];
                 model.data = @[newLogStr?:@""];
@@ -90,7 +90,8 @@
         }];
         
         //同步
-        IDOSyncManager.startSync(YES);
+        BOOL isSyncConfig = [[NSUserDefaults standardUserDefaults]boolForKey:NEED_SYNC_CONFIG];
+        IDOSyncManager.startSync(isSyncConfig);
     };
 }
 

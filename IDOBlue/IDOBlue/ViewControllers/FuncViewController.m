@@ -9,8 +9,10 @@
 #import "FuncViewController.h"
 #import "TableViewFootView.h"
 #import "FileViewModel.h"
+#import "FuncViewModel.h"
 #import "IDOConsoleBoard.h"
 #import "Masonry.h"
+#import "UIScrollView+Refresh.h"
 
 @interface FuncViewController ()
 @property (nonatomic,strong) TableViewFootView * footButton;
@@ -20,7 +22,7 @@
 
 - (void)dealloc
 {
-    
+  
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -50,12 +52,46 @@
     
     self.tableView = [[FuncTableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
-    
+
     __weak typeof(self) weakSelf = self;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         __strong typeof(self) strongSelf = weakSelf;
         make.edges.equalTo(strongSelf.view);
     }];
+    
+    if ([self.model isKindOfClass:[FuncViewModel class]]) {
+        [self.tableView addHeaderRefresh];
+        [self.tableView syncDataRefreshingBlock:^{
+            //同步json数据
+            [IDOSyncManager syncDataJsonCallback:^(IDO_CURRENT_SYNC_TYPE syncType, NSString * _Nullable jsonStr) {
+                
+            }];
+            //同步完成
+            [IDOSyncManager syncDataCompleteCallback:^(IDO_SYNC_COMPLETE_STATUS stateCode, NSString * _Nullable stateInfo) {
+                __strong typeof(self) strongSelf = weakSelf;
+                if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
+                    [strongSelf showToastWithText:lang(@"sync data complete")];
+                    [strongSelf.tableView endSyncDataRefresh];
+                }
+            } failCallback:^(int errorCode) {
+                __strong typeof(self) strongSelf = weakSelf;
+                [strongSelf showToastWithText:lang(@"sync data failed")];
+                [strongSelf.tableView endSyncDataRefresh];
+            }];
+            //同步进度
+            [IDOSyncManager syncDataProgressCallback:^(float progress) {
+                __strong typeof(self) strongSelf = weakSelf;
+                [strongSelf.tableView syncTitleLableStr:[NSString stringWithFormat:@"%@%.1f%@",lang(@"sync data"),progress*100.0f,@"%"]];
+            }];
+            //同步
+            BOOL isSyncConfig = [[NSUserDefaults standardUserDefaults]boolForKey:NEED_SYNC_CONFIG];
+            IDOSyncManager.startSync(isSyncConfig);
+            [[NSUserDefaults standardUserDefaults]setObject:@(0) forKey:NEED_SYNC_CONFIG];
+        }];
+        if (__IDO_BIND__ && __IDO_CONNECTED__ && !IDO_BLUE_ENGINE.peripheralEngine.isPairing) {
+            [self.tableView startSyncRefreshing];
+        }
+    }
     
     self.tableView.model = self.model;
     UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0,0,self.view.frame.size.width,40)];
@@ -64,6 +100,13 @@
     [headView addSubview:self.timerLabel];
     self.tableView.tableHeaderView = headView;
     if (self.model.isFootButton)self.tableView.tableFooterView = self.footButton;
+    
+}
+
+- (void)startSync
+{
+    [super startSync];
+    if(__IDO_BIND__ && !IDO_BLUE_ENGINE.peripheralEngine.isPairing)[self.tableView startSyncRefreshing];
 }
 
 - (TableViewFootView *)footButton
@@ -111,20 +154,20 @@
 
 - (void)addLeftButton
 {
-    UIBarButtonItem * leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:_model.leftButtonTitle
+    UIBarButtonItem * leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:self.model.leftButtonTitle
                                                                         style:UIBarButtonItemStylePlain
-                                                                       target:_model
-                                                                       action:_model.leftButton];
+                                                                       target:self.model
+                                                                       action:self.model.leftButton];
     self.navigationItem.leftBarButtonItem = leftButtonItem;
 }
 
 
 - (void)addRightButton
 {
-    UIBarButtonItem * rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:_model.rightButtonTitle
+    UIBarButtonItem * rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:self.model.rightButtonTitle
                                                                          style:UIBarButtonItemStylePlain
-                                                                        target:_model
-                                                                        action:_model.rightButton];
+                                                                        target:self.model
+                                                                        action:self.model.rightButton];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 

@@ -34,6 +34,7 @@
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(@16);
             make.centerY.equalTo(strongSelf.mas_centerY);
+            make.width.lessThanOrEqualTo(@100);
         }];
         
         self.textField1 = [[UITextField alloc]init];

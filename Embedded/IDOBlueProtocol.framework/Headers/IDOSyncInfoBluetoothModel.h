@@ -71,13 +71,6 @@
 @property (nonatomic,copy) NSArray <IDOSyncPressureItemInfoBluetoothModel *>* pressures;
 
 /**
- * @brief 初始化同步的压力数据模型 (内部使用) | Initialize synchronized pressure data model (internal use)
- * @param data 压力结构体数据 | pressure Structure Data
- * @return 是 或 否 |yes or no
- */
-+ (BOOL)pressureDataInfoStructToModel:(void *)data;
-
-/**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
  * Query all data of the current device for 12 months in a certain year (If there is no data in the query month, an empty data object will be created,
  * and the data larger than the current month will not be accumulated)
@@ -211,13 +204,6 @@
  * into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy) NSArray <IDOSyncBloodOxygenItemInfoBluetoothModel *>* bloodOxygens;
-
-/**
- * @brief 初始化同步的血氧数据模型 (内部使用) | Initialize synchronized blood oxygen data model (internal use)
- * @param data 血氧结构体数据 | Blood oxygen Structure Data
- * @return 是 或 否 |yes or no
- */
-+ (BOOL)bloodOxygenDataInfoStructToModel:(void *)data;
 
 /**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
@@ -426,15 +412,6 @@
 @property (nonatomic,assign) NSInteger startFrom;
 
 /**
- * @brief 初始化同步的活动数据模型 (内部使用)
- * Initialize synchronized active data model (internal use)
- * @param data 活动结构体数据 | Active Structure Data
- * @return 是 或 否 |yes or no
- */
-+ (BOOL)activityDataInfoStructToModel:(const void *)data
-                        hrDataJsonStr:(NSString *)jsonStr;
-
-/**
  * @brief 当前设备根据活动开始时间查询某个活动详情
  * The current device queries an event details based on the event start time
  * @param macAddr  mac地址 | Mac address
@@ -580,13 +557,6 @@
  本地设置数据，区分手环同步的数据 | Locally set data to distinguish the data of the bracelet synchronization
  */
 @property (nonatomic,assign) BOOL isLocal;
-
-/**
- * @brief 初始化同步的血压数据模型 (内部使用) | Initialize synchronized blood pressure data model (internal use
- * @param data 血压结构体数据 | Blood pressure structure data
- * @return 是或否  | yes or no
- */
-+ (BOOL)bloodbPressureDataInfoStructToModel:(void *)data;
 
 /**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
@@ -772,14 +742,6 @@
  */
 @property (nonatomic,copy) NSString * dateStr;
 
-
-/**
- * @brief 初始化同步的心率数据模型 （内部使用） | Initialize synchronized heart rate data model (internal use)
- * @param data 心率结构体数据 | Heart rate structure data
- * @return 是或否 | yes or no
- */
-+ (BOOL)hearRateDataInfoStructToModel:(void *)data;
-
 /**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
  * Query all data of the current device for 12 months in a certain year (If there is no data in the query month, an empty data object will be created,
@@ -962,13 +924,6 @@
  时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
-
-/**
- * @brief 初始化同步的睡眠数据模型 (内部使用) | Initialize synchronized sleep data model (internal use)
- * @param data 睡眠结构体数据 | Sleep Structure Data
- * @return 是或否 | yes or no
- */
-+ (BOOL)sleepDataInfoStructToModel:(void *)data;
 
 /**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
@@ -1157,13 +1112,6 @@
 @property (nonatomic,assign) NSInteger totalCount;
 
 /**
- * @brief 初始化同步的运动数据模型 (内部使用) | Initialize synchronized motion data model (internal use)
- * @param data 运动结构体数据 | Sports Structure Data
- * @return 是或否 | yes or no
- */
-+ (BOOL)sportDataInfoStructToModel:(void *)data;
-
-/**
  * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
  * Query all data of the current device for 12 months in a certain year (If there is no data in the current month, an empty data object will be created,
  * and the data larger than the current month will not be accumulated)
@@ -1333,22 +1281,6 @@
  * converted into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy) NSArray <IDOSyncGpsDataItemInfoBluetoothModel *>* gpsItems;
-
-/**
- * @brief 初始化同步的GPS数据模型 (内部使用) | Initialize synchronized GPS data model (internal use)
- * @param head GPS head 结构体数据 | data GPS head structure data
- * @param count GPS count 个数 | data GPS count 
- * @return 是或否 | yes or no
- */
-+ (BOOL)gpsDataInfoStructWithHead:(const void *)head
-                         gpsCount:(uint32_t)count;
-
-/**
- * @brief 初始化同步的GPS items 数据模型 (内部使用) | Initialize synchronized GPS items data model (internal use)
- * @param dic 经纬度数据 | Latitude and longitude data
- * @return 是或否 | yes or no
- */
-+ (BOOL)gpsDataItemsWithDic:(NSDictionary *)dic;
 
 /**
  * @brief 根据时间戳查询某个活动的GPS信息 | Querying the GPS information of an activity based on the timestamp

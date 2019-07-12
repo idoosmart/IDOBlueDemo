@@ -114,23 +114,4 @@
  */
 @property (nonatomic,copy) NSArray<NSNumber *> * hrValues;
 
-
-/**
- * @brief 根据结构体数据和事件类型为当前model赋值 （内部使用）
- * Assign values to the current model based on structure data and event type (internal use)
- * @param data 结构体数据 | Structure data
- * @param model 当前运动model | current sports model
- * @param type 事件类型 | Event type
- * @return IDODataExchangeModel
- */
-+ (__kindof IDODataExchangeModel *)dataExchangeStructToModel:(void *)data
-                                                currentModel:(IDODataExchangeModel *)model
-                                                        type:(int)type;
-/**
- * @brief model构建发送运开始命令结构体数据 （内部使用）|  model builds the transport start command structure data
- * @param data 运动开始命令的结构体数据 |  structure data of commands in sport start
- */
-- (void)dataExchangeStartModelToStructure:(void *)data
-                                     type:(int)type;
-
 @end

@@ -48,6 +48,12 @@
 @end
 
 @implementation SetViewModel
+
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -109,7 +115,7 @@
 {
     __weak typeof(self) weakSelf = self;
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
-        __strong typeof(self) strongSelf = weakSelf;
+        __strong typeof(SetViewModel *) strongSelf = weakSelf;
         FuncViewController * funcVc = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         BaseCellModel * model = [strongSelf.cellModels objectAtIndex:indexPath.row];

@@ -127,7 +127,7 @@ typedef NS_ENUM(NSInteger, IDO_CURRENT_SYNC_TYPE) {
      * 当前同步配置
      * Current synchronization configuration
      */
-    IDO_SYNC_CONFIG_TYPE = 0,
+    IDO_SYNC_CONFIG_TYPE = 1,
     
     /**
      * 当前同步健康
@@ -257,6 +257,11 @@ typedef NS_ENUM(NSInteger, IDO_BLUETOOTH_MANAGER_STATE) {
      */
     IDO_MANAGER_STATE_CONNECT_FAILED,
     
+    /**
+     * 手环断开连接
+     * Bracelet dis connect
+     */
+    IDO_MANAGER_STATE_DIS_CONNECT
 };
 
 

@@ -134,16 +134,21 @@
     if (state == IDO_MANAGER_STATE_DID_CONNECT) {
         self.statusLabel.text = lang(@"connected");
         [self showToastWithText:lang(@"connected success")];
-    }
-    else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
+    }else if(   state == IDO_MANAGER_STATE_CONNECT_FAILED
+            || state == IDO_MANAGER_STATE_DIS_CONNECT) {
         self.statusLabel.text = lang(@"disconnected");
-        [self showToastWithText:lang(@"device disconnected")];
+    }else if (   state == IDO_MANAGER_STATE_AUTO_CONNECT
+              || state == IDO_MANAGER_STATE_AUTO_OTA_CONNECT
+              || state == IDO_MANAGER_STATE_MANUAL_CONNECT) {
+        self.statusLabel.text = lang(@"connecting");
+        [self showLoadingWithMessage:lang(@"connecting")];
     }else if (state == IDO_MANAGER_STATE_POWEREDOFF) {
         self.statusLabel.text = lang(@"disconnected");
-        [self showToastWithText:lang(@"device disconnected")];
         [TipPoweredOffView show];
     }else if (state == IDO_MANAGER_STATE_POWEREDON) {
         [TipPoweredOffView hidView];
+    }else if (state == IDO_MANAGER_STATE_MANUAL_SCANING) {
+        self.statusLabel.text = lang(@"scanning");
     }
 }
 
@@ -241,6 +246,8 @@
 - (void)leftAction
 {
     if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
+    IDO_BLUE_ENGINE.peripheralEngine.isOta  = NO;
+    IDO_BLUE_ENGINE.peripheralEngine.isBind = NO;
     [IDOBluetoothManager cancelCurrentPeripheralConnection];
     [self.tableView reloadData];
 }
@@ -256,6 +263,7 @@ static BOOL BIND_STATE = NO;
         __strong typeof(self) strongSelf = weakSelf;
         if (errorCode == 0) {
             if (status == IDO_BLUETOOTH_BIND_SUCCESS) { //绑定成功
+                [[NSUserDefaults standardUserDefaults]setObject:@(1) forKey:NEED_SYNC_CONFIG];
                 [strongSelf showToastWithText:lang(@"bind success")];
                 IDOSetBindingInfoBluetoothModel * model1 = [IDOSetBindingInfoBluetoothModel currentModel];
                 if (model1.authLength > 0)return;
@@ -353,6 +361,7 @@ static BOOL BIND_STATE = NO;
     [IDOFoundationCommand setAuthCodeCommand:model callback:^(int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
         if (errorCode == 0) {
+            [[NSUserDefaults standardUserDefaults]setObject:@(1) forKey:NEED_SYNC_CONFIG];
             [strongSelf showToastWithText:lang(@"bind success")];
             [strongSelf setRootViewController];
         }else {
@@ -390,7 +399,7 @@ static BOOL BIND_STATE = NO;
 - (void)bluetoothManager:(IDOBluetoothManager *)manager
   connectPeripheralError:(NSError *)error
 {
-    [self showToastWithText:lang(@"connected failed")];
+    [self showToastWithText:error.domain];//lang(@"connected failed")
     [self.refreshControl endRefreshing];
 }
 
@@ -428,7 +437,6 @@ static BOOL BIND_STATE = NO;
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.currentModel = self.devices[indexPath.row];
-    [self showLoadingWithMessage:lang(@"connecting")];
     [IDOBluetoothManager connectDeviceWithModel:self.currentModel];
 }
 

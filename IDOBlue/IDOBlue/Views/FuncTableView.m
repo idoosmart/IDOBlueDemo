@@ -18,6 +18,11 @@
 
 @implementation FuncTableView
 
+- (void)dealloc
+{
+    _model = nil;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
     self = [super initWithFrame:frame style:style];

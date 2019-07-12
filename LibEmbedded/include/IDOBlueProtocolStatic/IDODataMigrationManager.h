@@ -24,20 +24,20 @@
 + (BOOL)isNeedMigration;
 
 /**
-  * 迁移完数据库后，历史数据库存放目录路径 文件分别:Andriod_ios_local.db、Andriod_ios_cloud.db、jkdb.sqlite
-  * After the database is migrated, the history database stores the directory path files: Andriod_ios_local.db, Andriod_ios_cloud.db, jkdb.sqlite
+ * 判断当前是否在迁移数据
+ * Determine if data is currently being migrated.
  */
-+ (NSString *_Nullable)getHistoryDirePath DEPRECATED_MSG_ATTRIBUTE("interface is deprecated");
++ (BOOL)isMigrationRun;
 
 /**
-  * 启动数据迁移,传入迁移的数据是否来自云端,迁移完数据后会删除废弃目录及废弃的文件,旧的数据库将存放新的文件夹目录中
-  * Start data migration, whether the incoming data is from the cloud, delete the obsolete directory and discarded files after the data is migrated,
-  * and the old database will be stored in the new folder directory.
+  * 启动数据迁移
+  * Start data migration
  */
-+ (void)dataMigrationStart:(BOOL)isCloud;
++ (void)dataMigrationStart;
 
 /**
- 数据迁移进度 (0-1)
+ * 数据迁移进度 (0-1)
+ * progress (0-1)
  */
 + (void)dataMigrationProgressBlock:(void(^_Nullable)(float progress))callback;
 

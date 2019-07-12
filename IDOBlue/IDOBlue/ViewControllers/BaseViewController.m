@@ -108,8 +108,8 @@
     if (state == IDO_MANAGER_STATE_DID_CONNECT) {
         self.statusLabel.text = lang(@"connected");
         [self showToastWithText:lang(@"connected")];
-    }
-    else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
+        [self startSync];
+    }else if(state == IDO_MANAGER_STATE_CONNECT_FAILED) {
         self.statusLabel.text = lang(@"disconnected");
         [self showToastWithText:lang(@"device disconnected")];
     }else if((  state == IDO_MANAGER_STATE_AUTO_OTA_CONNECT
@@ -134,6 +134,11 @@
     }
 }
 
+- (void)startSync
+{
+    
+}
+
 - (void)listenConnectError:(NSNotification *)notivication
 {
     
@@ -156,10 +161,12 @@
     if (!_pickerView) {
         _pickerView = [[BasePickerView alloc]init];
         [self.view addSubview:_pickerView];
+        __weak typeof(self) weakSelf = self;
         [_pickerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(@0);
             make.right.equalTo(@0);
-            make.top.equalTo(self.view.mas_bottom);
+            make.top.equalTo(strongSelf.view.mas_bottom);
             make.height.equalTo(@216);
         }];
     }
@@ -171,10 +178,12 @@
     if (!_datePickerView) {
         _datePickerView = [[BaseDatePickerView alloc]init];
         [self.view addSubview:_datePickerView];
+        __weak typeof(self) weakSelf = self;
         [_datePickerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(@0);
             make.right.equalTo(@0);
-            make.top.equalTo(self.view.mas_bottom);
+            make.top.equalTo(strongSelf.view.mas_bottom);
             make.height.equalTo(@216);
         }];
     }

@@ -600,6 +600,8 @@
 /**
  sync data
  */
+"prepare sync data" = "prepare sync data";
+"sync data..." = "sync data...";
 "config data sync" = "config data sync";
 "activity data sync" = "activity data sync";
 "health data sync" = "health data sync";

@@ -40,6 +40,7 @@
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(@16);
             make.centerY.equalTo(strongSelf.mas_centerY);
+            make.width.lessThanOrEqualTo(@200);
         }];
         
         [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {

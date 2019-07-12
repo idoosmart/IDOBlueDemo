@@ -89,7 +89,7 @@
     FuncCellModel * model3 = [[FuncCellModel alloc]init];
     model3.typeStr = @"twoButton";
     model3.titleStr = lang(@"gender:");
-    model3.data = @[@{@"title":lang(@"man"),@"state":@1},@{@"title":lang(@"woman"),@"state":@0}];
+    model3.data = @[@{@"title":lang(@"man"),@"state":@(self.userModel.gender == 1)},@{@"title":lang(@"woman"),@"state":@(self.userModel.gender == 2)}];
     model3.cellHeight = 70.0f;
     model3.cellClass = [TwoButtonTableViewCell class];
     model3.modelClass = [NSNull class];

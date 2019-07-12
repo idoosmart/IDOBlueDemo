@@ -10,6 +10,7 @@
 #import "FuncCellModel.h"
 #import "OneButtonTableViewCell.h"
 #import "FuncViewController.h"
+#import "FuncViewModel.h"
 
 @interface ControlRestartViewModel()
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
@@ -46,16 +47,35 @@
 
 - (void)getButtonCallback
 {
+    __weak typeof(self) weakSelf = self;
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:lang(@"reboot device...")];
         [IDOFoundationCommand setAppRebootCommand:^(int errorCode) {
+            __strong typeof(self) strongSelf = weakSelf;
             if (errorCode == 0) {
+                [[NSUserDefaults standardUserDefaults]setObject:@(1) forKey:NEED_SYNC_CONFIG];
                 [funcVC showToastWithText:lang(@"successful restart of equipment")];
+                [strongSelf setRootViewController];
             }else {
                 [funcVC showToastWithText:lang(@"failure to restart equipment")];
             }
         }];
     };
 }
+
+- (void)setRootViewController
+{
+    FuncViewController * funcVc = [[FuncViewController alloc]init];
+    funcVc.model = [FuncViewModel new];
+    funcVc.title = lang(@"function list");
+    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:funcVc];
+    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
+        if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
+            [view removeFromSuperview];
+        }
+    }
+}
+
 @end

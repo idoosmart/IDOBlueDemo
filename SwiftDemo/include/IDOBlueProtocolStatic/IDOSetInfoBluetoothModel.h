@@ -31,8 +31,6 @@
  */
 @property (nonatomic,assign) NSInteger minute;
 
-- (void)menstruationRemindModelToStructure:(void *)data;
-
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -81,8 +79,6 @@
  */
 @property (nonatomic,assign) NSInteger ovulationAfterDay;
 
-- (void)menstruationModelToStructure:(void *)data;
-
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -103,18 +99,6 @@
  授权码 | Authorization code
  */
 @property (nonatomic,copy) NSString * authCode;
-
-/**
- * @brief 绑定model 转结构体数据 (内部使用) | Binding model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)bindingModelToStructure:(void *)data;
-
-/**
- * @brief 授权绑定model 转结构体数据 (内部使用) | Authorization binding model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)authCodeModelToStructure:(void *)data;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象 (只有在授权绑定才会存储数据)
@@ -153,12 +137,6 @@
 @property (nonatomic,assign) NSInteger endMinute;
 
 /**
- * @brief 睡眠设置model 转结构体数据 (内部使用) | Sleep settings model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)sleepPeriodModelToStructure:(void *)data;
-
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
  * @return IDOSetSleepPeriodInfoBluetoothModel
  */
@@ -191,13 +169,6 @@
 @property (nonatomic,assign) NSInteger diastolicBp;
 
 /**
- * @brief 血压测量指令model 转结构体数据 (内部使用)
- * Blood pressure measurement instruction model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)bpMeasureModelToStructure:(void *)data;
-
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetBpMeasureInfoBluetoothModel
@@ -212,11 +183,6 @@
  表盘ID | Dial ID
  */
 @property (nonatomic,assign) NSInteger dialId;
-/**
- * @brief 表盘参数model 转结构体数据 (内部使用) | Dial parameter model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)watchDiaModelToStructure:(void *)data;
 
 /**
  * @brief  查询数据库,如果查询不到初始化新的model对象
@@ -240,12 +206,6 @@
 @property (nonatomic,assign) NSInteger timeout;
 
 /**
- * @brief 马达参数model 转结构体数据 (内部使用) | Motor parameter model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)startMotorInfoModelToStructure:(void *)data;
-
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetStartMotorInfoBluetoothModel
@@ -265,13 +225,6 @@
  心率传感器状态 | Heart Rate Sensor Status
  */
 @property (nonatomic,assign) NSInteger heartRateSensorStatus;
-
-/**
- * @brief 传感器实时参数 model 转结构体数据 (内部使用)
- * Sensor real-time parameters model to structure data (internal use)
- * @param data 结构体指针
- */
-- (void)realTimeSensorDataInfoModelToStructure:(void *)data;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -315,12 +268,6 @@
 @property (nonatomic,assign) NSInteger connTimeout;
 
 /**
- * @brief 连接参数 model 转结构体数据 (内部使用)
- * Connection parameters model to structure data (internal use)
- * @param data 结构体指针
- */
-- (void)connParamInfoModelToStructure:(void *)data;
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetConnParamInfoBluetoothModel
@@ -341,11 +288,7 @@
  * 0x01 turns on log, 0x02 turns off log, 0x03 agps writes, 0x04 agps erases, 0x05 gps_fw writes
  */
 @property (nonatomic,assign) NSInteger type;
-/**
- * @brief GPS控制 model 转结构体数据 (内部使用) | GPS control model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)gpsControlInfoModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -408,11 +351,7 @@
  秒 | seconds
  */
 @property (nonatomic,assign) NSInteger second;
-/**
- * @brief GPS信息 model 转结构体数据 (内部使用) | GPS information model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)gpsInfoModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -428,12 +367,7 @@
  屏幕亮度级别 (0-100) | Screen brightness level (0-100)
  */
 @property (nonatomic,assign) NSInteger levelValue;
-/**
- * @brief 屏幕亮度 model 转结构体数据 (内部使用)
- * Screen brightness model Transfer structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)screenBrightnessModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -493,11 +427,6 @@
 @property (nonatomic,strong) NSArray<NSDictionary*>* future;
 
 /**
- * @brief  天气数据 model 转结构体数据 (内部使用) | Weather data model to structure data (internal use)
- * @param data 结构体指针
- */
-- (void)weatherDataModelToStructure:(void *)data;
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetWeatherDataInfoBluetoothModel
@@ -535,13 +464,6 @@
  运动模式排序集合最多8个 | Sports mode sort set up to 8
  */
 @property (nonatomic,strong)NSArray <IDOSetSportSortingItemModel *>* sportSortingItems;
-
-/**
- * @brief 运动模式排序 model 转结构体数据 (内部使用)
- * Motion shortcuts model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)sportSortingModelToStructure:(void *)data;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -700,12 +622,7 @@
  跳舞 | Dancing
  */
 @property (nonatomic,assign) BOOL isDance;
-/**
- * @brief 运动快捷方式 model 转结构体数据 (内部使用)
- * Motion shortcuts model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)sportShortcutModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -741,12 +658,6 @@
 @property (nonatomic,assign) NSInteger flag;
 
 /**
- * @brief 血压校准 model 转结构体数据 (内部使用)
- * Blood pressure calibration model Transfer structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)bloodPressureModelToStructure:(void *)data;
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetBloodPressureInfoBluetoothModel
@@ -761,11 +672,7 @@
  快捷方式类型 | Shortcut Type
  */
 @property (nonatomic,assign) NSInteger shortcutType;
-/**
- * @brief 快捷方式 model 转结构体数据 (内部使用) | Shortcut model to structure data (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)shortcutModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -834,11 +741,7 @@
  * @return 闹钟集合 | Alarm clock collection
  */
 + (NSArray <IDOSetAlarmInfoBluetoothModel *>*)queryAllNoOpenAlarms;
-/**
- * @brief 闹钟 model 转结构体 (内部使用) | Alarm clock model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)alarmModelToStructure:(void *)data;
+
 @end
 
 #pragma mark ==== 设置时间model ====
@@ -879,11 +782,6 @@
  */
 @property (nonatomic,assign) NSInteger weekDay;
 
-/**
- * @brief 当前时间 model 转结构体 (内部使用) | Current time model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)timeModelToStructure:(void *)data;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -951,11 +849,6 @@
 @property (nonatomic,assign) NSInteger weekStart;
 
 /**
- * @brief 单位 model 转结构体 (内部使用) | unit model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)unitModelToStructure:(void *)data;
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetUnitInfoBluetoothModel
@@ -985,11 +878,7 @@
  最大心率 | Maximum heart rate
  */
 @property (nonatomic,assign) NSInteger userMaxHr;
-/**
- * @brief 心率区间 model 转结构体 (内部使用) | Heart rate interval model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)hrIntervalModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1025,12 +914,7 @@
  结束 (分) | End (minutes)
  */
 @property (nonatomic,assign) NSInteger  endMinute;
-/**
- * @brief 勿扰模式 model 转结构体 (内部使用)
- * Do not disturb mode model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)noDisturbModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1072,11 +956,7 @@
  结束 (分) | End (minutes)
  */
 @property (nonatomic,assign) NSInteger  endMinute;
-/**
- * @brief 心率模式 model 转结构体 (内部使用) | Heart rate mode model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)hrModeModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1092,12 +972,7 @@
  显示模式 | Display mode
  */
 @property (nonatomic,assign) NSInteger modeType;
-/**
- * @brief 手环横竖屏 model 转结构体 (内部使用)
- * Bracelet horizontal and vertical screen model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)displayModeModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1145,12 +1020,6 @@
 @property (nonatomic,assign) NSInteger  endMinute;
 
 /**
- * @brief 抬腕手势 model 转结构体 (内部使用) | Wrist gesture model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)handUpModelToStructure:(void *)data;
-
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetHandUpInfoBuletoothModel
@@ -1196,11 +1065,7 @@
   * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
 @property (nonatomic,strong) NSArray <NSNumber *>* selectWeeks;
-/**
- * @brief 久坐提醒 model 转结构体 (内部使用) | Sedentary reminder model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)longSitModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1216,11 +1081,7 @@
  天气预报开关 | Weather forecast switch
  */
 @property (nonatomic,assign) BOOL isOpen;
-/**
- * @brief 天气预报 model 转结构体 (内部使用) | Weather forecast model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)weatherModelToStructure:(void *)data;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1248,12 +1109,6 @@
 @property (nonatomic,assign) BOOL isOpen;
 
 /**
- * @brief 音乐开关 model 转结构体 (内部使用) | Music switch model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)musicOpenModelToStructure:(void *)data;
-
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetMusicOpenInfoBuletoothModel
@@ -1268,12 +1123,6 @@
  防丢失级别 | Loss prevention level
  */
 @property (nonatomic,assign) NSInteger levelType;
-
-/**
- * @brief 防止丢失 model 转结构体 (内部使用) | Prevent loss of model transfer structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)preventLostModelToStructure:(void *)data;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1292,12 +1141,6 @@
 @property (nonatomic,assign) BOOL isRight;
 
 /**
- * @brief 左右手穿戴 model 转结构体 (内部使用) | Left and right hand wear model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)leftOrRightModelToStructure:(void *)data;
-
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetLeftOrRightInfoBuletoothModel
@@ -1314,12 +1157,6 @@
 @property (nonatomic,assign) BOOL isOpen;
 
 /**
- * @brief 寻找手机 model 转结构体 (内部使用) | Find mobile phone model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)findPhoneModelToStructure:(void *)data;
-
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetFindPhoneInfoBuletoothModel
@@ -1334,12 +1171,6 @@
  一键呼叫开关 | One-touch call switch
  */
 @property (nonatomic,assign) BOOL isOpen;
-
-/**
- * @brief 一键呼叫 model 转结构体 (内部使用) | One-click call model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)oneKeySosModelToStructure:(void *)data;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1362,19 +1193,6 @@
  是否配对 | Pairing
  */
 @property (nonatomic,assign) BOOL isPairing;
-
-/**
- * @brief 蓝牙配对 model 转结构体 (内部使用) | Bluetooth pairing model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)switchPairingModelToStructure:(void *)data;
-
-/**
- * @brief 蓝牙配对 结构体转 model | Bluetooth pairing
- * @param data 结构体指针 | Structure pointer
- * @return IDOSetPairingInfoBuletoothModel
- */
-+ (__kindof IDOSetPairingInfoBuletoothModel *)switchPairingStructToModel:(void *)data;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1535,25 +1353,11 @@
 @property (nonatomic,assign) BOOL isOnSlack;
 
 /**
- * @brief 智能提醒 model 转结构体 (内部使用) | Smart reminder model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)switchChildModelToStructure:(void *)data;
-
-/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetNoticeInfoBuletoothModel
  */
 + (__kindof IDOSetNoticeInfoBuletoothModel *)currentModel;
-
-/**
- * @brief 通知提醒开关状态结构体转model (内部使用)
- * Notification reminder switch status structure to model (internal use)
- * @param data 通知提醒开关状态结构体 | Notification Reminder Switch Status Structure
- * @return IDOSetNoticeInfoBuletoothModel
- */
-+ (__kindof IDOSetNoticeInfoBuletoothModel *)switchNoticeStructToModel:(void *)data;
 
 @end
 
@@ -1635,26 +1439,6 @@
  绑定状态 | Binding status
  */
 @property (nonatomic,assign) NSInteger bindState;
-
-/**
- * @brief 用户信息 model 转结构体 (内部使用) | User Information model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)userInfoModelToStructure:(void *)data;
-
-/**
- * @brief 步数目标 model 转结构体 (内部使用)
- * Step target model Transfer structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)targetModelToStructure:(void *)data;
-
-/**
- * @brief 卡路里和距离目标 model 转结构体 (内部使用)
- * Calories and distances target model to structure (internal use)
- * @param data 结构体指针 | Structure pointer
- */
-- (void)calorieAndDistanceModelToStructure:(void *)data;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

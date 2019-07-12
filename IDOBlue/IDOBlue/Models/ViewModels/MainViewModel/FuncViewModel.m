@@ -22,6 +22,7 @@
 #import "DataMigrationViewModel.h"
 #import "MainMeasureViewModel.h"
 #import "ScanViewController.h"
+#import "UIScrollView+Refresh.h"
 
 @interface FuncViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -48,6 +49,7 @@
 {
     [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
         if (errorCode == 0) {
+            [[NSUserDefaults standardUserDefaults]setObject:@(0) forKey:NEED_SYNC_CONFIG];
             ScanViewController * scanVC  = [[ScanViewController alloc]init];
             UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
             [UIApplication sharedApplication].delegate.window.rootViewController = nav;
@@ -105,6 +107,11 @@
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         BaseCellModel * model   = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if ([NSStringFromClass(model.modelClass)isEqualToString:@"NSNull"])return;
+        if (   [IDOSyncManager shareInstance].isSyncConfigRun
+            || [IDOSyncManager shareInstance].isSyncHealthRun) {
+            [funcVc showToastWithText:lang(@"sync data...")];
+            return;
+        }
         FuncViewController * newFuncVc = [FuncViewController new];
         newFuncVc.model = [model.modelClass new];
         newFuncVc.title = [model.data firstObject];

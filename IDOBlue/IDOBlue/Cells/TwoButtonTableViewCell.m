@@ -46,7 +46,6 @@
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(strongSelf.title.mas_right).offset(10);
             make.centerY.equalTo(strongSelf.mas_centerY);
-            make.width.equalTo(@120);
             make.height.equalTo(@30);
         }];
         
@@ -64,10 +63,15 @@
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(strongSelf.button1.mas_right).offset(10);
             make.centerY.equalTo(strongSelf.mas_centerY);
-            make.width.equalTo(@120);
+            make.right.equalTo(@(-16));
+            make.width.equalTo(strongSelf.button1.mas_width);
             make.height.equalTo(@30);
         }];
         self.button1.selected = YES;
+        
+        [self.title setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [self.button1 setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+        [self.button2 setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
     }
     return self;
 }

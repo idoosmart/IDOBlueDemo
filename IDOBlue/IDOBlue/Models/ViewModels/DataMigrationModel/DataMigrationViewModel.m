@@ -94,13 +94,13 @@
                 [IDODataMigrationManager dataMigrationWithFileNames:@[] completeBlock:^(BOOL isSuccess) {
                     [funcVc showToastWithText:lang(@"data migration complete")];
                 }];
-                [IDODataMigrationManager dataMigrationStart:NO];
+                [IDODataMigrationManager dataMigrationStart];
             }else {
                 [funcVc showToastWithText:lang(@"no need migration")];
             }
         }else {
             __strong typeof(self) strongSelf = weakSelf;
-            [strongSelf deleteHealthData];
+           // [strongSelf deleteHealthData];
             [funcVc showLoadingWithMessage:lang(@"data migration...")];
             [IDODataMigrationManager dataToJsonFileProgressBlock:^(float progress) {
                 [funcVc showSyncProgress:progress];

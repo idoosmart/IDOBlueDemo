@@ -600,6 +600,8 @@
 /**
  sync data
  */
+"prepare sync data" = "准备同步数据";
+"sync data..." = "正在同步数据...";
 "config data sync" = "配置数据同步";
 "activity data sync" = "活动数据同步";
 "health data sync" = "健康数据同步";
