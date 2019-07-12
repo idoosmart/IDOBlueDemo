@@ -16,6 +16,7 @@
 | 3.2.9| iOS 8.0 | Add swift demo|
 | 3.3.0| iOS 8.0 | Add .a lib|
 | 3.3.2| iOS 8.0 | Modify pairing logic|
+| 3.3.4| iOS 8.0 |optimize performance|
 
 ## Project configuration
 * Reference header file
@@ -48,6 +49,7 @@
 
 3、IDOBlueProtocol 
 #import <IDOBlueProtocol/IDOEnum.h>
+#import <IDOBlueProtocol/IDOCommonMacro.h>
 #import <IDOBlueProtocol/IDOBluetoothBaseModel.h>
 #import <IDOBlueProtocol/IDODataExchangeModel.h>
 #import <IDOBlueProtocol/IDOGetInfoBluetoothModel.h>
@@ -97,8 +99,7 @@
                                               completeBlock:^(BOOL isSuccess) {
             
         }];
-        // start migration is the data currently downloaded for the cloud?
-        [IDODataMigrationManager dataMigrationStart:YES];
+        [IDODataMigrationManager dataMigrationStart];
     }
 ```
 * <p>VeryFitPro project is to upload database files to save and update. The downloaded database is an old database that needs to be migrated first. When the migration is complete, the local new database is transferred to a json file and uploaded to the server. If you download the data as a json file, you first merge the new database and then transfer the merged json file to the server.</p>
@@ -121,12 +122,14 @@
 #ifdef DEBUG
     registrationServices().outputSdkLog(YES).outputProtocolLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
-       if(__IDO_BIND__)[IDOBluetoothManager startScan];
+        if(__IDO_BIND__)[IDOBluetoothManager startScan];
+        else [IDOBluetoothManager refreshDelegate];
     });
 #else
     registrationServices().outputSdkLog(NO).outputProtocolLog(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
         if(__IDO_BIND__)[IDOBluetoothManager startScan];
+        else [IDOBluetoothManager refreshDelegate];
     });
 #endif
 ```
