@@ -15,6 +15,7 @@
 #import "NSObject+ModelToDic.h"
 #import "NSObject+ModelToDic.h"
 
+/*
 #import "IDOEnum.h"
 #import "IDOCommonMacro.h"
 #import "IDOBluetoothBaseModel.h"
@@ -48,6 +49,7 @@
 
 #import "IDOUpdateManagerDelegate.h"
 #import "IDOUpdateFirmwareManager.h"
+*/
 
 #endif
 

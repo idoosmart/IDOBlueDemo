@@ -23,6 +23,7 @@
 #import <IDOBluetooth/IDOBluetooth.h>
 #elif __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #else
+#import "IDOPeripheralModel.h"
 #import "IDOBluetoothManagerDelegate.h"
 #import "IDOBluetoothManager.h"
 #endif
@@ -48,7 +49,6 @@
 #import "IDOSyncInfoBluetoothModel.h"
 #import "IDOCalculateBluetoothModel.h"
 #import "IDOWeightBluetoothModel.h"
-#import "IDOPeripheralModel.h"
 #import "IDOSyncManager.h"
 #import "IDOSyncConfig.h"
 #import "IDOSyncHealth.h"

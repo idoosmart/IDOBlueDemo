@@ -187,10 +187,23 @@
 		9BF7EC39219BCAB300572E70 /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC38219BCAB300572E70 /* SliderTableViewCell.m */; };
 		9BF7EC3C219BCFE900572E70 /* SliderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */; };
 		9BFF80EB2189829300EFA848 /* FirmwareTypeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */; };
-		DD0E022622D8A30F009E19E5 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0E022322D8A30E009E19E5 /* IDOBluetooth.framework */; };
-		DD0E022722D8A30F009E19E5 /* IDOBlueProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0E022422D8A30E009E19E5 /* IDOBlueProtocol.framework */; };
-		DD0E022822D8A30F009E19E5 /* IDOBlueUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0E022522D8A30F009E19E5 /* IDOBlueUpdate.framework */; };
+		DD2FDF0422DDC746000A1DE3 /* IDOBlueUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2FDF0222DDC745000A1DE3 /* IDOBlueUpdate.framework */; };
+		DD2FDF0522DDC746000A1DE3 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2FDF0322DDC746000A1DE3 /* IDOBluetooth.framework */; };
+		DD2FDF0722DDC752000A1DE3 /* IDOBlueProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2FDF0622DDC752000A1DE3 /* IDOBlueProtocol.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9BEBB47222DC7E4500E5BCDA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1817F4F1214B2BBF001C90D5 /* IDOBlue-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDOBlue-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -553,9 +566,9 @@
 		9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderCellModel.m; sourceTree = "<group>"; };
 		9BFF80E92189829300EFA848 /* FirmwareTypeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirmwareTypeViewModel.h; sourceTree = "<group>"; };
 		9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirmwareTypeViewModel.m; sourceTree = "<group>"; };
-		DD0E022322D8A30E009E19E5 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
-		DD0E022422D8A30E009E19E5 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueProtocol.framework; path = ../Embedded/IDOBlueProtocol.framework; sourceTree = "<group>"; };
-		DD0E022522D8A30F009E19E5 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueUpdate.framework; path = ../Embedded/IDOBlueUpdate.framework; sourceTree = "<group>"; };
+		DD2FDF0222DDC745000A1DE3 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueUpdate.framework; path = ../Embedded/IDOBlueUpdate.framework; sourceTree = "<group>"; };
+		DD2FDF0322DDC746000A1DE3 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
+		DD2FDF0622DDC752000A1DE3 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueProtocol.framework; path = ../Embedded/IDOBlueProtocol.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,9 +576,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD0E022622D8A30F009E19E5 /* IDOBluetooth.framework in Frameworks */,
-				DD0E022722D8A30F009E19E5 /* IDOBlueProtocol.framework in Frameworks */,
-				DD0E022822D8A30F009E19E5 /* IDOBlueUpdate.framework in Frameworks */,
+				DD2FDF0722DDC752000A1DE3 /* IDOBlueProtocol.framework in Frameworks */,
+				DD2FDF0422DDC746000A1DE3 /* IDOBlueUpdate.framework in Frameworks */,
+				DD2FDF0522DDC746000A1DE3 /* IDOBluetooth.framework in Frameworks */,
 				9BBAF49B21F96D7A001BD3F9 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -885,9 +898,9 @@
 		9B437F0521393CED00DE2FC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD0E022422D8A30E009E19E5 /* IDOBlueProtocol.framework */,
-				DD0E022322D8A30E009E19E5 /* IDOBluetooth.framework */,
-				DD0E022522D8A30F009E19E5 /* IDOBlueUpdate.framework */,
+				DD2FDF0622DDC752000A1DE3 /* IDOBlueProtocol.framework */,
+				DD2FDF0322DDC746000A1DE3 /* IDOBluetooth.framework */,
+				DD2FDF0222DDC745000A1DE3 /* IDOBlueUpdate.framework */,
 				9B5702A4213BEE1500BCE1CE /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
@@ -1225,6 +1238,7 @@
 				9B437EE521393ADC00DE2FC8 /* Sources */,
 				9B437EE621393ADC00DE2FC8 /* Frameworks */,
 				9B437EE721393ADC00DE2FC8 /* Resources */,
+				9BEBB47222DC7E4500E5BCDA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1609,6 +1623,11 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = ../Embedded;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
+				HEADER_SEARCH_PATHS = (
+					../LibEmbedded/include/IDOBlueProtocolStatic/,
+					../LibEmbedded/include/IDOBluetoothStatic/,
+					../LibEmbedded/include/IDOBlueUpdateStatic/,
+				);
 				INFOPLIST_FILE = IDOBlue/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1639,6 +1658,11 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = ../Embedded;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
+				HEADER_SEARCH_PATHS = (
+					../LibEmbedded/include/IDOBlueProtocolStatic/,
+					../LibEmbedded/include/IDOBluetoothStatic/,
+					../LibEmbedded/include/IDOBlueUpdateStatic/,
+				);
 				INFOPLIST_FILE = IDOBlue/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -16,5 +16,6 @@ FOUNDATION_EXPORT const unsigned char IDOBluetoothVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <IDOBluetooth/PublicHeader.h>
 
+#import <IDOBluetooth/IDOPeripheralModel.h>
 #import <IDOBluetooth/IDOBluetoothManagerDelegate.h>
 #import <IDOBluetooth/IDOBluetoothManager.h>

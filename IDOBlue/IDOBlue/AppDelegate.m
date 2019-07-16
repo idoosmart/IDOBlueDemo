@@ -23,6 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:3];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [[NSUserDefaults standardUserDefaults]setObject:@(1) forKey:PRODUCTION_MODE_KEY];
 #ifdef DEBUG
     registrationServices().outputSdkLog(YES).outputProtocolLog(YES).addAliYunLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //此处可以使用自己的蓝牙管理

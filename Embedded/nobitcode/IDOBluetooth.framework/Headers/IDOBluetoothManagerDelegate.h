@@ -15,7 +15,6 @@
 #import <IDOBlueProtocol/IDOBlueProtocol.h>
 #else
 #import "IDOEnum.h"
-#import "IDOPeripheralModel.h"
 #endif
 
 @class IDOBluetoothManager;

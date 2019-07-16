@@ -8,11 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-#if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
-#elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
-#else
-#import "IDOBluetoothManagerDelegate.h"
-#endif
 
 @interface IDOBluetoothManager : NSObject
 

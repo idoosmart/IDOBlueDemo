@@ -25,7 +25,6 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOSyncInfoBluetoothModel.h>
 #import <IDOBlueProtocol/IDOCalculateBluetoothModel.h>
 #import <IDOBlueProtocol/IDOWeightBluetoothModel.h>
-#import <IDOBlueProtocol/IDOPeripheralModel.h>
 
 #import <IDOBlueProtocol/IDOSyncManager.h>
 #import <IDOBlueProtocol/IDOSyncConfig.h>

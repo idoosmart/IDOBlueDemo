@@ -639,6 +639,11 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      * Set the sub-switch successfully after the bracelet is paired
      */
     IDO_PAIRING_RECONNECT_SET_SUB_SWITCH_SUCCESS_LOG,
+    /**
+     * 协议库日志记录
+     * protocol c log
+     */
+    IDO_PROTOCOL_C_LOG
 };
 
 /**

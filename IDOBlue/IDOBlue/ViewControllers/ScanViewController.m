@@ -142,6 +142,9 @@
               || state == IDO_MANAGER_STATE_MANUAL_CONNECT) {
         self.statusLabel.text = lang(@"connecting");
         [self showLoadingWithMessage:lang(@"connecting")];
+    }else if (state == IDO_MANAGER_STATE_SCAN_STOP) {
+        self.statusLabel.text = lang(@"suspend scan");
+        [self showToastWithText: lang(@"device suspend scan")];
     }else if (state == IDO_MANAGER_STATE_POWEREDOFF) {
         self.statusLabel.text = lang(@"disconnected");
         [TipPoweredOffView show];
@@ -210,6 +213,7 @@
     self.statusLabel.text = lang(@"scanning");
     NSInteger rssiNum = [[NSUserDefaults standardUserDefaults]integerForKey:RSSI_KEY];
     [IDOBluetoothManager shareInstance].rssiNum = rssiNum > 0 ? rssiNum : 80;
+    [IDOBluetoothManager stopScan];
     [IDOBluetoothManager startScan];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.refreshControl endRefreshing];
