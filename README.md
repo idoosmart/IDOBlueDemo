@@ -41,38 +41,51 @@
 
 ```
 1、IDOBluetooth 
+#import <IDOBluetooth/IDOPeripheralModel.h>
 #import <IDOBluetooth/IDOBluetoothManagerDelegate.h>
 #import <IDOBluetooth/IDOBluetoothManager.h>
 
 2、IDOBlueUpdate 
+#import <IDOBlueUpdate/IDOUpdateEnum.h>
 #import <IDOBlueUpdate/IDOUpdateManagerDelegate.h>
 #import <IDOBlueUpdate/IDOUpdateFirmwareManager.h>
 
 3、IDOBlueProtocol 
-#import <IDOBlueProtocol/IDOEnum.h>
+#import <IDOBlueProtocol/IDOSyncEnum.h>
+#import <IDOBlueProtocol/IDOBlueEnum.h>
+#import <IDOBlueProtocol/IDOLogEnum.h>
+#import <IDOBlueProtocol/IDOBindEnum.h>
+#import <IDOBlueProtocol/IDOTranEnum.h>
 #import <IDOBlueProtocol/IDOCommonMacro.h>
+
 #import <IDOBlueProtocol/IDOBluetoothBaseModel.h>
+#import <IDOBlueProtocol/IDOSyncSwimDataModel.h>
+#import <IDOBlueProtocol/IDOSyncSpo2DataModel.h>
+#import <IDOBlueProtocol/IDOSyncPressureDataModel.h>
+#import <IDOBlueProtocol/IDOSyncActivityDataModel.h>
+#import <IDOBlueProtocol/IDOSyncBpDataModel.h>
+#import <IDOBlueProtocol/IDOSyncHeartRateDataModel.h>
+#import <IDOBlueProtocol/IDOSyncSleepDataModel.h>
+#import <IDOBlueProtocol/IDOSyncSportDataModel.h>
+#import <IDOBlueProtocol/IDOSyncGpsDataModel.h>
 #import <IDOBlueProtocol/IDODataExchangeModel.h>
 #import <IDOBlueProtocol/IDOGetInfoBluetoothModel.h>
 #import <IDOBlueProtocol/IDOSetInfoBluetoothModel.h>
-#import <IDOBlueProtocol/IDOSyncInfoBluetoothModel.h>
 #import <IDOBlueProtocol/IDOCalculateBluetoothModel.h>
 #import <IDOBlueProtocol/IDOWeightBluetoothModel.h>
-#import <IDOBlueProtocol/IDOPeripheralModel.h>
+#import <IDOBlueProtocol/IDOWatchDialInfoModel.h>
+
 #import <IDOBlueProtocol/IDOSyncManager.h>
-#import <IDOBlueProtocol/IDOSyncConfig.h>
-#import <IDOBlueProtocol/IDOSyncHealth.h>
-#import <IDOBlueProtocol/IDOSyncBop.h>
-#import <IDOBlueProtocol/IDOSyncActivity.h>
-#import <IDOBlueProtocol/IDOSyncGps.h>
 #import <IDOBlueProtocol/IDOBluetoothEngine.h>
 #import <IDOBlueProtocol/IDOBluetoothServices.h>
 #import <IDOBlueProtocol/IDOErrorCodeToStr.h>
 #import <IDOBlueProtocol/IDORecordDeviceLog.h>
 #import <IDOBlueProtocol/IDOBlueDataResponse.h>
+
 #import <IDOBlueProtocol/IDOFoundationCommand.h>
 #import <IDOBlueProtocol/IDODataMigrationManager.h>
-#import <IDOBlueProtocol/IDOUpdateAgpsManager.h>
+#import <IDOBlueProtocol/IDOTransferFileManager.h>
+#import <IDOBlueProtocol/IDOWatchDialManager.h>
 ```
 ## Introduction to main function API
 
@@ -214,21 +227,18 @@ model.authCode = codeStr;
 * <p>Synchronizing device data is a very important function. Synchronization procedures recommend against executing other commands, even if they are invalid. Synchronous configuration is performed after the first successful binding of the connected device. Otherwise, NO is not synchronized. Progress is returned in the synchronization process, and a completion block will be returned after each item is synchronized. Judging by the synchronization status, synchronization is completed, and the synchronization log will be returned in the synchronization process.</p>
 
 ```objc
-// Synchronizing log  
- [IDOSyncManager syncDataLogInfoCallback:^(IDO_CURRENT_SYNC_TYPE syncType, NSString * _Nullable logStr) {
- 
- }];
- // Synchronizing complete
-[IDOSyncManager syncDataCompleteCallback:^(IDO_SYNC_COMPLETE_STATUS stateCode, NSString * _Nullable stateInfo) {
-
-}];
-// Synchronizing progress
-[IDOSyncManager syncDataProgressCallback:^(float progress) {
-
- }];
+initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_CONFIG_ITEM_TYPE | IDO_WANT_TO_SYNC_HEALTH_ITEM_TYPE
+    | IDO_WANT_TO_SYNC_ACTIVITY_ITEM_TYPE | IDO_WANT_TO_SYNC_GPS_ITEM_TYPE;
  // Synchronization configuration is performed after the first binding of the connecting device is successful. In other cases, NO is not synchronized.
-[IDOSyncManager shareInstance].isSave = YES;
-IDOSyncManager.startSync(YES or NO);
+initSyncManager().isSave = YES;
+ initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {
+               
+ }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
+               
+ }).addSyncFailed(^(int errorCode) {
+               
+ }).mandatorySyncConfig(YES or NO);
+ [IDOSyncManager startSync];
 ```
 ## <span id="6.0">Query bracelet data</span>
 * <P>The general method of Bluetooth command initialization model is "+(__kindof IDOBluetoothBaseModel*)currentModel" in each class object. This method queries the database first, if the query fails to initialize the new model object. Synchronized data is an encapsulation method for querying data in each model class. Only encapsulated method queries will have detailed data, while the data queried by custom query methods will not have detailed data. It is recommended that database operations not delete database data, but only insert and update data. Current data can only be queried after synchronization is completed. The unsynchronized data is still in the hand ring, and the data can not be queried locally.</P>
