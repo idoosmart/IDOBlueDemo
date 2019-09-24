@@ -104,6 +104,10 @@
                 strongSelf.alarmModels =  [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
                 [strongSelf getCellModels];
                 [funcVC reloadData];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+            }else {
+                [funcVC showToastWithText:lang(@"set alarm failed")];
             }
         }];
     };

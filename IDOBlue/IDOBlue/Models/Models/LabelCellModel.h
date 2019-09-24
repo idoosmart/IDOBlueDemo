@@ -12,4 +12,5 @@
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @property (nonatomic,assign) BOOL isSelected;
 @property (nonatomic,assign) BOOL isMultiSelect;
+@property (nonatomic,assign) BOOL isCenter;
 @end

@@ -11,12 +11,14 @@
 #import "MBProgressHUD.h"
 #import "IDODemoUtility.h"
 #import "BasePickerView.h"
+#import "SetMenuView.h"
 #import "BaseDatePickerView.h"
 
 @interface BaseViewController : UIViewController
 @property (nonatomic,strong) MBProgressHUD * progressHUD;
 @property (nonatomic,strong) BasePickerView * pickerView;
 @property (nonatomic,strong) BaseDatePickerView * datePickerView;
+@property (nonatomic,strong) SetMenuView * menuView;
 @property (nonatomic,strong) UILabel * statusLabel;
 @property (nonatomic,strong) UILabel * timerLabel;
 - (void)showLoadingWithMessage:(NSString *)message;

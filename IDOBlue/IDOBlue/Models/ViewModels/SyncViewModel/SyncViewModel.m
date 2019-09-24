@@ -13,7 +13,6 @@
 #import "SyncConfigViewModel.h"
 #import "SyncActivityViewModel.h"
 #import "SyncHealthViewModel.h"
-#import "SyncBopViewModel.h"
 #import "SyncGpsViewModel.h"
 #import "SyncAllViewModel.h"
 
@@ -24,6 +23,12 @@
 @end
 
 @implementation SyncViewModel
+
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -38,7 +43,7 @@
 {
     if (!_buttonTitles) {
         _buttonTitles = @[@[lang(@"config data sync")],@[lang(@"activity data sync")],@[lang(@"health data sync")],
-                          @[lang(@"blood oxygen pressure sync")],@[lang(@"GPS data sync")],@[lang(@"all data sync")]];
+                          @[lang(@"GPS data sync")],@[lang(@"all data sync")]];
     }
     return _buttonTitles;
 }
@@ -47,7 +52,7 @@
 {
     if (!_modelClasss) {
         _modelClasss = @[[SyncConfigViewModel class],[SyncActivityViewModel class],[SyncHealthViewModel class],
-                         [SyncBopViewModel class],[SyncGpsViewModel class],[SyncAllViewModel class]];
+                         [SyncGpsViewModel class],[SyncAllViewModel class]];
     }
     return _modelClasss;
 }

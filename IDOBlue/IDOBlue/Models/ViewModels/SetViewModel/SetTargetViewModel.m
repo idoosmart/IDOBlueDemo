@@ -209,6 +209,8 @@
                                               callback:^(int errorCode) {
                   if(errorCode == 0) {
                       [funcVC showToastWithText:lang(@"set target info success")];
+                  }else if (errorCode == 6) {
+                      [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
                   }else {
                       [funcVC showToastWithText:lang(@"set target info failed")];
                   }
@@ -218,13 +220,15 @@
             textFieldModel4.data = @[@([strongSelf.textField5.text integerValue])];
             strongSelf.userModel.goalCalorieData  = [strongSelf.textField5.text integerValue];
             strongSelf.userModel.goalDistanceData = [strongSelf.textField6.text integerValue];
-            if (   __IDO_FUNCTABLE__.funcExtend2Model.calorieGoal
-                && __IDO_FUNCTABLE__.funcExtend2Model.distanceGoal) {
+            if (   __IDO_FUNCTABLE__.funcTable20Model.calorieGoal
+                && __IDO_FUNCTABLE__.funcTable20Model.distanceGoal) {
                 [funcVC showLoadingWithMessage:lang(@"set target info...")];
                 [IDOFoundationCommand setCalorieAndDistanceGoalCommand:strongSelf.userModel
                                                               callback:^(int errorCode) {
                       if(errorCode == 0) {
                           [funcVC showToastWithText:lang(@"set target info success")];
+                      }else if (errorCode == 6) {
+                          [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
                       }else {
                           [funcVC showToastWithText:lang(@"set target info failed")];
                       }
@@ -235,6 +239,8 @@
                                                   callback:^(int errorCode) {
                       if(errorCode == 0) {
                           [funcVC showToastWithText:lang(@"set target info success")];
+                      }else if (errorCode == 6) {
+                          [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
                       }else {
                           [funcVC showToastWithText:lang(@"set target info failed")];
                       }

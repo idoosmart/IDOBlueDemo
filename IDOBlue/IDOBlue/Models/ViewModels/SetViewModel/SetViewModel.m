@@ -40,6 +40,7 @@
 #import "SetMenstruationViewModel.h"
 #import "SetMenstruationRemindViewModel.h"
 #import "SetCustomFuncViewModel.h"
+#import "SendMessageViewModel.h"
 
 @interface SetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -74,7 +75,7 @@
                           @[lang(@"set one key sos")],@[lang(@"set shortcut mode")],@[lang(@"set blood pressure calibration")],@[lang(@"set sport shortcut")],
                           @[lang(@"set sport mode sort")],@[lang(@"set screen brightness")],@[lang(@"set music open off")],@[lang(@"set gps info")],
                           @[lang(@"set hot start info")],@[lang(@"set dial parameters")],@[lang(@"set sleep time")],@[lang(@"set menstruation parameter")],
-                          @[lang(@"set menstruation remind")],@[lang(@"custom set func")]];
+                          @[lang(@"set menstruation remind")],@[lang(@"custom set func")],@[lang(@"send prompt message")]];
     }
     return _buttonTitles;
 }
@@ -89,7 +90,7 @@
                          [SetOneKeySosViewModel class],[SetShortcutViewModel class],[SetBloodPressureViewModel class],[SetSportShortcutViewModel class],
                          [SetSportModeSortViewModel class],[SetScreenViewModel class],[SetMusicViewModel class],[SetGpsInfoViewModel class],
                          [SetHotStartViewModel class],[SetDialParamViewModel class],[SetSleepTimeViewModel class],[SetMenstruationViewModel class],
-                         [SetMenstruationRemindViewModel class],[SetCustomFuncViewModel class]];
+                         [SetMenstruationRemindViewModel class],[SetCustomFuncViewModel class],[SendMessageViewModel class]];
     }
     return _modelClasss;
 }

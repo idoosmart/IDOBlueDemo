@@ -1,3 +1,5 @@
+"home need sync" = "home need sync:";
+"setup" = "setup";
 "connected" = "connected";
 "connected success" = "connected success";
 "connected failed" = "connected failed";
@@ -131,6 +133,11 @@
 "slovak" = "slovak";
 "danish" = "danish";
 "croatia" = "croatia";
+"indonesian" = "indonesian";
+"korean" = "korean";
+"hindi" = "hindi";
+"portuguese" = "portuguese";
+
 "24 hours" = "24 hours";
 "12 hours" = "12 hours";
 "open" = "open";
@@ -147,6 +154,7 @@
 "running step length:" = "running step length:";
 "gps stride calibration:" = "gps stride calibration:";
 "time format:" = "time format:";
+"week start:" = "week start:";
 "walk" = "walk";
 "run" = "run";
 "ride" = "ride";
@@ -184,6 +192,18 @@
 "square dance" = "square dance";
 "plank" = "plank";
 "gym" = "gym";
+"outdoor running" = "outdoor running";
+"indoor running" = "indoor running";
+"outdoor cycling" = "outdoor cycling";
+"indoor cycling" = "indoor cycling";
+"outdoor walking" = "outdoor walking";
+"indoor walking" = "indoor walking";
+"pool swimming" = "pool swimming";
+"open water swimming" = "open water swimming";
+"elliptical machine" = "elliptical machine";
+"rowing machine" = "rowing machine";
+"high-intensity interval training" = "high-intensity interval training";
+"eight motion sequences have been set" = "eight motion sequences have been set";
 "cold start" = "cold start";
 "hot start" = "hot start";
 "normal" = "normal";
@@ -236,6 +256,7 @@
 "set heart rate mode" = "set heart rate mode";
 "set heart rate interval" = "set heart rate interval";
 "set no disturb mode" = "set no disturb mode";
+"set the do not disturb mode switch:" = "set the do not disturb mode switch:";
 "set device unit" = "set device unit";
 "set one key sos" = "set one key sos";
 "set shortcut mode" = "set shortcut mode";
@@ -359,6 +380,8 @@
 "set heart rate interval failed" = "set heart rate interval failed";
 "burn fat:" = "burn fat:";
 "aerobic exercise:" = "aerobic exercise:";
+"warm up:" = "warm up:";
+"anaerobic exercise:" = "anaerobic exercise:";
 "extreme exercise:" = "extreme exercise:";
 "max heart rate:" = "max heart rate:";
 "set heart rate interval button" = "set heart rate interval";
@@ -370,6 +393,7 @@
 "query data" = "query data";
 "please enable bluetooth to continue using the current app" = "please enable bluetooth to continue using the current app";
 "show log" = "show log:";
+"simulator data" = "simulator data:";
 /**
  add by xiongjie
  */
@@ -405,7 +429,13 @@
 "set sports mode sort failed" = "set sports mode sort failed";
 "set screen brightness success" = "set screen brightness success";
 "set screen brightness failed" = "set screen brightness failed";
-"screen brightness level：" = "screen brightness level：";
+"screen brightness level:" = "screen brightness level:";
+"set is manual switch:" = "set is manual switch:";
+"set screen mode:" = "set screen mode:";
+"turn off auto tune" = "turn off auto tune";
+"use ambient light sensors" = "use ambient light sensors";
+"auto brightness at night" = "auto brightness at night";
+"set time for night dimming" = "set time for night dimming";
 "set music open off success" = "set music open off success";
 "set music open off failed" = "set music open off failed";
 "set GPS configuration information" = "set gps configuration information";
@@ -444,6 +474,21 @@
 "set user name failed" = "set user name failed";
 "set user number success" = "set user number success";
 "set user number failed" = "set user number failed";
+"send prompt message" = "send prompt message";
+"get watch screen info" = "get watch screen info";
+"get watch screen info success" = "get watch screen info success";
+"get watch screen info failed" = "get watch screen info failed";
+"get watch dial list info" = "get watch dial list info";
+"get watch dial list info success" = "get watch dial list info success";
+"get watch dial list info failed" = "get watch dial list info failed";
+"set current dial info" = "set current dial info";
+"current dial has been deleted" = "urrent dial has been deleted";
+"set current dial info success" = "et current dial info success";
+"set current dial info failed"  = "set current dial info failed";
+"transfer dial file" = "transfer dial file";
+"transfer dial file success" = "transfer dial file success";
+"transfer dial file failed"  = "transfer dial file failed";
+"watch dial function" = "watch dial function";
 
 "get function list" = "get function list";
 "get function list success" = "get function list success";
@@ -470,6 +515,14 @@
 "get version information" = "get version information";
 "get version information success" = "get version information success";
 "get version information failed" = "get version information failed";
+"get ota auth information" = "get ota auth information";
+"get ota auth info success" = "get ota auth information success";
+"get ota auth info failed" = "get ota auth information failed";
+"verification success" = "verification success";
+"id number verification failure" = "id number verification failure";
+"version number verification failure" = "version number verification failure";
+"insufficient power" = "insufficient power";
+"other errors" = "other errors";
 "get the number of stars" = "get the number of stars";
 "the number of stars" = "the number of stars";
 "get the number of stars success" = "get the number of stars success";

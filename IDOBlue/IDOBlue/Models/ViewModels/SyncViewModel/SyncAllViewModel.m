@@ -22,6 +22,12 @@
 @end
 
 @implementation SyncAllViewModel
+
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -44,54 +50,136 @@
     };
 }
 
++ (NSString *)getStateCode:(IDO_SYNC_COMPLETE_STATUS)stateCode
+{
+    if (stateCode == IDO_SYNC_CONFIG_COMPLETE) {
+        return @"IDO_SYNC_CONFIG_COMPLETE";
+    }else if (stateCode == IDO_SYNC_CONFIG_COMPLETE_EXCEPTION) {
+        return @"IDO_SYNC_CONFIG_COMPLETE_EXCEPTION";
+    }else if (stateCode == IDO_SYNC_HEALTH_COMPLETE) {
+        return @"IDO_SYNC_HEALTH_COMPLETE";
+    }else if (stateCode == IDO_SYNC_HEALTH_COMPLETE_EXCEPTION) {
+        return @"IDO_SYNC_HEALTH_COMPLETE_EXCEPTION";
+    }else if (stateCode == IDO_SYNC_V3_HEALTH_COMPLETE) {
+        return @"IDO_SYNC_V3_HEALTH_COMPLETE";
+    }else if (stateCode == IDO_SYNC_V3_HEALTH_COMPLETE_EXCEPTION) {
+        return @"IDO_SYNC_V3_HEALTH_COMPLETE_EXCEPTION";
+    }else if (stateCode == IDO_SYNC_ACTIVITY_COMPLETE) {
+        return @"IDO_SYNC_ACTIVITY_COMPLETE";
+    }else if (stateCode == IDO_SYNC_ACTIVITY_COMPLETE_EXCEPTION) {
+        return @"IDO_SYNC_ACTIVITY_COMPLETE_EXCEPTION";
+    }else if (stateCode == IDO_SYNC_GPS_COMPLETE) {
+        return @"IDO_SYNC_GPS_COMPLETE";
+    }else if (stateCode == IDO_SYNC_GPS_COMPLETE_EXCEPTION) {
+        return @"IDO_SYNC_GPS_COMPLETE_EXCEPTION";
+    }else if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
+        return @"IDO_SYNC_GLOBAL_COMPLETE";
+    }
+    return @"";
+}
+
 - (void)getButtonCallback
 {
     __weak typeof(self) weakSelf = self;
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
         [funcVC showLoadingWithMessage:lang(@"sync data...")];
-        //同步日志
-        [IDOSyncManager syncDataJsonCallback:^(IDO_CURRENT_SYNC_TYPE syncType, NSString * _Nullable jsonStr) {
+        initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_CONFIG_ITEM_TYPE | IDO_WANT_TO_SYNC_HEALTH_ITEM_TYPE
+        | IDO_WANT_TO_SYNC_ACTIVITY_ITEM_TYPE | IDO_WANT_TO_SYNC_GPS_ITEM_TYPE;
+        initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[SyncAllViewModel getStateCode:stateCode]];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+            if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
+                [funcVC showToastWithText:lang(@"sync data complete")];
+            }
+        }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
+            [funcVC showSyncProgress:progress];
+        }).addSyncFailed(^(int errorCode) {
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            };
+            [funcVC showToastWithText:lang(@"sync data failed")];
+        }).addSyncSwim(^(NSString * jsonStr){
             if (![IDOConsoleBoard borad].isShow) {
                 NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
                 TextViewCellModel * model = [strongSelf.cellModels firstObject];
                 model.data = @[newLogStr?:@""];
                 strongSelf.textView.text = newLogStr;
             }
-            // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-        }];
-        //同步完成
-        [IDOSyncManager syncDataCompleteCallback:^(IDO_SYNC_COMPLETE_STATUS stateCode, NSString * _Nullable stateInfo) {
+        }).addSyncHeartRate(^(NSString * jsonStr){
             if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,stateInfo];
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
                 TextViewCellModel * model = [strongSelf.cellModels firstObject];
                 model.data = @[newLogStr?:@""];
                 strongSelf.textView.text = newLogStr;
             }
-           // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-            if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
-              [funcVC showToastWithText:lang(@"sync data complete")];
-            }
-        } failCallback:^(int errorCode) {
-            [funcVC showToastWithText:lang(@"sync data failed")];
-        }];
-        //同步进度
-        [IDOSyncManager syncDataProgressCallback:^(float progress) {
+        }).addSyncBloodOxygen(^(NSString * jsonStr){
             if (![IDOConsoleBoard borad].isShow) {
-                NSString * allStr = [NSString stringWithFormat:@"%@...%.1f",@"SYNC_DATA_PROGRESS",progress * 100.0f];
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,allStr];
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
                 TextViewCellModel * model = [strongSelf.cellModels firstObject];
                 model.data = @[newLogStr?:@""];
                 strongSelf.textView.text = newLogStr;
             }
-            //[strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-            [funcVC showSyncProgress:progress];
-        }];
-        
-        //同步
-        BOOL isSyncConfig = [[NSUserDefaults standardUserDefaults]boolForKey:NEED_SYNC_CONFIG];
-        IDOSyncManager.startSync(isSyncConfig);
+        }).addSyncBp(^(NSString * jsonStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).addSyncSleep(^(NSString * jsonStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).addSyncGps(^(NSString * jsonStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).addSyncSport(^(NSString * jsonStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).addSyncPressure(^(NSString * jsonStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).addSyncActivity(^(NSString * jsonStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).addSyncConfig(^(NSString * logStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,logStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).mandatorySyncConfig(YES);
+        [IDOSyncManager startSync];
     };
 }
 

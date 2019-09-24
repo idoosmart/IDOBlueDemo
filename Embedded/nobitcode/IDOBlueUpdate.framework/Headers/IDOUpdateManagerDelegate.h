@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 
 #if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
-#elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
-#import <IDOBlueProtocol/IDOBlueProtocol.h>
+#elif __has_include(<IDOBlueUpdate/IDOBlueUpdate.h>)
 #else
-#import "IDOEnum.h"
+#import "IDOUpdateEnum.h"
 #endif
 
 @class IDOUpdateFirmwareManager;
@@ -58,8 +57,8 @@
 
 @optional
 /**
- * @brief 传入固件包的类型 （SOFTDEVICE、BOOTLOADER、SOFTDEVICE_BOOTLOADER、APPLICATION）默认 APPLICATION 暂时不支持其他类型
- * Incoming firmware package type (SOFTDEVICE, BOOTLOADER, SOFTDEVICE_BOOTLOADER, APPLICATION) Default APPLICATION does not support other types
+ * @brief 传入固件包的类型 （SOFTDEVICE、BOOTLOADER、SOFTDEVICE_BOOTLOADER、APPLICATION）默认 APPLICATION 暂时不支持其他类型,只适合Nordic
+ * Incoming firmware package type (SOFTDEVICE, BOOTLOADER, SOFTDEVICE_BOOTLOADER, APPLICATION) Default APPLICATION does not support other types,only suitable for Nordic
  * @param manager 升级管理中心对象 | Upgrade Management Center Objects
  * @return 固件包的类型 | Type of firmware package
  */

@@ -57,6 +57,11 @@
     }else {
         self.accessoryType = UITableViewCellAccessoryNone;
     }
+    if (self.labelCellModel.isCenter) {
+        self.title.textAlignment = NSTextAlignmentCenter;
+    }else {
+        self.title.textAlignment = NSTextAlignmentLeft;
+    }
 }
 
 - (void)labelAction:(UITapGestureRecognizer *)recognizer

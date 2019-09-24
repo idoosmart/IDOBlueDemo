@@ -23,24 +23,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:3];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    [[NSUserDefaults standardUserDefaults]setObject:@(1) forKey:PRODUCTION_MODE_KEY];
 #ifdef DEBUG
-    registrationServices().outputSdkLog(YES).outputProtocolLog(YES).addAliYunLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+   registrationServices().outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //此处可以使用自己的蓝牙管理
        if(__IDO_BIND__)[IDOBluetoothManager startScan];
        else [IDOBluetoothManager refreshDelegate];
     });
 #else
-    registrationServices().outputSdkLog(NO).outputProtocolLog(NO).addAliYunLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    registrationServices().outputSdkLog(NO).outputProtocolLog(NO).rawDataLog(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //此处可以使用自己的蓝牙管理
         if(__IDO_BIND__)[IDOBluetoothManager startScan];
         else [IDOBluetoothManager refreshDelegate];
     });
 #endif
-
     if (__IDO_BIND__) {
         int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-        if (mode == 0) {
+        if (mode == 1) {
             FuncViewController * update = [[FuncViewController alloc]init];
             update.model = [UpdateMainViewModel new];
             update.title = lang(@"device update");

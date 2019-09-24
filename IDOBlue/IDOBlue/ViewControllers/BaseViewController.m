@@ -44,6 +44,20 @@
     return _timerLabel;
 }
 
+- (SetMenuView *)menuView
+{
+    if (!_menuView) {
+        _menuView = [[SetMenuView alloc]initWithFrame:CGRectZero];
+        [self.view addSubview:_menuView];
+        __weak typeof(self) weakSelf = self;
+        [_menuView mas_makeConstraints:^(MASConstraintMaker *make) {
+            __strong typeof(self) strongSelf = weakSelf;
+            make.edges.equalTo(strongSelf.view);
+        }];
+    }
+    return _menuView;
+}
+
 - (void)showLoadingWithMessage:(NSString *)message
 {
     self.progressHUD.mode = MBProgressHUDModeIndeterminate;

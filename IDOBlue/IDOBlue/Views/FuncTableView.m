@@ -129,7 +129,7 @@
     }else {
         cellModel = _model.cellModels[indexPath.row];
     }
-    if (cellModel.isDelete) {
+    if (cellModel.isDelete && !tableView.isEditing) {
         return UITableViewCellEditingStyleDelete;
     }else if (cellModel.isMoveRow) {
         return UITableViewCellEditingStyleNone;

@@ -17,11 +17,9 @@
 
 
 @interface GetVersionInfoViewModel()
-
 @property (nonatomic,strong) UITextView * textView;
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
-
 @end
 
 @implementation GetVersionInfoViewModel
@@ -64,6 +62,8 @@
                 NSString * gesturev = [NSString stringWithFormat:@"gesture : %ld",(long)data.gestureRecognitionVersion];
                 NSString * pcbv     = [NSString stringWithFormat:@"pcb : %ld",(long)data.pcbVersion];
                 strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n%@\n",sdkv,hrv,sleepv,stepv,gesturev,pcbv];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"get version information failed")];
             }

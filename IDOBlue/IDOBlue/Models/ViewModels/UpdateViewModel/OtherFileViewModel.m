@@ -114,9 +114,9 @@
                     }
                 }else {
                     NSString * filePath = [NSBundle mainBundle].bundlePath;
-                    NSString * dirPath = [filePath stringByAppendingPathComponent:@"Agps"];
+                    NSString * dirPath = [filePath stringByAppendingPathComponent:@"Files"];
                     filePath = [dirPath stringByAppendingPathComponent:fileName];
-                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:TRAN_FILE_PATH_KEY];
                     if (strongSelf.selectFileCallback) {
                         strongSelf.selectFileCallback(filePath);
                     }
@@ -138,7 +138,7 @@
                     if (strongSelf.type == 0) {
                         [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
                     }else {
-                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:TRAN_FILE_PATH_KEY];
                     }
                     if (strongSelf.selectFileCallback) {
                         strongSelf.selectFileCallback(filePath);

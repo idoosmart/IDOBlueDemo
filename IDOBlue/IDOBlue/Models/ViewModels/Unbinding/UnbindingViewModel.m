@@ -65,7 +65,6 @@
             [funcVc showLoadingWithMessage:lang(@"device unbinding")];
             [IDOFoundationCommand unbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
-                    [[NSUserDefaults standardUserDefaults]setObject:@(0) forKey:NEED_SYNC_CONFIG];
                     [funcVc showToastWithText:lang(@"unbind success")];
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];
                     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
@@ -83,7 +82,6 @@
             [funcVc showLoadingWithMessage:lang(@"device unbinding")];
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
-                    [[NSUserDefaults standardUserDefaults]setObject:@(0) forKey:NEED_SYNC_CONFIG];
                     [funcVc showToastWithText:lang(@"unbind success")];
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];
                     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];

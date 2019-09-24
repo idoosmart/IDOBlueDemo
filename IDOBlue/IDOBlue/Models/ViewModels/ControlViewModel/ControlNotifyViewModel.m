@@ -51,6 +51,8 @@
         [IDOFoundationCommand belOpenAncsCommand:^(int errorCode) {
             if (errorCode == 0) {
                 [funcVC showToastWithText:lang(@"successful setting of ANCS notification")];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"failure to set up ANCS notification")];
             }

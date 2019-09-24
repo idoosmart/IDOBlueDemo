@@ -71,9 +71,9 @@
         FuncViewController * funcVc = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 0) {
-            [IDOUpdateFirmwareManager shareInstance].updateType = IDO_NORDIC_FRAMEWORK_TYPE;
+            [IDOUpdateFirmwareManager shareInstance].updateType = IDO_NORDIC_PLATFORM_TYPE;
         }else if (indexPath.row == 1) {
-            [IDOUpdateFirmwareManager shareInstance].updateType = IDO_REALTK_FRAMEWORK_TYPE;
+            [IDOUpdateFirmwareManager shareInstance].updateType = IDO_REALTK_PLATFORM_TYPE;
         }
         BaseCellModel * model = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if ([NSStringFromClass(model.modelClass)isEqualToString:@"NSNull"])return;

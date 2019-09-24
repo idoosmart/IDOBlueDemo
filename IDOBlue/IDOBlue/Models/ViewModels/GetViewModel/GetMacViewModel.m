@@ -56,6 +56,8 @@
                 [funcVC showToastWithText:lang(@"get Mac address success")];
                 NSString * macStr = [NSString stringWithFormat:@"%@ ： %@",lang(@"Mac address"),data.macAddr?:@""];
                 strongSelf.textView.text = macStr;
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"get Mac address failed")];
             }

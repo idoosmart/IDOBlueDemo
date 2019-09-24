@@ -51,6 +51,8 @@
         [IDOFoundationCommand setDefaultConfigCommand:^(int errorCode) {
             if (errorCode == 0) {
                 [funcVC showToastWithText:lang(@"setting the default configuration successfully")];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"failed to set default configuration")];
             }

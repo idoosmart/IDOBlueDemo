@@ -12,7 +12,6 @@
 #if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
 #else
-#import "IDOEnum.h"
 #import "IDOGetInfoBluetoothModel.h"
 #endif
 
@@ -54,7 +53,7 @@
 @property (nonatomic,strong) CBCharacteristic * healthCharacteristic;
 
 /**
- * 锐捷定制发送服务特征 | ruijie write service Features
+ * 锐捷定制发送服务特征 | Ruijie write service Features
  */
 @property (nonatomic,strong) CBCharacteristic * customWriteCharacteristic;
 
@@ -126,6 +125,11 @@
  * 当前连接设备授权码长度 | Current connection device authorization code length
  */
 @property (nonatomic,assign) NSInteger  authLength;
+
+/**
+ * 当前设备绑定的时间戳 | Current connection device binding timestamp
+ */
+@property (nonatomic,assign) NSInteger  bindTime;
 
 /**
  * 手环的平台 | platform for bracelet

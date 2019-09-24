@@ -142,6 +142,15 @@
     return _tempArray;
 }
 
+- (NSArray *)screenModeArray
+{
+    if (!_screenModeArray) {
+        _screenModeArray = @[lang(@"turn off auto tune"),lang(@"use ambient light sensors"),
+                             lang(@"auto brightness at night"),lang(@"set time for night dimming")];
+    }
+    return _screenModeArray;
+}
+
 - (NSArray *)goalTypeArray
 {
     if (!_goalTypeArray) {
@@ -173,7 +182,7 @@
                               @[lang(@"sms"),lang(@"email"),lang(@"wechat"),@"QQ",lang(@"sina weibo"),@"facebook",@"twitter"],
                               @[@"whatsapp",@"messenger",@"instagram",@"linked in",lang(@"calendar event"),@"skype",lang(@"alarm event"),@"pokeman"],
                               @[@"vkontakte",@"line",@"viber",@"kakaotalk",@"gmail",@"outlook",@"snapchat",@"telegram"],
-                              @[@"chatwork",@"slack"]];
+                              @[@"chatwork",@"slack",@"yahoo mail",@"tumblr",@"youtube",@"yahoo pinterest"]];
     }
     return _notifyTitleArray;
 }
@@ -236,7 +245,8 @@
                                lang(@"german"),lang(@"italian"),lang(@"spanish"),lang(@"japanese"),
                                lang(@"polish"),lang(@"czech"),lang(@"romania"),lang(@"lithuanian"),
                                lang(@"dutch"),lang(@"slovenia"),lang(@"hungarian"),lang(@"russian"),
-                               lang(@"ukrainian"),lang(@"slovak"),lang(@"danish"),lang(@"croatia")];
+                               lang(@"ukrainian"),lang(@"slovak"),lang(@"danish"),lang(@"croatia"),
+                               lang(@"indonesian"),lang(@"korean"),lang(@"hindi"),lang(@"portuguese")];
     }
     return _languageUnitArray;
 }
@@ -269,7 +279,8 @@
 {
     if (!_unitTitleArray) {
         _unitTitleArray = @[lang(@"distance unit:"),lang(@"weight unit:"),lang(@"temperature unit:"),lang(@"current language:"),
-                            lang(@"walking step length:"),lang(@"running step length:"),lang(@"gps stride calibration:"),lang(@"time format:")];
+                            lang(@"walking step length:"),lang(@"running step length:"),lang(@"gps stride calibration:"),
+                            lang(@"time format:"),lang(@"week start:")];
     }
     return _unitTitleArray;
 }
@@ -283,6 +294,19 @@
                                      @[lang(@"golf"),lang(@"baseball"),lang(@"skiing"),lang(@"roller skating"),lang(@"dancing")]];
     }
     return _sportShortcutTitleArray;
+}
+
+- (NSArray *)sportSortTitleArray
+{
+    if (!_sportSortTitleArray) {
+        _sportSortTitleArray = @[lang(@"walk"),lang(@"run"),lang(@"ride"),lang(@"hike"),lang(@"swim"),lang(@"mountain climbing"),lang(@"badminton"),lang(@"other"),
+                                 lang(@"fitness"),lang(@"spinning"),lang(@"elliptical machine"),lang(@"treadmill"),lang(@"sit-ups"),lang(@"push-ups"),lang(@"dumbbells"),lang(@"weight lifting"),
+                                 lang(@"calisthenics"),lang(@"yoga"),lang(@"rope skipping"),lang(@"table tennis"),lang(@"basketball"),lang(@"football"),lang(@"volleyball"),lang(@"tennis"),
+                                 lang(@"golf"),lang(@"baseball"),lang(@"skiing"),lang(@"roller skating"),lang(@"dancing"),lang(@"outdoor running"),lang(@"indoor running"),lang(@"outdoor cycling"),
+                                 lang(@"indoor cycling"),lang(@"outdoor walking"),lang(@"indoor walking"),lang(@"pool swimming"),lang(@"open water swimming"),lang(@"elliptical machine"),
+                                 lang(@"rowing machine"),lang(@"high-intensity interval training")];
+    }
+    return _sportSortTitleArray;
 }
 
 - (NSArray *)bootModeArray

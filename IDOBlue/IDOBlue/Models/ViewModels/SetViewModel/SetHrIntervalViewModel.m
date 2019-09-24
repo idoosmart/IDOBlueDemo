@@ -66,6 +66,10 @@
                 strongSelf.hrIntervalModel.limitValue  = [selectStr integerValue];
             }else if (indexPath.row == 3) {
                 strongSelf.hrIntervalModel.userMaxHr  = [selectStr integerValue];
+            }else if (indexPath.row == 5) {
+                strongSelf.hrIntervalModel.warmUp  = [selectStr integerValue];
+            }else if (indexPath.row == 6) {
+                strongSelf.hrIntervalModel.anaerobic  = [selectStr integerValue];
             }
         };
     };
@@ -82,6 +86,8 @@
                                           callback:^(int errorCode) {
               if(errorCode == 0) {
                   [funcVC showToastWithText:lang(@"set heart rate interval success")];
+              }else if (errorCode == 6) {
+                  [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
               }else {
                   [funcVC showToastWithText:lang(@"set heart rate interval failed")];
               }
@@ -92,10 +98,10 @@
 - (void)getCellModels
 {
     NSMutableArray * cellModels = [NSMutableArray array];
-    
+
     TextFieldCellModel * model1 = [[TextFieldCellModel alloc]init];
     model1.typeStr = @"oneTextField";
-    model1.titleStr = lang(@"burn fat:");
+    model1.titleStr = lang(@"burn fat:"); // 脂肪燃烧
     model1.data = @[@(self.hrIntervalModel.burnFat)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneTextFieldTableViewCell class];
@@ -106,7 +112,7 @@
     
     TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
     model2.typeStr = @"oneTextField";
-    model2.titleStr = lang(@"aerobic exercise:");
+    model2.titleStr = lang(@"aerobic exercise:"); // 有氧运动
     model2.data = @[@(self.hrIntervalModel.aerobic)];
     model2.cellHeight = 70.0f;
     model2.cellClass = [OneTextFieldTableViewCell class];
@@ -117,7 +123,7 @@
     
     TextFieldCellModel * model3 = [[TextFieldCellModel alloc]init];
     model3.typeStr = @"oneTextField";
-    model3.titleStr =  lang(@"extreme exercise:") ;
+    model3.titleStr =  lang(@"extreme exercise:") ; //极限运动
     model3.data = @[@(self.hrIntervalModel.limitValue)];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneTextFieldTableViewCell class];
@@ -128,7 +134,7 @@
     
     TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
     model4.typeStr = @"oneTextField";
-    model4.titleStr = lang(@"max heart rate:");
+    model4.titleStr = lang(@"max heart rate:"); // 最大心率
     model4.data = @[@(self.hrIntervalModel.userMaxHr)];
     model4.cellHeight = 70.0f;
     model4.cellClass = [OneTextFieldTableViewCell class];
@@ -136,6 +142,28 @@
     model4.isShowLine = YES;
     model4.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model4];
+    
+    TextFieldCellModel * model8 = [[TextFieldCellModel alloc]init];
+    model8.typeStr = @"oneTextField";
+    model8.titleStr = lang(@"warm up:");//热身运动
+    model8.data = @[@(self.hrIntervalModel.warmUp)];
+    model8.cellHeight = 70.0f;
+    model8.cellClass = [OneTextFieldTableViewCell class];
+    model8.modelClass = [NSNull class];
+    model8.isShowLine = YES;
+    model8.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model8];
+    
+    TextFieldCellModel * model9 = [[TextFieldCellModel alloc]init];
+    model9.typeStr = @"oneTextField";
+    model9.titleStr = lang(@"anaerobic exercise:"); //无氧运动
+    model9.data = @[@(self.hrIntervalModel.anaerobic)];
+    model9.cellHeight = 70.0f;
+    model9.cellClass = [OneTextFieldTableViewCell class];
+    model9.modelClass = [NSNull class];
+    model9.isShowLine = YES;
+    model9.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model9];
     
     EmpltyCellModel * model5 = [[EmpltyCellModel alloc]init];
     model5.typeStr = @"empty";

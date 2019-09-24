@@ -55,6 +55,8 @@
             if (errorCode == 0) {
                 [funcVC showToastWithText:lang(@"get GPS information success") ];
                 strongSelf.textView.text = [NSString stringWithFormat:@"%@",data.dicFromObject];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"get GPS information failed")];
             }

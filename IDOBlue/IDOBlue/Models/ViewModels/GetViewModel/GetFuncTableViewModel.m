@@ -57,6 +57,8 @@
                 [funcVC showToastWithText:lang(@"get function list success")];
                 NSString * str = [NSString stringWithFormat:@"%@",data.dicFromObject];
                 strongSelf.textView.text = str;
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"get function list failed") ];
             }

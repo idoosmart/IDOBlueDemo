@@ -7,6 +7,7 @@
 //
 
 #import "FuncViewController.h"
+#import "ScanViewController.h"
 #import "TableViewFootView.h"
 #import "FileViewModel.h"
 #import "FuncViewModel.h"
@@ -22,12 +23,14 @@
 
 - (void)dealloc
 {
-  
+    _model = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_CONFIG_ITEM_TYPE | IDO_WANT_TO_SYNC_HEALTH_ITEM_TYPE
+    | IDO_WANT_TO_SYNC_ACTIVITY_ITEM_TYPE | IDO_WANT_TO_SYNC_GPS_ITEM_TYPE;
     if (self.model.viewWillAppearCallback) {
         self.model.viewWillAppearCallback(self);
     }
@@ -62,35 +65,29 @@
     if ([self.model isKindOfClass:[FuncViewModel class]]) {
         [self.tableView addHeaderRefresh];
         [self.tableView syncDataRefreshingBlock:^{
-            //同步json数据
-            [IDOSyncManager syncDataJsonCallback:^(IDO_CURRENT_SYNC_TYPE syncType, NSString * _Nullable jsonStr) {
-                
-            }];
-            //同步完成
-            [IDOSyncManager syncDataCompleteCallback:^(IDO_SYNC_COMPLETE_STATUS stateCode, NSString * _Nullable stateInfo) {
+             __strong typeof(self) strongSelf = weakSelf;
+             NSInteger mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+             BOOL need_sync = [[NSUserDefaults standardUserDefaults]boolForKey:HOME_NEED_SYNC];
+            if (mode != 0 || !need_sync) {
+                [strongSelf.tableView endSyncDataRefresh];
+                return;
+            }
+            initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {
                 __strong typeof(self) strongSelf = weakSelf;
                 if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
                     [strongSelf showToastWithText:lang(@"sync data complete")];
                     [strongSelf.tableView endSyncDataRefresh];
                 }
-            } failCallback:^(int errorCode) {
+            }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
+                __strong typeof(self) strongSelf = weakSelf;
+                [strongSelf.tableView syncTitleLableStr:[NSString stringWithFormat:@"%@%.1f%@",lang(@"sync data"),progress*100.0f,@"%"]];
+            }).addSyncFailed(^(int errorCode) {
                 __strong typeof(self) strongSelf = weakSelf;
                 [strongSelf showToastWithText:lang(@"sync data failed")];
                 [strongSelf.tableView endSyncDataRefresh];
-            }];
-            //同步进度
-            [IDOSyncManager syncDataProgressCallback:^(float progress) {
-                __strong typeof(self) strongSelf = weakSelf;
-                [strongSelf.tableView syncTitleLableStr:[NSString stringWithFormat:@"%@%.1f%@",lang(@"sync data"),progress*100.0f,@"%"]];
-            }];
-            //同步
-            BOOL isSyncConfig = [[NSUserDefaults standardUserDefaults]boolForKey:NEED_SYNC_CONFIG];
-            IDOSyncManager.startSync(isSyncConfig);
-            [[NSUserDefaults standardUserDefaults]setObject:@(0) forKey:NEED_SYNC_CONFIG];
+            }).mandatorySyncConfig(NO);
+            if(__IDO_BIND__ && !__IDO_PAIRING__)[IDOSyncManager startSync];
         }];
-        if (__IDO_BIND__ && __IDO_CONNECTED__ && !IDO_BLUE_ENGINE.peripheralEngine.isPairing) {
-            [self.tableView startSyncRefreshing];
-        }
     }
     
     self.tableView.model = self.model;
@@ -106,7 +103,16 @@
 - (void)startSync
 {
     [super startSync];
-    if(__IDO_BIND__ && !IDO_BLUE_ENGINE.peripheralEngine.isPairing)[self.tableView startSyncRefreshing];
+    NSInteger mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+    BOOL need_sync = [[NSUserDefaults standardUserDefaults]boolForKey:HOME_NEED_SYNC];
+    if (!need_sync)return;
+    if(__IDO_BIND__ && !__IDO_PAIRING__ && mode == 0) {
+        __weak typeof(self) weakSelf = self;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            __strong typeof(self) strongSelf = weakSelf;
+           [strongSelf.tableView startSyncRefreshing];
+        });
+    }
 }
 
 - (TableViewFootView *)footButton

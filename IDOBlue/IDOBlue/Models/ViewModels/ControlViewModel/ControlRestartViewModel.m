@@ -54,9 +54,10 @@
         [IDOFoundationCommand setAppRebootCommand:^(int errorCode) {
             __strong typeof(self) strongSelf = weakSelf;
             if (errorCode == 0) {
-                [[NSUserDefaults standardUserDefaults]setObject:@(1) forKey:NEED_SYNC_CONFIG];
                 [funcVC showToastWithText:lang(@"successful restart of equipment")];
                 [strongSelf setRootViewController];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"failure to restart equipment")];
             }

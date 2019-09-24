@@ -81,6 +81,8 @@
                                              callback:^(int errorCode) {
             if(errorCode == 0) {
                 [funcVC showToastWithText:lang(@"set hot start information success")];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"set hot start information failed")];
             }

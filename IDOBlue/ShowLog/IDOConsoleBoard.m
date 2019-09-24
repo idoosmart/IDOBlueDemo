@@ -77,7 +77,8 @@ alpha:alphaValue]
 - (void)addLog:(NSNotification *)notice {
     if (!_isShow)return;
     NSString *text  = notice.object;
-    if (self.contentView.superview == nil) {
+    
+    if (!self.contentView.superview || !text) {
         return;
     }
     NSMutableAttributedString *totalText = [[NSMutableAttributedString alloc] initWithAttributedString:self.textView.attributedText];

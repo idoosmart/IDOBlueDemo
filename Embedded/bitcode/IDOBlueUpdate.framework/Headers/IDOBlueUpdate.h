@@ -16,6 +16,7 @@ FOUNDATION_EXPORT const unsigned char IDOBlueUpdateVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <IDOBlueUpdate/PublicHeader.h>
 
+#import <IDOBlueUpdate/IDOUpdateEnum.h>
 #import <IDOBlueUpdate/IDOUpdateManagerDelegate.h>
 #import <IDOBlueUpdate/IDOUpdateFirmwareManager.h>
 

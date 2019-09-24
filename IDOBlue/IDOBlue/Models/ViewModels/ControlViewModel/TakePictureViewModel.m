@@ -67,6 +67,8 @@
                 if (errorCode == 0) {
                     [funcVC showToastWithText:lang(@"setting up Camera Successfully")];
                     [strongSelf openCameraWithViewController:funcVC];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
                 }else {
                     [funcVC showToastWithText:lang(@"failed to set up camera")];
                 }
@@ -75,6 +77,8 @@
             [IDOFoundationCommand cameraStopCommand:^(int errorCode) {
                 if (errorCode == 0) {
                     [funcVC showToastWithText:lang(@"setting up Camera Successfully")];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
                 }else {
                     [funcVC showToastWithText:lang(@"failed to set up camera")];
                 }

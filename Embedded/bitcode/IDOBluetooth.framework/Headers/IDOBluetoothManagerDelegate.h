@@ -14,7 +14,7 @@
 #elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
 #import <IDOBlueProtocol/IDOBlueProtocol.h>
 #else
-#import "IDOEnum.h"
+#import "IDOBlueEnum.h"
 #endif
 
 @class IDOBluetoothManager;

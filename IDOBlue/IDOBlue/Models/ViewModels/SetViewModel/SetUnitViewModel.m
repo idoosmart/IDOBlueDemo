@@ -49,7 +49,7 @@
     if (!_unitDataArray) {
         _unitDataArray = @[@(self.unitMode.distanceUnit),@(self.unitMode.weightUnit),@(self.unitMode.tempUnit),
                            @(self.unitMode.languageUnit),@(self.unitMode.strideWalk),@(self.unitMode.strideRun),
-                           @(self.unitMode.strideGps),@(self.unitMode.timeUnit)];
+                           @(self.unitMode.strideGps),@(self.unitMode.timeUnit),@(self.unitMode.weekStart)];
     }
     return _unitDataArray;
 }
@@ -59,7 +59,7 @@
     if (!_unitOptions) {
         _unitOptions = @[self.pickerDataModel.distanceUnitArray,self.pickerDataModel.weightUnitArray,self.pickerDataModel.tempUnitArray,
                          self.pickerDataModel.languageUnitArray,self.pickerDataModel.hundredArray,self.pickerDataModel.hundredArray,
-                         self.pickerDataModel.strideGpsArray,self.pickerDataModel.timeUnitArray];
+                         self.pickerDataModel.strideGpsArray,self.pickerDataModel.timeUnitArray,self.pickerDataModel.weekArray];
     }
     return _unitOptions;
 }
@@ -81,13 +81,22 @@
         }
         [funcVC.pickerView show];
         funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
-            textField.text = selectStr;
             if (indexPath.row == 4 || indexPath.row == 5) {
+                textField.text = selectStr;
                 textFieldModel.data = @[@([selectStr integerValue])];
             }else {
-                textFieldModel.data = @[selectStr];
+                if (indexPath.row == 8) {
+                    if (   [selectStr isEqualToString:lang(@"sunday")]
+                        || [selectStr isEqualToString:lang(@"monday")]
+                        || [selectStr isEqualToString:lang(@"saturday")]) {
+                         textField.text = selectStr;
+                         textFieldModel.data = @[selectStr];
+                    }
+                }else {
+                     textField.text = selectStr;
+                     textFieldModel.data = @[selectStr];
+                }
             }
-            [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             if (indexPath.row == 0) {
                 strongSelf.unitMode.distanceUnit = [pickerArray containsObject:selectStr] ? [pickerArray indexOfObject:selectStr] : 0 ;
             }else if (indexPath.row == 1) {
@@ -104,6 +113,14 @@
                 strongSelf.unitMode.strideGps = [pickerArray containsObject:selectStr] ? [pickerArray indexOfObject:selectStr] : 0 ;
             }else if (indexPath.row == 7) {
                 strongSelf.unitMode.timeUnit = [pickerArray containsObject:selectStr] ? [pickerArray indexOfObject:selectStr] : 0 ;
+            }else if (indexPath.row == 8) {
+                if ([selectStr isEqualToString:lang(@"sunday")]) {
+                    strongSelf.unitMode.weekStart = 0x01;
+                }else if([selectStr isEqualToString:lang(@"monday")]) {
+                    strongSelf.unitMode.weekStart = 0x00;
+                }else if ([selectStr isEqualToString:lang(@"saturday")]) {
+                    strongSelf.unitMode.weekStart = 0x03;
+                }
             }
         };
     };
@@ -120,6 +137,8 @@
                                     callback:^(int errorCode) {
             if(errorCode == 0) {
                 [funcVC showToastWithText:lang(@"set device unit success")];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"set device unit failed")];
             }
@@ -138,7 +157,17 @@
         if (i == 4 || i == 5) {
           model.data = @[@(index)];
         }else {
-          model.data = @[[[self.unitOptions objectAtIndex:i] objectAtIndex:index]];
+            if (i == 8) {
+                if (index == 0) {
+                    model.data = @[lang(@"monday")];
+                }else if (index == 1) {
+                    model.data = @[lang(@"sunday")];
+                }else if (index == 3) {
+                    model.data = @[lang(@"saturday")];
+                }
+            }else {
+                model.data = @[[[self.unitOptions objectAtIndex:i] objectAtIndex:index]];
+            }
         }
         model.cellHeight = 70.0f;
         model.cellClass = [OneTextFieldTableViewCell class];

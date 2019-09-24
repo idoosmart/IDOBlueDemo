@@ -112,9 +112,7 @@
 
 - (void)getButtonCallback
 {
-    __weak typeof(self) weakself = self;
     self.threeButtonCallback = ^(NSInteger index, UITableViewCell *tableViewCell) {
-        __strong typeof(self) strongSelf = weakself;
       FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
         if (index == 0) {
             [funcVC showLoadingWithMessage:lang(@"exit update...")];
@@ -140,9 +138,19 @@
             }
             [IDOBluetoothManager startScan];
         }else if (index == 2) {
-            if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
-            [funcVC showLoadingWithMessage:lang(@"enter update...")];
-            [IDOUpdateFirmwareManager startUpdate];
+            if (   !IDO_BLUE_ENGINE.managerEngine.isConnected
+                &&  [IDOUpdateFirmwareManager shareInstance].updateType != IDO_REALTK_PLATFORM_TYPE)return;
+            if ([IDOUpdateFirmwareManager shareInstance].updateType == IDO_REALTK_PLATFORM_TYPE) {
+                [IDOFoundationCommand getOtaAuthInfoCommand:^(int errorCode, int stateCode) {
+                    if (errorCode == 0 && stateCode == 0) {
+                        [funcVC showLoadingWithMessage:lang(@"enter update...")];
+                        [IDOUpdateFirmwareManager startUpdate];
+                    }
+                }];
+            }else {
+                [funcVC showLoadingWithMessage:lang(@"enter update...")];
+                [IDOUpdateFirmwareManager startUpdate];
+            }
         }
     };
 }
@@ -233,7 +241,7 @@
         funcVC.statusLabel.text = lang(@"update success");
         [funcVC showToastWithText:lang(@"update success")];
         int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-        if (!__IDO_BIND__ || mode == 0) {
+        if (!__IDO_BIND__ || mode == 1) {
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];

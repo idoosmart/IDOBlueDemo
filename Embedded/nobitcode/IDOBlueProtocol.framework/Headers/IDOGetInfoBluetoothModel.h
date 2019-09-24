@@ -12,36 +12,87 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ====  手环检查版本号 model ====
+@interface IDOCheckUpdateBluetoothModel:IDOBluetoothBaseModel
+/**
+ * app 响应状态 | flag code
+ * 0x00 : 已经是最新版本；0x01 ：有新版本；0x02 ：网络错误；0x03 ：其他错误
+ * 0x00 : it is the latest version; 0x01: there are new versions; 0x02: network error; 0x03: other errors
+ */
+@property (nonatomic,assign) NSInteger flagCode;
+
+/**
+ 固件最新版本号 | new version
+ */
+@property (nonatomic,assign) NSInteger newVersion;
+
+@end
+
+#pragma mark ==== 获取5个心率区间交换数据 ====
+@interface IDOGetFiveHrReplyInfoBluetoothModel:IDOBluetoothBaseModel
+/**
+ 燃烧脂肪 | Threshold for burning fat
+ */
+@property (nonatomic,assign) NSInteger burnFat;
+
+/**
+ 有氧运动 | Aerobic threshold
+ */
+@property (nonatomic,assign) NSInteger aerobic;
+
+/**
+ 极限运动 | Limit threshold
+ */
+@property (nonatomic,assign) NSInteger limitValue;
+
+/**
+ 热身运动 | Warm-up
+ */
+@property (nonatomic,assign) NSInteger warmUp;
+
+/**
+ 无氧运动 | Anaerobic exercise
+ */
+@property (nonatomic,assign) NSInteger anaerobic;
+
+@end
+
 #pragma mark ==== 获取版本信息model ====
 @interface IDOGetVersionInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
- SDK版本 数值为x10,11表示1.1的版本
+ * SDK版本 数值为x10,11表示1.1的版本
+ * SDK version number is x10, and 11 represents the 1.1 version
  */
 @property (nonatomic,assign) NSInteger sdkVersion;
 
 /**
- 心率算法版本 数值为x10,11表示1.1的版本
+ * 心率算法版本 数值为x10,11表示1.1的版本
+ * Version value of the heart rate algorithm is x10, and 11 represents version 1.1
  */
 @property (nonatomic,assign) NSInteger hrAlgorithmVersion;
 
 /**
- 睡眠算法版本 数值为x10,11表示1.1的版本
+ * 睡眠算法版本 数值为x10,11表示1.1的版本
+ * Sleep algorithm version number is x10, and 11 represents version 1.1
  */
 @property (nonatomic,assign) NSInteger sleepAlgorithmVersion;
 
 /**
- 计步算法版本 数值为x10,11表示1.1的版本
+ * 计步算法版本 数值为x10,11表示1.1的版本
+ * Step counting algorithm version value is x10,11 represents 1.1 version
  */
 @property (nonatomic,assign) NSInteger stepAlgorithmVersion;
 
 /**
- 手势识别算法 数值为x10,11表示1.1的版本
+ * 手势识别算法 数值为x10,11表示1.1的版本
+ * Value of gesture recognition algorithm is x10, and 11 represents version 1.1
  */
 @property (nonatomic,assign) NSInteger gestureRecognitionVersion;
 
 /**
- PCB 版本 数值为x10,11表示1.1的版本
+ * PCB 版本 数值为x10,11表示1.1的版本
+ * PCB version number is x10, and 11 represents version 1.1
  */
 @property (nonatomic,assign) NSInteger pcbVersion;
 
@@ -67,8 +118,6 @@
  * AGPS is valid, the remaining period is valid, non-zero is valid,
  */
 @property (nonatomic,assign) NSInteger isAgpsVaild;
-
-
 
 @end
 
@@ -322,8 +371,156 @@
 
 @end
 
-#pragma mark ==== 获取新增配对功能表model ====
-@interface IDOGetPairingFuncBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取第26个功能表model ====
+
+@interface IDOGetFuncTable26BluetoothModel : IDOBluetoothBaseModel
+/**
+ * 支持恢复出厂设置,用于自动解绑
+ * Support to restore factory Settings for automatic untying
+ */
+@property (nonatomic,assign) BOOL factoryReset;
+/**
+ * 抬腕亮背光 命令和抬手亮屏一样,就是app显示的名字不一样,不能和other.upHandGesture共存
+ * The backlight command of raising wrist light is the same as raising hand light screen,
+ * except that the name displayed by app is different and cannot coexist with other.upHandGesture
+ */
+@property (nonatomic,assign) BOOL liftingWrisBacklight;
+/**
+ * 多运动不能使用app
+ * No app for more exercise
+ */
+@property (nonatomic,assign) BOOL multiActivityNoUseApp;
+
+/**
+ * 多表盘
+ * multi dial
+ */
+@property (nonatomic,assign) BOOL multiDial;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable26BluetoothModel
+ */
++ (__kindof IDOGetFuncTable26BluetoothModel *)currentModel;
+@end
+
+#pragma mark ==== 获取第25个功能表model ====
+
+@interface IDOGetFuncTable25BluetoothModel:IDOBluetoothBaseModel
+/**
+ 椭圆机 | elliptical
+ */
+@property (nonatomic,assign) BOOL elliptical;
+/**
+ 划船机 | rower
+ */
+@property (nonatomic,assign) BOOL rower;
+/**
+ 高强度间歇训练法 | High-intensity interval training
+ */
+@property (nonatomic,assign) BOOL hiit;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable25BluetoothModel
+ */
++ (__kindof IDOGetFuncTable25BluetoothModel *)currentModel;
+
+@end
+
+#pragma mark ==== 获取第24个功能表model ====
+
+@interface IDOGetFuncTable24BluetoothModel:IDOBluetoothBaseModel
+/**
+ 户外跑步 | outdoor run
+ */
+@property (nonatomic,assign) BOOL outdoorRun;
+/**
+ 室内跑步 | indoor run
+ */
+@property (nonatomic,assign) BOOL indoorRun;
+/**
+ 户外骑行 | outdoor cycle
+ */
+@property (nonatomic,assign) BOOL outdoorCycle;
+/**
+ 室内骑行 | indoor cycle
+ */
+@property (nonatomic,assign) BOOL indoorCycle;
+/**
+ 户外走路 | outdoor walk
+ */
+@property (nonatomic,assign) BOOL outdoorWalk;
+/**
+室内走路 | indoor walk
+ */
+@property (nonatomic,assign) BOOL indoorWalk;
+/**
+ 泳池游泳 | pool swim
+ */
+@property (nonatomic,assign) BOOL poolSwim;
+/**
+ 开放水域游泳 | open water swim
+ */
+@property (nonatomic,assign) BOOL openWaterSwim;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable24BluetoothModel
+ */
++ (__kindof IDOGetFuncTable24BluetoothModel *)currentModel;
+
+@end
+
+#pragma mark ==== 获取第23个功能表model ====
+@interface IDOGetFuncTable23BluetoothModel:IDOBluetoothBaseModel
+/**
+ 5级心率区间 | level 5 hr interval
+ */
+@property (nonatomic,assign) BOOL level5HrInterval;
+/**
+ 走动提醒 | walk reminder
+ */
+@property (nonatomic,assign) BOOL walkReminder;
+/**
+ 呼吸训练 | breathe train
+ */
+@property (nonatomic,assign) BOOL breatheTrain;
+
+/**
+ 5级亮度调节 | screen brightness 5 level
+ */
+@property (nonatomic,assign) BOOL screenBrightness5Level;
+/**
+ 运动模式开关 自动识别 | activity switch
+ */
+@property (nonatomic,assign) BOOL activitySwitch;
+/**
+ 勿扰 支持可选时间范围和星期 | disturb have rang repeat
+ */
+@property (nonatomic,assign) BOOL disturbHaveRangRepeat;
+/**
+ 夜间自动亮度 | night auto brightness
+ */
+@property (nonatomic,assign) BOOL nightAutoBrightness;
+/**
+ 传输长包 | long mtu
+ */
+@property (nonatomic,assign) BOOL longMtu;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable23BluetoothModel
+ */
++ (__kindof IDOGetFuncTable23BluetoothModel *)currentModel;
+
+@end
+
+#pragma mark ==== 获取22功能列表信息model ====
+@interface IDOGetFuncTable22BluetoothModel:IDOBluetoothBaseModel
 /**
  连接后自动配对 | auto pair
  */
@@ -335,35 +532,70 @@
 @property (nonatomic,assign) BOOL noDisconnectPair;
 
 /**
+ v3 心率数据 | v3 hr data
+ */
+@property (nonatomic,assign) BOOL v3HrData;
+
+/**
+ v3 游泳数据 | v3 swim data
+ */
+@property (nonatomic,assign) BOOL v3SwimData;
+
+/**
+ v3 活动数据 | v3 activity data
+ */
+@property (nonatomic,assign) BOOL v3ActivityData;
+
+/**
+ v3 gps 数据 | v3 gps data
+ */
+@property (nonatomic,assign) BOOL v3GpsData;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetPairingFuncBluetoothModel
+ * @return IDOGetFuncTable22BluetoothModel
  */
-+ (__kindof IDOGetPairingFuncBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable22BluetoothModel *)currentModel;
 @end
 
-#pragma mark ==== 获取新增消息提醒model ====
-@interface IDOGetExNotify4BluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取21功能列表信息model ====
+@interface IDOGetFuncTable21BluetoothModel:IDOBluetoothBaseModel
 /**
- 聊天工作 | chatwork
+ chatwork
  */
 @property (nonatomic,assign) BOOL chatwork;
-
 /**
- 松弛 | slack
+ slack
  */
 @property (nonatomic,assign) BOOL slack;
+/**
+ tumblr
+ */
+@property (nonatomic,assign) BOOL tumblr;
+/**
+ youtube
+ */
+@property (nonatomic,assign) BOOL youtube;
+/**
+ yahoo pinterest
+ */
+@property (nonatomic,assign) BOOL yahooPinterest;
+/**
+ yahoo mail
+ */
+@property (nonatomic,assign) BOOL yahooMail;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetExNotify4BluetoothModel
+ * @return IDOGetFuncTable21BluetoothModel
  */
-+ (__kindof IDOGetExNotify4BluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable21BluetoothModel *)currentModel;
 @end
 
-#pragma mark ==== 获取扩展功能2列表信息model ====
-@interface IDOGetFuncExtend2BluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取20功能列表信息model ====
+@interface IDOGetFuncTable20BluetoothModel:IDOBluetoothBaseModel
 
 /**
  女性生理周期 | Female physiological cycle
@@ -408,14 +640,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetFuncExtend2BluetoothModel
+ * @return IDOGetFuncTable20BluetoothModel
  */
-+ (__kindof IDOGetFuncExtend2BluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable20BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取扩展功能列表信息model ====
-@interface IDOGetFuncExtendBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取19功能列表信息model ====
+@interface IDOGetFuncTable19BluetoothModel:IDOBluetoothBaseModel
 
 /**
  gps
@@ -460,14 +692,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetFuncExtendBluetoothModel
+ * @return IDOGetFuncTable19BluetoothModel
  */
-+ (__kindof IDOGetFuncExtendBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable19BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取主功能1列表信息model ====
-@interface IDOGetMainFunc1BluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取18列表信息model ====
+@interface IDOGetFuncTable18BluetoothModel:IDOBluetoothBaseModel
 
 /**
  登陆 | login
@@ -512,14 +744,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetMainFunc1BluetoothModel
+ * @return IDOGetFuncTable18BluetoothModel
  */
-+ (__kindof IDOGetMainFunc1BluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable18BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取运动类型3功能列表信息model ====
-@interface IDOGetSportType3BluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取17功能列表信息model ====
+@interface IDOGetFuncTable17BluetoothModel:IDOBluetoothBaseModel
 
 /**
  高尔夫 | Golf
@@ -549,14 +781,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetSportType3BluetoothModel
+ * @return IDOGetFuncTable17BluetoothModel
  */
-+ (__kindof IDOGetSportType3BluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable17BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取运动类型2功能列表信息model ====
-@interface IDOGetSportType2BluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取16功能列表信息model ====
+@interface IDOGetFuncTable16BluetoothModel:IDOBluetoothBaseModel
 
 /**
  健身操  |  Aerobics
@@ -600,14 +832,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetSportType2BluetoothModel
+ * @return IDOGetFuncTable16BluetoothModel
  */
-+ (__kindof IDOGetSportType2BluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable16BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取运动类型1功能列表信息model ====
-@interface IDOGetSportType1BluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取15功能列表信息model ====
+@interface IDOGetFuncTable15BluetoothModel:IDOBluetoothBaseModel
 
 /**
  健身 | Fitness
@@ -652,14 +884,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetSportType1BluetoothModel
+ * @return IDOGetFuncTable15BluetoothModel
  */
 
-+ (__kindof IDOGetSportType1BluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable15BluetoothModel *)currentModel;
 @end
 
-#pragma mark ==== 获取运动类型0功能列表信息model ====
-@interface IDOGetSportType0BluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取14功能列表信息model ====
+@interface IDOGetFuncTable14BluetoothModel:IDOBluetoothBaseModel
 
 /**
  走路 | walk
@@ -704,14 +936,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetSportType0BluetoothModel
+ * @return IDOGetFuncTable14BluetoothModel
  */
-+ (__kindof IDOGetSportType0BluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable14BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取其他扩展功能列表信息model ====
-@interface IDOGetOtherFuncExtendBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取13功能列表信息model ====
+@interface IDOGetFuncTable13BluetoothModel:IDOBluetoothBaseModel
 
 /**
  静态心率 |  Static heart rate
@@ -756,14 +988,14 @@
 /**
  *@brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- *@return IDOGetOtherFuncExtendBluetoothModel
+ *@return IDOGetFuncTable13BluetoothModel
  */
-+ (__kindof IDOGetOtherFuncExtendBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable13BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取信息提醒配置功能列表信息model ====
-@interface IDOGetSmsTableBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取12功能列表信息model ====
+@interface IDOGetFuncTable12BluetoothModel:IDOBluetoothBaseModel
 
 /**
  提示信息联系人 | Tips Contact
@@ -783,14 +1015,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetSmsTableBluetoothModel
+ * @return IDOGetFuncTable12BluetoothModel
  */
-+ (__kindof IDOGetSmsTableBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable12BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取其他功能列表信息model ====
-@interface IDOGetOtherFuncBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取11功能列表信息model ====
+@interface IDOGetFuncTable11BluetoothModel:IDOBluetoothBaseModel
 
 /**
  久坐提醒 | Sedentary reminder
@@ -835,14 +1067,14 @@
 /**
   * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
-  * @return IDOGetOtherFuncBluetoothModel
+  * @return IDOGetFuncTable11BluetoothModel
  */
-+ (__kindof IDOGetOtherFuncBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable11BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取信息2提醒功能列表信息model ====
-@interface IDOGetNotify2BluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取10功能列表信息model ====
+@interface IDOGetFuncTable10BluetoothModel:IDOBluetoothBaseModel
 
 /**
  vkontakte
@@ -887,14 +1119,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetNotify2BluetoothModel
+ * @return IDOGetFuncTable10BluetoothModel
  */
-+ (__kindof IDOGetNotify2BluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable10BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取信息1提醒功能列表信息model ====
-@interface IDOGetNotify1BluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取9功能列表信息model ====
+@interface IDOGetFuncTable9BluetoothModel:IDOBluetoothBaseModel
 
 /**
  whatsapp
@@ -935,14 +1167,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetNotify1BluetoothModel
+ * @return IDOGetFuncTable9BluetoothModel
  */
-+ (__kindof IDOGetNotify1BluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable9BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取信息0提醒功能列表信息model ====
-@interface IDOGetNotify0BluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取8功能列表信息model ====
+@interface IDOGetFuncTable8BluetoothModel:IDOBluetoothBaseModel
 
 /**
  短信 | SMS
@@ -982,13 +1214,13 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetNotify0BluetoothModel
+ * @return IDOGetFuncTable8BluetoothModel
  */
-+ (__kindof IDOGetNotify0BluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable8BluetoothModel *)currentModel;
 @end
 
-#pragma mark ==== 获取来电提醒功能列表信息model ====
-@interface IDOGetTableCallBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取7功能列表信息model ====
+@interface IDOGetFuncTable7BluetoothModel:IDOBluetoothBaseModel
 
 /**
  来电提醒 | Call reminder
@@ -1008,13 +1240,13 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetTableCallBluetoothModel
+ * @return IDOGetFuncTable7BluetoothModel
  */
-+ (__kindof IDOGetTableCallBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable7BluetoothModel *)currentModel;
 @end
 
-#pragma mark ==== 获取闹钟功能列表信息model ====
-@interface IDOGetAlarmFuncBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取6功能列表信息model ====
+@interface IDOGetFuncTable6BluetoothModel:IDOBluetoothBaseModel
 
 /**
  起床 | Get up
@@ -1059,13 +1291,13 @@
 /**
  * @brief  查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetAlarmFuncBluetoothModel
+ * @return IDOGetFuncTable6BluetoothModel
  */
-+ (__kindof IDOGetAlarmFuncBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable6BluetoothModel *)currentModel;
 @end
 
-#pragma mark ==== 获取控制功能列表信息model ====
-@interface IDOGetTableControlBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取5功能列表信息model ====
+@interface IDOGetFuncTable5BluetoothModel:IDOBluetoothBaseModel
 
 /**
  拍照 | taking pictures
@@ -1110,13 +1342,13 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetTableControlBluetoothModel
+ * @return IDOGetFuncTable5BluetoothModel
  */
-+ (__kindof IDOGetTableControlBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable5BluetoothModel *)currentModel;
 @end
 
-#pragma mark ==== 获取主功能列表信息model ====
-@interface IDOGetMainFuncBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取4功能列表信息model ====
+@interface IDOGetFuncTable4BluetoothModel:IDOBluetoothBaseModel
 
 /**
  步数 | Number of steps
@@ -1161,14 +1393,14 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetMainFuncBluetoothModel
+ * @return IDOGetFuncTable4BluetoothModel
  */
-+ (__kindof IDOGetMainFuncBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable4BluetoothModel *)currentModel;
 
 @end
 
-#pragma mark ==== 获取语言扩展功能2列表信息model ====
-@interface IDOGetLangExtend2SupportBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取3功能列表信息model ====
+@interface IDOGetFuncTable3BluetoothModel:IDOBluetoothBaseModel
 
 /**
  斯洛伐克语 | Slovak
@@ -1191,17 +1423,32 @@
 @property (nonatomic,assign) BOOL indonesian;
 
 /**
+ 韩语 | korean
+ */
+@property (nonatomic,assign) BOOL korean;
+
+/**
+ 印地语 | hindi
+ */
+@property (nonatomic,assign) BOOL hindi;
+
+/**
+ 葡萄牙语 | portuguese
+ */
+@property (nonatomic,assign) BOOL portuguese;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetLangExtend2SupportBluetoothModel
+ * @return IDOGetFuncTable3BluetoothModel
  */
-+ (__kindof IDOGetLangExtend2SupportBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable3BluetoothModel *)currentModel;
 
 @end
 
 
-#pragma mark ==== 获取语言扩展功能列表信息model ====
-@interface IDOGetLangExtendSupportBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取2功能列表信息model ====
+@interface IDOGetFuncTable2BluetoothModel:IDOBluetoothBaseModel
 
 /**
  罗马尼亚文 | Romanian
@@ -1246,13 +1493,13 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetLangExtendSupportBluetoothModel
+ * @return IDOGetFuncTable2BluetoothModel
  */
-+ (__kindof IDOGetLangExtendSupportBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable2BluetoothModel *)currentModel;
 @end
 
-#pragma mark ==== 获取语言功能列表信息model ====
-@interface IDOGetLangSupportBluetoothModel:IDOBluetoothBaseModel
+#pragma mark ==== 获取1功能列表信息model ====
+@interface IDOGetFuncTable1BluetoothModel:IDOBluetoothBaseModel
 
 /**
  中文 | Chinese
@@ -1297,123 +1544,143 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOGetLangSupportBluetoothModel
+ * @return IDOGetFuncTable1BluetoothModel
  */
-+ (__kindof IDOGetLangSupportBluetoothModel *)currentModel;
++ (__kindof IDOGetFuncTable1BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取功能列表信息model ====
 @interface IDOGetDeviceFuncBluetoothModel:IDOBluetoothBaseModel
 
 /**
- 语言功能列表 | Language feature list
+ 1功能列表 语言1 | 1 func table
  */
-@property (nonatomic,strong) IDOGetLangSupportBluetoothModel       * langModel;
+@property (nonatomic,strong) IDOGetFuncTable1BluetoothModel       * funcTable1Model;
 
 /**
- 语言扩展功能列表 | List of language extensions
+ 2功能列表 语言2 | 2 func table
  */
-@property (nonatomic,strong) IDOGetLangExtendSupportBluetoothModel * langExtendModel;
+@property (nonatomic,strong) IDOGetFuncTable2BluetoothModel       * funcTable2Model;
 
 /**
- 语言扩展2功能列表 | Language Extension 2 Feature List
+ 3功能列表 语言3 | 3 func table
  */
-@property (nonatomic,strong) IDOGetLangExtend2SupportBluetoothModel * langExtend2Model;
+@property (nonatomic,strong) IDOGetFuncTable3BluetoothModel       * funcTable3Model;
 
 /**
- 主功能列表 | Main function list
+ 4功能列表 | 4 func table
  */
-@property (nonatomic,strong) IDOGetMainFuncBluetoothModel         * mainFuncModel;
+@property (nonatomic,strong) IDOGetFuncTable4BluetoothModel       * funcTable4Model;
 
 /**
- 控制功能列表 | Control function list
+ 5功能列表 | 5 func table
  */
-@property (nonatomic,strong) IDOGetTableControlBluetoothModel     * tableControlModel;
+@property (nonatomic,strong) IDOGetFuncTable5BluetoothModel       * funcTable5Model;
 
 /**
- 闹钟功能列表 | Alarm clock function list
+ 6功能列表 闹钟功能 | 6 func table
  */
-@property (nonatomic,strong) IDOGetAlarmFuncBluetoothModel        * alarmModel;
+@property (nonatomic,strong) IDOGetFuncTable6BluetoothModel       * funcTable6Model;
 
 /**
- 来电提醒功能列表 | Call alert feature list
+ 7功能列表 来电提醒 | 7 func table
  */
-@property (nonatomic,strong) IDOGetTableCallBluetoothModel        * tableCallModel;
+@property (nonatomic,strong) IDOGetFuncTable7BluetoothModel       * funcTable7Model;
 
 /**
- 信息0提醒功能列表 | Information 0 reminder function list
+ 8功能列表 智能提醒1 | 8 func table
  */
-@property (nonatomic,strong) IDOGetNotify0BluetoothModel          * notify0Model;
+@property (nonatomic,strong) IDOGetFuncTable8BluetoothModel       * funcTable8Model;
 
 /**
- 信息1提醒功能列表 | Information 1 reminder function list
+ 9功能列表 智能提醒2 | 9 func table
  */
-@property (nonatomic,strong) IDOGetNotify1BluetoothModel          * notify1Model;
+@property (nonatomic,strong) IDOGetFuncTable9BluetoothModel       * funcTable9Model;
 
 /**
- 信息2提醒功能列表 | Information 2 reminder function list
+ 10功能列表 智能提醒3 | 10 func table
  */
-@property (nonatomic,strong) IDOGetNotify2BluetoothModel          * notify2Model;
+@property (nonatomic,strong) IDOGetFuncTable10BluetoothModel      * funcTable10Model;
 
 /**
- 其他功能列表 | Other features list
+ 11功能列表 久坐、防丢 | 11 func table
  */
-@property (nonatomic,strong) IDOGetOtherFuncBluetoothModel        * otherFuncModel;
+@property (nonatomic,strong) IDOGetFuncTable11BluetoothModel      * funcTable11Model;
 
 /**
- 信息提醒配置功能列表 | Information Reminder Configuration List
+ 12功能列表 短信号码 | 12 func table
  */
-@property (nonatomic,strong) IDOGetSmsTableBluetoothModel         * smsTableModel;
+@property (nonatomic,strong) IDOGetFuncTable12BluetoothModel      * funcTable12Model;
 
 /**
- 其他扩展功能列表 | Other extended features list
+ 13功能列表 静态心率、显示模式 | 13 func table
  */
-@property (nonatomic,strong) IDOGetOtherFuncExtendBluetoothModel  * otherFuncExtendModel;
+@property (nonatomic,strong) IDOGetFuncTable13BluetoothModel      * funcTable13Model;
 
 /**
- 运动类型0功能列表 | Sports Type 0 Function List
+ 14功能列表 运动模式1 | 14 func table
  */
-@property (nonatomic,strong) IDOGetSportType0BluetoothModel       * sportType0Model;
+@property (nonatomic,strong) IDOGetFuncTable14BluetoothModel      * funcTable14Model;
 
 /**
- 运动类型1功能列表 | Sports Type 1 Feature List
+ 15功能列表 运动模式2 | 15 func table
  */
-@property (nonatomic,strong) IDOGetSportType1BluetoothModel       * sportType1Model;
+@property (nonatomic,strong) IDOGetFuncTable15BluetoothModel      * funcTable15Model;
 
 /**
- 运动类型2功能列表 | Sports Type 2 Feature List
+ 16功能列表 运动模式3 | 16 func table
  */
-@property (nonatomic,strong) IDOGetSportType2BluetoothModel       * sportType2Model;
+@property (nonatomic,strong) IDOGetFuncTable16BluetoothModel      * funcTable16Model;
 
 /**
- 运动类型3功能列表 | Sports Type 3 Feature List
+ 17功能列表 运动模式4 | 17 func table
  */
-@property (nonatomic,strong) IDOGetSportType3BluetoothModel       * sportType3Model;
+@property (nonatomic,strong) IDOGetFuncTable17BluetoothModel      * funcTable17Model;
 
 /**
- 主功能1列表 | Main function 1 list
+ 18功能列表 表盘、血压 | 18 func table
  */
-@property (nonatomic,strong) IDOGetMainFunc1BluetoothModel        * mainFunc1Model;
+@property (nonatomic,strong) IDOGetFuncTable18BluetoothModel      * funcTable18Model;
 
 /**
- 扩展功能列表 | Extended Features List
+ 19功能列表 GPS、亮度 | 19 func table
  */
-@property (nonatomic,strong) IDOGetFuncExtendBluetoothModel       * funcExtendModel;
+@property (nonatomic,strong) IDOGetFuncTable19BluetoothModel      * funcTable19Model;
 
 /**
- 扩展功能列表2 | Extended Features List 2
+ 20功能列表 女性健康、运动排序 | 20 func table
  */
-@property (nonatomic,strong) IDOGetFuncExtend2BluetoothModel      * funcExtend2Model;
+@property (nonatomic,strong) IDOGetFuncTable20BluetoothModel      * funcTable20Model;
 
 /**
- 扩展提醒功能4 | Extended Notify 4
+ 21功能列表 | 21 func table
  */
-@property (nonatomic,strong) IDOGetExNotify4BluetoothModel        * exNotify4Model;
+@property (nonatomic,strong) IDOGetFuncTable21BluetoothModel      * funcTable21Model;
 
 /**
- 配对功能表 | pair func list
+ 22功能列表 连接后自动配对、v3数据 | 22 func table
  */
-@property (nonatomic,strong) IDOGetPairingFuncBluetoothModel      * funcPairModel;
+@property (nonatomic,strong) IDOGetFuncTable22BluetoothModel      * funcTable22Model;
+
+/**
+ 23功能列表 走动提醒、呼吸训练 | 23 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable23BluetoothModel      * funcTable23Model;
+
+/**
+ 24功能列表 运动模式5 | 24 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable24BluetoothModel      * funcTable24Model;
+
+/**
+ 25功能列表 运动模式6 | 25 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable25BluetoothModel      * funcTable25Model;
+
+/**
+ 26功能列表 运动模式6 | 26 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable26BluetoothModel      * funcTable26Model;
 
 /**
  是否支持版本信息 | version information is supported
@@ -1441,6 +1708,7 @@
  * @brief 判断是否有运动模式 | Determine if there are movement patterns
  */
 + (BOOL)isHaveMovment;
+
 @end
 
 #pragma mark ==== 获取设备信息model ====
@@ -1501,6 +1769,12 @@
  * 0:nordic, 10:realtek 8762x ,20:cypress psoc6,30:Apollo3
  */
 @property (nonatomic,assign) NSInteger platform;
+
+/**
+ * 手环是否同步过配置 | is sync config
+ *
+ */
+@property (nonatomic,assign) BOOL isSyncConfig;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

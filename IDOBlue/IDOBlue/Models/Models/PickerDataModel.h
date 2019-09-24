@@ -23,6 +23,7 @@
 @property (nonatomic,strong) NSArray * typeArray;
 @property (nonatomic,strong) NSArray * weekArray;
 @property (nonatomic,strong) NSArray * tempArray;
+@property (nonatomic,strong) NSArray * screenModeArray;
 @property (nonatomic,strong) NSArray * weatherArray;
 @property (nonatomic,strong) NSArray * weatherTitleArray;
 @property (nonatomic,strong) NSArray * notifyTitleArray;
@@ -36,6 +37,7 @@
 @property (nonatomic,strong) NSArray * gpsInfoTitleArray;
 @property (nonatomic,strong) NSArray * unitTitleArray;
 @property (nonatomic,strong) NSArray * sportShortcutTitleArray;
+@property (nonatomic,strong) NSArray * sportSortTitleArray;
 @property (nonatomic,strong) NSArray * bootModeArray;
 @property (nonatomic,strong) NSArray * operatingModeArray;
 @property (nonatomic,strong) NSArray * satelliteModeArray;

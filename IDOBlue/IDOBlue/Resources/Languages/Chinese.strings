@@ -1,3 +1,5 @@
+"home need sync" = "首页是否需要同步:";
+"setup" = "设置";
 "connected" = "设备已经连接";
 "connected success" = "设备连接成功";
 "connected failed" = "设备连接失败";
@@ -131,6 +133,11 @@
 "slovak" = "斯洛伐克语";
 "danish" = "丹麦语";
 "croatia" = "克罗地亚";
+"indonesian" = "印尼语";
+"korean" = "韩语";
+"hindi" = "印地语";
+"portuguese" = "葡萄牙语";
+
 "24 hours" = "24小时制";
 "12 hours" = "12小时制";
 "open" = "开";
@@ -147,6 +154,7 @@
 "running step length:" = "跑步步长:";
 "gps stride calibration:" = "GPS步幅校准:";
 "time format:" = "时间格式:";
+"week start:" = "周开始:";
 "walk" = "走路";
 "run" = "跑步";
 "ride" = "骑行";
@@ -184,6 +192,18 @@
 "square dance" = "广场舞";
 "plank" = "平板支撑";
 "gym" = "健身房";
+"outdoor running" = "户外跑步";
+"indoor running" = "室内跑步";
+"outdoor cycling" = "户外骑行";
+"indoor cycling" = "室内骑行";
+"outdoor walking" = "户外走路";
+"indoor walking" = "室内走路";
+"pool swimming" = "泳池游泳";
+"open water swimming" = "开放水域游泳";
+"elliptical machine" = "椭圆机";
+"rowing machine" = "划船机";
+"high-intensity interval training" = "高强度间歇训练法";
+"eight motion sequences have been set" = "已设置8个运动排序";
 "cold start" = "冷启动";
 "hot start" = "热启动";
 "normal" = "正常";
@@ -236,6 +256,7 @@
 "set heart rate mode" = "设置心率模式";
 "set heart rate interval" = "设置心率区间";
 "set no disturb mode" = "设置勿扰模式";
+"set the do not disturb mode switch:" = "设置勿扰模式开关:";
 "set device unit" = "设置设备单位";
 "set one key sos" = "设置一键呼叫";
 "set shortcut mode" = "设置快捷方式";
@@ -362,6 +383,8 @@
 "set heart rate interval failed" = "设置心率区间失败";
 "burn fat:" = "燃烧脂肪:";
 "aerobic exercise:" = "有氧锻炼:";
+"warm up:" = "热身运动:";
+"anaerobic exercise:" = "无氧运动:";
 "extreme exercise:" = "极限锻炼:";
 "max heart rate:" = "最大心率:";
 "set heart rate interval button" = "设置心率区间";
@@ -373,6 +396,7 @@
 "query data" = "查询数据";
 "please enable bluetooth to continue using the current app" = "请开启蓝牙继续使用当前应用";
 "show log" = "日志显示:";
+"simulator data" = "模拟数据:";
 /**
  add by xiongjie 
  */
@@ -408,7 +432,13 @@
 "set sports mode sort failed" = "设置运动模式排序失败";
 "set screen brightness success" = "设置屏幕亮度成功";
 "set screen brightness failed" = "设置屏幕亮度失败";
-"screen brightness level：" = "屏幕亮度等级：";
+"screen brightness level:" = "屏幕亮度等级:";
+"set is manual switch:" = "设置用户调节开关";
+"turn off auto tune" = "关闭自动调整";
+"use ambient light sensors" = "使用环境光传感器";
+"auto brightness at night" = "夜间自动调整亮度";
+"set time for night dimming" = "夜间降亮度设置的时间";
+"set screen mode:" = "设置亮度模式";
 "set music open off success" = "设置音乐开关成功";
 "set music open off failed" = "设置音乐开关失败";
 "set GPS configuration information" = "设置GPS配置信息";
@@ -447,6 +477,22 @@
 "set user name failed" = "设置用户名字失败";
 "set user number success" = "设置用户号码成功";
 "set user number failed" = "设置用户号码失败";
+"send prompt message" = "发送提示信息";
+"get watch screen info" = "获取手表屏幕信息";
+"get watch screen info success" = "获取手表屏幕信息成功";
+"get watch screen info failed" = "获取手表屏幕信息失败";
+"get watch dial list info" = "获取手表表盘列表信息";
+"get watch dial list info success" = "获取手表表盘列表信息成功";
+"get watch dial list info failed" = "获取手表表盘列表信息失败";
+"set current dial info" = "设置当前表盘信息";
+"current dial has been deleted" = "当前表盘已经删除";
+"set current dial info success" = "设置当前表盘信息成功";
+"set current dial info failed"  = "设置当前表盘信息失败";
+"transfer dial file" = "传输表盘文件";
+"transfer dial file success" = "传输表盘文件成功";
+"transfer dial file failed"  = "传输表盘文件失败";
+"watch dial function" = "表盘功能";
+
 
 "get function list" = "获取功能列表";
 "get function list success" = "获取功能列表成功";
@@ -473,6 +519,14 @@
 "get version information" = "获取版本信息";
 "get version information success" = "获取版本信息成功";
 "get version information failed" = "获取版本信息失败";
+"get ota auth information" = "获取授权信息";
+"get ota auth info success" = "获取OTA授权信息成功";
+"get ota auth info failed" = "获取OTA授权信息失败";
+"verification success" = "校验成功";
+"id number verification failure" = "ID号校验失败";
+"version number verification failure" = "版本号校验失败";
+"insufficient power" = "电量不足";
+"other errors" = "其他错误";
 "get the number of stars" = "获取星星个数";
 "the number of stars" = "星星个数";
 "get the number of stars success" = "获取星星个数成功";

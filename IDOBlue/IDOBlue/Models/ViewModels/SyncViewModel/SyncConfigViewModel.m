@@ -22,6 +22,12 @@
 @end
 
 @implementation SyncConfigViewModel
+
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -50,26 +56,31 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:lang(@"sync config data...")];
-        //同步配置日志
-        [IDOSyncConfig syncConfigLogCallback:^(NSString * _Nullable logStr) {
+        [funcVC showLoadingWithMessage:lang(@"sync config data...")];       
+        initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_CONFIG_ITEM_TYPE;
+        initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {
+            if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
+                [funcVC showToastWithText:lang(@"sync data complete")];
+            }
+        }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
+            [funcVC showSyncProgress:progress];
+        }).addSyncFailed(^(int errorCode) {
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            };
+            [funcVC showToastWithText:lang(@"sync data failed")];
+        }).addSyncConfig(^(NSString * logStr){
             if (![IDOConsoleBoard borad].isShow) {
                 NSString * newLogStr = [NSString stringWithFormat:@"%@\n%@",strongSelf.textView.text,logStr];
                 TextViewCellModel * model = [strongSelf.cellModels firstObject];
                 model.data = @[newLogStr?:@""];
                 strongSelf.textView.text = newLogStr;
             }
-           // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-        }];
-        //同步配置完成
-        [IDOSyncConfig syncConfigCompleteCallback:^(int errorCode) {
-            [funcVC showToastWithText:lang(@"sync config data complete")];
-        }];
-        //同步进度
-        [IDOSyncConfig syncConfigProgressCallback:^(int progress) {
-             [funcVC showSyncProgress:progress/100.0f];
-        }];
-        [IDOSyncConfig startSync];
+        }).mandatorySyncConfig(YES);
+        [IDOSyncManager startSync];
     };
 }
 

@@ -51,7 +51,7 @@
 
 - (void)getCellModels
 {
-    NSArray <IDOSyncActivityDataInfoBluetoothModel *> * activitys = [IDOSyncActivityDataInfoBluetoothModel queryAllTrajectorySportActivitysWithMac:@""];
+    NSArray <IDOSyncActivityDataInfoBluetoothModel *> * activitys = [IDOSyncActivityDataModel queryAllTrajectorySportActivitysWithMac:@""];
     [self.allActivitys addObjectsFromArray:activitys];
     
     NSMutableArray * cellModels = [NSMutableArray array];
@@ -73,11 +73,11 @@
 
 - (NSString *)dataStrWithModel:(IDOSyncActivityDataInfoBluetoothModel *)model
 {
-    BOOL isGps = [IDOSyncGpsDataInfoBluetoothModel queryActivityHasCoordinatesWithTimeStr:model.timeStr macAddr:@""];
+    BOOL isGps = [IDOSyncGpsDataModel queryActivityHasCoordinatesWithTimeStr:model.timeStr macAddr:@""];
     NSString * titleStr = [NSString stringWithFormat:@"%@:%@ [%@]",lang(@"activty type"),[self.pickerDataModel.sportTypes objectAtIndex:model.type],isGps ? lang(@"trajectory"):lang(@"no trajectory")];
-    NSString * timeStr  = [NSString stringWithFormat:@"%@%@",lang(@"time"),[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];
+    NSString * timeStr     = [NSString stringWithFormat:@"%@%@",lang(@"time"),[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];
     NSString * macAddrStr  = [NSString stringWithFormat:@"MAC:%@",model.macAddr];
-    NSString * dataStr  = [NSString stringWithFormat:@"%@:%ld\n%@:%ld\n%@:%ld",lang(@"calories"),(long)model.calories,
+    NSString * dataStr     = [NSString stringWithFormat:@"%@:%ld\n%@:%ld\n%@:%ld",lang(@"calories"),(long)model.calories,
                            lang(@"step"),(long)model.step,lang(@"avg heart rate"),(long)model.avgHrValue];
     NSString * str = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",titleStr,macAddrStr,timeStr,dataStr];
     return str;
@@ -96,7 +96,7 @@
         FuncViewController * funcVc = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         IDOSyncActivityDataInfoBluetoothModel * model = [strongSelf.allActivitys objectAtIndex:indexPath.row];
-        IDOSyncGpsDataInfoBluetoothModel * gpsModel = [IDOSyncGpsDataInfoBluetoothModel queryOneActivityCoordinatesWithTimeStr:model.timeStr macAddr:@""];
+        IDOSyncGpsDataInfoBluetoothModel * gpsModel = [IDOSyncGpsDataModel queryOneActivityCoordinatesWithTimeStr:model.timeStr macAddr:@""];
         FuncViewController * newFuncVc = [FuncViewController new];
         QueryActivityDetailViewModel * detailModel = [QueryActivityDetailViewModel new];
         detailModel.activityModel = gpsModel ? gpsModel : model;

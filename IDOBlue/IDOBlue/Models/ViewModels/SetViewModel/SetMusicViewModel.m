@@ -118,7 +118,9 @@
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 0) {
             [funcVC showLoadingWithMessage:lang(@"set pairing...")];
-            [IDOFoundationCommand setBluetoothPairingCommandWithCallback:^(int errorCode) {
+            [IDOFoundationCommand setBluetoothPairingCommandWithCallback:^(BOOL isNeedDisconnect, int stateCode) {
+               [funcVC showLoadingWithMessage:lang(@"set pairing...")];
+            } pairingComplete:^(int errorCode) {
                 if(errorCode == 0) {
                     [funcVC showToastWithText:lang(@"current device pairing success")];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -126,6 +128,8 @@
                         [strongSelf getCellModels];
                         [funcVC reloadData];
                     });
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
                 }else {
                     [funcVC showToastWithText:lang(@"current device pairing failed")];
                 }
@@ -142,10 +146,12 @@
                            [funcVC showToastWithText:lang(@"set music open off failed")];
                          }
                      }];
+                 }else if (errorCode == 6) {
+                     [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
                  }else {
                      [funcVC showToastWithText:lang(@"set music open off failed")];
                  }
-                                             }];
+             }];
         }
     };
 }

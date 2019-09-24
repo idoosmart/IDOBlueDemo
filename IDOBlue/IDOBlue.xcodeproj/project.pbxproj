@@ -49,6 +49,7 @@
 		9B16A8B22171F17F00DC199C /* QueryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16A8B12171F17F00DC199C /* QueryViewModel.m */; };
 		9B16A8B52171F41F00DC199C /* QuerySportsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16A8B42171F41F00DC199C /* QuerySportsViewModel.m */; };
 		9B1C8BBE22A53B48005A5955 /* OtherFileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C8BBD22A53B48005A5955 /* OtherFileViewModel.m */; };
+		9B1DC260231E432E004C61C0 /* TranWatchDialViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1DC25F231E432E004C61C0 /* TranWatchDialViewModel.m */; };
 		9B22213F215A307A006A2F9F /* SetTargetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B22213E215A307A006A2F9F /* SetTargetViewModel.m */; };
 		9B222142215A3569006A2F9F /* SetFindPhoneViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B222141215A3569006A2F9F /* SetFindPhoneViewModel.m */; };
 		9B222145215A3602006A2F9F /* SwitchCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B222144215A3602006A2F9F /* SwitchCellModel.m */; };
@@ -92,13 +93,14 @@
 		9B437F3321393DDD00DE2FC8 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2021393DDD00DE2FC8 /* View+MASAdditions.m */; };
 		9B437F3421393DDD00DE2FC8 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2321393DDD00DE2FC8 /* ViewController+MASAdditions.m */; };
 		9B437F3721393DDD00DE2FC8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */; };
+		9B44DA1D231F8C1400949276 /* SetWatchDialViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B44DA1C231F8C1400949276 /* SetWatchDialViewModel.m */; };
 		9B4AF76321E6DA95006926CA /* GetVersionInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4AF76221E6DA95006926CA /* GetVersionInfoViewModel.m */; };
-		9B4AF76621E6F797006926CA /* SyncBopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4AF76521E6F797006926CA /* SyncBopViewModel.m */; };
 		9B568540217DD1B400462AE0 /* ThreeButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B56853F217DD1B400462AE0 /* ThreeButtonTableViewCell.m */; };
 		9B568543217DD60B00462AE0 /* TabCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B568542217DD60B00462AE0 /* TabCellModel.m */; };
 		9B568546217DFB3600462AE0 /* QuerySleepViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B568545217DFB3600462AE0 /* QuerySleepViewModel.m */; };
 		9B575BA8215CD05E00B433D0 /* SetLongSitViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B575BA7215CD05E00B433D0 /* SetLongSitViewModel.m */; };
 		9B575BAB215CE1AD00B433D0 /* SetWeatherViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B575BAA215CE1AD00B433D0 /* SetWeatherViewModel.m */; };
+		9B6295B72326430D00701CFB /* GetOtaAuthInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6295B62326430D00701CFB /* GetOtaAuthInfoViewModel.m */; };
 		9B62FA802265987A000ACCDE /* YYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B62FA4D2265987A000ACCDE /* YYTextView.m */; };
 		9B62FA812265987A000ACCDE /* YYTextMagnifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B62FA512265987A000ACCDE /* YYTextMagnifier.m */; };
 		9B62FA822265987A000ACCDE /* YYTextContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B62FA542265987A000ACCDE /* YYTextContainerView.m */; };
@@ -130,6 +132,7 @@
 		9B6614C1223263E3009488F9 /* FuncViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6614BB223263E3009488F9 /* FuncViewModel.m */; };
 		9B6F029721ECA62000AA0BCD /* TipPoweredOffView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F029621ECA62000AA0BCD /* TipPoweredOffView.m */; };
 		9B6F029C21ED7CEB00AA0BCD /* DataMigrationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F029B21ED7CEB00AA0BCD /* DataMigrationViewModel.m */; };
+		9B6FE4FA2307E6DF008999C6 /* SetMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6FE4F92307E6DF008999C6 /* SetMenuView.m */; };
 		9B7A1336215F4B2600CBA4BC /* SetOneKeySosViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A1335215F4B2600CBA4BC /* SetOneKeySosViewModel.m */; };
 		9B7A1339215F4CBD00CBA4BC /* SetShortcutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A1338215F4CBD00CBA4BC /* SetShortcutViewModel.m */; };
 		9B7A133C215F4F3500CBA4BC /* SetBloodPressureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A133B215F4F3500CBA4BC /* SetBloodPressureViewModel.m */; };
@@ -156,8 +159,11 @@
 		9B94D5DC214BBF4700ACCF94 /* Firmwares in Resources */ = {isa = PBXBuildFile; fileRef = 9B94D5DB214BBF4600ACCF94 /* Firmwares */; };
 		9B96ECB72238B5E900C905AF /* QueryGpsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B96ECB62238B5E900C905AF /* QueryGpsViewModel.m */; };
 		9B9A9A3C21860C9F0025E6A1 /* ScanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9A9A3B21860C9F0025E6A1 /* ScanTableViewCell.m */; };
+		9BA291702313D3B900FE7C17 /* HtmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA2916E2313D3B800FE7C17 /* HtmlViewController.m */; };
+		9BA291712313D3B900FE7C17 /* HtmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA2916F2313D3B800FE7C17 /* HtmlViewController.xib */; };
 		9BA7DE1A21806DC900FA67D2 /* QueryActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7DE1921806DC900FA67D2 /* QueryActivityViewModel.m */; };
 		9BA7DE1D2180757100FA67D2 /* TableViewFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7DE1C2180757100FA67D2 /* TableViewFootView.m */; };
+		9BB067902318C7A300FE8D6C /* SendMessageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB0678F2318C7A300FE8D6C /* SendMessageViewModel.m */; };
 		9BBAF48D21F6BDD3001BD3F9 /* SetStartCountViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF48C21F6BDD3001BD3F9 /* SetStartCountViewModel.m */; };
 		9BBAF49021F6BE19001BD3F9 /* SetContentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF48F21F6BE19001BD3F9 /* SetContentViewModel.m */; };
 		9BBAF49321F702D3001BD3F9 /* GetStartCountViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBAF49221F702D3001BD3F9 /* GetStartCountViewModel.m */; };
@@ -176,29 +182,39 @@
 		9BCD0E202178890C00587264 /* AuthTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD0E1F2178890C00587264 /* AuthTextFieldView.m */; };
 		9BCE53272255970300B942FD /* SetMenstruationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE53262255970200B942FD /* SetMenstruationViewModel.m */; };
 		9BCE532A2255987B00B942FD /* SetMenstruationRemindViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE53292255987B00B942FD /* SetMenstruationRemindViewModel.m */; };
-		9BCE553E216D9799005B6F80 /* Agps in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE553D216D9799005B6F80 /* Agps */; };
+		9BCE553E216D9799005B6F80 /* Files in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE553D216D9799005B6F80 /* Files */; };
 		9BCE5544216DCA69005B6F80 /* UnbindingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE5543216DCA69005B6F80 /* UnbindingViewModel.m */; };
 		9BCE554A216DDBE2005B6F80 /* AppDataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE5549216DDBE2005B6F80 /* AppDataInterchangeModel.m */; };
 		9BCE554D216DDC00005B6F80 /* BlueDataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE554C216DDC00005B6F80 /* BlueDataInterchangeModel.m */; };
 		9BD348D3217EAC4500008142 /* QueryHrViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD348D2217EAC4500008142 /* QueryHrViewModel.m */; };
+		9BD6479123162F4B00653DA4 /* MainDialViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6479023162F4B00653DA4 /* MainDialViewModel.m */; };
+		9BD64794231631AF00653DA4 /* GetWatchScreenInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD64792231631AE00653DA4 /* GetWatchScreenInfoViewModel.m */; };
+		9BD647972316372900653DA4 /* GetWatchDialListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD647962316372900653DA4 /* GetWatchDialListViewModel.m */; };
 		9BE865AD227E9E180028D8BE /* BpMeasureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE865AC227E9E180028D8BE /* BpMeasureViewModel.m */; };
 		9BE865B0227EABD30028D8BE /* MainMeasureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE865AF227EABD30028D8BE /* MainMeasureViewModel.m */; };
 		9BF7EC36219BC8E100572E70 /* BindDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC35219BC8E100572E70 /* BindDeviceView.m */; };
 		9BF7EC39219BCAB300572E70 /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC38219BCAB300572E70 /* SliderTableViewCell.m */; };
 		9BF7EC3C219BCFE900572E70 /* SliderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */; };
 		9BFF80EB2189829300EFA848 /* FirmwareTypeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */; };
-		DD2FDF0422DDC746000A1DE3 /* IDOBlueUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2FDF0222DDC745000A1DE3 /* IDOBlueUpdate.framework */; };
-		DD2FDF0522DDC746000A1DE3 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2FDF0322DDC746000A1DE3 /* IDOBluetooth.framework */; };
-		DD2FDF0722DDC752000A1DE3 /* IDOBlueProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2FDF0622DDC752000A1DE3 /* IDOBlueProtocol.framework */; };
+		DDBFFD4D233A00D300F2A0F5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFFD4C233A00C500F2A0F5 /* libc++.tbd */; };
+		DDBFFD51233A00DD00F2A0F5 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFFD4E233A00DD00F2A0F5 /* IDOBluetooth.framework */; };
+		DDBFFD52233A00DD00F2A0F5 /* IDOBluetooth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFFD4E233A00DD00F2A0F5 /* IDOBluetooth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDBFFD53233A00DD00F2A0F5 /* IDOBlueUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFFD4F233A00DD00F2A0F5 /* IDOBlueUpdate.framework */; };
+		DDBFFD54233A00DD00F2A0F5 /* IDOBlueUpdate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFFD4F233A00DD00F2A0F5 /* IDOBlueUpdate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDBFFD55233A00DD00F2A0F5 /* IDOBlueProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFFD50233A00DD00F2A0F5 /* IDOBlueProtocol.framework */; };
+		DDBFFD56233A00DD00F2A0F5 /* IDOBlueProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFFD50233A00DD00F2A0F5 /* IDOBlueProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9BEBB47222DC7E4500E5BCDA /* Embed Frameworks */ = {
+		DDBFFD57233A00DD00F2A0F5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DDBFFD56233A00DD00F2A0F5 /* IDOBlueProtocol.framework in Embed Frameworks */,
+				DDBFFD54233A00DD00F2A0F5 /* IDOBlueUpdate.framework in Embed Frameworks */,
+				DDBFFD52233A00DD00F2A0F5 /* IDOBluetooth.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +306,8 @@
 		9B16A8B42171F41F00DC199C /* QuerySportsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuerySportsViewModel.m; sourceTree = "<group>"; };
 		9B1C8BBC22A53B48005A5955 /* OtherFileViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherFileViewModel.h; sourceTree = "<group>"; };
 		9B1C8BBD22A53B48005A5955 /* OtherFileViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherFileViewModel.m; sourceTree = "<group>"; };
+		9B1DC25E231E432E004C61C0 /* TranWatchDialViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TranWatchDialViewModel.h; sourceTree = "<group>"; };
+		9B1DC25F231E432E004C61C0 /* TranWatchDialViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TranWatchDialViewModel.m; sourceTree = "<group>"; };
 		9B22213D215A307A006A2F9F /* SetTargetViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetTargetViewModel.h; sourceTree = "<group>"; };
 		9B22213E215A307A006A2F9F /* SetTargetViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetTargetViewModel.m; sourceTree = "<group>"; };
 		9B222140215A3569006A2F9F /* SetFindPhoneViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetFindPhoneViewModel.h; sourceTree = "<group>"; };
@@ -381,10 +399,10 @@
 		9B437F2321393DDD00DE2FC8 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		9B437F2721393DDD00DE2FC8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9B44DA1B231F8C1400949276 /* SetWatchDialViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetWatchDialViewModel.h; sourceTree = "<group>"; };
+		9B44DA1C231F8C1400949276 /* SetWatchDialViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetWatchDialViewModel.m; sourceTree = "<group>"; };
 		9B4AF76121E6DA95006926CA /* GetVersionInfoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetVersionInfoViewModel.h; sourceTree = "<group>"; };
 		9B4AF76221E6DA95006926CA /* GetVersionInfoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetVersionInfoViewModel.m; sourceTree = "<group>"; };
-		9B4AF76421E6F797006926CA /* SyncBopViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyncBopViewModel.h; sourceTree = "<group>"; };
-		9B4AF76521E6F797006926CA /* SyncBopViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SyncBopViewModel.m; sourceTree = "<group>"; };
 		9B56853E217DD1B400462AE0 /* ThreeButtonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeButtonTableViewCell.h; sourceTree = "<group>"; };
 		9B56853F217DD1B400462AE0 /* ThreeButtonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeButtonTableViewCell.m; sourceTree = "<group>"; };
 		9B568541217DD60B00462AE0 /* TabCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabCellModel.h; sourceTree = "<group>"; };
@@ -396,6 +414,8 @@
 		9B575BA7215CD05E00B433D0 /* SetLongSitViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetLongSitViewModel.m; sourceTree = "<group>"; };
 		9B575BA9215CE1AD00B433D0 /* SetWeatherViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetWeatherViewModel.h; sourceTree = "<group>"; };
 		9B575BAA215CE1AD00B433D0 /* SetWeatherViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetWeatherViewModel.m; sourceTree = "<group>"; };
+		9B6295B52326430D00701CFB /* GetOtaAuthInfoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetOtaAuthInfoViewModel.h; sourceTree = "<group>"; };
+		9B6295B62326430D00701CFB /* GetOtaAuthInfoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetOtaAuthInfoViewModel.m; sourceTree = "<group>"; };
 		9B62FA4C2265987A000ACCDE /* YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYText.h; sourceTree = "<group>"; };
 		9B62FA4D2265987A000ACCDE /* YYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextView.m; sourceTree = "<group>"; };
 		9B62FA4F2265987A000ACCDE /* YYTextSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextSelectionView.h; sourceTree = "<group>"; };
@@ -459,6 +479,8 @@
 		9B6F029621ECA62000AA0BCD /* TipPoweredOffView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipPoweredOffView.m; sourceTree = "<group>"; };
 		9B6F029A21ED7CEB00AA0BCD /* DataMigrationViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataMigrationViewModel.h; sourceTree = "<group>"; };
 		9B6F029B21ED7CEB00AA0BCD /* DataMigrationViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataMigrationViewModel.m; sourceTree = "<group>"; };
+		9B6FE4F82307E6DF008999C6 /* SetMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetMenuView.h; sourceTree = "<group>"; };
+		9B6FE4F92307E6DF008999C6 /* SetMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetMenuView.m; sourceTree = "<group>"; };
 		9B7A1334215F4B2600CBA4BC /* SetOneKeySosViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetOneKeySosViewModel.h; sourceTree = "<group>"; };
 		9B7A1335215F4B2600CBA4BC /* SetOneKeySosViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetOneKeySosViewModel.m; sourceTree = "<group>"; };
 		9B7A1337215F4CBD00CBA4BC /* SetShortcutViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetShortcutViewModel.h; sourceTree = "<group>"; };
@@ -508,10 +530,15 @@
 		9B96ECB62238B5E900C905AF /* QueryGpsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryGpsViewModel.m; sourceTree = "<group>"; };
 		9B9A9A3A21860C9F0025E6A1 /* ScanTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanTableViewCell.h; sourceTree = "<group>"; };
 		9B9A9A3B21860C9F0025E6A1 /* ScanTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanTableViewCell.m; sourceTree = "<group>"; };
+		9BA2916D2313D3B800FE7C17 /* HtmlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlViewController.h; sourceTree = "<group>"; };
+		9BA2916E2313D3B800FE7C17 /* HtmlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HtmlViewController.m; sourceTree = "<group>"; };
+		9BA2916F2313D3B800FE7C17 /* HtmlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HtmlViewController.xib; sourceTree = "<group>"; };
 		9BA7DE1821806DC900FA67D2 /* QueryActivityViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueryActivityViewModel.h; sourceTree = "<group>"; };
 		9BA7DE1921806DC900FA67D2 /* QueryActivityViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryActivityViewModel.m; sourceTree = "<group>"; };
 		9BA7DE1B2180757100FA67D2 /* TableViewFootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewFootView.h; sourceTree = "<group>"; };
 		9BA7DE1C2180757100FA67D2 /* TableViewFootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewFootView.m; sourceTree = "<group>"; };
+		9BB0678E2318C7A300FE8D6C /* SendMessageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendMessageViewModel.h; sourceTree = "<group>"; };
+		9BB0678F2318C7A300FE8D6C /* SendMessageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewModel.m; sourceTree = "<group>"; };
 		9BBAF48B21F6BDD3001BD3F9 /* SetStartCountViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetStartCountViewModel.h; sourceTree = "<group>"; };
 		9BBAF48C21F6BDD3001BD3F9 /* SetStartCountViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetStartCountViewModel.m; sourceTree = "<group>"; };
 		9BBAF48E21F6BE19001BD3F9 /* SetContentViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetContentViewModel.h; sourceTree = "<group>"; };
@@ -545,7 +572,7 @@
 		9BCE53262255970200B942FD /* SetMenstruationViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetMenstruationViewModel.m; sourceTree = "<group>"; };
 		9BCE53282255987B00B942FD /* SetMenstruationRemindViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetMenstruationRemindViewModel.h; sourceTree = "<group>"; };
 		9BCE53292255987B00B942FD /* SetMenstruationRemindViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetMenstruationRemindViewModel.m; sourceTree = "<group>"; };
-		9BCE553D216D9799005B6F80 /* Agps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Agps; sourceTree = "<group>"; };
+		9BCE553D216D9799005B6F80 /* Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Files; sourceTree = "<group>"; };
 		9BCE5542216DCA69005B6F80 /* UnbindingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnbindingViewModel.h; sourceTree = "<group>"; };
 		9BCE5543216DCA69005B6F80 /* UnbindingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnbindingViewModel.m; sourceTree = "<group>"; };
 		9BCE5548216DDBE2005B6F80 /* AppDataInterchangeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDataInterchangeModel.h; sourceTree = "<group>"; };
@@ -554,6 +581,12 @@
 		9BCE554C216DDC00005B6F80 /* BlueDataInterchangeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueDataInterchangeModel.m; sourceTree = "<group>"; };
 		9BD348D1217EAC4500008142 /* QueryHrViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueryHrViewModel.h; sourceTree = "<group>"; };
 		9BD348D2217EAC4500008142 /* QueryHrViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryHrViewModel.m; sourceTree = "<group>"; };
+		9BD6478F23162F4B00653DA4 /* MainDialViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainDialViewModel.h; sourceTree = "<group>"; };
+		9BD6479023162F4B00653DA4 /* MainDialViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainDialViewModel.m; sourceTree = "<group>"; };
+		9BD64792231631AE00653DA4 /* GetWatchScreenInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetWatchScreenInfoViewModel.m; sourceTree = "<group>"; };
+		9BD64793231631AF00653DA4 /* GetWatchScreenInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetWatchScreenInfoViewModel.h; sourceTree = "<group>"; };
+		9BD647952316372900653DA4 /* GetWatchDialListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetWatchDialListViewModel.h; sourceTree = "<group>"; };
+		9BD647962316372900653DA4 /* GetWatchDialListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetWatchDialListViewModel.m; sourceTree = "<group>"; };
 		9BE865AB227E9E180028D8BE /* BpMeasureViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BpMeasureViewModel.h; sourceTree = "<group>"; };
 		9BE865AC227E9E180028D8BE /* BpMeasureViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BpMeasureViewModel.m; sourceTree = "<group>"; };
 		9BE865AE227EABD30028D8BE /* MainMeasureViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMeasureViewModel.h; sourceTree = "<group>"; };
@@ -566,9 +599,10 @@
 		9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderCellModel.m; sourceTree = "<group>"; };
 		9BFF80E92189829300EFA848 /* FirmwareTypeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirmwareTypeViewModel.h; sourceTree = "<group>"; };
 		9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirmwareTypeViewModel.m; sourceTree = "<group>"; };
-		DD2FDF0222DDC745000A1DE3 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueUpdate.framework; path = ../Embedded/IDOBlueUpdate.framework; sourceTree = "<group>"; };
-		DD2FDF0322DDC746000A1DE3 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
-		DD2FDF0622DDC752000A1DE3 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueProtocol.framework; path = ../Embedded/IDOBlueProtocol.framework; sourceTree = "<group>"; };
+		DDBFFD4C233A00C500F2A0F5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		DDBFFD4E233A00DD00F2A0F5 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
+		DDBFFD4F233A00DD00F2A0F5 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueUpdate.framework; path = ../Embedded/IDOBlueUpdate.framework; sourceTree = "<group>"; };
+		DDBFFD50233A00DD00F2A0F5 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueProtocol.framework; path = ../Embedded/IDOBlueProtocol.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -576,10 +610,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD2FDF0722DDC752000A1DE3 /* IDOBlueProtocol.framework in Frameworks */,
-				DD2FDF0422DDC746000A1DE3 /* IDOBlueUpdate.framework in Frameworks */,
-				DD2FDF0522DDC746000A1DE3 /* IDOBluetooth.framework in Frameworks */,
+				DDBFFD4D233A00D300F2A0F5 /* libc++.tbd in Frameworks */,
 				9BBAF49B21F96D7A001BD3F9 /* libsqlite3.0.tbd in Frameworks */,
+				DDBFFD55233A00DD00F2A0F5 /* IDOBlueProtocol.framework in Frameworks */,
+				DDBFFD53233A00DD00F2A0F5 /* IDOBlueUpdate.framework in Frameworks */,
+				DDBFFD51233A00DD00F2A0F5 /* IDOBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +651,7 @@
 		183FC062214D2DED00AD6484 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9BD6478E23162EAB00653DA4 /* WatchDialViewModel */,
 				9BE865AA227E9D800028D8BE /* MeasureViewModels */,
 				9B3AAB5222350B7F009320CF /* SwitchDeviceModel */,
 				9B6614B8223263E3009488F9 /* MainViewModel */,
@@ -667,6 +703,8 @@
 				18376C7F2164E96C009D68F5 /* GetNotifyStateViewModel.m */,
 				9B4AF76121E6DA95006926CA /* GetVersionInfoViewModel.h */,
 				9B4AF76221E6DA95006926CA /* GetVersionInfoViewModel.m */,
+				9B6295B52326430D00701CFB /* GetOtaAuthInfoViewModel.h */,
+				9B6295B62326430D00701CFB /* GetOtaAuthInfoViewModel.m */,
 				9BBAF49121F702D3001BD3F9 /* GetStartCountViewModel.h */,
 				9BBAF49221F702D3001BD3F9 /* GetStartCountViewModel.m */,
 			);
@@ -757,6 +795,8 @@
 				9BCE53262255970200B942FD /* SetMenstruationViewModel.m */,
 				9BCE53282255987B00B942FD /* SetMenstruationRemindViewModel.h */,
 				9BCE53292255987B00B942FD /* SetMenstruationRemindViewModel.m */,
+				9BB0678E2318C7A300FE8D6C /* SendMessageViewModel.h */,
+				9BB0678F2318C7A300FE8D6C /* SendMessageViewModel.m */,
 				9B65FBCE224F270F00A7AF49 /* SetCustomFuncViewModel.h */,
 				9B65FBCF224F270F00A7AF49 /* SetCustomFuncViewModel.m */,
 				9BBAF48B21F6BDD3001BD3F9 /* SetStartCountViewModel.h */,
@@ -782,8 +822,6 @@
 				18376C942165E9B5009D68F5 /* SyncActivityViewModel.m */,
 				18376C962165F8AE009D68F5 /* SyncHealthViewModel.h */,
 				18376C972165F8AE009D68F5 /* SyncHealthViewModel.m */,
-				9B4AF76421E6F797006926CA /* SyncBopViewModel.h */,
-				9B4AF76521E6F797006926CA /* SyncBopViewModel.m */,
 				18376C9921660464009D68F5 /* SyncGpsViewModel.h */,
 				18376C9A21660464009D68F5 /* SyncGpsViewModel.m */,
 				18376C9C21660862009D68F5 /* SyncAllViewModel.h */,
@@ -852,7 +890,7 @@
 		9B437EE021393ADC00DE2FC8 = {
 			isa = PBXGroup;
 			children = (
-				9BCE553D216D9799005B6F80 /* Agps */,
+				9BCE553D216D9799005B6F80 /* Files */,
 				9B94D5DB214BBF4600ACCF94 /* Firmwares */,
 				9BCC1FA622CF28CE0049C4DB /* ShowLog */,
 				9B62FA4B2265987A000ACCDE /* YYText */,
@@ -898,9 +936,10 @@
 		9B437F0521393CED00DE2FC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD2FDF0622DDC752000A1DE3 /* IDOBlueProtocol.framework */,
-				DD2FDF0322DDC746000A1DE3 /* IDOBluetooth.framework */,
-				DD2FDF0222DDC745000A1DE3 /* IDOBlueUpdate.framework */,
+				DDBFFD50233A00DD00F2A0F5 /* IDOBlueProtocol.framework */,
+				DDBFFD4E233A00DD00F2A0F5 /* IDOBluetooth.framework */,
+				DDBFFD4F233A00DD00F2A0F5 /* IDOBlueUpdate.framework */,
+				DDBFFD4C233A00C500F2A0F5 /* libc++.tbd */,
 				9B5702A4213BEE1500BCE1CE /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
@@ -1107,6 +1146,8 @@
 				9BA7DE1C2180757100FA67D2 /* TableViewFootView.m */,
 				9B6F029521ECA62000AA0BCD /* TipPoweredOffView.h */,
 				9B6F029621ECA62000AA0BCD /* TipPoweredOffView.m */,
+				9B6FE4F82307E6DF008999C6 /* SetMenuView.h */,
+				9B6FE4F92307E6DF008999C6 /* SetMenuView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1186,6 +1227,9 @@
 		9BC1E44C213E66EC008D832E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9BA2916D2313D3B800FE7C17 /* HtmlViewController.h */,
+				9BA2916E2313D3B800FE7C17 /* HtmlViewController.m */,
+				9BA2916F2313D3B800FE7C17 /* HtmlViewController.xib */,
 				9BC1E44D213E66EC008D832E /* BaseViewController.h */,
 				9BC1E44E213E66EC008D832E /* BaseViewController.m */,
 				9BC1E44F213E66EC008D832E /* ScanViewController.h */,
@@ -1217,6 +1261,23 @@
 			path = Unbinding;
 			sourceTree = "<group>";
 		};
+		9BD6478E23162EAB00653DA4 /* WatchDialViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9BD6478F23162F4B00653DA4 /* MainDialViewModel.h */,
+				9BD6479023162F4B00653DA4 /* MainDialViewModel.m */,
+				9BD64793231631AF00653DA4 /* GetWatchScreenInfoViewModel.h */,
+				9BD64792231631AE00653DA4 /* GetWatchScreenInfoViewModel.m */,
+				9BD647952316372900653DA4 /* GetWatchDialListViewModel.h */,
+				9BD647962316372900653DA4 /* GetWatchDialListViewModel.m */,
+				9B44DA1B231F8C1400949276 /* SetWatchDialViewModel.h */,
+				9B44DA1C231F8C1400949276 /* SetWatchDialViewModel.m */,
+				9B1DC25E231E432E004C61C0 /* TranWatchDialViewModel.h */,
+				9B1DC25F231E432E004C61C0 /* TranWatchDialViewModel.m */,
+			);
+			path = WatchDialViewModel;
+			sourceTree = "<group>";
+		};
 		9BE865AA227E9D800028D8BE /* MeasureViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1238,7 +1299,7 @@
 				9B437EE521393ADC00DE2FC8 /* Sources */,
 				9B437EE621393ADC00DE2FC8 /* Frameworks */,
 				9B437EE721393ADC00DE2FC8 /* Resources */,
-				9BEBB47222DC7E4500E5BCDA /* Embed Frameworks */,
+				DDBFFD57233A00DD00F2A0F5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1296,9 +1357,10 @@
 				9B803338224E14C2003BA448 /* Chinese.strings in Resources */,
 				9B803339224E14C2003BA448 /* English.strings in Resources */,
 				9B437EF921393ADC00DE2FC8 /* LaunchScreen.storyboard in Resources */,
+				9BA291712313D3B900FE7C17 /* HtmlViewController.xib in Resources */,
 				9B94D5DC214BBF4700ACCF94 /* Firmwares in Resources */,
 				9B437EF621393ADC00DE2FC8 /* Assets.xcassets in Resources */,
-				9BCE553E216D9799005B6F80 /* Agps in Resources */,
+				9BCE553E216D9799005B6F80 /* Files in Resources */,
 				9BCC1FAC22CF28CE0049C4DB /* idoLogRes.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1336,6 +1398,7 @@
 				9B62FA8D2265987A000ACCDE /* YYTextAttribute.m in Sources */,
 				9B222157215A483D006A2F9F /* SetPreventLostViewModel.m in Sources */,
 				9B3E670A224B43F9000110D8 /* SetSportModeSortViewModel.m in Sources */,
+				9B6295B72326430D00701CFB /* GetOtaAuthInfoViewModel.m in Sources */,
 				18376C7D2164E656009D68F5 /* GetGpsInfoViewModel.m in Sources */,
 				18376CA121660ECB009D68F5 /* UpdateMainViewModel.m in Sources */,
 				9B3D1339215E21B000B97ED1 /* SetUnitViewModel.m in Sources */,
@@ -1352,6 +1415,7 @@
 				9B1C8BBE22A53B48005A5955 /* OtherFileViewModel.m in Sources */,
 				9BBAF49921F809BC001BD3F9 /* SetUserNumberViewModel.m in Sources */,
 				9B7A135D2160D59D00CBA4BC /* ComLogViewModel.m in Sources */,
+				9B44DA1D231F8C1400949276 /* SetWatchDialViewModel.m in Sources */,
 				9B7A134E2160A6AC00CBA4BC /* SetDialParamViewModel.m in Sources */,
 				9BCE554A216DDBE2005B6F80 /* AppDataInterchangeModel.m in Sources */,
 				9B62FA932265987A000ACCDE /* UIPasteboard+YYText.m in Sources */,
@@ -1359,6 +1423,7 @@
 				18376C8F2165DB32009D68F5 /* ControlRestartViewModel.m in Sources */,
 				9B62FA972265987A000ACCDE /* YYTextWeakProxy.m in Sources */,
 				9B7F44832237A2B200671B31 /* BaseDatePickerView.m in Sources */,
+				9BD64794231631AF00653DA4 /* GetWatchScreenInfoViewModel.m in Sources */,
 				9BE865AD227E9E180028D8BE /* BpMeasureViewModel.m in Sources */,
 				9B2C6B39215B66D400375FDA /* AllAlarmViewModel.m in Sources */,
 				9B62FA922265987A000ACCDE /* NSAttributedString+YYText.m in Sources */,
@@ -1372,12 +1437,14 @@
 				9B4046052143C72D00ACDE9F /* NSObject+ModelToDic.m in Sources */,
 				9B62FA902265987A000ACCDE /* YYTextUtilities.m in Sources */,
 				9B568540217DD1B400462AE0 /* ThreeButtonTableViewCell.m in Sources */,
+				9BD647972316372900653DA4 /* GetWatchDialListViewModel.m in Sources */,
 				9B62FA952265987A000ACCDE /* UIView+YYText.m in Sources */,
 				9B575BA8215CD05E00B433D0 /* SetLongSitViewModel.m in Sources */,
 				9B62FA942265987A000ACCDE /* YYTextTransaction.m in Sources */,
 				18376C742164C189009D68F5 /* GetDeviceViewModel.m in Sources */,
 				9B62FA8E2265987A000ACCDE /* YYTextArchiver.m in Sources */,
 				18376C982165F8AE009D68F5 /* SyncHealthViewModel.m in Sources */,
+				9BB067902318C7A300FE8D6C /* SendMessageViewModel.m in Sources */,
 				9BD348D3217EAC4500008142 /* QueryHrViewModel.m in Sources */,
 				183FC08C214E389B00AD6484 /* SetViewModel.m in Sources */,
 				9B7F44862237B16100671B31 /* QueryBpViewModel.m in Sources */,
@@ -1398,7 +1465,6 @@
 				9B4045DE2143BF0300ACDE9F /* FuncViewController.m in Sources */,
 				9B437F3721393DDD00DE2FC8 /* MBProgressHUD.m in Sources */,
 				9B437F3021393DDD00DE2FC8 /* MASViewConstraint.m in Sources */,
-				9B4AF76621E6F797006926CA /* SyncBopViewModel.m in Sources */,
 				183FC089214E374500AD6484 /* BaseCellModel.m in Sources */,
 				9BC1E451213E66ED008D832E /* IDODemoUtility.m in Sources */,
 				9BBAF49021F6BE19001BD3F9 /* SetContentViewModel.m in Sources */,
@@ -1414,6 +1480,7 @@
 				9BCC1FAE22CF28CE0049C4DB /* IDOConsoleBoard.m in Sources */,
 				18376C8C2165D91C009D68F5 /* ControlRestoreViewModel.m in Sources */,
 				9BBAF48D21F6BDD3001BD3F9 /* SetStartCountViewModel.m in Sources */,
+				9BA291702313D3B900FE7C17 /* HtmlViewController.m in Sources */,
 				9B62FA862265987A000ACCDE /* YYTextLine.m in Sources */,
 				9B62FA812265987A000ACCDE /* YYTextMagnifier.m in Sources */,
 				9B575BAB215CE1AD00B433D0 /* SetWeatherViewModel.m in Sources */,
@@ -1471,13 +1538,16 @@
 				18376C892165D4A0009D68F5 /* ControlNotifyViewModel.m in Sources */,
 				9B4045E12143BF5500ACDE9F /* UITableView+cellSeparator.m in Sources */,
 				9B6614BF223263E3009488F9 /* BaseViewModel.m in Sources */,
+				9B6FE4FA2307E6DF008999C6 /* SetMenuView.m in Sources */,
 				9B22213F215A307A006A2F9F /* SetTargetViewModel.m in Sources */,
 				9B62FA822265987A000ACCDE /* YYTextContainerView.m in Sources */,
+				9B1DC260231E432E004C61C0 /* TranWatchDialViewModel.m in Sources */,
 				9B3D1333215E0C9500B97ED1 /* SetNoDisturbViewModel.m in Sources */,
 				9B62FA852265987A000ACCDE /* YYTextLayout.m in Sources */,
 				183501452158E5B60076BC4F /* TextFieldCellModel.m in Sources */,
 				9B62FA842265987A000ACCDE /* YYTextInput.m in Sources */,
 				9B7A4623214F5BF2007A2DB6 /* TextViewCellModel.m in Sources */,
+				9BD6479123162F4B00653DA4 /* MainDialViewModel.m in Sources */,
 				9B62FA8F2265987A000ACCDE /* YYTextRubyAnnotation.m in Sources */,
 				183FC098214E5A8E00AD6484 /* DataInterchangeModel.m in Sources */,
 				9B4AF76321E6DA95006926CA /* GetVersionInfoViewModel.m in Sources */,
@@ -1620,7 +1690,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T65EE75V48;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = ../Embedded;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1642,7 +1712,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "IDOBlue/IDOBlue-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1655,7 +1725,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T65EE75V48;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = ../Embedded;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1676,7 +1746,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IDOBlue/IDOBlue-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

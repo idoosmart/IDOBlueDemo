@@ -12,6 +12,8 @@
 #import "TextFieldCellModel.h"
 #import "TwoTextFieldTableViewCell.h"
 #import "FuncCellModel.h"
+#import "LabelCellModel.h"
+#import "OneLabelTableViewCell.h"
 #import "OneButtonTableViewCell.h"
 #import "EmpltyCellModel.h"
 #import "EmptyTableViewCell.h"
@@ -23,6 +25,7 @@
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^switchCallback)(UIViewController * viewController,UISwitch * onSwitch,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^textFeildCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
+@property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @end
 
 @implementation SetNoDisturbViewModel
@@ -33,6 +36,7 @@
         [self getTextFieldCallback];
         [self getSwitchCallback];
         [self getButtonCallback];
+        [self getLabelCallback];
         [self getCellModels];
     }
     return self;
@@ -102,6 +106,8 @@
                                              callback:^(int errorCode) {
             if(errorCode == 0) {
                 [funcVC showToastWithText:lang(@"set no disturb mode success")];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"set no disturb mode failed")];
             }
@@ -116,9 +122,31 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
-        SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
-        strongSelf.noDisturbMode.isOpen = onSwitch.isOn;
-        switchCellModel.data = @[@(strongSelf.noDisturbMode.isOpen)];
+        if (indexPath.row == 0) {
+            SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            strongSelf.noDisturbMode.isOpen = onSwitch.isOn;
+            switchCellModel.data = @[@(strongSelf.noDisturbMode.isOpen)];
+        }else {
+            SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            strongSelf.noDisturbMode.isHaveRangRepeat = onSwitch.isOn;
+            switchCellModel.data = @[@(strongSelf.noDisturbMode.isHaveRangRepeat)];
+        }
+    };
+}
+
+- (void)getLabelCallback
+{
+    __weak typeof(self) weakSelf = self;
+    self.labelSelectCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
+        __strong typeof(self) strongSelf = weakSelf;
+        FuncViewController * funcVC = (FuncViewController *)viewController;
+        NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
+        LabelCellModel * labelModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+        if (labelModel.isMultiSelect)labelModel.isSelected = !labelModel.isSelected;
+        NSMutableArray * repeatArray = [NSMutableArray arrayWithArray:strongSelf.noDisturbMode.repeat];
+        [repeatArray replaceObjectAtIndex:labelModel.index withObject:@(labelModel.isSelected)];
+        strongSelf.noDisturbMode.repeat = repeatArray;
+        [funcVC.tableView reloadData];
     };
 }
 
@@ -128,7 +156,7 @@
     
     SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
     model1.typeStr = @"oneSwitch";
-    model1.titleStr = lang(@"set the do not disturb mode switch：");
+    model1.titleStr = lang(@"set the do not disturb mode switch:");
     model1.data = @[@(self.noDisturbMode.isOpen)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneSwitchTableViewCell class];
@@ -158,6 +186,39 @@
     model3.isShowLine = YES;
     model3.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model3];
+    
+    SwitchCellModel * model6 = [[SwitchCellModel alloc]init];
+    model6.typeStr = @"oneSwitch";
+    model6.titleStr = lang(@"set time range");
+    model6.data = @[@(self.noDisturbMode.isHaveRangRepeat)];
+    model6.cellHeight = 70.0f;
+    model6.cellClass = [OneSwitchTableViewCell class];
+    model6.modelClass = [NSNull class];
+    model6.isShowLine = YES;
+    model6.switchCallback = self.switchCallback;
+    [cellModels addObject:model6];
+    
+    EmpltyCellModel * model7 = [[EmpltyCellModel alloc]init];
+    model7.typeStr = @"empty";
+    model7.cellHeight = 30.0f;
+    model7.isShowLine = YES;
+    model7.cellClass  = [EmptyTableViewCell class];
+    [cellModels addObject:model7];
+    
+    for (int i = 0; i < self.pickerDataModel.weekArray.count; i++) {
+        LabelCellModel * model = [[LabelCellModel alloc]init];
+        model.typeStr = @"oneLabel";
+        model.data = @[self.pickerDataModel.weekArray[i]];
+        model.cellHeight = 40.0f;
+        model.cellClass = [OneLabelTableViewCell class];
+        model.modelClass = [NSNull class];
+        model.labelSelectCallback = self.labelSelectCallback;
+        model.isShowLine = YES;
+        model.index = i;
+        model.isMultiSelect = YES;
+        model.isSelected = [self.noDisturbMode.repeat[i] boolValue];
+        [cellModels addObject:model];
+    }
     
     EmpltyCellModel * model4 = [[EmpltyCellModel alloc]init];
     model4.typeStr = @"empty";

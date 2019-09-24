@@ -39,7 +39,7 @@
 /**
  升级类型 | Upgrade type
  */
-@property (nonatomic,assign) IDO_UPDATE_FRAMEWORK_TYPE updateType;
+@property (nonatomic,assign) IDO_UPDATE_PLATFORM_TYPE updateType;
 
 /**
  * @brief 初始化升级管理中心对象 | Initialize the Upgrade Management Center object

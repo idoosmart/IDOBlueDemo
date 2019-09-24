@@ -58,6 +58,8 @@
                 [dic setValue:data.deviceId?:@"" forKey:@"deviceId"];
                 [dic setValue:data.version?:@"" forKey:@"version"];
                 strongSelf.textView.text = [NSString stringWithFormat:@"%@",dic];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"get device information failed")];
             }

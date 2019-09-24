@@ -21,6 +21,7 @@
 #import "QueryViewModel.h"
 #import "DataMigrationViewModel.h"
 #import "MainMeasureViewModel.h"
+#import "MainDialViewModel.h"
 #import "ScanViewController.h"
 #import "UIScrollView+Refresh.h"
 
@@ -32,13 +33,19 @@
 
 @implementation FuncViewModel
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.leftButtonTitle = lang(@"mandatory unbind");
+        self.leftButtonTitle = lang(@"🔧");
         self.isLeftButton = YES;
         self.leftButton   = @selector(actionButton:);
+        [self addNotice];
         [self getButtonCallback];
         [self getCellModels];
     }
@@ -47,26 +54,15 @@
 
 - (void)actionButton:(UIButton *)sender
 {
-    [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
-        if (errorCode == 0) {
-            [[NSUserDefaults standardUserDefaults]setObject:@(0) forKey:NEED_SYNC_CONFIG];
-            ScanViewController * scanVC  = [[ScanViewController alloc]init];
-            UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-            [UIApplication sharedApplication].delegate.window.rootViewController = nav;
-            for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
-                if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
-                    [view removeFromSuperview];
-                }
-            }
-        }
-    }];
+    FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    funcVc.menuView.hidden = NO;
 }
 
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
         _buttonTitles = @[@[lang(@"device unbind")],@[lang(@"set function")],@[lang(@"get function")],@[lang(@"control function")],@[lang(@"sync function")],
-                          @[lang(@"data interchange")],@[lang(@"device update")],@[lang(@"data query")],@[lang(@"log query")],@[lang(@"data migration")],@[lang(@"measure data")]];
+                          @[lang(@"data interchange")],@[lang(@"device update")],@[lang(@"data query")],@[lang(@"log query")],@[lang(@"data migration")],@[lang(@"measure data")],@[lang(@"watch dial function")]];
     }
     return _buttonTitles;
 }
@@ -76,7 +72,7 @@
     if (!_modelClasss) {
         _modelClasss = @[[UnbindingViewModel class],[SetViewModel class],[GetViewModel class],[ControlViewModel class],
                          [SyncViewModel class],[DataInterchangeModel class],[UpdateMainViewModel class],[QueryViewModel class],
-                         [LogViewModel class],[DataMigrationViewModel class],[MainMeasureViewModel class]];
+                         [LogViewModel class],[DataMigrationViewModel class],[MainMeasureViewModel class],[MainDialViewModel class]];
     }
     return _modelClasss;
 }
@@ -107,8 +103,8 @@
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         BaseCellModel * model   = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if ([NSStringFromClass(model.modelClass)isEqualToString:@"NSNull"])return;
-        if (   [IDOSyncManager shareInstance].isSyncConfigRun
-            || [IDOSyncManager shareInstance].isSyncHealthRun) {
+        if (   initSyncManager().isSyncConfigRun
+            || initSyncManager().isSyncHealthRun) {
             [funcVc showToastWithText:lang(@"sync data...")];
             return;
         }
@@ -117,6 +113,24 @@
         newFuncVc.title = [model.data firstObject];
         [funcVc.navigationController pushViewController:newFuncVc animated:YES];
     };
+}
+
+- (void)addNotice
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(languageNotice) name:LANG_NOTICE_NAME object:nil];
+}
+
+- (void)languageNotice
+{
+    self.buttonTitles = nil;
+    [self getCellModels];
+    NSArray * viewControllers = [IDODemoUtility getCurrentVC].navigationController.viewControllers;
+    if (viewControllers.count == 0)return;
+    FuncViewController * funcVc = (FuncViewController *)[viewControllers firstObject];
+    [funcVc.menuView reloadData];
+    funcVc.title = lang(@"function list");
+    funcVc.statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? lang(@"connected") : IDO_BLUE_ENGINE.managerEngine.isConnecting ? lang(@"connecting") : lang(@"scanning");
+    [funcVc.tableView reloadData];
 }
 
 @end

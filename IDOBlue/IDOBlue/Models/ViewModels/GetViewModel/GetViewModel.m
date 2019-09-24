@@ -19,6 +19,7 @@
 #import "GetNotifyStateViewModel.h"
 #import "GetVersionInfoViewModel.h"
 #import "GetStartCountViewModel.h"
+#import "GetOtaAuthInfoViewModel.h"
 
 @interface GetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -41,7 +42,8 @@
 {
     if (!_buttonTitles) {
         _buttonTitles = @[@[lang(@"get function list")],@[lang(@"get Mac address")],@[lang(@"get device information")],@[lang(@"get real-time data")],
-                          @[lang(@"get the number of activities")],@[lang(@"get GPS information")],@[lang(@"get notification status")],@[lang(@"get version information")],@[lang(@"get the number of stars")]];
+                          @[lang(@"get the number of activities")],@[lang(@"get GPS information")],@[lang(@"get notification status")],@[lang(@"get version information")],
+                          @[lang(@"get the number of stars")],@[lang(@"get ota auth information")]];
     }
     return _buttonTitles;
 }
@@ -51,7 +53,8 @@
     if (!_modelClasss) {
         _modelClasss = @[[GetFuncTableViewModel class],[GetMacViewModel class],[GetDeviceViewModel class],
                          [GetRealTimeViewModel class],[GetActivityViewModel class],[GetGpsInfoViewModel class],
-                         [GetNotifyStateViewModel class],[GetVersionInfoViewModel class],[GetStartCountViewModel class]];
+                         [GetNotifyStateViewModel class],[GetVersionInfoViewModel class],[GetStartCountViewModel class],
+                         [GetOtaAuthInfoViewModel class]];
     }
     return _modelClasss;
 }

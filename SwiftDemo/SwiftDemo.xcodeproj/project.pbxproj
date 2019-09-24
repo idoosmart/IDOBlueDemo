@@ -11,7 +11,8 @@
 		9B72800422AF970D0082D255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B72800322AF970D0082D255 /* ViewController.swift */; };
 		9B72800922AF97100082D255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B72800822AF97100082D255 /* Assets.xcassets */; };
 		9B72800C22AF97100082D255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B72800A22AF97100082D255 /* LaunchScreen.storyboard */; };
-		9B7C606222B7D3D40048ADDD /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B72801C22AF97AF0082D255 /* libsqlite3.0.tbd */; };
+		9B811BBE2339E02400E453C6 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BBD2339E02400E453C6 /* libc++.tbd */; };
+		9B811BC02339E03400E453C6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BBF2339E03400E453C6 /* libsqlite3.0.tbd */; };
 		9B8431C722B0881E0061AE5B /* BindedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8431C622B0881E0061AE5B /* BindedViewController.swift */; };
 		9B8431D622B0A5DC0061AE5B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8431D422B0A5DC0061AE5B /* MBProgressHUD.m */; };
 		9BD14DD622B2233300F8A5C2 /* GetBlueInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD14DD522B2233300F8A5C2 /* GetBlueInfoViewController.swift */; };
@@ -26,10 +27,29 @@
 		9BD14DFD22B2270F00F8A5C2 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD14DF222B2270F00F8A5C2 /* MASViewConstraint.m */; };
 		9BD14DFE22B2270F00F8A5C2 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD14DF322B2270F00F8A5C2 /* MASViewAttribute.m */; };
 		9BD14E0322B2540B00F8A5C2 /* NSObject+ModelToDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD14E0122B2540B00F8A5C2 /* NSObject+ModelToDic.m */; };
-		DD2FDEED22DC15F4000A1DE3 /* IDOBlueProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2FDEEA22DC15F4000A1DE3 /* IDOBlueProtocol.framework */; };
-		DD2FDEEE22DC15F4000A1DE3 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2FDEEB22DC15F4000A1DE3 /* IDOBluetooth.framework */; };
-		DD2FDEEF22DC15F4000A1DE3 /* IDOBlueUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2FDEEC22DC15F4000A1DE3 /* IDOBlueUpdate.framework */; };
+		DDBFFD402339ED1A00F2A0F5 /* IDOBlueProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB72339D83500E453C6 /* IDOBlueProtocol.framework */; };
+		DDBFFD412339ED1A00F2A0F5 /* IDOBlueProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB72339D83500E453C6 /* IDOBlueProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDBFFD422339ED1A00F2A0F5 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB92339D83500E453C6 /* IDOBluetooth.framework */; };
+		DDBFFD432339ED1A00F2A0F5 /* IDOBluetooth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB92339D83500E453C6 /* IDOBluetooth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDBFFD442339ED1A00F2A0F5 /* IDOBlueUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB82339D83500E453C6 /* IDOBlueUpdate.framework */; };
+		DDBFFD452339ED1A00F2A0F5 /* IDOBlueUpdate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB82339D83500E453C6 /* IDOBlueUpdate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DDBFFD462339ED1A00F2A0F5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DDBFFD432339ED1A00F2A0F5 /* IDOBluetooth.framework in Embed Frameworks */,
+				DDBFFD452339ED1A00F2A0F5 /* IDOBlueUpdate.framework in Embed Frameworks */,
+				DDBFFD412339ED1A00F2A0F5 /* IDOBlueProtocol.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9B727FFE22AF970D0082D255 /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,39 +58,15 @@
 		9B72800822AF97100082D255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B72800B22AF97100082D255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B72800D22AF97100082D255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B72801C22AF97AF0082D255 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		9B811BB72339D83500E453C6 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueProtocol.framework; path = ../Embedded/IDOBlueProtocol.framework; sourceTree = "<group>"; };
+		9B811BB82339D83500E453C6 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueUpdate.framework; path = ../Embedded/IDOBlueUpdate.framework; sourceTree = "<group>"; };
+		9B811BB92339D83500E453C6 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
+		9B811BBD2339E02400E453C6 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		9B811BBF2339E03400E453C6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9B8431C622B0881E0061AE5B /* BindedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindedViewController.swift; sourceTree = "<group>"; };
 		9B8431D422B0A5DC0061AE5B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9B8431D522B0A5DC0061AE5B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9B8431D722B0A6800061AE5B /* SwiftDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		9BA1F04522D82209008946B0 /* IDOWeightBluetoothModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOWeightBluetoothModel.h; sourceTree = "<group>"; };
-		9BA1F04622D82209008946B0 /* IDOSyncInfoBluetoothModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOSyncInfoBluetoothModel.h; sourceTree = "<group>"; };
-		9BA1F04722D82209008946B0 /* IDODataExchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDODataExchangeModel.h; sourceTree = "<group>"; };
-		9BA1F04822D82209008946B0 /* IDOGetInfoBluetoothModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOGetInfoBluetoothModel.h; sourceTree = "<group>"; };
-		9BA1F04922D82209008946B0 /* IDOSyncBop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOSyncBop.h; sourceTree = "<group>"; };
-		9BA1F04A22D82209008946B0 /* IDOCalculateBluetoothModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOCalculateBluetoothModel.h; sourceTree = "<group>"; };
-		9BA1F04B22D82209008946B0 /* IDOErrorCodeToStr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOErrorCodeToStr.h; sourceTree = "<group>"; };
-		9BA1F04C22D82209008946B0 /* IDOUpdateAgpsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOUpdateAgpsManager.h; sourceTree = "<group>"; };
-		9BA1F04D22D82209008946B0 /* IDOSyncHealth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOSyncHealth.h; sourceTree = "<group>"; };
-		9BA1F04E22D82209008946B0 /* IDOCommonMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOCommonMacro.h; sourceTree = "<group>"; };
-		9BA1F04F22D82209008946B0 /* IDORecordDeviceLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDORecordDeviceLog.h; sourceTree = "<group>"; };
-		9BA1F05022D82209008946B0 /* IDODataMigrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDODataMigrationManager.h; sourceTree = "<group>"; };
-		9BA1F05122D82209008946B0 /* IDOSyncGps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOSyncGps.h; sourceTree = "<group>"; };
-		9BA1F05222D82209008946B0 /* IDOEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOEnum.h; sourceTree = "<group>"; };
-		9BA1F05322D82209008946B0 /* IDOPeripheralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOPeripheralModel.h; sourceTree = "<group>"; };
-		9BA1F05422D82209008946B0 /* IDOSyncActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOSyncActivity.h; sourceTree = "<group>"; };
-		9BA1F05522D82209008946B0 /* IDOBlueDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBlueDataResponse.h; sourceTree = "<group>"; };
-		9BA1F05622D82209008946B0 /* IDOSyncConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOSyncConfig.h; sourceTree = "<group>"; };
-		9BA1F05722D82209008946B0 /* IDOBluetoothEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBluetoothEngine.h; sourceTree = "<group>"; };
-		9BA1F05822D82209008946B0 /* IDOBluetoothBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBluetoothBaseModel.h; sourceTree = "<group>"; };
-		9BA1F05922D82209008946B0 /* IDOFoundationCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOFoundationCommand.h; sourceTree = "<group>"; };
-		9BA1F05A22D82209008946B0 /* IDOSetInfoBluetoothModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOSetInfoBluetoothModel.h; sourceTree = "<group>"; };
-		9BA1F05B22D82209008946B0 /* IDOSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOSyncManager.h; sourceTree = "<group>"; };
-		9BA1F05C22D82209008946B0 /* IDOBluetoothServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBluetoothServices.h; sourceTree = "<group>"; };
-		9BA1F05E22D82209008946B0 /* IDOBluetoothManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBluetoothManagerDelegate.h; sourceTree = "<group>"; };
-		9BA1F05F22D82209008946B0 /* IDOBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBluetoothManager.h; sourceTree = "<group>"; };
-		9BA1F06122D82209008946B0 /* IDOUpdateManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOUpdateManagerDelegate.h; sourceTree = "<group>"; };
-		9BA1F06222D82209008946B0 /* IDOUpdateFirmwareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOUpdateFirmwareManager.h; sourceTree = "<group>"; };
 		9BD14DD522B2233300F8A5C2 /* GetBlueInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBlueInfoViewController.swift; sourceTree = "<group>"; };
 		9BD14DDB22B2270F00F8A5C2 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		9BD14DDC22B2270F00F8A5C2 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
@@ -99,9 +95,6 @@
 		9BD14DF322B2270F00F8A5C2 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
 		9BD14E0122B2540B00F8A5C2 /* NSObject+ModelToDic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ModelToDic.m"; sourceTree = "<group>"; };
 		9BD14E0222B2540B00F8A5C2 /* NSObject+ModelToDic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ModelToDic.h"; sourceTree = "<group>"; };
-		DD2FDEEA22DC15F4000A1DE3 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueProtocol.framework; path = ../Embedded/IDOBlueProtocol.framework; sourceTree = "<group>"; };
-		DD2FDEEB22DC15F4000A1DE3 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
-		DD2FDEEC22DC15F4000A1DE3 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueUpdate.framework; path = ../Embedded/IDOBlueUpdate.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +102,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD2FDEED22DC15F4000A1DE3 /* IDOBlueProtocol.framework in Frameworks */,
-				DD2FDEEE22DC15F4000A1DE3 /* IDOBluetooth.framework in Frameworks */,
-				DD2FDEEF22DC15F4000A1DE3 /* IDOBlueUpdate.framework in Frameworks */,
-				9B7C606222B7D3D40048ADDD /* libsqlite3.0.tbd in Frameworks */,
+				DDBFFD422339ED1A00F2A0F5 /* IDOBluetooth.framework in Frameworks */,
+				DDBFFD442339ED1A00F2A0F5 /* IDOBlueUpdate.framework in Frameworks */,
+				DDBFFD402339ED1A00F2A0F5 /* IDOBlueProtocol.framework in Frameworks */,
+				9B811BC02339E03400E453C6 /* libsqlite3.0.tbd in Frameworks */,
+				9B811BBE2339E02400E453C6 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +133,6 @@
 		9B72800022AF970D0082D255 /* SwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
-				9BA1F04322D82209008946B0 /* include */,
 				9BD14E0022B2540B00F8A5C2 /* Category */,
 				9BD14DD922B2270F00F8A5C2 /* Masonry */,
 				9B8431D322B0A5DC0061AE5B /* MBProgressHUD */,
@@ -158,10 +151,11 @@
 		9B72801322AF979E0082D255 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD2FDEEA22DC15F4000A1DE3 /* IDOBlueProtocol.framework */,
-				DD2FDEEB22DC15F4000A1DE3 /* IDOBluetooth.framework */,
-				DD2FDEEC22DC15F4000A1DE3 /* IDOBlueUpdate.framework */,
-				9B72801C22AF97AF0082D255 /* libsqlite3.0.tbd */,
+				9B811BBF2339E03400E453C6 /* libsqlite3.0.tbd */,
+				9B811BBD2339E02400E453C6 /* libc++.tbd */,
+				9B811BB72339D83500E453C6 /* IDOBlueProtocol.framework */,
+				9B811BB92339D83500E453C6 /* IDOBluetooth.framework */,
+				9B811BB82339D83500E453C6 /* IDOBlueUpdate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,65 +167,6 @@
 				9B8431D522B0A5DC0061AE5B /* MBProgressHUD.h */,
 			);
 			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
-		9BA1F04322D82209008946B0 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				9BA1F04422D82209008946B0 /* IDOBlueProtocolStatic */,
-				9BA1F05D22D82209008946B0 /* IDOBluetoothStatic */,
-				9BA1F06022D82209008946B0 /* IDOBlueUpdateStatic */,
-			);
-			path = include;
-			sourceTree = SOURCE_ROOT;
-		};
-		9BA1F04422D82209008946B0 /* IDOBlueProtocolStatic */ = {
-			isa = PBXGroup;
-			children = (
-				9BA1F04522D82209008946B0 /* IDOWeightBluetoothModel.h */,
-				9BA1F04622D82209008946B0 /* IDOSyncInfoBluetoothModel.h */,
-				9BA1F04722D82209008946B0 /* IDODataExchangeModel.h */,
-				9BA1F04822D82209008946B0 /* IDOGetInfoBluetoothModel.h */,
-				9BA1F04922D82209008946B0 /* IDOSyncBop.h */,
-				9BA1F04A22D82209008946B0 /* IDOCalculateBluetoothModel.h */,
-				9BA1F04B22D82209008946B0 /* IDOErrorCodeToStr.h */,
-				9BA1F04C22D82209008946B0 /* IDOUpdateAgpsManager.h */,
-				9BA1F04D22D82209008946B0 /* IDOSyncHealth.h */,
-				9BA1F04E22D82209008946B0 /* IDOCommonMacro.h */,
-				9BA1F04F22D82209008946B0 /* IDORecordDeviceLog.h */,
-				9BA1F05022D82209008946B0 /* IDODataMigrationManager.h */,
-				9BA1F05122D82209008946B0 /* IDOSyncGps.h */,
-				9BA1F05222D82209008946B0 /* IDOEnum.h */,
-				9BA1F05322D82209008946B0 /* IDOPeripheralModel.h */,
-				9BA1F05422D82209008946B0 /* IDOSyncActivity.h */,
-				9BA1F05522D82209008946B0 /* IDOBlueDataResponse.h */,
-				9BA1F05622D82209008946B0 /* IDOSyncConfig.h */,
-				9BA1F05722D82209008946B0 /* IDOBluetoothEngine.h */,
-				9BA1F05822D82209008946B0 /* IDOBluetoothBaseModel.h */,
-				9BA1F05922D82209008946B0 /* IDOFoundationCommand.h */,
-				9BA1F05A22D82209008946B0 /* IDOSetInfoBluetoothModel.h */,
-				9BA1F05B22D82209008946B0 /* IDOSyncManager.h */,
-				9BA1F05C22D82209008946B0 /* IDOBluetoothServices.h */,
-			);
-			path = IDOBlueProtocolStatic;
-			sourceTree = "<group>";
-		};
-		9BA1F05D22D82209008946B0 /* IDOBluetoothStatic */ = {
-			isa = PBXGroup;
-			children = (
-				9BA1F05E22D82209008946B0 /* IDOBluetoothManagerDelegate.h */,
-				9BA1F05F22D82209008946B0 /* IDOBluetoothManager.h */,
-			);
-			path = IDOBluetoothStatic;
-			sourceTree = "<group>";
-		};
-		9BA1F06022D82209008946B0 /* IDOBlueUpdateStatic */ = {
-			isa = PBXGroup;
-			children = (
-				9BA1F06122D82209008946B0 /* IDOUpdateManagerDelegate.h */,
-				9BA1F06222D82209008946B0 /* IDOUpdateFirmwareManager.h */,
-			);
-			path = IDOBlueUpdateStatic;
 			sourceTree = "<group>";
 		};
 		9BD14DD922B2270F00F8A5C2 /* Masonry */ = {
@@ -293,6 +228,7 @@
 				9B727FFA22AF970D0082D255 /* Sources */,
 				9B727FFB22AF970D0082D255 /* Frameworks */,
 				9B727FFC22AF970D0082D255 /* Resources */,
+				DDBFFD462339ED1A00F2A0F5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -511,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T65EE75V48;
@@ -530,7 +467,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemo/SwiftDemo-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -538,6 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T65EE75V48;
@@ -556,7 +494,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemo/SwiftDemo-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

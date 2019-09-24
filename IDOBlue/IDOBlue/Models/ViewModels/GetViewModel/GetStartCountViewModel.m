@@ -56,6 +56,8 @@
                 [funcVC showToastWithText:lang(@"get the number of stars success")];
                 NSString * str = [NSString stringWithFormat:@"%@ ：%ld",lang(@"the number of stars"),(long)startCount];
                 strongSelf.textView.text = str;
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
                 [funcVC showToastWithText:lang(@"get the number of stars failed")];
             }

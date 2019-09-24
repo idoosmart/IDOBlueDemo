@@ -152,12 +152,13 @@
         [TipPoweredOffView hidView];
     }else if (state == IDO_MANAGER_STATE_MANUAL_SCANING) {
         self.statusLabel.text = lang(@"scanning");
+        [self showToastWithText:lang(@"scanning")];
     }
 }
 
 - (void)listenConnectError:(NSNotification *)notivication
 {
-    
+    [self showToastWithText: lang(@"connected failed")];
 }
 
 - (MBProgressHUD *)progressHUD
@@ -213,6 +214,7 @@
     self.statusLabel.text = lang(@"scanning");
     NSInteger rssiNum = [[NSUserDefaults standardUserDefaults]integerForKey:RSSI_KEY];
     [IDOBluetoothManager shareInstance].rssiNum = rssiNum > 0 ? rssiNum : 80;
+    [IDOBluetoothManager cancelCurrentPeripheralConnection];
     [IDOBluetoothManager stopScan];
     [IDOBluetoothManager startScan];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -267,7 +269,6 @@ static BOOL BIND_STATE = NO;
         __strong typeof(self) strongSelf = weakSelf;
         if (errorCode == 0) {
             if (status == IDO_BLUETOOTH_BIND_SUCCESS) { //绑定成功
-                [[NSUserDefaults standardUserDefaults]setObject:@(1) forKey:NEED_SYNC_CONFIG];
                 [strongSelf showToastWithText:lang(@"bind success")];
                 IDOSetBindingInfoBluetoothModel * model1 = [IDOSetBindingInfoBluetoothModel currentModel];
                 if (model1.authLength > 0)return;
@@ -321,7 +322,7 @@ static BOOL BIND_STATE = NO;
     }
     
     int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-    NSString * str = (self.currentModel.isOta || mode == 0) ?  lang(@"update"):lang(@"bind");
+    NSString * str = (self.currentModel.isOta || mode == 1) ?  lang(@"update"):lang(@"bind");
     _bindView.tipLabel.text = [NSString stringWithFormat:lang(@"send bind or update"),str];
     [_bindView show];
 }
@@ -334,7 +335,7 @@ static BOOL BIND_STATE = NO;
 - (void)allowBinding
 {
     int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-    if (self.currentModel.isOta || mode == 0) {
+    if (self.currentModel.isOta || mode == 1) {
         [self updateAction:nil];
     }else {
         [self bindAction:nil];
@@ -365,7 +366,6 @@ static BOOL BIND_STATE = NO;
     [IDOFoundationCommand setAuthCodeCommand:model callback:^(int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
         if (errorCode == 0) {
-            [[NSUserDefaults standardUserDefaults]setObject:@(1) forKey:NEED_SYNC_CONFIG];
             [strongSelf showToastWithText:lang(@"bind success")];
             [strongSelf setRootViewController];
         }else {

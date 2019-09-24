@@ -63,6 +63,8 @@
             [IDOFoundationCommand musicStartCommand:^(int errorCode) {
                 if (errorCode == 0) {
                     [funcVC showToastWithText:lang(@"setting music to open successfully")];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
                 }else {
                     [funcVC showToastWithText:lang(@"failed to set music on")];
                 }
@@ -71,6 +73,8 @@
             [IDOFoundationCommand musicStopCommand:^(int errorCode) {
                 if (errorCode == 0) {
                     [funcVC showToastWithText:lang(@"setting music to open successfully")];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
                 }else {
                     [funcVC showToastWithText:lang(@"failed to set music on")];
                 }

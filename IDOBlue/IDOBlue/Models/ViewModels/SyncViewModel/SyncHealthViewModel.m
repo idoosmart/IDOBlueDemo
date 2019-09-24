@@ -22,6 +22,12 @@
 @end
 
 @implementation SyncHealthViewModel
+
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -51,43 +57,72 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:lang(@"sync health data...")];
-        //同步健康日志
-        [IDOSyncHealth syncHealthDataCallback:^(NSString * _Nullable jsonStr) {
+        initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_HEALTH_ITEM_TYPE;
+        initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {
+            if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
+                [funcVC showToastWithText:lang(@"sync data complete")];
+            }
+        }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
+            [funcVC showSyncProgress:progress];
+        }).addSyncFailed(^(int errorCode) {
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            };
+            [funcVC showToastWithText:lang(@"sync data failed")];
+        }).addSyncSwim(^(NSString * jsonStr){
             if (![IDOConsoleBoard borad].isShow) {
                 NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
                 TextViewCellModel * model = [strongSelf.cellModels firstObject];
                 model.data = @[newLogStr?:@""];
                 strongSelf.textView.text = newLogStr;
             }
-            // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-        }];
-        //同步健康完成
-        [IDOSyncHealth syncHealthDataCompleteCallback:^(int errorCode) {
+        }).addSyncHeartRate(^(NSString * jsonStr){
             if (![IDOConsoleBoard borad].isShow) {
-                NSString * errorStr = [IDOErrorCodeToStr errorCodeToStr:errorCode];
-                NSString * activityStr = [NSString stringWithFormat:@"%@ ERROR_CODE = %@",@"SYNC_HEALTH_COMPLETE",errorStr];
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,activityStr];
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
                 TextViewCellModel * model = [strongSelf.cellModels firstObject];
                 model.data = @[newLogStr?:@""];
                 strongSelf.textView.text = newLogStr;
             }
-          //  [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-            [funcVC showToastWithText:lang(@"sync health data complete")];
-        }];
-        //同步健康进度
-        [IDOSyncHealth syncHealthDataProgressCallback:^(int progress) {
+        }).addSyncBloodOxygen(^(NSString * jsonStr){
             if (![IDOConsoleBoard borad].isShow) {
-                NSString * healthStr = [NSString stringWithFormat:@"%@...%d",@"SYNC_HEALTH_PROGRESS",progress];
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,healthStr];
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
                 TextViewCellModel * model = [strongSelf.cellModels firstObject];
                 model.data = @[newLogStr?:@""];
                 strongSelf.textView.text = newLogStr;
-                // [strongSelf.textView scrollRangeToVisible:NSMakeRange(strongSelf.textView.text.length, 1)];
-                [funcVC showSyncProgress:progress/100.0f];
             }
-        }];
-        //同步健康开始
-        [IDOSyncHealth startSync];
+        }).addSyncBp(^(NSString * jsonStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).addSyncSleep(^(NSString * jsonStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).addSyncSport(^(NSString * jsonStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).addSyncPressure(^(NSString * jsonStr){
+            if (![IDOConsoleBoard borad].isShow) {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[newLogStr?:@""];
+                strongSelf.textView.text = newLogStr;
+            }
+        }).mandatorySyncConfig(NO);
+        [IDOSyncManager startSync];
     };
 }
 

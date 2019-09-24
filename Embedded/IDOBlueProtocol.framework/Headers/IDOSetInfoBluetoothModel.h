@@ -12,6 +12,124 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ====  设置运动开关 model ====
+@interface IDOSetActivitySwitchBluetoothModel:IDOBluetoothBaseModel
+/**
+ 自动识别运动类型开关 | sport type on off
+ */
+@property (nonatomic,assign) BOOL sportTypeOnOff;
+
+/**
+ 运动自动暂停开关 | auto pause on off
+ */
+@property (nonatomic,assign) BOOL autoPauseOnOff;
+
+/**
+ 结束提醒开关 | end remind on off
+ */
+@property (nonatomic,assign) BOOL endRemindOnOff;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetActivitySwitchBluetoothModel
+ */
++ (__kindof IDOSetActivitySwitchBluetoothModel *)currentModel;
+
+@end
+
+
+#pragma mark ====  设置血氧开关控制 model ====
+@interface IDOSetSpo2SwitchBluetoothModel:IDOBluetoothBaseModel
+/**
+ 开关 | on off
+ */
+@property (nonatomic,assign) BOOL onOff;
+
+/**
+ 开始时间 （时） | start hour
+ */
+@property (nonatomic,assign) NSInteger startHour;
+
+/**
+ 开始时间 （分） | start minute
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+
+/**
+ 结束时间 （时） | end hour
+ */
+@property (nonatomic,assign) NSInteger endHour;
+
+/**
+ 结束时间 （分） | end minute
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetSpo2SwitchBluetoothModel
+ */
++ (__kindof IDOSetSpo2SwitchBluetoothModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置呼吸训练 model ====
+@interface IDOSetBreatheTrainBluetoothModel:IDOBluetoothBaseModel
+/**
+ 每分钟呼吸次数 | Breaths per minute
+ */
+@property (nonatomic,assign) NSInteger frequency;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetBreatheTrainBluetoothModel
+ */
++ (__kindof IDOSetBreatheTrainBluetoothModel *)currentModel;
+@end
+
+#pragma mark ====  设置走动提醒 model ====
+@interface IDOSetWalkReminderBluetoothModel:IDOBluetoothBaseModel
+/**
+ 走动提醒开关 | Walking reminder switch
+ */
+@property (nonatomic,assign) BOOL onOff;
+/**
+ 目标步数 | goal step
+ */
+@property (nonatomic,assign) NSInteger goalStep;
+/**
+ 开始时间（时） | start time (hours)
+ */
+@property (nonatomic,assign) NSInteger startHour;
+/**
+ 开始时间（分） | start time (minutes)
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+/**
+ 结束时间 （时） | end time (hours)
+ */
+@property (nonatomic,assign) NSInteger endHour;
+/**
+ 结束时间 （分） | end time (minutes)
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetWalkReminderBluetoothModel
+ */
++ (__kindof IDOSetWalkReminderBluetoothModel *)currentModel;
+
+@end
 #pragma mark ====  设置经期提醒 model ====
 @interface IDOSetMenstruationRemindBluetoothModel:IDOBluetoothBaseModel
 /**
@@ -362,11 +480,42 @@
 
 #pragma mark ==== 设置屏幕亮度model ====
 @interface IDOSetScreenBrightnessInfoBluetoothModel:IDOBluetoothBaseModel
-
 /**
- 屏幕亮度级别 (0-100) | Screen brightness level (0-100)
+ 屏幕亮度级别 (1-100) | Screen brightness level (1-100)
  */
 @property (nonatomic,assign) NSInteger levelValue;
+/**
+ 是否用户调节 | is manual
+ */
+@property (nonatomic,assign) BOOL isManual;
+/**
+ * 0x00关闭自动调整,0x01 使用环境光传感器,0x02,夜间自动调整亮度,0x03 夜间降亮度使用设置的时间
+ * 0x00 turns off automatic adjustment,0x01 USES ambient light sensor,
+ * 0x02, automatic adjustment of brightness at night,0x03 set time for reducing brightness at night
+ */
+@property (nonatomic,assign) NSInteger mode;
+/**
+ * 夜间自动亮度调整 0x00,无效,由固件定义,0x01关闭,0x02,夜间自动调整亮度,0x03 夜间降亮度使用设置的时间
+ * Automatic overnight brightness adjustment 0x00, invalid, as defined by firmware,0x01 is off,0x02,
+ * automatic night brightness adjustment,0x03 night brightness reduction USES the set time
+ */
+@property (nonatomic,assign) NSInteger autoAdjustNight;
+/**
+ 开始 时钟 | start hour
+ */
+@property (nonatomic,assign) NSInteger startHour;
+/**
+ 开始 分钟 | start minute
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+/**
+ 结束 时钟 | end hour
+ */
+@property (nonatomic,assign) NSInteger endHour;
+/**
+ 结束 分钟 | end minute
+ */
+@property (nonatomic,assign) NSInteger endMinute;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -391,7 +540,13 @@
 @property (nonatomic,assign) NSInteger todayTemp;
 
 /**
- 天气类型 | Weather type
+ * 天气类型 | Weather type
+ * 天气情况(0:其他， 1:晴， 2:多云， 3:阴，4:雨，5:暴雨，
+ * 6:雷阵雨， 7:雪， 8:雨夹雪，9:台风， 10:沙尘暴, 11:夜 间晴，
+ * 12:夜间多云， 13:热， 14:冷， 15:清风， 16:大风， 17:雾 霭，18:阵雨, 19:多云转晴)
+ * weather conditions (0: others, 1: sunny, 2: cloudy, 3: cloudy, 4: rain, 5: rainstorm,
+ * 6: thunderstorm, 7: snow, 8: sleet, 9: typhoon, 10: sandstorm, 11: night clear,
+ * 12: cloudy night, 13: hot, 14: cold, 15: breezy, 16: blustery, 17: mist, 18: showers, 19: cloudy to clear)
  */
 @property (nonatomic,assign) NSInteger todayType;
 
@@ -436,10 +591,11 @@
 
 #pragma mark ==== 设置运动快捷模式排序model ====
 
-@interface IDOSetSportSortingItemModel:IDOBluetoothBaseModel
+@interface IDOSetSportSortingItemModel:NSObject
 
 /**
- 排序索引 | index //排序,从1、2、3、4....,0:无效
+ * 排序索引 index //排序,从1、2、3、4....,0:无效
+ * Sort index // sort from 1, 2, 3, 4... , 0: invalid
  */
 @property (nonatomic,assign) NSInteger index;
 
@@ -448,11 +604,13 @@
  * 0:无，1:走路，2:跑步，3:骑行，4:徒步，5:游泳，6:爬山，7:羽毛球，8:其他，
  * 9:健身，10:动感单车，11:椭圆机，12:跑步机，13:仰卧起坐，14:俯卧撑，15:哑铃，16:举重，
  * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
- * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞
+ * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，48:户外跑步，49:室内跑步，50:户外骑行，51:室内骑行，
+ * 52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法
  * 0: none, 1: walk, 2: run, 3: ride, 4: hike, 5: swim, 6: climb, 7: badminton, 8: others,
  * 9: fitness, 10: spinning, 11: elliptical, 12: treadmill, 13: sit-ups, 14: push-ups, 15: dumbbells, 16: weightlifting,
  * 17: aerobics, 18: yoga, 19: jump rope, 20: table tennis, 21: basketball, 22: football, 23: volleyball, 24: tennis,
- * 25: golf, 26: baseball, 27: skiing, 28: roller skating, 29: dancing
+ * 25: golf, 26: baseball, 27: skiing, 28: roller skating, 29: dancing，48: outdoor running, 49: indoor running, 50: outdoor cycling, 51: indoor cycling,
+ * 52: outdoor walking, 53: indoor walking, 54: pool swimming, 55: open water swimming, 56: elliptical machine, 57: rowing machine, 58: high-intensity interval training
  */
 @property (nonatomic,assign) NSInteger type;
 
@@ -811,22 +969,23 @@
 /**
  * 语言单位 无效:0,中文:1,英文:2,法语:3,德语:4,意大利语:5,西班牙语:6,日语:7,
  * 波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
- * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,
+ * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,韩语:21,印地语:22,葡萄牙语:23
  * Language unit Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
  * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
- * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19,Indonesian: 20
+ * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19,Indonesian: 20,korean:21,hindi:22
+ * portuguese:23
  */
 @property (nonatomic,assign) NSInteger languageUnit;
 
 /**
- * 走路步伐 根据男性换算 默认值 90 （单位 ：cm）
- * Walking pace According to male conversion Default value 90 (unit: cm)
+ * 走路步伐 根据男性换算 默认值 72 （单位 ：cm）
+ * Walking pace According to male conversion Default value 72 (unit: cm)
  */
 @property (nonatomic,assign) NSInteger strideWalk;
 
 /**
- * 跑步步伐 根据男性换算 默认值 72 （单位 ：cm）
- * Running pace Converted by male Default 72 (Unit: cm)
+ * 跑步步伐 根据男性换算 默认值 90 （单位 ：cm）
+ * Running pace Converted by male Default 90 (Unit: cm)
  */
 @property (nonatomic,assign) NSInteger strideRun;
 
@@ -843,8 +1002,8 @@
 @property (nonatomic,assign) NSInteger timeUnit;
 
 /**
- * 星期的开始日 星期日：0 ，星期一 ：1 ，星期二 ： 2，星期三 ：3 ，星期四 ：4 ，星期五 ：5，星期六 ：6
- * Start of the week Sunday: 0, Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6
+ * 星期的开始日 星期日：0x01，星期一 ：0x00，星期六 ：0x03
+ * Start of the week Sunday: 0x01, Monday: 0x00, Saturday: 0x03
  */
 @property (nonatomic,assign) NSInteger weekStart;
 
@@ -860,17 +1019,17 @@
 @interface IDOSetHrIntervalInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
- 燃烧脂肪的阈值 | Threshold for burning fat
+ 燃烧脂肪 | Threshold for burning fat
  */
 @property (nonatomic,assign) NSInteger burnFat;
 
 /**
- 有氧运动阈值 | Aerobic threshold
+ 有氧运动 | Aerobic threshold
  */
 @property (nonatomic,assign) NSInteger aerobic;
 
 /**
- 限制阈值 | Limit threshold
+ 极限运动 | Limit threshold
  */
 @property (nonatomic,assign) NSInteger limitValue;
 
@@ -878,6 +1037,16 @@
  最大心率 | Maximum heart rate
  */
 @property (nonatomic,assign) NSInteger userMaxHr;
+
+/**
+ 热身运动 | Warm-up
+ */
+@property (nonatomic,assign) NSInteger warmUp;
+
+/**
+ 无氧运动 | Anaerobic exercise
+ */
+@property (nonatomic,assign) NSInteger anaerobic;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -916,6 +1085,18 @@
 @property (nonatomic,assign) NSInteger  endMinute;
 
 /**
+ * 是否有间隔重复提醒
+ * interval repeat reminder
+ */
+@property (nonatomic,assign) BOOL  isHaveRangRepeat;
+
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetNoDisturbModeInfoBluetoothModel
@@ -927,8 +1108,8 @@
 @interface IDOSetHrModeInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
- * 心率模式 0:关闭心率监测功能 1:手动模式 2:自动模式 （默认：自动模式）
- * Heart Rate Mode 0: Turn off heart rate monitoring function 1: Manual mode 2: Auto mode (Default: Auto mode)
+ * 心率模式 0:关闭心率监测功能 1:手动模式 2:自动模式 3:持续监测（默认：自动模式）
+ * Heart Rate Mode 0: Turn off heart rate monitoring function 1: Manual mode 2: Auto mode 3:Continuously monitor(Default: Auto mode)
  */
 @property (nonatomic,assign) NSInteger modeType;
 
@@ -1351,6 +1532,26 @@
  Slack 提醒 | Slack
  */
 @property (nonatomic,assign) BOOL isOnSlack;
+
+/**
+ Yahoo Mail 提醒 | Yahoo Mail
+ */
+@property (nonatomic,assign) BOOL isOnYahooMail;
+
+/**
+ Tumblr 提醒 | Tumblr
+ */
+@property (nonatomic,assign) BOOL isOnTumblr;
+
+/**
+ Youtube 提醒 | Youtube
+ */
+@property (nonatomic,assign) BOOL isOnYoutube;
+
+/**
+ Yahoo Pinterest 提醒 | Yahoo Pinterest
+ */
+@property (nonatomic,assign) BOOL isOnYahooPinterest;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

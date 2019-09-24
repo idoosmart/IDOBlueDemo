@@ -11,7 +11,7 @@
 #if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
 #else
-#import "IDOEnum.h"
+#import "IDOLogEnum.h"
 #endif
 
 @interface IDORecordDeviceLog : NSObject
@@ -46,4 +46,9 @@
  */
 + (NSString *_Nullable)recordLogFloaderPath;
 
+/**
+ * sdk 更新日志文件路径(html)
+ * sdk update log file path(html)
+ */
++ (NSString *_Nullable)updateLogFilePath;
 @end

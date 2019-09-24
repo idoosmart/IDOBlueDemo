@@ -69,7 +69,7 @@
     NSString * dirPath = nil;
     if (fileMode == 0) {
         NSString * filePath = [NSBundle mainBundle].bundlePath;
-        dirPath = [filePath stringByAppendingPathComponent:@"Agps"];
+        dirPath = [filePath stringByAppendingPathComponent:@"Files"];
     }else {
         dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
     }
@@ -167,9 +167,9 @@
                     [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
                 }else {
                     NSString * filePath = [NSBundle mainBundle].bundlePath;
-                    NSString * dirPath = [filePath stringByAppendingPathComponent:@"Agps"];
+                    NSString * dirPath = [filePath stringByAppendingPathComponent:@"Files"];
                     filePath = [dirPath stringByAppendingPathComponent:fileName];
-                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                    [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:TRAN_FILE_PATH_KEY];
                 }
                 [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
                 [funcVC.navigationController popViewControllerAnimated:YES];
@@ -188,7 +188,7 @@
                         if (strongSelf.type == 0) {
                             [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
                         }else {
-                            [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                            [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:TRAN_FILE_PATH_KEY];
                         }
                         [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
                         NSInteger index = [funcVC.navigationController.viewControllers indexOfObject:funcVC];
@@ -200,7 +200,7 @@
                     if (strongSelf.type == 0) {
                         [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:FIRMWARE_FILE_PATH_KEY];
                     }else {
-                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:AGPS_FILE_PATH_KEY];
+                        [[NSUserDefaults standardUserDefaults] setValue:filePath forKey:TRAN_FILE_PATH_KEY];
                     }
                     [[NSNotificationCenter defaultCenter]postNotificationName:@"idoDemoSelectFileNotice" object:nil userInfo:nil];
                     [funcVC.navigationController popViewControllerAnimated:YES];

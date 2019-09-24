@@ -20,7 +20,6 @@
 @property (nonatomic,copy) NSString * logStr;
 @property (nonatomic,strong) UITextView * textView;
 @property (nonatomic,strong) NSString * filePath;
-@property (nonatomic,assign) NSInteger theLength;
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,NSString * titleStr);
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
@@ -63,14 +62,14 @@
 
 - (void)selectFileNotice:(NSNotification*)notice
 {
-    NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:AGPS_FILE_PATH_KEY];
+    NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:TRAN_FILE_PATH_KEY];
     NSString * infoStr = [self selectedFileWithFilePath:filePath];
     [self addMessageText:infoStr];
 }
 
 - (void)getCellModels
 {
-    NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:AGPS_FILE_PATH_KEY];
+    NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:TRAN_FILE_PATH_KEY];
     self.logStr = [self selectedFileWithFilePath:filePath];
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
@@ -98,7 +97,7 @@
     NSString * path = @"";
     if (fileMode == 0) { // bundle
         NSString * mainPath = [NSBundle mainBundle].bundlePath;
-        path = [mainPath stringByAppendingPathComponent:@"Agps"];
+        path = [mainPath stringByAppendingPathComponent:@"Files"];
         NSURL * fileUrl = [NSURL URLWithString:filePath];
         fileName = fileUrl.lastPathComponent;
         path = [path stringByAppendingPathComponent:fileName];
@@ -129,12 +128,6 @@
     [self.textView scrollRangeToVisible:NSMakeRange(self.textView.text.length, 1)];
 }
 
-- (void)computationTime
-{
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(computationTime) object:nil];
-    self.theLength ++;
-    [self performSelector:@selector(computationTime) withObject:nil afterDelay:1.0];
-}
 
 - (void)getButtonCallback
 {
@@ -143,52 +136,25 @@
         __strong typeof(self) strongSelf = weakSelf;
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return ;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        strongSelf.theLength = 0;
-        [strongSelf computationTime];
-        //agps文件启动传输
-        __IDO_FUNCTABLE__.funcExtendModel.gps = YES;
-        [IDOFoundationCommand getGpsStatusCommand:^(int errorCode, IDOGetGpsStatusBluetoothModel * _Nullable data) {
-            if (data.gpsRunStatus == 0) {
-                [IDOUpdateAgpsManager updateAgpsWithPath:strongSelf.filePath isSetParam:YES prepareCallback:^(int errorCode) {
-                    if (errorCode == 0) {
-                        [funcVC showLoadingWithMessage:lang(@"file ready for transfer...")];
-                        [strongSelf addMessageText:@"agps file is prepare transmission"];
-                        [IDOUpdateAgpsManager startUpdate];
-                    }else {
-                        [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(computationTime) object:nil];
-                        [funcVC showToastWithText:lang(@"file does not exist")];
-                        [strongSelf addMessageText:@"agps file is no exist"];
-                    }
-                }];
-                //agps文件传输完成，启动写入
-                [IDOUpdateAgpsManager updateAgpsTransmissionComplete:^(int errorCode) {
-                    __strong typeof(self) strongSelf = weakSelf;
-                    if(errorCode == 0) {
-                        [funcVC showLoadingWithMessage:lang(@"file write...")];
-                        [strongSelf addMessageText:@"agps file writing..."];
-                    }else {
-                        [funcVC showToastWithText:lang(@"file transfer failed")];
-                        [strongSelf addMessageText:@"agps file transmission failed"];
-                        [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(computationTime) object:nil];
-                    }
-                } writeComplete:^(int errorCode) {//写入文件成功
-                    if (errorCode == 0) {
-                        [funcVC showToastWithText:lang(@"file write success")];
-                        [strongSelf addMessageText:@"agps file write sucess"];
-                        [strongSelf addMessageText:[NSString stringWithFormat:@"agps file time of update : %ld",(long)strongSelf.theLength]];
-                        [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(computationTime) object:nil];
-                    }else {
-                        [funcVC showToastWithText:lang(@"file write failed")];
-                        [strongSelf addMessageText:@"agps file write failed"];
-                        [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(computationTime) object:nil];
-                    }
-                }];
-                //agps文件传输进度
-                [IDOUpdateAgpsManager updateAgpsProgressCallback:^(int progress) {
-                    [funcVC showUpdateProgress:progress/100.0f];
-                }];
-            }
-        }];
+        if(!__IDO_FUNCTABLE__.funcTable19Model.gps) {
+            [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+            return;
+        }
+        initTransferManager().transferType = IDO_DATA_FILE_TRAN_AGPS_TYPE;
+        initTransferManager().fileName = @"";
+        initTransferManager().filePath = strongSelf.filePath;
+        initTransferManager().addDetection(^(int errorCode) {
+            strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+        }).addProgress(^(int progress) {
+            [funcVC showSyncProgress:progress/100.0f];
+        }).addTransfer(^(int errorCode) {
+            strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+            [funcVC showToastWithText:lang(@"transfer complete")];
+        }).addWrite(^(int errorCode) {
+            strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+            [funcVC showToastWithText:lang(@"write complete")];
+        });
+        [IDOTransferFileManager startTransfer];
     };
 }
 
