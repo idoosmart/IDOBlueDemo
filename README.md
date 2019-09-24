@@ -17,6 +17,7 @@
 | 3.3.0| iOS 8.0 | Add .a lib|
 | 3.3.2| iOS 8.0 | Modify pairing logic|
 | 3.3.4| iOS 8.0 |optimize performance|
+| 3.3.8| iOS 8.0 |add v3 health data sync|
 
 ## Project configuration
 * Reference header file
