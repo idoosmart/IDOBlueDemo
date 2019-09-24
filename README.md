@@ -684,42 +684,28 @@ watchDiaModel = [IDOSetWatchDiaInfoBluetoothModel currentModel];
 * <p>AGPS file upgrade needs to be noted: 15 seconds after the hand ring connects app and the query GPS status is not running to update the AGPS file, otherwise it will cause update failure</p>
 
 ```objc
-//get gps status
-[IDOFoundationCommand getGpsStatusCommand:^(int errorCode, IDOGetGpsStatusBluetoothModel * _Nullable data) {
-    if (data.gpsRunStatus == 0) {
-    //AGPS file start transfer
-    [IDOUpdateAgpsManager updateAgpsWithPath:strongSelf.filePath 
-                                    isSetParam:YES 
-                prepareCallback:^(int errorCode) {
-            if (errorCode == 0) {
-            }else {
-            }
-        }];
-     
-     //AGPS file transfer completed, start writing
-    [IDOUpdateAgpsManager updateAgpsTransmissionComplete:^(int errorCode){                         
-         if(errorCode == 0) {
-         }else {
-         }    
-        } updateComplete:^(int errorCode) { //Write file complete
-            if(errorCode == 0) {
-            }else {
-            }    
-     }];
-     
-     //AGPS file transfer schedule
-    [IDOUpdateAgpsManager updateAgpsProgressCallback:^(int progress) {                         
-    }];
- }else {
-  }
-}];
+   //get gps status
+   initTransferManager().transferType = IDO_DATA_FILE_TRAN_AGPS_TYPE;
+   initTransferManager().fileName = @"";
+   initTransferManager().filePath = strongSelf.filePath;
+   initTransferManager().addDetection(^(int errorCode) {
+
+   }).addProgress(^(int progress) {
+
+   }).addTransfer(^(int errorCode) {
+
+   }).addWrite(^(int errorCode) {
+
+   });
+   [IDOTransferFileManager startTransfer];
 ```
 ## <span id="10.0">Firmware update (OTA)</span>
-* <P>SDK upgrade function is only responsible for firmware upgrade. As for firmware version judgment and firmware download, it is not handled. Attention should be paid to the integrity of firmware download, the firmware local sandbox path should be passed in when upgrading, and the upgrade progress and completion status should be monitored, as well as the error proxy callback.</P>
+* <P>SDK upgrade function is only responsible for firmware upgrades. Firmware version determination and firmware download are not processed. Note the integrity of the firmware download, passing in the firmware local sandbox path during the upgrade, monitoring the upgrade progress and completion status, and error agent callbacks. The current version of the upgrade library adds the REALTK platform.</P>
 
 ```objc
 <IDOUpdateManagerDelegate>
 [IDOUpdateFirmwareManager shareInstance].delegate = self;
+[IDOUpdateFirmwareManager shareInstance].updateType = IDO_NORDIC_PLATFORM_TYPE;
 - (NSString *)currentPackagePathWithUpdateManager:(IDOUpdateFirmwareManager *)manager
 {
    // firmware file path
