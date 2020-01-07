@@ -10,7 +10,11 @@
 #if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
 #else
-#import "IDOSyncInfoBluetoothModel.h"
+#import "IDOSyncSpo2DataModel.h"
+#import "IDOSyncBpDataModel.h"
+#import "IDOSyncHeartRateDataModel.h"
+#import "IDOSyncSleepDataModel.h"
+#import "IDOSyncSportDataModel.h"
 #endif
 
 struct ido_blood_pressure_data

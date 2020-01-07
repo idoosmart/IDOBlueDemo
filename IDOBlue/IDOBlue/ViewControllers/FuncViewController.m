@@ -52,7 +52,7 @@
     }
     if (self.model.isRightButton) [self addRightButton];
     if (self.model.isLeftButton)  [self addLeftButton];
-    
+        
     self.tableView = [[FuncTableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
 

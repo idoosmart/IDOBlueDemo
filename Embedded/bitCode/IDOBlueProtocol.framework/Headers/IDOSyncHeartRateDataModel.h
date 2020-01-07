@@ -255,6 +255,12 @@
 @property (nonatomic,copy) NSArray <IDOSyncSecHrDataItemInfoBluetoothModel *>* heartRates;
 
 /**
+ * 5分钟间隔心率集合和总心率时长 | Heart rate set at 5-minute intervals and total heart rate duration
+ *  @{@"total_offset":@(0),@"heart_rates":@[@{@"offset":@(0),@"value":@(0)}...]};
+ */
+@property (nonatomic,copy) NSDictionary * minutesHrDic;
+
+/**
  时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
@@ -407,12 +413,14 @@
  * @param year  年份  | year
  * @param month 月份  | month
  * @param day   日期  | day
+ * @param isQuery 是否查询items | is query items
  * @return 一天秒钟心率数据的集合和详情数据集合 | Collection of day second heart rate data and details data
  */
 + (NSArray<__kindof IDOSyncSecHrDataInfoBluetoothModel *> *)queryOneDaySecHearRatesDetailWithMac:(NSString *)macAddr
-                                                                                            year:(NSInteger)year
-                                                                                           month:(NSInteger)month
-                                                                                             day:(NSInteger)day;
+                                                                                    year:(NSInteger)year
+                                                                                   month:(NSInteger)month
+                                                                                     day:(NSInteger)day
+                                                                            isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询所有秒钟心率数据 心率包个数大于0 | Query all second heart rate data The number of heart rate packets is greater than 0

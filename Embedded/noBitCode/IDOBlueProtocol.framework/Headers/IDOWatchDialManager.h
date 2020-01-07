@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^ _Nullable setComplete)(int errorCode);
+typedef void(^ _Nullable setComplete)(IDOWatchDialInfoModel * _Nullable model,int errorCode);
 
 @interface IDOWatchDialManager : NSObject
 
@@ -28,13 +28,19 @@ typedef void(^ _Nullable setComplete)(int errorCode);
  * 获取当前设备所有表盘信息
  * Gets all dial information of the current device
  */
-@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^getDialListInfo)(void(^ _Nullable dialListCallback)(NSArray <IDOWatchDialInfoModel *>*_Nullable models,int errorCode));
+@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^getDialListInfo)(void(^ _Nullable dialListCallback)(IDOWatchDialInfoModel * _Nullable model,int errorCode));
+
+/**
+ * 获取当前设备当前表盘信息
+ * Gets current dial information of the current device
+ */
+@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^getCurrentDialInfo)(void(^ _Nullable currentDialCallback)(IDOWatchDialInfoModel * _Nullable model,int errorCode));
 
 /**
  * 设置当前表盘并回调
  * Set the current dial and call back
  */
-@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^setCurrentDial)(setComplete block,IDOWatchDialInfoModel * _Nullable model);
+@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^setCurrentDial)(setComplete block,IDOWatchDialInfoItemModel * _Nullable model);
 
 /**
  * 表盘传输进度回调 (1-100)

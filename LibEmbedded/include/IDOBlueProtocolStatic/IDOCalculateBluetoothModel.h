@@ -10,7 +10,11 @@
 #if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
 #else
-#import "IDOSyncInfoBluetoothModel.h"
+#import "IDOSyncSpo2DataModel.h"
+#import "IDOSyncBpDataModel.h"
+#import "IDOSyncHeartRateDataModel.h"
+#import "IDOSyncSleepDataModel.h"
+#import "IDOSyncSportDataModel.h"
 #endif
 
 struct ido_blood_pressure_data
@@ -90,7 +94,7 @@ struct ido_blood_pressure_data
  计算一周、一月血压平均值 | Calculate the average blood pressure for one week and one month
  */
 + (__kindof IDOCalculateBpBluetoothModel *)calculateOneMonthOrWeekBpDataWithBpModels:(NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)models
-                                                             allDayCalculateBpModels:(NSArray <IDOCalculateBpBluetoothModel *> **)calculateBpModels;
+                                                             allDayCalculateBpModels:(NSArray <__kindof IDOCalculateBpBluetoothModel *> **)calculateBpModels;
 
 @end
 
@@ -113,32 +117,48 @@ struct ido_blood_pressure_data
 @property (nonatomic,assign) NSInteger minHr;
 
 /**
- 脂肪燃烧时长 (单位 ：分钟) | Fat burning time (unit: minute)
+ 脂肪燃烧时长 (单位 ：分钟) | Fat burning Duration (unit: minute)
  */
 @property (nonatomic,assign) NSUInteger burnFatMins;
 
 /**
- 肌肉锻炼时长 (单位 ：分钟) | Muscle training time (unit: minute)
+ 肌肉锻炼时长 [有氧运动] (单位 ：分钟) | Muscle training Duration (unit: minute)
  */
 @property (nonatomic,assign) NSUInteger aerobicMins;
 
 /**
- 极限运动时长 (单位 ：分钟) | Extreme Sports Duration (Unit: Minutes)
+ 极限运动时长 (单位 ：分钟) | Extreme Sports Duration (unit: minutes)
  */
 @property (nonatomic,assign) NSUInteger limitMins;
 
 /**
- 计算一天心率平均值 | Calculate the average heart rate per day
+ 热身运动时长 (单位 ：分钟) | Warm up Duration (unit: minutes)
  */
-+ (__kindof IDOCalculateHrBluetoothModel *)calculateOneDayHrDataWithHrModel:(__kindof IDOSyncHrDataInfoBluetoothModel *)model;
+@property (nonatomic,assign) NSUInteger warmUpMins;
+
 /**
- 计算一周、一月心率平均值 | Calculate the heart rate average for one week and one month
+ 无氧运动时长 (单位 ：分钟) | Anaerobic Duration (unit: minutes)
  */
-+ (__kindof IDOCalculateHrBluetoothModel *)calculateOneMonthOrWeekHrDataWithHrModels:(NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)models;
+@property (nonatomic,assign) NSUInteger anaerobicMins;
+
 /**
- 计算一年心率平均值 | Calculate the annual heart rate average
+ * 计算一天心率平均值 | Calculate the average heart rate per day
+ * 只能传入 IDOSyncHrDataInfoBluetoothModel 和 IDOSyncSecHrDataInfoBluetoothModel 对象
+ * Only IDOSyncHrDataInfoBluetoothModel and IDOSyncSecHrDataInfoBluetoothModel object
  */
-+ (__kindof IDOCalculateHrBluetoothModel *)calculateOneYearHrDataWithHrModels:(NSArray <NSArray<__kindof IDOSyncHrDataInfoBluetoothModel *>*> *)models;
++ (__kindof IDOCalculateHrBluetoothModel *)calculateOneDayHrDataWithHrModel:(__kindof IDOBluetoothBaseModel *)model;
+/**
+ * 计算一周、一月心率平均值 | Calculate the heart rate average for one week and one month
+ * 只能传入 IDOSyncHrDataInfoBluetoothModel 和 IDOSyncSecHrDataInfoBluetoothModel 对象
+ * Only IDOSyncHrDataInfoBluetoothModel and IDOSyncSecHrDataInfoBluetoothModel object
+ */
++ (__kindof IDOCalculateHrBluetoothModel *)calculateOneMonthOrWeekHrDataWithHrModels:(NSArray <__kindof IDOBluetoothBaseModel *>*)models;
+/**
+ * 计算一年心率平均值 | Calculate the annual heart rate average
+ * 只能传入 IDOSyncHrDataInfoBluetoothModel 和 IDOSyncSecHrDataInfoBluetoothModel 对象
+ * Only IDOSyncHrDataInfoBluetoothModel and IDOSyncSecHrDataInfoBluetoothModel object
+ */
++ (__kindof IDOCalculateHrBluetoothModel *)calculateOneYearHrDataWithHrModels:(NSArray <NSArray<__kindof IDOBluetoothBaseModel *>*> *)models;
 
 @end
 

@@ -13,4 +13,5 @@
 @property (nonatomic,assign) BOOL isSelected;
 @property (nonatomic,assign) BOOL isMultiSelect;
 @property (nonatomic,assign) BOOL isCenter;
+@property (nonatomic,assign) NSInteger fontSize;
 @end

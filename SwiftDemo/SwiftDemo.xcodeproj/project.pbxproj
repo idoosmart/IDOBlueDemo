@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B20918323A9C83300C8AFEF /* IDOBlueProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B20918023A9C83300C8AFEF /* IDOBlueProtocol.framework */; };
+		9B20918423A9C83300C8AFEF /* IDOBlueProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B20918023A9C83300C8AFEF /* IDOBlueProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9B20918523A9C83300C8AFEF /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B20918123A9C83300C8AFEF /* IDOBluetooth.framework */; };
+		9B20918623A9C83300C8AFEF /* IDOBluetooth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B20918123A9C83300C8AFEF /* IDOBluetooth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9B20918723A9C83300C8AFEF /* IDOBlueUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B20918223A9C83300C8AFEF /* IDOBlueUpdate.framework */; };
+		9B20918823A9C83300C8AFEF /* IDOBlueUpdate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B20918223A9C83300C8AFEF /* IDOBlueUpdate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9B20918A23A9C8AA00C8AFEF /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B20918923A9C8AA00C8AFEF /* UpdateViewController.swift */; };
+		9B20918E23AA00B400C8AFEF /* ID205_DFU_V33_20190712.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9B20918D23AA00B300C8AFEF /* ID205_DFU_V33_20190712.zip */; };
 		9B72800222AF970D0082D255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B72800122AF970D0082D255 /* AppDelegate.swift */; };
 		9B72800422AF970D0082D255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B72800322AF970D0082D255 /* ViewController.swift */; };
 		9B72800922AF97100082D255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B72800822AF97100082D255 /* Assets.xcassets */; };
@@ -27,24 +35,18 @@
 		9BD14DFD22B2270F00F8A5C2 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD14DF222B2270F00F8A5C2 /* MASViewConstraint.m */; };
 		9BD14DFE22B2270F00F8A5C2 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD14DF322B2270F00F8A5C2 /* MASViewAttribute.m */; };
 		9BD14E0322B2540B00F8A5C2 /* NSObject+ModelToDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD14E0122B2540B00F8A5C2 /* NSObject+ModelToDic.m */; };
-		DDBFFD402339ED1A00F2A0F5 /* IDOBlueProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB72339D83500E453C6 /* IDOBlueProtocol.framework */; };
-		DDBFFD412339ED1A00F2A0F5 /* IDOBlueProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB72339D83500E453C6 /* IDOBlueProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DDBFFD422339ED1A00F2A0F5 /* IDOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB92339D83500E453C6 /* IDOBluetooth.framework */; };
-		DDBFFD432339ED1A00F2A0F5 /* IDOBluetooth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB92339D83500E453C6 /* IDOBluetooth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DDBFFD442339ED1A00F2A0F5 /* IDOBlueUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB82339D83500E453C6 /* IDOBlueUpdate.framework */; };
-		DDBFFD452339ED1A00F2A0F5 /* IDOBlueUpdate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B811BB82339D83500E453C6 /* IDOBlueUpdate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DDBFFD462339ED1A00F2A0F5 /* Embed Frameworks */ = {
+		9B1A119E23A8C22700F90E4A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DDBFFD432339ED1A00F2A0F5 /* IDOBluetooth.framework in Embed Frameworks */,
-				DDBFFD452339ED1A00F2A0F5 /* IDOBlueUpdate.framework in Embed Frameworks */,
-				DDBFFD412339ED1A00F2A0F5 /* IDOBlueProtocol.framework in Embed Frameworks */,
+				9B20918623A9C83300C8AFEF /* IDOBluetooth.framework in Embed Frameworks */,
+				9B20918823A9C83300C8AFEF /* IDOBlueUpdate.framework in Embed Frameworks */,
+				9B20918423A9C83300C8AFEF /* IDOBlueProtocol.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,15 +54,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B20918023A9C83300C8AFEF /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueProtocol.framework; path = ../Embedded/IDOBlueProtocol.framework; sourceTree = "<group>"; };
+		9B20918123A9C83300C8AFEF /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
+		9B20918223A9C83300C8AFEF /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueUpdate.framework; path = ../Embedded/IDOBlueUpdate.framework; sourceTree = "<group>"; };
+		9B20918923A9C8AA00C8AFEF /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
+		9B20918D23AA00B300C8AFEF /* ID205_DFU_V33_20190712.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = ID205_DFU_V33_20190712.zip; sourceTree = "<group>"; };
 		9B727FFE22AF970D0082D255 /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B72800122AF970D0082D255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B72800322AF970D0082D255 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9B72800822AF97100082D255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B72800B22AF97100082D255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B72800D22AF97100082D255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B811BB72339D83500E453C6 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueProtocol.framework; path = ../Embedded/IDOBlueProtocol.framework; sourceTree = "<group>"; };
-		9B811BB82339D83500E453C6 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBlueUpdate.framework; path = ../Embedded/IDOBlueUpdate.framework; sourceTree = "<group>"; };
-		9B811BB92339D83500E453C6 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOBluetooth.framework; path = ../Embedded/IDOBluetooth.framework; sourceTree = "<group>"; };
 		9B811BBD2339E02400E453C6 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		9B811BBF2339E03400E453C6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9B8431C622B0881E0061AE5B /* BindedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindedViewController.swift; sourceTree = "<group>"; };
@@ -102,9 +106,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDBFFD422339ED1A00F2A0F5 /* IDOBluetooth.framework in Frameworks */,
-				DDBFFD442339ED1A00F2A0F5 /* IDOBlueUpdate.framework in Frameworks */,
-				DDBFFD402339ED1A00F2A0F5 /* IDOBlueProtocol.framework in Frameworks */,
+				9B20918523A9C83300C8AFEF /* IDOBluetooth.framework in Frameworks */,
+				9B20918723A9C83300C8AFEF /* IDOBlueUpdate.framework in Frameworks */,
+				9B20918323A9C83300C8AFEF /* IDOBlueProtocol.framework in Frameworks */,
 				9B811BC02339E03400E453C6 /* libsqlite3.0.tbd in Frameworks */,
 				9B811BBE2339E02400E453C6 /* libc++.tbd in Frameworks */,
 			);
@@ -116,6 +120,7 @@
 		9B727FF522AF970D0082D255 = {
 			isa = PBXGroup;
 			children = (
+				9B20918D23AA00B300C8AFEF /* ID205_DFU_V33_20190712.zip */,
 				9B72800022AF970D0082D255 /* SwiftDemo */,
 				9B727FFF22AF970D0082D255 /* Products */,
 				9B72801322AF979E0082D255 /* Frameworks */,
@@ -140,6 +145,7 @@
 				9B72800322AF970D0082D255 /* ViewController.swift */,
 				9B8431C622B0881E0061AE5B /* BindedViewController.swift */,
 				9BD14DD522B2233300F8A5C2 /* GetBlueInfoViewController.swift */,
+				9B20918923A9C8AA00C8AFEF /* UpdateViewController.swift */,
 				9B72800822AF97100082D255 /* Assets.xcassets */,
 				9B72800A22AF97100082D255 /* LaunchScreen.storyboard */,
 				9B72800D22AF97100082D255 /* Info.plist */,
@@ -151,11 +157,11 @@
 		9B72801322AF979E0082D255 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B20918023A9C83300C8AFEF /* IDOBlueProtocol.framework */,
+				9B20918123A9C83300C8AFEF /* IDOBluetooth.framework */,
+				9B20918223A9C83300C8AFEF /* IDOBlueUpdate.framework */,
 				9B811BBF2339E03400E453C6 /* libsqlite3.0.tbd */,
 				9B811BBD2339E02400E453C6 /* libc++.tbd */,
-				9B811BB72339D83500E453C6 /* IDOBlueProtocol.framework */,
-				9B811BB92339D83500E453C6 /* IDOBluetooth.framework */,
-				9B811BB82339D83500E453C6 /* IDOBlueUpdate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,7 +234,7 @@
 				9B727FFA22AF970D0082D255 /* Sources */,
 				9B727FFB22AF970D0082D255 /* Frameworks */,
 				9B727FFC22AF970D0082D255 /* Resources */,
-				DDBFFD462339ED1A00F2A0F5 /* Embed Frameworks */,
+				9B1A119E23A8C22700F90E4A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,7 +252,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "何东阳";
 				TargetAttributes = {
 					9B727FFD22AF970D0082D255 = {
@@ -283,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B72800C22AF97100082D255 /* LaunchScreen.storyboard in Resources */,
+				9B20918E23AA00B400C8AFEF /* ID205_DFU_V33_20190712.zip in Resources */,
 				9B72800922AF97100082D255 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +306,7 @@
 				9BD14DF822B2270F00F8A5C2 /* MASConstraintMaker.m in Sources */,
 				9B72800422AF970D0082D255 /* ViewController.swift in Sources */,
 				9BD14DF622B2270F00F8A5C2 /* ViewController+MASAdditions.m in Sources */,
+				9B20918A23A9C8AA00C8AFEF /* UpdateViewController.swift in Sources */,
 				9BD14DF522B2270F00F8A5C2 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				9BD14DF722B2270F00F8A5C2 /* MASCompositeConstraint.m in Sources */,
 				9BD14DD622B2233300F8A5C2 /* GetBlueInfoViewController.swift in Sources */,
@@ -461,6 +469,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = ../LibEmbedded;
+				MARKETING_VERSION = 3.3.9;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ido.demo;
@@ -489,6 +498,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = ../LibEmbedded;
+				MARKETING_VERSION = 3.3.9;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ido.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

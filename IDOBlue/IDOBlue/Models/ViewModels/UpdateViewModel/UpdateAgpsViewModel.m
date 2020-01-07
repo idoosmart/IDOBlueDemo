@@ -140,11 +140,15 @@
             [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             return;
         }
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"agps update")]];
         initTransferManager().transferType = IDO_DATA_FILE_TRAN_AGPS_TYPE;
         initTransferManager().fileName = @"";
         initTransferManager().filePath = strongSelf.filePath;
+        initTransferManager().isResponse = [[NSUserDefaults standardUserDefaults]boolForKey:IS_RESPONSE_KEY];
+        initTransferManager().isSetConnectParam = [[NSUserDefaults standardUserDefaults]boolForKey:IS_SET_CONNECT_PARAMSERS];
         initTransferManager().addDetection(^(int errorCode) {
             strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+            [funcVC showToastWithText:lang(@"transfer complete")];
         }).addProgress(^(int progress) {
             [funcVC showSyncProgress:progress/100.0f];
         }).addTransfer(^(int errorCode) {

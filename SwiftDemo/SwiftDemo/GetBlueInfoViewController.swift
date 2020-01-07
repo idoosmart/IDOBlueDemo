@@ -88,7 +88,6 @@ class GetBlueInfoViewController: UIViewController{
         let hud = MBProgressHUD.init(view: self.view);
         self.view .addSubview(hud);
         return hud;
-        
     }()
     
     func showLoading(message: String) -> Void {

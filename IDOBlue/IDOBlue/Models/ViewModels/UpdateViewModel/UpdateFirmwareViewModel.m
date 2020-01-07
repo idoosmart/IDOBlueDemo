@@ -42,6 +42,7 @@
         self.rightButtonTitle = lang(@"selected firmware");
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
+        [self getViewWillAppearCallback];
         [self getButtonCallback];
         [self getLabelSelectCallback];
         [self getTextViewCallback];
@@ -70,6 +71,16 @@
     NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_PATH_KEY];
     NSString * infoStr = [self getCuttentFirmwareFileInfo:filePath];
     [self addMessageText:infoStr];
+}
+
+- (void)getViewWillAppearCallback
+{
+    self.viewWillAppearCallback = ^(UIViewController *viewController) {
+        NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+        if (modeType == 1) {
+            viewController.navigationItem.hidesBackButton = YES;
+        }
+    };
 }
 
 - (void)getCellModels
@@ -122,11 +133,6 @@
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];
                     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
                     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
-                    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
-                        if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
-                            [view removeFromSuperview];
-                        }
-                    }
                 }else {
                     [funcVC showToastWithText:lang(@"exit failed")];
                 }
@@ -141,12 +147,30 @@
             if (   !IDO_BLUE_ENGINE.managerEngine.isConnected
                 &&  [IDOUpdateFirmwareManager shareInstance].updateType != IDO_REALTK_PLATFORM_TYPE)return;
             if ([IDOUpdateFirmwareManager shareInstance].updateType == IDO_REALTK_PLATFORM_TYPE) {
-                [IDOFoundationCommand getOtaAuthInfoCommand:^(int errorCode, int stateCode) {
-                    if (errorCode == 0 && stateCode == 0) {
-                        [funcVC showLoadingWithMessage:lang(@"enter update...")];
-                        [IDOUpdateFirmwareManager startUpdate];
-                    }
-                }];
+                NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+                if (modeType == 1) { //升级模式
+                    [IDOFoundationCommand getDeviceInfoCommand:^(int errorCode, IDOGetDeviceInfoBluetoothModel * _Nullable data) {
+                        if (errorCode == 0) {
+                            [IDOFoundationCommand getOtaAuthInfoCommand:^(int errorCode, int stateCode) {
+                                if (errorCode == 0 && stateCode == 0) {
+                                    [funcVC showLoadingWithMessage:lang(@"enter update...")];
+                                    [IDOUpdateFirmwareManager startUpdate];
+                                }
+                            }];
+                        }else {
+                            [funcVC showToastWithText:lang(@"get device information failed")];
+                        }
+                    }];
+                }else { //普通模式
+                    [IDOFoundationCommand getOtaAuthInfoCommand:^(int errorCode, int stateCode) {
+                        if (errorCode == 0 && stateCode == 0) {
+                            [funcVC showLoadingWithMessage:lang(@"enter update...")];
+                            [IDOUpdateFirmwareManager startUpdate];
+                        }else if (errorCode == 6) {
+                            [funcVC showToastWithText:lang(@"get device information")];
+                        }
+                    }];
+                }
             }else {
                 [funcVC showLoadingWithMessage:lang(@"enter update...")];
                 [IDOUpdateFirmwareManager startUpdate];

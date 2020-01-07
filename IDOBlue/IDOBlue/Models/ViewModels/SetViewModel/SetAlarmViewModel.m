@@ -29,6 +29,12 @@
 
 
 @implementation SetAlarmViewModel
+
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)init
 {
     self = [super init];

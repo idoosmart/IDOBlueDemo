@@ -50,5 +50,7 @@
  * sdk 更新日志文件路径(html)
  * sdk update log file path(html)
  */
-+ (NSString *_Nullable)updateLogFilePath;
++ (NSString *_Nullable)updateLogFilePath DEPRECATED_MSG_ATTRIBUTE("method is deprecated");
+
 @end
+

@@ -43,7 +43,7 @@
 
 @end
 
-@interface IDOWatchDialInfoModel : IDOBluetoothBaseModel
+@interface IDOWatchDialInfoItemModel : IDOBluetoothBaseModel
 /**
  表盘名称（唯一标示） | file name (only sign)
  */
@@ -55,17 +55,41 @@
  */
 @property (nonatomic,assign) NSInteger operate;
 
+@end
+
+
+@interface IDOWatchDialInfoModel : IDOBluetoothBaseModel
+/**
+ * 文件个数
+ * file count
+ */
+@property (nonatomic,assign) NSInteger fileCount;
+/**
+ * 剩余空间 KB
+ * remaining Space
+ */
+@property (nonatomic,assign) NSInteger remainingSpace;
+/**
+ * 单个文件最大size  KB
+ * file max size
+ */
+@property (nonatomic,assign) NSInteger fileMaxSize;
+/**
+ *  当前设置的表盘名称
+ *  name of the dial currently set
+*/
+@property (nonatomic,copy) NSString * currentDialName;
+/**
+ * 当前手环所有表盘信息集合
+ * Current bracelet all dial information set
+ */
+@property (nonatomic,strong) NSArray <IDOWatchDialInfoItemModel *>* dialArray;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOWatchDialInfoModel
  */
-+ (__kindof IDOWatchDialInfoModel *)queryModelWithFileName:(NSString *)fileName;
-
-/**
- * 查询当前设备所有表盘信息
- * Query all dial information of the current device
- */
-+ (NSArray <__kindof IDOWatchDialInfoModel *>*)queryCurrentAllWatchDialModels;
++ (__kindof IDOWatchDialInfoModel *)currentModel;
 
 @end

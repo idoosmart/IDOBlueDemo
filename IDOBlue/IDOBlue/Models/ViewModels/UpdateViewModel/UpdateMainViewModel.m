@@ -12,6 +12,8 @@
 #import "FuncViewController.h"
 #import "UpdateFirmwareViewModel.h"
 #import "UpdateAgpsViewModel.h"
+#import "UpdateWordViewModel.h"
+#import "UpdatePhotoViewModel.h"
 
 @interface UpdateMainViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -33,7 +35,8 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"nordic update")],@[lang(@"realtk update")],@[lang(@"agps update")]];
+        _buttonTitles = @[@[lang(@"nordic update")],@[lang(@"realtk update")],
+                          @[lang(@"agps update")],@[lang(@"word update")],@[lang(@"photo update")]];
     }
     return _buttonTitles;
 }
@@ -41,7 +44,8 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],[UpdateAgpsViewModel class]];
+        _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],
+                         [UpdateAgpsViewModel class],[UpdateWordViewModel class],[UpdatePhotoViewModel class]];
     }
     return _modelClasss;
 }

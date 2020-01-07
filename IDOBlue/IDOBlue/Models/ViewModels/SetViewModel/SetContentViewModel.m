@@ -88,6 +88,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set message push")]];
+    
         [IDOFoundationCommand setContentCommand:strongSelf.textField.text callback:^(int errorCode) {
             if(errorCode == 0) {
                [funcVC showToastWithText:lang(@"set message push success")];

@@ -23,6 +23,12 @@
 @end
 
 @implementation AllAlarmViewModel
+
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)init
 {
     self = [super init];

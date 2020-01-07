@@ -27,9 +27,14 @@
 @property (nonatomic,assign) NSInteger  durations;
 
 /**
- 时间戳 精确到时分 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
+ 时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
+
+/**
+ 时间戳 精确到分钟 start time interval since 1970 (如:1444361933) | Timestamp minute interval since 1970 (eg: 14443361933)
+ */
+@property (nonatomic,copy) NSString * startTimeStr;
 
 /**
  序列号 | Serial number

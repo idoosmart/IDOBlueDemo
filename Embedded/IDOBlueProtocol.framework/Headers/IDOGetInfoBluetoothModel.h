@@ -12,6 +12,59 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ====  获取下载语言 model ====
+
+@interface IDOGetDownLanguageBluetoothModel:IDOBluetoothBaseModel
+/**
+ * 当前使用的语言 | use lang
+ */
+@property (nonatomic,assign) NSInteger useLang;
+/**
+ * 默认语言 | default lang
+ */
+@property (nonatomic,assign) NSInteger defaultLang;
+/**
+ * 固定存储语言个数 | fixed lang count
+ */
+@property (nonatomic,assign) NSInteger fixedLangCount;
+/**
+ * 最大存储语言个数 | max storage lang
+ */
+@property (nonatomic,assign) NSInteger maxStorageLang;
+/**
+ * 已经存储语言值  |  language values
+ */
+@property (nonatomic,assign) NSArray * languageValues;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetDownLanguageBluetoothModel
+ */
++ (__kindof IDOGetDownLanguageBluetoothModel *)currentModel;
+
+@end
+
+#pragma mark ====  默认运动类型值 model ====
+@interface IDOGetDefaultSportTypeBluetoothModel:IDOBluetoothBaseModel
+/**
+ * 默认运动类型的个数 | sport type count
+ */
+@property (nonatomic,assign) NSInteger sportTypeCount;
+
+/**
+ 运动类型值集合,集合排序就是运动类型排序 | set of motion type values, and set sort is motion type sort
+ */
+@property (nonatomic,strong) NSArray * sportTypes;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetDefaultSportTypeBluetoothModel
+ */
++ (__kindof IDOGetDefaultSportTypeBluetoothModel *)currentModel;
+
+@end
+
 #pragma mark ====  手环检查版本号 model ====
 @interface IDOCheckUpdateBluetoothModel:IDOBluetoothBaseModel
 /**
@@ -371,6 +424,38 @@
 
 @end
 
+#pragma mark ==== 获取第27个功能表model ====
+
+@interface IDOGetFuncTable27BluetoothModel : IDOBluetoothBaseModel
+/**
+ * 泰国语
+ * thai
+ */
+@property (nonatomic,assign) BOOL thai;
+/**
+ * 越南语
+ * vietnamese
+ */
+@property (nonatomic,assign) BOOL vietnamese;
+/**
+ * 缅甸语
+ * burmese
+ */
+@property (nonatomic,assign) BOOL burmese;
+/**
+ * 菲律宾语
+ * filipino
+ */
+@property (nonatomic,assign) BOOL filipino;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable27BluetoothModel
+ */
++ (__kindof IDOGetFuncTable27BluetoothModel *)currentModel;
+@end
+
 #pragma mark ==== 获取第26个功能表model ====
 
 @interface IDOGetFuncTable26BluetoothModel : IDOBluetoothBaseModel
@@ -390,13 +475,26 @@
  * No app for more exercise
  */
 @property (nonatomic,assign) BOOL multiActivityNoUseApp;
-
 /**
  * 多表盘
  * multi dial
  */
 @property (nonatomic,assign) BOOL multiDial;
-
+/**
+ * 中高强度活动
+ * medium to high active duration
+ */
+@property (nonatomic,assign) BOOL mediumToHighActiveDuration;
+/**
+ * 获取手环运动模式
+ * default sport type
+ */
+@property (nonatomic,assign) BOOL defaultSportType;
+/**
+ * 可下载语言
+ * download language
+ */
+@property (nonatomic,assign) BOOL downloadLanguage;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -420,7 +518,10 @@
  高强度间歇训练法 | High-intensity interval training
  */
 @property (nonatomic,assign) BOOL hiit;
-
+/**
+ 板球运动 | cricket
+ */
+@property (nonatomic,assign) BOOL cricket;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -550,6 +651,11 @@
  v3 gps 数据 | v3 gps data
  */
 @property (nonatomic,assign) BOOL v3GpsData;
+
+/**
+ 喝水提醒 | drink water reminder
+ */
+@property (nonatomic,assign) BOOL drinkWaterReminder;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1438,6 +1544,11 @@
 @property (nonatomic,assign) BOOL portuguese;
 
 /**
+ 土耳其 | turkish
+ */
+@property (nonatomic,assign) BOOL turkish;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable3BluetoothModel
@@ -1681,6 +1792,11 @@
  26功能列表 运动模式6 | 26 func table
  */
 @property (nonatomic,strong) IDOGetFuncTable26BluetoothModel      * funcTable26Model;
+
+/**
+ 27功能列表 语言4 | 27 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable27BluetoothModel      * funcTable27Model;
 
 /**
  是否支持版本信息 | version information is supported

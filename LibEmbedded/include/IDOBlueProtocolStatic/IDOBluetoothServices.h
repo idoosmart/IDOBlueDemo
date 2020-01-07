@@ -50,6 +50,11 @@ extern NSString * _Nonnull IDOBluetoothDataMigrationNotifyName;
 @property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^outputProtocolLog)(BOOL isOutput);
 
 /*
+ 是否记录原始数据日志 | Whether to log raw data
+ */
+@property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^rawDataLog)(BOOL isRecord);
+
+/*
  是否添加阿里云日志 默认 No | Add Alibaba Cloud Log Default No
  */
 @property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^addAliYunLog)(BOOL isAdd);

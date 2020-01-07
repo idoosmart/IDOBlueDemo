@@ -8,6 +8,59 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
+#elif __has_include(<IDOBluetooth/IDOBluetooth.h>)
+#else
+#import "IDOBlueEnum.h"
+#import "IDOPeripheralModel.h"
+#endif
+
+@class IDOBluetoothManager;
+
+@protocol IDOBluetoothManagerDelegate<NSObject>
+
+/**
+ * @brief 扫描所有外围设备 | Scan all peripherals
+ * @param manager IDO蓝牙管理中心 | IDO Bluetooth Management Center
+ * @param allDevices 扫描所有外围设备(包括OTA设备集合) | Scan all peripherals (including OTA device collections)
+ * @param otaDevices OTA 设备集合 | OTA Device Collection
+ */
+- (void)bluetoothManager:(IDOBluetoothManager *)manager
+              allDevices:(NSArray <IDOPeripheralModel *>*)allDevices
+              otaDevices:(NSArray <IDOPeripheralModel *>*)otaDevices;
+
+
+/**
+ * @brief 连接设备成功回调 | Connected device successfully callback
+ * @param manager IDO蓝牙管理中心 | IDO Bluetooth Management Center
+ * @param centerManager 蓝牙管理中心 | Bluetooth Management Center
+ * @param peripheral 外围设备 | Peripherals
+ * @param isOtaMode 连接是否在OTA模式 | Is the connection in OTA mode?
+ * @return 是或否 | yes or no
+ */
+- (BOOL)bluetoothManager:(IDOBluetoothManager *)manager
+           centerManager:(CBCentralManager *)centerManager
+    didConnectPeripheral:(CBPeripheral *)peripheral
+               isOatMode:(BOOL)isOtaMode;
+
+/**
+ * @brief 蓝牙管理状态 | Bluetooth management status
+ * @param manager IDO蓝牙管理中心 | IDO Bluetooth Management Center
+ * @param state 状态 | Status
+ */
+- (void)bluetoothManager:(IDOBluetoothManager *)manager
+          didUpdateState:(IDO_BLUETOOTH_MANAGER_STATE)state;
+
+/**
+ * @brief 连接设备错误回调,当解绑设备断开连接时不会回调此方法
+ * Connection Device Error Callback,This method is not called back when the unbound device is disconnected.
+ * @param manager IDO蓝牙管理中心 | IDO Bluetooth Management Center
+ * @param error 错误信息 | Error message
+ */
+- (void)bluetoothManager:(IDOBluetoothManager *)manager
+  connectPeripheralError:(NSError *)error;
+
+@end
 
 @interface IDOBluetoothManager : NSObject
 
@@ -29,8 +82,8 @@
 @property (nonatomic,assign) NSInteger rssiNum;
 
 /**
- * 是否启动超时,间隔扫描 默认 yes 最大间隔一分钟扫描一次
- * Whether to start timeout, interval scan Default yes Maximum interval one minute scan
+ * 是否启动超时,间隔扫描 默认 yes 默认10秒间隔扫描一次
+ * Whether to start timeout, interval scan Default yes Default scan at 10-second intervals
  */
 @property (nonatomic,assign) BOOL isIntervalScan;
 
@@ -41,8 +94,8 @@
 @property (nonatomic,assign) BOOL isReconnect;
 
 /**
- * 设置扫描间隔时长 默认 20秒 如果不启动超时间隔扫描，则无效
- * Set the scan interval to 20 seconds by default.if timeout interval scanning is not started, it is not valid.
+ * 设置扫描间隔时长 默认 10秒 如果不启动超时间隔扫描，则无效
+ * Set the scan interval to 10 seconds by default.if timeout interval scanning is not started, it is not valid.
  */
 @property (nonatomic,assign) NSInteger autoScanInterval;
 

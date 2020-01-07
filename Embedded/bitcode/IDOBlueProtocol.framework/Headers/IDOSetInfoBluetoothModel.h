@@ -12,18 +12,111 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ====  设置喝水提醒 model ====
+@interface IDOSetDrinkReminderModeBluetoothModel:IDOBluetoothBaseModel
+/**
+ 喝水提醒开关 | drink water reminder
+ */
+@property (nonatomic,assign) BOOL onOff;
+/**
+ 提醒间隔,单位分钟 | interval (unit minutes)
+ */
+@property (nonatomic,assign) NSInteger interval;
+/**
+ 开始时间（时） | start time (hours)
+ */
+@property (nonatomic,assign) NSInteger startHour;
+/**
+ 开始时间（分） | start time (minutes)
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+/**
+ 结束时间 （时） | end time (hours)
+ */
+@property (nonatomic,assign) NSInteger endHour;
+/**
+ 结束时间 （分） | end time (minutes)
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetDrinkReminderModeBluetoothModel
+ */
++ (__kindof IDOSetDrinkReminderModeBluetoothModel *)currentModel;
+@end
+
+#pragma mark ====  设置心率开关同步 model ====
+@interface IDOSetV3HeartRateModeBluetoothModel:IDOBluetoothBaseModel
+/**
+ * 心率模式 0:关闭心率监测功能 1:手动模式 2:自动模式 3:持续监测（默认：自动模式）
+ * Heart Rate Mode 0: Turn off heart rate monitoring function 1: Manual mode 2: Auto mode 3:Continuously monitor(Default: Auto mode)
+ */
+@property (nonatomic,assign) NSInteger modeType;
+/**
+ * 更新时间unix 时间戳,秒级  (eg 14442361933)
+ * Update time Unix timestamp, in seconds
+ */
+@property (nonatomic,copy) NSString * updateTime;
+/**
+ 是否有相隔时间 | Is there a time interval?
+ */
+@property (nonatomic,assign) BOOL isHasTimeRange;
+/**
+ 开始 (时) | Start (hours)
+ */
+@property (nonatomic,assign) NSInteger  startHour;
+/**
+ 开始 (分) | Start (minutes)
+ */
+@property (nonatomic,assign) NSInteger  startMinute;
+/**
+ 结束 (时) | End (hours)
+ */
+@property (nonatomic,assign) NSInteger  endHour;
+/**
+ 结束 (分) | End (minutes)
+ */
+@property (nonatomic,assign) NSInteger  endMinute;
+/**
+ 测量间隔,单位分钟 | measurement Interval,unit:minutes
+ */
+@property (nonatomic,assign) NSInteger  measurementInterval;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetV3HeartRateModeBluetoothModel
+ */
++ (__kindof IDOSetV3HeartRateModeBluetoothModel *)currentModel;
+@end
+
 #pragma mark ====  设置运动开关 model ====
 @interface IDOSetActivitySwitchBluetoothModel:IDOBluetoothBaseModel
 /**
- 自动识别运动类型开关 | sport type on off
+ 自动识别运动类型开关 | sport type on Off
  */
-@property (nonatomic,assign) BOOL sportTypeOnOff;
-
+@property (nonatomic,assign) BOOL sportTypeOnOff DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
+/**
+ 自动识别走路开关 | auto identify sport walk
+ */
+@property (nonatomic,assign) BOOL sportWalkOnOff;
+/**
+ 自动识别跑步开关 | auto identify sport run
+ */
+@property (nonatomic,assign) BOOL sportRunOnOff;
+/**
+ 自动识别自行车开关 | auto identify sport bicycle
+ */
+@property (nonatomic,assign) BOOL sportBicycleOnOff;
 /**
  运动自动暂停开关 | auto pause on off
  */
 @property (nonatomic,assign) BOOL autoPauseOnOff;
-
 /**
  结束提醒开关 | end remind on off
  */
@@ -516,6 +609,10 @@
  结束 分钟 | end minute
  */
 @property (nonatomic,assign) NSInteger endMinute;
+/**
+ 夜间亮度 (realme项目) | night level
+ */
+@property (nonatomic,assign) NSInteger nightLevel;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -543,7 +640,7 @@
  * 天气类型 | Weather type
  * 天气情况(0:其他， 1:晴， 2:多云， 3:阴，4:雨，5:暴雨，
  * 6:雷阵雨， 7:雪， 8:雨夹雪，9:台风， 10:沙尘暴, 11:夜 间晴，
- * 12:夜间多云， 13:热， 14:冷， 15:清风， 16:大风， 17:雾 霭，18:阵雨, 19:多云转晴)
+ * 12:夜间多云， 13:热， 14:冷， 15:清风， 16:大风， 17:雾霭，18:阵雨, 19:多云转晴)
  * weather conditions (0: others, 1: sunny, 2: cloudy, 3: cloudy, 4: rain, 5: rainstorm,
  * 6: thunderstorm, 7: snow, 8: sleet, 9: typhoon, 10: sandstorm, 11: night clear,
  * 12: cloudy night, 13: hot, 14: cold, 15: breezy, 16: blustery, 17: mist, 18: showers, 19: cloudy to clear)
@@ -576,8 +673,8 @@
 @property (nonatomic,assign) NSInteger todayAqi;
 
 /**
- * 后两天的天气集合  @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
- * Weather collection for the last two days @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
+ * 后三天天的天气集合  @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
+ * Weather collection for the last three days @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
  */
 @property (nonatomic,strong) NSArray<NSDictionary*>* future;
 
@@ -605,12 +702,13 @@
  * 9:健身，10:动感单车，11:椭圆机，12:跑步机，13:仰卧起坐，14:俯卧撑，15:哑铃，16:举重，
  * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
  * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，48:户外跑步，49:室内跑步，50:户外骑行，51:室内骑行，
- * 52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法
+ * 52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法，59:板球运动
  * 0: none, 1: walk, 2: run, 3: ride, 4: hike, 5: swim, 6: climb, 7: badminton, 8: others,
  * 9: fitness, 10: spinning, 11: elliptical, 12: treadmill, 13: sit-ups, 14: push-ups, 15: dumbbells, 16: weightlifting,
  * 17: aerobics, 18: yoga, 19: jump rope, 20: table tennis, 21: basketball, 22: football, 23: volleyball, 24: tennis,
  * 25: golf, 26: baseball, 27: skiing, 28: roller skating, 29: dancing，48: outdoor running, 49: indoor running, 50: outdoor cycling, 51: indoor cycling,
  * 52: outdoor walking, 53: indoor walking, 54: pool swimming, 55: open water swimming, 56: elliptical machine, 57: rowing machine, 58: high-intensity interval training
+ * 59:cricket
  */
 @property (nonatomic,assign) NSInteger type;
 
@@ -969,11 +1067,12 @@
 /**
  * 语言单位 无效:0,中文:1,英文:2,法语:3,德语:4,意大利语:5,西班牙语:6,日语:7,
  * 波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
- * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,韩语:21,印地语:22,葡萄牙语:23
+ * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,
+ * 韩语:21,印地语:22,葡萄牙语:23,土耳其:24,泰国语:25,越南语:26,缅甸语:27,菲律宾语:28
  * Language unit Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
  * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
  * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19,Indonesian: 20,korean:21,hindi:22
- * portuguese:23
+ * portuguese:23,turkish:24,thai:25,vietnamese:26,burmese:27,filipino:28
  */
 @property (nonatomic,assign) NSInteger languageUnit;
 
@@ -1138,6 +1237,10 @@
  */
 @property (nonatomic,assign) NSInteger  endMinute;
 
+/**
+ 测量间隔,单位分钟 | measurement Interval,unit:minutes
+ */
+@property (nonatomic,assign) NSInteger  measurementInterval;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object

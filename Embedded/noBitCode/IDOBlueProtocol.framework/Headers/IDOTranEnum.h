@@ -39,7 +39,15 @@ typedef NS_ENUM(NSInteger, IDO_DATA_FILE_TRAN_TYPE) {
     /**
      表盘 文件 | dial file type
      */
-    IDO_DATA_FILE_TRAN_DIAL_TYPE = 2,    
+    IDO_DATA_FILE_TRAN_DIAL_TYPE = 2,
+    /**
+      字库 文件 | word file type
+    */
+    IDO_DATA_FILE_TRAN_WORD_TYPE = 3,
+    /**
+     图片文件 | photo file type
+     */
+    IDO_DATA_FILE_TRAN_PHOTO_TYPE = 4
 };
 
 /**

@@ -126,7 +126,9 @@
 @property (nonatomic,assign) NSInteger totalStrokesNumber;
 
 /**
- 总划水次数 | swimming posture
+ * 主泳姿 | swimming posture
+ * 0x00 : 混合泳; 0x01 : 自由泳; 0x02 : 蛙泳; 0x03 : 仰泳; 0x04 : 蝶泳;
+ * 0x00: medley; 0x01: freestyle; 0x02: breaststroke; 0x03: backstroke; 0x04: butterfly stroke;
  */
 @property (nonatomic,assign) NSInteger swimmingPosture;
 
@@ -151,6 +153,11 @@
  用户确认的距离 | confirm distance
  */
 @property (nonatomic,assign) NSInteger confirmDistance;
+
+/**
+ 游泳持续时长 单位:分钟 | duration unit:minute
+ */
+@property (nonatomic,assign) NSInteger duration;
 
 @end
 

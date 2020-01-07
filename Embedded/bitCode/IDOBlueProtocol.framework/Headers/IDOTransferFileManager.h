@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
+#elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
+#else
+#import "IDOTranEnum.h"
+#endif
 
 @interface IDOTransferFileManager : NSObject
 
 /**
- * 传输文件类型 agps文件、表盘文件
+ * 传输文件类型 agps文件、表盘文件、字库文件、图片文件
  * Transfer file type agps file, dial file
  */
 @property (nonatomic,assign) IDO_DATA_FILE_TRAN_TYPE transferType;
@@ -45,6 +50,24 @@
  * Transfer file path
  */
 @property (nonatomic,copy,nullable) NSString * filePath;
+
+/*
+ * 传输文件的二进制数据
+ * Transfer the binary data of the file
+ */
+@property (nonatomic,copy,nullable) NSData * fileData;
+
+/**
+ * 蓝牙写入数据是否响应
+ * Bluetooth sends data in response
+ */
+@property (nonatomic,assign) BOOL isResponse;
+
+/**
+ * 是否设置连接参数
+ * Set connection parameters
+ */
+@property (nonatomic,assign) BOOL isSetConnectParam;
 
 /**
  * 检测文件回调

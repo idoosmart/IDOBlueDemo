@@ -9,6 +9,12 @@
 #ifndef IDOCommonMacro_h
 #define IDOCommonMacro_h
 
+#if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
+#elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
+#else
+#import "IDOBluetoothEngine.h"
+#endif
+
 /**
  IDO 当前手环蓝牙引擎 | IDO current bracelet Bluetooth engine
  */

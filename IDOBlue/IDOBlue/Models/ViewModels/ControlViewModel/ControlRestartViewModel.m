@@ -72,11 +72,6 @@
     funcVc.title = lang(@"function list");
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:funcVc];
     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
-    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
-        if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
-            [view removeFromSuperview];
-        }
-    }
 }
 
 @end

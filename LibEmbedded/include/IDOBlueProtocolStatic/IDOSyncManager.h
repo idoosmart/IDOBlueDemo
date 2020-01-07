@@ -7,23 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#if __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
+#elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
+#else
+#import "IDOSyncEnum.h"
+#endif
 
 @interface IDOSyncManager : NSObject
 
 /**
- 同步状态 | Synchronization status
- */
-@property (nonatomic,assign,readonly) IDO_SYNC_COMPLETE_STATUS syncStatus;
-
-/**
- 当前同步类型 | Current sync type
- */
-@property (nonatomic,assign,readonly) IDO_CURRENT_SYNC_TYPE syncType;
-
-/**
- * 当前连接设备是否正在同步,⚠️配置同步不纳入正在同步中,其他(步数、心率、血压、睡眠、血氧、压力、活动、gps)数据同步纳入其中
+ * 当前连接设备是否正在同步,⚠️配置同步不纳入正在同步中,其他(步数、心率、血压、睡眠、血氧、压力、活动、gps、游泳)数据同步纳入其中
  * Whether the currently connected device is synchronizing, ⚠️ configuration synchronization is not included in the synchronization,
- * and other (step, heart rate, blood pressure, sleep, activity, gps) data synchronization is included.
+ * and other (step, heart rate, blood pressure, sleep, activity, gps、swim) data synchronization is included.
  */
 @property (nonatomic,assign,readonly) BOOL isSyncHealthRun;
 
@@ -32,6 +27,18 @@
  * Is the currently connected device synchronizing configuration information?
  */
 @property (nonatomic,assign,readonly) BOOL isSyncConfigRun;
+
+/**
+ * 当前连接设备是否需要同步配置
+ * Does the current connected device require synchronization configuration?
+ */
+@property (nonatomic,assign,readonly) BOOL isNeedSyncConfig;
+
+/**
+ * 设置需要同步的选项(同步配置、同步健康、同步活动、同步GPS)
+ * Set the options that need to be synchronized (sync config、sync health、sync activity、sync GPS)
+ */
+@property (nonatomic,assign) IDO_WANT_TO_SYNC_ITEM_TYPE wantToSyncType;
 
 /**
  * 同步的数据是否存入SDK数据库中,默认YES
@@ -46,48 +53,108 @@
 @property (nonatomic,assign) NSInteger syncTimeout;
 
 /**
- * @brief 初始化同步管理对象 | Initialize synchronization management object
- * @return IDOSyncManager
+ * 同步配置日志回调
+ * Synchronize configuration log callback
  */
-+ (__kindof IDOSyncManager *_Nonnull)shareInstance;
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncConfig)(void(^ _Nullable configLogCallback)(NSString * _Nullable logStr));
 
 /**
- * @brief 同步完成,每同步完一项会回调一次 请根据上述枚举进行判断是否同步完成
- * stateInfo : 从同步开始到同步结束,返回每项同步的状态信息,每项同步会累加记录,告知哪项成功或失败了
- * Synchronization is completed, and each synchronization will be called once. Please judge whether it is synchronized according to the above enumeration.
- * stateInfo : Returns the status information of each sync from the start of sync to the end of sync.Each sync will accumulate records to tell which results or failed.
- * @param callback 完成回调block | Complete callback block
- * @param failCallback 失败错误回调block | Failed error callback block
+ * 同步健康心率数据回调
+ * Synchronize healthy heart rate data callback
  */
-
-+ (void)syncDataCompleteCallback:(void (^_Nullable)(IDO_SYNC_COMPLETE_STATUS stateCode, NSString * _Nullable stateInfo))callback
-                    failCallback:(void (^_Nullable)(int errorCode))failCallback;
-/**
- * @brief 同步进度 *统一进度回调 0 ~ 1 | Synchronization progress, unified progress callback 0 ~ 1
- * @param callback 进度回调block | Progress callback block
- */
-+ (void)syncDataProgressCallback:(void(^_Nullable)(float progress))callback;
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncHeartRate)(void(^ _Nullable heartRateDataCallback)(NSString * _Nullable jsonStr));
 
 /**
- * @brief 同步数据json格式 | Synchronization data
- * @param callback 同步数据回调block | jsonStr callback block
+ * 同步健康睡眠数据回调
+ * Synchronize healthy sleep data callback
  */
-+ (void)syncDataJsonCallback:(void(^_Nullable)(IDO_CURRENT_SYNC_TYPE syncType,NSString * _Nullable jsonStr))callback;
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncSleep)(void(^ _Nullable sleepDataCallback)(NSString * _Nullable jsonStr));
 
 /**
- * 删除当前手环当天同步的数据 | delete device current day sync data
- * ⚠️只有在连接时解绑手环时作删除操作(根据业务需求选择使用) | only when unbundling bracelets for deletion
+ * 同步健康步数数据回调
+ * Synchronize health step data callback
  */
-+ (void)deleteSyncCurrentDayData;
-
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncSport)(void(^ _Nullable sportDataCallback)(NSString * _Nullable jsonStr));
 
 /**
- 开始同步 | Start syncing
+ * 同步健康血压数据回调
+ * Synchronize healthy blood pressure data callback
  */
-+ (void(^_Nullable)(BOOL isConfig))startSync;
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncBp)(void(^ _Nullable bpDataCallback)(NSString * _Nullable jsonStr));
 
 /**
- 结束同步 | End synchronization
+ * 同步活动数据回调
+ * Synchronize active data callbacks
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncActivity)(void(^ _Nullable activityDataCallback)(NSString * _Nullable jsonStr));
+
+/**
+ * 同步gps数据回调
+ * Synchronize GPS data callbacks
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncGps)(void(^ _Nullable gpsDataCallback)(NSString * _Nullable jsonStr));
+
+/**
+ * 同步游泳数据回调
+ * Synchronize swim data callback
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncSwim)(void(^ _Nullable swimCallback)(NSString * _Nullable jsonStr));
+
+/**
+ * 同步健康血氧数据回调
+ * Synchronize healthy blood oxygen data callback
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncBloodOxygen)(void(^ _Nullable bloodOxygenDataCallback)(NSString * _Nullable jsonStr));
+
+/**
+ * 同步压力数据回调
+ * Synchronize pressure data callback
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncPressure)(void(^ _Nullable pressureCallback)(NSString * _Nullable jsonStr));
+
+/**
+ * 同步统一进度回调
+ * Synchronize unified progress callback
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncProgess)(void(^ _Nullable syncProgessCallback)(IDO_CURRENT_SYNC_TYPE type,float progress));
+
+/**
+ * 同步完成回调
+ * Synchronize completes the callback
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncComplete)(void(^ _Nullable syncCompleteCallback)(IDO_SYNC_COMPLETE_STATUS stateCode));
+
+/**
+ * 同步失败回调  如: 超时、断线、OTA
+ * Synchronize failed callback eg: timeout, disconnect, OTA
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncFailed)(void(^ _Nullable syncFailedCallback)(int errorCode));
+
+/**
+ * 删除当天数据回调
+ * Delete current day data callback
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^deleteCurrentDayData)(void(^ _Nullable deleteCallback)(BOOL success));
+
+/**
+ * 强制执行或不执行同步配置
+ * Enforce or not enforce the synchronize configuration
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^mandatorySyncConfig)(BOOL isSync);
+
+/**
+ * 初始化同步单例对象
+ * init sync manager
+ */
+IDOSyncManager * _Nonnull initSyncManager(void);
+
+/**
+ 开始同步 | Start sync
+ */
++ (void)startSync;
+
+/**
+ 结束同步 | End sync
  */
 + (void)stopSync;
 

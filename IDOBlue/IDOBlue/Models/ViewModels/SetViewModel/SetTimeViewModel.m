@@ -23,6 +23,11 @@
 
 @implementation SetTimeViewModel
 
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -55,7 +60,7 @@
     LabelCellModel * model1 = [[LabelCellModel alloc]init];
     model1.typeStr = @"oneLabel";
     IDOSetTimeInfoBluetoothModel * timeModel = self.timeModel;
-    NSString * currentTimeStr = [NSString stringWithFormat:@"%@ %ld-%02d-%02d %02d:%02d:%02d",lang(@"current time"),timeModel.year,(int)timeModel.month,
+    NSString * currentTimeStr = [NSString stringWithFormat:@"%@ %04d-%02d-%02d %02d:%02d:%02d",lang(@"current time"),(int)timeModel.year,(int)timeModel.month,
                                  (int)timeModel.day,(int)timeModel.hour,(int)timeModel.minute,(int)timeModel.second];
     model1.data = @[currentTimeStr];
     model1.cellHeight = 70.0f;
@@ -108,7 +113,7 @@
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startTimer) object:nil];
     IDOSetTimeInfoBluetoothModel * timeModel = self.timeModel;
-    NSString * currentTimeStr = [NSString stringWithFormat:@"%@ %ld-%02d-%02d %02d:%02d:%02d",lang(@"current time"),timeModel.year,(int)timeModel.month,
+    NSString * currentTimeStr = [NSString stringWithFormat:@"%@ %04d-%02d-%02d %02d:%02d:%02d",lang(@"current time"),(int)timeModel.year,(int)timeModel.month,
                                  (int)timeModel.day,(int)timeModel.hour,(int)timeModel.minute,(int)timeModel.second];
     LabelCellModel * cellModel = [self.cellModels firstObject];
     cellModel.data = @[currentTimeStr];
@@ -129,6 +134,7 @@
                                           callback:^(int errorCode) {
               if(errorCode == 0) {
                   [funcVC showToastWithText:lang(@"set current time success")];
+                  [funcVC.navigationController popViewControllerAnimated:YES];
               }else if (errorCode == 6) {
                   [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
               }else {

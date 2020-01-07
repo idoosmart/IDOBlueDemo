@@ -11,10 +11,14 @@ import IDOBlueProtocol
 
 class BindedViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    var devices:[Any] = ["unbind device","get mac info","get device info","get func table","set current time"]
-    
+    var devices:[Any] = ["unbind device","get mac info","get device info","get func table","set current time","update firmware"]
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == (self.devices.count - 1) {
+            let updateViewController = UpdateViewController.init();
+            updateViewController.title = self.devices[indexPath.row] as? String;
+            self.navigationController?.pushViewController(updateViewController, animated: true);
+        }else if indexPath.row == (self.devices.count - 2) {
             let model = IDOSetTimeInfoBluetoothModel.init();
             self.showLoading(message: "set current time...");
             IDOFoundationCommand.setCurrentTime(model) { (errorCode) in
@@ -61,6 +65,7 @@ class BindedViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white;
         self.setupUI();
     }
     

@@ -397,6 +397,8 @@
 "please enable bluetooth to continue using the current app" = "请开启蓝牙继续使用当前应用";
 "show log" = "日志显示:";
 "simulator data" = "模拟数据:";
+"is response" = "是否启动响应:";
+"is set connection parameters" = "是否设置连接参数:";
 /**
  add by xiongjie 
  */
@@ -492,6 +494,9 @@
 "transfer dial file success" = "传输表盘文件成功";
 "transfer dial file failed"  = "传输表盘文件失败";
 "watch dial function" = "表盘功能";
+"delete current dial" = "删除当前表盘";
+"delete current dial success" = "删除当前表盘成功";
+"delete current dial failed" = "删除当前表盘失败";
 
 
 "get function list" = "获取功能列表";
@@ -615,6 +620,8 @@
 "reboot device..." = "重启设备...";
 "successful restart of equipment" = "重启设备成功";
 "failure to restart equipment" = "重启设备失败";
+"Camera" = "相机";
+"Album" = "相册";
 
 /**
  data interchange
@@ -683,9 +690,11 @@
 /**
  update
  */
-"nordic update" = "nordic 升级";
-"realtk update" = "realtk 升级";
-"agps update" = "agps 更新";
+"nordic update" = "nordic升级";
+"realtk update" = "realtk升级";
+"agps update" = "agps更新";
+"word update" = "字库更新";
+"photo update" = "壁纸更新";
 "selected firmware" = "选择固件";
 "exit update" = "退出升级";
 "reconnect" = "重新连接";
@@ -720,3 +729,22 @@
 "failure blood pressure measure" = "血压测量失败";
 "device in sport mode" = "设备正在运动模式";
 "abnormal device measure" = "设备测量异常";
+
+/**
+ 定制
+ */
+"set weather city name" = "设置城市名称";
+"set weather city name success" = "设置城市名称成功";
+"set weather city name failed" = "设置城市名称失败";
+"set weather real time data" = "设置天气实时数据";
+"weather type" = "天气类型:";
+"weather temp" = "天气温度:";
+"data type" = "数据类型:";
+"set weather real time data success" = "设置天气实时数据成功";
+"set weather real time data failed" = "设置天气实时数据失败";
+"sync iot button" = "同步iot按钮";
+"add iot button" = "添加iot按钮";
+"button name" = "按钮名字:";
+"sync iot button success" = "同步iot按钮成功";
+"sync iot button failed" = "同步iot按钮失败";
+"please write button name" = "请输出按钮名称";

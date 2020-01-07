@@ -38,11 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let bindViewController = BindedViewController.init();
             bindViewController.title = "func page";
             let rootViewController = UINavigationController.init(rootViewController: bindViewController);
+            rootViewController.navigationBar.backgroundColor = UIColor.white;
             self.window?.rootViewController = rootViewController;
         }else {
             let scanViewController = ViewController.init();
             scanViewController.title = "sacn page";
             let rootViewController = UINavigationController.init(rootViewController: scanViewController);
+            rootViewController.navigationBar.backgroundColor = UIColor.white;
             self.window?.rootViewController = rootViewController;
         }
         self.window?.makeKeyAndVisible();

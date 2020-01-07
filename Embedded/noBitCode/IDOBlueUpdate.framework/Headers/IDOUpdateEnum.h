@@ -123,6 +123,12 @@ typedef NS_ENUM(NSInteger, IDO_UPDATE_ERROR_TYPE) {
      * The system bluetooth was disconnected during the upgrade
      */
     IDO_SYSTEM_BLUETOOTH_DISABLED_TYPE,
+    
+    /**
+     * 手机系统版本过低不支持固件升级
+     * Firmware upgrade is not supported in the lower version of the mobile system
+     */
+    IDO_SYSTEM_VERSION_TOO_LOW_TYPE,
 } ;
 
 /**

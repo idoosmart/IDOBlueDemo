@@ -69,11 +69,6 @@
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];
                     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
                     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
-                    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
-                        if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
-                            [view removeFromSuperview];
-                        }
-                    }
                 }else {
                     [funcVc showToastWithText:lang(@"unbind failed")];
                 }
@@ -86,11 +81,6 @@
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];
                     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
                     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
-                    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
-                        if ([NSStringFromClass([view class]) isEqualToString:@"UITransitionView"]) {
-                            [view removeFromSuperview];
-                        }
-                    }
                 }else {
                     [funcVc showToastWithText:lang(@"unbind failed")];
                 }

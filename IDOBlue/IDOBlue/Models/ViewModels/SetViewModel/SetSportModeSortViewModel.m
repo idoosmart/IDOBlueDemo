@@ -49,9 +49,13 @@
     [funcVc.tableView setEditing:isEditing animated:YES];
     if (!isEditing) {
         [funcVc showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set sports mode sort")]];
+        __weak typeof(self) weakSelf = self;
         [IDOFoundationCommand setSportModeSortCommand:self.sportModeSortModel
                                              callback:^(int errorCode) {
              if(errorCode == 0) {
+                 __strong typeof(self) strongSelf = weakSelf;
+                 //Need to retrieve
+                 strongSelf.sportModeSortModel = [IDOSetSportSortingInfoBluetoothModel currentModel];
                  [funcVc showToastWithText:lang(@"set sports mode sort success")];
              }else if (errorCode == 6) {
                  [funcVc showToastWithText:lang(@"feature is not supported on the current device")];

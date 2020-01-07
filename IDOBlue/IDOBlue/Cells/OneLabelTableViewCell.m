@@ -62,6 +62,11 @@
     }else {
         self.title.textAlignment = NSTextAlignmentLeft;
     }
+    if (self.labelCellModel.fontSize <= 0) {
+        self.title.font = [UIFont systemFontOfSize:14];
+    }else {
+        self.title.font = [UIFont systemFontOfSize:self.labelCellModel.fontSize];
+    }
 }
 
 - (void)labelAction:(UITapGestureRecognizer *)recognizer

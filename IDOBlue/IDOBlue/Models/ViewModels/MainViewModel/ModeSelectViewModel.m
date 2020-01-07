@@ -27,10 +27,11 @@
 @property (nonatomic,assign) int modeValue;
 @property (nonatomic,assign) int langValue;
 @property (nonatomic,assign) BOOL isHomeSync;
+@property (nonatomic,assign) BOOL isResponse;
+@property (nonatomic,assign) BOOL isSetConnect;
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^sliderCallback)(UIViewController * viewController,UISlider * slider,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^switchCallback)(UIViewController * viewController,UISwitch * onSwitch,UITableViewCell * tableViewCell);
-@property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @end
 
 @implementation ModeSelectViewModel
@@ -43,7 +44,6 @@
         [self getSliderCallback];
         [self getSwitchCallback];
         [self getWillDisappearCallback];
-        [self getLabelCallback];
         [self getCellModels];
     }
     return self;
@@ -55,6 +55,8 @@
     self.rssiValue = (int)[[NSUserDefaults standardUserDefaults]integerForKey:RSSI_KEY];
     self.isHomeSync = [[NSUserDefaults standardUserDefaults]boolForKey:HOME_NEED_SYNC];
     self.langValue = (int)[[NSUserDefaults standardUserDefaults]integerForKey:LANG_KEY] == 0 ? 1 : (int)[[NSUserDefaults standardUserDefaults]integerForKey:LANG_KEY];
+    self.isResponse = [[NSUserDefaults standardUserDefaults]boolForKey:IS_RESPONSE_KEY];
+    self.isSetConnect = [[NSUserDefaults standardUserDefaults]boolForKey:IS_SET_CONNECT_PARAMSERS];
     
     if (self.rssiValue == 0)self.rssiValue = 80;
     
@@ -145,6 +147,42 @@
     model11.switchCallback = self.switchCallback;
     [cellModels addObject:model11];
     
+    EmpltyCellModel * model15 = [[EmpltyCellModel alloc]init];
+    model15.typeStr = @"empty";
+    model15.cellHeight = 10.0f;
+    model15.isShowLine = YES;
+    model15.cellClass  = [EmptyTableViewCell class];
+    [cellModels addObject:model15];
+    
+    SwitchCellModel * model13 = [[SwitchCellModel alloc]init];
+    model13.typeStr = @"oneSwitch";
+    model13.titleStr = lang(@"is response");
+    model13.data = @[@(self.isResponse)];
+    model13.cellHeight = 60.0f;
+    model13.cellClass = [OneSwitchTableViewCell class];
+    model13.modelClass = [NSNull class];
+    model13.isShowLine = YES;
+    model13.switchCallback = self.switchCallback;
+    [cellModels addObject:model13];
+    
+    EmpltyCellModel * model16 = [[EmpltyCellModel alloc]init];
+    model16.typeStr = @"empty";
+    model16.cellHeight = 10.0f;
+    model16.isShowLine = YES;
+    model16.cellClass  = [EmptyTableViewCell class];
+    [cellModels addObject:model16];
+    
+    SwitchCellModel * model14 = [[SwitchCellModel alloc]init];
+    model14.typeStr = @"oneSwitch";
+    model14.titleStr = lang(@"is set connection parameters");
+    model14.data = @[@(self.isSetConnect)];
+    model14.cellHeight = 60.0f;
+    model14.cellClass = [OneSwitchTableViewCell class];
+    model14.modelClass = [NSNull class];
+    model14.isShowLine = YES;
+    model14.switchCallback = self.switchCallback;
+    [cellModels addObject:model14];
+    
     if(   IDO_BLUE_ENGINE.managerEngine.isConnected
        && (__IDO_FUNCTABLE__.funcTable22Model.v3HrData
        ||  __IDO_FUNCTABLE__.funcTable22Model.v3SwimData))
@@ -177,7 +215,6 @@
     model12.modelClass = [NSNull class];
     model12.isShowLine = YES;
     model12.isCenter   = YES;
-    model12.labelSelectCallback = self.labelSelectCallback;
     [cellModels addObject:model12];
     
     self.cellModels = cellModels;
@@ -191,6 +228,8 @@
         [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:strongSelf.rssiValue] forKey:RSSI_KEY];
         [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:strongSelf.modeValue] forKey:PRODUCTION_MODE_KEY];
         [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:strongSelf.isHomeSync] forKey:HOME_NEED_SYNC];
+        [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:strongSelf.isResponse] forKey:IS_RESPONSE_KEY];
+        [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:strongSelf.isSetConnect] forKey:IS_SET_CONNECT_PARAMSERS];
     };
 }
 
@@ -251,6 +290,10 @@
             }
         }else if (indexPath.row == 8) {
             strongSelf.isHomeSync = onSwitch.isOn;
+        }else if (indexPath.row == 10) {
+            strongSelf.isResponse = onSwitch.isOn;
+        }else if (indexPath.row == 12) {
+            strongSelf.isSetConnect = onSwitch.isOn;
         }else {
             if (onSwitch.isOn) {
                 Byte bytes[] = {0XF1,0XF2};
@@ -266,20 +309,6 @@
             }
         }
     };
-}
-
-- (void)getLabelCallback
-{
-    __weak typeof(self) weakSelf = self;
-    self.labelSelectCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
-        __strong typeof(self) strongSelf = weakSelf;
-        NSString * filePath = [IDORecordDeviceLog updateLogFilePath];
-        HtmlViewController * htmlVc = [[HtmlViewController alloc]initWithNibName:@"HtmlViewController" bundle:[NSBundle bundleForClass:[strongSelf class]]];
-        htmlVc.navigationTitle = @"Update Log";
-        htmlVc.logFilePath = filePath;
-        [viewController.navigationController pushViewController:htmlVc animated:YES];
-    };
-    
 }
 
 @end

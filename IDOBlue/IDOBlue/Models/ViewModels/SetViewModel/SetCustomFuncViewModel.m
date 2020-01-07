@@ -14,6 +14,8 @@
 #import "SetContentViewModel.h"
 #import "SetUserNameViewModel.h"
 #import "SetUserNumberViewModel.h"
+#import "SetCityNameViewModel.h"
+#import "SetIotButtonViewModel.h"
 
 @interface SetCustomFuncViewModel ()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -36,7 +38,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"set the number of stars")],@[lang(@"set message content")],@[lang(@"set user name")],@[lang(@"set user number")]];
+        _buttonTitles = @[@[lang(@"set the number of stars")],@[lang(@"set message content")],@[lang(@"set user name")],@[lang(@"set user number")],@[lang(@"set weather city name")],@[lang(@"sync iot button")]];
     }
     return _buttonTitles;
 }
@@ -44,7 +46,7 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[SetStartCountViewModel class],[SetContentViewModel class],[SetUserNameViewModel class],[SetUserNumberViewModel class]];
+        _modelClasss = @[[SetStartCountViewModel class],[SetContentViewModel class],[SetUserNameViewModel class],[SetUserNumberViewModel class],[SetCityNameViewModel class],[SetIotButtonViewModel class]];
     }
     return _modelClasss;
 }

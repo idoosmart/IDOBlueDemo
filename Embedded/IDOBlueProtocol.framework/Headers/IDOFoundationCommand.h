@@ -13,6 +13,7 @@
 #elif __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
 #else
 #import "IDOBindEnum.h"
+#import "IDOBluetoothBaseModel.h"
 #import "IDOGetInfoBluetoothModel.h"
 #import "IDOSetInfoBluetoothModel.h"
 #import "IDODataExchangeModel.h"
@@ -247,7 +248,8 @@
  * If pairing takes a long time, please listen for the callback.
  * @param noticModel 通知开关信息 model (IDOSetNoticeInfoBuletoothModel)
  * Notification switch information model (IDOSetNoticeInfoBuletoothModel)
- * @param callback 设置后配对过程状态回调 stateCode:0x00为不明异常超时,0x01为系统配对成功,0x02,isNeedDisconnect:是否需要断开重连,is need to disconnect and reconnect
+ * @param callback 设置后配对过程状态回调 stateCode:0x00为不明异常超时,0x01为系统配对成功,0x02为取消配对,isNeedDisconnect:是否需要断开重连,is need to disconnect and reconnect
+ * stateCode :0x00 indicates an unknown abnormal timeout,0x01 indicates successful system pairing, and 0x02 indicates unpairing
  * @param complete 设置后完成配对回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
@@ -269,7 +271,8 @@
  * @brief 设置蓝牙配对 (不可重复设置,会引起无法再连接设备.只要配对成功,就不需要再设置,只有获取到系统配对设备被忽略,才可设置配对。⚠️在配对过程中不要执行其他命令。)
  * Set up Bluetooth pairing (cannot be set repeatedly, it will cause the device to be connected again. As long as the pairing is successful,
  * you don't need to set it again. Only when the system pairing device is ignored, the pairing can be set.⚠️Do not execute other commands during pairing.)
- * @param callback 设置后配对过程状态回调 stateCode:0x00为不明异常超时,0x01为系统配对成功,0x02,isNeedDisconnect:是否需要断开重连,is need to disconnect and reconnect
+ * @param callback 设置后配对过程状态回调 stateCode:0x00为不明异常超时,0x01为系统配对成功,0x02为取消配对,isNeedDisconnect:是否需要断开重连,is need to disconnect and reconnect
+ * stateCode :0x00 indicates an unknown abnormal timeout,0x01 indicates successful system pairing, and 0x02 indicates unpairing
  * @param complete 设置后完成配对回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
@@ -436,7 +439,28 @@
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
-+ (void)setWeatherDataCommand:(IDOSetWeatherDataInfoBluetoothModel *_Nullable)weatherDataModel callback:(void (^ _Nullable)(int errorCode))callback;
++ (void)setWeatherDataCommand:(IDOSetWeatherDataInfoBluetoothModel *_Nullable)weatherDataModel
+                     callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+ * @brief 设置天气预报数据 (定制扩展功能数据不存储) | Set city name (Extend functionality)
+ * @param weatherData 天气预报数据 @{@"today":weatherModel,@"city":@"",@"oneHourWeather":@[@{@"type":@(0),@"temp":@(0)}...]}
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+*/
++ (void)setWeatherDataExtensionCommand:(NSDictionary *_Nullable)weatherData
+                              callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+ * @brief 设置iot按钮集合 (定制扩展功能数据不存储) | Set of iot buttons (Extend functionality)
+ * @param buttonNames iot按钮集合最多可以设置20个按钮 @[@{@"index":@(0),@"button":@""}...]
+ * callback 设置按钮集合回调进度 (0~1)  | Set the button progress  callback (0~1)
+ * @param complete 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post complete (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+*/
++ (void)setIotButtonNamesCommand:(NSArray <NSDictionary * >* _Nullable)buttonNames
+                        callback:(void (^ _Nullable)(float progress))callback
+                        complete:(void (^ _Nullable)(int errorCode))complete;
 
 /**
  * @brief 设置屏幕亮度 | Set screen brightness
@@ -555,7 +579,7 @@
 /**
  * @brief 设置每分钟呼吸次数 (139)  | Breaths per minute
  * @param breatheModel 每分钟呼吸次数 model (IDOSetBreatheTrainBluetoothModel)
- * Female Breaths per minute model (IDOSetBreatheTrainBluetoothModel)
+ * Breaths per minute model (IDOSetBreatheTrainBluetoothModel)
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
@@ -564,7 +588,7 @@
 /**
  * @brief 设置走动提醒开关 (139) | Walking reminder switch
  * @param walkModel 走动提醒开关 model (IDOSetWalkReminderBluetoothModel)
- * Female Walking reminder switch model (IDOSetWalkReminderBluetoothModel)
+ * Walking reminder switch model (IDOSetWalkReminderBluetoothModel)
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
@@ -573,7 +597,7 @@
 /**
  * @brief 设置血氧开关 (139) | blood oxygen switch
  * @param spo2Model 血氧开关 model (IDOSetSpo2SwitchBluetoothModel)
- * Female blood oxygen switch model (IDOSetSpo2SwitchBluetoothModel)
+ * blood oxygen switch model (IDOSetSpo2SwitchBluetoothModel)
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
@@ -582,11 +606,29 @@
 /**
  * @brief 设置运动开关 (139) | activity switch
  * @param switchModel 运动开关 model (IDOSetActivitySwitchBluetoothModel)
- * Female activity switch model (IDOSetActivitySwitchBluetoothModel)
+ * activity switch model (IDOSetActivitySwitchBluetoothModel)
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
 + (void)setActivitySwitchCommand:(IDOSetActivitySwitchBluetoothModel * _Nullable)switchModel callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+* @brief 设置心率开关同步 (139) | v3 heart rate
+* @param v3HrModel 心率开关 model (IDOSetV3HeartRateModeBluetoothModel)
+* v3 heart rate switch model (IDOSetV3HeartRateModeBluetoothModel)
+* @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+* Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+*/
++ (void)setV3HrModelCommand:(IDOSetV3HeartRateModeBluetoothModel * _Nullable)v3HrModel callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+* @brief 设置喝水提醒  | drink water reminder
+* @param drinkModel 喝水提醒开关 model (IDOSetDrinkReminderModeBluetoothModel)
+* drink water reminder switch model (IDOSetDrinkReminderModeBluetoothModel)
+* @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+* Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+*/
++ (void)setDrinkReminderCommand:(IDOSetDrinkReminderModeBluetoothModel * _Nullable)drinkModel callback:(void (^ _Nullable)(int errorCode))callback;
 
 /**
  * @brief 设置星星数量 数据不作存储 (锐捷) | Set the number of stars (ruijie)
@@ -746,6 +788,14 @@
  */
 + (void)getSwithHrInterval:(IDODataExchangeModel * _Nullable)exchangeModel
                   callback:(void(^_Nullable)(int errorCode,IDOGetFiveHrReplyInfoBluetoothModel * _Nullable data))callback;
+
+
+/**
+* @brief  默认的运动类型 | get default sport type
+* @param callback 执行后回调 data (IDOGetDefaultSportTypeBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+* Post-execution callback data (IDOGetDefaultSportTypeBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+*/
++ (void)getDefaultSportTypeCommand:(void(^_Nullable)(int errorCode,IDOGetDefaultSportTypeBluetoothModel * _Nullable data))callback;
 
 /**
  * @brief  获取星星的数量,数据不作存储（锐捷） | Get number of stars （ruijie）
@@ -923,6 +973,13 @@
  * Listening callback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
 + (void)listenCheckUpdateReplyCommand:(void(^_Nullable)(int errorCode))callback;
+
+/**
+ * @brief 手环发送iot按钮 | Bracelet send iot buttons
+ * @param callback 监听回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str,index 对应按钮索引)
+ * Listening callback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+*/
++ (void)listenIotButtonCommand:(void(^_Nullable)(int errorCode,int index))callback;
 
 #pragma mark ======= progress Command =======
 

@@ -49,6 +49,7 @@
         [self.button setBackgroundImage:[IDODemoUtility imageWithColor:color] forState:UIControlStateNormal];
     }
     [self.button setTitle:[model.data firstObject] forState:UIControlStateNormal];
+    self.button.enabled = !self.funcCellModel.isNoEnabled;
 }
 
 - (void)actionButton:(UIButton *)sender

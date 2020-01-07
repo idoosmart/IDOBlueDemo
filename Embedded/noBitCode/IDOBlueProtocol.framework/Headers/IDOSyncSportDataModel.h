@@ -126,6 +126,12 @@
  */
 @property (nonatomic,assign) NSInteger totalCount;
 
+/**
+ 只有用于 Donha app | Only for the Donha app
+ 关键字 0:无效;1:超;2:浪;3:稳;4:慢;5:懒;6:香;7:安;8:困;9:燃;10:暖;11:动;12:佛;13:秀;14:拼;15:惯;16:凉;
+ */
+@property (nonatomic,assign) NSInteger keyWord;
+
 @end
 
 

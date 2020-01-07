@@ -4,20 +4,20 @@
 ## How To Get Started
 
 * Download [IDOBluetooth](https://github.com/idoosmart/IDOBluetooth/archive/master.zip) and try the accompanying iPhone sample application;
-* View the <a href="https://idoosmart.github.io/IDOBluetooth.API/" target="_blank">documentation</a> to fully understand all apis provided in IDOBluetooth;
  
 ## Requirements
 | SDK version | minimum iOS target| notes |
-| :------:| :------: | :------: |
-| 3.1.4 | iOS 8.0 | Only the objective-c file in the project needs to add an empty swift file |
-| 3.1.8 | iOS 8.0 | Xcode 10.2.1 |
-| 3.2.5 | iOS 8.0 | Break up the SDK|
-| 3.2.7 | iOS 8.0 | Device reconnection|
-| 3.2.9| iOS 8.0 | Add swift demo|
-| 3.3.0| iOS 8.0 | Add .a lib|
-| 3.3.2| iOS 8.0 | Modify pairing logic|
+| :------:| :------: |------|
+| 3.1.4 | iOS 8.0 |only the objective-c file in the project needs to add an empty swift file|
+| 3.1.8 | iOS 8.0 |xcode 10.2.1|
+| 3.2.5 | iOS 8.0 |break up the SDK|
+| 3.2.7 | iOS 8.0 |device reconnection|
+| 3.2.9| iOS 8.0 |add swift demo|
+| 3.3.0| iOS 8.0 |add .a lib|
+| 3.3.2| iOS 8.0 |modify pairing logic|
 | 3.3.4| iOS 8.0 |optimize performance|
 | 3.3.8| iOS 8.0 |add v3 health data sync|
+| 3.3.9| iOS 8.0 |add dial transmission xcode 11.2.1|
 
 ## Project configuration
 * Reference header file
@@ -37,22 +37,24 @@
   <br>
   <br>![image](/images/6.png)
   <br>
+* System libraries
+  <br>![image](/images/8.png)
+  <br>
+  
 ## Architecture
 
 ```
 1、IDOBluetooth 
+#import <IDOBluetooth/IDOBlueEnum.h>
 #import <IDOBluetooth/IDOPeripheralModel.h>
-#import <IDOBluetooth/IDOBluetoothManagerDelegate.h>
 #import <IDOBluetooth/IDOBluetoothManager.h>
 
 2、IDOBlueUpdate 
 #import <IDOBlueUpdate/IDOUpdateEnum.h>
-#import <IDOBlueUpdate/IDOUpdateManagerDelegate.h>
 #import <IDOBlueUpdate/IDOUpdateFirmwareManager.h>
 
 3、IDOBlueProtocol 
 #import <IDOBlueProtocol/IDOSyncEnum.h>
-#import <IDOBlueProtocol/IDOBlueEnum.h>
 #import <IDOBlueProtocol/IDOLogEnum.h>
 #import <IDOBlueProtocol/IDOBindEnum.h>
 #import <IDOBlueProtocol/IDOTranEnum.h>
@@ -75,6 +77,7 @@
 #import <IDOBlueProtocol/IDOWeightBluetoothModel.h>
 #import <IDOBlueProtocol/IDOWatchDialInfoModel.h>
 
+
 #import <IDOBlueProtocol/IDOSyncManager.h>
 #import <IDOBlueProtocol/IDOBluetoothEngine.h>
 #import <IDOBlueProtocol/IDOBluetoothServices.h>
@@ -86,6 +89,7 @@
 #import <IDOBlueProtocol/IDODataMigrationManager.h>
 #import <IDOBlueProtocol/IDOTransferFileManager.h>
 #import <IDOBlueProtocol/IDOWatchDialManager.h>
+#import <IDOBlueProtocol/IDOMakePhotoManager.h>
 ```
 ## Introduction to main function API
 
@@ -100,6 +104,7 @@
 * [9.0 AGPS file updates](#9.0) 
 * [10.0 Firmware update (OTA)](#10.0) 
 * [11.0 Not use SDK bluetooth manager](#11.0) 
+* [12.0 Dial transmission manager](#12.0) 
 
 ## <span id="1.0">Old data migration</span>
 * <p>Only in the old project need to do data migration, the old database needs to be migrated to the new database, optimize the operation of the database, reduce data redundancy, improve program performance. Before performing data migration, it is necessary to determine whether the old database exists or not, and after data migration, it is necessary to pass in a collection of directory names that cannot be deleted to ensure data integrity. After the migration, the data that is not retained will be deleted and the old database will be copied to the new directory, which can be obtained through the path.</p>
@@ -679,6 +684,15 @@ watchDiaModel = [IDOSetWatchDiaInfoBluetoothModel currentModel];
      }
 }];
 
+// set weather data extend
++ (void)setWeatherDataExtensionCommand:(NSDictionary *_Nullable)weatherData
+                              callback:(void (^ _Nullable)(int errorCode))callback;
+                              
+                              
+// Set of iot buttons extend
++ (void)setIotButtonNamesCommand:(NSArray <NSDictionary * >* _Nullable)buttonNames
+                        callback:(void (^ _Nullable)(float progress))callback
+                        complete:(void (^ _Nullable)(int errorCode))complete;
 ```
 ## <span id="9.0">AGPS file updates</span>
 * <p>AGPS file upgrade needs to be noted: 15 seconds after the hand ring connects app and the query GPS status is not running to update the AGPS file, otherwise it will cause update failure</p>
@@ -790,3 +804,56 @@ didWriteValueForCharacteristic:(CBCharacteristic *)characteristic
     [IDOBlueDataResponse didWriteValueForCharacteristic:characteristic error:error];
 }
 ```
+
+
+## <span id="12.0">Dial transmission manager</span>
+
+```objc
+// transmession dial file
+initWatchDialManager().addDialProgress(^(int progress) {
+            [funcVC showSyncProgress:progress/100.0f];
+}).addDialTransfer(^(int errorCode) {
+    if (errorCode == 0) {
+        
+    }else if (errorCode == 6) { // no supported
+        
+    }else {
+        
+    }
+}).filePath = strongSelf.filePath;
+[IDOWatchDialManager startDialTransfer];
+
+// get dial screen info
+initWatchDialManager().getDialScreenInfo(^(IDOWatchScreenInfoModel * _Nullable model, int errorCode) {
+    if (errorCode == 0) {
+       
+    }else if (errorCode == 6) { // no supported
+    
+    }else {      
+    
+    }
+});
+
+//get dial list info
+initWatchDialManager().getDialListInfo(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
+    if (errorCode == 0) {
+           
+    }else if (errorCode == 6) { // no supported
+        
+    }else {      
+        
+    }
+});
+
+// set current dial 
+initWatchDialManager().setCurrentDial(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
+     if (errorCode == 0) {
+                   
+     }else if (errorCode == 6) { // no supported
+            
+     }else {      
+            
+     }
+}, model);
+```
+

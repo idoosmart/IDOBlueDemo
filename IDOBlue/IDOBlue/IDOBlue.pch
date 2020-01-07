@@ -23,8 +23,8 @@
 #import <IDOBluetooth/IDOBluetooth.h>
 #elif __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #else
+#import "IDOBlueEnum.h"
 #import "IDOPeripheralModel.h"
-#import "IDOBluetoothManagerDelegate.h"
 #import "IDOBluetoothManager.h"
 #endif
 
@@ -32,7 +32,7 @@
 #import <IDOBlueUpdate/IDOBlueUpdate.h>
 #elif __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #else
-#import "IDOUpdateManagerDelegate.h"
+#import "IDOUpdateEnum.h"
 #import "IDOUpdateFirmwareManager.h"
 #endif
 
@@ -40,29 +40,41 @@
 #import <IDOBlueProtocol/IDOBlueProtocol.h>
 #elif __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #else
-
+#import "IDOSyncEnum.h"
+#import "IDOLogEnum.h"
+#import "IDOBindEnum.h"
+#import "IDOTranEnum.h"
 #import "IDOCommonMacro.h"
+
 #import "IDOBluetoothBaseModel.h"
+#import "IDOSyncSwimDataModel.h"
+#import "IDOSyncSpo2DataModel.h"
+#import "IDOSyncPressureDataModel.h"
+#import "IDOSyncActivityDataModel.h"
+#import "IDOSyncBpDataModel.h"
+#import "IDOSyncHeartRateDataModel.h"
+#import "IDOSyncSleepDataModel.h"
+#import "IDOSyncSportDataModel.h"
+#import "IDOSyncGpsDataModel.h"
 #import "IDODataExchangeModel.h"
 #import "IDOGetInfoBluetoothModel.h"
 #import "IDOSetInfoBluetoothModel.h"
-#import "IDOSyncInfoBluetoothModel.h"
 #import "IDOCalculateBluetoothModel.h"
 #import "IDOWeightBluetoothModel.h"
+#import "IDOWatchDialInfoModel.h"
+
 #import "IDOSyncManager.h"
-#import "IDOSyncConfig.h"
-#import "IDOSyncHealth.h"
-#import "IDOSyncBop.h"
-#import "IDOSyncActivity.h"
-#import "IDOSyncGps.h"
 #import "IDOBluetoothEngine.h"
 #import "IDOBluetoothServices.h"
 #import "IDOErrorCodeToStr.h"
 #import "IDORecordDeviceLog.h"
 #import "IDOBlueDataResponse.h"
+
 #import "IDOFoundationCommand.h"
 #import "IDODataMigrationManager.h"
-#import "IDOUpdateAgpsManager.h"
+#import "IDOTransferFileManager.h"
+#import "IDOWatchDialManager.h"
+#import "IDOMakePhotoManager.h"
 #endif
 
 #endif
@@ -72,6 +84,8 @@
 #define LANG_KEY @"lang_key" //语言
 #define RSSI_KEY @"ido_demo_rssi_key" //信号强弱
 #define HOME_NEED_SYNC @"home_need_sync" //首页是否需要同步
+#define IS_RESPONSE_KEY @"is_response_key"
+#define IS_SET_CONNECT_PARAMSERS @"is_set_connect_paramsers"
 #define FIRMWARE_FILE_PATH_KEY @"firmware_file_path_key" //固件文件路径
 #define TRAN_FILE_PATH_KEY @"tran_file_path_key" //传输文件路径
 #define SANDBOX_FILE_PATH_KEY @"sandbox_file_path_key" //沙盒文件路径

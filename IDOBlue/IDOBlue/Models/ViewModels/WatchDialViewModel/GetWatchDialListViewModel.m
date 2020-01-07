@@ -51,20 +51,20 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get watch dial list info")] ];
-        initWatchDialManager().getDialListInfo(^(NSArray<IDOWatchDialInfoModel *> * _Nullable models, int errorCode) {
+        initWatchDialManager().getDialListInfo(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:lang(@"get watch dial list info success")];
-                NSMutableArray * array = [NSMutableArray array];
-                for (IDOWatchDialManager * model in models) {
-                    NSDictionary * dic = model.dicFromObject;
-                    [array addObject:dic];
-                }
-                strongSelf.textView.text = [NSString stringWithFormat:@"%@",array];
-            }else if (errorCode == 6) {
-                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-            }else {
-                [funcVC showToastWithText:lang(@"get watch dial list info failed")];
-            }
+               [funcVC showToastWithText:lang(@"get watch dial list info success")];
+               NSMutableArray * array = [NSMutableArray array];
+               for (IDOWatchDialInfoItemModel * itemModel in model.dialArray) {
+                   NSDictionary * dic = itemModel.dicFromObject;
+                   [array addObject:dic];
+               }
+               strongSelf.textView.text = [NSString stringWithFormat:@"%@",array];
+           }else if (errorCode == 6) {
+               [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+           }else {
+               [funcVC showToastWithText:lang(@"get watch dial list info failed")];
+           }
         });
     };
 }

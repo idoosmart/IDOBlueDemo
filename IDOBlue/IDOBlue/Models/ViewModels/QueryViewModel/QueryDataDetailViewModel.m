@@ -544,7 +544,8 @@
        array = [IDOSyncHeartRateDataModel queryOneDaySecHearRatesDetailWithMac:self.macAddr
                                                                           year:self.year
                                                                          month:self.month
-                                                                           day:self.day];
+                                                                           day:self.day
+                                                                    isQueryItems:NO];
     }else {
        array = [IDOSyncHeartRateDataModel queryOneDayHearRatesDetailWithMac:self.macAddr
                                                                        year:self.year

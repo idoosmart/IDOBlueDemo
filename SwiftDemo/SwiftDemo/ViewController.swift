@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import IDOBlueProtocol
 import IDOBluetooth
-import IDOBlueUpdate
+
 
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,IDOBluetoothManagerDelegate {
@@ -52,6 +53,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                             let bindViewController = BindedViewController.init();
                             bindViewController.title = "func page";
                             let mainViewController = UINavigationController.init(rootViewController: bindViewController);
+                            mainViewController.navigationBar.backgroundColor = UIColor.white;
                             self.present(mainViewController, animated: true, completion: nil);
                         }
                     }else if state == IDO_BIND_STATUS.BLUETOOTH_BINDED { // binded

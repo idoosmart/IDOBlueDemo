@@ -394,6 +394,8 @@
 "please enable bluetooth to continue using the current app" = "please enable bluetooth to continue using the current app";
 "show log" = "show log:";
 "simulator data" = "simulator data:";
+"is response" = "is response:";
+"is set connection parameters" = "is set connection parameters:";
 /**
  add by xiongjie
  */
@@ -489,6 +491,10 @@
 "transfer dial file success" = "transfer dial file success";
 "transfer dial file failed"  = "transfer dial file failed";
 "watch dial function" = "watch dial function";
+"delete current dial" = "delete current dial";
+"delete current dial success" = "delete current dial success";
+"delete current dial failed" = "delete current dial failed";
+
 
 "get function list" = "get function list";
 "get function list success" = "get function list success";
@@ -613,7 +619,8 @@
 "reboot device..." = "reboot device...";
 "successful restart of equipment" = "successful restart of equipment";
 "failure to restart equipment" = "failure to restart equipment";
-
+"Camera" = "Camera";
+"Album" = "Album";
 
 /**
  data interchange
@@ -686,6 +693,8 @@
 "nordic update" = "nordic update";
 "realtk update" = "realtk update";
 "agps update" = "agps update";
+"word update" = "word update";
+"photo update" = "photo update";
 "selected firmware" = "files";
 "exit update" = "exit update";
 "reconnect" = "reconnect";
@@ -720,3 +729,22 @@
 "failure blood pressure measure" = "failure blood pressure measure";
 "device in sport mode" = "device in sport mode";
 "abnormal device measure" = "abnormal device measure";
+
+/**
+ 定制
+ */
+"set weather city name" = "set weather city name";
+"set weather city name success" = "set weather city name success";
+"set weather city name failed" = "set weather city name failed";
+"set weather real time data" = "set weather real time data";
+"weather type" = "weather type:";
+"weather temp" = "weather temp:";
+"data type" = "data type:";
+"set weather real time data success" = "set weather real time data success";
+"set weather real time data failed" = "set weather real time data failed";
+"sync iot button" = "sync iot button";
+"add iot button" = "add iot button";
+"button name" = "button name:";
+"sync iot button success" = "sync iot button success";
+"sync iot button failed" = "sync iot button failed";
+"please write button name" = "please write button name";
