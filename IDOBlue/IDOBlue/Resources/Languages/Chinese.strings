@@ -12,6 +12,10 @@
 "manual connect time" = "手动连接时长:";
 "auto connect time" = "自动连接时长:";
 "file update" = "文件升级:";
+"file type" = "文件类型:";
+"compression type" = "压缩类型:";
+"transfer complete" = "文件传输完成";
+"write complete" = "文件写入完成";
 "sync data" = "同步数据:";
 "scan device" = "扫描设备";
 "very hard scan" = "拼命扫描……";
@@ -105,6 +109,7 @@
 "current air index:" = "当天空气指数:";
 "auto mode" = "自动模式";
 "manual mode" = "手动模式";
+"continuously monitor" = "持续监测";
 "off" = "关闭";
 "invalid" = "无效";
 "km" = "千米";
@@ -137,6 +142,13 @@
 "korean" = "韩语";
 "hindi" = "印地语";
 "portuguese" = "葡萄牙语";
+"turkey"="土耳其语";
+"thai"="泰国语";
+"vietnamese"="越南语";
+"burmese"="缅甸语";
+"filipino"="菲律宾语";
+"traditional chinese"="繁体中文";
+"greek"="希腊语";
 
 "24 hours" = "24小时制";
 "12 hours" = "12小时制";
@@ -204,6 +216,7 @@
 "rowing machine" = "划船机";
 "high-intensity interval training" = "高强度间歇训练法";
 "eight motion sequences have been set" = "已设置8个运动排序";
+"fourteen motion sequences have been set" = "已设置14个运动排序";
 "cold start" = "冷启动";
 "hot start" = "热启动";
 "normal" = "正常";
@@ -381,6 +394,9 @@
 "set heart rate interval..." = "设置心率区间...";
 "set heart rate interval success" = "设置心率区间成功";
 "set heart rate interval failed" = "设置心率区间失败";
+"min heart rate" = "最小心率:";
+"set max hr remind switch" = "设置最大心率提醒开关:";
+"set min hr remind switch" = "设置最小心率提醒开关:";
 "burn fat:" = "燃烧脂肪:";
 "aerobic exercise:" = "有氧锻炼:";
 "warm up:" = "热身运动:";
@@ -399,6 +415,35 @@
 "simulator data" = "模拟数据:";
 "is response" = "是否启动响应:";
 "is set connection parameters" = "是否设置连接参数:";
+"set drink water reminder" = "设置喝水提醒";
+"set interval length" = "设置分钟间隔时长";
+"set drink water reminder success" = "设置喝水提醒成功";
+"set drink water reminder failed" = "设置喝水提醒失败";
+"set v3 heart rate mode" = "设置v3心率模式";
+"set v3 heart rate mode success" = "设置v3心率模式成功";
+"set v3 heart rate mode failed" = "设置v3心率模式失败";
+"walk on off" = "走路提醒开关";
+"run on off" = "跑步提醒开关";
+"bicycle on off" = "骑行提醒开关";
+"auto pause on off" = "运动自动暂停开关";
+"end remind on off" = "结束提醒开关";
+"set sport identify switch" = "设置运动识别";
+"set sport identify switch success" = "设置运动识别成功";
+"set sport identify switch failed" = "设置运动识别失败";
+"set spo2 switch" = "设置血氧开关";
+"set spo2 switch success" = "设置血氧开关成功";
+"set spo2 switch failed" = "设置血氧开关失败";
+"set breathe train" = "设置呼吸训练";
+"set breathe train success" = "设置呼吸训练成功";
+"set breathe train failed" = "设置呼吸训练失败";
+"set walk reminder" = "设置走动提醒";
+"set walk reminder target" = "设置提醒步数目标";
+"set walk reminder success" = "设置走动提醒成功";
+"set walk reminder failed" = "设置走动提醒失败";
+"set pressure switch" = "设置压力开关";
+"set pressure switch success" = "设置压力开关成功";
+"set pressure switch failed" = "设置压力开关失败";
+
 /**
  add by xiongjie 
  */
@@ -498,7 +543,7 @@
 "delete current dial success" = "删除当前表盘成功";
 "delete current dial failed" = "删除当前表盘失败";
 
-
+//get function
 "get function list" = "获取功能列表";
 "get function list success" = "获取功能列表成功";
 "get function list failed" = "获取功能列表失败";
@@ -536,6 +581,69 @@
 "the number of stars" = "星星个数";
 "get the number of stars success" = "获取星星个数成功";
 "get the number of stars failed" = "获取星星个数失败";
+"get flash info" = "获取字库信息";
+"get battery info" = "获取电池信息";
+"get flash info success" = "获取字库信息成功";
+"get flash info failed" = "获取字库信息失败";
+"get battery info success" = "获取电池信息成功";
+"get battery info failed" = "获取电池信息失败";
+"get default language" = "获取默认语言";
+"get default language success" = "获取默认语言成功";
+"get default language failed" = "获取默认语言失败";
+"get five heart rate" = "获取五个心率";
+"get five heart rate success" = "获取五个心率成功";
+"get five heart rate failed" = "获取五个心率失败";
+"get default sport type" = "获取默认运动类型";
+"get default sport type success" = "获取默认运动类型成功";
+"get default sport type failed" = "获取默认运动类型失败";
+"get error log state" = "获取错误日志状态";
+"get error log state success" = "获取错误日志状态成功";
+"get error log state falied" = "获取错误日志状态失败";
+"get v3 alarms info" = "获取v3闹钟数据";
+"get v3 alarms info success" = "获取v3闹钟数据成功";
+"get v3 alarms info failed" = "获取v3闹钟数据失败";
+"get v3 heart rate mode" = "获取v3心率模式";
+"get v3 heart rate mode success" = "获取v3心率模式成功";
+"get v3 heart rate mode failed" = "获取v3心率模式失败";
+"get blue mtu info" = "获取mtu信息";
+"get blue mtu info success" = "获取mtu信息成功";
+"get blue mtu info failed" = "获取mtu信息失败";
+"get over heat log" = "获取过热日志";
+"get over heat log success" = "获取过热日志成功";
+"get over heat log failed" = "获取过热日志失败";
+//语音控制
+"please speak" = "请对着手环说话";
+"listen voice data" = "监听语音数据";
+"voice control" = "语音控制";
+"get menu list" = "获取菜单列表";
+"get menu list success" = "获取菜单成功";
+"get menu list failed" = "获取菜单失败";
+"set menu list" = "设置菜单列表";
+"set menu list success" = "设置菜单成功";
+"set menu list failed" = "设置菜单失败";
+"steps" = "步数";
+"heart rate" = "心率";
+"sleep" = "睡眠";
+"picture" = "拍照";
+"alarm clock" = "闹钟";
+"music" = "音乐";
+"stopwatch" = "秒表";
+"timer" = "计时器";
+"exercise mode" = "运动模式";
+"weather" = "天气";
+"breathing exercise" = "呼吸训练";
+"find mobile phone" = "寻找手机";
+"pressure" = "压力";
+"data tricycle" = "数据三环";
+"time interface" = "时间界面";
+"on" = "开";
+"previous" = "上一曲";
+"next" = "下一曲";
+"increase volume" = "增加音量";
+"decrease volume" = "减少音量";
+"play music" = "播放音乐";
+"pause music" = "暂停音乐";
+"set page jump" = "设置页面跳转";
 
 /*******/
 "data to json" = "数据转json";
@@ -586,9 +694,16 @@
  */
 "command log" = "命令日志";
 "restart log" = "重启日志";
+"flash log" = "flash日志";
 "get log" = "获取日志";
 "get the device logs..." = "获取设备日志...";
 "get device log completion" = "获取设备日志完成";
+"get general log" = "获取通用日志";
+"get reset log" = "获取复位日志";
+"get algorithm log" = "获取算法日志";
+"get hardware log" = "获取硬件日志";
+"get flash log complete" = "获取flash日志完成";
+"get flash log failed" = "获取flash日志失败";
 
 /**
  ControlView
@@ -608,10 +723,14 @@
 "setting music open..." = "设置音乐开启...";
 "setting music to open successfully" = "设置音乐开启成功";
 "failed to set music on" = "设置音乐开启失败";
-"setting up ANCS notification" = "设置ANCS通知";
-"setting up ANCS notification..." = "设置ANCS通知...";
-"successful setting of ANCS notification" = "设置ANCS通知成功";
-"failure to set up ANCS notification" = "设置ANCS通知失败";
+"open ANCS notification" = "开启ANCS通知";
+"open ANCS notification..." = "开启ANCS通知...";
+"open ANCS notification success" = "开启ANCS通知成功";
+"oepn ANCS notification failed" = "开启ANCS通知失败";
+"close ANCS notification" = "关闭ANCS通知";
+"close ANCS notification..." = "关闭ANCS通知...";
+"close ANCS notification success" = "关闭ANCS通知成功";
+"close ANCS notification failed" = "关闭ANCS通知失败";
 "setting default configuration" = "设置默认配置";
 "setting default configuration..." = "设置默认配置...";
 "setting the default configuration successfully" = "设置默认配置成功";
@@ -622,6 +741,40 @@
 "failure to restart equipment" = "重启设备失败";
 "Camera" = "相机";
 "Album" = "相册";
+"set sport type" = "活动类型";
+"set sport type success" = "设置活动类型成功";
+"set sport type failed" = "设置活动类型失败";
+"set real time hr" = "实时心率";
+"set real time hr success" = "设置实时心率成功";
+"set real time hr failed" = "设置实时心率失败";
+"set no disturb" = "勿扰模式";
+"set no disturb success" = "设置勿扰模式成功";
+"set no disturb failed" = "设置勿扰模式失败";
+"set wrist bright screen" = "抬腕亮屏";
+"set wrist bright screen success" = "设置抬腕亮屏成功";
+"set wrist bright screen failed" = "设置抬腕亮屏失败";
+"set music control"="音乐控制";
+"set music control success" = "设置音乐控制成功";
+"set music control failed" = "设置音乐控制失败";
+"screen brightness"="屏幕亮度";
+"set stopwatch"="秒表设置";
+"set countdown"="计时设置";
+"heart rate detection"="心率检测";
+"pressure detection"="压力检测";
+"breathing training"="呼吸训练";
+"sleep record"="睡眠记录";
+"sport record"="运动记录";
+"weather interface"="天气界面";
+"find phone"="寻找手机";
+"black screen"="控制灭屏";
+"reboot control"="重启界面";
+"message interface"="消息界面";
+"set page jump success" = "设置页面跳转成功";
+"set page jump failed" = "设置页面跳转失败";
+"voice start" = "开始语音";
+"voice end" = "语音结束";
+"voice failed" = "语音失败";
+"voice play" = "播放声音";
 
 /**
  data interchange
@@ -692,6 +845,7 @@
  */
 "nordic update" = "nordic升级";
 "realtk update" = "realtk升级";
+"apollo update" = "apollo升级";
 "agps update" = "agps更新";
 "word update" = "字库更新";
 "photo update" = "壁纸更新";

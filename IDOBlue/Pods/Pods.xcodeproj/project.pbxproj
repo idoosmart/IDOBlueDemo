@@ -1,0 +1,718 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		1470A35463C56EA6B82BFB6076FF02B5 /* IDOBlueProtocol */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E7FA4B665526E0559A4C4737AE4699EC /* Build configuration list for PBXAggregateTarget "IDOBlueProtocol" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = IDOBlueProtocol;
+		};
+		9F0B1C4EAD78EA7E9A28A2F002DDD446 /* IDOBlueUpdate */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 49DC6135A221F830B1086FAB66A9FBF4 /* Build configuration list for PBXAggregateTarget "IDOBlueUpdate" */;
+			buildPhases = (
+			);
+			dependencies = (
+				88F820653EA134AB625C69F68A873856 /* PBXTargetDependency */,
+			);
+			name = IDOBlueUpdate;
+		};
+		D08A032977CC88740693EDD46D90D8D4 /* IDOBluetooth */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AE0107C5661BEE3E34C6563121824230 /* Build configuration list for PBXAggregateTarget "IDOBluetooth" */;
+			buildPhases = (
+			);
+			dependencies = (
+				2730ECE75FA7B86666A5F4BBEEC84473 /* PBXTargetDependency */,
+			);
+			name = IDOBluetooth;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		105F5D0BFC411F93C0E877A1606843FA /* Pods-IDOBlue-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EA82D2648081A856F63313D6A8163E4 /* Pods-IDOBlue-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		42354B00561E1831D409098AF0602675 /* Pods-IDOBlue-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB6BF622215C74B21C9CFA31CEED92 /* Pods-IDOBlue-dummy.m */; };
+		60358B5E8B23CEAE406FDF749F93A737 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1EA051E2D590AA57D75E7110F1285929 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D08A032977CC88740693EDD46D90D8D4;
+			remoteInfo = IDOBluetooth;
+		};
+		509D2212B8AD464B39030FF932BB6028 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1470A35463C56EA6B82BFB6076FF02B5;
+			remoteInfo = IDOBlueProtocol;
+		};
+		6A0632EE72DA787F00A8FF80B7C28CBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F0B1C4EAD78EA7E9A28A2F002DDD446;
+			remoteInfo = IDOBlueUpdate;
+		};
+		79DA2DAFDC149939C3A27E7435FC5CF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1470A35463C56EA6B82BFB6076FF02B5;
+			remoteInfo = IDOBlueProtocol;
+		};
+		80B84859F1BA31DDCA68EFE21F831625 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1470A35463C56EA6B82BFB6076FF02B5;
+			remoteInfo = IDOBlueProtocol;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		16FDC354609712EEEA11CBE9B17E9132 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDOBluetooth.framework; sourceTree = "<group>"; };
+		1F130A62FA12CCC0432411E82EF048FF /* Pods-IDOBlue-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-IDOBlue-acknowledgements.markdown"; sourceTree = "<group>"; };
+		22FF246D9E7945E7985FAFC651DA589D /* Pods-IDOBlue.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-IDOBlue.modulemap"; sourceTree = "<group>"; };
+		252314ECABA651F8284C25379923A676 /* Pods_IDOBlue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_IDOBlue.framework; path = "Pods-IDOBlue.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E43BD9D6FD05BA01CE821AEC62D8CBC /* Pods-IDOBlue-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-IDOBlue-frameworks.sh"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		32C511768430E2BC16E29E047F07E0A3 /* IDOBlueUpdate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueUpdate.debug.xcconfig; sourceTree = "<group>"; };
+		3EBF20FE50E944213BCE8D96C0DDC5D8 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDOBlueProtocol.framework; sourceTree = "<group>"; };
+		442B44E08D5ABA7995802D98B8363ED0 /* IDOBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBluetooth.release.xcconfig; sourceTree = "<group>"; };
+		4EA82D2648081A856F63313D6A8163E4 /* Pods-IDOBlue-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-IDOBlue-umbrella.h"; sourceTree = "<group>"; };
+		5D7479B4D8291AA8F65E7439C5F52A52 /* Pods-IDOBlue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IDOBlue.debug.xcconfig"; sourceTree = "<group>"; };
+		6E465154C9977AA88E7CC19850F25CFB /* Pods-IDOBlue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IDOBlue.release.xcconfig"; sourceTree = "<group>"; };
+		94EB6BF622215C74B21C9CFA31CEED92 /* Pods-IDOBlue-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-IDOBlue-dummy.m"; sourceTree = "<group>"; };
+		98F33ED9EDE729DBC14041457C5661AD /* Pods-IDOBlue-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-IDOBlue-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B07D58377320234553DD2F75A11330C3 /* IDOBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBluetooth.debug.xcconfig; sourceTree = "<group>"; };
+		B84C6E1DBA64CD531BE067E04383A3DD /* IDOBlueProtocol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueProtocol.release.xcconfig; sourceTree = "<group>"; };
+		CE0660B60000C72C9FEB766992FF7CE0 /* IDOBlueProtocol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueProtocol.debug.xcconfig; sourceTree = "<group>"; };
+		D33D0BA6B3D1BF5084B78FAE79F16E8D /* Pods-IDOBlue-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-IDOBlue-acknowledgements.plist"; sourceTree = "<group>"; };
+		ECB4F207ED28037FD7498D091EF18B51 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDOBlueUpdate.framework; sourceTree = "<group>"; };
+		ED74E418ED2492FB3188B29253C87E1B /* IDOBlueUpdate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueUpdate.release.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EBBC51E9B2A0124648B06276A74082FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60358B5E8B23CEAE406FDF749F93A737 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		544C093584BA9B55FAD51AA80F0A1F37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECB4F207ED28037FD7498D091EF18B51 /* IDOBlueUpdate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C6C0BFFC263B1AD6A497A4719D7B46B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE0660B60000C72C9FEB766992FF7CE0 /* IDOBlueProtocol.debug.xcconfig */,
+				B84C6E1DBA64CD531BE067E04383A3DD /* IDOBlueProtocol.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IDOBlueProtocol";
+			sourceTree = "<group>";
+		};
+		5F3C763C4C8E0155B1DA7273062FDD39 /* IDOBlueProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				9F8D624170B904CB92F5CEA15C202298 /* Frameworks */,
+				5C6C0BFFC263B1AD6A497A4719D7B46B /* Support Files */,
+			);
+			name = IDOBlueProtocol;
+			path = IDOBlueProtocol;
+			sourceTree = "<group>";
+		};
+		614116DA540396E23D91B54E512E5829 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B74C704AD685CD5B830C035F52FF001B /* Pods-IDOBlue */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		67BDB75C5085145860AAD42BBC4589C7 /* IDOBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8358DAF0D3F08AB1046E358C14D9B166 /* Frameworks */,
+				6FE0C9C41CD9ADC2BA8E7849FE195D9E /* Support Files */,
+			);
+			name = IDOBluetooth;
+			path = IDOBluetooth;
+			sourceTree = "<group>";
+		};
+		6FE0C9C41CD9ADC2BA8E7849FE195D9E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B07D58377320234553DD2F75A11330C3 /* IDOBluetooth.debug.xcconfig */,
+				442B44E08D5ABA7995802D98B8363ED0 /* IDOBluetooth.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IDOBluetooth";
+			sourceTree = "<group>";
+		};
+		8358DAF0D3F08AB1046E358C14D9B166 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16FDC354609712EEEA11CBE9B17E9132 /* IDOBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F8D624170B904CB92F5CEA15C202298 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3EBF20FE50E944213BCE8D96C0DDC5D8 /* IDOBlueProtocol.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B74C704AD685CD5B830C035F52FF001B /* Pods-IDOBlue */ = {
+			isa = PBXGroup;
+			children = (
+				22FF246D9E7945E7985FAFC651DA589D /* Pods-IDOBlue.modulemap */,
+				1F130A62FA12CCC0432411E82EF048FF /* Pods-IDOBlue-acknowledgements.markdown */,
+				D33D0BA6B3D1BF5084B78FAE79F16E8D /* Pods-IDOBlue-acknowledgements.plist */,
+				94EB6BF622215C74B21C9CFA31CEED92 /* Pods-IDOBlue-dummy.m */,
+				2E43BD9D6FD05BA01CE821AEC62D8CBC /* Pods-IDOBlue-frameworks.sh */,
+				98F33ED9EDE729DBC14041457C5661AD /* Pods-IDOBlue-Info.plist */,
+				4EA82D2648081A856F63313D6A8163E4 /* Pods-IDOBlue-umbrella.h */,
+				5D7479B4D8291AA8F65E7439C5F52A52 /* Pods-IDOBlue.debug.xcconfig */,
+				6E465154C9977AA88E7CC19850F25CFB /* Pods-IDOBlue.release.xcconfig */,
+			);
+			name = "Pods-IDOBlue";
+			path = "Target Support Files/Pods-IDOBlue";
+			sourceTree = "<group>";
+		};
+		BF50D1DFDAD18F59A32BB46225FF1A8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				252314ECABA651F8284C25379923A676 /* Pods_IDOBlue.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				FAF3851F87B5EC68CB57E358FBF9B7EA /* Pods */,
+				BF50D1DFDAD18F59A32BB46225FF1A8F /* Products */,
+				614116DA540396E23D91B54E512E5829 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFA2289522EDCC8A06BC13F58FC588E7 /* IDOBlueUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				544C093584BA9B55FAD51AA80F0A1F37 /* Frameworks */,
+				FD019EEDCFB302BEC5185C3DC112F988 /* Support Files */,
+			);
+			name = IDOBlueUpdate;
+			path = IDOBlueUpdate;
+			sourceTree = "<group>";
+		};
+		FAF3851F87B5EC68CB57E358FBF9B7EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F3C763C4C8E0155B1DA7273062FDD39 /* IDOBlueProtocol */,
+				67BDB75C5085145860AAD42BBC4589C7 /* IDOBluetooth */,
+				EFA2289522EDCC8A06BC13F58FC588E7 /* IDOBlueUpdate */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD019EEDCFB302BEC5185C3DC112F988 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				32C511768430E2BC16E29E047F07E0A3 /* IDOBlueUpdate.debug.xcconfig */,
+				ED74E418ED2492FB3188B29253C87E1B /* IDOBlueUpdate.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IDOBlueUpdate";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2A4644E009657818D9AEE168EB25E9E3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				105F5D0BFC411F93C0E877A1606843FA /* Pods-IDOBlue-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5A9948681F52B9D8168C03E3738194CC /* Pods-IDOBlue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A95BB1EE7100823446478ED0D25A808 /* Build configuration list for PBXNativeTarget "Pods-IDOBlue" */;
+			buildPhases = (
+				2A4644E009657818D9AEE168EB25E9E3 /* Headers */,
+				652DB30196C3EBF4A1CA3DB7F5D01727 /* Sources */,
+				EBBC51E9B2A0124648B06276A74082FE /* Frameworks */,
+				78555DD5AFEC36592C523D9589465665 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD95CE8C3C91EA1C34FD959B5EE34DB7 /* PBXTargetDependency */,
+				927D8ABF47C7AD0F7189346E9684AB91 /* PBXTargetDependency */,
+				F3089AA25266BF94D9ACF70E3FB33A7B /* PBXTargetDependency */,
+			);
+			name = "Pods-IDOBlue";
+			productName = "Pods-IDOBlue";
+			productReference = 252314ECABA651F8284C25379923A676 /* Pods_IDOBlue.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = BF50D1DFDAD18F59A32BB46225FF1A8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1470A35463C56EA6B82BFB6076FF02B5 /* IDOBlueProtocol */,
+				D08A032977CC88740693EDD46D90D8D4 /* IDOBluetooth */,
+				9F0B1C4EAD78EA7E9A28A2F002DDD446 /* IDOBlueUpdate */,
+				5A9948681F52B9D8168C03E3738194CC /* Pods-IDOBlue */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		78555DD5AFEC36592C523D9589465665 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		652DB30196C3EBF4A1CA3DB7F5D01727 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42354B00561E1831D409098AF0602675 /* Pods-IDOBlue-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2730ECE75FA7B86666A5F4BBEEC84473 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IDOBlueProtocol;
+			target = 1470A35463C56EA6B82BFB6076FF02B5 /* IDOBlueProtocol */;
+			targetProxy = 79DA2DAFDC149939C3A27E7435FC5CF7 /* PBXContainerItemProxy */;
+		};
+		88F820653EA134AB625C69F68A873856 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IDOBlueProtocol;
+			target = 1470A35463C56EA6B82BFB6076FF02B5 /* IDOBlueProtocol */;
+			targetProxy = 509D2212B8AD464B39030FF932BB6028 /* PBXContainerItemProxy */;
+		};
+		927D8ABF47C7AD0F7189346E9684AB91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IDOBlueUpdate;
+			target = 9F0B1C4EAD78EA7E9A28A2F002DDD446 /* IDOBlueUpdate */;
+			targetProxy = 6A0632EE72DA787F00A8FF80B7C28CBC /* PBXContainerItemProxy */;
+		};
+		F3089AA25266BF94D9ACF70E3FB33A7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IDOBluetooth;
+			target = D08A032977CC88740693EDD46D90D8D4 /* IDOBluetooth */;
+			targetProxy = 1EA051E2D590AA57D75E7110F1285929 /* PBXContainerItemProxy */;
+		};
+		FD95CE8C3C91EA1C34FD959B5EE34DB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IDOBlueProtocol;
+			target = 1470A35463C56EA6B82BFB6076FF02B5 /* IDOBlueProtocol */;
+			targetProxy = 80B84859F1BA31DDCA68EFE21F831625 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0771B45D880ADE73DF7F46EC3DDCB853 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED74E418ED2492FB3188B29253C87E1B /* IDOBlueUpdate.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0986BFA1FA4E09F7A33ADABC46744389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E465154C9977AA88E7CC19850F25CFB /* Pods-IDOBlue.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-IDOBlue/Pods-IDOBlue-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-IDOBlue/Pods-IDOBlue.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		09EC90F0BC6AF3399F3F353E8B299E5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B07D58377320234553DD2F75A11330C3 /* IDOBluetooth.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0F2B4815FFA32158694D93734797BBB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE0660B60000C72C9FEB766992FF7CE0 /* IDOBlueProtocol.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		125999DD93BFEEB5618F7C44977C4563 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32C511768430E2BC16E29E047F07E0A3 /* IDOBlueUpdate.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		6ED86656471325CB9FE31A61695D10D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D7479B4D8291AA8F65E7439C5F52A52 /* Pods-IDOBlue.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-IDOBlue/Pods-IDOBlue-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-IDOBlue/Pods-IDOBlue.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B723F32602E4A5B38AC33A6F61ED99D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B84C6E1DBA64CD531BE067E04383A3DD /* IDOBlueProtocol.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EBBE977AEE108DC93D5C84C15E22494D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 442B44E08D5ABA7995802D98B8363ED0 /* IDOBluetooth.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF7227D9B20A1D549000096ACCB23D7 /* Debug */,
+				4BE66A09A74FD25164AAB3C2645B9B93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49DC6135A221F830B1086FAB66A9FBF4 /* Build configuration list for PBXAggregateTarget "IDOBlueUpdate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				125999DD93BFEEB5618F7C44977C4563 /* Debug */,
+				0771B45D880ADE73DF7F46EC3DDCB853 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A95BB1EE7100823446478ED0D25A808 /* Build configuration list for PBXNativeTarget "Pods-IDOBlue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6ED86656471325CB9FE31A61695D10D8 /* Debug */,
+				0986BFA1FA4E09F7A33ADABC46744389 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE0107C5661BEE3E34C6563121824230 /* Build configuration list for PBXAggregateTarget "IDOBluetooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09EC90F0BC6AF3399F3F353E8B299E5B /* Debug */,
+				EBBE977AEE108DC93D5C84C15E22494D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7FA4B665526E0559A4C4737AE4699EC /* Build configuration list for PBXAggregateTarget "IDOBlueProtocol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F2B4815FFA32158694D93734797BBB9 /* Debug */,
+				B723F32602E4A5B38AC33A6F61ED99D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

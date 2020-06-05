@@ -12,7 +12,6 @@
 #import "FileViewModel.h"
 #import "FuncViewModel.h"
 #import "IDOConsoleBoard.h"
-#import "Masonry.h"
 #import "UIScrollView+Refresh.h"
 
 @interface FuncViewController ()
@@ -85,7 +84,7 @@
                 __strong typeof(self) strongSelf = weakSelf;
                 [strongSelf showToastWithText:lang(@"sync data failed")];
                 [strongSelf.tableView endSyncDataRefresh];
-            }).mandatorySyncConfig(NO);
+            }).mandatorySyncConfig(YES);
             if(__IDO_BIND__ && !__IDO_PAIRING__)[IDOSyncManager startSync];
         }];
     }
@@ -97,7 +96,6 @@
     [headView addSubview:self.timerLabel];
     self.tableView.tableHeaderView = headView;
     if (self.model.isFootButton)self.tableView.tableFooterView = self.footButton;
-    
 }
 
 - (void)startSync

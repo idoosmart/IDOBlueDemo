@@ -9,7 +9,6 @@
 #import "OneButtonTableViewCell.h"
 #import "FuncCellModel.h"
 #import "IDODemoUtility.h"
-#import "Masonry.h"
 
 @interface OneButtonTableViewCell()
 @property (nonatomic,strong) FuncCellModel * funcCellModel;

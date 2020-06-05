@@ -7,7 +7,6 @@
 //
 
 #import "SliderTableViewCell.h"
-#import "Masonry.h"
 #import "IDODemoUtility.h"
 #import "SliderCellModel.h"
 

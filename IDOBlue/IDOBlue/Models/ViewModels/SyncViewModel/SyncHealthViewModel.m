@@ -65,62 +65,46 @@
         }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
             [funcVC showSyncProgress:progress];
         }).addSyncFailed(^(int errorCode) {
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
-                TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                model.data = @[newLogStr?:@""];
-                strongSelf.textView.text = newLogStr;
-            };
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+            model.data = @[newLogStr?:@""];
+            strongSelf.textView.text = newLogStr;
             [funcVC showToastWithText:lang(@"sync data failed")];
         }).addSyncSwim(^(NSString * jsonStr){
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-                TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                model.data = @[newLogStr?:@""];
-                strongSelf.textView.text = newLogStr;
-            }
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+            model.data = @[newLogStr?:@""];
+            strongSelf.textView.text = newLogStr;
         }).addSyncHeartRate(^(NSString * jsonStr){
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-                TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                model.data = @[newLogStr?:@""];
-                strongSelf.textView.text = newLogStr;
-            }
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+            model.data = @[newLogStr?:@""];
+            strongSelf.textView.text = newLogStr;
         }).addSyncBloodOxygen(^(NSString * jsonStr){
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-                TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                model.data = @[newLogStr?:@""];
-                strongSelf.textView.text = newLogStr;
-            }
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+            model.data = @[newLogStr?:@""];
+            strongSelf.textView.text = newLogStr;
         }).addSyncBp(^(NSString * jsonStr){
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-                TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                model.data = @[newLogStr?:@""];
-                strongSelf.textView.text = newLogStr;
-            }
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+            model.data = @[newLogStr?:@""];
+            strongSelf.textView.text = newLogStr;
         }).addSyncSleep(^(NSString * jsonStr){
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-                TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                model.data = @[newLogStr?:@""];
-                strongSelf.textView.text = newLogStr;
-            }
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+            model.data = @[newLogStr?:@""];
+            strongSelf.textView.text = newLogStr;
         }).addSyncSport(^(NSString * jsonStr){
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-                TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                model.data = @[newLogStr?:@""];
-                strongSelf.textView.text = newLogStr;
-            }
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+            model.data = @[newLogStr?:@""];
+            strongSelf.textView.text = newLogStr;
         }).addSyncPressure(^(NSString * jsonStr){
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
-                TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                model.data = @[newLogStr?:@""];
-                strongSelf.textView.text = newLogStr;
-            }
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+            model.data = @[newLogStr?:@""];
+            strongSelf.textView.text = newLogStr;
         }).mandatorySyncConfig(NO);
         [IDOSyncManager startSync];
     };

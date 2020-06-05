@@ -36,11 +36,7 @@
         self.rightButtonTitle = @"🔒";
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
-        IDOSetTimeInfoBluetoothModel * time = [IDOSetTimeInfoBluetoothModel new];
-        self.year  = time.year;
-        self.month = time.month;
-        self.day   = time.day;
-        self.week  = 0;
+        [self initTime];
         [self getTextViewCallback];
         [self getButtonCallback];
         [self getCellModels];
@@ -57,6 +53,18 @@
         self.macAddr = @"";
         [sender setTitle:@"🔒"];
     }
+}
+
+- (void)initTime
+{
+    IDOSetTimeInfoBluetoothModel * time = [IDOSetTimeInfoBluetoothModel new];
+    if (__IDO_FUNCTABLE__.funcTable28Model.utcTimeZone) {
+        time = [IDOSetTimeInfoBluetoothModel getCurrentUtcTimeModel];
+    }
+    self.year  = time.year;
+    self.month = time.month;
+    self.day   = time.day;
+    self.week  = 0;
 }
 
 - (void)getCellModels
@@ -100,10 +108,10 @@
 - (void)setTimeType:(NSInteger)timeType
 {
     _timeType = timeType;
+    FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
     switch (_timeType) {
         case 0:
         {
-            FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
             NSIndexPath * indexPath1 = [NSIndexPath indexPathForRow:1 inSection:0];
             NSIndexPath * indexPath2 = [NSIndexPath indexPathForRow:2 inSection:0];
             FuncCellModel * model1 = [self.cellModels objectAtIndex:1];
@@ -115,7 +123,6 @@
             break;
         case 1:
         {
-            FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
             NSIndexPath * indexPath1 = [NSIndexPath indexPathForRow:1 inSection:0];
             NSIndexPath * indexPath2 = [NSIndexPath indexPathForRow:2 inSection:0];
             FuncCellModel * model1 = [self.cellModels objectAtIndex:1];
@@ -127,7 +134,6 @@
             break;
         case 2:
         {
-            FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
             NSIndexPath * indexPath1 = [NSIndexPath indexPathForRow:1 inSection:0];
             NSIndexPath * indexPath2 = [NSIndexPath indexPathForRow:2 inSection:0];
             FuncCellModel * model1 = [self.cellModels objectAtIndex:1];
@@ -139,7 +145,6 @@
             break;
         case 3:
         {
-            FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
             NSIndexPath * indexPath1 = [NSIndexPath indexPathForRow:1 inSection:0];
             NSIndexPath * indexPath2 = [NSIndexPath indexPathForRow:2 inSection:0];
             FuncCellModel * model1 = [self.cellModels objectAtIndex:1];
@@ -151,7 +156,6 @@
             break;
         case 4:
         {
-            FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
             TextViewCellModel * model1 = [self.cellModels firstObject];
             FuncCellModel * model2 = [self.cellModels objectAtIndex:1];
             model2.data = @[lang(@"query all data")];
@@ -170,6 +174,8 @@
     self.textViewCallback = ^(UITextView *textView) {
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.textView = textView;
+        FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
+        [strongSelf queryHealthWtithVc:funcVc];
     };
 }
 
@@ -185,53 +191,16 @@
         if (funcModel.index == 0) {
             if (strongSelf.timeType == 0) {//上一年
                 strongSelf.year --;
-                if (strongSelf.dataType == 0) {//步数
-                   [strongSelf querySportsYearDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 1) {//心率
-                   [strongSelf queryHrsYearDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 2) {//血压
-                   [strongSelf queryBpsYearDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 3) {//睡眠
-                   [strongSelf querySleepsYearDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 4) {//血氧
-                   [strongSelf queryBopsYearDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 5) {//压力
-                   [strongSelf queryPressuresYearDataWtithVc:funcVc];
-                }
             }else if (strongSelf.timeType == 1) {//上一月
                 strongSelf.month --;
                 if (strongSelf.month == 0) {
                     strongSelf.month = 12;
                     strongSelf.year --;
                 }
-                if (strongSelf.dataType == 0) {//步数
-                    [strongSelf querySportsMonthDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 1) {//心率
-                    [strongSelf queryHrsMonthDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 2) {//血压
-                    [strongSelf queryBpsMonthDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 3) {//睡眠
-                    [strongSelf querySleepsMonthDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 4) {//血氧
-                    [strongSelf queryBopsMonthDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 5) {//压力
-                    [strongSelf queryPressuresMonthDataWtithVc:funcVc];
-                }
+                
             }else if (strongSelf.timeType == 2) {//上一周
                 strongSelf.week ++;
-                if (strongSelf.dataType == 0) {//步数
-                    [strongSelf querySportsWeekDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 1) {//心率
-                    [strongSelf querySportsWeekDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 2) {//血压
-                    [strongSelf queryBpsWeekDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 3) {//睡眠
-                    [strongSelf querySportsWeekDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 4) {//血氧
-                    [strongSelf queryBopsWeekDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 5) {//压力
-                    [strongSelf queryPressuresWeekDataWtithVc:funcVc];
-                }
+                
             }else if (strongSelf.timeType == 3) {//上一日
                 strongSelf.day --;
                 if (strongSelf.day == 0) {
@@ -242,84 +211,21 @@
                         strongSelf.year --;
                     }
                 }
-                if (strongSelf.dataType == 0) {//步数
-                    [strongSelf querySportsDayDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 1) {//心率
-                    [strongSelf queryHrsDayDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 2) {//血压
-                    [strongSelf queryBpsDayDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 3) {//睡眠
-                    [strongSelf querySleepsDayDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 4) {//血氧
-                    [strongSelf queryBopsDayDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 5) {//压力
-                    [strongSelf queryPressuresDayDataWtithVc:funcVc];
-                }
-            }else if (strongSelf.timeType == 4) {//所有数据
-                if (strongSelf.dataType == 0) {//步数
-                    [strongSelf queryAllSportsDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 1) {//心率
-                    [strongSelf queryAllHrsDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 2) {//血压
-                    [strongSelf queryAllBpsDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 3) {//睡眠
-                    [strongSelf queryAllSleepcsDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 4) {//血氧
-                    [strongSelf queryAllBopsDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 5) {//压力
-                    [strongSelf queryAllPressuresDataWtithVc:funcVc];
-                }
             }
+            [strongSelf queryHealthWtithVc:funcVc];
         }else {
             if (strongSelf.timeType == 0) {//下一年
                 strongSelf.year ++;
-                if (strongSelf.dataType == 0) {//步数
-                    [strongSelf querySportsYearDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 1) {//心率
-                    [strongSelf queryHrsYearDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 2) {//血压
-                    [strongSelf queryBpsYearDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 3) {//睡眠
-                    [strongSelf querySleepsYearDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 4) {//血氧
-                    [strongSelf queryBopsYearDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 5) {//压力
-                    [strongSelf queryPressuresYearDataWtithVc:funcVc];
-                }
+                
             }else if (strongSelf.timeType == 1) {//下一月
                 strongSelf.month ++;
                 if (strongSelf.month > 12) {
                     strongSelf.month = 1;
                     strongSelf.year ++;
                 }
-                if (strongSelf.dataType == 0) {//步数
-                    [strongSelf querySportsMonthDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 1) {//心率
-                    [strongSelf queryHrsMonthDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 2) {//血压
-                    [strongSelf queryBpsMonthDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 3) {//睡眠
-                    [strongSelf querySleepsMonthDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 4) {//血氧
-                    [strongSelf queryBopsMonthDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 5) {//压力
-                    [strongSelf queryPressuresMonthDataWtithVc:funcVc];
-                }
             }else if (strongSelf.timeType == 2) {//下一周
                 strongSelf.week --;
-                if (strongSelf.dataType == 0) {//步数
-                    [strongSelf querySportsWeekDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 1) {//心率
-                    [strongSelf querySportsWeekDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 2) {//血压
-                    [strongSelf queryBpsWeekDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 3) {//睡眠
-                    [strongSelf querySportsWeekDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 4) {//血氧
-                    [strongSelf queryBopsWeekDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 5) {//压力
-                    [strongSelf queryPressuresWeekDataWtithVc:funcVc];
-                }
+               
             }else if (strongSelf.timeType == 3) {//下一日
                 strongSelf.day ++;
                 NSInteger day = [IDODemoUtility getDaysInMonthWithYear:strongSelf.year month:strongSelf.month];
@@ -331,30 +237,93 @@
                         strongSelf.year --;
                     }
                 }
-                if (strongSelf.dataType == 0) {//步数
-                    [strongSelf querySportsDayDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 1) {//心率
-                    [strongSelf queryHrsDayDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 2) {//血压
-                    [strongSelf queryBpsDayDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 3) {//睡眠
-                    [strongSelf querySleepsDayDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 4) {//血氧
-                    [strongSelf queryBopsDayDataWtithVc:funcVc];
-                }else if (strongSelf.dataType == 5) {//压力
-                    [strongSelf queryPressuresDayDataWtithVc:funcVc];
-                }
             }
+            [strongSelf queryHealthWtithVc:funcVc];
         }
     };
+}
+
+- (void)queryHealthWtithVc:(FuncViewController *)funcVc
+{
+    if (self.timeType == 0) {//上一年
+        if (self.dataType == 0) {//步数
+           [self querySportsYearDataWtithVc:funcVc];
+        }else if (self.dataType == 1) {//心率
+           [self queryHrsYearDataWtithVc:funcVc];
+        }else if (self.dataType == 2) {//血压
+           [self queryBpsYearDataWtithVc:funcVc];
+        }else if (self.dataType == 3) {//睡眠
+           [self querySleepsYearDataWtithVc:funcVc];
+        }else if (self.dataType == 4) {//血氧
+           [self queryBopsYearDataWtithVc:funcVc];
+        }else if (self.dataType == 5) {//压力
+           [self queryPressuresYearDataWtithVc:funcVc];
+        }
+    }else if (self.timeType == 1) {//上一月
+        if (self.dataType == 0) {//步数
+            [self querySportsMonthDataWtithVc:funcVc];
+        }else if (self.dataType == 1) {//心率
+            [self queryHrsMonthDataWtithVc:funcVc];
+        }else if (self.dataType == 2) {//血压
+            [self queryBpsMonthDataWtithVc:funcVc];
+        }else if (self.dataType == 3) {//睡眠
+            [self querySleepsMonthDataWtithVc:funcVc];
+        }else if (self.dataType == 4) {//血氧
+            [self queryBopsMonthDataWtithVc:funcVc];
+        }else if (self.dataType == 5) {//压力
+            [self queryPressuresMonthDataWtithVc:funcVc];
+        }
+    }else if (self.timeType == 2) {//上一周
+        if (self.dataType == 0) {//步数
+            [self querySportsWeekDataWtithVc:funcVc];
+        }else if (self.dataType == 1) {//心率
+            [self querySportsWeekDataWtithVc:funcVc];
+        }else if (self.dataType == 2) {//血压
+            [self queryBpsWeekDataWtithVc:funcVc];
+        }else if (self.dataType == 3) {//睡眠
+            [self querySportsWeekDataWtithVc:funcVc];
+        }else if (self.dataType == 4) {//血氧
+            [self queryBopsWeekDataWtithVc:funcVc];
+        }else if (self.dataType == 5) {//压力
+            [self queryPressuresWeekDataWtithVc:funcVc];
+        }
+    }else if (self.timeType == 3) {//上一日
+        if (self.dataType == 0) {//步数
+            [self querySportsDayDataWtithVc:funcVc];
+        }else if (self.dataType == 1) {//心率
+            [self queryHrsDayDataWtithVc:funcVc];
+        }else if (self.dataType == 2) {//血压
+            [self queryBpsDayDataWtithVc:funcVc];
+        }else if (self.dataType == 3) {//睡眠
+            [self querySleepsDayDataWtithVc:funcVc];
+        }else if (self.dataType == 4) {//血氧
+            [self queryBopsDayDataWtithVc:funcVc];
+        }else if (self.dataType == 5) {//压力
+            [self queryPressuresDayDataWtithVc:funcVc];
+        }
+    }else if (self.timeType == 4) {//所有数据
+        if (self.dataType == 0) {//步数
+            [self queryAllSportsDataWtithVc:funcVc];
+        }else if (self.dataType == 1) {//心率
+            [self queryAllHrsDataWtithVc:funcVc];
+        }else if (self.dataType == 2) {//血压
+            [self queryAllBpsDataWtithVc:funcVc];
+        }else if (self.dataType == 3) {//睡眠
+            [self queryAllSleepcsDataWtithVc:funcVc];
+        }else if (self.dataType == 4) {//血氧
+            [self queryAllBopsDataWtithVc:funcVc];
+        }else if (self.dataType == 5) {//压力
+            [self queryAllPressuresDataWtithVc:funcVc];
+        }
+    }
 }
 
 /*****************************步数**************************************/
 - (void)querySportsYearDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * array = [IDOSyncSportDataModel queryOneYearSportsWithYear:self.year
-                                                                 macAddr:self.macAddr
-                                                            isQueryItems:NO];
+                                                                macAddr:self.macAddr
+                                                           isQueryItems:NO];
     if (array.count == 0) {
         self.textView.text = lang(@"current year no data");
         [funcVc showToastWithText:lang(@"current year no data")];
@@ -367,7 +336,8 @@
             }
         }
         IDOCalculateSportBluetoothModel * sport = [IDOCalculateSportBluetoothModel calculateOneYearSportDataWithSportModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,sport.dicFromObject,oneYearSports.count > 0 ? oneYearSports : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,sport.dicFromObject,
+                              oneYearSports.count > 0 ? oneYearSports : lang(@"no data")];
     }
 }
 
@@ -389,7 +359,8 @@
             [oneMonthSports addObject:dic];
         }
         IDOCalculateSportBluetoothModel * sport = [IDOCalculateSportBluetoothModel calculateOneMonthOrWeekSportDataWithSportModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],sport.dicFromObject,oneMonthSports.count > 0 ? oneMonthSports : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],
+                              sport.dicFromObject,oneMonthSports.count > 0 ? oneMonthSports : lang(@"no data")];
     }
 }
 
@@ -411,7 +382,8 @@
             [oneWeekSports addObject:dic];
         }
         IDOCalculateSportBluetoothModel * sport = [IDOCalculateSportBluetoothModel calculateOneMonthOrWeekSportDataWithSportModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],sport.dicFromObject,oneWeekSports.count > 0 ? oneWeekSports : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],
+                              sport.dicFromObject,oneWeekSports.count > 0 ? oneWeekSports : lang(@"no data")];
     }
 }
 
@@ -430,7 +402,8 @@
             NSDictionary * dic = sportModel.dicFromObject;
             [oneDaySports addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,oneDaySports.count > 0 ? oneDaySports : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,
+                              (long)self.day,oneDaySports.count > 0 ? oneDaySports : lang(@"no data")];
     }
 }
 
@@ -442,7 +415,8 @@
         self.textView.text = lang(@"no data");
         [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),
+                              (long)array.count,array.count > 0 ? array : lang(@"no data")];
     }
 }
 
@@ -471,7 +445,8 @@
             }
         }
         IDOCalculateHrBluetoothModel * hr = [IDOCalculateHrBluetoothModel calculateOneYearHrDataWithHrModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,hr.dicFromObject,oneYearHrs.count > 0 ? oneYearHrs : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,hr.dicFromObject,
+                              oneYearHrs.count > 0 ? oneYearHrs : lang(@"no data")];
     }
 }
 
@@ -502,7 +477,8 @@
             [oneMonthHrs addObject:dic];
         }
         IDOCalculateHrBluetoothModel * hr = [IDOCalculateHrBluetoothModel calculateOneMonthOrWeekHrDataWithHrModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],hr.dicFromObject,oneMonthHrs.count > 0 ? oneMonthHrs : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],
+                              hr.dicFromObject,oneMonthHrs.count > 0 ? oneMonthHrs : lang(@"no data")];
     }
 }
 
@@ -533,7 +509,8 @@
             [oneWeekHrs addObject:dic];
         }
         IDOCalculateHrBluetoothModel * hr = [IDOCalculateHrBluetoothModel calculateOneMonthOrWeekHrDataWithHrModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],hr.dicFromObject,oneWeekHrs.count > 0 ? oneWeekHrs : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],
+                              hr.dicFromObject,oneWeekHrs.count > 0 ? oneWeekHrs : lang(@"no data")];
     }
 }
 
@@ -561,7 +538,8 @@
             NSDictionary * dic = hrModel.dicFromObject;
             [oneDayHrs addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,oneDayHrs.count > 0 ? oneDayHrs : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,
+                              (long)self.day,oneDayHrs.count > 0 ? oneDayHrs : lang(@"no data")];
     }
 }
 
@@ -577,7 +555,8 @@
         self.textView.text = lang(@"no data");
         [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,
+                              array.count > 0 ? array : lang(@"no data")];
     }
 }
 
@@ -620,7 +599,8 @@
             [oneMonthBps addObject:dic];
         }
         IDOCalculateBpBluetoothModel * bp = [IDOCalculateBpBluetoothModel calculateOneMonthOrWeekBpDataWithBpModels:array allDayCalculateBpModels:nil];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],bp.dicFromObject,oneMonthBps.count > 0 ? oneMonthBps : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],
+                              [days lastObject],bp.dicFromObject,oneMonthBps.count > 0 ? oneMonthBps : lang(@"no data")];
     }
 }
 
@@ -641,7 +621,8 @@
             NSDictionary * dic = oneDayBp.dicFromObject;
             [oneWeekBps addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneWeekBps.count > 0 ? oneWeekBps : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],
+                              oneWeekBps.count > 0 ? oneWeekBps : lang(@"no data")];
     }
 }
 
@@ -660,7 +641,8 @@
             NSDictionary * dic = oneDayBp.dicFromObject;
             [oneDayBps addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,oneDayBps.count > 0 ? oneDayBps : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,
+                              (long)self.day,oneDayBps.count > 0 ? oneDayBps : lang(@"no data")];
     }
 }
 
@@ -671,7 +653,8 @@
         self.textView.text = lang(@"no data");
         [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,
+                              array.count > 0 ? array : lang(@"no data")];
     }
 }
 
@@ -693,7 +676,8 @@
             }
         }
         IDOCalculateSleepBluetoothModel * sleep = [IDOCalculateSleepBluetoothModel calculateOneYearSleepDataWithSleepModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,sleep.dicFromObject,oneYearSleeps.count > 0 ? oneYearSleeps : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%ld\n%@\n%@",(long)self.year,sleep.dicFromObject,
+                              oneYearSleeps.count > 0 ? oneYearSleeps : lang(@"no data")];
     }
 }
 
@@ -715,7 +699,8 @@
             [oneMonthSleeps addObject:dic];
         }
         IDOCalculateSleepBluetoothModel * sleep = [IDOCalculateSleepBluetoothModel calculateOneMonthOrWeekSleepDataWithSleepModels:array];
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],sleep.dicFromObject,oneMonthSleeps.count > 0 ? oneMonthSleeps : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@\n%@",[days firstObject],[days lastObject],
+                              sleep.dicFromObject,oneMonthSleeps.count > 0 ? oneMonthSleeps : lang(@"no data")];
     }
 }
 
@@ -756,7 +741,8 @@
             NSDictionary * dic = sleepModel.dicFromObject;
             [oneDaySleeps addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,oneDaySleeps.count > 0 ? oneDaySleeps : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,
+                              (long)self.day,oneDaySleeps.count > 0 ? oneDaySleeps : lang(@"no data")];
     }
 }
 
@@ -767,7 +753,8 @@
         self.textView.text = lang(@"no data");
         [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,
+                              array.count > 0 ? array : lang(@"no data")];
     }
 }
 
@@ -810,7 +797,8 @@
             NSDictionary * dic = oneDayBop.dicFromObject;
             [oneMonthBops addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneMonthBops.count > 0 ? oneMonthBops : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],
+                              oneMonthBops.count > 0 ? oneMonthBops : lang(@"no data")];
     }
 }
 
@@ -831,7 +819,8 @@
             NSDictionary * dic = oneDayBop.dicFromObject;
             [oneWeekBops addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneWeekBops.count > 0 ? oneWeekBops : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],
+                              oneWeekBops.count > 0 ? oneWeekBops : lang(@"no data")];
     }
 }
 
@@ -850,7 +839,8 @@
             NSDictionary * dic = oneDayBop.dicFromObject;
             [oneDayBops addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,oneDayBops.count > 0 ? oneDayBops : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,
+                              (long)self.day,oneDayBops.count > 0 ? oneDayBops : lang(@"no data")];
     }
 }
 
@@ -870,8 +860,8 @@
 - (void)queryPressuresYearDataWtithVc:(FuncViewController *)funcVc
 {
     NSArray * array = [IDOSyncPressureDataModel queryOneYearPressureWithYear:self.year
-                                                                  macAddr:self.macAddr
-                                                             isQueryItems:NO];
+                                                                     macAddr:self.macAddr
+                                                                isQueryItems:NO];
     if (array.count == 0) {
         self.textView.text = lang(@"current year no data");
         [funcVc showToastWithText:lang(@"current year no data")];
@@ -891,10 +881,10 @@
 {
     NSArray * days = nil;
     NSArray * array = [IDOSyncPressureDataModel queryOneMonthPressureWithYear:self.year
-                                                                     month:self.month
-                                                                   macAddr:self.macAddr
-                                                              datesOfMonth:&days
-                                                              isQueryItems:NO];
+                                                                        month:self.month
+                                                                      macAddr:self.macAddr
+                                                                 datesOfMonth:&days
+                                                                 isQueryItems:NO];
     if (array.count == 0) {
         self.textView.text = lang(@"current month no data");
         [funcVc showToastWithText:lang(@"current month no data")];
@@ -904,7 +894,8 @@
             NSDictionary * dic = oneDayPressure.dicFromObject;
             [oneMonthPressures addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneMonthPressures.count > 0 ? oneMonthPressures : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],
+                              oneMonthPressures.count > 0 ? oneMonthPressures : lang(@"no data")];
     }
 }
 
@@ -925,7 +916,8 @@
             NSDictionary * dic = oneDayPressure.dicFromObject;
             [oneWeekPressures addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],oneWeekPressures.count > 0 ? oneWeekPressures : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@-%@\n%@",[days firstObject],[days lastObject],
+                              oneWeekPressures.count > 0 ? oneWeekPressures : lang(@"no data")];
     }
 }
 
@@ -944,7 +936,8 @@
             NSDictionary * dic = oneDayPressure.dicFromObject;
             [oneDayPressures addObject:dic];
         }
-        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,oneDayPressures.count > 0 ? oneDayPressures : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%ld-%ld-%ld\n%@",(long)self.year,(long)self.month,(long)self.day,
+                              oneDayPressures.count > 0 ? oneDayPressures : lang(@"no data")];
     }
 }
 
@@ -955,7 +948,8 @@
         self.textView.text = lang(@"no data");
         [funcVc showToastWithText:lang(@"no data")];
     }else {
-        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,array.count > 0 ? array : lang(@"no data")];
+        self.textView.text = [NSString stringWithFormat:@"%@:%ld\n%@",lang(@"data count"),(long)array.count,
+                              array.count > 0 ? array : lang(@"no data")];
     }
 }
 

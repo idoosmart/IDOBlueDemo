@@ -42,7 +42,7 @@
         self.rightButtonTitle = lang(@"selected firmware");
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
-        [self getViewWillAppearCallback];
+        [self getViewWillDisappearCallback];
         [self getButtonCallback];
         [self getLabelSelectCallback];
         [self getTextViewCallback];
@@ -73,16 +73,6 @@
     [self addMessageText:infoStr];
 }
 
-- (void)getViewWillAppearCallback
-{
-    self.viewWillAppearCallback = ^(UIViewController *viewController) {
-        NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-        if (modeType == 1) {
-            viewController.navigationItem.hidesBackButton = YES;
-        }
-    };
-}
-
 - (void)getCellModels
 {
     NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_PATH_KEY];
@@ -100,15 +90,6 @@
     model1.cellClass = [ThreeButtonTableViewCell class];
     model1.modelClass = [NSNull class];
     model1.threeButtonCallback = self.threeButtonCallback;
-
-    LabelCellModel * model2 = [[LabelCellModel alloc]init];
-    model2.typeStr = @"oneLabel";
-    model2.data    = @[[NSString stringWithFormat:@"Type : %@",fileType]];
-    model2.cellHeight = 45.0f;
-    model2.isShowLine = YES;
-    model2.labelSelectCallback = self.labelSelectCallback;
-    model2.cellClass  = [OneLabelTableViewCell class];
-    model2.modelClass = [NSNull class];
     
     TextViewCellModel * model3 = [[TextViewCellModel alloc]init];
     model3.typeStr = @"oneTextView";
@@ -118,14 +99,65 @@
     model3.cellHeight = [UIScreen mainScreen].bounds.size.height / 2 - 20;
     model3.cellClass  = [OneTextViewTableViewCell class];
     
-    self.cellModels = @[model2,model1,model3];
+    LabelCellModel * model4 = [[LabelCellModel alloc]init];
+    model4.typeStr = @"oneLabel";
+    model4.data = @[@"0"];
+    model4.cellHeight = 100.0f;
+    model4.cellClass  = [OneLabelTableViewCell class];
+    model4.modelClass = [NSNull class];
+    model4.fontSize   = 50;
+    model4.isShowLine = YES;
+    model4.isCenter   = YES;
+
+    if ([IDOUpdateFirmwareManager shareInstance].updateType == IDO_NORDIC_PLATFORM_TYPE) {
+        LabelCellModel * model2 = [[LabelCellModel alloc]init];
+        model2.typeStr = @"oneLabel";
+        model2.data    = @[[NSString stringWithFormat:@"Type : %@",fileType]];
+        model2.cellHeight = 45.0f;
+        model2.isShowLine = YES;
+        model2.labelSelectCallback = self.labelSelectCallback;
+        model2.cellClass  = [OneLabelTableViewCell class];
+        model2.modelClass = [NSNull class];
+        self.cellModels = @[model2,model1,model3,model4];
+    }else {
+        self.cellModels = @[model1,model3,model4];
+    }
+}
+
+- (void)startTimer
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startTimer) object:nil];
+    LabelCellModel * cellModel = [self.cellModels lastObject];
+    NSInteger count = [[cellModel.data lastObject] integerValue];
+    count = count + 1;
+    cellModel.data = @[[NSString stringWithFormat:@"%ld",(long)count]];
+    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:self.cellModels.count - 1 inSection:0];
+    [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self performSelector:@selector(startTimer) withObject:nil afterDelay:1];
+}
+
+- (void)getViewWillDisappearCallback
+{
+    __weak typeof(self) weakSelf = self;
+    self.viewWillDisappearCallback = ^(UIViewController *viewController) {
+        __strong typeof(self) strongSelf = weakSelf;
+        [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(startTimer) object:nil];
+    };
 }
 
 - (void)getButtonCallback
 {
+    __weak typeof(self) weakSelf = self;
     self.threeButtonCallback = ^(NSInteger index, UITableViewCell *tableViewCell) {
+        __strong typeof(self) strongSelf = weakSelf;
       FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
         if (index == 0) {
+            NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+            if (modeType == 0) {
+                [funcVC.navigationController popViewControllerAnimated:YES];
+                return;
+            }
             [funcVC showLoadingWithMessage:lang(@"exit update...")];
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
@@ -142,6 +174,10 @@
                  [funcVC showToastWithText:lang(@"device connected not need reconnected")];
                 return;
             }
+            LabelCellModel * cellModel = [strongSelf.cellModels lastObject];
+            cellModel.data = @[@"0"];
+            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:strongSelf.cellModels.count - 1 inSection:0];
+            [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             [IDOBluetoothManager startScan];
         }else if (index == 2) {
             if (   !IDO_BLUE_ENGINE.managerEngine.isConnected
@@ -155,6 +191,7 @@
                                 if (errorCode == 0 && stateCode == 0) {
                                     [funcVC showLoadingWithMessage:lang(@"enter update...")];
                                     [IDOUpdateFirmwareManager startUpdate];
+                                    [strongSelf startTimer];
                                 }
                             }];
                         }else {
@@ -166,14 +203,31 @@
                         if (errorCode == 0 && stateCode == 0) {
                             [funcVC showLoadingWithMessage:lang(@"enter update...")];
                             [IDOUpdateFirmwareManager startUpdate];
+                            [strongSelf startTimer];
                         }else if (errorCode == 6) {
-                            [funcVC showToastWithText:lang(@"get device information")];
+                            [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
                         }
                     }];
                 }
             }else {
                 [funcVC showLoadingWithMessage:lang(@"enter update...")];
-                [IDOUpdateFirmwareManager startUpdate];
+                NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+                if (modeType == 1) {
+                    [IDOFoundationCommand getMacAddrCommand:^(int errorCode, IDOGetMacAddrInfoBluetoothModel * _Nullable data) {
+                        if (errorCode == 0) {
+                            [IDOUpdateFirmwareManager startUpdate];
+                            [strongSelf startTimer];
+                        }else if (errorCode == 21) {
+                            [IDOUpdateFirmwareManager startUpdate];
+                            [strongSelf startTimer];
+                        }else {
+                            [funcVC showToastWithText:lang(@"get Mac address failed")];
+                        }
+                    }];
+                }else {
+                    [IDOUpdateFirmwareManager startUpdate];
+                    [strongSelf startTimer];
+                }
             }
         }
     };
@@ -184,20 +238,24 @@
     __weak typeof(self) weakSelf = self;
     self.labelSelectCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
-        FuncViewController * funcVc = [[FuncViewController alloc]init];
-        FirmwareTypeViewModel * typeModel = [FirmwareTypeViewModel new];
-        typeModel.viewWillDisappearCallback = ^(UIViewController *viewController) {
-            OneLabelTableViewCell * cell = (OneLabelTableViewCell *)tableViewCell;
-            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            LabelCellModel * labelModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
-            NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
-            if (!fileType) fileType = @"Application";
-            labelModel.data = @[[NSString stringWithFormat:@"Type : %@",fileType]];
-            cell.title.text = [NSString stringWithFormat:@"Type : %@",fileType];
-        };
-        funcVc.model = typeModel;
-        funcVc.title = lang(@"firmware type");
-        [viewController.navigationController pushViewController:funcVc animated:YES];
+        FuncViewController * vc = (FuncViewController *)viewController;
+        NSIndexPath * indexPath = [vc.tableView indexPathForCell:tableViewCell];
+        if (indexPath.row == 0) {
+            FuncViewController * funcVc = [[FuncViewController alloc]init];
+            FirmwareTypeViewModel * typeModel = [FirmwareTypeViewModel new];
+            typeModel.viewWillDisappearCallback = ^(UIViewController *viewController) {
+                OneLabelTableViewCell * cell = (OneLabelTableViewCell *)tableViewCell;
+                NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                LabelCellModel * labelModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+                NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
+                if (!fileType) fileType = @"Application";
+                labelModel.data = @[[NSString stringWithFormat:@"Type : %@",fileType]];
+                cell.title.text = [NSString stringWithFormat:@"Type : %@",fileType];
+            };
+            funcVc.model = typeModel;
+            funcVc.title = lang(@"firmware type");
+            [viewController.navigationController pushViewController:funcVc animated:YES];
+        }
     };
 }
 
@@ -232,10 +290,16 @@
     }
     
     self.filePath = path;
-    
+    NSURL * url = [NSURL URLWithString:path];
+    NSString * lastPathComponent = @"";
+    if (!url) {
+        lastPathComponent = [[path componentsSeparatedByString:@"/"] lastObject]?:@"";
+    }else {
+        lastPathComponent = url.lastPathComponent;
+    }
     NSData * data = [NSData dataWithContentsOfFile:self.filePath];
     NSString * dataSize = [NSString stringWithFormat:@"%ld bytes",(long)data.length];
-    NSString * nameStr = [@"Name : "stringByAppendingString:fileName];
+    NSString * nameStr = [@"Name : "stringByAppendingString:lastPathComponent];
     NSString * sizeStr = [@"Size : "stringByAppendingString:dataSize];
     NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
     if (!fileType) fileType = @"Application";
@@ -264,28 +328,24 @@
     if (state == IDO_UPDATE_COMPLETED) {
         funcVC.statusLabel.text = lang(@"update success");
         [funcVC showToastWithText:lang(@"update success")];
-        int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-        if (!__IDO_BIND__ || mode == 1) {
-            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
-                if (errorCode == 0) {
-                    ScanViewController * scanVC  = [[ScanViewController alloc]init];
-                    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-                    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
-                }
-            }];
-        }
-    }else {
-       funcVC.statusLabel.text = lang(@"update...");
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startTimer) object:nil];
+    }else if (state != IDO_UPDATE_START_INIT
+              && state != IDO_UPDATE_COMPLETED){
+        funcVC.statusLabel.text = lang(@"update...");
     }
 }
 
 - (void)updateManager:(IDOUpdateFirmwareManager *)manager updateError:(NSError *)error
 {
+    if (error.code == 3) {
+        [IDOFoundationCommand getFuncTableCommand:nil];
+    }
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     funcVC.statusLabel.text = lang(@"update failed");
     [funcVC showToastWithText:lang(@"update failed")];
     NSString * errorStr = [NSString stringWithFormat:@"%@\n",error.domain];
     [self addMessageText:errorStr];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startTimer) object:nil];
 }
 
 - (void)updateManager:(IDOUpdateFirmwareManager *)manager

@@ -7,7 +7,6 @@
 //
 
 #import "OneTextViewTableViewCell.h"
-#import "Masonry.h"
 #import "TextViewCellModel.h"
 
 @interface OneTextViewTableViewCell()

@@ -98,9 +98,9 @@
             }else {
                 [funcVc showToastWithText:lang(@"no need migration")];
             }
-        }else {
+        }else if (indexPath.row == 1) {
             __strong typeof(self) strongSelf = weakSelf;
-           // [strongSelf deleteHealthData];
+            //[strongSelf deleteHealthData];
             [funcVc showLoadingWithMessage:lang(@"data migration...")];
             [IDODataMigrationManager dataToJsonFileProgressBlock:^(float progress) {
                 [funcVc showSyncProgress:progress];

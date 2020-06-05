@@ -24,6 +24,12 @@
 @end
 
 @implementation SetFindPhoneViewModel
+
+- (void)dealloc
+{
+    
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -119,6 +125,16 @@
         }
         AudioServicesPlaySystemSound(sound);//播放声音
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);//静音模式下震动
+        }
+    }];
+    
+    [IDOFoundationCommand listenPhotoEndCommand:^(int errorCode) {  //此方法暂时无用
+        if (errorCode == 0) {
+        if (error != kAudioServicesNoError) {
+            sound = 0;
+        }
+         AudioServicesRemoveSystemSoundCompletion(sound);
+         AudioServicesDisposeSystemSoundID(sound);
         }
     }];
 }

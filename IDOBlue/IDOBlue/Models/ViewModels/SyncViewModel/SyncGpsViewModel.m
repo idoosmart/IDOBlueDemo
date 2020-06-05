@@ -65,26 +65,22 @@
         }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
             [funcVC showSyncProgress:progress];
         }).addSyncFailed(^(int errorCode) {
-            if (![IDOConsoleBoard borad].isShow) {
-                if(errorCode == 37) {
-                    TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                    model.data = @[lang(@"no GPS data syn")?:@""];
-                    strongSelf.textView.text = lang(@"no GPS data syn")?:@"";
-                }else {
-                    NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
-                    TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                    model.data = @[newLogStr?:@""];
-                    strongSelf.textView.text = newLogStr;
-                }
-            };
-            [funcVC showToastWithText:lang(@"sync data failed")];
-        }).addSyncGps(^(NSString * jsonStr){
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+            if(errorCode == 37) {
+                TextViewCellModel * model = [strongSelf.cellModels firstObject];
+                model.data = @[lang(@"no GPS data syn")?:@""];
+                strongSelf.textView.text = lang(@"no GPS data syn")?:@"";
+            }else {
+                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
                 TextViewCellModel * model = [strongSelf.cellModels firstObject];
                 model.data = @[newLogStr?:@""];
                 strongSelf.textView.text = newLogStr;
             }
+            [funcVC showToastWithText:lang(@"sync data failed")];
+        }).addSyncGps(^(NSString * jsonStr){
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
+            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+            model.data = @[newLogStr?:@""];
+            strongSelf.textView.text = newLogStr;
         }).mandatorySyncConfig(NO);
         [IDOSyncManager startSync];
     };

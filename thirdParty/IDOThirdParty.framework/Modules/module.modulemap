@@ -1,0 +1,6 @@
+framework module IDOThirdParty {
+  umbrella header "IDOThirdParty.h"
+
+  export *
+  module * { export * }
+}

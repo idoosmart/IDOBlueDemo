@@ -7,7 +7,6 @@
 //
 
 #import "TableViewFootView.h"
-#import "Masonry.h"
 #import "IDODemoUtility.h"
 
 @interface TableViewFootView()

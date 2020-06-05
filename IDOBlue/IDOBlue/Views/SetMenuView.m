@@ -11,7 +11,6 @@
 #import "FuncViewController.h"
 #import "ModeSelectViewModel.h"
 #import "IDODemoUtility.h"
-#import "Masonry.h"
 #import "UITableView+cellSeparator.h"
 
 @interface CustomView : UIView

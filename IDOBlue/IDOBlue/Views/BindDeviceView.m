@@ -8,7 +8,6 @@
 
 #import "BindDeviceView.h"
 #import "IDODemoUtility.h"
-#import "Masonry.h"
 
 @interface BindDeviceView()
 @property (nonatomic,strong)UIView * boxView;

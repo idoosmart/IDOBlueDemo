@@ -28,6 +28,7 @@
 @property (nonatomic,strong) NSArray * weatherTitleArray;
 @property (nonatomic,strong) NSArray * notifyTitleArray;
 @property (nonatomic,strong) NSArray * hrModeArray;
+@property (nonatomic,strong) NSArray * v3HrModeArray;
 @property (nonatomic,strong) NSArray * distanceUnitArray;
 @property (nonatomic,strong) NSArray * weightUnitArray;
 @property (nonatomic,strong) NSArray * tempUnitArray;
@@ -46,4 +47,9 @@
 @property (nonatomic,strong) NSArray * targetTypes;
 @property (nonatomic,strong) NSArray * sportTypes;
 @property (nonatomic,strong) NSArray * firmwareTypes;
+@property (nonatomic,strong) NSArray * fileTranTypes;
+@property (nonatomic,strong) NSArray * compressionTypes;
+@property (nonatomic,strong) NSArray * menuListTypes;
+@property (nonatomic,strong) NSArray * switchTypes;
+@property (nonatomic,strong) NSArray * musicTypes;
 @end

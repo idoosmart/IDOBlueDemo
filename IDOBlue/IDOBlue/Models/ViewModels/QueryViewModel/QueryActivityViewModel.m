@@ -16,6 +16,7 @@
 @interface QueryActivityViewModel()
 @property (nonatomic,assign) NSInteger pageNumber;
 @property (nonatomic,assign) NSInteger pageIndex;
+@property (nonatomic,copy) NSString * macAddr;
 @property (nonatomic,strong) NSMutableArray * allActivitys;
 @property (nonatomic,strong) NSMutableArray * allCellModels;
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
@@ -30,11 +31,25 @@
         self.pageIndex  = 0;
         self.pageNumber = 20;
         self.isFootButton = YES;
+        self.rightButtonTitle = @"🔒";
+        self.isRightButton = YES;
+        self.rightButton   = @selector(actionButton:);
         [self getLabelCallback];
         [self getFootButtonCallback];
         [self getCellModels];
     }
     return self;
+}
+
+- (void)actionButton:(UIBarButtonItem *)sender
+{
+    if ([sender.title isEqualToString:@"🔒"]) {
+        self.macAddr = __IDO_MAC_ADDR__;
+        [sender setTitle:@"🔓"];
+    }else {
+        self.macAddr = @"";
+        [sender setTitle:@"🔒"];
+    }
 }
 
 - (NSMutableArray *)allActivitys
@@ -55,11 +70,17 @@
 
 - (void)getCellModels
 {
-    NSArray <IDOSyncActivityDataInfoBluetoothModel *> * activitys = [IDOSyncActivityDataModel queryOnePageActivityDataWithPageIndex:self.pageIndex
-                                                                                                                          numOfPage:self.pageNumber
-                                                                                                                            macAddr:@""];
+    NSArray * activitys = [NSArray array];
+    if (__IDO_FUNCTABLE__.funcTable29Model.v3SyncActivity) {
+         activitys = [IDOSyncV3ActivityDataModel queryOnePageV3ActivityDataWithPageIndex:self.pageIndex
+                                                                             numOfPage:self.pageNumber
+                                                                               macAddr:self.macAddr];
+    }else {
+        activitys = [IDOSyncActivityDataModel queryOnePageActivityDataWithPageIndex:self.pageIndex
+                                                                          numOfPage:self.pageNumber
+                                                                            macAddr:self.macAddr];
+    }
     [self.allActivitys addObjectsFromArray:activitys];
-    
     NSMutableArray * cellModels = [NSMutableArray array];
     for (IDOSyncActivityDataInfoBluetoothModel * activity in activitys) {
         LabelCellModel * model = [[LabelCellModel alloc]init];
@@ -91,7 +112,8 @@
 
 - (CGFloat)getCellHeightWithStr:(NSString *)str
 {
-    return [IDODemoUtility getLabelheight:str width:[IDODemoUtility getCurrentVC].view.frame.size.width - 32 font:[UIFont systemFontOfSize:14]] + 20;
+    CGFloat width = [IDODemoUtility getCurrentVC].view.frame.size.width - 32;
+    return [IDODemoUtility getLabelheight:str width:width font:[UIFont systemFontOfSize:14]] + 20;
 }
 
 - (void)getLabelCallback
@@ -101,7 +123,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVc = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
-        IDOSyncActivityDataInfoBluetoothModel * model = [strongSelf.allActivitys objectAtIndex:indexPath.row];
+        IDOBluetoothBaseModel * model = [strongSelf.allActivitys objectAtIndex:indexPath.row];
         FuncViewController * newFuncVc = [FuncViewController new];
         QueryActivityDetailViewModel * detailModel = [QueryActivityDetailViewModel new];
         detailModel.activityModel = model;

@@ -32,13 +32,23 @@
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data = @[lang(@"setting up ANCS notification")];
+    model1.data = @[lang(@"open ANCS notification")];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneButtonTableViewCell class];
     model1.modelClass = [NSNull class];
     model1.isShowLine = YES;
     model1.buttconCallback = self.buttconCallback;
     [cellModels addObject:model1];
+    
+    FuncCellModel * model2 = [[FuncCellModel alloc]init];
+    model2.typeStr = @"oneButton";
+    model2.data = @[lang(@"close ANCS notification")];
+    model2.cellHeight = 70.0f;
+    model2.cellClass = [OneButtonTableViewCell class];
+    model2.modelClass = [NSNull class];
+    model2.isShowLine = YES;
+    model2.buttconCallback = self.buttconCallback;
+    [cellModels addObject:model2];
     
     self.cellModels = cellModels;
 }
@@ -47,16 +57,30 @@
 {
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:lang(@"setting up ANCS notification...")];
-        [IDOFoundationCommand belOpenAncsCommand:^(int errorCode) {
-            if (errorCode == 0) {
-                [funcVC showToastWithText:lang(@"successful setting of ANCS notification")];
-            }else if (errorCode == 6) {
-                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-            }else {
-                [funcVC showToastWithText:lang(@"failure to set up ANCS notification")];
-            }
-        }];
+        NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
+        if (indexPath.row == 0) {
+          [funcVC showLoadingWithMessage:lang(@"open ANCS notification...")];
+          [IDOFoundationCommand belOpenAncsCommand:^(int errorCode) {
+              if (errorCode == 0) {
+                  [funcVC showToastWithText:lang(@"open ANCS notification success")];
+              }else if (errorCode == 6) {
+                  [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+              }else {
+                  [funcVC showToastWithText:lang(@"oepn ANCS notification failed")];
+              }
+          }];
+        }else {
+            [funcVC showLoadingWithMessage:lang(@"close ANCS notification...")];
+            [IDOFoundationCommand belCloseAncsCommand:^(int errorCode) {
+                if (errorCode == 0) {
+                    [funcVC showToastWithText:lang(@"close ANCS notification success")];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                }else {
+                    [funcVC showToastWithText:lang(@"close ANCS notification failed")];
+                }
+            }];
+        }
     };
 }
 @end

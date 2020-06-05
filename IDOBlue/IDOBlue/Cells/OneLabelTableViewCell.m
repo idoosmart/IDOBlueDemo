@@ -10,7 +10,6 @@
 #import "LabelCellModel.h"
 #import "IDODemoUtility.h"
 #import "FuncViewController.h"
-#import "Masonry.h"
 
 @interface OneLabelTableViewCell()
 @property (nonatomic,strong) LabelCellModel * labelCellModel;

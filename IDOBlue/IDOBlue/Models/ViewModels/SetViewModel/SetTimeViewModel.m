@@ -41,7 +41,11 @@
 
 - (IDOSetTimeInfoBluetoothModel *)timeModel
 {
-    _timeModel = [IDOSetTimeInfoBluetoothModel currentModel];
+    if (__IDO_FUNCTABLE__.funcTable28Model.utcTimeZone) {
+      _timeModel = [IDOSetTimeInfoBluetoothModel getCurrentUtcTimeModel];
+    }else {
+      _timeModel = [IDOSetTimeInfoBluetoothModel currentModel];
+    }
     return _timeModel;
 }
 
@@ -81,7 +85,7 @@
     
     LabelCellModel * model3 = [[LabelCellModel alloc]init];
     model3.typeStr = @"oneLabel";
-    NSString * sysTimeZone = [NSString stringWithFormat:@"%@ %@",lang(@"system time zone"),[NSTimeZone systemTimeZone].name];
+    NSString * sysTimeZone = [NSString stringWithFormat:@"%@ %@ (GMT:%ld)",lang(@"system time zone"),[NSTimeZone systemTimeZone].name,(long)timeModel.timeZone];
     model3.data = @[sysTimeZone];
     model3.cellHeight = 70.0f;
     model3.cellClass = [OneLabelTableViewCell class];

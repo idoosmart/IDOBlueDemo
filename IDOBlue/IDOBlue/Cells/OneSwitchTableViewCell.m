@@ -9,7 +9,6 @@
 #import "OneSwitchTableViewCell.h"
 #import "SwitchCellModel.h"
 #import "IDODemoUtility.h"
-#import "Masonry.h"
 
 @interface OneSwitchTableViewCell()
 @property (nonatomic,strong) SwitchCellModel * switchCellModel;

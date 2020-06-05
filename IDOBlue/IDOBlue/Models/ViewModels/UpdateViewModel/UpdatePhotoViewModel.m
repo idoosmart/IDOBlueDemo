@@ -94,7 +94,7 @@
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data    = @[lang(@"word update")];
+    model1.data    = @[lang(@"photo update")];
     model1.cellHeight = 70.0f;
     model1.buttconCallback = self.buttconCallback;
     model1.cellClass  = [OneButtonTableViewCell class];
@@ -124,27 +124,25 @@
     LabelCellModel * model = [self.cellModels lastObject];
     model.data = @[@"0"];
     if (filePath.length == 0) return @"";
-    NSInteger fileMode  = [[[NSUserDefaults standardUserDefaults]objectForKey:FILE_MODE_KEY] integerValue];
     NSString * fileName = @"";
     NSString * path = @"";
-    if (fileMode == 0) { // bundle
-        NSString * mainPath = [NSBundle mainBundle].bundlePath;
-        path = [mainPath stringByAppendingPathComponent:@"Files"];
-        NSURL * fileUrl = [NSURL URLWithString:filePath];
-        fileName = fileUrl.lastPathComponent;
-        path = [path stringByAppendingPathComponent:fileName];
-    }else { // sandbox
-        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
-        NSRange range = [filePath rangeOfString:@"Documents"];
-        if (range.location != NSNotFound) {
-            fileName = [filePath substringFromIndex:range.location + range.length];
-            path = [path stringByAppendingPathComponent: fileName];
-        }
+    path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
+    NSRange range = [filePath rangeOfString:@"Documents"];
+    if (range.location != NSNotFound) {
+    fileName = [filePath substringFromIndex:range.location + range.length];
+    path = [path stringByAppendingPathComponent: fileName];
     }
     self.filePath = path;
+    NSURL * url = [NSURL URLWithString:path];
+    NSString * lastPathComponent = @"";
+    if (!url) {
+        lastPathComponent = [[path componentsSeparatedByString:@"/"] lastObject]?:@"";
+    }else {
+        lastPathComponent = url.lastPathComponent;
+    }
     NSData * data = [NSData dataWithContentsOfFile:self.filePath];
     NSString * dataSize = [NSString stringWithFormat:@"%ld bytes",(long)data.length];
-    NSString * nameStr = [@"Name : "stringByAppendingString:fileName];
+    NSString * nameStr = [@"Name : "stringByAppendingString:lastPathComponent];
     NSString * sizeStr = [@"Size : "stringByAppendingString:dataSize];
     NSString * typeStr = [@"Type : "stringByAppendingString:@"png File"];
     NSString * fileStr = [NSString stringWithFormat:@"%@\n%@\n%@",nameStr,sizeStr,typeStr];
@@ -167,27 +165,43 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
-        [strongSelf startTimer];
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"photo update")]];
-        initMakePhotoManager().filePath = strongSelf.filePath;
-        initTransferManager().isResponse = [[NSUserDefaults standardUserDefaults]boolForKey:IS_RESPONSE_KEY];
-        initTransferManager().isSetConnectParam = [[NSUserDefaults standardUserDefaults]boolForKey:IS_SET_CONNECT_PARAMSERS];
-        initMakePhotoManager().addPhotoProgress(^(int progress) {
-            [funcVC showSyncProgress:progress/100.0f];
-        }).addPhotoTransfer(^(int errorCode) {
-            [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(startTimer) object:nil];
-            strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
-          if (errorCode == 0) {
-              [funcVC showToastWithText:lang(@"transfer dial file success")];
-          }else if (errorCode == 6) {
-              [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-          }else {
-              [funcVC showToastWithText:lang(@"transfer dial file failed")];
-          }
-        });
-        [IDOMakePhotoManager startPhotoTransfer];
+        NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+        if (modeType == 1) { //在升级模式下需要先获取功能表
+           [IDOFoundationCommand getFuncTableCommand:^(int errorCode, IDOGetDeviceFuncBluetoothModel * _Nullable data) {
+               if (errorCode == 0) {
+                   [strongSelf updatePhotoWithVc:funcVC];
+               }else {
+                   [funcVC showToastWithText:lang(@"get function list failed")];
+               }
+           }];
+        }else {
+              [strongSelf updatePhotoWithVc:funcVC];
+        }
     };
+}
+
+- (void)updatePhotoWithVc:(FuncViewController *)funcVC
+{
+    [self startTimer];
+    [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"photo update")]];
+    initMakePhotoManager().filePath = self.filePath;
+    __weak typeof(self) weakSelf = self;
+    initMakePhotoManager().addPhotoProgress(^(int progress) {
+        [funcVC showSyncProgress:progress/100.0f];
+    }).addPhotoTransfer(^(int errorCode) {
+        __strong typeof(self) strongSelf = weakSelf;
+        [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(startTimer) object:nil];
+        strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+      if (errorCode == 0) {
+          [funcVC showToastWithText:lang(@"transfer dial file success")];
+      }else if (errorCode == 6) {
+          [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+      }else {
+          [funcVC showToastWithText:lang(@"transfer dial file failed")];
+      }
+    });
+    [IDOMakePhotoManager startPhotoTransfer];
 }
 
 - (void)getTextViewCallback
@@ -207,7 +221,7 @@
     count = count + 1;
     cellModel.data = @[[NSString stringWithFormat:@"%ld",(long)count]];
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
-    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:self.cellModels.count - 1 inSection:0];
     [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self performSelector:@selector(startTimer) withObject:nil afterDelay:1];
 }

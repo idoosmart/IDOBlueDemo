@@ -20,6 +20,17 @@
 #import "GetVersionInfoViewModel.h"
 #import "GetStartCountViewModel.h"
 #import "GetOtaAuthInfoViewModel.h"
+#import "GetFlashInfoViewModel.h"
+#import "GetBatteryInfoViewModel.h"
+#import "GetDefaultLanguageViewModel.h"
+#import "GetMenuListViewModel.h"
+#import "GetFiveHeartRateViewModel.h"
+#import "GetDefaultSportViewModel.h"
+#import "GetErrorLogViewModel.h"
+#import "GetV3AlarmsViewModel.h"
+#import "GetV3HearRateViewModel.h"
+#import "GetMtuInfoViewModel.h"
+#import "GetOverHeatLogViewModel.h"
 
 @interface GetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -41,9 +52,16 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"get function list")],@[lang(@"get Mac address")],@[lang(@"get device information")],@[lang(@"get real-time data")],
-                          @[lang(@"get the number of activities")],@[lang(@"get GPS information")],@[lang(@"get notification status")],@[lang(@"get version information")],
-                          @[lang(@"get the number of stars")],@[lang(@"get ota auth information")]];
+        _buttonTitles = @[@[lang(@"get function list")],@[lang(@"get Mac address")],
+                          @[lang(@"get device information")],@[lang(@"get real-time data")],
+                          @[lang(@"get the number of activities")],@[lang(@"get GPS information")],
+                          @[lang(@"get notification status")],@[lang(@"get version information")],
+                          @[lang(@"get the number of stars")],@[lang(@"get ota auth information")],
+                          @[lang(@"get flash info")],@[lang(@"get battery info")],
+                          @[lang(@"get default language")],@[lang(@"get menu list")],@[lang(@"get five heart rate")],
+                          @[lang(@"get default sport type")],@[lang(@"get error log state")],@[lang(@"get v3 alarms info")],
+                          @[lang(@"get v3 heart rate mode")],@[lang(@"get blue mtu info")],
+                          @[lang(@"get over heat log")]];
     }
     return _buttonTitles;
 }
@@ -54,7 +72,10 @@
         _modelClasss = @[[GetFuncTableViewModel class],[GetMacViewModel class],[GetDeviceViewModel class],
                          [GetRealTimeViewModel class],[GetActivityViewModel class],[GetGpsInfoViewModel class],
                          [GetNotifyStateViewModel class],[GetVersionInfoViewModel class],[GetStartCountViewModel class],
-                         [GetOtaAuthInfoViewModel class]];
+                         [GetOtaAuthInfoViewModel class],[GetFlashInfoViewModel class],[GetBatteryInfoViewModel class],
+                         [GetDefaultLanguageViewModel class],[GetMenuListViewModel class],[GetFiveHeartRateViewModel class],
+                         [GetDefaultSportViewModel class],[GetErrorLogViewModel class],[GetV3AlarmsViewModel class],
+                         [GetV3HearRateViewModel class],[GetMtuInfoViewModel class],[GetOverHeatLogViewModel class]];
     }
     return _modelClasss;
 }

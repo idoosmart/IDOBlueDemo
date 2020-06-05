@@ -18,6 +18,7 @@
 #import "TimerAnimatView.h"
 #import "TipPoweredOffView.h"
 #import "IDOConsoleBoard.h"
+#import "ScanDemoViewController.h"
 
 @interface ScanViewController ()<UITableViewDelegate,UITableViewDataSource,IDOBluetoothManagerDelegate,AuthTextFieldViewDelegate,BindDeviceViewDelegate>
 @property (nonatomic,strong)  NSArray * devices;
@@ -28,6 +29,8 @@
 @property (nonatomic,strong)  MBProgressHUD * progressHUD;
 @property (nonatomic,strong)  UILabel * statusLabel;
 @property (nonatomic,strong)  UILabel * timerLabel;
+@property (nonatomic,assign)  BOOL isConnect;
+@property (nonatomic,strong)  NSString * macStr;
 @property (nonatomic,copy)    void(^modeSelectCallback)(UIViewController * viewController,NSInteger type);
 @end
 
@@ -41,13 +44,26 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     self.title = lang(@"scan device");
-    self.statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? lang(@"connected") : IDO_BLUE_ENGINE.managerEngine.isConnecting ? lang(@"connecting") : lang(@"scanning");
+    
+    if(self.isConnect) {
+        self.statusLabel.text = lang(@"connecting");
+        [self showLoadingWithMessage:lang(@"connecting")];
+    }else {
+       self.statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? lang(@"connected") : IDO_BLUE_ENGINE.managerEngine.isConnecting ? lang(@"connecting") : lang(@"scanning");
+    }
+    self.navigationItem.leftBarButtonItem.title = lang(@"🔍");
     self.navigationItem.rightBarButtonItem.title = lang(@"🔧");
+    
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lang(@"very hard scan")];
     
+    NSInteger rss = [[NSUserDefaults standardUserDefaults]integerForKey:RSSI_KEY];
+    if (rss < 30) {
+        rss = 100;
+    }
     [IDOBluetoothManager shareInstance].delegate = self;
-    [IDOBluetoothManager shareInstance].rssiNum  = 100;
+    [IDOBluetoothManager shareInstance].rssiNum  = rss;
     [IDOBluetoothManager startScan];
     __weak typeof(self) weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -100,10 +116,13 @@
     if ([IDOConsoleBoard borad].isShow) {
         [[IDOConsoleBoard borad] show];
     }
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationController.navigationBar.translucent=NO;
     self.tableView.tableFooterView = [UIView new];
     [self modificationNavigationBarStyle];
     self.view.backgroundColor = [UIColor whiteColor];
 
+    [self addLeftButton];
     [self addRightButton];
     [self creatRefreshing];
     
@@ -161,6 +180,14 @@
     [self showToastWithText: lang(@"connected failed")];
 }
 
+- (void)connectTimeout
+{
+    self.macStr = @"";
+    self.isConnect = NO;
+    self.statusLabel.text = lang(@"scanning");
+    [self showToastWithText: lang(@"connected failed")];
+}
+
 - (MBProgressHUD *)progressHUD
 {
     if (!_progressHUD) {
@@ -211,6 +238,10 @@
 
 - (void)refreshAction
 {
+    if (self.isConnect) {
+       [self.refreshControl endRefreshing];
+        return;
+    }
     self.statusLabel.text = lang(@"scanning");
     NSInteger rssiNum = [[NSUserDefaults standardUserDefaults]integerForKey:RSSI_KEY];
     [IDOBluetoothManager shareInstance].rssiNum = rssiNum > 0 ? rssiNum : 80;
@@ -233,7 +264,7 @@
 
 - (void)addLeftButton
 {
-    UIBarButtonItem * leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:lang(@"unbind")
+    UIBarButtonItem * leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:lang(@"🔍")
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(leftAction)];
@@ -251,11 +282,21 @@
 
 - (void)leftAction
 {
-    if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
-    IDO_BLUE_ENGINE.peripheralEngine.isOta  = NO;
-    IDO_BLUE_ENGINE.peripheralEngine.isBind = NO;
-    [IDOBluetoothManager cancelCurrentPeripheralConnection];
-    [self.tableView reloadData];
+    ScanDemoViewController * scan = [[ScanDemoViewController alloc]init];
+    WEAKSELF
+    scan.scanQRcodeCallback = ^(NSString * _Nonnull str,UIViewController * vc) {
+        NSRange range = [str rangeOfString:@"m="];
+        if (range.location != NSNotFound) {
+            weakSelf.macStr = [str substringFromIndex:range.location + 1];
+            weakSelf.isConnect = YES;
+            [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf selector:@selector(connectTimeout) object:nil];
+            [weakSelf performSelector:@selector(connectTimeout) withObject:nil afterDelay:20];
+        }else {
+            [weakSelf showToastWithText:@"the mac address does not exist"];
+        }
+        [vc dismissViewControllerAnimated:YES completion:nil];
+    };
+    [self presentViewController:scan animated:YES completion:nil];
 }
 
 static BOOL BIND_STATE = NO;
@@ -267,6 +308,7 @@ static BOOL BIND_STATE = NO;
     __weak typeof(self) weakSelf = self;
     [IDOFoundationCommand bindingCommand:model callback:^(IDO_BIND_STATUS status, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
+        strongSelf.isConnect = NO;
         if (errorCode == 0) {
             if (status == IDO_BLUETOOTH_BIND_SUCCESS) { //绑定成功
                 [strongSelf showToastWithText:lang(@"bind success")];
@@ -274,7 +316,7 @@ static BOOL BIND_STATE = NO;
                 if (model1.authLength > 0)return;
                 [strongSelf setRootViewController];
             }else if (status == IDO_BLUETOOTH_BINDED) { //已经绑定
-                
+                [strongSelf setRootViewController];
             }else if (status == IDO_BLUETOOTH_BIND_FAILED) { //绑定失败
                 
             }else if (status == IDO_BLUETOOTH_NEED_AUTH) { //需要授权绑定
@@ -324,7 +366,7 @@ static BOOL BIND_STATE = NO;
 
 - (void)cancelBindButton
 {
-    [self leftAction];
+   
 }
 
 - (void)allowBinding
@@ -375,8 +417,14 @@ static BOOL BIND_STATE = NO;
     didConnectPeripheral:(CBPeripheral *)peripheral
                isOatMode:(BOOL)isOtaMode
 {
-    [self showToastWithText:lang(@"connected success")];
-    [self showBindView];
+    if (self.isConnect) {
+       [self bindAction:nil];
+       [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(connectTimeout) object:nil];
+    }else {
+       [self showToastWithText:lang(@"connected success")];
+       [self showBindView];
+       self.isConnect = NO;
+    }
     return YES;
 }
 
@@ -384,8 +432,16 @@ static BOOL BIND_STATE = NO;
               allDevices:(NSArray<IDOPeripheralModel *> *)allDevices
               otaDevices:(NSArray<IDOPeripheralModel *> *)otaDevices
 {
+    if (self.isConnect) {
+        for (IDOPeripheralModel * model in allDevices) {
+            if ([model.macAddr isEqualToString:self.macStr]) {
+                [IDOBluetoothManager connectDeviceWithModel:model];
+            }
+        }
+    }else {
+       self.currentModel = nil;
+    }
     self.devices = allDevices;
-    self.currentModel = nil;
     [self.tableView reloadData];
 }
 
@@ -434,6 +490,9 @@ static BOOL BIND_STATE = NO;
 #pragma mark === UITableViewDelegate ===
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.isConnect) {
+        return;
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.currentModel = self.devices[indexPath.row];
     [IDOBluetoothManager connectDeviceWithModel:self.currentModel];

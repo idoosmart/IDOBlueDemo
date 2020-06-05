@@ -7,7 +7,6 @@
 //
 
 #import "TwoTextFieldTableViewCell.h"
-#import "Masonry.h"
 #import "IDODemoUtility.h"
 #import "FuncViewController.h"
 #import "TextFieldCellModel.h"

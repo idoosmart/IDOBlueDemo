@@ -12,6 +12,10 @@
 "manual connect time" = "connect time:";
 "auto connect time" = "connect time:";
 "file update" = "file update:";
+"file type" = "file type:";
+"compression type" = "compression type:";
+"transfer complete" = "file transfer complete";
+"write complete" = "file write complete";
 "sync data" = "sync data:";
 "scan device" = "scan device";
 "very hard scan" = "scanning……";
@@ -105,6 +109,7 @@
 "current air index:" = "current air index:";
 "auto mode" = "auto mode";
 "manual mode" = "manual mode";
+"continuously monitor" = "continuously monitor";
 "off" = "off";
 "invalid" = "invalid";
 "km" = "km";
@@ -137,6 +142,13 @@
 "korean" = "korean";
 "hindi" = "hindi";
 "portuguese" = "portuguese";
+"turkey"="turkey";
+"thai"="thai";
+"vietnamese"="vietnamese";
+"burmese"="burmese";
+"filipino"="filipino";
+"traditional chinese"="traditional chinese";
+"greek"="greek";
 
 "24 hours" = "24 hours";
 "12 hours" = "12 hours";
@@ -204,6 +216,7 @@
 "rowing machine" = "rowing machine";
 "high-intensity interval training" = "high-intensity interval training";
 "eight motion sequences have been set" = "eight motion sequences have been set";
+"fourteen motion sequences have been set" = "fourteen motion sequences have been set";
 "cold start" = "cold start";
 "hot start" = "hot start";
 "normal" = "normal";
@@ -329,7 +342,7 @@
 "set display mode..." = "set display mode...";
 "set display mode success" = "set display mode success";
 "set display mode failed" = "set display mode failed";
-"feature is not supported on the current device" = "当前设备不支持此功能";
+"feature is not supported on the current device" = "not supported current device";
 "set pairing..." = "set pairing...";
 "current device pairing success" = "current device pairing success";
 "current device pairing failed" = "current device pairing failed";
@@ -378,6 +391,9 @@
 "set heart rate interval..." = "set heart rate interval...";
 "set heart rate interval success" = "set heart rate interval success";
 "set heart rate interval failed" = "set heart rate interval failed";
+"min heart rate" = "min heart rate:";
+"set max hr remind switch" = "set max hr remind switch:";
+"set min hr remind switch" = "set min hr remind switch:";
 "burn fat:" = "burn fat:";
 "aerobic exercise:" = "aerobic exercise:";
 "warm up:" = "warm up:";
@@ -396,6 +412,35 @@
 "simulator data" = "simulator data:";
 "is response" = "is response:";
 "is set connection parameters" = "is set connection parameters:";
+"set drink water reminder" = "set drink water reminder";
+"set interval length" = "set interval length";
+"set drink water reminder success" = "set drink water reminder success";
+"set drink water reminder failed" = "set drink water reminder failed";
+"set v3 heart rate mode" = "set v3 heart rate mode";
+"set v3 heart rate mode success" = "set v3 heart rate mode success";
+"set v3 heart rate mode failed" = "set v3 heart rate mode failed";
+"walk on off" = "walk on off";
+"run on off" = "run on off";
+"bicycle on off" = "bicycle on off";
+"auto pause on off" = "auto pause on off";
+"end remind on off" = "end remind on off";
+"set sport identify switch" = "set sport identify switch";
+"set sport identify switch success" = "set sport identify switch success";
+"set sport identify switch failed" = "set sport identify switch failed";
+"set spo2 switch" = "set spo2 switch";
+"set spo2 switch success" = "set spo2 switch success";
+"set spo2 switch failed" = "set spo2 switch failed";
+"set breathe train" = "set breathe train";
+"set breathe train success" = "set breathe train success";
+"set breathe train failed" = "set breathe train failed";
+"set walk reminder" = "set walk reminder";
+"set walk reminder target" = "set walk reminder target";
+"set walk reminder success" = "set walk reminder success";
+"set walk reminder failed" = "set walk reminder failed";
+"set pressure switch" = "set pressure switch";
+"set pressure switch success" = "set pressure switch success";
+"set pressure switch failed" = "set pressure switch failed";
+
 /**
  add by xiongjie
  */
@@ -533,8 +578,62 @@
 "the number of stars" = "the number of stars";
 "get the number of stars success" = "get the number of stars success";
 "get the number of stars failed" = "get the number of stars failed";
+"get flash info" = "get flash info";
+"get battery info" = "get battery info";
+"get flash info success" = "get flash info success";
+"get flash info failed" = "get flash info failed";
+"get battery info success" = "get battery info success";
+"get battery info failed" = "get battery info failed";
+"get default language" = "get default language";
+"get default language success" = "get default language success";
+"get default language failed" = "get default language failed";
+"get five heart rate" = "get five heart rate";
+"get five heart rate success" = "get five heart rate success";
+"get five heart rate failed" = "get five heart rate failed";
+"get default sport type" = "get default sport type";
+"get default sport type success" = "get default sport type success";
+"get default sport type failed" = "get default sport type failed";
+"get error log state" = "get error log state";
+"get error log state success" = "get error log state success";
+"get error log state falied" = "get error log state falied";
+"get v3 alarms info" = "get v3 alarms info";
+"get v3 alarms info success" = "get v3 alarms info success";
+"get v3 alarms info failed" = "get v3 alarms info failed";
+"get v3 heart rate mode" = "get v3 heart rate mode";
+"get v3 heart rate mode success" = "get v3 heart rate mode success";
+"get v3 heart rate mode failed" = "get v3 heart rate mode failed";
+"get blue mtu info" = "get blue mtu info";
+"get blue mtu info success" = "get blue mtu info success";
+"get blue mtu info failed" = "get blue mtu info failed";
+"get over heat log" = "get over heat log";
+"get over heat log success" = "get over heat log success";
+"get over heat log failed" = "get over heat log failed";
 
-
+//语音控制
+"please speak" = "please speak";
+"listen voice data" = "listen voice data";
+"voice control" = "voice control";
+"get menu list" = "get menu list";
+"get menu list success" = "get menu list success";
+"get menu list failed" = "get menu list failed";
+"set menu list" = "set menu list";
+"set menu list success" = "set menu list success";
+"set menu list failed" = "set menu list failed";
+"setps" = "setps";
+"heart rate" = "heart rate";
+"sleep" = "sleep";
+"picture" = "picture";
+"alarm clock" = "alarm clock";
+"music" = "music";
+"stopwatch" = "stopwatch";
+"timer" = "timer";
+"exercise mode" = "exercise mode";
+"weather" = "weather";
+"breathing exercise" = "breathing exercise";
+"find mobile phone" = "find mobile phone";
+"pressure" = "pressure";
+"data tricycle" = "data tricycle";
+"time interface" = "time interface";
 
 /*******/
 "data to json" = "data to json";
@@ -585,10 +684,16 @@
  */
 "command log" = "command log";
 "restart log" = "restart log";
+"flash log" = "flash log";
 "get log" = "get log";
 "get the device logs..." = "get the device logs...";
 "get device log completion" = "get device log completion";
-
+"get general log" = "get general log";
+"get reset log" = "get reset log";
+"get algorithm log" = "get algorithm log";
+"get hardware log" = "get hardware log";
+"get flash log complete" = "get flash log complete";
+"get flash log failed" = "get flash log failed";
 /**
  ControlView
  */
@@ -607,10 +712,14 @@
 "setting Music Open..." = "setting music open...";
 "setting Music to Open Successfully" = "setting music to open successfully";
 "failed to set music on" = "failed to set music on";
-"setting up ANCS Notification" = "setting up ANCS notification";
-"setting up ANCS Notification..." = "setting up ANCS notification...";
-"successful setting of ANCS notification" = "successful setting of ANCS notification";
-"failure to set up ANCS notification" = "failure to set up ANCS notification";
+"open ANCS notification" = "open ANCS notification";
+"open ANCS notification..." = "open ANCS notification...";
+"open ANCS notification success" = "open ANCS notification success";
+"oepn ANCS notification failed" = "oepn ANCS notification failed";
+"close ANCS notification" = "close ANCS notification";
+"close ANCS notification..." = "close ANCS notification...";
+"close ANCS notification success" = "close ANCS notification success";
+"close ANCS notification failed" = "close ANCS notification failed";
 "setting default configuration" = "setting default configuration";
 "setting default configuration..." = "setting default configuration...";
 "setting the default configuration successfully" = "setting the default configuration successfully";
@@ -621,7 +730,41 @@
 "failure to restart equipment" = "failure to restart equipment";
 "Camera" = "Camera";
 "Album" = "Album";
-
+"set sport type" = "set sport type";
+"set sport type success" = "set sport type success";
+"set sport type failed" = "set sport type failed";
+"set real time hr" = "set real time hr";
+"set real time hr success" = "set real time hr success";
+"set real time hr failed" = "set real time hr failed";
+"set no disturb" = "set no disturb";
+"set no disturb success" = "set no disturb success";
+"set no disturb failed" = "set no disturb failed";
+"set wrist bright screen" = "set wrist bright screen";
+"set wrist bright screen success" = "set wrist bright screen success";
+"set wrist bright screen failed" = "set wrist bright screen failed";
+"set music control"="set music control";
+"set music control success" = "set music control success";
+"set music control failed" = "set music control failed";
+"screen brightness"="screen brightness";
+"set stopwatch"="set stopwatch";
+"set countdown"="set countdown";
+"heart rate detection"="heart rate detection";
+"pressure detection"="pressure detection";
+"breathing training"="breathing training";
+"sleep record"="sleep record";
+"sport record"="sport record";
+"weather interface"="weather interface";
+"find phone"="find phone";
+"black screen"="black screen";
+"reboot control"="reboot control";
+"message interface"="message interface";
+"set page jump success" = "set page jump success";
+"set page jump failed" = "set page jump failed";
+"voice start" = "voice start";
+"voice end" = "voice end";
+"voice failed" = "voice failed";
+"voice play" = "voice play";
+"set page jump" = "set page jump";
 /**
  data interchange
  */
@@ -692,6 +835,7 @@
  */
 "nordic update" = "nordic update";
 "realtk update" = "realtk update";
+"apollo update" = "apollo update";
 "agps update" = "agps update";
 "word update" = "word update";
 "photo update" = "photo update";

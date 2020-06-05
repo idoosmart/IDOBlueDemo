@@ -7,7 +7,6 @@
 //
 
 #import "TwoButtonTableViewCell.h"
-#import "Masonry.h"
 #import "IDODemoUtility.h"
 #import "FuncCellModel.h"
 

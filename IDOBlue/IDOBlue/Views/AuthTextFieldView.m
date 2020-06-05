@@ -8,7 +8,6 @@
 
 #import "AuthTextFieldView.h"
 #import "IDODemoUtility.h"
-#import "Masonry.h"
 
 @interface AuthTextFieldView()<UITextFieldDelegate>
 @property (nonatomic,strong)UIView * boxView;

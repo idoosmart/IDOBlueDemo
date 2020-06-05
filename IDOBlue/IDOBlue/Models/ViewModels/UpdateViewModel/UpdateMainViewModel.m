@@ -14,6 +14,8 @@
 #import "UpdateAgpsViewModel.h"
 #import "UpdateWordViewModel.h"
 #import "UpdatePhotoViewModel.h"
+#import "UpdateApolloViewModel.h"
+#import "ScanViewController.h"
 
 @interface UpdateMainViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -26,16 +28,38 @@
 {
     self = [super init];
     if (self) {
+        NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
+        if (modeType == 1) {
+            self.isLeftButton = YES;
+            self.leftButtonTitle = lang(@"exit update");
+            self.leftButton = @selector(exitUpdate);
+        }
         [self getButtonCallback];
         [self getCellModels];
     }
     return self;
 }
 
+- (void)exitUpdate
+{
+    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    [funcVC showLoadingWithMessage:lang(@"exit update...")];
+    [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
+        if (errorCode == 0) {
+            [funcVC showToastWithText:lang(@"exit success")];
+            ScanViewController * scanVC  = [[ScanViewController alloc]init];
+            UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+            [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+        }else {
+            [funcVC showToastWithText:lang(@"exit failed")];
+        }
+    }];
+}
+
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"nordic update")],@[lang(@"realtk update")],
+        _buttonTitles = @[@[lang(@"nordic update")],@[lang(@"realtk update")],@[lang(@"apollo update")],
                           @[lang(@"agps update")],@[lang(@"word update")],@[lang(@"photo update")]];
     }
     return _buttonTitles;
@@ -44,7 +68,7 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],
+        _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],[UpdateApolloViewModel class],
                          [UpdateAgpsViewModel class],[UpdateWordViewModel class],[UpdatePhotoViewModel class]];
     }
     return _modelClasss;

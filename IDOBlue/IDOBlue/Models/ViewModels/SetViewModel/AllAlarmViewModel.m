@@ -33,6 +33,7 @@
 {
     self = [super init];
     if (self) {
+        [self listenUpdateState];
         [self getButtonCallback];
         [self getLabelCallback];
         [self getDelectCellCallback];
@@ -60,7 +61,7 @@
         alarmModel.alarmModel = nil;
         void(^addAlarmComplete)(BOOL isSuccess) = ^(BOOL isSuccess) {
             if (isSuccess) {
-                strongSelf.alarmModels =  [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
+                strongSelf.alarmModels =  [IDOSetAlarmInfoBluetoothModel queryAllNoOpenAlarms];
                 [strongSelf getCellModels];
                 [funcVc reloadData];
             }
@@ -97,6 +98,39 @@
     };
 }
 
+- (void)listenUpdateState
+{
+    __weak typeof(self) weakSelf = self;
+    [IDOFoundationCommand listenStateChangeCommand:^(int errorCode, IDOControlDataUpdateModel * _Nullable model) {
+        __strong typeof(self) strongSelf = weakSelf;
+        if (errorCode == 0) {
+            if (model.alarmState == 1) {
+                [strongSelf getV3Alarms];
+            };
+        }
+    }];
+}
+
+- (void)getV3Alarms
+{
+    __weak typeof(self) weakSelf = self;
+    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get v3 alarms info")]];
+    [IDOFoundationCommand getV3AlarmsInfoCommand:^(int errorCode, IDOSetExtensionAlarmInfoBluetoothModel * _Nullable data) {
+         __strong typeof(self) strongSelf = weakSelf;
+        if (errorCode == 0) {
+         [funcVC showToastWithText:lang(@"get v3 alarms info success")];
+         strongSelf.alarmModels =  [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
+         [strongSelf getCellModels];
+         [funcVC reloadData];
+        }else if (errorCode == 6) {
+         [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+        }else {
+         [funcVC showToastWithText:lang(@"get v3 alarms info failed")];
+        }
+    }];
+}
+
 - (void)getDelectCellCallback
 {
     __weak typeof(self) weakSelf = self;
@@ -104,18 +138,36 @@
           __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         IDOSetAlarmInfoBluetoothModel * alarm = [strongSelf.alarmModels objectAtIndex:indexPath.row];
-        alarm.isOpen = NO;
-        [IDOFoundationCommand setAlarmCommand:alarm callback:^(int errorCode) {
-            if (errorCode == 0) {
-                strongSelf.alarmModels =  [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
-                [strongSelf getCellModels];
-                [funcVC reloadData];
-            }else if (errorCode == 6) {
-                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-            }else {
-                [funcVC showToastWithText:lang(@"set alarm failed")];
-            }
-        }];
+        alarm.isDelete = YES;
+        [alarm saveOrUpdate];
+        if (__IDO_FUNCTABLE__.funcTable29Model.v3SyncAlarm) { //v3闹钟
+            IDOSetExtensionAlarmInfoBluetoothModel * alarmModel = [IDOSetExtensionAlarmInfoBluetoothModel currentModel];
+            [IDOFoundationCommand setV3AllAlarmsCommand:alarmModel callback:^(int errorCode) {
+                if (errorCode == 0) {
+                    strongSelf.alarmModels =  [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
+                    [strongSelf getCellModels];
+                    [funcVC reloadData];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                }else {
+                    [funcVC showToastWithText:lang(@"set alarm failed")];
+                }
+            }];
+        }else {  //v2闹钟
+            NSArray * alarms = [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
+            [IDOFoundationCommand setAllAlarmsCommand:alarms
+                                             callback:^(int errorCode) {
+               if (errorCode == 0) {
+                    strongSelf.alarmModels =  [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
+                    [strongSelf getCellModels];
+                    [funcVC reloadData];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                }else {
+                    [funcVC showToastWithText:lang(@"set alarm failed")];
+                }
+            }];
+        }
     };
 }
 

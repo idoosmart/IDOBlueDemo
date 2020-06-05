@@ -10,7 +10,6 @@
 #import "TextFieldCellModel.h"
 #import "IDODemoUtility.h"
 #import "FuncViewController.h"
-#import "Masonry.h"
 
 @interface ThreeTextFieldTableViewCell()<UITextFieldDelegate>
 @property (nonatomic,strong) TextFieldCellModel * textFieldCellModel;

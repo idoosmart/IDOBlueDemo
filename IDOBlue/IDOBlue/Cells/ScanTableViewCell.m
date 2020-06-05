@@ -7,7 +7,6 @@
 //
 
 #import "ScanTableViewCell.h"
-#import "Masonry.h"
 
 @interface ScanTableViewCell()
 @property (nonatomic,strong) UIImageView * iconView;

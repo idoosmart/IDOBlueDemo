@@ -92,6 +92,7 @@
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         strongSelf.alarmModel.isOpen = onSwitch.isOn;
+        strongSelf.alarmModel.isDelete = !onSwitch.isOn;
         switchCellModel.data = @[@(strongSelf.alarmModel.isOpen)];
     };
 }
@@ -103,22 +104,43 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:lang(@"set alarm...")];
-        [IDOFoundationCommand setAlarmCommand:strongSelf.alarmModel
-                                    callback:^(int errorCode) {
-            if(errorCode == 0) {
-                [funcVC showToastWithText:lang(@"set alarm success")];
-                if (strongSelf.addAlarmComplete) {
-                    strongSelf.addAlarmComplete(YES);
+        [strongSelf.alarmModel saveOrUpdate];
+        if (__IDO_FUNCTABLE__.funcTable29Model.v3SyncAlarm) { //v3闹钟
+            IDOSetExtensionAlarmInfoBluetoothModel * alarmModel = [IDOSetExtensionAlarmInfoBluetoothModel currentModel];
+            [IDOFoundationCommand setV3AllAlarmsCommand:alarmModel callback:^(int errorCode) {
+                if (errorCode == 0) {
+                   [funcVC showToastWithText:lang(@"set alarm success")];
+                   if (strongSelf.addAlarmComplete) {
+                       strongSelf.addAlarmComplete(YES);
+                   }
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                }else {
+                    [funcVC showToastWithText:lang(@"set alarm failed")];
+                    if (strongSelf.addAlarmComplete) {
+                      strongSelf.addAlarmComplete(NO);
+                    }
                 }
-            }else if (errorCode == 6) {
-                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-            }else {
-                [funcVC showToastWithText:lang(@"set alarm failed")];
-                if (strongSelf.addAlarmComplete) {
-                    strongSelf.addAlarmComplete(NO);
+            }];
+        }else {  //v2闹钟
+            NSArray * alarms = [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
+            [IDOFoundationCommand setAllAlarmsCommand:alarms
+                                             callback:^(int errorCode) {
+               if (errorCode == 0) {
+                   [funcVC showToastWithText:lang(@"set alarm success")];
+                   if (strongSelf.addAlarmComplete) {
+                       strongSelf.addAlarmComplete(YES);
+                   }
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                }else {
+                     [funcVC showToastWithText:lang(@"set alarm failed")];
+                     if (strongSelf.addAlarmComplete) {
+                       strongSelf.addAlarmComplete(NO);
+                     }
                 }
-            }
-        }];
+            }];
+        }
     };
 }
 

@@ -121,8 +121,8 @@
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 0) {
             SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
-            strongSelf.sleepModel.OnOff = onSwitch.isOn;
-            switchCellModel.data = @[@(strongSelf.sleepModel.OnOff)];
+            strongSelf.sleepModel.onOff = onSwitch.isOn;
+            switchCellModel.data = @[@(strongSelf.sleepModel.onOff)];
         }
     };
 }
@@ -133,7 +133,7 @@
     SwitchCellModel * model1 = [[SwitchCellModel alloc]init];
     model1.typeStr = @"oneSwitch";
     model1.titleStr = lang(@"set sleep time switch:");
-    model1.data = @[@(self.sleepModel.OnOff)];
+    model1.data = @[@(self.sleepModel.onOff)];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneSwitchTableViewCell class];
     model1.modelClass = [NSNull class];

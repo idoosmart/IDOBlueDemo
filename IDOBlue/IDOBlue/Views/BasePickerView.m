@@ -8,7 +8,6 @@
 
 #import "BasePickerView.h"
 #import "IDODemoUtility.h"
-#import "Masonry.h"
 
 @interface BasePickerView()<UIPickerViewDelegate,UIPickerViewDataSource>
 @property (nonatomic,strong) UIView * coverView;

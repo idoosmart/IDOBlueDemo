@@ -14,6 +14,7 @@
 #import "OneButtonTableViewCell.h"
 #import "OneSwitchTableViewCell.h"
 #import "EmptyTableViewCell.h"
+#import "ControlMusicViewModel.h"
 
 @interface SetMusicViewModel()
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
@@ -92,6 +93,16 @@
         model3.isShowLine = YES;
         model3.buttconCallback = self.buttconCallback;
         [cellModels addObject:model3];
+        
+        FuncCellModel * model4 = [[FuncCellModel alloc]init];
+        model4.typeStr = @"oneButton";
+        model4.data = @[lang(@"music control")];
+        model4.cellHeight = 70.0f;
+        model4.cellClass = [OneButtonTableViewCell class];
+        model4.modelClass = [NSNull class];
+        model4.isShowLine = YES;
+        model4.buttconCallback = self.buttconCallback;
+        [cellModels addObject:model4];
     }
     self.cellModels = cellModels;
 }
@@ -134,7 +145,7 @@
                     [funcVC showToastWithText:lang(@"current device pairing failed")];
                 }
             }];
-        }else {
+        }else if (indexPath.row == 2){
             [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set music open off")]];
             [IDOFoundationCommand setOpenMusicCommand:strongSelf.musicModel
                                              callback:^(int errorCode) {
@@ -152,6 +163,11 @@
                      [funcVC showToastWithText:lang(@"set music open off failed")];
                  }
              }];
+        }else if (indexPath.row == 3) {
+            FuncViewController * newFuncVc = [FuncViewController new];
+            newFuncVc.model = [ControlMusicViewModel new];
+            newFuncVc.title = lang(@"music control");
+            [funcVC.navigationController pushViewController:newFuncVc animated:YES];
         }
     };
 }

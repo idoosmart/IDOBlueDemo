@@ -223,7 +223,7 @@
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         TextFieldCellModel * model = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if (model.index == 0) {
-            IDOSetTimeInfoBluetoothModel * timeModel = [[IDOSetTimeInfoBluetoothModel alloc]init];
+            IDOSetTimeInfoBluetoothModel * timeModel = [IDOSetTimeInfoBluetoothModel currentModel];
             strongSelf.dataModel.day    = timeModel.day;
             strongSelf.dataModel.hour   = timeModel.hour;
             strongSelf.dataModel.minute = timeModel.minute;

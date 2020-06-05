@@ -23,19 +23,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:3];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
 #ifdef DEBUG
     registrationServices().outputSdkLog(YES).outputProtocolLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
-        //此处可以使用自己的蓝牙管理
+        //You can use your own bluetooth management here
        if(__IDO_BIND__)[IDOBluetoothManager startScan];
        else [IDOBluetoothManager refreshDelegate];
     });
 #else
     registrationServices().outputSdkLog(NO).outputProtocolLog(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
-        //此处可以使用自己的蓝牙管理
+        //You can use your own bluetooth management here
         if(__IDO_BIND__)[IDOBluetoothManager startScan];
         else [IDOBluetoothManager refreshDelegate];
     });
 #endif
+    
     if (__IDO_BIND__) {
         int mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
         if (mode == 1) {

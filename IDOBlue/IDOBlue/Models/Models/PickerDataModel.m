@@ -209,9 +209,17 @@
 - (NSArray *)hrModeArray
 {
     if (!_hrModeArray) {
-        _hrModeArray = @[lang(@"auto mode"),lang(@"manual mode"),lang(@"off")];
+        _hrModeArray = @[lang(@"off"),lang(@"manual mode"),lang(@"auto mode"),lang(@"continuously monitor")];
     }
     return _hrModeArray;
+}
+
+- (NSArray *)v3HrModeArray
+{
+    if (!_v3HrModeArray) {
+        _v3HrModeArray = @[lang(@"off"),lang(@"manual mode"),lang(@"auto mode"),lang(@"continuously monitor")];
+    }
+    return _v3HrModeArray;
 }
 
 - (NSArray *)distanceUnitArray
@@ -246,7 +254,9 @@
                                lang(@"polish"),lang(@"czech"),lang(@"romania"),lang(@"lithuanian"),
                                lang(@"dutch"),lang(@"slovenia"),lang(@"hungarian"),lang(@"russian"),
                                lang(@"ukrainian"),lang(@"slovak"),lang(@"danish"),lang(@"croatia"),
-                               lang(@"indonesian"),lang(@"korean"),lang(@"hindi"),lang(@"portuguese")];
+                               lang(@"indonesian"),lang(@"korean"),lang(@"hindi"),lang(@"portuguese"),
+                               lang(@"turkey"),lang(@"thai"),lang(@"vietnamese"),lang(@"burmese"),
+                               lang(@"filipino"),lang(@"traditional chinese"),lang(@"greek")];
     }
     return _languageUnitArray;
 }
@@ -380,6 +390,49 @@
         _firmwareTypes = @[@"soft_device",@"boot_loader",@"soft_device_boot_loader",@"application"];
     }
     return _firmwareTypes;
+}
+
+- (NSArray *)fileTranTypes
+{
+    if (!_fileTranTypes) {
+        _fileTranTypes = @[@"agps",@"file",@"word",@"photo"];
+    }
+    return _fileTranTypes;
+}
+
+- (NSArray *)compressionTypes
+{
+    if (!_compressionTypes) {
+        _compressionTypes = @[@"no use",@"zlib",@"fastlz"];
+    }
+    return _compressionTypes;
+}
+
+
+- (NSArray *)menuListTypes
+{
+    if (!_menuListTypes) {
+        _menuListTypes = @[lang(@"steps"),lang(@"heart rate"),lang(@"sleep"),lang(@"picture"),lang(@"alarm clock"),
+                           lang(@"music"),lang(@"stopwatch"),lang(@"timer"),lang(@"exercise mode"),lang(@"weather"),
+        lang(@"breathing exercise"),lang(@"find mobile phone"),lang(@"pressure"),lang(@"data tricycle"),lang(@"time interface")];
+    }
+    return _menuListTypes;
+}
+
+- (NSArray *)switchTypes
+{
+    if (!_switchTypes) {
+        _switchTypes = @[lang(@"off"),lang(@"on")];
+    }
+    return _switchTypes;
+}
+
+- (NSArray *)musicTypes
+{
+    if (!_musicTypes) {
+        _musicTypes = @[lang(@"previous"),lang(@"next"),lang(@"increase volume"),lang(@"decrease volume"),lang(@"play music"),lang(@"pause music")];
+    }
+    return _musicTypes;
 }
 
 @end

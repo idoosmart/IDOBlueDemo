@@ -41,6 +41,14 @@
 #import "SetMenstruationRemindViewModel.h"
 #import "SetCustomFuncViewModel.h"
 #import "SendMessageViewModel.h"
+#import "SetMenuListViewModel.h"
+#import "SetDrinkWaterViewModel.h"
+#import "SetHrSwitchViewModel.h"
+#import "SetSportSwitchViewModel.h"
+#import "SetSpo2SwitchViewModel.h"
+#import "SetBreatheViewModel.h"
+#import "SetWalkRemindViewModel.h"
+#import "SetPressureSwitchViewModel.h"
 
 @interface SetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -75,7 +83,9 @@
                           @[lang(@"set one key sos")],@[lang(@"set shortcut mode")],@[lang(@"set blood pressure calibration")],@[lang(@"set sport shortcut")],
                           @[lang(@"set sport mode sort")],@[lang(@"set screen brightness")],@[lang(@"set music open off")],@[lang(@"set gps info")],
                           @[lang(@"set hot start info")],@[lang(@"set dial parameters")],@[lang(@"set sleep time")],@[lang(@"set menstruation parameter")],
-                          @[lang(@"set menstruation remind")],@[lang(@"custom set func")],@[lang(@"send prompt message")]];
+                          @[lang(@"set menstruation remind")],@[lang(@"custom set func")],@[lang(@"send prompt message")],@[lang(@"set menu list")],
+                          @[lang(@"set drink water reminder")],@[lang(@"set v3 heart rate mode")],@[lang(@"set sport identify switch")],
+                          @[lang(@"set spo2 switch")],@[lang(@"set breathe train")],@[lang(@"set walk reminder")],@[lang(@"set pressure switch")]];
     }
     return _buttonTitles;
 }
@@ -90,7 +100,9 @@
                          [SetOneKeySosViewModel class],[SetShortcutViewModel class],[SetBloodPressureViewModel class],[SetSportShortcutViewModel class],
                          [SetSportModeSortViewModel class],[SetScreenViewModel class],[SetMusicViewModel class],[SetGpsInfoViewModel class],
                          [SetHotStartViewModel class],[SetDialParamViewModel class],[SetSleepTimeViewModel class],[SetMenstruationViewModel class],
-                         [SetMenstruationRemindViewModel class],[SetCustomFuncViewModel class],[SendMessageViewModel class]];
+                         [SetMenstruationRemindViewModel class],[SetCustomFuncViewModel class],[SendMessageViewModel class],[SetMenuListViewModel class],
+                         [SetDrinkWaterViewModel class],[SetHrSwitchViewModel class],[SetSportSwitchViewModel class],[SetSpo2SwitchViewModel class],
+                         [SetBreatheViewModel class],[SetWalkRemindViewModel class],[SetPressureSwitchViewModel class]];
     }
     return _modelClasss;
 }

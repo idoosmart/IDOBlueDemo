@@ -65,20 +65,18 @@
         }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
             [funcVC showSyncProgress:progress];
         }).addSyncFailed(^(int errorCode) {
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
-                TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                model.data = @[newLogStr?:@""];
-                strongSelf.textView.text = newLogStr;
-            };
+             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+             TextViewCellModel * model = [strongSelf.cellModels firstObject];
+             model.data = @[newLogStr?:@""];
+             strongSelf.textView.text = newLogStr;
             [funcVC showToastWithText:lang(@"sync data failed")];
         }).addSyncConfig(^(NSString * logStr){
-            if (![IDOConsoleBoard borad].isShow) {
-                NSString * newLogStr = [NSString stringWithFormat:@"%@\n%@",strongSelf.textView.text,logStr];
-                TextViewCellModel * model = [strongSelf.cellModels firstObject];
-                model.data = @[newLogStr?:@""];
-                strongSelf.textView.text = newLogStr;
-            }
+            NSString * newLogStr = [NSString stringWithFormat:@"%@\n%@",strongSelf.textView.text,logStr];
+            TextViewCellModel * model = [strongSelf.cellModels firstObject];
+            model.data = @[newLogStr?:@""];
+            strongSelf.textView.text = newLogStr;
+        }).addSyncConfigInitData(^NSArray <IDOBluetoothBaseModel *>* (IDO_SYNC_CONFIG_DATA_TYPE type){
+            return [NSArray array];
         }).mandatorySyncConfig(YES);
         [IDOSyncManager startSync];
     };

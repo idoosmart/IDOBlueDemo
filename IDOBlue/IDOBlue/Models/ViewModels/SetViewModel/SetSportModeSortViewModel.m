@@ -48,22 +48,23 @@
     sender.title = isEditing ? lang(@"complete") : lang(@"edit");
     [funcVc.tableView setEditing:isEditing animated:YES];
     if (!isEditing) {
-        [funcVc showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set sports mode sort")]];
-        __weak typeof(self) weakSelf = self;
-        [IDOFoundationCommand setSportModeSortCommand:self.sportModeSortModel
-                                             callback:^(int errorCode) {
-             if(errorCode == 0) {
-                 __strong typeof(self) strongSelf = weakSelf;
-                 //Need to retrieve
-                 strongSelf.sportModeSortModel = [IDOSetSportSortingInfoBluetoothModel currentModel];
-                 [funcVc showToastWithText:lang(@"set sports mode sort success")];
-             }else if (errorCode == 6) {
-                 [funcVc showToastWithText:lang(@"feature is not supported on the current device")];
-             }else {
-                 [funcVc showToastWithText:lang(@"set sports mode sort failed")];
-             }
-         }];
+        [self setSportModeSortWithVc:funcVc];
     }
+}
+
+- (void)setSportModeSortWithVc:(FuncViewController *)funcVc
+{
+    [funcVc showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set sports mode sort")]];
+    [IDOFoundationCommand setSportModeSortCommand:self.sportModeSortModel
+                                         callback:^(int errorCode) {
+         if(errorCode == 0) {
+             [funcVc showToastWithText:lang(@"set sports mode sort success")];
+         }else if (errorCode == 6) {
+             [funcVc showToastWithText:lang(@"feature is not supported on the current device")];
+         }else {
+             [funcVc showToastWithText:lang(@"set sports mode sort failed")];
+         }
+    }];
 }
 
 - (void)getMoveRowCallback
@@ -71,6 +72,13 @@
         __weak typeof(self) weakself = self;
     self.moveRowCellCallback = ^(UIViewController *viewController, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath) {
         __strong typeof(self) strongself = weakself;
+        if (destinationIndexPath.row >= strongself.selectSportModes.count) { //超过编辑范围
+            FuncViewController * funcVc = (FuncViewController *)viewController;
+            [funcVc.tableView setEditing:NO animated:YES];
+            funcVc.navigationItem.rightBarButtonItem.title = lang(@"edit");
+            [funcVc.tableView reloadData];
+            return;
+        }
         NSMutableDictionary * dic1 = [NSMutableDictionary dictionaryWithDictionary:[strongself.selectSportModes objectAtIndex:sourceIndexPath.row]];
         [dic1 setValue:@(destinationIndexPath.row + 1) forKey:@"index"];
         
@@ -111,6 +119,7 @@
         strongSelf.sportModeSortModel.sportSortingItems = sportItems;
         [strongSelf getCellModels];
         [funcVC reloadData];
+        [strongSelf setSportModeSortWithVc:funcVC];
     };
 }
 
@@ -120,7 +129,8 @@
     self.labelSelectCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        if(funcVC.tableView.isEditing)return;
+        [funcVC.tableView setEditing:YES animated:YES];
+        funcVC.navigationItem.rightBarButtonItem.title = lang(@"complete");
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         LabelCellModel * labelModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         NSDictionary * dic = strongSelf.noSelectSportModes[labelModel.index];
@@ -128,9 +138,16 @@
         IDOSetSportSortingItemModel * item = [IDOSetSportSortingItemModel new];
         item.index = [[dic valueForKey:@"index"] integerValue];
         item.type  = [[dic valueForKey:@"type"] integerValue];
-        if (sportItems.count >= 8) {
-            [funcVC showToastWithText:lang(@"eight motion sequences have been set")];
-            return;
+        if (__IDO_FUNCTABLE__.funcTable28Model.v3SportsType) {
+          if (sportItems.count >= 14) {
+             [funcVC showToastWithText:lang(@"fourteen motion sequences have been set")];
+             return;
+          }
+        }else {
+          if (sportItems.count >= 8) {
+              [funcVC showToastWithText:lang(@"eight motion sequences have been set")];
+              return;
+          }
         }
         [sportItems addObject:item];
         strongSelf.sportModeSortModel.sportSortingItems = sportItems;

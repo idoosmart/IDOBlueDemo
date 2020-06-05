@@ -58,6 +58,11 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
+        IDOSetPairingInfoBuletoothModel * model = [IDOSetPairingInfoBuletoothModel currentModel];
+        if (!model.isPairing) {
+            [funcVC showToastWithText:lang(@"first pairing bluetooth")];
+            return;
+        }
         [funcVC showLoadingWithMessage:lang(@"setting music open...")];
         if (indexPath.row == 0) {
             [IDOFoundationCommand musicStartCommand:^(int errorCode) {

@@ -1,0 +1,9 @@
+use_frameworks!
+workspace 'IDOBlue'
+source 'https://github.com/idoosmart/IDOSmartSpec.git'
+platform :ios, '8.0'
+target 'IDOBlue' do
+   pod 'IDOBluetooth','3.4.1'
+   pod 'IDOBlueProtocol','3.4.2'
+   pod 'IDOBlueUpdate','3.4.2'
+end
