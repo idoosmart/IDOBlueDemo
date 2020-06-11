@@ -5,9 +5,9 @@
 source 'https://github.com/idoosmart/IDOSmartSpec.git'
 platform :ios, '8.0'
 target 'your_target_name' do
-   pod 'IDOBluetooth','3.4.1'
-   pod 'IDOBlueProtocol','3.4.2'
-   pod 'IDOBlueUpdate','3.4.2'
+   pod 'IDOBluetooth','3.4.2'
+   pod 'IDOBlueProtocol','3.4.4'
+   pod 'IDOBlueUpdate','3.4.4'
 end
 ```
 
