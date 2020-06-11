@@ -36,6 +36,9 @@ extern NSString * _Nonnull IDOBluetoothOpenLogRecordNotifyName;
 // 数据迁移状态通知名字 | Data migration status notification name
 extern NSString * _Nonnull IDOBluetoothDataMigrationNotifyName;
 
+// 设备绑定状态通知名字 | device bind status notification name
+extern NSString * _Nonnull IDOBluetoothDeviceBindNotifyName;
+
 @interface IDOBluetoothServices : NSObject
 
 /*
