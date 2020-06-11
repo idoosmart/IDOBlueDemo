@@ -72,6 +72,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)setImageRightTitleLeftWithSpacing:(CGFloat)spacing __deprecated_msg("Method deprecated. Use `setImagePositionWithType:spacing:`");
 
+
+- (void)setEnlargeEdge:(CGFloat) size;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -18,6 +18,9 @@ typedef void (^IDOAttributeTapLabelTapBlock)(NSString * string);
 
 @property (nonatomic, strong) UIImage   * alertImg; //高粱字符串后跟提示图片
 
+/**
+ 如果后面跟有图片，则rang的length+1,下一个可点击的字符串的location+1
+ */
 @property (nonatomic, assign) NSRange   range;      //字符串位置
 
 @property (nonatomic, strong) NSDictionary  * attributeDic; //富文本颜色字体等配置

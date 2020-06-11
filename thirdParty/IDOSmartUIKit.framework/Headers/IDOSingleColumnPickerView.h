@@ -50,6 +50,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) CGFloat rowHeight;
 
+
+/**
+ 是否隐藏按钮
+ */
+@property (nonatomic, assign) BOOL hiddenToolBar;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

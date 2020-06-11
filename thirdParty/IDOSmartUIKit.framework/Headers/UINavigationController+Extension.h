@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  导航栏转场时是否缩放
  */
-@property (nonatomic, assign, readonly) BOOL translationScale;
+@property (nonatomic, assign, readonly) BOOL translationScale; 
 
 @end
 

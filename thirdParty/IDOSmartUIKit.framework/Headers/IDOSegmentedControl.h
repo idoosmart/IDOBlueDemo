@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOSegmentedControl : UIView
 
+/**
+ 初始化
+ */
 - (instancetype)initWithFrame:(CGRect)frame items:(NSArray <NSString *>*)items;
 
 /**

@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, strong) UIImage *ido_centerButtonHighlightImage;
 
 /**
- 背景颜色
+ 背景颜色，这个是设置背景图片的颜色
  */
 @property (nullable, nonatomic, strong) UIColor *ido_backgroudColor;
 
@@ -58,6 +58,41 @@ NS_ASSUME_NONNULL_BEGIN
  中间  + 号 文字高亮的颜色
  */
 @property (nonatomic, strong) UIColor *ido_centerButtonTitleHighlightColor;
+
+/**
+ 是否隐藏顶部线条
+ */
+@property (nonatomic, assign) BOOL ido_hiddenTabBarTopLine;
+
+
+/**
+ 如果要设置阴影或者圆角的情况，请把backgroundColor设置为clearColor，即self.ido_tabBar.backgroundColor = [UIColor clearColor];
+ */
+/**
+ 圆角的大小
+ */
+@property (nonatomic, assign) CGFloat ido_cornerRadius;
+
+/**
+ 进行圆角设置时的背景颜色
+ */
+@property (nonatomic, strong) UIColor *ido_cornerBackgroudColor;
+
+/**
+ 阴影的颜色
+ */
+@property (nonatomic, strong) UIColor *ido_shadowColor;
+
+/**
+ 阴影的透过率
+ */
+@property (nonatomic, assign) CGFloat ido_shadowOpacity;
+
+/**
+ 阴影的偏移尺寸
+ */
+@property (nonatomic, assign) CGSize ido_shadowOffset;
+
 
 /**
  根据下标显示红点

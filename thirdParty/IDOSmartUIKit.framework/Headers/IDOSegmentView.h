@@ -56,7 +56,9 @@ typedef NS_ENUM(NSInteger, IDOSegmentViewType) {
  */
 @property (nonatomic, strong) UIColor *indicatorViewColor;
 
-
+/**
+ 滚动到下标已经滚动的偏移量
+ */
 - (void)scrollToIndex:(NSInteger)index offset:(CGFloat)offset;
 
 @end

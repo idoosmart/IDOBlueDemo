@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IDOMulScrollLineViewModel : NSObject
+@interface IDOOSingleScrollLineViewModel : NSObject
 
 /**
  绘制滚定的曲线
@@ -189,11 +189,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) IDOLineColorStyle lineColorStyle;
 
 /**
- 当数值小于纵坐标最小值时，数值按照最小纵坐标数值显示还是隐藏，默认为NO，NO的情况下就是显示最纵坐标最小的刻度值的数据，YES则表示过滤掉低于最小纵坐标值
- */
-@property (nonatomic, assign) BOOL hiddenLessYAlexMinValueData;
-
-/**
  指定显示撞色范围数组,这个数组只有是在 lineColorStyle == IDOLineColorStyleMulColor,才会有用,数据格式如下：@[@"0-50",@"50-100",@"100-150"]
  */
 @property (nonatomic, strong) NSArray <NSString *>*mulColorValueArray;
@@ -214,6 +209,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat lineWidth;
 
 /**
+ 折线是否增加控制器点，以便显示圆滑曲线，默认是NO
+ */
+@property (nonatomic, assign) BOOL AddCurve;
+
+/**
  绘制曲线区域的颜色，如果hiddenLessYAlexMinValueData == YES的情况下，只能使用纯色的，不能带有不是1的alpha
  */
 @property (nonatomic, strong) UIColor *drawBackColor;
@@ -224,32 +224,128 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray <UIColor *>*gradientRectColors;
 
 /**
+ 渐变色区域值数组，只能是两个元素,默认self.locations = @[@(0.0),@(1.0)];
+ */
+@property (nonatomic, strong) NSArray <NSNumber *>*locations;
+
+/**
  指定不显示小于某个值得数据
  */
 @property (nonatomic, copy) NSString *limitMinDataValue;
+
+/**
+ 是否忽略小于某一个指定值，这个是与上面limitMinDataValue一起使用
+ */
+@property (nonatomic, assign) BOOL hiddenLessYAlexMinValueData;
+
+/**
+ 小于 limitMinDataValue 的值是否可以点击或者滑动查看,默认YES
+ */
+@property (nonatomic, assign) BOOL lessThanlimitMinDataValueCanSee;
+
+/**
+ 单位
+ */
+@property (nonatomic, copy) NSString *unit;
+
+/**
+ 显示单位标签
+ */
+@property (nonatomic, assign) BOOL showUnitLabel;
+
+/**
+ 单位标签的颜色
+ */
+@property (nonatomic, strong) UIColor *unitTitleColor;
+
+/**
+ 单位标签的字体
+ */
+@property (nonatomic, strong) UIFont *unitFont;
+
+/**
+ 是否显示竖线，YES
+ */
+@property (nonatomic, assign) BOOL showDataLine;
+
+/**
+ 竖线的颜色，红色
+ */
+@property (nonatomic, strong) UIColor *showDataLineColor;
+
+/**
+ 竖线的宽度，最大值不能超过10，默认1.0
+ */
+@property (nonatomic, assign) CGFloat showDataLineWidth;
+
+/**
+ 是否允许手势移动，默认YES
+ */
+@property (nonatomic, assign) BOOL gestureMove;
+
+/**
+ 显示顶部提示标签，默认显示YES
+ */
+@property (nonatomic, assign) BOOL showTopTipLabel;
+
+/**
+ 顶部提示标签的文字颜色,默认黑色
+ */
+@property (nonatomic, strong) UIColor *topTipLabelTextColor;
+
+/**
+ 顶部提示标签背景颜色,默认亮灰色
+ */
+@property (nonatomic, strong) UIColor *topTipLabelBackgroudColor;
+
+/**
+ 顶部提示标签文字大小,默认 [UIFont systemFontOfSize:13];
+ */
+@property (nonatomic, strong) UIFont *topTipLabelFont;
+
+/**
+ 顶部tipLabel的frame,默认 CGRectMake(self.yAlexWidth, 5, 80, 30)
+ */
+@property (nonatomic, assign) CGRect topTipLabelFrame;
+
+/**
+ 自定义的顶部标签
+ */
+@property (nonatomic, strong) UILabel *customTipLabel;
+
+/**
+ 标准值
+ */
+@property (nonatomic, copy) NSString *targetValue;
+
+/**
+ 是否显示目标线
+ */
+@property (nonatomic, assign) BOOL showTargetLine;
+
+/**
+ 目标线的颜色值
+ */
+@property (nonatomic, strong) UIColor *tagetLineColor;
+
+/**
+ 目标线的线宽
+ */
+@property (nonatomic, assign) CGFloat targetLinwHeight;
+
+/**
+ 目标线是否显示虚线
+ */
+@property (nonatomic, assign) BOOL tagerLineShowDashPattern;
 
 
 
 #pragma mark - Readonly
 
 /**
- 返回处理好的数据点的数组(这个数据是没有经过添加点的数)
- */
-@property (nonatomic, strong, readonly) NSArray <NSNumber *>*pointArray;
-/**
- 设置撞色情况下，组成点的数组,如果不是撞色，则这个数组没有使用
- */
-@property (nonatomic, strong, readonly) NSArray <NSNumber *>*mulColorLinePointArray;
-
-/**
  指定绘制撞色区域的y值数组，假设现在的 mulColorValueArray = @[@"0-50",@"50-100",@"100-150"]，则要计算出数值对应的y值
  */
 @property (nonatomic, strong, readonly) NSArray <NSString *>*mulColorYArray;
-
-/**
- 撞色的数据数组
- */
-@property (nonatomic, strong, readonly) NSArray <IDOValueModel *>*mulDatas;
 
 /**
  返回曲线的可会绘制区域
@@ -267,7 +363,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) CGFloat showMinValueY;
 
 /**
- 最大值
+ 最大值的
  */
 @property (nonatomic, assign, readonly) CGFloat max;
 

@@ -19,6 +19,7 @@
 
 #if __has_include(<IDOBluetooth/IDOBluetooth.h>)
 #import <IDOBluetooth/IDOBluetooth.h>
+#elif __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #else
 #import "IDOBlueEnum.h"
 #import "IDOPeripheralModel.h"
@@ -27,6 +28,7 @@
 
 #if __has_include(<IDOBlueUpdate/IDOBlueUpdate.h>)
 #import <IDOBlueUpdate/IDOBlueUpdate.h>
+#elif __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #else
 #import "IDOUpdateEnum.h"
 #import "IDOUpdateFirmwareManager.h"
@@ -34,6 +36,7 @@
 
 #if __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
 #import <IDOBlueProtocol/IDOBlueProtocol.h>
+#elif __has_include(<IDOBluetoothInternal/IDOBluetoothInternal.h>)
 #else
 #import "IDOSyncEnum.h"
 #import "IDOLogEnum.h"

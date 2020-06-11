@@ -170,7 +170,7 @@ typedef void(^IDOCalendarViewChangeFrameBlock)(IDOCalendarView *calendarView);
 @property (nonatomic, strong) NSDate *minDate;
 
 /**
- 时间日期数组，格式为2020-01-14
+ 事件日期数组，格式为2020-01-14
  */
 @property (nonatomic, strong) NSArray <NSString *>*eventDates;
 

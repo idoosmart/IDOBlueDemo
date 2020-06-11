@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param minValue 最小值
  @param scaleSpace 刻度间距
  @param isInteger 是否为整数，如果不是整数只能是小数点后一位
+ @param directionStyle 摆放的方向
  */
 - (instancetype)initWithFrame:(CGRect)frame
                      maxValue:(NSInteger)maxValue

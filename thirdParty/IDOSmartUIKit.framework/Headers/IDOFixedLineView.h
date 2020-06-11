@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOFixedLineView : UIView
 
+/**
+ 数据模型
+ */
 @property (nonatomic, strong) IDOFixedLineViewModel *fixedLineViewModel;
 
 //选中的数据回调

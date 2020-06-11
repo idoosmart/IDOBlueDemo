@@ -26,6 +26,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *backCircleColor;
 
 /**
+ 背景圆环的线的宽度
+ */
+@property (nonatomic, assign) CGFloat backCircleLineWidth;
+
+/**
  圆环的线的宽度
  */
 @property (nonatomic, assign) CGFloat circleLineWidth;

@@ -27,7 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
  @param selectedIndex 选中的下标
  @param type 把标题视图添加到那个地方
  */
-- (instancetype)initWithTitles:(NSArray <NSString *>*)titles controllers:(NSArray <UIViewController *>*) controllers titleViewFrame:(CGRect)titleViewFrame selectedIndex:(NSInteger)selectedIndex segmentToType:(IDOTitleViewAddToSuperViewType)type segmentViewType:(IDOSegmentViewType)segmentType;
+- (instancetype)initWithTitles:(NSArray <NSString *>*)titles
+                   controllers:(NSArray <UIViewController *>*) controllers
+                titleViewFrame:(CGRect)titleViewFrame
+                 selectedIndex:(NSInteger)selectedIndex
+                 segmentToType:(IDOTitleViewAddToSuperViewType)type
+               segmentViewType:(IDOSegmentViewType)segmentType;
 
 /**
  内容的滚动视图

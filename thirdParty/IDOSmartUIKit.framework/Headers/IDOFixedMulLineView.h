@@ -18,6 +18,9 @@ typedef void(^SelectedReturnBlock)(NSInteger selectedIndex);
 
 @interface IDOFixedMulLineView : UIView
 
+/**
+ 数据模型
+ */
 @property (nonatomic, strong) IDOFixedMulLineViewModel *fixMulLineViewModel;
 
 //选中的数据回调

@@ -10,6 +10,7 @@
 #import "IDOUIKitDefine.h"
 #import "IDOTouchLineView.h"
 #define kToolBarHeight 44
+#define kContentBottomHeight (IDO_IS_iPhoneX ? 0 : 10)
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,7 +29,7 @@ typedef NS_ENUM(NSInteger, IDOPickerViewToolBarItemPosition) {
 
 @interface IDOBasePickerView : UIView
 /**
-左侧按钮的标题，及取消按钮的标题，在这里给出主要是为了国际化
+左侧按钮的标题，及取消按钮的标题，在这里给出主要是为了国际化;
 */
 @property (nonatomic, copy) NSString *cancelBtnTitle;
 
@@ -36,6 +37,11 @@ typedef NS_ENUM(NSInteger, IDOPickerViewToolBarItemPosition) {
  取消按钮的文字颜色
  */
 @property (nonatomic, strong) UIColor *cancelBtnTextColor;
+
+/**
+ 设置取消的字体
+ */
+@property (nonatomic, strong) UIFont *cancelTitleFont;
 
 /**
  右侧按钮的标题，及确定按钮的标题，在这里给出主要是为了国际化
@@ -46,6 +52,16 @@ typedef NS_ENUM(NSInteger, IDOPickerViewToolBarItemPosition) {
  确定按钮的文字颜色
  */
 @property (nonatomic, strong) UIColor *confirmBtnTextColor;
+
+/**
+ 设置取消的字体
+ */
+@property (nonatomic, strong) UIFont *confirmTitleFont;
+
+/**
+ 是否只是显示确定按钮，默认为NO
+ */
+@property (nonatomic, assign) BOOL isOnlyShowConfirmBtn;
 
 /**
  按钮所在的工具bar
@@ -123,6 +139,21 @@ typedef NS_ENUM(NSInteger, IDOPickerViewToolBarItemPosition) {
 @property (nonatomic, assign) CGRect titleLabelFrame;
 
 /**
+ 当按钮位于底部是，按钮与底部的距离
+ */
+@property (nonatomic, assign) CGFloat marginBottom;
+
+/**
+ 选中控件距离左侧的间距，同时默认右侧也是同样的间距
+ */
+@property (nonatomic, assign) CGFloat pickerViewLeftMargin;
+
+/**
+ 选中项上下的线的颜色
+ */
+@property (nonatomic, strong) UIColor *selectedLineColor;
+
+/**
  选择结果回调
  */
 @property (nonatomic, copy) IDOPickerResultBlock pickerResultBlock;
@@ -131,6 +162,11 @@ typedef NS_ENUM(NSInteger, IDOPickerViewToolBarItemPosition) {
  点击取消回调
  */
 @property (nonatomic, copy) void (^cancelPickerResultBlock)(void);
+
+/**
+ 是否可以点击空白处或者手势下滑dismiss控件,默认YES
+ */
+@property (nonatomic, assign) BOOL canGesDismiss;
 
 /**
 显示选择框

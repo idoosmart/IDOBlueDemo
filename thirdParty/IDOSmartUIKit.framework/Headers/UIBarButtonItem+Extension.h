@@ -25,7 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param action 实现的点击方法
  @return 返回一个UIBarButtonItem
  */
-+ (instancetype)itemWithTitle:(nullable NSString *)title normolColor:(nullable UIColor *)normolColor highLightColor:(nullable UIColor *)highLightColor imageName:(nullable NSString *)imageName highLightImageName:(nullable NSString *)highLightImageName imageBundle:(nullable NSBundle *)bundle target:(id)target action:(SEL)action;
++ (instancetype)itemWithTitle:(nullable NSString *)title
+                  normolColor:(nullable UIColor *)normolColor
+               highLightColor:(nullable UIColor *)highLightColor
+                    imageName:(nullable NSString *)imageName
+           highLightImageName:(nullable NSString *)highLightImageName
+                  imageBundle:(nullable NSBundle *)bundle
+                       target:(id)target
+                       action:(SEL)action;
 
 /**
  设置按钮，只有文字的情况下，区分正常和按住的情况
@@ -47,7 +54,10 @@ NS_ASSUME_NONNULL_BEGIN
 @param action 实现的点击方法
 @return 返回一个UIBarButtonItem
 */
-+ (instancetype)itemWithTitle:(nullable NSString *)title normolColor:(nullable UIColor *)normolColor target:(id)target action:(SEL)action;
++ (instancetype)itemWithTitle:(nullable NSString *)title
+                  normolColor:(nullable UIColor *)normolColor
+                       target:(id)target
+                       action:(SEL)action;
 
 
 /**
@@ -58,7 +68,10 @@ NS_ASSUME_NONNULL_BEGIN
 @param action 实现的点击方法
 @return 返回一个UIBarButtonItem
 */
-+ (instancetype)itemWithImageName:(nullable NSString *)imageName imageBundle:(nullable NSBundle *)bundle target:(id)target action:(SEL)action;
++ (instancetype)itemWithImageName:(nullable NSString *)imageName
+                      imageBundle:(nullable NSBundle *)bundle
+                           target:(id)target
+                           action:(SEL)action;
 
 
 /**

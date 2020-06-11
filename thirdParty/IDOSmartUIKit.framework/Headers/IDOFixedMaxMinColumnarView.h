@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOFixedMaxMinColumnarView : UIView
 
+/**
+ 数据模型
+ */
 @property (nonatomic, strong) IDOMaxMinColumnarViewModel *maxMinViewModel;
 
 /**
@@ -26,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy) void (^movingShowDataLineBlock)(BOOL move);
 
+/**
+ 对否隐藏顶替标签和显示数据的竖线
+ */
+- (void)hiddenTipLabelAndDataLine;
 @end
 
 NS_ASSUME_NONNULL_END

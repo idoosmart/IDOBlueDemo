@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOScrollMaxAndMinColumanerView : UIView
 
+/**
+ 数据模型
+ */
 @property (nonatomic, strong) IDOMaxMinColumnarViewModel *maxMinViewModel;
 
 /**
@@ -25,6 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
  正在移动竖线,YES表示正在移动，NO表示停止移动
  */
 @property (nonatomic, copy) void (^movingShowDataLineBlock)(BOOL move);
+
+/**
+ 对否隐藏顶替标签和显示数据的竖线
+ */
+- (void)hiddenTipLabelAndDataLine;
 
 @end
 

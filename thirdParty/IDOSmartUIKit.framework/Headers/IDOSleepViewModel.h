@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOSleepViewModel : NSObject
 
+/**
+ 显示的UI类型
+ */
 @property (nonatomic, assign) IDOSleepUIStyle sleepUIType;
 
 //实际模型

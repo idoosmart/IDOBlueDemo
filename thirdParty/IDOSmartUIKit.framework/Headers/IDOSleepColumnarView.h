@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOSleepColumnarView : UIView
 
+/**
+ 数据模型
+ */
 @property (nonatomic, strong) IDOSleepViewModel *sleepViewModel;
 
 //选中的数据回调

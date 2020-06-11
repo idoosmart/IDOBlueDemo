@@ -229,6 +229,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat columnarRadius;
 
 /**
+ 圆角的位置
+ */
+@property (nonatomic, assign) UIRectCorner corner;
+
+/**
  第一个柱状左边缩进的宽度
  */
 @property (nonatomic, assign) CGFloat headerEdge;

@@ -26,15 +26,14 @@
 
 //绘图
 #import <IDOSmartUIKit/IDOCircleView.h>
-#import <IDOSmartUIKit/IDOScrollLineView.h>
 #import <IDOSmartUIKit/IDOFixedLineView.h>
 #import <IDOSmartUIKit/IDOFixedColumnarView.h>
 #import <IDOSmartUIKit/IDOScrollColumnarView.h>
 #import <IDOSmartUIKit/IDOScrollMaxAndMinColumanerView.h>
 #import <IDOSmartUIKit/IDOFixedMaxMinColumnarView.h>
 #import <IDOSmartUIKit/IDOSleepColumnarView.h>
-#import <IDOSmartUIKit/IDOMulScrollLineView.h>
-#import <IDOSmartUIKit/IDOMulScrollLineViewModel.h>
+#import <IDOSmartUIKit/IDOOSingleScrollLineView.h>
+#import <IDOSmartUIKit/IDOOSingleScrollLineViewModel.h>
 
 #import <IDOSmartUIKit/IDOChartCommonHeader.h>
 #import <IDOSmartUIKit/IDOValueModel.h>
@@ -43,7 +42,6 @@
 #import <IDOSmartUIKit/IDOFixedColumnarViewModel.h>
 #import <IDOSmartUIKit/IDOScrollColumnarViewModel.h>
 #import <IDOSmartUIKit/IDOFixedLineViewModel.h>
-#import <IDOSmartUIKit/IDOScrollLineViewModel.h>
 #import <IDOSmartUIKit/IDOMaxMinColumnarViewModel.h>
 #import <IDOSmartUIKit/IDOSleepViewModel.h>
 
@@ -70,6 +68,12 @@
 #import <IDOSmartUIKit/IDOBasePickerView.h>
 #import <IDOSmartUIKit/IDOCalendarView.h>
 #import <IDOSmartUIKit/IDODatePickerView.h>
+#import <IDOSmartUIKit/IDOListPickerView.h>
+#import <IDOSmartUIKit/IDOListPickerModel.h>
+
+#import <IDOSmartUIKit/IDOItemPickerView.h>
+#import <IDOSmartUIKit/IDOItemModel.h>
+
 
 //segment
 #import <IDOSmartUIKit/IDOSegmentViewController.h>
@@ -85,6 +89,7 @@
 #import <IDOSmartUIKit/UIBarButtonItem+Extension.h>
 #import <IDOSmartUIKit/IDONavigationBar.h>
 #import <IDOSmartUIKit/UIScrollView+GestureHandle.h>
+#import <IDOSmartUIKit/IDONaviPopAnimationConfig.h>
 
 //自定义tabBar
 #import <IDOSmartUIKit/IDOTabBarController.h>
@@ -121,6 +126,9 @@
 
 //广告或者图片欢迎页面
 #import <IDOSmartUIKit/IDOAdvertView.h>
+
+/**< 首次开启安排引导欢迎页 */
+#import <IDOSmartUIKit/IDOGuidePageView.h>
 
 //动画刷新控件
 #import <IDOSmartUIKit/IDORefreshConfig.h>

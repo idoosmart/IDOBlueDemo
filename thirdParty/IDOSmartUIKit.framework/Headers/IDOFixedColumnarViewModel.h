@@ -334,6 +334,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) NSArray <NSString *>*targetValues;
 
+/**
+  目标数组对应的颜色值,这里的数据个数必须与targetValues的个数一直,如果这个colors存在，则targetValues对应的颜色取值取targetColors为优先
+ */
+@property (nonatomic, strong) NSArray <UIColor *>*targetColors;
+
 
 #pragma mark - ReadOnly
 //数值的最大值
