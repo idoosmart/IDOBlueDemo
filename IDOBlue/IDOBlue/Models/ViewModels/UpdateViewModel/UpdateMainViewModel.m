@@ -68,7 +68,7 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],[UpdateApolloViewModel class],
+        _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],
                          [UpdateAgpsViewModel class],[UpdateWordViewModel class],[UpdatePhotoViewModel class]];
     }
     return _modelClasss;
@@ -102,6 +102,8 @@
             [IDOUpdateFirmwareManager shareInstance].updateType = IDO_NORDIC_PLATFORM_TYPE;
         }else if (indexPath.row == 1) {
             [IDOUpdateFirmwareManager shareInstance].updateType = IDO_REALTK_PLATFORM_TYPE;
+        }else if (indexPath.row == 2) {
+            [IDOUpdateFirmwareManager shareInstance].updateType = IDO_APOLLO_PLATFORM_TYPE;
         }
         BaseCellModel * model = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if ([NSStringFromClass(model.modelClass)isEqualToString:@"NSNull"])return;

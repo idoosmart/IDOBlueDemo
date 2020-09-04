@@ -290,6 +290,11 @@ typedef NS_ENUM(NSInteger, IDO_SYNC_CONFIG_DATA_TYPE) {
      */
     IDO_SYNC_SET_ACTIVITY_SWITCH_TYPE,
     /*
+     * 设置压力开关
+     * set pressure switch
+     */
+    IDO_SYNC_SET_PRESSURE_SWITCH_TYPE,
+    /*
      * 获取下载语言信息
      * get down language
      */

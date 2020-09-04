@@ -56,12 +56,17 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVc = (FuncViewController *)viewController;
+        IDOGetDeviceInfoBluetoothModel * deviceModel = [IDOGetDeviceInfoBluetoothModel currentModel];
+        if (!deviceModel.isSyncConfig) {
+            [funcVc showToastWithText:lang(@"please synchronize the configuration first")];
+            return;
+        }
         FuncViewController * newFuncVc = [FuncViewController new];
         SetAlarmViewModel * alarmModel = [SetAlarmViewModel new];
         alarmModel.alarmModel = nil;
         void(^addAlarmComplete)(BOOL isSuccess) = ^(BOOL isSuccess) {
             if (isSuccess) {
-                strongSelf.alarmModels =  [IDOSetAlarmInfoBluetoothModel queryAllNoOpenAlarms];
+                strongSelf.alarmModels =  [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
                 [strongSelf getCellModels];
                 [funcVc reloadData];
             }

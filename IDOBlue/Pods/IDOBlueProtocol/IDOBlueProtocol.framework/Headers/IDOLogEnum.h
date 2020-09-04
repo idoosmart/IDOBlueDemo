@@ -25,6 +25,16 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      */
     IDO_AUTO_CONNECT_LOG,
     /**
+     *蓝牙连接过程
+     *Connect process
+     */
+    IDO_DEVICE_CONNECT_PROCESS_LOG,
+    /**
+     *蓝牙连接错误
+     *Connect error
+     */
+    IDO_DEVICE_CONNECT_ERROR_LOG,
+    /**
      * 手环绑定
      * Bracelet binding
      */
@@ -154,6 +164,16 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      * Set the sub-switch successfully after the bracelet is paired
      */
     IDO_PAIRING_RECONNECT_SET_SUB_SWITCH_SUCCESS_LOG,
+    /**
+     * 运动数据交换 app 数据日志
+     * data exchange app data log
+     */
+    IDO_DATA_EXCHANGE_APP_LOG,
+    /**
+     * 运动数据交换 蓝牙数据日志
+     * data exchange blue data log
+     */
+    IDO_DATA_EXCHANGE_BLUE_LOG,
     /**
      * 协议库日志记录
      * protocol c log

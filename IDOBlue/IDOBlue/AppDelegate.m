@@ -12,7 +12,6 @@
 #import "FuncViewModel.h"
 #import "UpdateMainViewModel.h"
 
-
 @interface AppDelegate ()
 
 @end
@@ -25,13 +24,14 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
 #ifdef DEBUG
-    registrationServices().outputSdkLog(YES).outputProtocolLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    //Add the database password as required. If it is nil, the database is not encrypted
+    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
        if(__IDO_BIND__)[IDOBluetoothManager startScan];
        else [IDOBluetoothManager refreshDelegate];
     });
 #else
-    registrationServices().outputSdkLog(NO).outputProtocolLog(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
         if(__IDO_BIND__)[IDOBluetoothManager startScan];
         else [IDOBluetoothManager refreshDelegate];

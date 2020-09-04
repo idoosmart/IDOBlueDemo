@@ -39,6 +39,12 @@ typedef NS_ENUM(NSInteger, IDO_BIND_STATUS) {
     IDO_BLUETOOTH_NEED_AUTH,
     
     /**
+     * 加密授权
+     * Encrypted auth
+     */
+    IDO_BLUETOOTH_ENCRYPTED_AUTH,
+    
+    /**
      * 拒绝绑定
      * Rejected binding
      */

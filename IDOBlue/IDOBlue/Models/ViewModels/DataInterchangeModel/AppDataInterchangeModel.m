@@ -276,36 +276,18 @@
             strongSelf.dataModel.calories  = arc4random()%1000;
             strongSelf.dataModel.distance  = arc4random()%50000;
             strongSelf.dataModel.isSave = YES;
-            if(__IDO_FUNCTABLE__.funcTable5Model.fiveHrInterval) {
-                [IDOFoundationCommand getSwithHrInterval:strongSelf.dataModel
-                                                callback:^(int errorCode, IDOGetFiveHrReplyInfoBluetoothModel * _Nullable data) {
-                    [IDOFoundationCommand appEndSportCommand:strongSelf.dataModel
-                                              appEndcallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
-                          __strong typeof(self) strongSelf = weakSelf;
-                          [strongSelf addMessageText:[NSString stringWithFormat:@"app运动停止:\n%@\n\n",model.dicFromObject]];
-                          if (errorCode == 0 && model.retCode == 0) {
-                              [funcVC showToastWithText:lang(@"app stop activity success")];
-                          }else if (model.retCode == 2) {
-                              [funcVC showToastWithText:lang(@"device low power")];
-                          }else {
-                              [funcVC showToastWithText:lang(@"app stop activity failed")];
-                          }
-                    }];
-                }];
-            }else {
-                [IDOFoundationCommand appEndSportCommand:strongSelf.dataModel
-                                          appEndcallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
-                      __strong typeof(self) strongSelf = weakSelf;
-                      [strongSelf addMessageText:[NSString stringWithFormat:@"app运动停止:\n%@\n\n",model.dicFromObject]];
-                      if (errorCode == 0 && model.retCode == 0) {
-                          [funcVC showToastWithText:lang(@"app stop activity success")];
-                      }else if (model.retCode == 2) {
-                          [funcVC showToastWithText:lang(@"device low power")];
-                      }else {
-                          [funcVC showToastWithText:lang(@"app stop activity failed")];
-                      }
-                  }];
-            }
+            [IDOFoundationCommand appEndSportCommand:strongSelf.dataModel
+                                    appEndcallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
+                __strong typeof(self) strongSelf = weakSelf;
+                [strongSelf addMessageText:[NSString stringWithFormat:@"app运动停止:\n%@\n\n",model.dicFromObject]];
+                if (errorCode == 0 && model.retCode == 0) {
+                    [funcVC showToastWithText:lang(@"app stop activity success")];
+                }else if (model.retCode == 2) {
+                    [funcVC showToastWithText:lang(@"device low power")];
+                }else {
+                    [funcVC showToastWithText:lang(@"app stop activity failed")];
+                }
+            }];
         }else if (model.index == 4) {
             [funcVC showLoadingWithMessage:lang(@"send data...")];
             strongSelf.dataModel.durations = arc4random()%5;
@@ -324,6 +306,14 @@
                     [funcVC showToastWithText:lang(@"send data failed")];
                 }
             }];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                __strong typeof(self) strongSelf = weakSelf;
+                [IDOFoundationCommand getEndV3ActivityDataCommand:strongSelf.dataModel
+                                                         callback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
+                    
+                }];
+            });
         }
     };
 }

@@ -1,7 +1,7 @@
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/IDOBlueProtocol
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/IDOBlueProtocol"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-OTHER_LDFLAGS = $(inherited) -l"sqlite3.0" -framework "CoreBluetooth" -framework "Foundation" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -l"sqlite3.0" -framework "CoreBluetooth" -framework "Foundation" -framework "Security" -framework "UIKit"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}

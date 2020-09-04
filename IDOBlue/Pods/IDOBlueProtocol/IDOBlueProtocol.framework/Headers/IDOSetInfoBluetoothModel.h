@@ -347,6 +347,16 @@
 @property (nonatomic,copy) NSString * authCode;
 
 /**
+ 加密方式版本 | encrypted version
+ */
+@property (nonatomic,assign) NSInteger encryptedVersion;
+
+/**
+ 加密数据 固件生成 | encrypted data
+ */
+@property (nonatomic,copy) NSArray * encryptedData;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象 (只有在授权绑定才会存储数据)
  * Query the database, if the query does not initialize the new model object (only the authorization binding will store the data)
  * @return IDOSetBindingInfoBluetoothModel
@@ -723,7 +733,7 @@
 
 #pragma mark ==== 设置运动快捷模式排序model ====
 
-@interface IDOSetSportSortingItemModel:NSObject
+@interface IDOSetSportSortingItemModel:IDOBluetoothBaseModel
 
 /**
  * 排序索引 index //排序,从1、2、3、4....,0:无效
@@ -1024,7 +1034,19 @@
 /**
  闹钟修改的时间戳 (可以不赋值)｜ set up time stamp (can be unassigned)
  */
-@property (nonatomic,copy) NSString * setTimeStamp;
+@property (nonatomic,copy) NSString * setTimeStamp DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
+
+/**
+ 震动开关
+ shock on off
+ */
+@property (nonatomic,assign) BOOL shockOnOff;
+
+/**
+ 闹钟名字 长度限制 23个字节
+ name
+ */
+@property (nonatomic,copy) NSString * alarmName;
 
 /**
  * @brief 初始化闹钟集合 | Initialize the alarm collection
@@ -1052,6 +1074,17 @@
  闹钟个数 ｜ alarm count
  */
 @property (nonatomic,assign) NSInteger alarmCount;
+
+/**
+ 重复闹铃次数 重复闹几次
+ */
+@property (nonatomic,assign) NSInteger repeatTime;
+
+/**
+ 延时分钟
+ delay minute
+ */
+@property (nonatomic,assign) NSInteger delayMinute;
 
 /**
 闹钟集合 ｜ alarm items
@@ -1154,11 +1187,11 @@
  * 波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
  * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,
  * 韩语:21,印地语:22,葡萄牙语:23,土耳其:24,泰国语:25,越南语:26,缅甸语:27,
- * 菲律宾语:28,繁体中文:29,希腊语:30
+ * 菲律宾语:28,繁体中文:29,希腊语:30,阿拉伯语:31
  * Language unit Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
  * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
  * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19,Indonesian: 20,korean:21,hindi:22
- * portuguese:23,turkish:24,thai:25,vietnamese:26,burmese:27,filipino:28,traditional Chinese:29,greek:30
+ * portuguese:23,turkish:24,thai:25,vietnamese:26,burmese:27,filipino:28,traditional Chinese:29,greek:30,arabic:31
  */
 @property (nonatomic,assign) NSInteger languageUnit;
 
@@ -1315,6 +1348,31 @@
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
 @property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+
+/*
+午休开关 | noon time on off
+*/
+@property (nonatomic,assign) BOOL noonTimeOnOff;
+
+/*
+午休开始时 | noon time rest start hour
+*/
+@property (nonatomic,assign) NSInteger noonTimeStartHour;
+
+/*
+午休开始分 | noon time rest start minute
+*/
+@property (nonatomic,assign) NSInteger noonTimeStartMinute;
+
+/*
+午休结束时 | noon time rest end hour
+*/
+@property (nonatomic,assign) NSInteger noonTimeEndHour;
+
+/*
+午休结束分 | noon time rest end minute
+*/
+@property (nonatomic,assign) NSInteger noonTimeEndMinute;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1777,6 +1835,90 @@
  */
 @property (nonatomic,assign) BOOL isOnYahooPinterest;
 
+/**
+ Keep 提醒 | keep
+ */
+@property (nonatomic,assign) BOOL isOnKeep;
+
+/**
+ TikTok 提醒 | tiktok
+ */
+@property (nonatomic,assign) BOOL isOnTikTok;
+
+/**
+ Redbus 提醒 | redbus
+ */
+@property (nonatomic,assign) BOOL isOnRedbus;
+
+/**
+ Dailyhunt 提醒 | dailyhunt
+ */
+@property (nonatomic,assign) BOOL isOnDailyhunt;
+
+/**
+ Hotstar 提醒 | hotstar
+ */
+@property (nonatomic,assign) BOOL isOnHotstar;
+
+/**
+ Inshorts 提醒 | inshorts
+ */
+@property (nonatomic,assign) BOOL isOnInshorts;
+
+/**
+ Paytm 提醒 | paytm
+ */
+@property (nonatomic,assign) BOOL isOnPaytm;
+
+/**
+ Amazon 提醒 | amazon
+ */
+@property (nonatomic,assign) BOOL isOnAmazon;
+
+/**
+ Flipkart 提醒 | flipkart
+ */
+@property (nonatomic,assign) BOOL isOnFlipkart;
+
+/**
+ Prime 提醒 | prime
+ */
+@property (nonatomic,assign) BOOL isOnPrime;
+
+/**
+ Netflix 提醒 | netflix
+ */
+@property (nonatomic,assign) BOOL isOnNetflix;
+
+/**
+ Gpay 提醒 | gpay
+ */
+@property (nonatomic,assign) BOOL isOnGpay;
+
+/**
+ Phonpe 提醒 | phonpe
+ */
+@property (nonatomic,assign) BOOL isOnPhonpe;
+
+/**
+ Swiggy 提醒 | swiggy
+ */
+@property (nonatomic,assign) BOOL isOnSwiggy;
+
+/**
+ Zomato 提醒 | zomato
+ */
+@property (nonatomic,assign) BOOL isOnZomato;
+
+/**
+ MakeMyTrip 提醒 | make my trip
+ */
+@property (nonatomic,assign) BOOL isOnMakeMyTrip;
+
+/**
+ JioTv 提醒 | jio tv
+ */
+@property (nonatomic,assign) BOOL isOnJioTv;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object

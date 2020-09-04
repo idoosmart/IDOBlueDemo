@@ -47,7 +47,7 @@
 /**
  IDO 当前蓝牙管理中心是否开启 | IDO Current blue manager is powered on
  */
-#define __IDO_POWERED_ON__  IDO_BLUE_ENGINE.managerEngine.poweredOn
+#define __IDO_POWERED_ON__  IDO_BLUE_ENGINE.managerEngine.isPoweredOn
 
 /**
  IDO 当前手环UUID | IDO Current Bracelet UUID

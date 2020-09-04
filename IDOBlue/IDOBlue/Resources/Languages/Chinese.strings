@@ -368,6 +368,7 @@
 "set alarm..." = "设置闹钟...";
 "set alarm success" = "设置闹钟成功";
 "set alarm failed" = "设置闹钟失败";
+"please synchronize the configuration first" = "请先同步配置";
 "set alarm notice switch" = "设置闹钟提醒开关:";
 "set time:" = "设置时间:";
 "set long sit notice switch" = "设置久坐提醒开关:";
@@ -447,7 +448,7 @@
 /**
  add by xiongjie 
  */
-"set no disturb mode switch：" = "设置勿扰模式开关：";
+"set no disturb mode switch：" = "设置勿扰模式开关:";
 "set no disturb mode success" = "设置勿扰模式成功";
 "set no disturb mode failed" = "设置勿扰模式失败";
 "set device unit success" = "设置设备单位成功";
@@ -611,6 +612,9 @@
 "get over heat log" = "获取过热日志";
 "get over heat log success" = "获取过热日志成功";
 "get over heat log failed" = "获取过热日志失败";
+"get not disturb mode" = "获取勿扰模式";
+"get not disturb mode success" = "获取勿扰模式成功";
+"get not disturb mode failed" = "获取勿扰模式失败";
 //语音控制
 "please speak" = "请对着手环说话";
 "listen voice data" = "监听语音数据";
@@ -698,6 +702,7 @@
 "get log" = "获取日志";
 "get the device logs..." = "获取设备日志...";
 "get device log completion" = "获取设备日志完成";
+"get all flash log" = "获取所有flash日志";
 "get general log" = "获取通用日志";
 "get reset log" = "获取复位日志";
 "get algorithm log" = "获取算法日志";

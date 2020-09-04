@@ -53,7 +53,8 @@
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get error log state")]];
         IDOGetErrorLogBluetoothModel * logModel = [[IDOGetErrorLogBluetoothModel alloc]init];
         logModel.type = 0x00;
-        [IDOFoundationCommand getErrorLogRecordCommand:logModel callback:^(int errorCode, IDOGetErrorLogBluetoothModel * _Nullable model) {
+        [IDOFoundationCommand getErrorLogRecordCommand:logModel
+                                              callback:^(int errorCode, IDOGetErrorLogBluetoothModel * _Nullable model) {
             if (errorCode == 0) {
              [funcVC showToastWithText:lang(@"get error log state success")];
              strongSelf.textView.text = [NSString stringWithFormat:@"%@",model.dicFromObject];

@@ -366,6 +366,7 @@
 "set alarm success" = "set alarm success";
 "set alarm failed" = "set alarm failed";
 "set alarm notice switch" = "set alarm notice switch:";
+"please synchronize the configuration first" = "please synchronize the configuration first";
 "set time:" = "set time:";
 "set long sit notice switch" = "set long sit notice switch:";
 "set how many minutes later notice" = "set how many minutes later notice:";
@@ -608,6 +609,9 @@
 "get over heat log" = "get over heat log";
 "get over heat log success" = "get over heat log success";
 "get over heat log failed" = "get over heat log failed";
+"get not disturb mode" = "get not disturb mode";
+"get not disturb mode success" = "get not disturb mode success";
+"get not disturb mode failed" = "get not disturb mode failed";
 
 //语音控制
 "please speak" = "please speak";
@@ -688,6 +692,7 @@
 "get log" = "get log";
 "get the device logs..." = "get the device logs...";
 "get device log completion" = "get device log completion";
+"get all flash log" = "get all flash log";
 "get general log" = "get general log";
 "get reset log" = "get reset log";
 "get algorithm log" = "get algorithm log";

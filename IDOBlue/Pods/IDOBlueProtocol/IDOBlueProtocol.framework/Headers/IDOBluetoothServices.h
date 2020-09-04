@@ -65,8 +65,9 @@ extern NSString * _Nonnull IDOBluetoothDeviceBindNotifyName;
 
 /**
  * @brief  注册SDK服务,初始化设备信息 | Register for SDK service,initializes device info
+ * password 数据库密码 ｜ Database password
  * @return IDOBluetoothServices
  */
-IDOBluetoothServices * _Nonnull registrationServices(void);
+IDOBluetoothServices * _Nonnull registrationServices(NSString * _Nullable password);
 
 @end

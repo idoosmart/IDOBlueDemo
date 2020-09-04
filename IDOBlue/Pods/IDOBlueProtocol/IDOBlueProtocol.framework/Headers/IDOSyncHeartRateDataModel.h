@@ -212,6 +212,16 @@
 @property (nonatomic,assign) NSUInteger userMaxHr;
 
 /**
+ 用户最小心率 | User minimum heart rate
+ */
+@property (nonatomic,assign) NSUInteger userMinHr;
+
+/**
+ 用户平均心率 ｜ user average heart rate
+ */
+@property (nonatomic,assign) NSInteger userAvgHr;
+
+/**
  热身运动阈值 | warm up threshold
  */
 @property (nonatomic,assign) NSUInteger warmUpThreshold;
@@ -263,6 +273,12 @@
  时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
+
+/**
+ * 第一次同步开始总偏移
+ * First synchronization starts the total offset
+ */
+@property (nonatomic,assign) NSInteger firstOffset;
 
 @end
 

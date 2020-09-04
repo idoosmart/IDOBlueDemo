@@ -11,12 +11,14 @@
 #import "FuncCellModel.h"
 #import "EmpltyCellModel.h"
 #import "TextViewCellModel.h"
+#import "TextFieldCellModel.h"
 #import "LabelCellModel.h"
 #import "OneLabelTableViewCell.h"
 #import "FuncViewController.h"
 #import "EmptyTableViewCell.h"
 #import "OneButtonTableViewCell.h"
 #import "OneTextViewTableViewCell.h"
+#import "OneTextFieldTableViewCell.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface UpdatePhotoViewModel()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
@@ -26,6 +28,7 @@
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,NSString * titleStr);
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
+@property (nonatomic,copy)void(^textFeildCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
 @property (nonatomic,strong) UIImagePickerController * picker;
 @property (nonatomic,weak) UIViewController * currentVc;
 @end
@@ -92,6 +95,16 @@
     NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:TRAN_FILE_PATH_KEY];
     self.logStr = [self selectedFileWithFilePath:filePath];
     
+    TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
+    model4.typeStr = @"oneTextField";
+    model4.titleStr = lang(@"file name:");
+    model4.data = @[@"wallpaper.z"];
+    model4.cellHeight = 70.0f;
+    model4.cellClass = [OneTextFieldTableViewCell class];
+    model4.modelClass = [NSNull class];
+    model4.isShowLine = YES;
+    model4.textFeildCallback = self.textFeildCallback;
+    
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
     model1.data    = @[lang(@"photo update")];
@@ -116,7 +129,7 @@
     model3.isShowLine = YES;
     model3.isCenter   = YES;
     
-    self.cellModels = @[model1,model2,model3];
+    self.cellModels = @[model4,model1,model2,model3];
 }
 
 - (NSString *)selectedFileWithFilePath:(NSString *)filePath
@@ -186,6 +199,7 @@
     [self startTimer];
     [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"photo update")]];
     initMakePhotoManager().filePath = self.filePath;
+    initMakePhotoManager().fileName = @"wallpaper.z";
     __weak typeof(self) weakSelf = self;
     initMakePhotoManager().addPhotoProgress(^(int progress) {
         [funcVC showSyncProgress:progress/100.0f];

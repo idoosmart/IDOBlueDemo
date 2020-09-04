@@ -51,6 +51,27 @@
  */
 @property (nonatomic,assign) NSInteger  distance;
 
+/**
+ 频率 | frequency
+ */
+@property (nonatomic,assign) NSInteger frequency;
+
+/**
+配速 | speed
+*/
+@property (nonatomic,assign) NSInteger speed;
+
+/**
+ 结束时间 | stop time
+ */
+@property (nonatomic,assign) NSInteger stopTime;
+
+/**
+ 2趟之间的休息时间
+ difference time
+ */
+@property (nonatomic,assign) NSInteger differenceTime;
+ 
 @end
 
 @interface IDOSyncSwimmingDataInfoBluetoothModel : IDOBluetoothBaseModel
@@ -157,6 +178,22 @@
  游泳持续时长 单位:分钟 | duration unit:minute
  */
 @property (nonatomic,assign) NSInteger duration;
+
+/**
+ 平均配速 | avg speed
+ */
+@property (nonatomic,assign) NSInteger avgSpeed;
+
+/**
+平均划水频率 | avg frequency
+*/
+@property (nonatomic,assign) NSInteger avgFrequency;
+
+/**
+ 游泳数据版本号
+ swim data version
+ */
+@property (nonatomic,assign) NSInteger swimVersion;
 
 @end
 

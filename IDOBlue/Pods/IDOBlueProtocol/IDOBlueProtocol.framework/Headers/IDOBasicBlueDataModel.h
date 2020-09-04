@@ -15,6 +15,21 @@
 
 @end
 
+#pragma mark ==== 获取设备升级 model ====
+@interface IDOGetDeviceUpdateStateModel : IDOBluetoothBaseModel
+/**
+ 固件版本号
+ firmware version
+ */
+@property (nonatomic,assign) NSInteger firmwareVersion;
+/**
+ 升级状态，0是正常状态，1是升级状态
+ upgrade status, 0 is the normal status, 1 is the upgrade status
+ */
+@property (nonatomic,assign) NSInteger updateState;
+
+@end
+
 #pragma mark ==== 获取Mtu model ====
 @interface IDOGetMtuBlueInfoModel : IDOBluetoothBaseModel
 /**

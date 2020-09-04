@@ -137,12 +137,13 @@
 /**
  有序列号的心率集合 json字符串 | Heart rate collection with serial number json string
  */
-@property (nonatomic,copy) NSString  * hrValuesStr;
+@property (nonatomic,copy) NSArray  * hrValuesStr;
 
 /**
  每分钟保存数据集合 json字符串 最大保存6小时 | Save the data  of minute for a maximum of 6 hours
+ @{@"steps":@(steps),@"calories":@(calories),@"distance":@(distance)}
  */
-@property (nonatomic,copy) NSString  * dataValuesStr;
+@property (nonatomic,copy) NSArray  * dataValuesStr;
 
 /**
  是否需要保存数据 (用于数据交换) | Do you need to save data (for data exchange)
@@ -155,10 +156,101 @@
  */
 @property (nonatomic,assign) NSInteger startFrom;
 
+/*
+ 平均速度
+ avg speed
+ */
+@property (nonatomic,assign) NSInteger avgSpeed;
+
+/*
+最大速度
+max speed
+*/
+@property (nonatomic,assign) NSInteger maxSpeed;
+
+/**
+ 平均配速
+ avg km speed
+ */
+@property (nonatomic,assign) NSInteger avgKmSpeed;
+
+/**
+ 最快配速
+ fast km speed
+ */
+@property (nonatomic,assign) NSInteger fastKmSpeed;
+
+/*
+平均步频
+avg step frequency
+*/
+@property (nonatomic,assign) NSInteger avgStepFrequency;
+
+/*
+最大步频
+max step frequency
+*/
+@property (nonatomic,assign) NSInteger maxStepFrequency;
+
+/*
+平均步幅
+avg step stride
+*/
+@property (nonatomic,assign) NSInteger avgStepStride;
+
+/*
+最大步幅
+max step stride
+*/
+@property (nonatomic,assign) NSInteger maxStepStride;
+
+/**
+ 热身锻炼时长 (秒钟) | Warm-up time (seconds)
+ */
+@property (nonatomic,assign) NSInteger warmUpHrTime;
+
+/**
+ 脂肪锻炼时长 (秒钟) | Fat workout Duration (seconds)
+ */
+@property (nonatomic,assign) NSInteger burnFatHrTime;
+
+/**
+ 心肺锻炼时长 (秒钟)  | Cardio duration (seconds)
+ */
+@property (nonatomic,assign) NSInteger aerobicHrTime;
+
+/**
+ 无氧锻炼时长 (秒钟) | Duration of anaerobic exercise (seconds)
+ */
+@property (nonatomic,assign) NSInteger anaerobicHrTime;
+
+/**
+ 极限锻炼时长 (秒钟) | Extreme workout Duration (seconds)
+ */
+@property (nonatomic,assign) NSInteger limitHrTime;
+
+/**
+  每公里的配速集合json，最大公里数100公里 s钟数据传输 一公里用了多少s
+  Seconds per kilometer
+ */
+@property (nonatomic,strong)  NSArray * kmSpeedItems;
+
+/**
+  步频集合
+  frequency items
+ */
+@property (nonatomic,strong)  NSArray * frequencyItems;
+
+/**
+ *手环是否连接app  1是连接，0是未连接
+ *Whether the bracelet is connected to APP 1 is connected, 0 is not connected
+ */
+@property (nonatomic,assign) NSInteger connectApp;
+
 @end
 
 
-@interface IDOSyncV3ActivityDataModel : IDOBluetoothBaseModel
+@interface IDOSyncV3ActivityDataModel : NSObject
 
 /**
  * @brief 当前设备根据活动开始时间查询某个活动详情

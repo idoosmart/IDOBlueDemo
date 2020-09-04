@@ -138,7 +138,7 @@
 /**
  有序列号的心率集合 json字符串 | Heart rate collection with serial number json string
  */
-@property (nonatomic,copy) NSString  * hrValuesStr;
+@property (nonatomic,copy) NSArray  * hrValuesStr;
 
 /**
  是否需要保存数据 (用于数据交换) | Do you need to save data (for data exchange)

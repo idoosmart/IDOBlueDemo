@@ -29,7 +29,6 @@
         [self getLabelCallback];
         [self getButtonCallback];
         [self getCellModels];
-        [self getFlashLogComplete];
     }
     return self;
 }
@@ -49,8 +48,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[lang(@"get general log"),lang(@"get reset log"),
-                          lang(@"get algorithm log"),lang(@"get hardware log")];
+        _buttonTitles = @[lang(@"get all flash log")];
     }
     return _buttonTitles;
 }
@@ -87,24 +85,6 @@
     self.cellModels = cellModels;
 }
 
-- (void)getFlashLogComplete
-{
-    __weak typeof(self) weakSelf = self;
-    [IDORecordDeviceLog flashLogRecordComplete:^(int errorCode) {
-        __strong typeof(self) strongSelf = weakSelf;
-        FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
-        if (errorCode == 0) {
-            [funcVc showToastWithText:lang(@"get flash log complete")];
-        }else if(errorCode == 6){
-            [funcVc showToastWithText:lang(@"feature is not supported on the current device")];
-        }else {
-            [funcVc showToastWithText:lang(@"get flash log failed")];
-        }
-        [strongSelf getCellModels];
-        [funcVc reloadData];
-    }];
-}
-
 - (void)getLabelCallback
 {
     __weak typeof(self) weakSelf = self;
@@ -133,13 +113,17 @@
         NSString * message = [NSString stringWithFormat:@"%@...",[model.data firstObject]];
         [funcVc showLoadingWithMessage:message];
         if (model.index == 0) { //通用日志
-            [IDORecordDeviceLog startFlashLogRecordWithType:IDO_FLASH_LOG_GENERAL_TYPE];
-        }else if (model.index == 1) { //复位日志
-            [IDORecordDeviceLog startFlashLogRecordWithType:IDO_FLASH_LOG_RESET_TYPE];
-        }else if (model.index == 2) {//算法日志
-            [IDORecordDeviceLog startFlashLogRecordWithType:IDO_FLASH_LOG_ALGORITHM_TYPE];
-        }else if (model.index == 3) {//硬件日志
-            [IDORecordDeviceLog startFlashLogRecordWithType:IDO_FLASH_LOG_HARDWARE_TYPE];
+            [IDORecordDeviceLog getFlashLogRecordCallback:^(int errorCode) {
+                if (errorCode == 0) {
+                    [funcVc showToastWithText:lang(@"get flash log complete")];
+                }else if(errorCode == 6){
+                    [funcVc showToastWithText:lang(@"feature is not supported on the current device")];
+                }else {
+                    [funcVc showToastWithText:lang(@"get flash log failed")];
+                }
+                [strongSelf getCellModels];
+                [funcVc reloadData];
+            }];
         }
     };
 }

@@ -1,14 +1,14 @@
 PODS:
-  - IDOBlueProtocol (3.4.4)
+  - IDOBlueProtocol (3.7.4)
   - IDOBluetooth (3.4.2):
     - IDOBlueProtocol
-  - IDOBlueUpdate (3.4.4):
+  - IDOBlueUpdate (3.4.7):
     - IDOBlueProtocol
 
 DEPENDENCIES:
-  - IDOBlueProtocol (= 3.4.4)
+  - IDOBlueProtocol (= 3.7.4)
   - IDOBluetooth (= 3.4.2)
-  - IDOBlueUpdate (= 3.4.4)
+  - IDOBlueUpdate (= 3.4.7)
 
 SPEC REPOS:
   https://github.com/idoosmart/IDOSmartSpec.git:
@@ -17,10 +17,10 @@ SPEC REPOS:
     - IDOBlueUpdate
 
 SPEC CHECKSUMS:
-  IDOBlueProtocol: ac8b4884764cf3cc26b71338418953b96059e18e
+  IDOBlueProtocol: 0b1d87b60d0b9384bdc91d7122952f28fdf06829
   IDOBluetooth: cbb414dfcc3aaf2eedcf37c10cfbfdf332b655b9
-  IDOBlueUpdate: f89e99d34e536f7bf84356745d2af0dd39cc831e
+  IDOBlueUpdate: 27b34e3d3202346ac3299970281e251b388f1351
 
-PODFILE CHECKSUM: 337c685d7edbbada4b5bf9afe4448608ef7bc10a
+PODFILE CHECKSUM: ad01fec7dda6b3060b52ac833676bf559111ef6d
 
-COCOAPODS: 1.9.0.beta.3
+COCOAPODS: 1.9.3

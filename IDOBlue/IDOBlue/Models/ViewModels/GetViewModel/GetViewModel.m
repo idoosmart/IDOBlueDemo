@@ -31,6 +31,7 @@
 #import "GetV3HearRateViewModel.h"
 #import "GetMtuInfoViewModel.h"
 #import "GetOverHeatLogViewModel.h"
+#import "GetNoDisturbViewModel.h"
 
 @interface GetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -61,7 +62,7 @@
                           @[lang(@"get default language")],@[lang(@"get menu list")],@[lang(@"get five heart rate")],
                           @[lang(@"get default sport type")],@[lang(@"get error log state")],@[lang(@"get v3 alarms info")],
                           @[lang(@"get v3 heart rate mode")],@[lang(@"get blue mtu info")],
-                          @[lang(@"get over heat log")]];
+                          @[lang(@"get over heat log")],@[lang(@"get not disturb mode")]];
     }
     return _buttonTitles;
 }
@@ -75,7 +76,8 @@
                          [GetOtaAuthInfoViewModel class],[GetFlashInfoViewModel class],[GetBatteryInfoViewModel class],
                          [GetDefaultLanguageViewModel class],[GetMenuListViewModel class],[GetFiveHeartRateViewModel class],
                          [GetDefaultSportViewModel class],[GetErrorLogViewModel class],[GetV3AlarmsViewModel class],
-                         [GetV3HearRateViewModel class],[GetMtuInfoViewModel class],[GetOverHeatLogViewModel class]];
+                         [GetV3HearRateViewModel class],[GetMtuInfoViewModel class],[GetOverHeatLogViewModel class],
+                         [GetNoDisturbViewModel class]];
     }
     return _modelClasss;
 }

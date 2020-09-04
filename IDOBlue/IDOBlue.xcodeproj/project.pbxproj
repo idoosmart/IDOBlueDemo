@@ -46,7 +46,6 @@
 		183FC0A1214E87DE00AD6484 /* EmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC0A0214E87DE00AD6484 /* EmptyTableViewCell.m */; };
 		183FC0A4214E8D1E00AD6484 /* OneLabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC0A3214E8D1E00AD6484 /* OneLabelTableViewCell.m */; };
 		183FC0A7214E8E5200AD6484 /* FileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC0A6214E8E5200AD6484 /* FileViewModel.m */; };
-		93C7478B77DF9645834660BE /* Pods_IDOBlue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4B6C31A171F92AB739E59B /* Pods_IDOBlue.framework */; };
 		9B1019E42450779E008799C0 /* UpdateApolloViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1019E32450779E008799C0 /* UpdateApolloViewModel.m */; };
 		9B16A8B22171F17F00DC199C /* QueryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16A8B12171F17F00DC199C /* QueryViewModel.m */; };
 		9B16A8B52171F41F00DC199C /* QuerySportsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16A8B42171F41F00DC199C /* QuerySportsViewModel.m */; };
@@ -84,7 +83,6 @@
 		9B4046052143C72D00ACDE9F /* NSObject+ModelToDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4046022143C72C00ACDE9F /* NSObject+ModelToDic.m */; };
 		9B4046062143C72D00ACDE9F /* UINavigationItem+Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4046032143C72D00ACDE9F /* UINavigationItem+Button.m */; };
 		9B41B6D72445C87F00BE04A4 /* lib_lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41B6D62445C86D00BE04A4 /* lib_lame.a */; };
-		9B41B6DB2445DD7D00BE04A4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41B6DA2445DD7D00BE04A4 /* AudioToolbox.framework */; };
 		9B41B6DE2445DD8C00BE04A4 /* PCMDataPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B41B6DD2445DD8C00BE04A4 /* PCMDataPlayer.m */; };
 		9B437EEE21393ADC00DE2FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437EED21393ADC00DE2FC8 /* AppDelegate.m */; };
 		9B437EF621393ADC00DE2FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B437EF521393ADC00DE2FC8 /* Assets.xcassets */; };
@@ -92,6 +90,7 @@
 		9B437EFC21393ADC00DE2FC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437EFB21393ADC00DE2FC8 /* main.m */; };
 		9B437F3721393DDD00DE2FC8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */; };
 		9B44DA1D231F8C1400949276 /* SetWatchDialViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B44DA1C231F8C1400949276 /* SetWatchDialViewModel.m */; };
+		9B4A58982500DD910005E55B /* GetNoDisturbViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A58972500DD910005E55B /* GetNoDisturbViewModel.m */; };
 		9B4AF76321E6DA95006926CA /* GetVersionInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4AF76221E6DA95006926CA /* GetVersionInfoViewModel.m */; };
 		9B568540217DD1B400462AE0 /* ThreeButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B56853F217DD1B400462AE0 /* ThreeButtonTableViewCell.m */; };
 		9B568543217DD60B00462AE0 /* TabCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B568542217DD60B00462AE0 /* TabCellModel.m */; };
@@ -167,6 +166,11 @@
 		9B95AD12246E3F4D006640AB /* GetMtuInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95AD11246E3F4D006640AB /* GetMtuInfoViewModel.m */; };
 		9B96ECB72238B5E900C905AF /* QueryGpsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B96ECB62238B5E900C905AF /* QueryGpsViewModel.m */; };
 		9B9A9A3C21860C9F0025E6A1 /* ScanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9A9A3B21860C9F0025E6A1 /* ScanTableViewCell.m */; };
+		9B9F51AE2501F2E3007F9E32 /* IDOSmartUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC479A7244EEF7000455A6E /* IDOSmartUIKit.framework */; };
+		9B9F51AF2501F309007F9E32 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41B6DA2445DD7D00BE04A4 /* AudioToolbox.framework */; };
+		9B9F51B02501F309007F9E32 /* AudioToolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41B6DA2445DD7D00BE04A4 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9B9F51B12501F310007F9E32 /* Pods_IDOBlue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4B6C31A171F92AB739E59B /* Pods_IDOBlue.framework */; };
+		9B9F51B22501F310007F9E32 /* Pods_IDOBlue.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE4B6C31A171F92AB739E59B /* Pods_IDOBlue.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B9FC64323B603B400B3B414 /* SetCityNameViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FC64223B603B400B3B414 /* SetCityNameViewModel.m */; };
 		9BA291702313D3B900FE7C17 /* HtmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA2916E2313D3B800FE7C17 /* HtmlViewController.m */; };
 		9BA291712313D3B900FE7C17 /* HtmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA2916F2313D3B800FE7C17 /* HtmlViewController.xib */; };
@@ -201,7 +205,6 @@
 		9BC479A4244E9A5900455A6E /* PQVoiceTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC47999244E9A5900455A6E /* PQVoiceTopView.m */; };
 		9BC479A5244E9A5900455A6E /* PQVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC4799B244E9A5900455A6E /* PQVoiceView.m */; };
 		9BC479A6244E9A5900455A6E /* UIView+PQViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC4799D244E9A5900455A6E /* UIView+PQViewExtension.m */; };
-		9BC479A9244EEF7000455A6E /* IDOSmartUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC479A7244EEF7000455A6E /* IDOSmartUIKit.framework */; };
 		9BC479AA244EEF7000455A6E /* IDOSmartUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC479A7244EEF7000455A6E /* IDOSmartUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9BC479AB244EEF7000455A6E /* IDOThirdParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC479A8244EEF7000455A6E /* IDOThirdParty.framework */; };
 		9BC479AC244EEF7000455A6E /* IDOThirdParty.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC479A8244EEF7000455A6E /* IDOThirdParty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -242,6 +245,8 @@
 			files = (
 				9BC479AC244EEF7000455A6E /* IDOThirdParty.framework in Embed Frameworks */,
 				9BC479AA244EEF7000455A6E /* IDOSmartUIKit.framework in Embed Frameworks */,
+				9B9F51B02501F309007F9E32 /* AudioToolbox.framework in Embed Frameworks */,
+				9B9F51B22501F310007F9E32 /* Pods_IDOBlue.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +422,8 @@
 		9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9B44DA1B231F8C1400949276 /* SetWatchDialViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetWatchDialViewModel.h; sourceTree = "<group>"; };
 		9B44DA1C231F8C1400949276 /* SetWatchDialViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetWatchDialViewModel.m; sourceTree = "<group>"; };
+		9B4A58962500DD910005E55B /* GetNoDisturbViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNoDisturbViewModel.h; sourceTree = "<group>"; };
+		9B4A58972500DD910005E55B /* GetNoDisturbViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetNoDisturbViewModel.m; sourceTree = "<group>"; };
 		9B4AF76121E6DA95006926CA /* GetVersionInfoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetVersionInfoViewModel.h; sourceTree = "<group>"; };
 		9B4AF76221E6DA95006926CA /* GetVersionInfoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetVersionInfoViewModel.m; sourceTree = "<group>"; };
 		9B56853E217DD1B400462AE0 /* ThreeButtonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeButtonTableViewCell.h; sourceTree = "<group>"; };
@@ -692,13 +699,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BC479A9244EEF7000455A6E /* IDOSmartUIKit.framework in Frameworks */,
-				9B41B6DB2445DD7D00BE04A4 /* AudioToolbox.framework in Frameworks */,
+				9B9F51AE2501F2E3007F9E32 /* IDOSmartUIKit.framework in Frameworks */,
 				9B41B6D72445C87F00BE04A4 /* lib_lame.a in Frameworks */,
 				9BC479AB244EEF7000455A6E /* IDOThirdParty.framework in Frameworks */,
 				9BBAF49B21F96D7A001BD3F9 /* libsqlite3.0.tbd in Frameworks */,
+				9B9F51AF2501F309007F9E32 /* AudioToolbox.framework in Frameworks */,
 				9B6629FA23BB3D9A001EED9D /* libc++.tbd in Frameworks */,
-				93C7478B77DF9645834660BE /* Pods_IDOBlue.framework in Frameworks */,
+				9B9F51B12501F310007F9E32 /* Pods_IDOBlue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,6 +821,8 @@
 				9B95AD11246E3F4D006640AB /* GetMtuInfoViewModel.m */,
 				9BF536B3247BE7F500EEFCDB /* GetOverHeatLogViewModel.h */,
 				9BF536B4247BE7F500EEFCDB /* GetOverHeatLogViewModel.m */,
+				9B4A58962500DD910005E55B /* GetNoDisturbViewModel.h */,
+				9B4A58972500DD910005E55B /* GetNoDisturbViewModel.m */,
 			);
 			path = GetViewModel;
 			sourceTree = "<group>";
@@ -1744,6 +1753,7 @@
 				9B437EEE21393ADC00DE2FC8 /* AppDelegate.m in Sources */,
 				9B41B6DE2445DD8C00BE04A4 /* PCMDataPlayer.m in Sources */,
 				183FC0A4214E8D1E00AD6484 /* OneLabelTableViewCell.m in Sources */,
+				9B4A58982500DD910005E55B /* GetNoDisturbViewModel.m in Sources */,
 				9BA7DE1D2180757100FA67D2 /* TableViewFootView.m in Sources */,
 				183FC092214E505500AD6484 /* ControlViewModel.m in Sources */,
 				9BFF80EB2189829300EFA848 /* FirmwareTypeViewModel.m in Sources */,
@@ -1935,7 +1945,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = ../thirdParty/Lame;
-				MARKETING_VERSION = 3.4.3;
+				MARKETING_VERSION = 3.7.4;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ido.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1970,7 +1980,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = ../thirdParty/Lame;
-				MARKETING_VERSION = 3.4.3;
+				MARKETING_VERSION = 3.7.4;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ido.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
