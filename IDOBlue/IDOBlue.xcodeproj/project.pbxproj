@@ -168,9 +168,6 @@
 		9B9A9A3C21860C9F0025E6A1 /* ScanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9A9A3B21860C9F0025E6A1 /* ScanTableViewCell.m */; };
 		9B9F51AE2501F2E3007F9E32 /* IDOSmartUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC479A7244EEF7000455A6E /* IDOSmartUIKit.framework */; };
 		9B9F51AF2501F309007F9E32 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41B6DA2445DD7D00BE04A4 /* AudioToolbox.framework */; };
-		9B9F51B02501F309007F9E32 /* AudioToolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41B6DA2445DD7D00BE04A4 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9B9F51B12501F310007F9E32 /* Pods_IDOBlue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4B6C31A171F92AB739E59B /* Pods_IDOBlue.framework */; };
-		9B9F51B22501F310007F9E32 /* Pods_IDOBlue.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE4B6C31A171F92AB739E59B /* Pods_IDOBlue.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B9FC64323B603B400B3B414 /* SetCityNameViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FC64223B603B400B3B414 /* SetCityNameViewModel.m */; };
 		9BA291702313D3B900FE7C17 /* HtmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA2916E2313D3B800FE7C17 /* HtmlViewController.m */; };
 		9BA291712313D3B900FE7C17 /* HtmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA2916F2313D3B800FE7C17 /* HtmlViewController.xib */; };
@@ -234,6 +231,7 @@
 		9BF7EC39219BCAB300572E70 /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC38219BCAB300572E70 /* SliderTableViewCell.m */; };
 		9BF7EC3C219BCFE900572E70 /* SliderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7EC3B219BCFE900572E70 /* SliderCellModel.m */; };
 		9BFF80EB2189829300EFA848 /* FirmwareTypeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */; };
+		E2F7B0756879C6A62CCC589D /* Pods_IDOBlue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FFA1193E14B5840110953D /* Pods_IDOBlue.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -245,8 +243,6 @@
 			files = (
 				9BC479AC244EEF7000455A6E /* IDOThirdParty.framework in Embed Frameworks */,
 				9BC479AA244EEF7000455A6E /* IDOSmartUIKit.framework in Embed Frameworks */,
-				9B9F51B02501F309007F9E32 /* AudioToolbox.framework in Embed Frameworks */,
-				9B9F51B22501F310007F9E32 /* Pods_IDOBlue.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +328,7 @@
 		183FC0A3214E8D1E00AD6484 /* OneLabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneLabelTableViewCell.m; sourceTree = "<group>"; };
 		183FC0A5214E8E5200AD6484 /* FileViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileViewModel.h; sourceTree = "<group>"; };
 		183FC0A6214E8E5200AD6484 /* FileViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileViewModel.m; sourceTree = "<group>"; };
+		35FFA1193E14B5840110953D /* Pods_IDOBlue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDOBlue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A9262FD9568A68B014C256 /* Pods-IDOBlue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDOBlue.release.xcconfig"; path = "Target Support Files/Pods-IDOBlue/Pods-IDOBlue.release.xcconfig"; sourceTree = "<group>"; };
 		9B1019E22450779E008799C0 /* UpdateApolloViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateApolloViewModel.h; sourceTree = "<group>"; };
 		9B1019E32450779E008799C0 /* UpdateApolloViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateApolloViewModel.m; sourceTree = "<group>"; };
@@ -691,7 +688,6 @@
 		9BFF80E92189829300EFA848 /* FirmwareTypeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirmwareTypeViewModel.h; sourceTree = "<group>"; };
 		9BFF80EA2189829300EFA848 /* FirmwareTypeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirmwareTypeViewModel.m; sourceTree = "<group>"; };
 		CDE4E5AB3D79972A141D0263 /* Pods-IDOBlue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDOBlue.debug.xcconfig"; path = "Target Support Files/Pods-IDOBlue/Pods-IDOBlue.debug.xcconfig"; sourceTree = "<group>"; };
-		FE4B6C31A171F92AB739E59B /* Pods_IDOBlue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDOBlue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -705,7 +701,7 @@
 				9BBAF49B21F96D7A001BD3F9 /* libsqlite3.0.tbd in Frameworks */,
 				9B9F51AF2501F309007F9E32 /* AudioToolbox.framework in Frameworks */,
 				9B6629FA23BB3D9A001EED9D /* libc++.tbd in Frameworks */,
-				9B9F51B12501F310007F9E32 /* Pods_IDOBlue.framework in Frameworks */,
+				E2F7B0756879C6A62CCC589D /* Pods_IDOBlue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,7 +1101,7 @@
 				9B41B6D62445C86D00BE04A4 /* lib_lame.a */,
 				9B6629F923BB3D88001EED9D /* libc++.tbd */,
 				9B5702A4213BEE1500BCE1CE /* libsqlite3.0.tbd */,
-				FE4B6C31A171F92AB739E59B /* Pods_IDOBlue.framework */,
+				35FFA1193E14B5840110953D /* Pods_IDOBlue.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1930,7 +1926,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_ENTITLEMENTS = IDOBlue/IDOBlue.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: an he (A4R4XM8NL6)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = T65EE75V48;
 				ENABLE_BITCODE = NO;
@@ -1965,7 +1961,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_ENTITLEMENTS = IDOBlue/IDOBlue.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: an he (A4R4XM8NL6)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = T65EE75V48;
 				ENABLE_BITCODE = NO;

@@ -138,167 +138,167 @@ typedef NS_ENUM(NSInteger, IDO_SYNC_CONFIG_DATA_TYPE) {
      * 设置闹钟
      * set alarm
      */
-    IDO_SYNC_SET_ALARM_TYPE,
+    IDO_SYNC_SET_ALARM_TYPE = 2,
     /*
      * 设置久坐
      * set long sit
      */
-    IDO_SYNC_SET_LONG_SIT_TYPE,
+    IDO_SYNC_SET_LONG_SIT_TYPE = 3,
     /*
      * 设置防丢失
      * set lost find
      */
-    IDO_SYNC_SET_LOST_FIND_TYPE,
+    IDO_SYNC_SET_LOST_FIND_TYPE = 4,
     /*
      * 设置寻找手机
      * set find phone
      */
-    IDO_SYNC_SET_FIND_PHONE_TYPE,
+    IDO_SYNC_SET_FIND_PHONE_TYPE = 5,
     /*
      * 设置运动目标(步数)
      * set sport goal
      */
-    IDO_SYNC_SET_SPORT_GOAL_TYPE,
+    IDO_SYNC_SET_SPORT_GOAL_TYPE = 6,
     /*
      * 设置用户信息
      * set user info
      */
-    IDO_SYNC_SET_USER_INFO_TYPE,
+    IDO_SYNC_SET_USER_INFO_TYPE = 7,
     /*
      * 设置单位
      * set unit
      */
-    IDO_SYNC_SET_UNIT_TYPE,
+    IDO_SYNC_SET_UNIT_TYPE = 8,
     /*
      * 设置开启授权
      * set open auth
      */
-    IDO_SYNC_SET_AUTH_TYPE,
+    IDO_SYNC_SET_AUTH_TYPE = 9,
     /*
      * 设置心率模式
      * set heart rate mode
      */
-    IDO_SYNC_SET_HEART_RATE_MODE_TYPE,
+    IDO_SYNC_SET_HEART_RATE_MODE_TYPE = 10,
     /*
      * 设置v3心率模式
      * set v3 heart rate mode
      */
-    IDO_SYNC_SET_V3_SET_HR_MODE_TYPE,
+    IDO_SYNC_SET_V3_SET_HR_MODE_TYPE = 11,
     /*
      * 设置抬手
      * set up hand gesture
      */
-    IDO_SYNC_SET_UP_HAND_GESTURE_TYPE,
+    IDO_SYNC_SET_UP_HAND_GESTURE_TYPE = 12,
     /*
      * 设置勿扰模式
      * set do not disturb
      */
-    IDO_SYNC_SET_DO_NOT_DISTURB_TYPE,
+    IDO_SYNC_SET_DO_NOT_DISTURB_TYPE = 13,
     /*
      * 设置显示模式
      * set display mode
      */
-    IDO_SYNC_SET_DISPLAY_MODE_TYPE,
+    IDO_SYNC_SET_DISPLAY_MODE_TYPE = 14,
     /*
      * 设置一键呼叫
      * set one key sos
      */
-    IDO_SYNC_SET_ONE_KEY_SOS_TYPE,
+    IDO_SYNC_SET_ONE_KEY_SOS_TYPE = 15,
     /*
      * 设置音乐开关
      * set muisc on off
      */
-    IDO_SYNC_SET_MUISC_ON_OFF_TYPE,
+    IDO_SYNC_SET_MUISC_ON_OFF_TYPE = 16,
     /*
      * 设置天气开关
      * set weather switch
      */
-    IDO_SYNC_SET_WEATHER_SWITCH_TYPE,
+    IDO_SYNC_SET_WEATHER_SWITCH_TYPE = 17,
     /*
      * 设置心率区间
      * set heart rate interval
      */
-    IDO_SYNC_SET_HEART_RATE_INTERVAL_TYPE,
+    IDO_SYNC_SET_HEART_RATE_INTERVAL_TYPE = 18,
     /*
      * 设置运动模式选择
      * set sport mode select
      */
-    IDO_SYNC_SET_SPORT_MODE_SELECT_TYPE,
+    IDO_SYNC_SET_SPORT_MODE_SELECT_TYPE = 19,
     /*
      * 设置运动模式排序
      * set sport mode sort
      */
-    IDO_SYNC_SET_SPORT_MODE_SORT_TYPE,
+    IDO_SYNC_SET_SPORT_MODE_SORT_TYPE = 20,
     /*
      * 设置表盘
      * set watch dial
      */
-    IDO_SYNC_SET_WATCH_DIAL_TYPE,
+    IDO_SYNC_SET_WATCH_DIAL_TYPE = 21,
     /*
      * 设置快捷方式
      * set shortcut
      */
-    IDO_SYNC_SET_SHORTCUT_TYPE,
+    IDO_SYNC_SET_SHORTCUT_TYPE = 22,
     /*
      * 设置睡眠时间段
      * set sleep period
      */
-    IDO_SYNC_SET_SLEEP_PERIOD_TYPE,
+    IDO_SYNC_SET_SLEEP_PERIOD_TYPE = 23,
     /*
      * 设置屏幕亮度
      * set screen brightness
      */
-    IDO_SYNC_SET_SCREEN_BRIGHTNESS_TYPE,
+    IDO_SYNC_SET_SCREEN_BRIGHTNESS_TYPE = 24,
     /*
      * 设置女性生理周期提醒
      * set menstruation remind
      */
-    IDO_SYNC_SET_MENSTRUATION_REMIND_TYPE,
+    IDO_SYNC_SET_MENSTRUATION_REMIND_TYPE = 25,
     /*
      * 设置女性生理周期
      * set menstruation
      */
-    IDO_SYNC_SET_SET_MENSTRUATION_TYPE,
+    IDO_SYNC_SET_SET_MENSTRUATION_TYPE = 26,
     /*
      * 设置卡路里和距离目标
      * set calorie distance goal
      */
-    IDO_SYNC_SET_CALORIE_DISTANCE_GOAL_TYPE,
+    IDO_SYNC_SET_CALORIE_DISTANCE_GOAL_TYPE = 27,
     /*
      * 设置GPS信息
      * set gps config
      */
-    IDO_SYNC_SET_CONFIG_GPS_TYPE,
+    IDO_SYNC_SET_CONFIG_GPS_TYPE = 28,
     /*
      * 设置打开苹果通知开关
      * set open ancs
      */
-    IDO_SYNC_SET_BLE_OPEN_ANCS_TYPE,
+    IDO_SYNC_SET_BLE_OPEN_ANCS_TYPE = 29,
     /*
      * 设置走路提醒
      * set walk reminder
      */
-    IDO_SYNC_SET_WALK_REMINDER_TYPE,
+    IDO_SYNC_SET_WALK_REMINDER_TYPE = 30,
     /*
      * 设置血氧训练
      * set breathe train
      */
-    IDO_SYNC_SET_BREATHE_TRAIN_TYPE,
+    IDO_SYNC_SET_BREATHE_TRAIN_TYPE = 31,
     /*
      * 设置活动识别开关
      * set activity switch
      */
-    IDO_SYNC_SET_ACTIVITY_SWITCH_TYPE,
+    IDO_SYNC_SET_ACTIVITY_SWITCH_TYPE = 32,
     /*
      * 设置压力开关
      * set pressure switch
      */
-    IDO_SYNC_SET_PRESSURE_SWITCH_TYPE,
+    IDO_SYNC_SET_PRESSURE_SWITCH_TYPE = 33,
     /*
      * 获取下载语言信息
      * get down language
      */
-    IDO_SYNC_GET_DOWN_LANGUAGE
+    IDO_SYNC_GET_DOWN_LANGUAGE = 34
 };
 
 /**

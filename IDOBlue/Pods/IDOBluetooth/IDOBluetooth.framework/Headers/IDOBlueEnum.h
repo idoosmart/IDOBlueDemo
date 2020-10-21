@@ -24,19 +24,19 @@ typedef NS_ENUM(NSInteger, IDO_SCAN_DEVICE_MODE) {
      * 手动扫描连接模式
      * Manual scan connection mode
      */
-    IDO_MANUAL_SCAN_CONNECT_MODE,
+    IDO_MANUAL_SCAN_CONNECT_MODE = 1,
     
     /**
      * 系统蓝牙列表扫描连接模式
      * System bluetooth list scan connection mode
      */
-    IDO_SYSTEM_LIST_SCAN_CONNECT_MODE,
+    IDO_SYSTEM_LIST_SCAN_CONNECT_MODE = 2,
     
     /**
      * 自动扫描连接模式
      * MAutomatic scan connection mode
      */
-    IDO_AUTO_SCAN_CONNECT_MODE,
+    IDO_AUTO_SCAN_CONNECT_MODE = 3,
     
 };
 
@@ -55,67 +55,67 @@ typedef NS_ENUM(NSInteger, IDO_BLUETOOTH_MANAGER_STATE) {
      * 蓝牙打开
      * Bluetooth open
      */
-    IDO_MANAGER_STATE_POWEREDON,
+    IDO_MANAGER_STATE_POWEREDON = 2,
     
     /**
      * 蓝牙自动扫描中
      * Bluetooth automatic scanning
      */
-    IDO_MANAGER_STATE_AUTO_SCANING,
+    IDO_MANAGER_STATE_AUTO_SCANING = 3,
     
     /**
      * 在ota模式自动连接
      * Automatically connect in ota mode
      */
-    IDO_MANAGER_STATE_AUTO_OTA_CONNECT,
+    IDO_MANAGER_STATE_AUTO_OTA_CONNECT = 4,
     
     /**
      * 普通模式自动连接
      * Normal mode automatic connection
      */
-    IDO_MANAGER_STATE_AUTO_CONNECT,
+    IDO_MANAGER_STATE_AUTO_CONNECT = 5,
     
     /**
      * 蓝牙扫描停止
      * Bluetooth scan stop
      */
-    IDO_MANAGER_STATE_SCAN_STOP,
+    IDO_MANAGER_STATE_SCAN_STOP = 6,
     
     /**
      * 蓝牙手动扫描中
      * Bluetooth manual scanning
      */
-    IDO_MANAGER_STATE_MANUAL_SCANING,
+    IDO_MANAGER_STATE_MANUAL_SCANING = 7,
     
     /**
      * 在ota模式手动连接
      * Manually connect in ota mode
      */
-    IDO_MANAGER_STATE_MANUAL_OTA_CONNECT,
+    IDO_MANAGER_STATE_MANUAL_OTA_CONNECT = 8,
     
     /**
      * 普通模式手动连接
      * Normal mode manual connection
      */
-    IDO_MANAGER_STATE_MANUAL_CONNECT,
+    IDO_MANAGER_STATE_MANUAL_CONNECT = 9,
     
     /**
      * 手环连接成功
      * The bracelet is connected successfully
      */
-    IDO_MANAGER_STATE_DID_CONNECT,
+    IDO_MANAGER_STATE_DID_CONNECT = 10,
     
     /**
      * 手环连接失败
      * Bracelet connection failed
      */
-    IDO_MANAGER_STATE_CONNECT_FAILED,
+    IDO_MANAGER_STATE_CONNECT_FAILED = 11,
     
     /**
      * 手环断开连接
      * Bracelet dis connect
      */
-    IDO_MANAGER_STATE_DIS_CONNECT
+    IDO_MANAGER_STATE_DIS_CONNECT = 12
 };
 
 
@@ -134,79 +134,91 @@ typedef NS_ENUM(NSInteger, IDO_BLUETOOTH_CONNECT_ERROR_TYPE) {
      * MAC地址为空ota模式蓝牙不能自动连接
      * The MAC address is empty. ota mode Bluetooth cannot be automatically connected.
      */
-    IDO_BLUETOOTH_MAC_ADDR_EMPTY_TYPE,
+    IDO_BLUETOOTH_MAC_ADDR_EMPTY_TYPE = 2,
     
     /**
      * 未绑定设备蓝牙不能自动连接
      * Unbound device Bluetooth cannot be automatically connected.
      */
-    IDO_BLUETOOTH_UNBOUND_TYPE,
+    IDO_BLUETOOTH_UNBOUND_TYPE = 3,
     
     /**
      * 蓝牙关闭不能自动连接
      * Bluetooth off does not automatically connect.
      */
-    IDO_BLUETOOTH_POWERED_OFF_TYPE,
+    IDO_BLUETOOTH_POWERED_OFF_TYPE = 4,
     
     /**
      * 外围设备不存在
      * Peripheral device does not exist
      */
-    IDO_BLUETOOTH_PERIPHERAL_DON_EXIST,
+    IDO_BLUETOOTH_PERIPHERAL_DON_EXIST = 5,
     
     /**
      * 蓝牙自动模式断开连接
      * Bluetooth auto mode disconnect
      */
-    IDO_BLUETOOTH_AUTO_DIS_CONNECT_TYPE,
+    IDO_BLUETOOTH_AUTO_DIS_CONNECT_TYPE = 6,
     
     /**
      * 蓝牙手动模式断开连接
      * Bluetooth manual mode disconnect
      */
-    IDO_BLUETOOTH_MANUAL_DIS_CONNECT_TYPE,
+    IDO_BLUETOOTH_MANUAL_DIS_CONNECT_TYPE = 7,
     
     /**
      * 蓝牙连接失败
      * Bluetooth connection failed
      */
-    IDO_BLUETOOTH_CONNECT_FAIL_TYPE,
+    IDO_BLUETOOTH_CONNECT_FAIL_TYPE = 8,
     
     /**
      * 蓝牙连接超时
      * Bluetooth connection timeout
      */
-    IDO_BLUETOOTH_CONNECT_TIME_OUT_TYPE,
+    IDO_BLUETOOTH_CONNECT_TIME_OUT_TYPE = 9,
     
     /**
      * 蓝牙扫描连接超时
      * Bluetooth scan connection timed out
      */
-    IDO_BLUETOOTH_SCAN_CONNECT_TIME_OUT_TYPE,
+    IDO_BLUETOOTH_SCAN_CONNECT_TIME_OUT_TYPE = 10,
     
     /**
      * 蓝牙发现外围设备服务失败
      * Bluetooth discovery peripheral service failed
      */
-    IDO_BLUETOOTH_DISCOVER_SERVICE_FAIL_TYPE,
+    IDO_BLUETOOTH_DISCOVER_SERVICE_FAIL_TYPE = 11,
     
     /**
      * 蓝牙发现外围设备服务不存在
      * Bluetooth discovery peripheral service does not exist
      */
-    IDO_BLUETOOTH_DISCOVER_SERVICE_NO_EXIST_TYPE,
+    IDO_BLUETOOTH_DISCOVER_SERVICE_NO_EXIST_TYPE = 12,
     
     /**
      * 蓝牙发现外围设备特征失败
      * Bluetooth discovery peripheral feature failed
      */
-    IDO_BLUETOOTH_DISCOVER_CHARACTERISTICS_TYPE,
+    IDO_BLUETOOTH_DISCOVER_CHARACTERISTICS_TYPE = 13,
     
     /**
      * 蓝牙数据交换错误
      * Bluetooth data exchange error
      */
-    IDO_BLUETOOTH_DATA_EXCHANGE_ERROR_TYPE
+    IDO_BLUETOOTH_DATA_EXCHANGE_ERROR_TYPE = 14,
+    
+    /**
+     * 写入蓝牙数据错误
+     * Bluetooth write data error
+     */
+    IDO_BLUETOOTH_DATA_WRITE_ERROR_TYPE = 15,
+    
+    /**
+     * 蓝牙配对异常
+     * Peer removed pairing information
+     */
+    IDO_BLUETOOTH_PAIRING_ERROR_TYPE = 16
     
 };
 

@@ -43,6 +43,11 @@
 + (void)connectionFailed;
 
 /**
+ *检测加密授权码 ｜ detection encrypted auth code
+ */
++ (void)detectionEncryptedCode;
+
+/**
  * 删除手环日志 ｜ clear device log
  * type: 0x01 = > 删除过热日志
  */
@@ -114,25 +119,46 @@
  * @brief 设备绑定 | Device Binding
  * @param bindModel 绑定 model (IDOSetBindingInfoBluetoothModel) (只有在授权绑定才会存储数据)
  * Binding model (IDOSetBindingInfoBluetoothModel) (Data will only be stored if the binding is authorized)
+ * @param waitForSure 执行加密授权绑定开始等待确定回调
  * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Post-execution callback (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)bindingCommand:(IDOSetBindingInfoBluetoothModel * _Nullable)bindModel
+           waitForSure:(void (^_Nullable)(void))waitForSure
               callback:(void (^_Nullable)(IDO_BIND_STATUS status, int errorCode))callback;
 
 /**
- * @brief 连接设备解绑 | Unbundling equipment
+ * @brief 在断链的情况下解绑对应设备 | disconnect  unbind correspond deivce
+ * @param macAddr 设备Mac地址 ｜ device mac address
+ */
++ (void)unbindCorrespondDeviceWithMacAddr:(NSString *_Nullable)macAddr;
+
+/**
+ * @brief 连接设备解绑,只适合连接解绑,请使用‘设备强制解绑’方法 | Unbundling equipment
  * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Post-execution callback (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)unbindingCommand:(void(^_Nullable)(int errorCode))callback;
 
 /**
- * @brief 解绑切换设备,但不删除手环和app数据 | switch device not delete the bracelet and app data
+ * @brief 切换设备,但不删除手环和app数据 | switch device not delete the bracelet and app data
+ * @param macAddr 需要切换的设备mac 地址 | mac address
+ * @param mandatory 如果发现切换的设备不管是解绑状态还是绑定状态，都可以选择强制执行切换
+ * If you find that the switched device is either unbound or bound, you can choose to force the switch
  * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Post-execution callback (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
-+ (void)switchDeviceCommand:(void(^_Nullable)(int errorCode))callback;
++ (void)switchDeviceCommand:(NSString *_Nullable)macAddr
+                isMandatory:(BOOL)mandatory
+                   callback:(void(^_Nullable)(int errorCode))callback;
+
+/**
+ * @brief 切换设备后重连成功检测加密授权状态,只适合加密授权使用
+ * After switching devices, reconnecting successfully detects the status of encryption authorization, which is only suitable for the use of encryption authorization
+ * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Post-execution callback (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+*/
++ (void)switchDeviceDetectionEncryptionAuthCallback:(void(^_Nullable)(int errorCode))callback;
 
 /**
  * @brief 设备强制解绑,设备连接时,双方解绑,设备断开时,app单方解绑 | Device forced unbundling
@@ -832,6 +858,18 @@
 */
 + (void)setPressureSwitchCommand:(IDOSetPressureSwitchBluetoothModel * _Nullable)switchModel
                         callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+ * @brief 设置吃药提醒  | taking medicine reminder
+ * @param reminderModel 设置吃药提醒 model (IDOSetTakingMedicineReminderModel)
+ * set taking medicine reminder model (IDOSetTakingMedicineReminderModel)
+ * callback 设置吃药提醒集合回调进度 (0~1)  | Set taking medicine reminder progress  callback (0~1)
+ * @param complete 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post complete (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+*/
++ (void)setTakingMedicineReminderCommand:(IDOSetTakingMedicineReminderModel * _Nullable)reminderModel
+                                callback:(void (^ _Nullable)(float progress))callback
+                                complete:(void (^ _Nullable)(int errorCode))complete;
 
 /**
  * @brief 设置星星数量 数据不作存储 (锐捷) | Set the number of stars (ruijie)

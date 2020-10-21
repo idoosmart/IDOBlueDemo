@@ -148,7 +148,6 @@
                 [funcVC showToastWithText:lang(@"transfer dial file failed")];
             }
         }).filePath = strongSelf.filePath;
-        initTransferManager().fileName = @"";
         [IDOWatchDialManager startDialTransfer];
     };
 }

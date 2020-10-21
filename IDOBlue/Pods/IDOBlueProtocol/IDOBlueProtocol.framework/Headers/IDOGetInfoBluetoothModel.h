@@ -535,6 +535,24 @@ error flag
 
 @end
 
+#pragma mark ==== 获取第34个功能表model ====
+
+@interface IDOGetFuncTable34BluetoothModel : IDOBluetoothBaseModel
+/**
+ 吃药提醒
+ taking medicine
+ */
+@property (nonatomic,assign) BOOL takingMedicine;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable34BluetoothModel
+ */
++ (__kindof IDOGetFuncTable34BluetoothModel *)currentModel;
+
+@end
+
 #pragma mark ==== 获取第33个功能表model ====
 
 @interface IDOGetFuncTable33BluetoothModel : IDOBluetoothBaseModel
@@ -657,6 +675,36 @@ error flag
  * set phone voice
 */
 @property (nonatomic,assign) BOOL setPhoneVoice;
+
+/**
+ * 获取表盘ID
+ * set phone voice
+*/
+@property (nonatomic,assign) BOOL getWatchId;
+
+/**
+ * 洗手提醒
+ * hand wash reminder
+*/
+@property (nonatomic,assign) BOOL handWashReminder;
+
+/**
+ * 清除手环缓存
+ * clear bluetooth cache
+*/
+@property (nonatomic,assign) BOOL clearBleCache;
+
+/**
+ * v3的语音文本回复
+ * v3 voice reply txt
+*/
+@property (nonatomic,assign) BOOL v3VoiceReplyTxt;
+
+/**
+ * 获取设备名称
+ * get device name
+*/
+@property (nonatomic,assign) BOOL getDevName;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2258,6 +2306,11 @@ error flag
 @property (nonatomic,strong) IDOGetFuncTable33BluetoothModel      * funcTable33Model;
 
 /**
+ 34功能列表 taking medicine | 34 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable34BluetoothModel      * funcTable34Model;
+
+/**
  是否支持版本信息 | version information is supported
  */
 @property (nonatomic,assign) BOOL versionInfo;
@@ -2271,6 +2324,11 @@ error flag
  运动显示个数 | Number of sports displays
  */
 @property (nonatomic,assign) NSInteger sportShowCount;
+
+/**
+  是否需要同步v2数据 ｜ is need sync v2 data
+ */
+@property (nonatomic,assign) BOOL isNeedSyncV2;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2290,7 +2348,7 @@ error flag
 @interface IDOGetDeviceInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
- 设备模式 | Device mode
+ 设备模式 0x00：运动模式， 0x01：睡眠模式 | Device mode
  */
 @property (nonatomic,assign) NSUInteger mode;
 
@@ -2350,6 +2408,12 @@ error flag
  *
  */
 @property (nonatomic,assign) BOOL isSyncConfig;
+
+/**
+ * 绑定加密授权码错误 ｜ auth code error
+ *
+ */
+@property (nonatomic,assign) BOOL authCodeError;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

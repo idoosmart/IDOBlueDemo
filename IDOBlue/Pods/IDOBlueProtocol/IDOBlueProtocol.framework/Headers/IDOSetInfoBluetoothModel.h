@@ -11,6 +11,98 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ====  设置吃药提醒 model ====
+@interface IDOSetTakingMedicineReminderItemModel : IDOBluetoothBaseModel
+/**
+ 提醒吃药ID  最多 5个 从1开始 | taking medicine id at most five
+ */
+@property (nonatomic,assign) NSInteger medicineId;
+/**
+ 开关 | on off
+ */
+@property (nonatomic,assign) BOOL onOff;
+
+/**
+ 是否删除 ｜ is delete
+ */
+@property (nonatomic,assign) BOOL isDelete;
+
+/**
+ 开始时间 （时） | start hour
+ */
+@property (nonatomic,assign) NSInteger startHour;
+
+/**
+ 开始时间 （分） | start minute
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+
+/**
+ 结束时间 （时） | end hour
+ */
+@property (nonatomic,assign) NSInteger endHour;
+
+/**
+ 结束时间 （分） | end minute
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+
+/**
+ 提醒间隔 单位分钟，默认60分钟 ｜ interval
+ */
+@property (nonatomic,assign) NSInteger interval;
+
+/*
+勿扰开关 | do not distrub on off
+*/
+@property (nonatomic,assign) BOOL doNotDistrubOnOff;
+
+/*
+勿扰开始时 | do not distrub start hour
+*/
+@property (nonatomic,assign) NSInteger doNotDistrubStartHour;
+
+/*
+勿扰开始分 | do not distrub start minute
+*/
+@property (nonatomic,assign) NSInteger doNotDistrubStartMinute;
+
+/*
+勿扰结束时 | do not distrub end hour
+*/
+@property (nonatomic,assign) NSInteger doNotDistrubEndHour;
+
+/*
+勿扰结束分 | do not distrub end minute
+*/
+@property (nonatomic,assign) NSInteger doNotDistrubEndMinute;
+
+@end
+
+@interface IDOSetTakingMedicineReminderModel : IDOBluetoothBaseModel
+/*
+提醒个数 最多5个 | reminder count at most five
+*/
+@property (nonatomic,assign) NSInteger itemCount;
+/**
+ 吃药提醒集合 ｜ taking medicine reminder array
+ */
+@property (nonatomic,strong) NSArray<IDOSetTakingMedicineReminderItemModel *> * items;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetTakingMedicineReminderModel
+ */
++ (__kindof IDOSetTakingMedicineReminderModel *)currentModel;
+
+@end
+
 #pragma mark ====  设置压力开关控制 model ====
 @interface IDOSetPressureSwitchBluetoothModel:IDOBluetoothBaseModel
 /**
@@ -355,6 +447,16 @@
  加密数据 固件生成 | encrypted data
  */
 @property (nonatomic,copy) NSArray * encryptedData;
+
+/**
+ 绑定状态 ｜ bind status
+ */
+@property (nonatomic,assign) NSInteger bindStatus;
+
+/**
+ 加密授权码 app和手环一致 ｜ encrypted authorization code app is consistent with the bracelet
+ */
+@property (nonatomic,assign) BOOL codeSame;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象 (只有在授权绑定才会存储数据)

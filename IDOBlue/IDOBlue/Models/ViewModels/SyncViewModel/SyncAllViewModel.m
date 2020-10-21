@@ -86,6 +86,7 @@
         FuncViewController * funcVC = (FuncViewController *)viewController;
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
         [funcVC showLoadingWithMessage:lang(@"sync data...")];
+        [IDOSyncManager deleteSyncFlag];
         initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_CONFIG_ITEM_TYPE | IDO_WANT_TO_SYNC_HEALTH_ITEM_TYPE
         | IDO_WANT_TO_SYNC_ACTIVITY_ITEM_TYPE | IDO_WANT_TO_SYNC_GPS_ITEM_TYPE;
         initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {

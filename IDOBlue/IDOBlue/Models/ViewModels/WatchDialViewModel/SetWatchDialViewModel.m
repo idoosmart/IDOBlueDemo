@@ -51,7 +51,6 @@
         model.modelClass = [NSNull class];
         model.isDelete = YES;
         model.isShowLine = YES;
-        model.isSelected = watchModel.operate == 0x00 ? YES : NO;
         model.labelSelectCallback = self.labelSelectCallback;
         [cellModels addObject:model];
     }

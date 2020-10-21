@@ -54,13 +54,13 @@
         initWatchDialManager().getDialListInfo(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
             if (errorCode == 0) {
                [funcVC showToastWithText:lang(@"get watch dial list info success")];
-               NSString * str1 = model.dicFromObject;
+               NSDictionary * dic = model.dicFromObject;
                NSMutableArray * array = [NSMutableArray array];
                for (IDOWatchDialInfoItemModel * itemModel in model.dialArray) {
                    NSDictionary * dic = itemModel.dicFromObject;
                    [array addObject:dic];
                }
-               strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@",str1,array];
+               strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@",dic,array];
            }else if (errorCode == 6) {
                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
            }else {

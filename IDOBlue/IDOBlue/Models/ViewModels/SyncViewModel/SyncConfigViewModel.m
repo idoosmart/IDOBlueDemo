@@ -76,6 +76,7 @@
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncConfigInitData(^NSArray <IDOBluetoothBaseModel *>* (IDO_SYNC_CONFIG_DATA_TYPE type){
+            NSLog(@"type == %ld\n",type);
             return [NSArray array];
         }).mandatorySyncConfig(YES);
         [IDOSyncManager startSync];

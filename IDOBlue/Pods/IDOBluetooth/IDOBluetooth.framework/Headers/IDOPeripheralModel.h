@@ -56,4 +56,9 @@
  */
 @property (nonatomic,assign) int bltVersion;
 
+/**
+ 设备类型 0:无效 1: 手表 2: 手环 ｜ device type 
+ */
+@property (nonatomic,assign) int deviceType;
+
 @end

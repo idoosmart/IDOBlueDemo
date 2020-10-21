@@ -69,7 +69,7 @@
 @property (nonatomic,weak) id<IDOBluetoothManagerDelegate> delegate;
 
 /**
- * 自动扫描连接超时时长 默认 20
+ * 自动扫描连接、手动扫描连接超时时长 默认 20
  * Auto Scan Connection Timeout Duration Default 20
  */
 @property (nonatomic,assign) NSInteger timeout;
@@ -91,6 +91,19 @@
  * Whether a reconnect mechanism is required,if NO set,connection will not be reconnected
  */
 @property (nonatomic,assign) BOOL isReconnect;
+
+/**
+ * 强制切换手动模式扫描连接,当需要再次添加绑定设备时使用
+ * mandatory manual scan connect device 
+ */
+@property (nonatomic,assign) BOOL isMandatoryManual;
+
+/**
+ * 切换设备是否在内部执行检测加密授权码,默认YES,在切换设备重连时不要在内部检测,在外部执行检测
+ * Whether the switching device performs detection of encryption authorization code internally, the default is YES.
+ * When the switching device is reconnected, do not perform detection internally, but perform detection externally
+ */
+@property (nonatomic,assign) BOOL isDetectionAuthCode;
 
 /**
  * 设置扫描间隔时长 默认 10秒 如果不启动超时间隔扫描，则无效

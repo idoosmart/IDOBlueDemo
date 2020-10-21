@@ -151,6 +151,11 @@
  */
 @property (nonatomic,assign) BOOL isOta;
 
+/**
+ 写入蓝牙数据失败 | did write value error
+ */
+@property (nonatomic,assign) BOOL didWriteValueError;
+
 @end
 
 @interface IDOBluetoothUserInfoEngine : NSObject

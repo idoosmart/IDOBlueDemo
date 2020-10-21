@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "TipPoweredOffView.h"
+#import "ScanViewController.h"
 
 @interface BaseViewController ()
 @end
@@ -35,7 +36,8 @@
 - (UILabel *)timerLabel
 {
     if (!_timerLabel) {
-        _timerLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2,0,(self.view.frame.size.width - 32)/2,40)];
+        _timerLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2,0,
+                                                               (self.view.frame.size.width - 32)/2,40)];
         _timerLabel.textColor = [UIColor blackColor];
         _timerLabel.textAlignment = NSTextAlignmentCenter;
         _timerLabel.font = [UIFont boldSystemFontOfSize:16];
@@ -155,7 +157,12 @@
 
 - (void)listenConnectError:(NSNotification *)notivication
 {
-    
+   NSDictionary * dic = notivication.object;
+   if (!dic)return;
+   IDO_BLUETOOTH_CONNECT_ERROR_TYPE errorCode = [[dic valueForKey:@"errorCode"] integerValue];
+    if(errorCode == IDO_BLUETOOTH_PAIRING_ERROR_TYPE) {
+       [self showToastWithText:lang(@"Peer removed pairing information.")];
+    }
 }
 
 - (void)modificationNavigationBarStyle

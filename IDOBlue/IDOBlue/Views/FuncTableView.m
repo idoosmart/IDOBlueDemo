@@ -29,7 +29,7 @@
     if (self) {
         self.delegate = self;
         self.dataSource = self;
-        self.tableFooterView = [UIView new];
+        self.tableFooterView = [[UIView alloc] init];
     }
     return self;
 }

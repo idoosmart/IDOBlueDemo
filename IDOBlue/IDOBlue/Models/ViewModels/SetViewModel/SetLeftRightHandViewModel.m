@@ -95,6 +95,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:lang(@"set left right switch...")];
+
         [IDOFoundationCommand setLeftRightHandCommand:strongSelf.leftOrRightModel
                                             callback:^(int errorCode) {
             if(errorCode == 0) {

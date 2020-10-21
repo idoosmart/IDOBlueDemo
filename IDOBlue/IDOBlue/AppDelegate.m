@@ -18,13 +18,31 @@
 
 @implementation AppDelegate
 
+- (void)listenConnectBindState:(NSNotification *)notivication
+{
+    IDOGetDeviceInfoBluetoothModel * model = (IDOGetDeviceInfoBluetoothModel *)notivication.object;
+    if (!model.bindState) {
+        [IDOBluetoothManager cancelCurrentPeripheralConnection];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
+                                     (int64_t)(1 * NSEC_PER_SEC)),
+                       dispatch_get_main_queue(), ^{
+            ScanViewController * scanVC  = [[ScanViewController alloc]init];
+            UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+            [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+        });
+    }else if (model.authCodeError) {
+        FuncViewController * funVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
+        [funVc showToastWithText:@"授权码错误"];
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [NSThread sleepForTimeInterval:3];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(listenConnectBindState:)
+                                                name:IDOBluetoothDeviceBindNotifyName
+                                              object:nil];
 #ifdef DEBUG
-    //Add the database password as required. If it is nil, the database is not encrypted
     registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
        if(__IDO_BIND__)[IDOBluetoothManager startScan];

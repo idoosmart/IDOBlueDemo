@@ -136,12 +136,6 @@
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncFailed)(void(^ _Nullable syncFailedCallback)(int errorCode));
 
 /**
- * 删除当天数据回调
- * Delete current day data callback
- */
-@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^deleteCurrentDayData)(void(^ _Nullable deleteCallback)(BOOL success));
-
-/**
  * 强制执行或不执行同步配置
  * Enforce or not enforce the synchronize configuration
  */
@@ -162,5 +156,18 @@ IDOSyncManager * _Nonnull initSyncManager(void);
  结束同步 | End sync
  */
 + (void)stopSync;
+
+/**
+ * 删除当天数据回调
+ * isDelActivity 是否删除当天的活动和GPS数据
+ * Delete current day data
+ */
++ (void)deleteCurrentDayData:(BOOL)isDelActivity;
+
+/**
+ * 删除分段同步标志
+ * Delete piecewise sync flag
+ */
++ (void)deleteSyncFlag;
 
 @end

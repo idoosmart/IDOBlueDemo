@@ -133,8 +133,8 @@
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         BaseCellModel * model = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if ([NSStringFromClass(model.modelClass)isEqualToString:@"NSNull"])return;
-        FuncViewController * newFuncVc = [FuncViewController new];
-        newFuncVc.model = [model.modelClass new];
+        FuncViewController * newFuncVc = [[FuncViewController alloc] init];
+        newFuncVc.model = [[model.modelClass alloc] init];
         newFuncVc.title = [model.data firstObject];
         [funcVc.navigationController pushViewController:newFuncVc animated:YES];
     };

@@ -12,7 +12,7 @@
 #import "FileViewModel.h"
 #import "FuncViewModel.h"
 #import "IDOConsoleBoard.h"
-#import "UIScrollView+Refresh.h"
+
 
 @interface FuncViewController ()
 @property (nonatomic,strong) TableViewFootView * footButton;
@@ -22,7 +22,7 @@
 
 - (void)dealloc
 {
-    _model = nil;
+   _model = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -55,12 +55,13 @@
     self.tableView = [[FuncTableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
 
-    __weak typeof(self) weakSelf = self;
+        __weak typeof(self) weakSelf = self;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         __strong typeof(self) strongSelf = weakSelf;
         make.edges.equalTo(strongSelf.view);
     }];
     
+    /*
     if ([self.model isKindOfClass:[FuncViewModel class]]) {
         [self.tableView addHeaderRefresh];
         [self.tableView syncDataRefreshingBlock:^{
@@ -87,7 +88,7 @@
             }).mandatorySyncConfig(YES);
             if(__IDO_BIND__ && !__IDO_PAIRING__)[IDOSyncManager startSync];
         }];
-    }
+    }*/
     
     self.tableView.model = self.model;
     UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0,0,self.view.frame.size.width,40)];
@@ -101,6 +102,7 @@
 - (void)startSync
 {
     [super startSync];
+    /*
     NSInteger mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
     BOOL need_sync = [[NSUserDefaults standardUserDefaults]boolForKey:HOME_NEED_SYNC];
     if (!need_sync)return;
@@ -110,7 +112,7 @@
             __strong typeof(self) strongSelf = weakSelf;
            [strongSelf.tableView startSyncRefreshing];
         });
-    }
+    } */
 }
 
 - (TableViewFootView *)footButton

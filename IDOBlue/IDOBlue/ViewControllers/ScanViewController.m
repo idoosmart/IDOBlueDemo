@@ -46,7 +46,7 @@
     [super viewWillAppear:animated];
     
     self.title = lang(@"scan device");
-    
+
     if(self.isConnect) {
         self.statusLabel.text = lang(@"connecting");
         [self showLoadingWithMessage:lang(@"connecting")];
@@ -113,6 +113,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     if ([IDOConsoleBoard borad].isShow) {
         [[IDOConsoleBoard borad] show];
     }
@@ -287,7 +288,8 @@
     scan.scanQRcodeCallback = ^(NSString * _Nonnull str,UIViewController * vc) {
         NSRange range = [str rangeOfString:@"m="];
         if (range.location != NSNotFound) {
-            weakSelf.macStr = [str substringFromIndex:range.location + 1];
+            NSString * newStr = [str substringFromIndex:range.location + 2];
+            weakSelf.macStr = [newStr stringByReplacingOccurrencesOfString:@":" withString:@""];
             weakSelf.isConnect = YES;
             [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf selector:@selector(connectTimeout) object:nil];
             [weakSelf performSelector:@selector(connectTimeout) withObject:nil afterDelay:20];
@@ -306,7 +308,10 @@ static BOOL BIND_STATE = NO;
     [self showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"bind")]];
     IDOSetBindingInfoBluetoothModel * model = [[IDOSetBindingInfoBluetoothModel alloc]init];
     __weak typeof(self) weakSelf = self;
-    [IDOFoundationCommand bindingCommand:model callback:^(IDO_BIND_STATUS status, int errorCode) {
+    [IDOFoundationCommand bindingCommand:model waitForSure:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"bind")]];
+    } callback:^(IDO_BIND_STATUS status, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.isConnect = NO;
         if (errorCode == 0) {

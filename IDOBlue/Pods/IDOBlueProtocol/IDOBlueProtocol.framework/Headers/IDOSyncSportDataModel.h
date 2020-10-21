@@ -15,7 +15,7 @@
 @interface IDOSyncSportDataItemInfoBluetoothModel : IDOBluetoothBaseModel
 
 /**
- 运动模式 | Sports mode (unit: number of steps)
+ 运动模式 模式00:安静,01:轻微,10:中等活跃,11:激烈 | Sports mode (unit: number of steps)
  */
 @property (nonatomic,assign) NSInteger mode;
 

@@ -116,6 +116,7 @@
     model7.cellClass  = [EmptyTableViewCell class];
     [cellModels addObject:model7];
     
+    /*
     SwitchCellModel * model6 = [[SwitchCellModel alloc]init];
     model6.typeStr = @"oneSwitch";
     model6.titleStr = lang(@"show log");
@@ -133,7 +134,7 @@
     model10.isShowLine = YES;
     model10.cellClass  = [EmptyTableViewCell class];
     [cellModels addObject:model10];
-    
+
     SwitchCellModel * model11 = [[SwitchCellModel alloc]init];
     model11.typeStr = @"oneSwitch";
     model11.titleStr = lang(@"home need sync");
@@ -150,7 +151,7 @@
     model15.cellHeight = 10.0f;
     model15.isShowLine = YES;
     model15.cellClass  = [EmptyTableViewCell class];
-    [cellModels addObject:model15];
+    [cellModels addObject:model15];*/
     
     SwitchCellModel * model14 = [[SwitchCellModel alloc]init];
     model14.typeStr = @"oneSwitch";
@@ -163,6 +164,7 @@
     model14.switchCallback = self.switchCallback;
     [cellModels addObject:model14];
     
+    /*
     if(   IDO_BLUE_ENGINE.managerEngine.isConnected
        && (__IDO_FUNCTABLE__.funcTable22Model.v3HrData
        ||  __IDO_FUNCTABLE__.funcTable22Model.v3SwimData))
@@ -184,7 +186,7 @@
         model9.isShowLine = YES;
         model9.switchCallback = self.switchCallback;
         [cellModels addObject:model9];
-    }
+    }*/
     
     LabelCellModel * model12 = [[LabelCellModel alloc]init];
     model12.typeStr = @"oneLabel";
@@ -261,17 +263,7 @@
         SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         switchCellModel.data = @[@(onSwitch.isOn)];
         [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        if (indexPath.row == 6) {
-            if (onSwitch.isOn) {
-                [[IDOConsoleBoard borad]show];
-            }else {
-                [[IDOConsoleBoard borad]close];
-            }
-        }else if (indexPath.row == 8) {
-            strongSelf.isHomeSync = onSwitch.isOn;
-        }else if (indexPath.row == 10) {
-            strongSelf.isSetConnect = onSwitch.isOn;
-        }
+        strongSelf.isSetConnect = onSwitch.isOn;
     };
 }
 

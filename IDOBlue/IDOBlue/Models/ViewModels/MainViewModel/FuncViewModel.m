@@ -23,7 +23,6 @@
 #import "MainMeasureViewModel.h"
 #import "MainDialViewModel.h"
 #import "ScanViewController.h"
-#import "UIScrollView+Refresh.h"
 
 @interface FuncViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -108,8 +107,9 @@
             [funcVc showToastWithText:lang(@"sync data...")];
             return;
         }
-        FuncViewController * newFuncVc = [FuncViewController new];
-        newFuncVc.model = [model.modelClass new];
+        BaseViewModel * viewModel = [[model.modelClass alloc] init];
+        FuncViewController * newFuncVc = [[FuncViewController alloc] init];
+        newFuncVc.model = viewModel;
         newFuncVc.title = [model.data firstObject];
         [funcVc.navigationController pushViewController:newFuncVc animated:YES];
     };

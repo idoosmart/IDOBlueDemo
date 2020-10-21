@@ -36,13 +36,13 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOSyncV3ActivityDataModel.h>
 #import <IDOBlueProtocol/IDOSyncV3SleepDataModel.h>
 #import <IDOBlueProtocol/IDOSyncV3GpsDataModel.h>
+#import <IDOBlueProtocol/IDOSyncV3SportDataModel.h>
 #import <IDOBlueProtocol/IDODataExchangeModel.h>
 #import <IDOBlueProtocol/IDOGetInfoBluetoothModel.h>
 #import <IDOBlueProtocol/IDOSetInfoBluetoothModel.h>
 #import <IDOBlueProtocol/IDOCalculateBluetoothModel.h>
 #import <IDOBlueProtocol/IDOWeightBluetoothModel.h>
 #import <IDOBlueProtocol/IDOWatchDialInfoModel.h>
-
 
 #import <IDOBlueProtocol/IDOSyncManager.h>
 #import <IDOBlueProtocol/IDOBluetoothEngine.h>
@@ -56,3 +56,4 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOTransferFileManager.h>
 #import <IDOBlueProtocol/IDOWatchDialManager.h>
 #import <IDOBlueProtocol/IDOMakePhotoManager.h>
+

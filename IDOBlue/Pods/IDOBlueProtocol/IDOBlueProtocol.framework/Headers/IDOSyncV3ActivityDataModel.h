@@ -242,10 +242,16 @@ max step stride
 @property (nonatomic,strong)  NSArray * frequencyItems;
 
 /**
+ 每英里的配速集合json
+ */
+@property (nonatomic,strong) NSArray * mileSpeedItems;
+
+/**
  *手环是否连接app  1是连接，0是未连接
  *Whether the bracelet is connected to APP 1 is connected, 0 is not connected
  */
 @property (nonatomic,assign) NSInteger connectApp;
+
 
 @end
 

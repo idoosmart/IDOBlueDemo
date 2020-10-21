@@ -45,6 +45,9 @@
 @property (nonatomic,assign) NSInteger sportType;
 /**
  目标类型 | target type
+ 0x00:无目标， 0x01:重复次数，单位：次，
+ 0x02:距离,单位：米,  0x03：卡路里, 单位：大卡,
+ 0x04:时长,单位：分钟, 0x05:  步数, 单位：步
  */
 @property (nonatomic,assign) NSInteger targetType;
 /**
@@ -197,6 +200,14 @@
  公里配速集合
  */
 @property (nonatomic,copy) NSArray<NSNumber *> * kmSpeeds;
+/**
+ 英里配速 个数
+ */
+@property (nonatomic,assign) NSInteger mileCount;
+/**
+ 英里配速集合
+ */
+@property (nonatomic,copy) NSArray<NSNumber *> * mileSpeeds;
 /**
  步频个数
  */
