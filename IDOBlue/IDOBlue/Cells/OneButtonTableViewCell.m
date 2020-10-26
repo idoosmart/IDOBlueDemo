@@ -26,7 +26,7 @@
         UIColor * color = [UIColor colorWithRed:142/255.0f green:91/255.0f blue:45/255.0f alpha:1.0];
         [self.button setBackgroundImage:[IDODemoUtility imageWithColor:color] forState:UIControlStateNormal];
         [self.button addTarget:self action:@selector(actionButton:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.button];
+        [self.contentView addSubview:self.button];
         [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(@0);
             make.right.equalTo(@0);

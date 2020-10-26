@@ -29,7 +29,7 @@
         self.title.textAlignment = NSTextAlignmentLeft;
         self.title.font = [UIFont systemFontOfSize:14];
         self.title.numberOfLines = 0;
-        [self addSubview:self.title];
+        [self.contentView addSubview:self.title];
         __weak typeof(self) weakSelf = self;
         [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;

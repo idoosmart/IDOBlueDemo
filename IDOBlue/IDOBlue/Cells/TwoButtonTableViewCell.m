@@ -25,7 +25,7 @@
         self.title.textColor = [UIColor blackColor];
         self.title.textAlignment = NSTextAlignmentLeft;
         self.title.font = [UIFont systemFontOfSize:14];
-        [self addSubview:self.title];
+        [self.contentView addSubview:self.title];
         __weak typeof(self) weakSelf = self;
         [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
@@ -40,7 +40,7 @@
         [self.button1 setBackgroundImage:[IDODemoUtility imageWithColor:colorNormal] forState:UIControlStateNormal];
         [self.button1 setBackgroundImage:[IDODemoUtility imageWithColor:colorSelected] forState:UIControlStateSelected];
         [self.button1 addTarget:self action:@selector(buttonSelected:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.button1];
+        [self.contentView addSubview:self.button1];
         [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(strongSelf.title.mas_right).offset(10);
@@ -56,7 +56,7 @@
         [self.button2 setBackgroundImage:[IDODemoUtility imageWithColor:colorNormal] forState:UIControlStateNormal];
         [self.button2 setBackgroundImage:[IDODemoUtility imageWithColor:colorSelected] forState:UIControlStateSelected];
         [self.button2 addTarget:self action:@selector(buttonSelected:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.button2];
+        [self.contentView addSubview:self.button2];
         
         [self.button2 mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;

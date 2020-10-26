@@ -25,7 +25,7 @@
         self.title.textColor = [UIColor blackColor];
         self.title.textAlignment = NSTextAlignmentLeft;
         self.title.font = [UIFont systemFontOfSize:14];
-        [self addSubview:self.title];
+        [self.contentView addSubview:self.title];
         
         self.textField = [[UITextField alloc]init];
         self.textField.borderStyle = UITextBorderStyleRoundedRect;
@@ -33,7 +33,7 @@
         self.textField.textAlignment = NSTextAlignmentCenter;
         self.textField.delegate = self;
         self.textField.font = [UIFont systemFontOfSize:14];
-        [self addSubview:self.textField];
+        [self.contentView addSubview:self.textField];
         __weak typeof(self) weakSelf = self;
         [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;

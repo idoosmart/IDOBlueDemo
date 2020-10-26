@@ -26,7 +26,7 @@
         self.title.textColor = [UIColor blackColor];
         self.title.textAlignment = NSTextAlignmentLeft;
         self.title.font = [UIFont systemFontOfSize:14];
-        [self addSubview:self.title];
+        [self.contentView addSubview:self.title];
         __weak typeof(self) weakSelf = self;
         [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
@@ -41,7 +41,7 @@
         self.textField1.textAlignment = NSTextAlignmentCenter;
         self.textField1.font = [UIFont systemFontOfSize:14];
         self.textField1.delegate = self;
-        [self addSubview:self.textField1];
+        [self.contentView addSubview:self.textField1];
         [self.textField1 mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
             make.centerY.equalTo(strongSelf.mas_centerY);
@@ -54,7 +54,7 @@
         self.textField2.textColor = [UIColor blackColor];
         self.textField2.font = [UIFont systemFontOfSize:14];
         self.textField2.delegate = self;
-        [self addSubview:self.textField2];
+        [self.contentView addSubview:self.textField2];
         [self.textField2 mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
             make.centerY.equalTo(strongSelf.mas_centerY);
@@ -68,7 +68,7 @@
         self.textField3.textColor = [UIColor blackColor];
         self.textField3.font = [UIFont systemFontOfSize:14];
         self.textField3.delegate = self;
-        [self addSubview:self.textField3];
+        [self.contentView addSubview:self.textField3];
         [self.textField3 mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
             make.centerY.equalTo(strongSelf.mas_centerY);

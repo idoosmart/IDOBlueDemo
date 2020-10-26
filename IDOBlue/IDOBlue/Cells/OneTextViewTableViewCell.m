@@ -25,7 +25,7 @@
         self.textView.textAlignment = NSTextAlignmentLeft;
         self.textView.editable = NO;
         self.textView.layoutManager.allowsNonContiguousLayout = NO;
-        [self addSubview:self.textView];
+        [self.contentView addSubview:self.textView];
         __weak typeof(self) weakSelf = self;
         [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;

@@ -24,12 +24,12 @@
         label.textColor = [UIColor blackColor];
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:14];
-        [self addSubview:label];
+        [self.contentView addSubview:label];
         self.title = label;
         
         UISwitch * switchButton = [[UISwitch alloc]init];
         [switchButton addTarget:self action:@selector(switchButtonAction:) forControlEvents:UIControlEventValueChanged];
-        [self addSubview:switchButton];
+        [self.contentView addSubview:switchButton];
         self.switchButton = switchButton;
         __weak typeof(self) weakSelf = self;
         [self.title mas_makeConstraints:^(MASConstraintMaker *make) {

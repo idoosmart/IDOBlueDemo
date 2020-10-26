@@ -27,7 +27,7 @@
         self.titleLabel.textColor = [UIColor blackColor];
         self.titleLabel.textAlignment = NSTextAlignmentLeft;
         self.titleLabel.font = [UIFont systemFontOfSize:14];
-        [self addSubview:self.titleLabel];
+        [self.contentView addSubview:self.titleLabel];
         __weak typeof(self) weakSelf = self;
         [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
@@ -41,7 +41,7 @@
         [self.slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventValueChanged];
         UIColor * color = [UIColor colorWithRed:142/255.0f green:91/255.0f blue:45/255.0f alpha:1.0];
         self.slider.thumbTintColor = color;
-        [self addSubview:self.slider];
+        [self.contentView addSubview:self.slider];
         [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(strongSelf.titleLabel.mas_right).offset(10);
@@ -52,7 +52,7 @@
         self.valueLabel.textColor = [UIColor blackColor];
         self.valueLabel.textAlignment = NSTextAlignmentRight;
         self.valueLabel.font = [UIFont systemFontOfSize:14];
-        [self addSubview:self.valueLabel];
+        [self.contentView addSubview:self.valueLabel];
         [self.valueLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(strongSelf.slider.mas_right).offset(10);

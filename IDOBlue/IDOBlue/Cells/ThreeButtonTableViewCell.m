@@ -30,7 +30,7 @@
         [self.button1 setBackgroundImage:[IDODemoUtility imageWithColor:colorSelected] forState:UIControlStateSelected];
         [self.button1 addTarget:self action:@selector(buttonSelected:) forControlEvents:UIControlEventTouchUpInside];
         self.button1.tag = 0;
-        [self addSubview:self.button1];
+        [self.contentView addSubview:self.button1];
         [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
             make.left.equalTo(@5);
@@ -48,7 +48,7 @@
         [self.button2 setBackgroundImage:[IDODemoUtility imageWithColor:colorSelected] forState:UIControlStateSelected];
         [self.button2 addTarget:self action:@selector(buttonSelected:) forControlEvents:UIControlEventTouchUpInside];
         self.button2.tag = 1;
-        [self addSubview:self.button2];
+        [self.contentView addSubview:self.button2];
         
         [self.button2 mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
@@ -66,7 +66,7 @@
         [self.button3 setBackgroundImage:[IDODemoUtility imageWithColor:colorSelected] forState:UIControlStateSelected];
         [self.button3 addTarget:self action:@selector(buttonSelected:) forControlEvents:UIControlEventTouchUpInside];
         self.button3.tag = 2;
-        [self addSubview:self.button3];
+        [self.contentView addSubview:self.button3];
         
         [self.button3 mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;
