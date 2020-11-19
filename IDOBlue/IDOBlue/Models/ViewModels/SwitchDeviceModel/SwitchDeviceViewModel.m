@@ -10,6 +10,7 @@
 #import "FuncCellModel.h"
 #import "OneButtonTableViewCell.h"
 #import "FuncViewController.h"
+#import "ScanViewController.h"
 #import "ScanDemoViewController.h"
 
 @interface SwitchDeviceViewModel()<IDOBluetoothManagerDelegate>
@@ -24,7 +25,7 @@
 
 - (void)dealloc
 {
-    [IDOBluetoothManager shareInstance].delegate = nil;
+//    [IDOBluetoothManager shareInstance].delegate = nil;
 }
 
 - (instancetype)init
@@ -46,26 +47,49 @@
 - (void)actionButton:(UIButton *)sender
 {
     FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
-    ScanDemoViewController * scan = [[ScanDemoViewController alloc]init];
-    WEAKSELF
-    scan.scanQRcodeCallback = ^(NSString * _Nonnull str,UIViewController * vc) {
-       NSRange range = [str rangeOfString:@"m="];
-       if (range.location != NSNotFound) {
-           NSString * newStr = [str substringFromIndex:range.location + 2];
-           weakSelf.macStr = [newStr stringByReplacingOccurrencesOfString:@":" withString:@""];
-           weakSelf.isAdd = YES;
-           [IDOBluetoothManager shareInstance].isMandatoryManual = YES;
-           [IDOBluetoothManager startScan];
-       }else {
-           [funcVc showToastWithText:@"the mac address does not exist"];
-       }
-       [vc dismissViewControllerAnimated:YES completion:nil];
+    funcVc.menuView.isLeftType = NO;
+    funcVc.menuView.listArray = @[@{@"icon":@"add",@"title":lang(@"add devices")},@{@"icon":@"scan1",@"title":lang(@"scan add devices")}];
+    __weak typeof(self) weakSelf = self;
+    funcVc.menuView.selectMenuList = ^(NSInteger index) {
+        if (index == 0) { //列表连接
+            [IDOBluetoothManager shareInstance].isMandatoryManual = YES;
+            ScanViewController * scanVC  = [[ScanViewController alloc]init];
+            scanVC.selectList = YES;
+            scanVC.selectDevice = ^(IDOPeripheralModel *model) {
+                __strong typeof(self) strongSelf = weakSelf;
+                strongSelf.isAdd = YES;
+                [IDOBluetoothManager shareInstance].delegate = strongSelf;
+                [IDOBluetoothManager connectDeviceWithModel:model];
+            };
+            UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+            [[IDODemoUtility getCurrentVC] presentViewController:nav animated:YES completion:nil];
+        }else if (index == 1){ //扫描连接
+            ScanDemoViewController * scan = [[ScanDemoViewController alloc]init];
+            __weak typeof(self) weakSelf = self;
+            FuncViewController * funvc = (FuncViewController *)[IDODemoUtility getCurrentVC];
+            scan.scanQRcodeCallback = ^(NSString * _Nonnull str,UIViewController * vc) {
+               NSRange range = [str rangeOfString:@"m="];
+               if (range.location != NSNotFound) {
+                   NSString * newStr = [str substringFromIndex:range.location + 2];
+                   weakSelf.macStr = [newStr stringByReplacingOccurrencesOfString:@":" withString:@""];
+                   weakSelf.isAdd = YES;
+                   [IDOBluetoothManager shareInstance].isMandatoryManual = YES;
+                   [IDOBluetoothManager startScan];
+               }else {
+                   [funvc showToastWithText:@"the mac address does not exist"];
+               }
+               [vc dismissViewControllerAnimated:YES completion:nil];
+            };
+            UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scan];
+            [funvc presentViewController:nav animated:YES completion:nil];
+        }
     };
-    [funcVc presentViewController:scan animated:YES completion:nil];
+    funcVc.menuView.hidden = NO;
 }
 
 - (NSArray *)allDevices
 {
+    //查询所有绑定过或者连接过的设备
     if (!_allDevices) {
         _allDevices = [IDOGetDeviceInfoBluetoothModel queryAllDeviceModels];
     }
@@ -103,20 +127,30 @@
             [funcVc showToastWithText:lang(@"connected success")];
             return;
         }
+        //全局变量在连接的时候区分切换设备还是添加设备
         strongSelf.isAdd = NO;
+        //已经绑定过的设备进行切换设备
         strongSelf.needConnectDeviceMode = model;
         [funcVc showLoadingWithMessage:lang(@"device switching")];
         [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(switchDeviceTimeout) object:nil];
-        [strongSelf performSelector:@selector(switchDeviceTimeout) withObject:nil afterDelay:20]; //根据自身需求修改超时时长
+        [strongSelf performSelector:@selector(switchDeviceTimeout) withObject:nil afterDelay:20];
+        [IDOBluetoothManager shareInstance].delegate = strongSelf;
+        //根据自身需求修改超时时长
+        //传入的Mac地址是已经绑定过的设备的Mac地址
         [IDOFoundationCommand switchDeviceCommand:model.macAddr
-                                      isMandatory:NO
+                                      isMandatory:NO //NO: 只有绑定的设备才能切换，YES: 未绑定的设备也能切换
                                          callback:^(int errorCode) {
             if (errorCode == 0) {
+                /**
+                 成功初始化切换设备信息
+                 蓝牙需要设置重连=>YES
+                 连接鉴权设置=>NO
+                 */
                 [IDOBluetoothManager shareInstance].isReconnect = YES;
                 [IDOBluetoothManager shareInstance].isDetectionAuthCode = NO;
-                if (!__IDO_CONNECTED__) {
+                if (!__IDO_CONNECTED__) {//未连接则执行扫描
                     [IDOBluetoothManager startScan];
-                }else {
+                }else {//已连接则断开连接，启动自动扫描连接
                    [IDOBluetoothManager cancelCurrentPeripheralConnection];
                 }
             }else {
@@ -145,29 +179,28 @@
 
 - (void)bindDevice
 {
-    if(!__IDO_BIND__) {
-        IDOSetBindingInfoBluetoothModel * model = [[IDOSetBindingInfoBluetoothModel alloc]init];
-        [IDOFoundationCommand bindingCommand:model waitForSure:^{
-            FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
-            [funcVc showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"bind")]];
-        } callback:^(IDO_BIND_STATUS status, int errorCode) {
-            FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
-            if (errorCode == 0) {
-                if (status == IDO_BLUETOOTH_BIND_SUCCESS) { //绑定成功
-                    [funcVc showToastWithText:lang(@"bind success")];
-                }else if (status == IDO_BLUETOOTH_BINDED) { //已经绑定
-                    
-                }else if (status == IDO_BLUETOOTH_BIND_FAILED) { //绑定失败
-                    
-                }else if (status == IDO_BLUETOOTH_NEED_AUTH) { //需要授权绑定
-                }else if (status == IDO_BLUETOOTH_REFUSED_BINDED) { //拒绝绑定
-                    [funcVc showToastWithText:lang(@"rejected bind")];
-                }
-            }else { //绑定失败
-                [funcVc showToastWithText:lang(@"bind failed")];
+    IDOSetBindingInfoBluetoothModel * model = [[IDOSetBindingInfoBluetoothModel alloc]init];
+    [IDOFoundationCommand bindingCommand:model waitForSure:^{
+        FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
+        [funcVc showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"bind")]];
+    } callback:^(IDO_BIND_STATUS status, int errorCode) {
+        FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
+        [IDOBluetoothManager shareInstance].delegate = nil;
+        if (errorCode == 0) {
+            if (status == IDO_BLUETOOTH_BIND_SUCCESS) { //绑定成功
+                [funcVc showToastWithText:lang(@"bind success")];
+            }else if (status == IDO_BLUETOOTH_BINDED) { //已经绑定
+                
+            }else if (status == IDO_BLUETOOTH_BIND_FAILED) { //绑定失败
+                
+            }else if (status == IDO_BLUETOOTH_NEED_AUTH) { //需要授权绑定
+            }else if (status == IDO_BLUETOOTH_REFUSED_BINDED) { //拒绝绑定
+                [funcVc showToastWithText:lang(@"rejected bind")];
             }
-        }];
-    }
+        }else { //绑定失败
+            [funcVc showToastWithText:lang(@"bind failed")];
+        }
+    }];
 }
 
 #pragma mark === IDOBluetoothManagerDelegate ===
@@ -179,11 +212,17 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(switchDeviceTimeout) object:nil];
     FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
     /******************⚠️切换手环成功后要发起绑定***********************/
+    [IDOBluetoothManager shareInstance].delegate = nil;
     if (self.isAdd) {
+        //添加设备连接成功后执行绑定即可
         [self bindDevice];
     }else {
-        [funcVc showLoadingWithMessage:@"start detection encryption auth..."];
+        [funcVc showLoadingWithMessage:lang(@"start detection encryption auth...")];
        __weak typeof(self) weakSelf = self;
+       /**
+        切换设备连接成功，需要检测设备加密授权码，如果当前设备不支持鉴权，则返回错误码6，
+        请按执行正常绑定操作。
+        */
        [IDOFoundationCommand switchDeviceDetectionEncryptionAuthCallback:^(int errorCode) {
            __strong typeof(self) strongSelf = weakSelf;
            if(errorCode == 0) { // 切换成功
@@ -192,6 +231,7 @@
               [funcVc showToastWithText:lang(@"device encryption auth code don't same")];
            }else if(errorCode == 35) { //没有绑定
               [funcVc showToastWithText:lang(@"device unbind")];
+              [strongSelf bindDevice];
            }else if(errorCode == 6){ //设备不支持
               [strongSelf bindDevice];
            }else { //失败
@@ -209,7 +249,7 @@
     for (IDOPeripheralModel * model in allDevices) {
         if (  [model.macAddr isEqualToString:self.needConnectDeviceMode.macAddr]
             ||[model.uuidStr isEqualToString:self.needConnectDeviceMode.uuidStr]
-            ||[model.macAddr isEqualToString:self.macStr]) {
+            ||[model.macAddr isEqualToString:self.macStr]) { //匹配对应的设备
             [IDOBluetoothManager connectDeviceWithModel:model];
             [IDOBluetoothManager stopScan];
             break;

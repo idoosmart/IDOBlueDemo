@@ -25,7 +25,7 @@
         self.title.textColor = [UIColor blackColor];
         self.title.textAlignment = NSTextAlignmentLeft;
         self.title.font = [UIFont systemFontOfSize:14];
-        [self.contentView addSubview:self.title];
+        [self addSubview:self.title];
         
         self.textField = [[UITextField alloc]init];
         self.textField.borderStyle = UITextBorderStyleRoundedRect;

@@ -100,14 +100,14 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOUserWeightModel
  */
-+ (__kindof IDOWeightBluetoothModel *)currentModel;
++ (IDOWeightBluetoothModel *)currentModel;
 
 /**
  * @brief 查询指定日期前七次体重数据，如果没有数据会初始化体重为0的数据对象
  * Query the weight data seven times before the specified date, if there is no data, initialize the data object with weight 0
  * @return IDOUserWeightModel
  */
-+ (NSArray <__kindof IDOWeightBluetoothModel *>*)querySevenTimesRecentlyWithDateStr:(NSString *)dateStr;
++ (NSArray <IDOWeightBluetoothModel *>*)querySevenTimesRecentlyWithDateStr:(NSString *)dateStr;
 
 /**
  * @brief 查询当前设备某天体重详情数据 | Query current device weight data for one day
@@ -116,7 +116,7 @@
  * @param day 日期   | day
  * @return 体重详情数据 | Weight details data
  */
-+ (__kindof IDOWeightBluetoothModel *)queryOneDayDataWithYear:(NSInteger)year
++ (IDOWeightBluetoothModel *)queryOneDayDataWithYear:(NSInteger)year
                                                         month:(NSInteger)month
                                                           day:(NSInteger)day;
 

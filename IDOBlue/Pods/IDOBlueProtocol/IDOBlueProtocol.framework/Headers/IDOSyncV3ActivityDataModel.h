@@ -265,7 +265,7 @@ max step stride
  * @param timeStr 活动开始时间 | Event start time
  * @return model IDOSyncV3ActivityDataInfoBluetoothModel
  */
-+ (__kindof IDOSyncV3ActivityDataInfoBluetoothModel *)queryOneV3ActivityDataWithTimeStr:(NSString *)timeStr
++ (IDOSyncV3ActivityDataInfoBluetoothModel *)queryOneV3ActivityDataWithTimeStr:(NSString *)timeStr
                                                                                 macAddr:(NSString *)macAddr;
 
 /**
@@ -277,7 +277,7 @@ max step stride
  * @param day   日期 | day
  * @return 活动集合 | Activity collection
  */
-+ (NSArray <__kindof IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOneDayV3ActivityDataWithMacAddr:(NSString *)macAddr
++ (NSArray <IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOneDayV3ActivityDataWithMacAddr:(NSString *)macAddr
                                                                                                  year:(NSInteger)year
                                                                                                 month:(NSInteger)month
                                                                                                   day:(NSInteger)day;
@@ -291,7 +291,7 @@ max step stride
  * @param month 月份 | month
  * @return 活动集合 | Activity collection
  */
-+ (NSArray <__kindof IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOneMonthV3ActivityDataWithMacAddr:(NSString *)macAddr
++ (NSArray <IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOneMonthV3ActivityDataWithMacAddr:(NSString *)macAddr
                                                                                                    year:(NSInteger)year
                                                                                                   month:(NSInteger)month;
 
@@ -303,7 +303,7 @@ max step stride
  * @param year  年份 | year
  * @return 活动集合 | Activity collection
  */
-+ (NSArray <__kindof IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOneYearV3ActivityDataWithMacAddr:(NSString *)macAddr
++ (NSArray <IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOneYearV3ActivityDataWithMacAddr:(NSString *)macAddr
                                                                                                   year:(NSInteger)year;
 
 
@@ -314,7 +314,7 @@ max step stride
  * @param macAddr  mac地址 | Mac address
  * @return 活动集合
  */
-+ (NSArray <__kindof IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOnePageV3ActivityDataWithPageIndex:(NSInteger)pageIndex
++ (NSArray <IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOnePageV3ActivityDataWithPageIndex:(NSInteger)pageIndex
                                                                                                numOfPage:(NSInteger)numOfPage
                                                                                                  macAddr:(NSString *)macAddr;
 
@@ -323,13 +323,13 @@ max step stride
  * @param macAddr mac 地址 | mac address
  * @return 活动集合 | Activity collection
  */
-+ (NSArray <__kindof IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryAllTrajectorySportV3ActivitysWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryAllTrajectorySportV3ActivitysWithMac:(NSString *)macAddr;
 
 /**
  * @brief 当前设备所有轻运动 | Current equipment all light sports
  * @param macAddr mac 地址 | mac address
  * @return 活动集合 | Activity collection
  */
-+ (NSArray <__kindof IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryAllLightSportV3ActivitysWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryAllLightSportV3ActivitysWithMac:(NSString *)macAddr;
 
 @end

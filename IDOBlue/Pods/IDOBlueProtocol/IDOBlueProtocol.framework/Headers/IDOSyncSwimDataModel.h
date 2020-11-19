@@ -206,7 +206,7 @@
  * @param timeStr 游泳开始时间 | swim start time
  * @return model IDOSyncSwimmingDataInfoBluetoothModel
  */
-+ (__kindof IDOSyncSwimmingDataInfoBluetoothModel *)querySwimDataWithTimeStr:(NSString *)timeStr
++ (IDOSyncSwimmingDataInfoBluetoothModel *)querySwimDataWithTimeStr:(NSString *)timeStr
                                                                      macAddr:(NSString *)macAddr;
 
 /**
@@ -217,7 +217,7 @@
  * @param isQuery 是否查询items | is query items
  * @return 一天游泳数据的集合 | Collection of day swim data
  */
-+ (NSArray <__kindof IDOSyncSwimmingDataInfoBluetoothModel *>*)querySwimDataWithDateStr:(NSString *)dateStr
++ (NSArray <IDOSyncSwimmingDataInfoBluetoothModel *>*)querySwimDataWithDateStr:(NSString *)dateStr
                                                                                 macAddr:(NSString *)macAddr
                                                                            isQueryItems:(BOOL)isQuery;
 

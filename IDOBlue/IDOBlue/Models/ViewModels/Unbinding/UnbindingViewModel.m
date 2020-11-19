@@ -63,12 +63,17 @@
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 0) {
             [funcVc showLoadingWithMessage:lang(@"device unbinding")];
-            [IDOFoundationCommand unbindingCommand:^(int errorCode) {
+            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
                     [funcVc showToastWithText:lang(@"unbind success")];
-                    ScanViewController * scanVC  = [[ScanViewController alloc]init];
-                    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-                    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+                    IDOGetDeviceInfoBluetoothModel * model = [IDOGetDeviceInfoBluetoothModel currentModel];
+                    if (!model.bindState) {
+                        ScanViewController * scanVC  = [[ScanViewController alloc]init];
+                        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+                        [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+                    }else {
+                       //if the current device is in a bound state, an automatic scan connection is started without any additional action
+                    }
                 }else {
                     [funcVc showToastWithText:lang(@"unbind failed")];
                 }
@@ -78,9 +83,14 @@
             [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
                 if (errorCode == 0) {
                     [funcVc showToastWithText:lang(@"unbind success")];
-                    ScanViewController * scanVC  = [[ScanViewController alloc]init];
-                    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-                    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+                    IDOGetDeviceInfoBluetoothModel * model = [IDOGetDeviceInfoBluetoothModel currentModel];
+                    if (!model.bindState) {
+                        ScanViewController * scanVC  = [[ScanViewController alloc]init];
+                        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+                        [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+                    }else {
+                       //if the current device is in a bound state, an automatic scan connection is started without any additional action
+                    }
                 }else {
                     [funcVc showToastWithText:lang(@"unbind failed")];
                 }

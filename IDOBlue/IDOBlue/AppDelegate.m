@@ -21,18 +21,20 @@
 - (void)listenConnectBindState:(NSNotification *)notivication
 {
     IDOGetDeviceInfoBluetoothModel * model = (IDOGetDeviceInfoBluetoothModel *)notivication.object;
+    //untying a device requires deleting the device information for the corresponding business store
     if (!model.bindState) {
-        [IDOBluetoothManager cancelCurrentPeripheralConnection];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
-                                     (int64_t)(1 * NSEC_PER_SEC)),
-                       dispatch_get_main_queue(), ^{
+        //if the current device is not bound, the connection can only be scanned through the list
+        model = [IDOGetDeviceInfoBluetoothModel currentModel];
+        if (!model.bindState) {
             ScanViewController * scanVC  = [[ScanViewController alloc]init];
             UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
             [UIApplication sharedApplication].delegate.window.rootViewController = nav;
-        });
+        }else {
+           //if the current device is in a bound state, an automatic scan connection is started without any additional action
+        }
     }else if (model.authCodeError) {
         FuncViewController * funVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
-        [funVc showToastWithText:@"授权码错误"];
+        [funVc showToastWithText:lang(@"auth code error")];
     }
 }
 
@@ -43,7 +45,7 @@
                                                 name:IDOBluetoothDeviceBindNotifyName
                                               object:nil];
 #ifdef DEBUG
-    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    registrationServices(@"123456").outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
        if(__IDO_BIND__)[IDOBluetoothManager startScan];
        else [IDOBluetoothManager refreshDelegate];

@@ -106,7 +106,7 @@
  * @param macAddr mac 地址 | mac address
  * @return gps信息数据 坐标item对象集合 | gps information data coordinate item object collection
 */
-+ (__kindof IDOSyncV3GpsDataInfoBluetoothModel *)queryV3GpsCoordinatesWithTimeStr:(NSString *)timeStr
++ (IDOSyncV3GpsDataInfoBluetoothModel *)queryV3GpsCoordinatesWithTimeStr:(NSString *)timeStr
                                                                           macAddr:(NSString *)macAddr;
 
 @end

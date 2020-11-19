@@ -28,7 +28,7 @@
         self.iconView = [[UIImageView alloc]init];
         self.iconView.contentMode = UIViewContentModeScaleAspectFit;
         self.iconView.image = [UIImage imageNamed:@"bluetooth"];
-        [self addSubview:self.iconView];
+        [self.contentView addSubview:self.iconView];
         [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.mas_centerY);
             make.left.equalTo(@16);
@@ -40,7 +40,7 @@
         self.subtitleLabel.font = [UIFont systemFontOfSize:10];
         self.subtitleLabel.textColor = [UIColor grayColor];
         self.subtitleLabel.numberOfLines = 3;
-        [self addSubview:self.subtitleLabel];
+        [self.contentView addSubview:self.subtitleLabel];
         [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.iconView.mas_right).offset(8);
             make.centerY.equalTo(self.iconView.mas_centerY);
@@ -50,7 +50,7 @@
         self.nameLabel = [[UILabel alloc]init];
         self.nameLabel.font = [UIFont systemFontOfSize:14];
         self.nameLabel.textColor = [UIColor blackColor];
-        [self addSubview:self.nameLabel];
+        [self.contentView addSubview:self.nameLabel];
         [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.iconView.mas_right).offset(8);
             make.bottom.equalTo(self.subtitleLabel.mas_top);
@@ -60,7 +60,7 @@
         self.signalView = [[UIImageView alloc]init];
         self.signalView.contentMode = UIViewContentModeScaleAspectFit;
         self.signalView.image = [UIImage imageNamed:@"signal"];
-        [self addSubview:self.signalView];
+        [self.contentView addSubview:self.signalView];
         [self.signalView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.iconView.mas_right).offset(8);
             make.top.equalTo(self.subtitleLabel.mas_bottom).offset(5);
@@ -71,7 +71,7 @@
         self.signalLabel = [[UILabel alloc]init];
         self.signalLabel.font = [UIFont systemFontOfSize:14];
         self.signalLabel.textColor = [UIColor lightGrayColor];
-        [self addSubview:self.signalLabel];
+        [self.contentView addSubview:self.signalLabel];
         [self.signalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.signalView.mas_right).offset(5);
             make.centerY.equalTo(self.signalView.mas_centerY);
@@ -80,7 +80,7 @@
         self.distanceView = [[UIImageView alloc]init];
         self.distanceView.contentMode = UIViewContentModeScaleAspectFit;
         self.distanceView.image = [UIImage imageNamed:@"distance"];
-        [self addSubview:self.distanceView];
+        [self.contentView addSubview:self.distanceView];
         [self.distanceView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.signalLabel.mas_right).offset(8);
             make.top.equalTo(self.subtitleLabel.mas_bottom).offset(5);
@@ -91,7 +91,7 @@
         self.distanceLabel = [[UILabel alloc]init];
         self.distanceLabel.font = [UIFont systemFontOfSize:14];
         self.distanceLabel.textColor = [UIColor lightGrayColor];
-        [self addSubview:self.distanceLabel];
+        [self.contentView addSubview:self.distanceLabel];
         [self.distanceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.distanceView.mas_right).offset(5);
             make.centerY.equalTo(self.signalView.mas_centerY);
@@ -106,7 +106,7 @@
         self.updateButton.titleLabel.font = [UIFont systemFontOfSize:12];
         self.updateButton.layer.borderWidth = 0.5;
         self.updateButton.layer.borderColor = color1.CGColor;
-        [self addSubview:self.updateButton];
+        [self.contentView addSubview:self.updateButton];
         [self.updateButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@(-16));
             make.bottom.equalTo(@(-5));
@@ -121,7 +121,7 @@
         self.bindButton.titleLabel.font = [UIFont systemFontOfSize:12];
         self.bindButton.layer.borderWidth = 0.5;
         self.bindButton.layer.borderColor = color1.CGColor;
-        [self addSubview:self.bindButton];
+        [self.contentView addSubview:self.bindButton];
         [self.bindButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@(-16));
             make.bottom.equalTo(@(-5));

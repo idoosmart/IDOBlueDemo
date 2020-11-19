@@ -50,6 +50,7 @@
 {
     if (!_menuView) {
         _menuView = [[SetMenuView alloc]initWithFrame:CGRectZero];
+        _menuView.listArray = @[@{@"icon":@"disconnect",@"title":lang(@"mandatory unbind")},@{@"icon":@"setup",@"title":lang(@"setup")}];
         [self.view addSubview:_menuView];
         __weak typeof(self) weakSelf = self;
         [_menuView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -20,7 +20,6 @@
 #import "SliderTableViewCell.h"
 #import "EmptyTableViewCell.h"
 #import "FuncViewController.h"
-#import "HtmlViewController.h"
 
 @interface ModeSelectViewModel()
 @property (nonatomic,assign) int rssiValue;

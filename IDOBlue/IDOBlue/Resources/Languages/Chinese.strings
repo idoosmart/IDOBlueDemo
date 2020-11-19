@@ -243,6 +243,8 @@
 "device switching" = "设备切换中...";
 "device switch failed" = "设备切换失败";
 "device switch success" = "设备切换成功";
+"start detection encryption auth..." = "开始校验加密授权...";
+"device encryption auth code don't same" = "设备加密授权码不相同";
 "mode" = "模式:";
 "update mode" = "升级";
 "normal mode" = "普通";
@@ -444,6 +446,14 @@
 "set pressure switch" = "设置压力开关";
 "set pressure switch success" = "设置压力开关成功";
 "set pressure switch failed" = "设置压力开关失败";
+"set pressure reminder switch" = "设置压力提醒开关";
+"set wash hand reminder switch" = "设置洗手提醒开关";
+"set wash hand reminder" = "设置洗手提醒";
+"set wash hand reminder success" = "设置洗手提醒成功";
+"set wash hand reminder failed" = "设置洗手提醒失败";
+"auth code error" = "授权码错误";
+"add devices" = "添加设备";
+"scan add devices" = "扫描添加";
 
 /**
  add by xiongjie 

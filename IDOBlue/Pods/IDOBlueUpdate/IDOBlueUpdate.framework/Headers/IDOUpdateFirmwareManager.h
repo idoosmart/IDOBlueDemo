@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 
 #if __has_include(<IDOBlueUpdate/IDOBlueUpdate.h>)
+#import <IDOBlueProtocol/IDOBlueProtocol.h>
 #else
 #import "IDOUpdateEnum.h"
+#import "IDOTranEnum.h"
 #endif
 
 @class IDOUpdateFirmwareManager;
@@ -75,6 +77,22 @@
 - (IDO_REALTK_UPDATE_TYPE)selectRealtkTypeWithUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager
                                              supportOtaMode:(BOOL)isOtaMode
                                           supportSilentMode:(BOOL)isSilentMode;
+
+/**
+ * @brief 传入文件传输的类型 只适合 Apollo
+ * @param manager 升级管理中心对象 | Upgrade Management Center Objects
+ * @return 文件传输类型 | file transfer type
+ */
+- (IDO_DATA_FILE_TRAN_TYPE)selectFileTranTypeUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager;
+
+
+/**
+ * @brief 传入文件传输的名称 只适合 Apollo
+ * 固件升级名称: @".fw" 图片资源名称: @".fzbin" 字库名称:@".bin"
+ * @param manager 升级管理中心对象 | Upgrade Management Center Objects
+ * @return 文件传输名称 | file transfer type
+ */
+- (NSString * _Nullable)fileTranNameUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager;
 
 @end
 

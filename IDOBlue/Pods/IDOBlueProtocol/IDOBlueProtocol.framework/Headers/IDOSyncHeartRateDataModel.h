@@ -296,7 +296,7 @@
  * @return 一年12个月的心率数据集合,其中IDOSyncHrDataInfoBluetoothModel对象是一天总心率数据模型
  * Heart rate data collection for 12 months a year, where the IDOSyncHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
-+ (NSArray <NSArray<__kindof IDOSyncHrDataInfoBluetoothModel *>*> *)queryOneYearHearRatesWithYear:(NSInteger)year
++ (NSArray <NSArray<IDOSyncHrDataInfoBluetoothModel *>*> *)queryOneYearHearRatesWithYear:(NSInteger)year
                                                                                           macAddr:(NSString *)macAddr
                                                                                      isQueryItems:(BOOL)isQuery;
 
@@ -313,7 +313,7 @@
  * @return 一个月的心率数据集合,其中IDOSyncHrDataInfoBluetoothModel对象是一天总心率数据模型
  * A one-month heart rate data collection, where the IDOSyncHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
-+ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryOneMonthHearRatesWithYear:(NSInteger)year
++ (NSArray <IDOSyncHrDataInfoBluetoothModel *>*)queryOneMonthHearRatesWithYear:(NSInteger)year
                                                                                   month:(NSInteger)month
                                                                                 macAddr:(NSString *)macAddr
                                                                            datesOfMonth:(NSArray <NSString *>**)dates
@@ -332,7 +332,7 @@
  * @return 一周的心率数据集合,其中IDOSyncHrDataInfoBluetoothModel对象是一天总心率数据模型
  * A week's heart rate data collection, where the IDOSyncHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
-+ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryOneWeekHearRatesWithWeekIndex:(NSInteger)weekIndex
++ (NSArray <IDOSyncHrDataInfoBluetoothModel *>*)queryOneWeekHearRatesWithWeekIndex:(NSInteger)weekIndex
                                                                                weekStartDay:(NSInteger)weekStartDay
                                                                                     macAddr:(NSString *)macAddr
                                                                                 datesOfWeek:(NSArray <NSString *>**)dates
@@ -346,7 +346,7 @@
  * @param day   日期  | day
  * @return 一天心率数据的集合和详情数据集合 | Collection of day heart rate data and details data
  */
-+ (NSArray<__kindof IDOSyncHrDataInfoBluetoothModel *> *)queryOneDayHearRatesDetailWithMac:(NSString *)macAddr
++ (NSArray<IDOSyncHrDataInfoBluetoothModel *> *)queryOneDayHearRatesDetailWithMac:(NSString *)macAddr
                                                                                        year:(NSInteger)year
                                                                                       month:(NSInteger)month
                                                                                         day:(NSInteger)day;
@@ -356,7 +356,7 @@
  * @param macAddr mac 地址 | mac address
  * @return 所有心率数据的集合 | Collection of all heart rate data and details data
  */
-+ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryAllHearRatesWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncHrDataInfoBluetoothModel *>*)queryAllHearRatesWithMac:(NSString *)macAddr;
 
 
 /**
@@ -366,7 +366,7 @@
  * @param macAddr mac 地址 | mac address
  * @return 所有心率数据的集合 | Collection of all heart rate data
  */
-+ (NSArray <__kindof IDOSyncHrDataInfoBluetoothModel *>*)queryAllContractedHearRatesWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncHrDataInfoBluetoothModel *>*)queryAllContractedHearRatesWithMac:(NSString *)macAddr;
 
 #pragma mark ======================== offset second ===============================
 
@@ -380,7 +380,7 @@
  * @return 一年12个月的秒钟心率数据集合,其中IDOSyncSecHrDataInfoBluetoothModel对象是一天总心率数据模型
  * second heart rate data collection for 12 months a year, where the IDOSyncSecHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
-+ (NSArray <NSArray<__kindof IDOSyncSecHrDataInfoBluetoothModel *>*> *)queryOneYearSecHearRatesWithYear:(NSInteger)year
++ (NSArray <NSArray<IDOSyncSecHrDataInfoBluetoothModel *>*> *)queryOneYearSecHearRatesWithYear:(NSInteger)year
                                                                                                 macAddr:(NSString *)macAddr
                                                                                            isQueryItems:(BOOL)isQuery;
 
@@ -397,7 +397,7 @@
  * @return 一个月的秒钟心率数据集合,其中IDOSyncSecHrDataInfoBluetoothModel对象是一天总心率数据模型
  * one-month second heart rate data collection, where the IDOSyncSecHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
-+ (NSArray <__kindof IDOSyncSecHrDataInfoBluetoothModel *>*)queryOneMonthSecHearRatesWithYear:(NSInteger)year
++ (NSArray <IDOSyncSecHrDataInfoBluetoothModel *>*)queryOneMonthSecHearRatesWithYear:(NSInteger)year
                                                                                          month:(NSInteger)month
                                                                                        macAddr:(NSString *)macAddr
                                                                                   datesOfMonth:(NSArray <NSString *>**)dates
@@ -416,7 +416,7 @@
  * @return 一周的秒钟心率数据集合,其中IDOSyncSecHrDataInfoBluetoothModel对象是一天总心率数据模型
  * one week second heart rate data collection, where the IDOSyncSecHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
-+ (NSArray <__kindof IDOSyncSecHrDataInfoBluetoothModel *>*)queryOneWeekSecHearRatesWithWeekIndex:(NSInteger)weekIndex
++ (NSArray <IDOSyncSecHrDataInfoBluetoothModel *>*)queryOneWeekSecHearRatesWithWeekIndex:(NSInteger)weekIndex
                                                                                      weekStartDay:(NSInteger)weekStartDay
                                                                                           macAddr:(NSString *)macAddr
                                                                                       datesOfWeek:(NSArray <NSString *>**)dates
@@ -431,7 +431,7 @@
  * @param isQuery 是否查询items | is query items
  * @return 一天秒钟心率数据的集合和详情数据集合 | Collection of day second heart rate data and details data
  */
-+ (NSArray<__kindof IDOSyncSecHrDataInfoBluetoothModel *> *)queryOneDaySecHearRatesDetailWithMac:(NSString *)macAddr
++ (NSArray<IDOSyncSecHrDataInfoBluetoothModel *> *)queryOneDaySecHearRatesDetailWithMac:(NSString *)macAddr
                                                                                     year:(NSInteger)year
                                                                                    month:(NSInteger)month
                                                                                      day:(NSInteger)day
@@ -442,7 +442,7 @@
  * @param macAddr mac 地址 | mac address
  * @return 所有秒钟心率数据的集合 | Collection of all second heart rate data and details data
  */
-+ (NSArray <__kindof IDOSyncSecHrDataInfoBluetoothModel *>*)queryAllSecHearRatesWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncSecHrDataInfoBluetoothModel *>*)queryAllSecHearRatesWithMac:(NSString *)macAddr;
 
 /**
  * @brief 查询所有秒钟心率数据 心率包个数大于0 只包含静心心率和日期时间戳
@@ -451,7 +451,7 @@
  * @param macAddr mac 地址 | mac address
  * @return 所有心率数据的集合 | Collection of all heart rate data
  */
-+ (NSArray <__kindof IDOSyncSecHrDataInfoBluetoothModel *>*)queryAllContractedSecHearRatesWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncSecHrDataInfoBluetoothModel *>*)queryAllContractedSecHearRatesWithMac:(NSString *)macAddr;
 
 @end
 

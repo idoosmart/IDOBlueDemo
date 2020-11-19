@@ -128,17 +128,21 @@
               callback:(void (^_Nullable)(IDO_BIND_STATUS status, int errorCode))callback;
 
 /**
- * @brief 在断链的情况下解绑对应设备 | disconnect  unbind correspond deivce
+ * @brief 在断链的情况下解绑对应设备, 只改变本地对应设备信息状态，不影响当前绑定连接的设备
+ * disconnect  unbind correspond deivce,It only changes the information state of the local corresponding device,
+ * and does not affect the device connected by the current binding
  * @param macAddr 设备Mac地址 ｜ device mac address
+ * @return YES or NO
  */
-+ (void)unbindCorrespondDeviceWithMacAddr:(NSString *_Nullable)macAddr;
++ (BOOL)unbindCorrespondDeviceWithMacAddr:(NSString *_Nullable)macAddr;
 
 /**
- * @brief 连接设备解绑,只适合连接解绑,请使用‘设备强制解绑’方法 | Unbundling equipment
- * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
- * Post-execution callback (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ * @brief 在断链的情况下，解除当前设备的绑定。这种方法只适合绑定一个设备，而不适合同时绑定多个设备
+ * In the case of broken chain, unbind the current device. This method is suitable for binding only one device,
+ * but not for binding multiple devices at the same time
+ * @return YES or NO
  */
-+ (void)unbindingCommand:(void(^_Nullable)(int errorCode))callback;
++ (BOOL)disConnectUnbindCurrentDevice;
 
 /**
  * @brief 切换设备,但不删除手环和app数据 | switch device not delete the bracelet and app data
@@ -870,6 +874,16 @@
 + (void)setTakingMedicineReminderCommand:(IDOSetTakingMedicineReminderModel * _Nullable)reminderModel
                                 callback:(void (^ _Nullable)(float progress))callback
                                 complete:(void (^ _Nullable)(int errorCode))complete;
+
+/**
+ * @brief 设置洗手提醒  | wash hand reminder
+ * @param reminderModel 设置洗手提醒 model (IDOSetWashHandReminderModel)
+ * set wash hand reminder model (IDOSetWashHandReminderModel)
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post complete (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setWashHandReminderCommand:(IDOSetWashHandReminderModel *_Nullable)reminderModel
+                          callback:(void (^ _Nullable)(int errorCode))callback;
 
 /**
  * @brief 设置星星数量 数据不作存储 (锐捷) | Set the number of stars (ruijie)

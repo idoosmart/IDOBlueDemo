@@ -11,6 +11,52 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ====  设置洗手提醒 model ====
+@interface IDOSetWashHandReminderModel:IDOBluetoothBaseModel
+/**
+ 开关 | on off
+ */
+@property (nonatomic,assign) BOOL onOff;
+
+/**
+ 开始时间 （时） | start hour
+ */
+@property (nonatomic,assign) NSInteger startHour;
+
+/**
+ 开始时间 （分） | start minute
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+
+/**
+ 结束时间 （时） | end hour
+ */
+@property (nonatomic,assign) NSInteger endHour;
+
+/**
+ 结束时间 （分） | end minute
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+
+/**
+ 提醒间隔,单位分钟 默认60分钟 | interval (unit minutes)
+ */
+@property (nonatomic,assign) NSInteger interval;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetWashHandReminderModel
+ */
++ (IDOSetWashHandReminderModel *)currentModel;
+
+@end
+
 #pragma mark ====  设置吃药提醒 model ====
 @interface IDOSetTakingMedicineReminderItemModel : IDOBluetoothBaseModel
 /**
@@ -99,7 +145,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetTakingMedicineReminderModel
  */
-+ (__kindof IDOSetTakingMedicineReminderModel *)currentModel;
++ (IDOSetTakingMedicineReminderModel *)currentModel;
 
 @end
 
@@ -131,11 +177,26 @@
 @property (nonatomic,assign) NSInteger endMinute;
 
 /**
+ 压力提醒 开关  | remind on off
+ */
+@property (nonatomic,assign) BOOL remindOnOff;
+
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+
+/**
+ 提醒间隔,单位分钟 默认60分钟 | interval (unit minutes)
+ */
+@property (nonatomic,assign) NSInteger interval;
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetPressureSwitchBluetoothModel
  */
-+ (__kindof IDOSetPressureSwitchBluetoothModel *)currentModel;
++ (IDOSetPressureSwitchBluetoothModel *)currentModel;
 
 @end
 
@@ -175,7 +236,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetDrinkReminderModeBluetoothModel
  */
-+ (__kindof IDOSetDrinkReminderModeBluetoothModel *)currentModel;
++ (IDOSetDrinkReminderModeBluetoothModel *)currentModel;
 @end
 
 #pragma mark ====  设置心率开关同步 model ====
@@ -219,7 +280,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetV3HeartRateModeBluetoothModel
  */
-+ (__kindof IDOSetV3HeartRateModeBluetoothModel *)currentModel;
++ (IDOSetV3HeartRateModeBluetoothModel *)currentModel;
 @end
 
 #pragma mark ====  设置运动开关 model ====
@@ -254,7 +315,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetActivitySwitchBluetoothModel
  */
-+ (__kindof IDOSetActivitySwitchBluetoothModel *)currentModel;
++ (IDOSetActivitySwitchBluetoothModel *)currentModel;
 
 @end
 
@@ -291,7 +352,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetSpo2SwitchBluetoothModel
  */
-+ (__kindof IDOSetSpo2SwitchBluetoothModel *)currentModel;
++ (IDOSetSpo2SwitchBluetoothModel *)currentModel;
 
 @end
 
@@ -307,7 +368,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetBreatheTrainBluetoothModel
  */
-+ (__kindof IDOSetBreatheTrainBluetoothModel *)currentModel;
++ (IDOSetBreatheTrainBluetoothModel *)currentModel;
 @end
 
 #pragma mark ====  设置走动提醒 model ====
@@ -347,7 +408,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetWalkReminderBluetoothModel
  */
-+ (__kindof IDOSetWalkReminderBluetoothModel *)currentModel;
++ (IDOSetWalkReminderBluetoothModel *)currentModel;
 
 @end
 #pragma mark ====  设置经期提醒 model ====
@@ -374,7 +435,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetMenstruationRemindBluetoothModel
  */
-+ (__kindof IDOSetMenstruationRemindBluetoothModel *)currentModel;
++ (IDOSetMenstruationRemindBluetoothModel *)currentModel;
 
 @end
 
@@ -422,7 +483,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetMenstruationInfoBluetoothModel
  */
-+ (__kindof IDOSetMenstruationInfoBluetoothModel *)currentModel;
++ (IDOSetMenstruationInfoBluetoothModel *)currentModel;
 
 @end
 
@@ -463,7 +524,7 @@
  * Query the database, if the query does not initialize the new model object (only the authorization binding will store the data)
  * @return IDOSetBindingInfoBluetoothModel
  */
-+ (__kindof IDOSetBindingInfoBluetoothModel *)currentModel;
++ (IDOSetBindingInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置设置睡眠时间段model ====
@@ -498,7 +559,7 @@
  * @brief 查询数据库,如果查询不到初始化新的model对象 | Query the database, if the query does not initialize a new model object
  * @return IDOSetSleepPeriodInfoBluetoothModel
  */
-+ (__kindof IDOSetSleepPeriodInfoBluetoothModel *)currentModel;
++ (IDOSetSleepPeriodInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置血压测量指令model ====
@@ -531,7 +592,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetBpMeasureInfoBluetoothModel
  */
-+ (__kindof IDOSetBpMeasureInfoBluetoothModel *)currentModel;
++ (IDOSetBpMeasureInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置表盘参数model ====
@@ -547,7 +608,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetWatchDiaInfoBluetoothModel
  */
-+ (__kindof IDOSetWatchDiaInfoBluetoothModel *)currentModel;
++ (IDOSetWatchDiaInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置马达参数model ====
@@ -568,7 +629,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetStartMotorInfoBluetoothModel
  */
-+ (__kindof IDOSetStartMotorInfoBluetoothModel *)currentModel;
++ (IDOSetStartMotorInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置传感器实时数据model ====
@@ -589,7 +650,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetRealTimeSensorDataInfoBluetoothModel
  */
-+ (__kindof IDOSetRealTimeSensorDataInfoBluetoothModel *)currentModel;
++ (IDOSetRealTimeSensorDataInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置连接参数信息model ====
@@ -630,7 +691,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetConnParamInfoBluetoothModel
  */
-+ (__kindof IDOSetConnParamInfoBluetoothModel *)currentModel;
++ (IDOSetConnParamInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置GPS控制信息model ====
@@ -652,7 +713,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetGpsControlInfoBluetoothModel
  */
-+ (__kindof IDOSetGpsControlInfoBluetoothModel *)currentModel;
++ (IDOSetGpsControlInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置GPS信息model ====
@@ -715,7 +776,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetGpsConfigInfoBluetoothModel
  */
-+ (__kindof IDOSetGpsConfigInfoBluetoothModel *)currentModel;
++ (IDOSetGpsConfigInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置屏幕亮度model ====
@@ -766,7 +827,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetScreenBrightnessInfoBluetoothModel
  */
-+ (__kindof IDOSetScreenBrightnessInfoBluetoothModel *)currentModel;
++ (IDOSetScreenBrightnessInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置天气数据model ====
@@ -830,7 +891,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetWeatherDataInfoBluetoothModel
  */
-+ (__kindof IDOSetWeatherDataInfoBluetoothModel *)currentModel;
++ (IDOSetWeatherDataInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置运动快捷模式排序model ====
@@ -873,7 +934,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetSportSortingInfoBluetoothModel
  */
-+ (__kindof IDOSetSportSortingInfoBluetoothModel *)currentModel;
++ (IDOSetSportSortingInfoBluetoothModel *)currentModel;
 
 @end
 
@@ -1031,7 +1092,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetSportShortcutInfoBluetoothModel
  */
-+ (__kindof IDOSetSportShortcutInfoBluetoothModel *)currentModel;
++ (IDOSetSportShortcutInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置血压校准model ====
@@ -1065,7 +1126,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetBloodPressureInfoBluetoothModel
  */
-+ (__kindof IDOSetBloodPressureInfoBluetoothModel *)currentModel;
++ (IDOSetBloodPressureInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置快捷方式model ====
@@ -1081,7 +1142,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetShortcutInfoBluetoothModel
  */
-+ (__kindof IDOSetShortcutInfoBluetoothModel *)currentModel;
++ (IDOSetShortcutInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置闹钟model ====
@@ -1198,7 +1259,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetExtensionAlarmInfoBluetoothModel
  */
-+ (__kindof IDOSetExtensionAlarmInfoBluetoothModel *)currentModel;
++ (IDOSetExtensionAlarmInfoBluetoothModel *)currentModel;
 
 @end
 
@@ -1256,7 +1317,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetTimeInfoBluetoothModel
  */
-+ (__kindof IDOSetTimeInfoBluetoothModel *)currentModel;
++ (IDOSetTimeInfoBluetoothModel *)currentModel;
 
 /**
  * @brief 获取当前UTC时间模型
@@ -1332,7 +1393,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetUnitInfoBluetoothModel
  */
-+ (__kindof IDOSetUnitInfoBluetoothModel *)currentModel;
++ (IDOSetUnitInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置心率区间model ====
@@ -1408,7 +1469,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetHrIntervalInfoBluetoothModel
  */
-+ (__kindof IDOSetHrIntervalInfoBluetoothModel *)currentModel;
++ (IDOSetHrIntervalInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置勿扰模式model ====
@@ -1481,7 +1542,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetNoDisturbModeInfoBluetoothModel
  */
-+ (__kindof IDOSetNoDisturbModeInfoBluetoothModel *)currentModel;
++ (IDOSetNoDisturbModeInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置心率模式model ====
@@ -1527,7 +1588,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetHRModeInfoBluetoothModel
  */
-+ (__kindof IDOSetHrModeInfoBluetoothModel *)currentModel;
++ (IDOSetHrModeInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置手环横竖屏model ====
@@ -1543,7 +1604,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetDisplayModeInfoBluetoothModel
  */
-+ (__kindof IDOSetDisplayModeInfoBluetoothModel *)currentModel;
++ (IDOSetDisplayModeInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置抬腕手势model ====
@@ -1589,7 +1650,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetHandUpInfoBuletoothModel
  */
-+ (__kindof IDOSetHandUpInfoBuletoothModel *)currentModel;
++ (IDOSetHandUpInfoBuletoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置久坐提醒model ====
@@ -1636,7 +1697,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetLongSitInfoBuletoothModel
  */
-+ (__kindof IDOSetLongSitInfoBuletoothModel *)currentModel;
++ (IDOSetLongSitInfoBuletoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置天气预报开关model ====
@@ -1652,7 +1713,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetWeatherSwitchInfoBluetoothModel
  */
-+ (__kindof IDOSetWeatherSwitchInfoBluetoothModel *)currentModel;
++ (IDOSetWeatherSwitchInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置相机开关model ====
@@ -1678,7 +1739,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetMusicOpenInfoBuletoothModel
  */
-+ (__kindof IDOSetMusicOpenInfoBuletoothModel *)currentModel;
++ (IDOSetMusicOpenInfoBuletoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置防止丢失model ====
@@ -1694,7 +1755,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetPreventLostInfoBuletoothModel
  */
-+ (__kindof IDOSetPreventLostInfoBuletoothModel *)currentModel;
++ (IDOSetPreventLostInfoBuletoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置左右手穿戴model ====
@@ -1710,7 +1771,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetLeftOrRightInfoBuletoothModel
  */
-+ (__kindof IDOSetLeftOrRightInfoBuletoothModel *)currentModel;
++ (IDOSetLeftOrRightInfoBuletoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置寻找手机model ====
@@ -1726,7 +1787,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetFindPhoneInfoBuletoothModel
  */
-+ (__kindof IDOSetFindPhoneInfoBuletoothModel *)currentModel;
++ (IDOSetFindPhoneInfoBuletoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置一键呼叫model ====
@@ -1742,7 +1803,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetOneKeySosInfoBuletoothModel
  */
-+ (__kindof IDOSetOneKeySosInfoBuletoothModel *)currentModel;
++ (IDOSetOneKeySosInfoBuletoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置开启蓝牙配对model ====
@@ -1764,7 +1825,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetPairingInfoBuletoothModel
  */
-+ (__kindof IDOSetPairingInfoBuletoothModel *)currentModel;
++ (IDOSetPairingInfoBuletoothModel *)currentModel;
 
 @end
 
@@ -2026,7 +2087,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetNoticeInfoBuletoothModel
  */
-+ (__kindof IDOSetNoticeInfoBuletoothModel *)currentModel;
++ (IDOSetNoticeInfoBuletoothModel *)currentModel;
 
 @end
 
@@ -2114,7 +2175,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetUserInfoBuletoothModel
  */
-+ (__kindof IDOSetUserInfoBuletoothModel *)currentModel;
++ (IDOSetUserInfoBuletoothModel *)currentModel;
 
 
 @end

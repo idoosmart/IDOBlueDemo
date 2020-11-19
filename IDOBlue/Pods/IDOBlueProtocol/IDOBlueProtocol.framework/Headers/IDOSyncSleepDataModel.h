@@ -149,7 +149,7 @@
  * @return 一年12个月的睡眠数据集合,其中IDOSyncSleepDataInfoBluetoothModel对象是一天总睡眠数据模型
  * 12 months of sleep data collection, IDOSyncSleepDataInfoBluetoothModel object is the total day sleep data model
  */
-+ (NSArray <NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*>*)queryOneYearSleepsWithYear:(NSInteger)year
++ (NSArray <NSArray <IDOSyncSleepDataInfoBluetoothModel *>*>*)queryOneYearSleepsWithYear:(NSInteger)year
                                                                                           macAddr:(NSString *)macAddr
                                                                                      isQueryItems:(BOOL)isQuery;
 
@@ -166,7 +166,7 @@
  * @return 一个月的睡眠数据集合,其中IDOSyncSleepDataInfoBluetoothModel对象是一天总睡眠数据模型
  * A one-month sleep data collection, where the IDOSyncSleepDataInfoBluetoothModel object is the total day sleep data model
  */
-+ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneMonthSleepsWithYear:(NSInteger)year
++ (NSArray <IDOSyncSleepDataInfoBluetoothModel *>*)queryOneMonthSleepsWithYear:(NSInteger)year
                                                                                   month:(NSInteger)month
                                                                                 macAddr:(NSString *)macAddr
                                                                            datesOfMonth:(NSArray <NSString *>**)dates
@@ -184,7 +184,7 @@
  * @return 一周的睡眠数据集合,其中IDOSyncSleepDataInfoBluetoothModel对象是一天总睡眠数据模型
  * A week's sleep data collection, where the IDOSyncSleepDataInfoBluetoothModel object is the total day sleep data model
  */
-+ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneWeekSleepsWithWeekIndex:(NSInteger)weekIndex
++ (NSArray <IDOSyncSleepDataInfoBluetoothModel *>*)queryOneWeekSleepsWithWeekIndex:(NSInteger)weekIndex
                                                                                weekStartDay:(NSInteger)weekStartDay
                                                                                     macAddr:(NSString *)macAddr
                                                                                 datesOfWeek:(NSArray <NSString *>**)dates
@@ -198,7 +198,7 @@
  * @param day   日期 |  day
  * @return 一天睡眠数据的集合和详情数据集合 | Collection of daily sleep data and detailed data
  */
-+ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryOneDaySleepsDetailWithMac:(NSString *)macAddr
++ (NSArray <IDOSyncSleepDataInfoBluetoothModel *>*)queryOneDaySleepsDetailWithMac:(NSString *)macAddr
                                                                                        year:(NSInteger)year
                                                                                       month:(NSInteger)month
                                                                                         day:(NSInteger)day;
@@ -208,7 +208,7 @@
  * @param macAddr mac 地址 | mac address
  * @return 所有睡眠数据的集合 | Collection and details of all sleep data
  */
-+ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryAllSleepsWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncSleepDataInfoBluetoothModel *>*)queryAllSleepsWithMac:(NSString *)macAddr;
 
 
 /**
@@ -217,7 +217,7 @@
  * @param macAddr mac 地址 | mac address
  * @return 所有睡眠数据的集合 | Collection of all sleep data
  */
-+ (NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)queryAllContractedSleepsWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncSleepDataInfoBluetoothModel *>*)queryAllContractedSleepsWithMac:(NSString *)macAddr;
 
 @end
 

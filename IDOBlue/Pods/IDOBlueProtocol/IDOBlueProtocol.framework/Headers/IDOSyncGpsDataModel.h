@@ -117,7 +117,7 @@
  * @param macAddr mac 地址 | mac address
  * @return gps信息数据 坐标item对象集合 | gps information data coordinate item object collection
  */
-+ (__kindof IDOSyncGpsDataInfoBluetoothModel *)queryOneActivityCoordinatesWithTimeStr:(NSString *)timeStr
++ (IDOSyncGpsDataInfoBluetoothModel *)queryOneActivityCoordinatesWithTimeStr:(NSString *)timeStr
                                                                               macAddr:(NSString *)macAddr;
 
 /**

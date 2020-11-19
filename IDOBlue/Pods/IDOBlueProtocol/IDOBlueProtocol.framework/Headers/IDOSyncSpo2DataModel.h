@@ -104,7 +104,7 @@
  * @return 一年12个月的血氧数据集合,其中IDOSyncBloodOxygenDataInfoBluetoothModel对象是一天总血氧数据模型
  * Blood oxygen data collection for 12 months a year, where the IDOSyncBloodOxygenDataInfoBluetoothModel object is the total blood oxygen data model for the day
  */
-+ (NSArray <NSArray<__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*> *)queryOneYearBloodOxygenWithYear:(NSInteger)year
++ (NSArray <NSArray<IDOSyncBloodOxygenDataInfoBluetoothModel *>*> *)queryOneYearBloodOxygenWithYear:(NSInteger)year
                                                                                                      macAddr:(NSString *)macAddr
                                                                                                 isQueryItems:(BOOL)isQuery;
 
@@ -121,7 +121,7 @@
  * @return 一个月的血氧数据集合,其中IDOSyncBloodOxygenDataInfoBluetoothModel对象是一天总血氧数据模型
  * A one-month blood oxygen data collection, where the IDOSyncHrDataInfoBluetoothModel object is the total blood oxygen data model for the day
  */
-+ (NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneMonthBloodOxygenWithYear:(NSInteger)year
++ (NSArray <IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneMonthBloodOxygenWithYear:(NSInteger)year
                                                                                              month:(NSInteger)month
                                                                                            macAddr:(NSString *)macAddr
                                                                                       datesOfMonth:(NSArray <NSString *>**)dates
@@ -140,7 +140,7 @@
  * @return 一周的血氧数据集合,其中IDOSyncBloodOxygenDataInfoBluetoothModel对象是一天总血氧数据模型
  * A week's blood oxygen data collection, where the IDOSyncBloodOxygenDataInfoBluetoothModel object is the total blood oxygen data model for the day
  */
-+ (NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneWeekBloodOxygenWithWeekIndex:(NSInteger)weekIndex
++ (NSArray <IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneWeekBloodOxygenWithWeekIndex:(NSInteger)weekIndex
                                                                                           weekStartDay:(NSInteger)weekStartDay
                                                                                                macAddr:(NSString *)macAddr
                                                                                            datesOfWeek:(NSArray <NSString *>**)dates
@@ -155,7 +155,7 @@
  * @param day   日期  | day
  * @return 一天血氧数据的集合和详情数据结合 | Collection of day blood oxygen data and details data
  */
-+ (NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneDayBloodOxygenDetailWithMac:(NSString *)macAddr
++ (NSArray <IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneDayBloodOxygenDetailWithMac:(NSString *)macAddr
                                                                                                   year:(NSInteger)year
                                                                                                  month:(NSInteger)month
                                                                                                    day:(NSInteger)day;
@@ -167,7 +167,7 @@
  * @return 所有血氧数据的集合和详情数据（不包括当天数据）
  * Collection of all blood oxygen data and details data
  */
-+ (NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryAllBloodOxygensWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryAllBloodOxygensWithMac:(NSString *)macAddr;
 
 
 @end

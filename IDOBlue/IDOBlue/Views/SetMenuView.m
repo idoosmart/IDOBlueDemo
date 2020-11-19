@@ -9,7 +9,6 @@
 #import "SetMenuView.h"
 #import "ScanViewController.h"
 #import "FuncViewController.h"
-#import "ModeSelectViewModel.h"
 #import "IDODemoUtility.h"
 #import "UITableView+cellSeparator.h"
 
@@ -34,7 +33,6 @@
 
 @interface SetMenuView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView * tableView;
-@property (nonatomic,strong) NSArray * listArray;
 @property (nonatomic,strong) CustomView * arrawView;
 @end
 
@@ -69,14 +67,6 @@
     return _arrawView;
 }
 
-- (NSArray *)listArray
-{
-    if (!_listArray) {
-        _listArray = @[@{@"icon":@"disconnect",@"title":lang(@"mandatory unbind")},@{@"icon":@"setup",@"title":lang(@"setup")}];
-    }
-    return _listArray;
-}
-
 - (UITableView *)tableView
 {
     if (!_tableView) {
@@ -96,6 +86,42 @@
         }];
     }
     return _tableView;
+}
+
+- (void)setIsLeftType:(BOOL)isLeftType
+{
+    _isLeftType = isLeftType;
+    if (_isLeftType) {
+        [self.arrawView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@0);
+            make.left.equalTo(@30);
+            make.width.equalTo(@20);
+            make.height.equalTo(@10);
+        }];
+        __weak typeof(self) weakSelf = self;
+        [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            __strong typeof(self) strongSelf = weakSelf;
+            make.left.equalTo(@16);
+            make.top.equalTo(strongSelf.arrawView.mas_bottom);
+            make.width.equalTo(@150);
+            make.height.equalTo(@200);
+        }];
+    }else {
+        [self.arrawView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@0);
+            make.right.equalTo(@(-30));
+            make.width.equalTo(@20);
+            make.height.equalTo(@10);
+        }];
+        __weak typeof(self) weakSelf = self;
+        [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            __strong typeof(self) strongSelf = weakSelf;
+            make.right.equalTo(@(-16));
+            make.top.equalTo(strongSelf.arrawView.mas_bottom);
+            make.width.equalTo(@150);
+            make.height.equalTo(@200);
+        }];
+    }
 }
 
 #pragma mark- ****************** UITableViewDataSource
@@ -140,21 +166,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.hidden = YES;
-    if (indexPath.row == 0) {
-        [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
-            if (errorCode == 0) {
-                if ([[IDODemoUtility getCurrentVC]isKindOfClass:[ScanViewController class]])return;
-                ScanViewController * scanVC  = [[ScanViewController alloc]init];
-                UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-                [UIApplication sharedApplication].delegate.window.rootViewController = nav;
-            }
-        }];
-    }else if (indexPath.row == 1){
-        FuncViewController * vc = [[FuncViewController alloc]init];
-        ModeSelectViewModel * selectModel = [ModeSelectViewModel new];
-        vc.model = selectModel;
-        vc.title = lang(@"parameter select");
-        [[IDODemoUtility getCurrentVC].navigationController pushViewController:vc animated:YES];
+    
+    if (self.selectMenuList) {
+        self.selectMenuList(indexPath.row);
     }
 }
 
@@ -166,7 +180,6 @@
 
 - (void)reloadData
 {
-    self.listArray = nil;
     [self.tableView reloadData];
 }
 

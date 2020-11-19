@@ -45,15 +45,15 @@ struct ido_blood_pressure_data
 /**
  计算一天血氧平均值 | Calculate the average blood oxygen per day
  */
-+ (__kindof IDOCalculateBloodOxygenBluetoothModel *)calculateOneDayBoDataWithBoModel:(__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *)model;
++ (IDOCalculateBloodOxygenBluetoothModel *)calculateOneDayBoDataWithBoModel:(IDOSyncBloodOxygenDataInfoBluetoothModel *)model;
 /**
  计算一周、一月血氧平均值 | Calculate the blood oxygen average for one week and one month
  */
-+ (__kindof IDOCalculateBloodOxygenBluetoothModel *)calculateOneMonthOrWeekBoDataWithBoModels:(NSArray <__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*)models;
++ (IDOCalculateBloodOxygenBluetoothModel *)calculateOneMonthOrWeekBoDataWithBoModels:(NSArray <IDOSyncBloodOxygenDataInfoBluetoothModel *>*)models;
 /**
  计算一年血氧平均值 | Calculate the annual blood oxygen average
  */
-+ (__kindof IDOCalculateBloodOxygenBluetoothModel *)calculateOneYearBoDataWithBoModels:(NSArray <NSArray<__kindof IDOSyncBloodOxygenDataInfoBluetoothModel *>*> *)models;
++ (IDOCalculateBloodOxygenBluetoothModel *)calculateOneYearBoDataWithBoModels:(NSArray <NSArray<IDOSyncBloodOxygenDataInfoBluetoothModel *>*> *)models;
 
 @end
 
@@ -87,13 +87,13 @@ struct ido_blood_pressure_data
 /**
  计算一天血压平均值 | Calculate the average blood pressure per day
  */
-+ (__kindof IDOCalculateBpBluetoothModel *)calculateOneDayBpDataWithBpModel:(__kindof IDOSyncBpDataInfoBluetoothModel *)model;
++ (IDOCalculateBpBluetoothModel *)calculateOneDayBpDataWithBpModel:(IDOSyncBpDataInfoBluetoothModel *)model;
 
 /**
  计算一周、一月血压平均值 | Calculate the average blood pressure for one week and one month
  */
-+ (__kindof IDOCalculateBpBluetoothModel *)calculateOneMonthOrWeekBpDataWithBpModels:(NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)models
-                                                             allDayCalculateBpModels:(NSArray <__kindof IDOCalculateBpBluetoothModel *> **)calculateBpModels;
++ (IDOCalculateBpBluetoothModel *)calculateOneMonthOrWeekBpDataWithBpModels:(NSArray <IDOSyncBpDataInfoBluetoothModel *>*)models
+                                                             allDayCalculateBpModels:(NSArray <IDOCalculateBpBluetoothModel *> **)calculateBpModels;
 
 @end
 
@@ -145,19 +145,19 @@ struct ido_blood_pressure_data
  * 只能传入 IDOSyncHrDataInfoBluetoothModel 和 IDOSyncSecHrDataInfoBluetoothModel 对象
  * Only IDOSyncHrDataInfoBluetoothModel and IDOSyncSecHrDataInfoBluetoothModel object
  */
-+ (__kindof IDOCalculateHrBluetoothModel *)calculateOneDayHrDataWithHrModel:(__kindof IDOBluetoothBaseModel *)model;
++ (IDOCalculateHrBluetoothModel *)calculateOneDayHrDataWithHrModel:(IDOBluetoothBaseModel *)model;
 /**
  * 计算一周、一月心率平均值 | Calculate the heart rate average for one week and one month
  * 只能传入 IDOSyncHrDataInfoBluetoothModel 和 IDOSyncSecHrDataInfoBluetoothModel 对象
  * Only IDOSyncHrDataInfoBluetoothModel and IDOSyncSecHrDataInfoBluetoothModel object
  */
-+ (__kindof IDOCalculateHrBluetoothModel *)calculateOneMonthOrWeekHrDataWithHrModels:(NSArray <__kindof IDOBluetoothBaseModel *>*)models;
++ (IDOCalculateHrBluetoothModel *)calculateOneMonthOrWeekHrDataWithHrModels:(NSArray <IDOBluetoothBaseModel *>*)models;
 /**
  * 计算一年心率平均值 | Calculate the annual heart rate average
  * 只能传入 IDOSyncHrDataInfoBluetoothModel 和 IDOSyncSecHrDataInfoBluetoothModel 对象
  * Only IDOSyncHrDataInfoBluetoothModel and IDOSyncSecHrDataInfoBluetoothModel object
  */
-+ (__kindof IDOCalculateHrBluetoothModel *)calculateOneYearHrDataWithHrModels:(NSArray <NSArray<__kindof IDOBluetoothBaseModel *>*> *)models;
++ (IDOCalculateHrBluetoothModel *)calculateOneYearHrDataWithHrModels:(NSArray <NSArray<IDOBluetoothBaseModel *>*> *)models;
 
 @end
 
@@ -196,17 +196,17 @@ struct ido_blood_pressure_data
 /**
  计算一天睡眠平均值 | Calculate the average daily sleep
  */
-+ (__kindof IDOCalculateSleepBluetoothModel *)calculateOneDaySleepDataWithSleepModel:(__kindof IDOSyncSleepDataInfoBluetoothModel *)model;
++ (IDOCalculateSleepBluetoothModel *)calculateOneDaySleepDataWithSleepModel:(IDOSyncSleepDataInfoBluetoothModel *)model;
 
 /**
  计算一周、一月睡眠平均值 | Calculation - Week, January sleep average
  */
-+ (__kindof IDOCalculateSleepBluetoothModel *)calculateOneMonthOrWeekSleepDataWithSleepModels:(NSArray <__kindof IDOSyncSleepDataInfoBluetoothModel *>*)models;
++ (IDOCalculateSleepBluetoothModel *)calculateOneMonthOrWeekSleepDataWithSleepModels:(NSArray <IDOSyncSleepDataInfoBluetoothModel *>*)models;
 
 /**
  计算一年睡眠平均值 | Calculate the average sleep value for one year
  */
-+ (__kindof IDOCalculateSleepBluetoothModel *)calculateOneYearSleepDataWithSleepModels:(NSArray <NSArray<__kindof IDOSyncSleepDataInfoBluetoothModel *>*> *)models;
++ (IDOCalculateSleepBluetoothModel *)calculateOneYearSleepDataWithSleepModels:(NSArray <NSArray<IDOSyncSleepDataInfoBluetoothModel *>*> *)models;
 
 @end
 
@@ -245,17 +245,17 @@ struct ido_blood_pressure_data
 /**
  计算一天步数平均值 | Calculate the average number of steps per day
  */
-+ (__kindof IDOCalculateSportBluetoothModel *)calculateOneDaySportDataWithSportModel:(__kindof IDOSyncSportDataInfoBluetoothModel *)model;
++ (IDOCalculateSportBluetoothModel *)calculateOneDaySportDataWithSportModel:(IDOSyncSportDataInfoBluetoothModel *)model;
 
 /**
  计算一周、一月步数平均值 | Calculation - Week, January Step Average
  */
-+ (__kindof IDOCalculateSportBluetoothModel *)calculateOneMonthOrWeekSportDataWithSportModels:(NSArray <__kindof IDOSyncSportDataInfoBluetoothModel *>*)models;
++ (IDOCalculateSportBluetoothModel *)calculateOneMonthOrWeekSportDataWithSportModels:(NSArray <IDOSyncSportDataInfoBluetoothModel *>*)models;
 
 /**
  计算一年步数平均值 | Calculate the average number of steps in a year
  */
-+ (__kindof IDOCalculateSportBluetoothModel *)calculateOneYearSportDataWithSportModels:(NSArray <NSArray<__kindof IDOSyncSportDataInfoBluetoothModel *>*> *)models;
++ (IDOCalculateSportBluetoothModel *)calculateOneYearSportDataWithSportModels:(NSArray <NSArray<IDOSyncSportDataInfoBluetoothModel *>*> *)models;
 
 @end
 

@@ -11,8 +11,6 @@
 #import "TableViewFootView.h"
 #import "FileViewModel.h"
 #import "FuncViewModel.h"
-#import "IDOConsoleBoard.h"
-
 
 @interface FuncViewController ()
 @property (nonatomic,strong) TableViewFootView * footButton;
@@ -46,9 +44,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([IDOConsoleBoard borad].isShow) {
-        [[IDOConsoleBoard borad] show];
-    }
     if (self.model.isRightButton) [self addRightButton];
     if (self.model.isLeftButton)  [self addLeftButton];
         
@@ -60,35 +55,6 @@
         __strong typeof(self) strongSelf = weakSelf;
         make.edges.equalTo(strongSelf.view);
     }];
-    
-    /*
-    if ([self.model isKindOfClass:[FuncViewModel class]]) {
-        [self.tableView addHeaderRefresh];
-        [self.tableView syncDataRefreshingBlock:^{
-             __strong typeof(self) strongSelf = weakSelf;
-             NSInteger mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-             BOOL need_sync = [[NSUserDefaults standardUserDefaults]boolForKey:HOME_NEED_SYNC];
-            if (mode != 0 || !need_sync) {
-                [strongSelf.tableView endSyncDataRefresh];
-                return;
-            }
-            initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {
-                __strong typeof(self) strongSelf = weakSelf;
-                if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
-                    [strongSelf showToastWithText:lang(@"sync data complete")];
-                    [strongSelf.tableView endSyncDataRefresh];
-                }
-            }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
-                __strong typeof(self) strongSelf = weakSelf;
-                [strongSelf.tableView syncTitleLableStr:[NSString stringWithFormat:@"%@%.1f%@",lang(@"sync data"),progress*100.0f,@"%"]];
-            }).addSyncFailed(^(int errorCode) {
-                __strong typeof(self) strongSelf = weakSelf;
-                [strongSelf showToastWithText:lang(@"sync data failed")];
-                [strongSelf.tableView endSyncDataRefresh];
-            }).mandatorySyncConfig(YES);
-            if(__IDO_BIND__ && !__IDO_PAIRING__)[IDOSyncManager startSync];
-        }];
-    }*/
     
     self.tableView.model = self.model;
     UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0,0,self.view.frame.size.width,40)];
@@ -102,17 +68,6 @@
 - (void)startSync
 {
     [super startSync];
-    /*
-    NSInteger mode = (int)[[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-    BOOL need_sync = [[NSUserDefaults standardUserDefaults]boolForKey:HOME_NEED_SYNC];
-    if (!need_sync)return;
-    if(__IDO_BIND__ && !__IDO_PAIRING__ && mode == 0) {
-        __weak typeof(self) weakSelf = self;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            __strong typeof(self) strongSelf = weakSelf;
-           [strongSelf.tableView startSyncRefreshing];
-        });
-    } */
 }
 
 - (TableViewFootView *)footButton

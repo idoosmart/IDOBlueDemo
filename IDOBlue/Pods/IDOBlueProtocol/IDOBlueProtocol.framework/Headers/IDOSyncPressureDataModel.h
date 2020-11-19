@@ -88,7 +88,7 @@
  * @return 一年12个月的压力数据集合,其中IDOSyncPressureDataInfoBluetoothModel对象是一天总血氧数据模型
  * pressure data collection for 12 months a year, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
-+ (NSArray <NSArray<__kindof IDOSyncPressureDataInfoBluetoothModel *>*> *)queryOneYearPressureWithYear:(NSInteger)year
++ (NSArray <NSArray<IDOSyncPressureDataInfoBluetoothModel *>*> *)queryOneYearPressureWithYear:(NSInteger)year
                                                                                                macAddr:(NSString *)macAddr
                                                                                           isQueryItems:(BOOL)isQuery;
 
@@ -105,7 +105,7 @@
  * @return 一个月的压力数据集合,其中IDOSyncPressureDataInfoBluetoothModel对象是一天总压力数据模型
  * A one-month pressure data collection, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
-+ (NSArray <__kindof IDOSyncPressureDataInfoBluetoothModel *>*)queryOneMonthPressureWithYear:(NSInteger)year
++ (NSArray <IDOSyncPressureDataInfoBluetoothModel *>*)queryOneMonthPressureWithYear:(NSInteger)year
                                                                                        month:(NSInteger)month
                                                                                      macAddr:(NSString *)macAddr
                                                                                 datesOfMonth:(NSArray <NSString *>**)dates
@@ -124,7 +124,7 @@
  * @return 一周的压力数据集合,其中IDOSyncPressureDataInfoBluetoothModel对象是一天总压力数据模型
  * A week's pressure data collection, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
-+ (NSArray <__kindof IDOSyncPressureDataInfoBluetoothModel *>*)queryOneWeekPressureWithWeekIndex:(NSInteger)weekIndex
++ (NSArray <IDOSyncPressureDataInfoBluetoothModel *>*)queryOneWeekPressureWithWeekIndex:(NSInteger)weekIndex
                                                                                     weekStartDay:(NSInteger)weekStartDay
                                                                                          macAddr:(NSString *)macAddr
                                                                                      datesOfWeek:(NSArray <NSString *>**)dates
@@ -139,7 +139,7 @@
  * @param day   日期  | day
  * @return 一天压力数据的集合和详情数据集合 | Collection of day pressure data and details data
  */
-+ (NSArray <__kindof IDOSyncPressureDataInfoBluetoothModel *>*)queryOneDayPressureDetailWithMac:(NSString *)macAddr
++ (NSArray <IDOSyncPressureDataInfoBluetoothModel *>*)queryOneDayPressureDetailWithMac:(NSString *)macAddr
                                                                                             Year:(NSInteger)year
                                                                                            month:(NSInteger)month
                                                                                              day:(NSInteger)day;
@@ -151,7 +151,7 @@
  * @return 所有压力数据的集合和详情数据（不包括当天数据）
  * Collection of all pressure data and details data（Data for the day are not included）
  */
-+ (NSArray <__kindof IDOSyncPressureDataInfoBluetoothModel *>*)queryAllPressuresWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncPressureDataInfoBluetoothModel *>*)queryAllPressuresWithMac:(NSString *)macAddr;
 
 @end
 

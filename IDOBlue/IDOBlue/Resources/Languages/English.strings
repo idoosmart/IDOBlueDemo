@@ -243,6 +243,8 @@
 "device switching" = "device switching...";
 "device switch failed" = "device switch failed";
 "device switch success" = "device switch success";
+"start detection encryption auth..." = "start detection encryption auth...";
+"device encryption auth code don't same" = "device encryption auth code don't same";
 "mode" = "mode:";
 "update mode" = "update";
 "normal mode" = "normal";
@@ -441,7 +443,14 @@
 "set pressure switch" = "set pressure switch";
 "set pressure switch success" = "set pressure switch success";
 "set pressure switch failed" = "set pressure switch failed";
-
+"set pressure reminder switch" = "set pressure reminder switch";
+"set wash hand reminder switch" = "set wash hand reminder switch";
+"set wash hand reminder" = "set wash hand reminder";
+"set wash hand reminder success" = "set wash hand reminder success";
+"set wash hand reminder failed" = "set wash hand reminder failed";
+"auth code error" = "auth code error";
+"add devices" = "add devices";
+"scan add devices" = "scan add devices";
 /**
  add by xiongjie
  */

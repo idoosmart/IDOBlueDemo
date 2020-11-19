@@ -15,6 +15,11 @@
  */
 typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
     /**
+     * 日志记录初始化
+     * record log init
+    */
+    IDO_RECORD_INIT_LOG = 0,
+    /**
      * 手动连接手环
      * Manually connect the bracelet
      */

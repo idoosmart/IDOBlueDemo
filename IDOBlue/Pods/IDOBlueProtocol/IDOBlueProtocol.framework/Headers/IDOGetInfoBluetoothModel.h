@@ -66,7 +66,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetV3LangLibListModel
  */
-+ (__kindof IDOGetV3LangLibListModel *)currentModel;
++ (IDOGetV3LangLibListModel *)currentModel;
 
 @end
 
@@ -167,7 +167,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetMenuListInfoBluetoothModel
  */
-+ (__kindof IDOGetMenuListInfoBluetoothModel *)currentModel;
++ (IDOGetMenuListInfoBluetoothModel *)currentModel;
 
 @end
 
@@ -198,7 +198,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetDownLanguageBluetoothModel
  */
-+ (__kindof IDOGetDownLanguageBluetoothModel *)currentModel;
++ (IDOGetDownLanguageBluetoothModel *)currentModel;
 
 @end
 
@@ -234,7 +234,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetDefaultSportTypeBluetoothModel
  */
-+ (__kindof IDOGetDefaultSportTypeBluetoothModel *)currentModel;
++ (IDOGetDefaultSportTypeBluetoothModel *)currentModel;
 
 @end
 
@@ -282,7 +282,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetVersionInfoBluetoothModel
  */
-+ (__kindof IDOGetVersionInfoBluetoothModel *)currentModel;
++ (IDOGetVersionInfoBluetoothModel *)currentModel;
 
 @end
 
@@ -318,7 +318,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetHotStartParamBluetoothModel
  */
-+ (__kindof IDOGetHotStartParamBluetoothModel *)currentModel;
++ (IDOGetHotStartParamBluetoothModel *)currentModel;
 
 @end
 
@@ -350,7 +350,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetGpsInfoBluetoothModel
  */
-+ (__kindof IDOGetGpsInfoBluetoothModel *)currentModel;
++ (IDOGetGpsInfoBluetoothModel *)currentModel;
 
 @end
 
@@ -367,7 +367,7 @@ error flag
  * Query the database, if the query does not initialize a new model object (suspended, invalid)
  * @return IDOGetHidInfoBluetoothModel
  */
-+ (__kindof IDOGetHidInfoBluetoothModel *)currentModel;
++ (IDOGetHidInfoBluetoothModel *)currentModel;
 
 @end
 
@@ -399,7 +399,7 @@ error flag
  * Query the database, if the query does not initialize a new model object (not stored for processing, only the new object will be initialized)
  * @return IDOGetActivityCountBluetoothModel
  */
-+ (__kindof IDOGetActivityCountBluetoothModel *)currentModel;
++ (IDOGetActivityCountBluetoothModel *)currentModel;
 
 @end
 
@@ -426,7 +426,7 @@ error flag
  * Query the database, if the query does not initialize a new model object (suspended, invalid)
  * @return IDOGetHrSensorParamBluetoothModel
  */
-+ (__kindof IDOGetGsensorParamBluetoothModel *)currentModel;
++ (IDOGetGsensorParamBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取心率传感器参数信息model ====
@@ -447,7 +447,7 @@ error flag
  * Query the database, if the query does not initialize a new model object (suspended, invalid)
  * @return IDOGetHrSensorParamBluetoothModel
  */
-+ (__kindof IDOGetHrSensorParamBluetoothModel *)currentModel;
++ (IDOGetHrSensorParamBluetoothModel *)currentModel;
 
 @end
 
@@ -495,7 +495,7 @@ error flag
  * Query the database, if the query does not initialize a new model object (suspended, invalid)
  * @return IDOGetDeviceTimeBluetoothModel
  */
-+ (__kindof IDOGetDeviceTimeBluetoothModel *)currentModel;
++ (IDOGetDeviceTimeBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取实时数据信息model ====
@@ -531,7 +531,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetLiveDataBluetoothModel
  */
-+ (__kindof IDOGetLiveDataBluetoothModel *)currentModel;
++ (IDOGetLiveDataBluetoothModel *)currentModel;
 
 @end
 
@@ -549,7 +549,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable34BluetoothModel
  */
-+ (__kindof IDOGetFuncTable34BluetoothModel *)currentModel;
++ (IDOGetFuncTable34BluetoothModel *)currentModel;
 
 @end
 
@@ -602,7 +602,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable31BluetoothModel
  */
-+ (__kindof IDOGetFuncTable33BluetoothModel *)currentModel;
++ (IDOGetFuncTable33BluetoothModel *)currentModel;
 
 @end
 
@@ -656,7 +656,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable31BluetoothModel
  */
-+ (__kindof IDOGetFuncTable32BluetoothModel *)currentModel;
++ (IDOGetFuncTable32BluetoothModel *)currentModel;
 
 @end
 
@@ -711,7 +711,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable31BluetoothModel
  */
-+ (__kindof IDOGetFuncTable31BluetoothModel *)currentModel;
++ (IDOGetFuncTable31BluetoothModel *)currentModel;
 
 @end
 
@@ -767,7 +767,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable30BluetoothModel
  */
-+ (__kindof IDOGetFuncTable30BluetoothModel *)currentModel;
++ (IDOGetFuncTable30BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取第29个功能表model ====
@@ -819,7 +819,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable29BluetoothModel
  */
-+ (__kindof IDOGetFuncTable29BluetoothModel *)currentModel;
++ (IDOGetFuncTable29BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取第28个功能表model ====
@@ -872,7 +872,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable28BluetoothModel
  */
-+ (__kindof IDOGetFuncTable28BluetoothModel *)currentModel;
++ (IDOGetFuncTable28BluetoothModel *)currentModel;
 @end
 
 
@@ -920,7 +920,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable27BluetoothModel
  */
-+ (__kindof IDOGetFuncTable27BluetoothModel *)currentModel;
++ (IDOGetFuncTable27BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取第26个功能表model ====
@@ -972,7 +972,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable26BluetoothModel
  */
-+ (__kindof IDOGetFuncTable26BluetoothModel *)currentModel;
++ (IDOGetFuncTable26BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取第25个功能表model ====
@@ -999,7 +999,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable25BluetoothModel
  */
-+ (__kindof IDOGetFuncTable25BluetoothModel *)currentModel;
++ (IDOGetFuncTable25BluetoothModel *)currentModel;
 
 @end
 
@@ -1044,7 +1044,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable24BluetoothModel
  */
-+ (__kindof IDOGetFuncTable24BluetoothModel *)currentModel;
++ (IDOGetFuncTable24BluetoothModel *)currentModel;
 
 @end
 
@@ -1088,7 +1088,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable23BluetoothModel
  */
-+ (__kindof IDOGetFuncTable23BluetoothModel *)currentModel;
++ (IDOGetFuncTable23BluetoothModel *)currentModel;
 
 @end
 
@@ -1134,7 +1134,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable22BluetoothModel
  */
-+ (__kindof IDOGetFuncTable22BluetoothModel *)currentModel;
++ (IDOGetFuncTable22BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取21功能列表信息model ====
@@ -1174,7 +1174,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable21BluetoothModel
  */
-+ (__kindof IDOGetFuncTable21BluetoothModel *)currentModel;
++ (IDOGetFuncTable21BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取20功能列表信息model ====
@@ -1225,7 +1225,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable20BluetoothModel
  */
-+ (__kindof IDOGetFuncTable20BluetoothModel *)currentModel;
++ (IDOGetFuncTable20BluetoothModel *)currentModel;
 
 @end
 
@@ -1277,7 +1277,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable19BluetoothModel
  */
-+ (__kindof IDOGetFuncTable19BluetoothModel *)currentModel;
++ (IDOGetFuncTable19BluetoothModel *)currentModel;
 
 @end
 
@@ -1329,7 +1329,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable18BluetoothModel
  */
-+ (__kindof IDOGetFuncTable18BluetoothModel *)currentModel;
++ (IDOGetFuncTable18BluetoothModel *)currentModel;
 
 @end
 
@@ -1366,7 +1366,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable17BluetoothModel
  */
-+ (__kindof IDOGetFuncTable17BluetoothModel *)currentModel;
++ (IDOGetFuncTable17BluetoothModel *)currentModel;
 
 @end
 
@@ -1417,7 +1417,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable16BluetoothModel
  */
-+ (__kindof IDOGetFuncTable16BluetoothModel *)currentModel;
++ (IDOGetFuncTable16BluetoothModel *)currentModel;
 
 @end
 
@@ -1470,7 +1470,7 @@ error flag
  * @return IDOGetFuncTable15BluetoothModel
  */
 
-+ (__kindof IDOGetFuncTable15BluetoothModel *)currentModel;
++ (IDOGetFuncTable15BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取14功能列表信息model ====
@@ -1521,7 +1521,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable14BluetoothModel
  */
-+ (__kindof IDOGetFuncTable14BluetoothModel *)currentModel;
++ (IDOGetFuncTable14BluetoothModel *)currentModel;
 
 @end
 
@@ -1573,7 +1573,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  *@return IDOGetFuncTable13BluetoothModel
  */
-+ (__kindof IDOGetFuncTable13BluetoothModel *)currentModel;
++ (IDOGetFuncTable13BluetoothModel *)currentModel;
 
 @end
 
@@ -1600,7 +1600,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable12BluetoothModel
  */
-+ (__kindof IDOGetFuncTable12BluetoothModel *)currentModel;
++ (IDOGetFuncTable12BluetoothModel *)currentModel;
 
 @end
 
@@ -1652,7 +1652,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable11BluetoothModel
  */
-+ (__kindof IDOGetFuncTable11BluetoothModel *)currentModel;
++ (IDOGetFuncTable11BluetoothModel *)currentModel;
 
 @end
 
@@ -1704,7 +1704,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable10BluetoothModel
  */
-+ (__kindof IDOGetFuncTable10BluetoothModel *)currentModel;
++ (IDOGetFuncTable10BluetoothModel *)currentModel;
 
 @end
 
@@ -1752,7 +1752,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable9BluetoothModel
  */
-+ (__kindof IDOGetFuncTable9BluetoothModel *)currentModel;
++ (IDOGetFuncTable9BluetoothModel *)currentModel;
 
 @end
 
@@ -1799,7 +1799,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable8BluetoothModel
  */
-+ (__kindof IDOGetFuncTable8BluetoothModel *)currentModel;
++ (IDOGetFuncTable8BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取7功能列表信息model ====
@@ -1825,7 +1825,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable7BluetoothModel
  */
-+ (__kindof IDOGetFuncTable7BluetoothModel *)currentModel;
++ (IDOGetFuncTable7BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取6功能列表信息model ====
@@ -1876,7 +1876,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable6BluetoothModel
  */
-+ (__kindof IDOGetFuncTable6BluetoothModel *)currentModel;
++ (IDOGetFuncTable6BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取5功能列表信息model ====
@@ -1927,7 +1927,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable5BluetoothModel
  */
-+ (__kindof IDOGetFuncTable5BluetoothModel *)currentModel;
++ (IDOGetFuncTable5BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取4功能列表信息model ====
@@ -1978,7 +1978,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable4BluetoothModel
  */
-+ (__kindof IDOGetFuncTable4BluetoothModel *)currentModel;
++ (IDOGetFuncTable4BluetoothModel *)currentModel;
 
 @end
 
@@ -2030,7 +2030,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable3BluetoothModel
  */
-+ (__kindof IDOGetFuncTable3BluetoothModel *)currentModel;
++ (IDOGetFuncTable3BluetoothModel *)currentModel;
 
 @end
 
@@ -2083,7 +2083,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable2BluetoothModel
  */
-+ (__kindof IDOGetFuncTable2BluetoothModel *)currentModel;
++ (IDOGetFuncTable2BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取1功能列表信息model ====
@@ -2134,7 +2134,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable1BluetoothModel
  */
-+ (__kindof IDOGetFuncTable1BluetoothModel *)currentModel;
++ (IDOGetFuncTable1BluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 获取功能列表信息model ====
@@ -2335,7 +2335,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetDeviceFuncBluetoothModel
  */
-+ (__kindof IDOGetDeviceFuncBluetoothModel *)currentModel;
++ (IDOGetDeviceFuncBluetoothModel *)currentModel;
 
 /**
  * @brief 判断是否有运动模式 | Determine if there are movement patterns
@@ -2420,14 +2420,14 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetDeviceInfoBluetoothModel
  */
-+ (__kindof IDOGetDeviceInfoBluetoothModel *)currentModel;
++ (IDOGetDeviceInfoBluetoothModel *)currentModel;
 
 /**
  * @brief 查询本地所有设备信息（不包括Mac地址不存在的设备）
  * Query all local device information (excluding devices where Mac addresses do not exist)
  * @return IDOGetDeviceInfoBluetoothModel array
  */
-+ (NSArray <__kindof IDOGetDeviceInfoBluetoothModel *>*)queryAllDeviceModels;
++ (NSArray <IDOGetDeviceInfoBluetoothModel *>*)queryAllDeviceModels;
 
 @end
 
@@ -2439,7 +2439,7 @@ error flag
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetMacAddrInfoBluetoothModel
  */
-+ (__kindof IDOGetMacAddrInfoBluetoothModel *)currentModel;
++ (IDOGetMacAddrInfoBluetoothModel *)currentModel;
 @end
 
 @interface IDOGetInfoBluetoothModel : IDOBluetoothBaseModel

@@ -17,7 +17,6 @@
 #import "MBProgressHUD.h"
 #import "TimerAnimatView.h"
 #import "TipPoweredOffView.h"
-#import "IDOConsoleBoard.h"
 #import "ScanDemoViewController.h"
 
 @interface ScanViewController ()<UITableViewDelegate,UITableViewDataSource,IDOBluetoothManagerDelegate,AuthTextFieldViewDelegate,BindDeviceViewDelegate>
@@ -53,7 +52,7 @@
     }else {
        self.statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? lang(@"connected") : IDO_BLUE_ENGINE.managerEngine.isConnecting ? lang(@"connecting") : lang(@"scanning");
     }
-    self.navigationItem.leftBarButtonItem.title = lang(@"🔍");
+    self.navigationItem.leftBarButtonItem.title = self.selectList ? lang(@"✖"):lang(@"🔍");
     self.navigationItem.rightBarButtonItem.title = lang(@"🔧");
     
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lang(@"very hard scan")];
@@ -75,13 +74,13 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [IDOBluetoothManager shareInstance].delegate = nil;
 }
 
 - (UILabel *)statusLabel
 {
     if (!_statusLabel) {
-        _statusLabel = [[UILabel alloc]initWithFrame:CGRectMake(16,0,(self.view.frame.size.width - 32)/2,40)];
+        CGFloat width = [UIApplication sharedApplication].delegate.window.frame.size.width;
+        _statusLabel = [[UILabel alloc]initWithFrame:CGRectMake(16,0,(width - 32)/2,40)];
         _statusLabel.textColor = [UIColor blackColor];
         _statusLabel.textAlignment = NSTextAlignmentLeft;
         _statusLabel.font = [UIFont boldSystemFontOfSize:16];
@@ -93,7 +92,8 @@
 - (UILabel *)timerLabel
 {
     if (!_timerLabel) {
-        _timerLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2,0,(self.view.frame.size.width - 32)/2,40)];
+        CGFloat width = [UIApplication sharedApplication].delegate.window.frame.size.width;
+        _timerLabel = [[UILabel alloc]initWithFrame:CGRectMake(width/2,0,(width - 32)/2,40)];
         _timerLabel.textColor = [UIColor blackColor];
         _timerLabel.textAlignment = NSTextAlignmentCenter;
         _timerLabel.font = [UIFont boldSystemFontOfSize:16];
@@ -114,9 +114,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    if ([IDOConsoleBoard borad].isShow) {
-        [[IDOConsoleBoard borad] show];
-    }
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.translucent=NO;
     self.tableView.tableFooterView = [UIView new];
@@ -127,7 +124,8 @@
     [self addRightButton];
     [self creatRefreshing];
     
-    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0,0,self.view.frame.size.width,40)];
+    CGFloat width = [UIApplication sharedApplication].delegate.window.frame.size.width;
+    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0,0,width,40)];
     headView.backgroundColor = [UIColor colorWithRed:236/255.0f green:236/255.0f blue:236/255.0f alpha:1.0f];
     [headView addSubview:self.statusLabel];
     [headView addSubview:self.timerLabel];
@@ -265,7 +263,7 @@
 
 - (void)addLeftButton
 {
-    UIBarButtonItem * leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:lang(@"🔍")
+    UIBarButtonItem * leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:self.selectList ? lang(@"✖"): lang(@"🔍")
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(leftAction)];
@@ -283,22 +281,32 @@
 
 - (void)leftAction
 {
-    ScanDemoViewController * scan = [[ScanDemoViewController alloc]init];
-    WEAKSELF
-    scan.scanQRcodeCallback = ^(NSString * _Nonnull str,UIViewController * vc) {
-        NSRange range = [str rangeOfString:@"m="];
-        if (range.location != NSNotFound) {
-            NSString * newStr = [str substringFromIndex:range.location + 2];
-            weakSelf.macStr = [newStr stringByReplacingOccurrencesOfString:@":" withString:@""];
-            weakSelf.isConnect = YES;
-            [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf selector:@selector(connectTimeout) object:nil];
-            [weakSelf performSelector:@selector(connectTimeout) withObject:nil afterDelay:20];
-        }else {
-            [weakSelf showToastWithText:@"the mac address does not exist"];
+    if (self.selectList) {
+        [IDOBluetoothManager shareInstance].isMandatoryManual = NO;
+        if (!__IDO_CONNECTED__) {
+           [IDOBluetoothManager startScan];
         }
-        [vc dismissViewControllerAnimated:YES completion:nil];
-    };
-    [self presentViewController:scan animated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else {
+        ScanDemoViewController * scan = [[ScanDemoViewController alloc]init];
+        __weak typeof(self) weakSelf = self;
+        FuncViewController * funvc = (FuncViewController *)[IDODemoUtility getCurrentVC];
+        scan.scanQRcodeCallback = ^(NSString * _Nonnull str,UIViewController * vc) {
+           NSRange range = [str rangeOfString:@"m="];
+           if (range.location != NSNotFound) {
+               weakSelf.isConnect = YES;
+               NSString * newStr = [str substringFromIndex:range.location + 2];
+               weakSelf.macStr = [newStr stringByReplacingOccurrencesOfString:@":" withString:@""];
+               [IDOBluetoothManager shareInstance].isMandatoryManual = YES;
+               [IDOBluetoothManager startScan];
+           }else {
+               [funvc showToastWithText:@"the mac address does not exist"];
+           }
+           [vc dismissViewControllerAnimated:YES completion:nil];
+        };
+        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scan];
+        [funvc presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 static BOOL BIND_STATE = NO;
@@ -424,7 +432,9 @@ static BOOL BIND_STATE = NO;
 {
     if (self.isConnect) {
        [self bindAction:nil];
-       [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(connectTimeout) object:nil];
+       [NSObject cancelPreviousPerformRequestsWithTarget:self
+                                                selector:@selector(connectTimeout)
+                                                  object:nil];
     }else {
        [self showToastWithText:lang(@"connected success")];
        [self showBindView];
@@ -495,12 +505,21 @@ static BOOL BIND_STATE = NO;
 #pragma mark === UITableViewDelegate ===
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.isConnect) {
-        return;
+    if (self.selectList) {
+        if (self.selectDevice) {
+            [IDOBluetoothManager stopScan];
+            IDOPeripheralModel * model = self.devices[indexPath.row];
+            self.selectDevice(model);
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }else {
+        if (self.isConnect) {
+            return;
+        }
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        self.currentModel = self.devices[indexPath.row];
+        [IDOBluetoothManager connectDeviceWithModel:self.currentModel];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    self.currentModel = self.devices[indexPath.row];
-    [IDOBluetoothManager connectDeviceWithModel:self.currentModel];
 }
 
 

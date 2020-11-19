@@ -117,7 +117,7 @@
  * @return 一年12个月的血压数据集合,其中IDOSyncBpDataInfoBluetoothModel对象是一天总血压数据模型
  * A 12-month blood pressure data collection, where the IDOSyncBpDataInfoBluetoothModel object is a total blood pressure data model for the day
  */
-+ (NSArray <NSArray<__kindof IDOSyncBpDataInfoBluetoothModel *>*> *)queryOneYearBloodPressuresWithYear:(NSInteger)year
++ (NSArray <NSArray<IDOSyncBpDataInfoBluetoothModel *>*> *)queryOneYearBloodPressuresWithYear:(NSInteger)year
                                                                                                macAddr:(NSString *)macAddr
                                                                                           isQueryItems:(BOOL)isQuery;
 
@@ -133,7 +133,7 @@
  * @return 一个月的血压数据集合,其中IDOSyncBpDataInfoBluetoothModel对象是一天总血压数据模型
  * One month blood pressure data set, where the IDOSyncBpDataInfoBluetoothModel object is the total day blood pressure data model
  */
-+ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryOneMonthBloodPressuresWithYear:(NSInteger)year
++ (NSArray <IDOSyncBpDataInfoBluetoothModel *>*)queryOneMonthBloodPressuresWithYear:(NSInteger)year
                                                                                        month:(NSInteger)month
                                                                                      macAddr:(NSString *)macAddr
                                                                                 datesOfMonth:(NSArray <NSString *>**)dates
@@ -151,7 +151,7 @@
  * @return 一周的血压数据集合,其中IDOSyncBpDataInfoBluetoothModel对象是一天总血压数据模型
  * A week's blood pressure data collection, where the IDOSyncBpDataInfoBluetoothModel object is the total day blood pressure data model
  */
-+ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryOneWeekBloodPressuresWithWeekIndex:(NSInteger)weekIndex
++ (NSArray <IDOSyncBpDataInfoBluetoothModel *>*)queryOneWeekBloodPressuresWithWeekIndex:(NSInteger)weekIndex
                                                                                     weekStartDay:(NSInteger)weekStartDay
                                                                                          macAddr:(NSString *)macAddr
                                                                                      datesOfWeek:(NSArray <NSString *>**)dates
@@ -166,7 +166,7 @@
  * @param day   日期 | day
  * @return 一天血压数据的集合和详情数据集合 | Collection of day blood pressure data and detailed data
  */
-+ (NSArray<__kindof IDOSyncBpDataInfoBluetoothModel *> *)queryOneDayBloodPressureDetailWithMac:(NSString *)macAddr
++ (NSArray<IDOSyncBpDataInfoBluetoothModel *> *)queryOneDayBloodPressureDetailWithMac:(NSString *)macAddr
                                                                                            year:(NSInteger)year
                                                                                           month:(NSInteger)month
                                                                                             day:(NSInteger)day;
@@ -177,7 +177,7 @@
  * @param macAddr mac 地址 | mac address
  * @return 一天血压数据的集合和详情数据 | Collection of day blood pressure data and detailed data
  */
-+ (__kindof IDOSyncBpDataInfoBluetoothModel *)queryLastDayBloodPressureDetailWithMac:(NSString *)macAddr;
++ (IDOSyncBpDataInfoBluetoothModel *)queryLastDayBloodPressureDetailWithMac:(NSString *)macAddr;
 
 /**
  * @brief 查询所有血压数据 血压包数大于0
@@ -185,6 +185,6 @@
  * @param macAddr mac 地址 | mac address
  * @return 所有血压数据的集合和详情数据 | Collection and detailed data of all blood pressure data
  */
-+ (NSArray <__kindof IDOSyncBpDataInfoBluetoothModel *>*)queryAllBloodPressuresWithMac:(NSString *)macAddr;
++ (NSArray <IDOSyncBpDataInfoBluetoothModel *>*)queryAllBloodPressuresWithMac:(NSString *)macAddr;
 @end
 

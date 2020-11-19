@@ -35,45 +35,8 @@
     if (self) {
         [self getButtonCallback];
         [self getCellModels];
-        [IDOBluetoothManager shareInstance].delegate = self;
-        [IDOBluetoothManager shareInstance].rssiNum  = 100;
-        [IDOBluetoothManager startScan];
     }
     return self;
-}
-
-#pragma mark === IDOBluetoothManagerDelegate ===
-- (BOOL)bluetoothManager:(IDOBluetoothManager *)manager
-           centerManager:(CBCentralManager *)centerManager
-    didConnectPeripheral:(CBPeripheral *)peripheral
-               isOatMode:(BOOL)isOtaMode
-{
-    NSLog(@"connect success");
-    return YES;
-}
-
-- (void)bluetoothManager:(IDOBluetoothManager *)manager
-              allDevices:(NSArray<IDOPeripheralModel *> *)allDevices
-              otaDevices:(NSArray<IDOPeripheralModel *> *)otaDevices
-{
-    for (IDOPeripheralModel * model in allDevices) {
-        if (  [model.macAddr isEqualToString:__IDO_MAC_ADDR__]
-            ||[model.uuidStr isEqualToString:__IDO_UUID__]) {
-            [IDOBluetoothManager connectDeviceWithModel:model];
-        }
-    }
-}
-
-- (void)bluetoothManager:(IDOBluetoothManager *)manager
-          didUpdateState:(IDO_BLUETOOTH_MANAGER_STATE)state
-{
-    
-}
-
-- (void)bluetoothManager:(IDOBluetoothManager *)manager
-  connectPeripheralError:(NSError *)error
-{
-
 }
 
 - (NSArray *)buttonTitles

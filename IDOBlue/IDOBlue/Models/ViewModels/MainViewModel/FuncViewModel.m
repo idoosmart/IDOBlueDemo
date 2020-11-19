@@ -22,6 +22,7 @@
 #import "DataMigrationViewModel.h"
 #import "MainMeasureViewModel.h"
 #import "MainDialViewModel.h"
+#import "ModeSelectViewModel.h"
 #import "ScanViewController.h"
 
 @interface FuncViewModel()
@@ -54,14 +55,40 @@
 - (void)actionButton:(UIButton *)sender
 {
     FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    funcVc.menuView.isLeftType = YES;
+    funcVc.menuView.selectMenuList = ^(NSInteger index) {
+        if (index == 0) {
+            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
+                if (errorCode == 0) {
+                    if ([[IDODemoUtility getCurrentVC]isKindOfClass:[ScanViewController class]])return;
+                    IDOGetDeviceInfoBluetoothModel * model = [IDOGetDeviceInfoBluetoothModel currentModel];
+                    if (!model.bindState) {
+                        ScanViewController * scanVC  = [[ScanViewController alloc]init];
+                        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+                        [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+                    }else {
+                       //if the current device is in a bound state, an automatic scan connection is started without any additional action
+                    }
+                }
+            }];
+        }else if (index == 1){
+            FuncViewController * vc = [[FuncViewController alloc]init];
+            ModeSelectViewModel * selectModel = [ModeSelectViewModel new];
+            vc.model = selectModel;
+            vc.title = lang(@"parameter select");
+            [[IDODemoUtility getCurrentVC].navigationController pushViewController:vc animated:YES];
+        }
+    };
     funcVc.menuView.hidden = NO;
 }
 
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"device unbind")],@[lang(@"set function")],@[lang(@"get function")],@[lang(@"control function")],@[lang(@"sync function")],
-                          @[lang(@"data interchange")],@[lang(@"device update")],@[lang(@"data query")],@[lang(@"log query")],@[lang(@"data migration")],@[lang(@"measure data")],@[lang(@"watch dial function")]];
+        _buttonTitles = @[@[lang(@"device unbind")],@[lang(@"set function")],@[lang(@"get function")],
+                          @[lang(@"control function")],@[lang(@"sync function")],
+                          @[lang(@"data interchange")],@[lang(@"device update")],@[lang(@"data query")],
+                          @[lang(@"log query")],@[lang(@"data migration")],@[lang(@"measure data")],@[lang(@"watch dial function")]];
     }
     return _buttonTitles;
 }
@@ -127,6 +154,7 @@
     NSArray * viewControllers = [IDODemoUtility getCurrentVC].navigationController.viewControllers;
     if (viewControllers.count == 0)return;
     FuncViewController * funcVc = (FuncViewController *)[viewControllers firstObject];
+    funcVc.menuView.listArray = @[@{@"icon":@"disconnect",@"title":lang(@"mandatory unbind")},@{@"icon":@"setup",@"title":lang(@"setup")}];
     [funcVc.menuView reloadData];
     funcVc.title = lang(@"function list");
     funcVc.statusLabel.text = IDO_BLUE_ENGINE.managerEngine.isConnected ? lang(@"connected") : IDO_BLUE_ENGINE.managerEngine.isConnecting ? lang(@"connecting") : lang(@"scanning");

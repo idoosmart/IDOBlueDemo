@@ -43,7 +43,7 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOWatchScreenInfoModel
  */
-+ (__kindof IDOWatchScreenInfoModel *)currentModel;
++ (IDOWatchScreenInfoModel *)currentModel;
 
 @end
 
@@ -107,6 +107,6 @@
  * Query the database, if the query does not initialize a new model object
  * @return IDOWatchDialInfoModel
  */
-+ (__kindof IDOWatchDialInfoModel *)currentModel;
++ (IDOWatchDialInfoModel *)currentModel;
 
 @end

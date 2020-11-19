@@ -56,7 +56,7 @@
         [self.button2 setBackgroundImage:[IDODemoUtility imageWithColor:colorNormal] forState:UIControlStateNormal];
         [self.button2 setBackgroundImage:[IDODemoUtility imageWithColor:colorSelected] forState:UIControlStateSelected];
         [self.button2 addTarget:self action:@selector(buttonSelected:) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:self.button2];
+        [self addSubview:self.button2];
         
         [self.button2 mas_makeConstraints:^(MASConstraintMaker *make) {
             __strong typeof(self) strongSelf = weakSelf;

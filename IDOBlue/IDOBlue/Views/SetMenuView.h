@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SetMenuView : UIView
+@property (nonatomic,strong) NSArray * listArray;
+@property (nonatomic,copy)void(^selectMenuList)(NSInteger index);
+@property (nonatomic,assign) BOOL isLeftType;
 - (void)reloadData;
 @end
 

@@ -14,63 +14,10 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import <IDOThirdParty/Masonry.h>
-#import <IDOSmartUIKit/DeviceScanView.h>
-
-#if __has_include(<IDOBluetooth/IDOBluetooth.h>)
 #import <IDOBluetooth/IDOBluetooth.h>
-#else
-#import "IDOBlueEnum.h"
-#import "IDOPeripheralModel.h"
-#import "IDOBluetoothManager.h"
-#endif
-
-#if __has_include(<IDOBlueUpdate/IDOBlueUpdate.h>)
 #import <IDOBlueUpdate/IDOBlueUpdate.h>
-#else
-#import "IDOUpdateEnum.h"
-#import "IDOUpdateFirmwareManager.h"
-#endif
-
-#if __has_include(<IDOBlueProtocol/IDOBlueProtocol.h>)
 #import <IDOBlueProtocol/IDOBlueProtocol.h>
-#else
-#import "IDOSyncEnum.h"
-#import "IDOLogEnum.h"
-#import "IDOBindEnum.h"
-#import "IDOTranEnum.h"
-#import "IDOCommonMacro.h"
-
-#import "IDOBluetoothBaseModel.h"
-#import "IDOSyncSwimDataModel.h"
-#import "IDOSyncSpo2DataModel.h"
-#import "IDOSyncPressureDataModel.h"
-#import "IDOSyncActivityDataModel.h"
-#import "IDOSyncBpDataModel.h"
-#import "IDOSyncHeartRateDataModel.h"
-#import "IDOSyncSleepDataModel.h"
-#import "IDOSyncSportDataModel.h"
-#import "IDOSyncGpsDataModel.h"
-#import "IDODataExchangeModel.h"
-#import "IDOGetInfoBluetoothModel.h"
-#import "IDOSetInfoBluetoothModel.h"
-#import "IDOCalculateBluetoothModel.h"
-#import "IDOWeightBluetoothModel.h"
-#import "IDOWatchDialInfoModel.h"
-
-#import "IDOSyncManager.h"
-#import "IDOBluetoothEngine.h"
-#import "IDOBluetoothServices.h"
-#import "IDOErrorCodeToStr.h"
-#import "IDORecordDeviceLog.h"
-#import "IDOBlueDataResponse.h"
-
-#import "IDOFoundationCommand.h"
-#import "IDODataMigrationManager.h"
-#import "IDOTransferFileManager.h"
-#import "IDOWatchDialManager.h"
-#import "IDOMakePhotoManager.h"
-#endif
+#import "Masonry.h"
 
 #endif
 #define LANG_NOTICE_NAME @"lang_notice_name"

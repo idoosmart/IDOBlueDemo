@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ScanViewController : UITableViewController
-
+@property (nonatomic,assign) BOOL selectList;
+@property (nonatomic,copy) void(^selectDevice)(IDOPeripheralModel * model);
 @end

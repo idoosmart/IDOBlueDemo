@@ -49,6 +49,7 @@
 #import "SetBreatheViewModel.h"
 #import "SetWalkRemindViewModel.h"
 #import "SetPressureSwitchViewModel.h"
+#import "SetWashHandReminderViewModel.h"
 
 @interface SetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -85,7 +86,7 @@
                           @[lang(@"set hot start info")],@[lang(@"set dial parameters")],@[lang(@"set sleep time")],@[lang(@"set menstruation parameter")],
                           @[lang(@"set menstruation remind")],@[lang(@"custom set func")],@[lang(@"send prompt message")],@[lang(@"set menu list")],
                           @[lang(@"set drink water reminder")],@[lang(@"set v3 heart rate mode")],@[lang(@"set sport identify switch")],
-                          @[lang(@"set spo2 switch")],@[lang(@"set breathe train")],@[lang(@"set walk reminder")],@[lang(@"set pressure switch")]];
+                          @[lang(@"set spo2 switch")],@[lang(@"set breathe train")],@[lang(@"set walk reminder")],@[lang(@"set pressure switch")],@[lang(@"set wash hand reminder")]];
     }
     return _buttonTitles;
 }
@@ -102,7 +103,7 @@
                          [SetHotStartViewModel class],[SetDialParamViewModel class],[SetSleepTimeViewModel class],[SetMenstruationViewModel class],
                          [SetMenstruationRemindViewModel class],[SetCustomFuncViewModel class],[SendMessageViewModel class],[SetMenuListViewModel class],
                          [SetDrinkWaterViewModel class],[SetHrSwitchViewModel class],[SetSportSwitchViewModel class],[SetSpo2SwitchViewModel class],
-                         [SetBreatheViewModel class],[SetWalkRemindViewModel class],[SetPressureSwitchViewModel class]];
+                         [SetBreatheViewModel class],[SetWalkRemindViewModel class],[SetPressureSwitchViewModel class],[SetWashHandReminderViewModel class]];
     }
     return _modelClasss;
 }
