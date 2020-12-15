@@ -1,6 +1,0 @@
-framework module IDOSmartUIKit {
-  umbrella header "IDOSmartUIKit.h"
-
-  export *
-  module * { export * }
-}

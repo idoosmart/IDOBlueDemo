@@ -202,7 +202,6 @@
                 }else { //普通模式
                     [IDOUpdateFirmwareManager startUpdate];
                     [strongSelf startTimer];
-                    return;
                     [IDOFoundationCommand getOtaAuthInfoCommand:^(int errorCode, int stateCode) {
                         if (errorCode == 0 && stateCode == 0) {
                             [funcVC showLoadingWithMessage:lang(@"enter update...")];
@@ -219,7 +218,6 @@
                 [funcVC showLoadingWithMessage:lang(@"enter update...")];
                 [IDOUpdateFirmwareManager startUpdate];
                 [strongSelf startTimer];
-                return;
                 NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
                 if (modeType == 1) {
                     [IDOFoundationCommand getMacAddrCommand:^(int errorCode, IDOGetMacAddrInfoBluetoothModel * _Nullable data) {
@@ -387,6 +385,16 @@
                                           supportSilentMode:(BOOL)isSilentMode
 {
     return IDO_NORMAL_MODE_UPDATE_TYPE;
+}
+
+- (IDO_DATA_FILE_TRAN_TYPE)selectFileTranTypeUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager
+{
+    return IDO_DATA_FILE_TRAN_DIAL_TYPE;
+}
+
+- (NSString * _Nullable)fileTranNameUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager
+{
+    return @".fw";
 }
 
 @end

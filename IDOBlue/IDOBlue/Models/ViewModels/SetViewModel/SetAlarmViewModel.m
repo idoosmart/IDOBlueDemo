@@ -54,6 +54,26 @@
         NSArray * alarms = [IDOSetAlarmInfoBluetoothModel queryAllNoOpenAlarms];
         _alarmModel = [alarms firstObject];
     }
+    if (!_alarmModel) { //如果不执行同步配置，可以先获取v3闹钟初始化
+        if (__IDO_FUNCTABLE__.funcTable29Model.v3SyncAlarm) {
+            FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+            [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get v3 alarms info")]];
+            __weak typeof(self) weakSelf = self;
+            [IDOFoundationCommand getV3AlarmsInfoCommand:^(int errorCode, IDOSetExtensionAlarmInfoBluetoothModel * _Nullable data) {
+                __strong typeof(self) strongSelf = weakSelf;
+               if (errorCode == 0) {
+                [funcVC showToastWithText:lang(@"get v3 alarms info success")];
+                   NSArray * alarms = [IDOSetAlarmInfoBluetoothModel queryAllNoOpenAlarms];
+                   _alarmModel = [alarms firstObject];
+                   [strongSelf getCellModels];
+               }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+               }else {
+                [funcVC showToastWithText:lang(@"get v3 alarms info failed")];
+               }
+            }];
+        }
+    }
     [self getCellModels];
 }
 

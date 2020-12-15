@@ -772,6 +772,7 @@
 "black screen"="black screen";
 "reboot control"="reboot control";
 "message interface"="message interface";
+"alarm interface" = "alarm interface";
 "set page jump success" = "set page jump success";
 "set page jump failed" = "set page jump failed";
 "voice start" = "voice start";
@@ -779,6 +780,9 @@
 "voice failed" = "voice failed";
 "voice play" = "voice play";
 "set page jump" = "set page jump";
+"message" = "message";
+"set voice message" = "set voice message";
+"voice recognition failed" = "voice recognition failed";
 /**
  data interchange
  */

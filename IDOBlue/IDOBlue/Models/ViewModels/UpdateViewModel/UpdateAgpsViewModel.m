@@ -208,6 +208,7 @@
     initTransferManager().isSetConnectParam = [[NSUserDefaults standardUserDefaults]boolForKey:IS_SET_CONNECT_PARAMSERS];
     initTransferManager().fileName = self.fileName;
     initTransferManager().filePath = self.filePath;
+    
     __weak typeof(self) weakSelf = self;
     initTransferManager().addDetection(^(int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;

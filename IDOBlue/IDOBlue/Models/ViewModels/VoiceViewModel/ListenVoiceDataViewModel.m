@@ -13,6 +13,7 @@
 #import "FuncViewController.h"
 #import "TextFieldCellModel.h"
 #import "OneTextFieldTableViewCell.h"
+#import "TwoTextFieldTableViewCell.h"
 #import "NSObject+DemoToDic.h"
 #import "PCMDataPlayer.h"
 #import "PQVoiceInputView.h"
@@ -30,6 +31,8 @@
 @property (nonatomic,strong) NSArray * pickerArray;
 @property (nonatomic,strong) PQVoiceInputView * voiceView1;
 @property (nonatomic,strong) PQVoiceInputView * voiceView2;
+@property (nonatomic,strong) UITextField * textField1;
+@property (nonatomic,strong) UITextField * textField2;
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^textFeildCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
 @end
@@ -46,6 +49,7 @@
     self = [super init];
     if (self) {
         [self getViewWillDisappearCallback];
+        [self listenAppLogin];
         [self listenVoiceCallback];
         [self getButtonCallback];
         [self getTextFieldCallback];
@@ -54,14 +58,19 @@
     return self;
 }
 
+
 - (NSArray *)controlNames
 {
     if (!_controlNames) {
-        _controlNames = @[lang(@"set sport type"),lang(@"set real time hr"),lang(@"set no disturb"),lang(@"set wrist bright screen"),
-                          lang(@"set music control"),lang(@"set screen brightness"),lang(@"set stopwatch"),lang(@"set countdown"),
-                          lang(@"heart rate detection"),lang(@"pressure detection"),lang(@"breathing training"),lang(@"sleep record"),
-                          lang(@"sport record"),lang(@"weather interface"),lang(@"find phone"),lang(@"black screen"),lang(@"reboot control"),
-                          lang(@"message interface")];
+        _controlNames = @[lang(@"set sport type"),lang(@"set real time hr"),lang(@"set no disturb"),
+                          lang(@"set wrist bright screen"),lang(@"set music control"),
+                          lang(@"set screen brightness"),lang(@"message"),lang(@"set voice message"),
+                          lang(@"voice recognition failed"),lang(@"set stopwatch"),lang(@"set countdown"),
+                          lang(@"heart rate detection"),lang(@"pressure detection"),
+                          lang(@"breathing training"),lang(@"sleep record"),
+                          lang(@"sport record"),lang(@"weather interface"),
+                          lang(@"find phone"),lang(@"black screen"),lang(@"reboot control"),
+                          lang(@"message interface"),lang(@"alarm interface")];
     }
     return _controlNames;
 }
@@ -217,7 +226,9 @@ static int countdown = 0;
         NSString * str = [NSString stringWithFormat:@"%@...",lang(@"set page jump")];
         [funcVC showLoadingWithMessage:str];
         if (cellModel.index == 0) {
-            [IDOFoundationCommand voiceControlToStopWatchCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceRecognitionSuccessCommand:strongSelf.textField2.text
+                                                       titleText:strongSelf.textField1.text
+                                                        callback:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -227,7 +238,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 1) {
-            [IDOFoundationCommand voiceControlToCountDownCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceRecognitionFailedCommand:1 callback:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -237,7 +248,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 2) {
-            [IDOFoundationCommand voiceControlToHeartRateCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceControlToStopWatchDelay:3 callback:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -247,7 +258,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 3) {
-            [IDOFoundationCommand voiceControlToPressureCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceControlToCountDownTotalTime:100 callback:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -257,7 +268,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 4) {
-            [IDOFoundationCommand voiceControlToBreathingCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceControlToHeartRateCommand:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -267,7 +278,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 5) {
-            [IDOFoundationCommand voiceControlToSleepRecordCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceControlToPressureCommand:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -277,7 +288,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 6) {
-            [IDOFoundationCommand voiceControlToSportRecordCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceControlToBreathingCommand:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -287,7 +298,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 7) {
-            [IDOFoundationCommand voiceControlToWeatherCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceControlToSleepRecordCommand:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -297,7 +308,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 8) {
-            [IDOFoundationCommand voiceControlToFindPhoneCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceControlToSportRecordCommand:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -307,7 +318,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 9) {
-            [IDOFoundationCommand voiceControlToBlackScreenCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceControlToWeatherCommand:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -317,7 +328,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 10) {
-            [IDOFoundationCommand voiceControlToRebootCommand:^(int errorCode) {
+            [IDOFoundationCommand voiceControlToFindPhoneCommand:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -327,7 +338,38 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 11) {
+            [IDOFoundationCommand voiceControlToBlackScreenCommand:^(int errorCode) {
+                if (errorCode == 0) {
+                   [funcVC showToastWithText:lang(@"set page jump success")];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                }else {
+                   [funcVC showToastWithText:lang(@"set page jump failed")];
+                }
+            }];
+        }else if (cellModel.index == 12) {
+            [IDOFoundationCommand voiceControlToRebootCommand:^(int errorCode) {
+                if (errorCode == 0) {
+                   [funcVC showToastWithText:lang(@"set page jump success")];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                }else {
+                   [funcVC showToastWithText:lang(@"set page jump failed")];
+                }
+            }];
+        }else if (cellModel.index == 13) {
             [IDOFoundationCommand voiceControlToNotifyCommand:^(int errorCode) {
+                if (errorCode == 0) {
+                   [funcVC showToastWithText:lang(@"set page jump success")];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                }else {
+                   [funcVC showToastWithText:lang(@"set page jump failed")];
+                }
+            }];
+        }else if (cellModel.index == 14) {
+            IDOSetVoiceV3AlarmInfoModel * alarm = [IDOSetVoiceV3AlarmInfoModel currentModel];
+            [IDOFoundationCommand voiceControlToAlarm:alarm callback:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
                 }else if (errorCode == 6) {
@@ -348,6 +390,12 @@ static int countdown = 0;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+        if (textFieldModel.index == 6) { //输入文字
+            TwoTextFieldTableViewCell * twoCell = (TwoTextFieldTableViewCell *)tableViewCell;
+            strongSelf.textField1 = twoCell.textField1;
+            strongSelf.textField2 = twoCell.textField2;
+            return;
+        }
         NSArray * pickerArray = strongSelf.pickerArray[textFieldModel.index];
         funcVC.pickerView.pickerArray = pickerArray;
         funcVC.pickerView.currentIndex = [pickerArray containsObject:textField.text] ? [pickerArray indexOfObject:textField.text] : 0 ;
@@ -444,6 +492,15 @@ static int countdown = 0;
     };
 }
 
+- (void)listenAppLogin
+{
+    [IDOFoundationCommand listenVoiceGetStateReplyCommand:^NSInteger(int errorCode) {
+        if (errorCode == 0) {
+            return 0;
+        }
+        return 1;
+    }];
+}
 
 - (void)listenVoiceCallback
 {
@@ -493,10 +550,25 @@ static int countdown = 0;
            model1.cellClass = [OneTextFieldTableViewCell class];
            model1.modelClass = [NSNull class];
            model1.isShowLine = YES;
+           model1.isShowKeyboard = NO;
            model1.index = index1;
            model1.textFeildCallback = self.textFeildCallback;
            [cellModels addObject:model1];
            index1++;
+        }else if (i == 6){
+            TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
+            model2.typeStr = @"twoTextField";
+            model2.titleStr = self.controlNames[index1];
+            model2.data = @[@"",@""];
+            model2.cellHeight = 70.0f;
+            model2.cellClass = [TwoTextFieldTableViewCell class];
+            model2.modelClass = [NSNull class];
+            model2.isShowLine = YES;
+            model2.isShowKeyboard = YES;
+            model2.index = index1;
+            model2.textFeildCallback = self.textFeildCallback;
+            [cellModels addObject:model2];
+            index1++;
         }else {
             NSString * str = [self.controlNames objectAtIndex:i];
             FuncCellModel * model = [[FuncCellModel alloc]init];

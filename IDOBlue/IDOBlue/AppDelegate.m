@@ -39,19 +39,34 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    /*
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(10);
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    for (int i = 0; i < 100; i++)
+    {
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        dispatch_group_async(group, queue, ^{
+            NSLog(@"%i",i);
+            sleep(2);
+            dispatch_semaphore_signal(semaphore);
+        });
+    }
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+*/
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(listenConnectBindState:)
                                                 name:IDOBluetoothDeviceBindNotifyName
                                               object:nil];
 #ifdef DEBUG
-    registrationServices(@"123456").outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
        if(__IDO_BIND__)[IDOBluetoothManager startScan];
        else [IDOBluetoothManager refreshDelegate];
     });
 #else
-    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).useFunctionTable(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
         if(__IDO_BIND__)[IDOBluetoothManager startScan];
         else [IDOBluetoothManager refreshDelegate];

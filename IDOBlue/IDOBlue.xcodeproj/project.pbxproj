@@ -581,8 +581,6 @@
 		9BC4799B244E9A5900455A6E /* PQVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQVoiceView.m; sourceTree = "<group>"; };
 		9BC4799C244E9A5900455A6E /* UIView+PQViewExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PQViewExtension.h"; sourceTree = "<group>"; };
 		9BC4799D244E9A5900455A6E /* UIView+PQViewExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PQViewExtension.m"; sourceTree = "<group>"; };
-		9BC479A7244EEF7000455A6E /* IDOSmartUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOSmartUIKit.framework; path = ../thirdParty/IDOSmartUIKit.framework; sourceTree = "<group>"; };
-		9BC479A8244EEF7000455A6E /* IDOThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOThirdParty.framework; path = ../thirdParty/IDOThirdParty.framework; sourceTree = "<group>"; };
 		9BC4A58A2413A53B00468D15 /* FlashLogViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashLogViewModel.h; sourceTree = "<group>"; };
 		9BC4A58B2413A53B00468D15 /* FlashLogViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlashLogViewModel.m; sourceTree = "<group>"; };
 		9BCC1FA322CF241D0049C4DB /* NSObject+DemoToDic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DemoToDic.m"; sourceTree = "<group>"; };
@@ -1034,8 +1032,6 @@
 		9B437F0521393CED00DE2FC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9BC479A7244EEF7000455A6E /* IDOSmartUIKit.framework */,
-				9BC479A8244EEF7000455A6E /* IDOThirdParty.framework */,
 				9B41B6DA2445DD7D00BE04A4 /* AudioToolbox.framework */,
 				9B41B6D62445C86D00BE04A4 /* lib_lame.a */,
 				9B6629F923BB3D88001EED9D /* libc++.tbd */,

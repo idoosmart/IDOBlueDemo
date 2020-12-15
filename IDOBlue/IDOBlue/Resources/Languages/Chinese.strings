@@ -784,12 +784,16 @@
 "black screen"="控制灭屏";
 "reboot control"="重启界面";
 "message interface"="消息界面";
+"alarm interface" = "闹钟界面";
 "set page jump success" = "设置页面跳转成功";
 "set page jump failed" = "设置页面跳转失败";
 "voice start" = "开始语音";
 "voice end" = "语音结束";
 "voice failed" = "语音失败";
 "voice play" = "播放声音";
+"message" = "消息";
+"set voice message" = "语音识别消息";
+"voice recognition failed" = "语音识别失败";
 
 /**
  data interchange
