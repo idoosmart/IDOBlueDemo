@@ -234,6 +234,11 @@
  */
 @property (nonatomic,copy) NSString * sdkVersion;
 
+/**
+ * 是否使用功能表判断 | Whether to use function table judge
+ */
+@property (nonatomic,assign) BOOL isUseFunctionTable;
+
 @end
 
 @interface IDOBluetoothUnitInfoEngine : NSObject

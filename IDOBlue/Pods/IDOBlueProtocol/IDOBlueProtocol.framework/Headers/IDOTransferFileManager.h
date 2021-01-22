@@ -57,10 +57,16 @@
 @property (nonatomic,copy,nullable) NSData * fileData;
 
 /**
- * 是否设置连接参数
- * Set connection parameters
+ * 是否设置连接参数 默认设置YES
+ * Set connection parameters default YES
  */
 @property (nonatomic,assign) BOOL isSetConnectParam;
+
+/**
+ *是否需要查询写入状态，在agps 文件传输完成后，默认为NO
+ *query write state default NO
+ */
+@property (nonatomic,assign) BOOL isQueryWriteState;
 
 /**
  * 检测文件回调

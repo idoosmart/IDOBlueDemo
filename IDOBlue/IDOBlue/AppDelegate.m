@@ -60,7 +60,7 @@
                                                 name:IDOBluetoothDeviceBindNotifyName
                                               object:nil];
 #ifdef DEBUG
-    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(NO).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
        if(__IDO_BIND__)[IDOBluetoothManager startScan];
        else [IDOBluetoothManager refreshDelegate];

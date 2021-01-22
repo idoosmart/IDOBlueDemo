@@ -110,6 +110,8 @@
 "auto mode" = "自动模式";
 "manual mode" = "手动模式";
 "continuously monitor" = "持续监测";
+"default mode" = "默认模式";
+"heart rate interval mode" = "心率间隔模式";
 "off" = "关闭";
 "invalid" = "无效";
 "km" = "千米";

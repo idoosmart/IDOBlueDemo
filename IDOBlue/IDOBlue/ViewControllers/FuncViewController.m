@@ -21,6 +21,7 @@
 - (void)dealloc
 {
    _model = nil;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -63,6 +64,9 @@
     [headView addSubview:self.timerLabel];
     self.tableView.tableHeaderView = headView;
     if (self.model.isFootButton)self.tableView.tableFooterView = self.footButton;
+    
+    IDOBluetoothBaseModel * model = [IDOBluetoothBaseModel new];
+    
 }
 
 - (void)startSync

@@ -209,7 +209,10 @@
 - (NSArray *)hrModeArray
 {
     if (!_hrModeArray) {
-        _hrModeArray = @[lang(@"off"),lang(@"manual mode"),lang(@"auto mode"),lang(@"continuously monitor")];
+        _hrModeArray = @[lang(@"off"),lang(@"manual mode"),
+                         lang(@"auto mode"),
+                         lang(@"continuously monitor"),
+                         lang(@"default mode"),lang(@"heart rate interval mode")];
     }
     return _hrModeArray;
 }

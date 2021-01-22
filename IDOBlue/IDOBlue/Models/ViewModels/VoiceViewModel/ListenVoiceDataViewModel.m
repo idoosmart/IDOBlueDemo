@@ -51,6 +51,7 @@
         [self getViewWillDisappearCallback];
         [self listenAppLogin];
         [self listenVoiceCallback];
+        [self listenVoiceOneItemCallback];
         [self getButtonCallback];
         [self getTextFieldCallback];
         [self getCellModels];
@@ -226,8 +227,14 @@ static int countdown = 0;
         NSString * str = [NSString stringWithFormat:@"%@...",lang(@"set page jump")];
         [funcVC showLoadingWithMessage:str];
         if (cellModel.index == 0) {
+            if (   strongSelf.textField1.text.length == 0
+                || strongSelf.textField2.text.length == 0) {
+                [funcVC showToastWithText:lang(@"set page jump failed")];
+                return;
+            }
             [IDOFoundationCommand voiceRecognitionSuccessCommand:strongSelf.textField2.text
                                                        titleText:strongSelf.textField1.text
+                                                    flagContinue:YES
                                                         callback:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
@@ -532,6 +539,20 @@ static int countdown = 0;
              strongSelf.bufferLength = fileSize;
              [strongSelf.sendDataTimer setFireDate:[NSDate date]];
          }
+    }];
+}
+
+- (void)listenVoiceOneItemCallback
+{
+    [IDOFoundationCommand listenVoiceOneItemDataCommand:^(int state, int errorCode) {
+        NSLog(@"state === %d",state);
+        if (errorCode == 0) {
+            
+        }else {
+            
+        }
+    } complete:^(NSData * _Nullable data) {
+        
     }];
 }
 

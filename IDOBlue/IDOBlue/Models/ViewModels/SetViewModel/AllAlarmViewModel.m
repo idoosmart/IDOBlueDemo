@@ -142,7 +142,8 @@
     self.delectCellCallback = ^(UIViewController *viewController, NSIndexPath *indexPath) {
           __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        IDOSetAlarmInfoBluetoothModel * alarm = [strongSelf.alarmModels objectAtIndex:indexPath.row];
+        LabelCellModel * cellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+        IDOSetAlarmInfoBluetoothModel * alarm = [strongSelf.alarmModels objectAtIndex:cellModel.index];
         alarm.isDelete = YES;
         [alarm saveOrUpdate];
         if (__IDO_FUNCTABLE__.funcTable29Model.v3SyncAlarm) { //v3闹钟
@@ -179,6 +180,7 @@
 - (void)getCellModels
 {
     NSMutableArray * cellModels = [NSMutableArray array];
+    int index = 0;
     for (IDOSetAlarmInfoBluetoothModel * alarmModel in self.alarmModels) {
         if(alarmModel.isOpen && alarmModel.isSync) {
             LabelCellModel * model = [[LabelCellModel alloc]init];
@@ -191,10 +193,12 @@
             model.cellClass  = [OneLabelTableViewCell class];
             model.modelClass = [NSNull class];
             model.labelSelectCallback = self.labelSelectCallback;
+            model.index = index;
             model.isShowLine = YES;
             model.isDelete   = YES;
             [cellModels addObject:model];
         }
+        index ++;
     }
     if (cellModels.count < __IDO_FUNCTABLE__.alarmCount) {
         if (cellModels.count > 0) {

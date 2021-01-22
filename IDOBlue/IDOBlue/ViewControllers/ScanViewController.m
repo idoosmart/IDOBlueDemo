@@ -329,7 +329,8 @@ static BOOL BIND_STATE = NO;
                 if (model1.authLength > 0 && model1.authCode.length > 0)return;
                 [strongSelf setRootViewController];
             }else if (status == IDO_BLUETOOTH_BINDED) { //已经绑定
-                [strongSelf setRootViewController];
+//                [strongSelf setRootViewController];
+                  [strongSelf showToastWithText:lang(@"bind failed")];
             }else if (status == IDO_BLUETOOTH_BIND_FAILED) { //绑定失败
                 
             }else if (status == IDO_BLUETOOTH_NEED_AUTH) { //需要授权绑定
@@ -463,7 +464,7 @@ static BOOL BIND_STATE = NO;
 - (void)bluetoothManager:(IDOBluetoothManager *)manager
           didUpdateState:(IDO_BLUETOOTH_MANAGER_STATE)state
 {
-    
+    NSLog(@"state == %d",state);
 }
 
 - (void)bluetoothManager:(IDOBluetoothManager *)manager

@@ -128,7 +128,7 @@
         }
     }];
     
-    [IDOFoundationCommand listenPhotoEndCommand:^(int errorCode) {  //此方法暂时无用
+    [IDOFoundationCommand listenFindPhoneStopCommand:^(int errorCode) {  //此方法暂时无用
         if (errorCode == 0) {
         if (error != kAudioServicesNoError) {
             sound = 0;

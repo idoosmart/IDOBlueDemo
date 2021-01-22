@@ -77,6 +77,15 @@
             strongSelf.textView.text = newLogStr;
         }).addSyncConfigInitData(^NSArray <IDOBluetoothBaseModel *>* (IDO_SYNC_CONFIG_DATA_TYPE type){
             NSLog(@"type == %ld\n",type);
+            if(type == IDO_SYNC_SET_V3_SET_HR_MODE_TYPE) {
+                IDOSetV3HeartRateModeBluetoothModel * model = [IDOSetV3HeartRateModeBluetoothModel currentModel];
+                IDOSetTimeInfoBluetoothModel * timer = [IDOSetTimeInfoBluetoothModel new];
+                model.updateTime = timer.timeStamp;
+                if (__IDO_FUNCTABLE__.funcTable12Model.setV3HeartInterval) {
+                    model.modeType = 4;
+                }
+                return @[model];
+            }
             return [NSArray array];
         }).mandatorySyncConfig(YES);
         [IDOSyncManager startSync];

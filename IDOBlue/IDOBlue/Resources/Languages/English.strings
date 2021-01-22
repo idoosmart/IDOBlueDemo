@@ -110,6 +110,8 @@
 "auto mode" = "auto mode";
 "manual mode" = "manual mode";
 "continuously monitor" = "continuously monitor";
+"default mode" = "default mode";
+"heart rate interval mode" = "heart rate interval mode";
 "off" = "off";
 "invalid" = "invalid";
 "km" = "km";

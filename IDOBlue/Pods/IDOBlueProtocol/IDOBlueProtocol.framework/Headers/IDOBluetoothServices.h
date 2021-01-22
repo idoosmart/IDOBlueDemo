@@ -39,6 +39,15 @@ extern NSString * _Nonnull IDOBluetoothDataMigrationNotifyName;
 // 设备绑定状态通知名字 | device bind status notification name
 extern NSString * _Nonnull IDOBluetoothDeviceBindNotifyName;
 
+// 获取设备信息通知名字 | get device info notification name
+extern NSString * _Nonnull IDOBluetoothGetDeviceInfoNotifyName;
+
+// 同步配置完成通知名字 | sync config complete notification name
+extern NSString * _Nonnull IDOBluetoothSyncConfigNotifyName;
+
+// 同步健康数据完成通知名字 | sync health data complete notification name
+extern NSString * _Nonnull IDOBluetoothSyncHealthNotifyName;
+
 @interface IDOBluetoothServices : NSObject
 
 /*
@@ -55,6 +64,11 @@ extern NSString * _Nonnull IDOBluetoothDeviceBindNotifyName;
  是否记录原始数据日志 | Whether to log raw data
  */
 @property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^rawDataLog)(BOOL isRecord);
+
+/*
+ 是否使用功能表判断 | Whether to use function table judge
+ */
+@property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^useFunctionTable)(BOOL isUse);
 
 /**
  * 注册SDK服务后,初始化设备信息并返回,需开始启动蓝牙,根据各自业务需求,可以选择自己的APP创建蓝牙管理,也可以使用我们提供的库创建蓝牙管理.

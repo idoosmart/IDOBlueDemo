@@ -205,6 +205,7 @@
     initTransferManager().compressionType = IDO_DATA_TRAN_COMPRESSION_FASTLZ_TYPE;
     initTransferManager().fileName = self.fileName?:@"";
     initTransferManager().filePath = self.filePath;
+    initTransferManager().numberPackets = 60;
     initTransferManager().isSetConnectParam = isConnect;
     __weak typeof(self) weakSelf = self;
     initTransferManager().addDetection(^(int errorCode) {

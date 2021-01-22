@@ -298,7 +298,12 @@ typedef NS_ENUM(NSInteger, IDO_SYNC_CONFIG_DATA_TYPE) {
      * 获取下载语言信息
      * get down language
      */
-    IDO_SYNC_GET_DOWN_LANGUAGE = 34
+    IDO_SYNC_GET_DOWN_LANGUAGE = 34,
+    /*
+     * 设置菜单列表
+     * set menu list
+     */
+    IDO_SYNC_SET_MENU_LIST_TYPE = 35
 };
 
 /**

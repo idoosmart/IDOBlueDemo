@@ -191,6 +191,11 @@
  提醒间隔,单位分钟 默认60分钟 | interval (unit minutes)
  */
 @property (nonatomic,assign) NSInteger interval;
+
+/**
+ 压力过高阈值 | High pressure threshold
+ */
+@property (nonatomic,assign) NSInteger highThreshold;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -242,10 +247,13 @@
 #pragma mark ====  设置心率开关同步 model ====
 @interface IDOSetV3HeartRateModeBluetoothModel:IDOBluetoothBaseModel
 /**
- * 心率模式 0:关闭心率监测功能 1:手动模式 2:自动模式 3:持续监测（默认：自动模式）
- * Heart Rate Mode 0: Turn off heart rate monitoring function 1: Manual mode 2: Auto mode 3:Continuously monitor(Default: Auto mode)
+ * 心率模式 0:关闭心率监测功能(无效) 1:手动模式 2:自动模式(5分钟) 3:持续监测(5秒钟)（默认：自动模式）
+ * 4:默认类型(第一次绑定同步配置使用) 5:设置对应测量间隔,选择4和5模式则2和3模式无效
+ * Heart Rate Mode 0: turn off heart rate monitoring function 1: manual mode 2: auto mode 3:continuously monitor(Default: Auto mode)
+ * 4: default type (used for the first binding synchronization configuration) 5: set the corresponding measurement interval
  */
 @property (nonatomic,assign) NSInteger modeType;
+
 /**
  * 更新时间unix 时间戳,秒级  (eg 14442361933)
  * Update time Unix timestamp, in seconds
@@ -272,9 +280,15 @@
  */
 @property (nonatomic,assign) NSInteger  endMinute;
 /**
- 测量间隔,单位分钟 | measurement Interval,unit:minutes
+ 测量间隔,单位秒钟 | measurement Interval,unit:second
  */
 @property (nonatomic,assign) NSInteger  measurementInterval;
+/**
+ 获取手表支持的心率类型集合 | get support  heart rate item type array
+ 分别:5s,1分钟,3分钟,5分钟,10分钟,30分钟
+ */
+@property (nonatomic,strong) NSArray * hrModeTypes;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -657,7 +671,7 @@
 @interface IDOSetConnParamInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
- 连接模式 | Connection mode
+ 连接模式 0x00 查模式,0x01 快速模式 ,0x02 慢速模式 | Connection mode 0x00 check mode,0x01 fast mode,0x02 slow mode
  */
 @property (nonatomic,assign) NSInteger mode;
 
@@ -1206,6 +1220,12 @@
 @property (nonatomic,assign) BOOL shockOnOff;
 
 /**
+ 延时分钟
+ delay minute
+ */
+@property (nonatomic,assign) NSInteger delayMinute;
+
+/**
  闹钟名字 长度限制 23个字节
  name
  */
@@ -1247,7 +1267,7 @@
  延时分钟
  delay minute
  */
-@property (nonatomic,assign) NSInteger delayMinute;
+@property (nonatomic,assign) NSInteger delayMinute DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 
 /**
 闹钟集合 ｜ alarm items
@@ -1263,6 +1283,77 @@
 
 @end
 
+#pragma mark ==== 设置语音闹钟model ====
+@interface IDOSetVoiceV3AlarmItemInfoModel : IDOBluetoothBaseModel
+/**
+ 开关 | Switch
+ */
+@property (nonatomic,assign) BOOL isOpen;
+
+/**
+ 年 | year
+ */
+@property (nonatomic,assign) NSInteger year;
+
+/**
+ 月 | month
+ */
+@property (nonatomic,assign) NSInteger month;
+
+/**
+ 日 | day
+ */
+@property (nonatomic,assign) NSInteger day;
+
+/**
+ 时 | hour
+ */
+@property (nonatomic,assign) NSInteger hour;
+
+/**
+ 分 | minute
+ */
+@property (nonatomic,assign) NSInteger minute;
+
+/**
+ * 闹钟ID  无效闹钟默认为0   设置范围0-10
+ * Alarm ID Invalid alarm is 0 by default  Set the range to 0-10
+ */
+@property (nonatomic,assign) NSInteger alarmId;
+
+@end
+
+@interface IDOSetVoiceV3AlarmInfoModel : IDOBluetoothBaseModel
+
+/**
+ 闹钟版本号 ｜ alarm version
+ */
+@property (nonatomic,assign) NSInteger alarmVersion;
+
+/**
+ 闹钟个数 最多 10个 ｜ alarm count  max 10
+ */
+@property (nonatomic,assign) NSInteger alarmCount;
+
+/**
+闹钟集合 ｜ alarm items
+*/
+@property (nonatomic,strong) NSArray <IDOSetVoiceV3AlarmItemInfoModel *>* items;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetVoiceV3AlarmInfoModel
+ */
++ (IDOSetVoiceV3AlarmInfoModel *)currentModel;
+
+/**
+ *解绑后清除所有语音闹钟
+ *unbind clear all voice alarms
+ */
++ (BOOL)unbindClearAllVoiceAlarms;
+
+@end
 
 #pragma mark ==== 设置时间model ====
 @interface IDOSetTimeInfoBluetoothModel:IDOBluetoothBaseModel

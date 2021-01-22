@@ -55,12 +55,12 @@
  */
 @property (nonatomic,assign) NSInteger targetValue;
 /**
- 是否强制开始 | is mandatory start
+ 是否强制开始 0:不强制,1:强制 | is mandatory start
  */
 @property (nonatomic,assign) NSInteger forceStart;
 /**
- * 0:成功; 1:设备已经进入运动模式失败;2: 设备电量低失败;3:手环正在充电
- * 0:success 1:into sport mode failed 2:Low power of equipment 3: the bracelet is charging
+ * 0:成功; 1:设备已经进入运动模式失败;2: 设备电量低失败;3:手环正在充电4:正在使用Alexa
+ * 0:success 1:into sport mode failed 2:Low power of equipment 3: the bracelet is charging 4:Using Alexa
  */
 @property (nonatomic,assign) NSInteger retCode;
 /**

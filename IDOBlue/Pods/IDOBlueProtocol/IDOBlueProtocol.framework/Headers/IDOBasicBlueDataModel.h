@@ -15,6 +15,52 @@
 
 @end
 
+#pragma mark ==== 设置语音提醒 model ====
+@interface IDOSetVoiceReminderItemModel : IDOBluetoothBaseModel
+/**
+ 开关 | Switch
+ */
+@property (nonatomic,assign) BOOL isOpen;
+
+/**
+ 年 | year
+ */
+@property (nonatomic,assign) NSInteger year;
+
+/**
+ 月 | month
+ */
+@property (nonatomic,assign) NSInteger month;
+
+/**
+ 日 | day
+ */
+@property (nonatomic,assign) NSInteger day;
+
+/**
+ 时 | hour
+ */
+@property (nonatomic,assign) NSInteger hour;
+
+/**
+ 分 | minute
+ */
+@property (nonatomic,assign) NSInteger minute;
+
+/**
+ * 提醒ID  设置范围1-10
+ * remind ID   Set the range to 1-10
+ */
+@property (nonatomic,assign) NSInteger remindId;
+
+/**
+ * 提醒消息 支持128字节
+ * reminder message support 128 byte
+ */
+@property (nonatomic,strong) NSString * reminderStr;
+
+@end
+
 #pragma mark ==== 获取设备升级 model ====
 @interface IDOGetDeviceUpdateStateModel : IDOBluetoothBaseModel
 /**
@@ -53,10 +99,30 @@
  */
 @property (nonatomic,assign) NSInteger unbindState;
 /**
- 心率模式状态  0=> 无效 2 => 心率模式改变
- Heart rate mode status 0=> invalid 2 => heart rate mode change
+ 心率模式状态  0=> 无效 1 => 心率模式改变
+ Heart rate mode status 0=> invalid 1 => heart rate mode change
  */
 @property (nonatomic,assign) NSInteger hrModeState;
+/**
+ 血氧状态  0=> 无效 1 => 血氧产生数据改变
+ spo2 status 0=> invalid 1 => spo2 data  change
+ */
+@property (nonatomic,assign) NSInteger spo2State;
+/**
+ 压力状态  0=> 无效 1 => 压力产生数据改变
+ pressure status 0=> invalid 1 => pressure data  change
+ */
+@property (nonatomic,assign) NSInteger pressureState;
+/**
+ Alexa识别状态 0=> 无效 1 => Alexa识别过程中退出
+ Alexa status 0=> invalid 1 => Exit during Alexa recognition process
+ */
+@property (nonatomic,assign) NSInteger alexaState;
+/**
+ 恢复出厂设置状态 0=> 无效 1 => 固件恢复出厂设置
+ reset status 0=> invalid 1 => reset change
+ */
+@property (nonatomic,assign) NSInteger resetState;
 /**
  闹钟状态  0=>  无效 1=>  闹钟已修改
  Alarm state  0=>  invalid 1 => alarm has been modified

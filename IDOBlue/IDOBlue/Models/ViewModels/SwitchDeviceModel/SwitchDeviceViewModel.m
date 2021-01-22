@@ -190,7 +190,7 @@
             if (status == IDO_BLUETOOTH_BIND_SUCCESS) { //绑定成功
                 [funcVc showToastWithText:lang(@"bind success")];
             }else if (status == IDO_BLUETOOTH_BINDED) { //已经绑定
-                
+                [funcVc showToastWithText:lang(@"bind failed")];
             }else if (status == IDO_BLUETOOTH_BIND_FAILED) { //绑定失败
                 
             }else if (status == IDO_BLUETOOTH_NEED_AUTH) { //需要授权绑定
