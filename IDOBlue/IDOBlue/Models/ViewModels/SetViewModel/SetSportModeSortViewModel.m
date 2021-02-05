@@ -136,7 +136,7 @@
         NSDictionary * dic = strongSelf.noSelectSportModes[labelModel.index];
         NSMutableArray * sportItems = [NSMutableArray arrayWithArray:strongSelf.sportModeSortModel.sportSortingItems];
         IDOSetSportSortingItemModel * item = [IDOSetSportSortingItemModel new];
-        item.index = [[dic valueForKey:@"index"] integerValue];
+        item.index = [[dic valueForKey:@"index"] integerValue] + sportItems.count + 1;
         item.type  = [[dic valueForKey:@"type"] integerValue];
         if (__IDO_FUNCTABLE__.funcTable28Model.v3SportsType) {
           if (sportItems.count >= 14) {
