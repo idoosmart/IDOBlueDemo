@@ -26,6 +26,8 @@
 - (void)dealloc
 {
 //    [IDOBluetoothManager shareInstance].delegate = nil;
+    //退出添加设备需要把手动模式设置为No
+    [IDOBluetoothManager shareInstance].isMandatoryManual = NO;
 }
 
 - (instancetype)init
@@ -266,6 +268,10 @@
 - (void)bluetoothManager:(IDOBluetoothManager *)manager
   connectPeripheralError:(NSError *)error
 {
+    if (self.isAdd) {
+        //在添加设备时连接失败需要重新设置手动模式
+        [IDOBluetoothManager shareInstance].isMandatoryManual = YES;
+    }
     if (error.code == IDO_BLUETOOTH_CONNECT_TIME_OUT_TYPE) {
         FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
         [funcVc showToastWithText:lang(@"connected failed")];

@@ -122,6 +122,7 @@
     NSDictionary * dic = notivication.object;
     if (!dic)return;
     IDO_BLUETOOTH_MANAGER_STATE state = [[dic valueForKey:@"state"] integerValue];
+    NSLog(@"state == %d",state);
     if (state == IDO_MANAGER_STATE_DID_CONNECT) {
         self.statusLabel.text = lang(@"connected");
         [self showToastWithText:lang(@"connected")];
@@ -161,6 +162,7 @@
    NSDictionary * dic = notivication.object;
    if (!dic)return;
    IDO_BLUETOOTH_CONNECT_ERROR_TYPE errorCode = [[dic valueForKey:@"errorCode"] integerValue];
+    NSLog(@"errorCode == %ld",errorCode);
     if(errorCode == IDO_BLUETOOTH_PAIRING_ERROR_TYPE) {
        [self showToastWithText:lang(@"Peer removed pairing information.")];
     }

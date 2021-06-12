@@ -180,17 +180,7 @@
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-        if (modeType == 1) { //在升级模式下需要先获取功能表
-           [IDOFoundationCommand getFuncTableCommand:^(int errorCode, IDOGetDeviceFuncBluetoothModel * _Nullable data) {
-               if (errorCode == 0) {
-                   [strongSelf updatePhotoWithVc:funcVC];
-               }else {
-                   [funcVC showToastWithText:lang(@"get function list failed")];
-               }
-           }];
-        }else {
-              [strongSelf updatePhotoWithVc:funcVC];
-        }
+        [strongSelf updatePhotoWithVc:funcVC];
     };
 }
 
@@ -310,22 +300,44 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                   encoding:NSUTF8StringEncoding
                                      error:nil];
         }
+        
         NSFileHandle * wirteFileHandle = [NSFileHandle fileHandleForWritingAtPath:documentsPath];
         if (!wirteFileHandle)return;
-        NSData *data = UIImagePNGRepresentation([strongSelf scaleCurrentImage:image]);
-        [wirteFileHandle seekToEndOfFile];
-        [wirteFileHandle writeData:data];
-        [wirteFileHandle closeFile];
-        NSString * infoStr = [strongSelf selectedFileWithFilePath:documentsPath];
-        [strongSelf addMessageText:infoStr];
+        //从本地获取设备屏幕信息，如果屏幕信息没有则通过命令获取
+        IDOWatchScreenInfoModel * currentModel = [IDOWatchScreenInfoModel currentModel];
+        if (currentModel.height == 0 || currentModel.width == 0) {
+            initWatchDialManager().getDialScreenInfo(^(IDOWatchScreenInfoModel * _Nullable model, int errorCode) {
+                if (errorCode == 0) {
+                    UIImage * newImage = [strongSelf getScaleImage:image width:model.width height:model.height];
+                    NSData * data = UIImagePNGRepresentation(newImage);
+                    [wirteFileHandle seekToEndOfFile];
+                    [wirteFileHandle writeData:data];
+                    [wirteFileHandle closeFile];
+                    NSString * infoStr = [strongSelf selectedFileWithFilePath:documentsPath];
+                    [self addMessageText:infoStr];
+                }
+            });
+        }else {
+            UIImage * newImage = [strongSelf getScaleImage:image width:currentModel.width height:currentModel.height];
+            NSData * data = UIImagePNGRepresentation(newImage);
+            [wirteFileHandle seekToEndOfFile];
+            [wirteFileHandle writeData:data];
+            [wirteFileHandle closeFile];
+            NSString * infoStr = [strongSelf selectedFileWithFilePath:documentsPath];
+            [self addMessageText:infoStr];
+        }
+        
+        
     }];
 }
 
-- (UIImage *)scaleCurrentImage:(UIImage *)currentImage
+- (UIImage *)getScaleImage:(UIImage *)originImage
+                     width:(NSInteger)width
+                    height:(NSInteger)height
 {
-    CGRect rect = CGRectMake(0,0,240,240);
+    CGRect rect = CGRectMake(0,0,width,height);
     UIGraphicsBeginImageContext(rect.size);
-    [currentImage drawInRect:rect];
+    [originImage drawInRect:rect];
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;

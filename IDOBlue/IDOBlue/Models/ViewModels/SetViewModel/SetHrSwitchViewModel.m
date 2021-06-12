@@ -179,7 +179,7 @@
     
     TextFieldCellModel * model7 = [[TextFieldCellModel alloc]init];
     model7.typeStr = @"oneTextField";
-    model7.titleStr = lang(@"set interval length");
+    model7.titleStr = lang(@"set interval second length");
     model7.data = @[@(self.v3HrModel.measurementInterval)];
     model7.cellHeight = 70.0f;
     model7.cellClass = [OneTextFieldTableViewCell class];

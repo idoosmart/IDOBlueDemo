@@ -32,7 +32,11 @@
 - (NSArray *)allDevices
 {
     if (!_allDevices) {
-        _allDevices = [IDOWatchDialInfoModel currentModel].dialArray;
+        if (__IDO_FUNCTABLE__.funcTable35Model.getNewWatchList) {
+            _allDevices = [IDOV3WatchDialInfoModel currentModel].dialArray;
+        }else {
+            _allDevices = [IDOWatchDialInfoModel currentModel].dialArray;
+        }
     }
     return _allDevices;
 }
@@ -64,6 +68,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVc = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
+        
         IDOWatchDialInfoItemModel * model = strongSelf.allDevices[indexPath.row];
         if (model.operate == 0x02) {
             [funcVc showToastWithText:lang(@"current dial has been deleted")];
@@ -71,20 +76,30 @@
         }
         model.operate = 0x01;
         [funcVc showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set current dial info")]];
-        initWatchDialManager().setCurrentDial(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
-           if (errorCode == 0) {
-              [funcVc showToastWithText:lang(@"set current dial info success")];
-               initWatchDialManager().getDialListInfo(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
-                   if (errorCode == 0) {
-                        [strongSelf getCellModels];
-                        [funcVc reloadData];
-                   }
-               });
-          }else if (errorCode == 6) {
-              [funcVc showToastWithText:lang(@"feature is not supported on the current device")];
-          }else {
-              [funcVc showToastWithText:lang(@"set current dial info failed")];
-          }
+        
+        initWatchDialManager().setCurrentDial(^(int errorCode) {
+            if (errorCode == 0) {
+               [funcVc showToastWithText:lang(@"set current dial info success")];
+                if (__IDO_FUNCTABLE__.funcTable35Model.getNewWatchList) {
+                    initWatchDialManager().getDialListInfo(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
+                        if (errorCode == 0) {
+                             [strongSelf getCellModels];
+                             [funcVc reloadData];
+                        }
+                    });
+                }else {
+                    initWatchDialManager().getV3WatchListInfo(^(IDOV3WatchDialInfoModel * _Nullable model, int errorCode) {
+                        if (errorCode == 0) {
+                             [strongSelf getCellModels];
+                             [funcVc reloadData];
+                        }
+                    });
+                }
+           }else if (errorCode == 6) {
+               [funcVc showToastWithText:lang(@"feature is not supported on the current device")];
+           }else {
+               [funcVc showToastWithText:lang(@"set current dial info failed")];
+           }
         }, model);
     };
 }
@@ -98,21 +113,33 @@
         IDOWatchDialInfoItemModel * model = strongSelf.allDevices[indexPath.row];
         model.operate = 0x02;
         [funcVc showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"delete current dial")]];
-        initWatchDialManager().setCurrentDial(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
+        
+        initWatchDialManager().setCurrentDial(^(int errorCode) {
             if (errorCode == 0) {
                [funcVc showToastWithText:lang(@"delete current dial success")];
-               initWatchDialManager().getDialListInfo(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
-                   if (errorCode == 0) {
-                        [strongSelf getCellModels];
-                        [funcVc reloadData];
-                   }
-               });
+                if (__IDO_FUNCTABLE__.funcTable35Model.getNewWatchList) {
+                    initWatchDialManager().getDialListInfo(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
+                        if (errorCode == 0) {
+                             [strongSelf getCellModels];
+                             [funcVc reloadData];
+                        }
+                    });
+                }else {
+                    initWatchDialManager().getV3WatchListInfo(^(IDOV3WatchDialInfoModel * _Nullable model, int errorCode) {
+                        if (errorCode == 0) {
+                             [strongSelf getCellModels];
+                             [funcVc reloadData];
+                        }
+                    });
+                }
            }else if (errorCode == 6) {
                [funcVc showToastWithText:lang(@"feature is not supported on the current device")];
            }else {
                [funcVc showToastWithText:lang(@"delete current dial failed")];
            }
         }, model);
+    
+        
     };
 }
 

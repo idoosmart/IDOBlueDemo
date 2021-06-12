@@ -44,7 +44,7 @@
 {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     [funcVC showLoadingWithMessage:lang(@"exit update...")];
-    [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
+    [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode, NSString * _Nullable undindMacAddr) {
         if (errorCode == 0) {
             [funcVC showToastWithText:lang(@"exit success")];
             ScanViewController * scanVC  = [[ScanViewController alloc]init];

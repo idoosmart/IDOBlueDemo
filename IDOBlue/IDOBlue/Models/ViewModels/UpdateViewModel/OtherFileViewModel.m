@@ -21,6 +21,7 @@
 {
     self = [super init];
     if (self) {
+        self.isCanSelectDir = NO;
         [self getLabelSelectCallback];
     }
     return self;
@@ -86,7 +87,7 @@
             BOOL isDir = NO;
             NSString * filePath = [strongSelf.dirPath stringByAppendingPathComponent:fileName];
             [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir];
-            if(isDir) { //目录有下级文件
+            if(isDir && !strongSelf.isCanSelectDir) { //目录有下级文件
                 FuncViewController * vc = [[FuncViewController alloc]init];
                 OtherFileViewModel * fileModel = [OtherFileViewModel new];
                 fileModel.type    = strongSelf.type;
@@ -125,7 +126,7 @@
                 BOOL isDir = NO;
                 NSString * filePath = [strongSelf.dirPath stringByAppendingPathComponent:fileName];
                 [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir];
-                if(isDir) { //目录有下级文件
+                if(isDir && !strongSelf.isCanSelectDir) { //目录有下级文件
                     FuncViewController * vc = [[FuncViewController alloc]init];
                     OtherFileViewModel * fileModel = [OtherFileViewModel new];
                     fileModel.type    = strongSelf.type;

@@ -10,4 +10,5 @@
 
 @interface FileViewModel : BaseViewModel
 @property (nonatomic,assign) NSInteger type; /*0:固件 1:AGPS 2:沙盒文件*/
+@property (nonatomic,assign) BOOL isCanSelectDir;
 @end

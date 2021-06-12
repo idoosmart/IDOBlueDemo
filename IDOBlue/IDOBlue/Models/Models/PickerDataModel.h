@@ -52,4 +52,8 @@
 @property (nonatomic,strong) NSArray * menuListTypes;
 @property (nonatomic,strong) NSArray * switchTypes;
 @property (nonatomic,strong) NSArray * musicTypes;
+@property (nonatomic,strong) NSArray * wallpaperLoc;
+@property (nonatomic,strong) NSArray * hideType;
+@property (nonatomic,strong) NSArray * widgetType;
+@property (nonatomic,strong) NSArray * widgetColor;
 @end

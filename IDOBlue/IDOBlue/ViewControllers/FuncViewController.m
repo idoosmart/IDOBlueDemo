@@ -44,7 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     if (self.model.isRightButton) [self addRightButton];
     if (self.model.isLeftButton)  [self addLeftButton];
         
@@ -64,8 +64,6 @@
     [headView addSubview:self.timerLabel];
     self.tableView.tableHeaderView = headView;
     if (self.model.isFootButton)self.tableView.tableFooterView = self.footButton;
-    
-    IDOBluetoothBaseModel * model = [IDOBluetoothBaseModel new];
     
 }
 

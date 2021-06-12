@@ -255,6 +255,7 @@ static int countdown = 0;
                 }
             }];
         }else if (cellModel.index == 2) {
+            /*
             [IDOFoundationCommand voiceControlToStopWatchDelay:3 callback:^(int errorCode) {
                 if (errorCode == 0) {
                    [funcVC showToastWithText:lang(@"set page jump success")];
@@ -263,7 +264,7 @@ static int countdown = 0;
                 }else {
                    [funcVC showToastWithText:lang(@"set page jump failed")];
                 }
-            }];
+            }];*/
         }else if (cellModel.index == 3) {
             [IDOFoundationCommand voiceControlToCountDownTotalTime:100 callback:^(int errorCode) {
                 if (errorCode == 0) {

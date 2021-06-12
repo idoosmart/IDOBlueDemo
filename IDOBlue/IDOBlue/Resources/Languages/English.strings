@@ -419,6 +419,7 @@
 "is set connection parameters" = "is set connection parameters:";
 "set drink water reminder" = "set drink water reminder";
 "set interval length" = "set interval length";
+"set interval second length" = "set interval second length";
 "set drink water reminder success" = "set drink water reminder success";
 "set drink water reminder failed" = "set drink water reminder failed";
 "set v3 heart rate mode" = "set v3 heart rate mode";
@@ -551,7 +552,41 @@
 "delete current dial" = "delete current dial";
 "delete current dial success" = "delete current dial success";
 "delete current dial failed" = "delete current dial failed";
-
+"custom wallpaper dial" = "custom wallpaper dial";
+"set wallpaper parameters" = "set wallpaper parameters";
+"set wallpaper parameters success" = "set wallpaper parameters success";
+"set wallpaper parameters failed" = "set wallpaper parameters failed";
+"delete the wallpaper dial" = "delete the wallpaper dial";
+"delete the wallpaper dial success" = "delete the wallpaper dial success";
+"delete the wallpaper dial failed" = "delete the wallpaper dial failed";
+"transfer the wallpaper dial" = "transfer the wallpaper dial";
+"get wallpaper dial info" = "get wallpaper dial info";
+"get wallpaper dial info success" = "get wallpaper dial info success";
+"get wallpaper dial info failed" = "get wallpaper dial info failed";
+"display position" = "display position";
+"hidden display" = "hidden display";
+"icon type" = "icon type";
+"time color" = "time color";
+"widget icon type" = "widget icon type";
+"widget number type" = "widget number type";
+"invalid" = "invalid";
+"dial(upperleft)" = "dial(upperleft)";
+"dial(uppermiddle)" = "dial(uppermiddle)";
+"dial(upperright)" = "dial(upperright)";
+"dial(middleleft)" = "dial(middleleft)";
+"dial(middle)" = "dial(middle)";
+"dial(middleright)" = "dial(middleright)";
+"dial(bottomleft)" = "dial(bottomleft)";
+"dial(bottommiddle)" = "dial(bottommiddle)";
+"dial(bottomright)" = "dial(bottomright)";
+"show all" = "show all";
+"hide child controls" = "hide child controls";
+"week/date" = "week/date";
+"number of steps" = "number of steps";
+"distance" = "distance";
+"calorie" = "calorie";
+"heart rate" = "heart rate";
+"battery" = "battery";
 
 "get function list" = "get function list";
 "get function list success" = "get function list success";
@@ -620,10 +655,15 @@
 "get over heat log" = "get over heat log";
 "get over heat log success" = "get over heat log success";
 "get over heat log failed" = "get over heat log failed";
+"get device battery log" = "get device battery log";
+"get device battery log success" = "get device battery log success";
+"get device battery log failed" = "get device battery log failed";
 "get not disturb mode" = "get not disturb mode";
 "get not disturb mode success" = "get not disturb mode success";
 "get not disturb mode failed" = "get not disturb mode failed";
-
+"get encrypted code" = "get encrypted code";
+"get encrypted code success" = "get encrypted code success";
+"get encrypted code failed" = "get encrypted code failed";
 //语音控制
 "please speak" = "please speak";
 "listen voice data" = "listen voice data";

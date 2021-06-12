@@ -48,6 +48,13 @@
         [self addNotice];
         [self getButtonCallback];
         [self getCellModels];
+        [IDOFoundationCommand listenStateChangeCommand:^(int errorCode, IDOControlDataUpdateModel * _Nullable model) {
+            if(errorCode == 0) {
+                if (model.resetState == 1) {
+                    
+                }
+            }
+        }];
     }
     return self;
 }
@@ -58,7 +65,7 @@
     funcVc.menuView.isLeftType = YES;
     funcVc.menuView.selectMenuList = ^(NSInteger index) {
         if (index == 0) {
-            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
+            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode, NSString * _Nullable undindMacAddr) {
                 if (errorCode == 0) {
                     if ([[IDODemoUtility getCurrentVC]isKindOfClass:[ScanViewController class]])return;
                     IDOGetDeviceInfoBluetoothModel * model = [IDOGetDeviceInfoBluetoothModel currentModel];
@@ -134,6 +141,7 @@
             [funcVc showToastWithText:lang(@"sync data...")];
             return;
         }
+        
         BaseViewModel * viewModel = [[model.modelClass alloc] init];
         FuncViewController * newFuncVc = [[FuncViewController alloc] init];
         newFuncVc.model = viewModel;

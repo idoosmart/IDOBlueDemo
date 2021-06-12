@@ -89,6 +89,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set weather city name")]];
+        /*
         IDOSetWeatherDataInfoBluetoothModel * model = [IDOSetWeatherDataInfoBluetoothModel currentModel];
         NSDictionary * dic = @{@"today":model,
                                @"city":strongSelf.textField.text?:@"",
@@ -99,7 +100,17 @@
             }else {
                [funcVC showToastWithText:lang(@"set weather city name failed")];
             }
+        }];*/
+        IDOSetWeatherDataInfoBluetoothModel * model = [IDOSetWeatherDataInfoBluetoothModel currentModel];
+        model.cityName = strongSelf.textField.text?:@"";
+        [IDOFoundationCommand setWeatherCityCommand:model callback:^(int errorCode) {
+            if (errorCode == 0) {
+               [funcVC showToastWithText:lang(@"set weather city name success")];
+            }else {
+               [funcVC showToastWithText:lang(@"set weather city name failed")];
+            }
         }];
+        
     };
 }
 

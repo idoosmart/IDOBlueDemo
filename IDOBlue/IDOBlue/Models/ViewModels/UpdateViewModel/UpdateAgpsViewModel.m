@@ -197,15 +197,16 @@
 
 - (void)updateUpdateAgpsWithVc:(FuncViewController *)funcVC
 {
-    if(!__IDO_FUNCTABLE__.funcTable19Model.gps) {
-        [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-        return;
-    }
+//    if(!__IDO_FUNCTABLE__.funcTable19Model.gps) {
+//        [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+//        return;
+//    }
     [self startTimer];
     [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"agps update")]];
-    initTransferManager().transferType = IDO_DATA_FILE_TRAN_AGPS_TYPE;
-    initTransferManager().compressionType = IDO_DATA_TRAN_COMPRESSION_NO_USE_TYPE;
-    initTransferManager().isSetConnectParam = [[NSUserDefaults standardUserDefaults]boolForKey:IS_SET_CONNECT_PARAMSERS];
+    initTransferManager().transferType = IDO_DATA_FILE_TRAN_DIAL_TYPE;
+    initTransferManager().compressionType = IDO_DATA_TRAN_COMPRESSION_FASTLZ_TYPE;
+    initTransferManager().isSetConnectParam = YES;
+    initTransferManager().isQueryWriteState = YES;
     initTransferManager().fileName = self.fileName;
     initTransferManager().filePath = self.filePath;
     

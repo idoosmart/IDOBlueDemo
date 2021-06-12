@@ -199,14 +199,14 @@
 - (void)updateWordwithVc:(FuncViewController *)funcVC
 {
     [self startTimer];
-    BOOL isConnect = [[NSUserDefaults standardUserDefaults]boolForKey:IS_SET_CONNECT_PARAMSERS];
+   // BOOL isConnect = [[NSUserDefaults standardUserDefaults]boolForKey:IS_SET_CONNECT_PARAMSERS];
     [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"word update")]];
     initTransferManager().transferType = IDO_DATA_FILE_TRAN_WORD_TYPE;
     initTransferManager().compressionType = IDO_DATA_TRAN_COMPRESSION_FASTLZ_TYPE;
     initTransferManager().fileName = self.fileName?:@"";
     initTransferManager().filePath = self.filePath;
-    initTransferManager().numberPackets = 60;
-    initTransferManager().isSetConnectParam = isConnect;
+    initTransferManager().numberPackets = 10;
+    initTransferManager().isSetConnectParam = YES;
     __weak typeof(self) weakSelf = self;
     initTransferManager().addDetection(^(int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;

@@ -11,6 +11,7 @@
 #import "FuncViewController.h"
 #import "FuncViewModel.h"
 #import "UpdateMainViewModel.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
 
@@ -24,6 +25,8 @@
     //untying a device requires deleting the device information for the corresponding business store
     if (!model.bindState) {
         //if the current device is not bound, the connection can only be scanned through the list
+        //普通设备解绑后需要重新复位
+        [[IDOBluetoothEngine shareInstance] deserialization];
         model = [IDOGetDeviceInfoBluetoothModel currentModel];
         if (!model.bindState) {
             ScanViewController * scanVC  = [[ScanViewController alloc]init];
@@ -39,37 +42,31 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    /*
-    dispatch_group_t group = dispatch_group_create();
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(10);
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    for (int i = 0; i < 100; i++)
-    {
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-        dispatch_group_async(group, queue, ^{
-            NSLog(@"%i",i);
-            sleep(2);
-            dispatch_semaphore_signal(semaphore);
-        });
-    }
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-*/
+    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [IDOFoundationCommand listenSosStartCommand:^(int errorCode) {
+        [IDORecordDeviceLog recordBlueLogWithType:IDO_AUTO_CONNECT_LOG logStr:@"listenSosStartCommand"];
+    }];
+    
+    NSArray * centralManagerIdentifiers = launchOptions[UIApplicationLaunchOptionsBluetoothCentralsKey];
+    
+    NSLog(@"launchOptions == %@ centralManagerIdentifiers == %@",launchOptions,centralManagerIdentifiers);
+    NSString * logStr = [NSString stringWithFormat:@"launchOptions == %@ centralManagerIdentifiers == %@",launchOptions,centralManagerIdentifiers];
+    [IDORecordDeviceLog recordBlueLogWithType:IDO_AUTO_CONNECT_LOG logStr:logStr];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(listenConnectBindState:)
                                                 name:IDOBluetoothDeviceBindNotifyName
                                               object:nil];
 #ifdef DEBUG
-    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(NO).rawDataLog(YES).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES,YES).rawDataLog(YES).useFunctionTable(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
        if(__IDO_BIND__)[IDOBluetoothManager startScan];
-       else [IDOBluetoothManager refreshDelegate];
     });
 #else
-    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES).rawDataLog(YES).useFunctionTable(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(NO,YES).rawDataLog(YES).useFunctionTable(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
         if(__IDO_BIND__)[IDOBluetoothManager startScan];
-        else [IDOBluetoothManager refreshDelegate];
     });
 #endif
     

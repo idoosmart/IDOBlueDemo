@@ -422,6 +422,7 @@
 "is set connection parameters" = "是否设置连接参数:";
 "set drink water reminder" = "设置喝水提醒";
 "set interval length" = "设置分钟间隔时长";
+"set interval second length" = "设置秒钟间隔时长";
 "set drink water reminder success" = "设置喝水提醒成功";
 "set drink water reminder failed" = "设置喝水提醒失败";
 "set v3 heart rate mode" = "设置v3心率模式";
@@ -555,6 +556,41 @@
 "delete current dial" = "删除当前表盘";
 "delete current dial success" = "删除当前表盘成功";
 "delete current dial failed" = "删除当前表盘失败";
+"custom wallpaper dial" = "自定义壁纸表盘";
+"set wallpaper parameters" = "设置壁纸参数";
+"set wallpaper parameters success" = "设置壁纸参数成功";
+"set wallpaper parameters failed" = "设置壁纸参数失败";
+"delete the wallpaper dial" = "删除壁纸表盘";
+"delete the wallpaper dial success" = "删除壁纸表盘成功";
+"delete the wallpaper dial failed" = "删除壁纸表盘失败";
+"transfer the wallpaper dial" = "传输壁纸表盘";
+"get wallpaper dial info" = "获取壁纸表盘信息";
+"get wallpaper dial info success" = "获取壁纸表盘信息成功";
+"get wallpaper dial info failed" = "获取壁纸表盘信息失败";
+"display position" = "显示位置";
+"hidden display" = "隐藏显示";
+"icon type" = "图标类型";
+"time color" = "时间颜色";
+"widget icon type" = "部件图标颜色";
+"widget number type" = "部件数字颜色";
+"invalid" = "无效";
+"dial(upperleft)" = "表盘(上左)";
+"dial(uppermiddle)" = "表盘(上中)";
+"dial(upperright)" = "表盘(上右)";
+"dial(middleleft)" = "表盘(中左)";
+"dial(middle)" = "表盘(中中)";
+"dial(middleright)" = "表盘(中右)";
+"dial(bottomleft)" = "表盘(下左)";
+"dial(bottommiddle)" = "表盘(下中)";
+"dial(bottomright)" = "表盘(下右)";
+"show all" = "全部显示";
+"hide child controls" = "隐藏子控件(图标和数字)";
+"week/date" = "星期/日期";
+"number of steps" = "步数";
+"distance" = "距离";
+"calorie" = "卡路里";
+"heart rate" = "心率";
+"battery" = "电量";
 
 //get function
 "get function list" = "获取功能列表";
@@ -624,9 +660,15 @@
 "get over heat log" = "获取过热日志";
 "get over heat log success" = "获取过热日志成功";
 "get over heat log failed" = "获取过热日志失败";
+"get device battery log" = "获取电池日志";
+"get device battery log success" = "获取电池日志成功";
+"get device battery log failed" = "获取电池日志失败";
 "get not disturb mode" = "获取勿扰模式";
 "get not disturb mode success" = "获取勿扰模式成功";
 "get not disturb mode failed" = "获取勿扰模式失败";
+"get encrypted code" = "获取加密数据";
+"get encrypted code success" = "获取加密数据成功";
+"get encrypted code failed" = "获取加密数据失败";
 //语音控制
 "please speak" = "请对着手环说话";
 "listen voice data" = "监听语音数据";

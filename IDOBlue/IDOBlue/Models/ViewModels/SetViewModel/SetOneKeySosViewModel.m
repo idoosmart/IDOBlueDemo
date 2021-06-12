@@ -90,6 +90,10 @@
 
 - (void)getButtonCallback
 {
+    
+    [IDOFoundationCommand listenSosStartCommand:^(int errorCode) {
+        
+    }];
     __weak typeof(self) weakSelf = self;
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;

@@ -47,7 +47,7 @@
 - (void)actionButton:(UIBarButtonItem *)sender
 {
     if ([sender.title isEqualToString:@"🔒"]) {
-        self.macAddr = __IDO_MAC_ADDR__;
+        self.macAddr = @"D51E9B7A3D2E";
         [sender setTitle:@"🔓"];
     }else {
         self.macAddr = @"";
@@ -277,11 +277,11 @@
         if (self.dataType == 0) {//步数
             [self querySportsWeekDataWtithVc:funcVc];
         }else if (self.dataType == 1) {//心率
-            [self querySportsWeekDataWtithVc:funcVc];
+            [self queryHrsWeekDataWtithVc:funcVc];
         }else if (self.dataType == 2) {//血压
             [self queryBpsWeekDataWtithVc:funcVc];
         }else if (self.dataType == 3) {//睡眠
-            [self querySportsWeekDataWtithVc:funcVc];
+            [self querySleepsWeekDataWtithVc:funcVc];
         }else if (self.dataType == 4) {//血氧
             [self queryBopsWeekDataWtithVc:funcVc];
         }else if (self.dataType == 5) {//压力

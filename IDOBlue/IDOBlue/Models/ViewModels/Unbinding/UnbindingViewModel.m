@@ -63,7 +63,7 @@
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 0) {
             [funcVc showLoadingWithMessage:lang(@"device unbinding")];
-            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
+            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode, NSString * _Nullable undindMacAddr) {
                 if (errorCode == 0) {
                     [funcVc showToastWithText:lang(@"unbind success")];
                     IDOGetDeviceInfoBluetoothModel * model = [IDOGetDeviceInfoBluetoothModel currentModel];
@@ -80,7 +80,7 @@
             }];
         }else if(indexPath.row == 1){
             [funcVc showLoadingWithMessage:lang(@"device unbinding")];
-            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
+            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode, NSString * _Nullable undindMacAddr) {
                 if (errorCode == 0) {
                     [funcVc showToastWithText:lang(@"unbind success")];
                     IDOGetDeviceInfoBluetoothModel * model = [IDOGetDeviceInfoBluetoothModel currentModel];

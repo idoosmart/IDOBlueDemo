@@ -438,4 +438,38 @@
     return _musicTypes;
 }
 
+- (NSArray *)wallpaperLoc
+{
+    if (!_wallpaperLoc) {
+         _wallpaperLoc = @[     lang(@"invalid"),lang(@"dial(upperleft)"),lang(@"dial(uppermiddle)"),lang(@"dial(upperright)"),lang(@"dial(middleleft)"),lang(@"dial(middle)"),lang(@"dial(middleright)"),lang(@"dial(bottomleft)"),lang(@"dial(bottommiddle)"),lang(@"dial(bottomright)")];
+   
+    }
+    return _wallpaperLoc;
+}
+
+- (NSArray *)hideType
+{
+    if (!_hideType) {
+        _hideType = @[lang(@"show all"),lang(@"hide child controls")];
+    }
+    return _hideType;
+}
+
+- (NSArray *)widgetType
+{
+    if (!_widgetType) {
+         _widgetType = @[lang(@"week/date"),lang(@"number of steps"),lang(@"distance"),
+                         lang(@"calorie"),lang(@"heart rate"),lang(@"battery")];
+    }
+    return _widgetType;
+}
+
+- (NSArray *)widgetColor
+{
+    if (!_widgetColor) {
+         _widgetColor = @[@"#FFFFFF",@"#000000",@"#FC1E58",@"#FF9501",@"#0091FF",@"#44D7B6"];
+    }
+    return _widgetColor;
+}
+
 @end

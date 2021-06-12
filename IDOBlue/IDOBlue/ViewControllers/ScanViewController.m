@@ -389,7 +389,9 @@ static BOOL BIND_STATE = NO;
     if (self.currentModel.isOta || mode == 1) {
         [self updateAction:nil];
     }else {
-        [self bindAction:nil];
+        [IDOFoundationCommand getDeviceInfoCommand:^(int errorCode, IDOGetDeviceInfoBluetoothModel * _Nullable data) {
+            [self bindAction:nil];
+        }];
     }
 }
 
@@ -465,6 +467,9 @@ static BOOL BIND_STATE = NO;
           didUpdateState:(IDO_BLUETOOTH_MANAGER_STATE)state
 {
     NSLog(@"state == %d",state);
+    if(state == IDO_MANAGER_STATE_POWEREDON) {
+        [IDOBluetoothManager startScan];
+    }
 }
 
 - (void)bluetoothManager:(IDOBluetoothManager *)manager

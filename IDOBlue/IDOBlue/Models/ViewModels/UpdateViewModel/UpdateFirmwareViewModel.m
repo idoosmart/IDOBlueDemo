@@ -18,6 +18,7 @@
 #import "ScanViewController.h"
 #import "FirmwareTypeViewModel.h"
 #import "OneLabelTableViewCell.h"
+#import "GetEncryptionCodeViewModel.h"
 
 @interface UpdateFirmwareViewModel()<IDOUpdateManagerDelegate>
 @property (nonatomic,copy) NSString * logStr;
@@ -159,7 +160,7 @@
                 return;
             }
             [funcVC showLoadingWithMessage:lang(@"exit update...")];
-            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode) {
+            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode, NSString * _Nullable undindMacAddr) {
                 if (errorCode == 0) {
                     [funcVC showToastWithText:lang(@"exit success")];
                     ScanViewController * scanVC  = [[ScanViewController alloc]init];
@@ -180,56 +181,8 @@
             [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             [IDOBluetoothManager startScan];
         }else if (index == 2) {
-            if ([IDOUpdateFirmwareManager shareInstance].updateType == IDO_REALTK_PLATFORM_TYPE) {
-                NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-                if (modeType == 1) { //升级模式
-                    [IDOFoundationCommand getDeviceInfoCommand:^(int errorCode, IDOGetDeviceInfoBluetoothModel * _Nullable data) {
-                        if (errorCode == 0) {
-                            [IDOFoundationCommand getOtaAuthInfoCommand:^(int errorCode, int stateCode) {
-                                if (errorCode == 0 && stateCode == 0) {
-                                    [funcVC showLoadingWithMessage:lang(@"enter update...")];
-                                    [IDOUpdateFirmwareManager startUpdate];
-                                    [strongSelf startTimer];
-                                }
-                            }];
-                        }else {
-                            [funcVC showToastWithText:lang(@"get device information failed")];
-                        }
-                    }];
-                }else { //普通模式
-                    [IDOUpdateFirmwareManager startUpdate];
-                    [IDOFoundationCommand getOtaAuthInfoCommand:^(int errorCode, int stateCode) {
-                        if (errorCode == 0 && stateCode == 0) {
-                            [funcVC showLoadingWithMessage:lang(@"enter update...")];
-                            [IDOUpdateFirmwareManager startUpdate];
-                            [strongSelf startTimer];
-                        }else if (errorCode == 6) {
-                            [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-                        }else {
-                            [funcVC showToastWithText:lang(@"update failed")];
-                        }
-                    }];
-                }
-            }else {
-                [funcVC showLoadingWithMessage:lang(@"enter update...")];
-                NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-                if (modeType == 1) {
-                    [IDOFoundationCommand getMacAddrCommand:^(int errorCode, IDOGetMacAddrInfoBluetoothModel * _Nullable data) {
-                        if (errorCode == 0) {
-                            [IDOUpdateFirmwareManager startUpdate];
-                            [strongSelf startTimer];
-                        }else if (errorCode == 21) {
-                            [IDOUpdateFirmwareManager startUpdate];
-                            [strongSelf startTimer];
-                        }else {
-                            [funcVC showToastWithText:lang(@"get Mac address failed")];
-                        }
-                    }];
-                }else {
-                    [IDOUpdateFirmwareManager startUpdate];
-                    [strongSelf startTimer];
-                }
-            }
+            [IDOUpdateFirmwareManager startUpdate];
+            [strongSelf startTimer];
         }
     };
 }
@@ -329,7 +282,9 @@
     if (state == IDO_UPDATE_COMPLETED) {
         funcVC.statusLabel.text = lang(@"update success");
         [funcVC showToastWithText:lang(@"update success")];
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startTimer) object:nil];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self
+                                                 selector:@selector(startTimer)
+                                                   object:nil];
     }else if (state == IDO_UPDATE_START_RECONECT_DEVICE) { //进入ota 重连设备
         funcVC.statusLabel.text = [NSString stringWithFormat:@"%@...",lang(@"reconnect")];
     }else if (state != IDO_UPDATE_START_INIT
