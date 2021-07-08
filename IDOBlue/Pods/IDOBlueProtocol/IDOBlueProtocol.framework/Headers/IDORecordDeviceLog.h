@@ -55,8 +55,8 @@
 /**
  * @brief 手环flash记录日志路径 | Flash bracelet log path
  * @return 日志存储目录 目录下可能有多个日志文件
- * 日志文件是{通用日志 : general.log,复位日志:reset.log,硬件日志:hardware.log,算法日志:algorithm.log}
- * Log file is {general log,reset log, hardware log, algorithm log}
+ * 日志文件是{通用日志 : general.log,复位日志:reset.log,硬件日志:hardware.log,算法日志:algorithm.log,重启日志:restart.log}
+ * Log file is {general log,reset log, hardware log, algorithm log,restart.log}
  */
 + (NSString *_Nullable)recordFlashLogFloaderPath;
 

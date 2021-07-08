@@ -137,10 +137,17 @@ typedef NS_ENUM(NSInteger, IDO_UPDATE_ERROR_TYPE) {
     IDO_NO_SUPPORTED_PLATFORM_TYPE,
     
     /**
-     * 不支持realtk平台的耳机升级
-     * no supported realtk rws
+     * 不支持realtk rws 升级
+     * no supported realtk rws update
      */
-    IDO_NO_SUPPORT_REALTK_RWS_TYPE
+    IDO_NO_SUPPORTED_REALTK_RWS_TYPE,
+    
+    /**
+     * apollo 升级超时
+     * Apollo update timeout
+     */
+    IDO_APOLLO_UPDATE_TIMEOUT_TYPE
+    
 } ;
 
 /**

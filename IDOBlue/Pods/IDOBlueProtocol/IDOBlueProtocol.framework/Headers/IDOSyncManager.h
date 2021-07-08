@@ -46,6 +46,18 @@
 @property (nonatomic,assign) BOOL isSave;
 
 /**
+ * 重启设备是否同步配置 默认 YES
+ * Restart the device whether to synchronize the configuration default YES
+ */
+@property (nonatomic,assign) BOOL isReStartSync;
+
+/**
+ * 自动同步设置为YES 手动下拉同步设置NO
+ * Automatic Synchronization Set to YES Manual drop down Synchronization Set to NO
+ */
+@property (nonatomic,assign) BOOL isAutoSync;
+ 
+/**
  * 每一项同步超时时长 默认 60
  * default timeout for each item is 60
  */

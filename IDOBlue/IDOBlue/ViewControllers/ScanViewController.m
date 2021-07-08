@@ -328,6 +328,7 @@ static BOOL BIND_STATE = NO;
                 IDOSetBindingInfoBluetoothModel * model1 = [IDOSetBindingInfoBluetoothModel currentModel];
                 if (model1.authLength > 0 && model1.authCode.length > 0)return;
                 [strongSelf setRootViewController];
+//                [IDOFoundationCommand setCurrentMasterDeviceWithMacAddr:__IDO_MAC_ADDR__ isMasterDevice:YES];
             }else if (status == IDO_BLUETOOTH_BINDED) { //已经绑定
 //                [strongSelf setRootViewController];
                   [strongSelf showToastWithText:lang(@"bind failed")];

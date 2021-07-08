@@ -360,6 +360,14 @@
  结束时间 （分） | end minute
  */
 @property (nonatomic,assign) NSInteger endMinute;
+/**
+ 血氧过低开关 | low spo2 on off
+ */
+@property (nonatomic,assign) BOOL lowOnOff;
+/**
+ 血氧过低阈值 | low spo2 value
+ */
+@property (nonatomic,assign) NSInteger lowValue;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -416,6 +424,10 @@
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
 @property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+/**
+ 目标时间 单位(小时)
+ */
+@property (nonatomic,assign) NSInteger goalTime;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -835,6 +847,10 @@
  夜间亮度 (realme项目) | night level
  */
 @property (nonatomic,assign) NSInteger nightLevel;
+/**
+ 显示间隔时长 单位秒 
+ */
+@property (nonatomic,assign) NSInteger showInterval;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -899,6 +915,12 @@
  * Weather collection for the last three days @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
  */
 @property (nonatomic,strong) NSArray<NSDictionary*>* future;
+
+/**
+ 城市名称
+ city name
+ */
+@property (nonatomic,copy) NSString * cityName;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1179,6 +1201,7 @@
 
 /**
  类型 | Type
+ 0x00：起床， 0x01：睡觉， 0x02：锻炼， 0x03：吃药， 0x04：约会， 0x05：聚会， 0x06:会议， 0x07：其他
  */
 @property (nonatomic,assign) NSInteger type;
 
@@ -1291,6 +1314,11 @@
 @property (nonatomic,assign) BOOL isOpen;
 
 /**
+ 显示闹钟 | Switch
+ */
+@property (nonatomic,assign) BOOL isShow;
+
+/**
  年 | year
  */
 @property (nonatomic,assign) NSInteger year;
@@ -1320,6 +1348,12 @@
  * Alarm ID Invalid alarm is 0 by default  Set the range to 0-10
  */
 @property (nonatomic,assign) NSInteger alarmId;
+
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
 
 @end
 
@@ -1478,6 +1512,26 @@
  * Start of the week Sunday: 0x01, Monday: 0x00, Saturday: 0x03
  */
 @property (nonatomic,assign) NSInteger weekStart;
+
+/**
+ * 卡路里单位设置 0x00 ：无效； 0x01 ：千卡；0x02 : 大卡； 0x03 : 千焦
+ */
+@property (nonatomic,assign) NSInteger calorieUnit;
+
+/**
+ * 泳池单位设置 0x00 ：无效； 0x01 ：米；0x02 : 码
+ */
+@property (nonatomic,assign) NSInteger swimPoolUnit;
+
+/**
+ * 骑行的单位(公里/英里)  0x00 :  无效；0x01 : km 公里   0x02 :  英里
+ */
+@property (nonatomic,assign) NSInteger cyclingUnit;
+
+/**
+ * 步行或者跑步的单位(公里/英里)  0x00 :  无效；0x01 : km 公里   0x02 :  英里
+ */
+@property (nonatomic,assign) NSInteger walkRunUnit;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2173,6 +2227,21 @@
  JioTv 提醒 | jio tv
  */
 @property (nonatomic,assign) BOOL isOnJioTv;
+
+/**
+ Microsoft 提醒 | Microsoft
+ */
+@property (nonatomic,assign) BOOL isOnMicrosoft;
+
+/**
+ WhatsApp Business 提醒 | WhatsApp Business
+ */
+@property (nonatomic,assign) BOOL isOnWhatsAppBusiness;
+/**
+ nioseFit 提醒 | noiseFit
+ */
+@property (nonatomic,assign) BOOL isOnNioseFit;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -2239,6 +2308,11 @@
  目标距离(米) | Target distance(m)
  */
 @property (nonatomic,assign) NSInteger goalDistanceData;
+
+/**
+ 中高运动时长的目标(秒) | mid high time goal(s)
+ */
+@property (nonatomic,assign) NSInteger goalMidHighTimeData;
 
 /**
  目标体重(千克) | Target weight(kg)

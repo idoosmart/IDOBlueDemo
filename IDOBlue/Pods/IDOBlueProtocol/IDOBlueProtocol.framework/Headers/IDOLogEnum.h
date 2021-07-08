@@ -65,6 +65,11 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      */
     IDO_SYNC_HEALTH_SPORT_LOG,
     /**
+     * 同步健康 佩戴
+     * Synchronous Health wear
+     */
+    IDO_SYNC_HEALTH_WEAR_LOG,
+    /**
      * 同步健康 睡眠
      * Synchronized Health Sleep
      */
@@ -183,7 +188,32 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      * 协议库日志记录
      * protocol c log
      */
-    IDO_PROTOCOL_C_LOG
+    IDO_PROTOCOL_C_LOG,
+    /**
+     * 数据库存储和更新日志
+     * db save or update log
+     */
+    IDO_DATA_SAVE_UPDATE_LOG,
+    /**
+     * 切换设备
+     * switch device log
+     */
+    IDO_SWITCH_DEVICE_LOG,
+    /**
+     * 传输文件日志
+     * transmission file log
+     */
+    IDO_TRANSMISSION_FILE_LOG,
+    /**
+     * 传输表盘日志
+     * transmission watch file log
+     */
+    IDO_WATCH_TRANSMISSION_FILE_LOG,
+    /**
+     * 传输壁纸日志
+     * transmission photo file log
+     */
+    IDO_PHOTO_TRANSMISSION_FILE_LOG
 };
 
 typedef NS_ENUM(NSInteger, IDO_FLASH_LOG_TYPE)  {
@@ -207,6 +237,11 @@ typedef NS_ENUM(NSInteger, IDO_FLASH_LOG_TYPE)  {
      *hardware log
      */
     IDO_FLASH_LOG_HARDWARE_TYPE   =   3,
+    /**
+     *重启日志
+     *restart log
+     */
+    IDO_FLASH_LOG_RESTART_TYPE   =   4
 };
 
 

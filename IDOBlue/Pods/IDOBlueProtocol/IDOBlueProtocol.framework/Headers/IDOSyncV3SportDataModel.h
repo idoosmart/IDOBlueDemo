@@ -63,6 +63,12 @@
 @interface IDOSyncV3SportDataInfoBluetoothModel : IDOBluetoothBaseModel
 
 /**
+ 24小时的每个小时的佩戴分钟数
+ Number of minutes worn per hour for 24 hours
+ */
+@property (nonatomic,strong) NSArray * wearFlagArray;
+
+/**
  运动数据包数量 | Number of sports packets
  */
 @property (nonatomic,assign) NSInteger itemsCount;
@@ -159,8 +165,8 @@
  * A 12-month sports data collection, where the IDOSyncV3SportDataInfoBluetoothModel object is a total day motion data model
  */
 + (NSArray <NSArray <IDOSyncV3SportDataInfoBluetoothModel *> *>*)queryOneYearV3SportsWithYear:(NSInteger)year
-                                                                                               macAddr:(NSString *)macAddr
-                                                                                          isQueryItems:(BOOL)isQuery;
+                                                                                       macAddr:(NSString *)macAddr
+                                                                                  isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)

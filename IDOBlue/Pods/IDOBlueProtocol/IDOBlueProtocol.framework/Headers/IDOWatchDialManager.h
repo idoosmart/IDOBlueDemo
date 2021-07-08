@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^ _Nullable setComplete)(IDOWatchDialInfoModel * _Nullable model,int errorCode);
+typedef void(^_Nullable setComplete)(int errorCode);
 
 @interface IDOWatchDialManager : NSObject
 
@@ -19,11 +19,22 @@ typedef void(^ _Nullable setComplete)(IDOWatchDialInfoModel * _Nullable model,in
 @property (nonatomic,copy,nullable) NSString * filePath;
 
 /**
+ 颜色格式 | color format
+ */
+@property (nonatomic,assign) NSInteger colorFormat;
+
+/**
+ 压缩块大小 | block size
+ */
+@property (nonatomic,assign) NSInteger blockSize;
+
+/**
  * 获取当前设备屏幕信息
  * Gets the current device screen information
  */
 @property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^getDialScreenInfo)(void(^ _Nullable dialScreenCallback)(IDOWatchScreenInfoModel * _Nullable model,int errorCode));
 
+#pragma mark ====== watch v2 ===========
 /**
  * 获取当前设备所有表盘信息
  * Gets all dial information of the current device
@@ -31,16 +42,39 @@ typedef void(^ _Nullable setComplete)(IDOWatchDialInfoModel * _Nullable model,in
 @property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^getDialListInfo)(void(^ _Nullable dialListCallback)(IDOWatchDialInfoModel * _Nullable model,int errorCode));
 
 /**
- * 获取当前设备当前表盘信息
- * Gets current dial information of the current device
+ * 获取当前设备当前表盘名字
+ * Gets current dial information of name
  */
-@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^getCurrentDialInfo)(void(^ _Nullable currentDialCallback)(IDOWatchDialInfoModel * _Nullable model,int errorCode));
+@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^getCurrentDialInfo)(void(^ _Nullable currentDialCallback)(NSString * _Nullable fileName,int errorCode));
 
 /**
  * 设置当前表盘并回调
  * Set the current dial and call back
  */
 @property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^setCurrentDial)(setComplete block,IDOWatchDialInfoItemModel * _Nullable model);
+
+#pragma mark ====== watch v3 ===========
+
+/**
+ * 获取当前设备v3表盘列表信息
+ * Get current device v3 watch face list information
+ */
+@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^getV3WatchListInfo)(void(^ _Nullable v3WialListCallback)(IDOV3WatchDialInfoModel * _Nullable model,int errorCode));
+
+/**
+ * 获取当前设备壁纸表盘信息
+ * Get current device wallpaper and dial information
+ */
+@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^getWallpaperDialInfo)(void(^ _Nullable wallpaperDialCallback)(IDOV3WallpaperDialInfoModel * _Nullable model,int errorCode));
+
+/**
+ * 设置当前设备壁纸表盘信息
+ * Set the current device wallpaper and watch face information
+ */
+@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^setWallpaperDialInfo)(setComplete block,IDOV3WallpaperDialInfoModel * _Nullable model);
+
+
+#pragma mark ====== watch transmission ===========
 
 /**
  * 表盘传输进度回调 (1-100)

@@ -27,6 +27,11 @@
 @property (nonatomic,strong) CBPeripheral  * peripheral;
 
 /**
+ * 蓝牙是否开启权限 | Is authorized?
+ */
+@property (nonatomic,assign,readonly,getter=isAuthorized) BOOL authorized;
+
+/**
  * 蓝牙是否开启 | Is Bluetooth enabled?
  */
 @property (nonatomic,assign,readonly,getter=isPoweredOn) BOOL poweredOn;
@@ -40,6 +45,11 @@
  * 蓝牙是否正在连接中 | Bluetooth is connecting
  */
 @property (nonatomic,assign,readonly,getter=isConnecting) BOOL connecting;
+
+/**
+ * 蓝牙是否正在扫描中 | Bluetooth is scanning
+ */
+@property (nonatomic,assign,readonly,getter=isScanning) BOOL scanning;
 
 /**
  * 命令服务特征 | Command Service Features

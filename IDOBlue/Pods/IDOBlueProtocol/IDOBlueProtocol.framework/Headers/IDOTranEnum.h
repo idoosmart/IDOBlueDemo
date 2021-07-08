@@ -86,7 +86,14 @@ typedef NS_ENUM(NSInteger, IDO_DATA_FILE_TRAN_STATE_TYPE) {
      文件写入失败 | write failed
      */
     IDO_DATA_FILE_WRITE_FAILED_TYPE = 7,
-    
+    /**
+     文件传输超时 | transmission timeout
+     */
+    IDO_DATA_FILE_TRAN_TIMEOUT_TYPE = 8,
+    /**
+     文件设置连接参数 | set connect parameter
+     */
+    IDO_DATA_FILE_CONNECT_PARAMETER_TYPE = 9
 };
 
 

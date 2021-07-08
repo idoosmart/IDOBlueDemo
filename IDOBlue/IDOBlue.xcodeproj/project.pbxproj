@@ -91,6 +91,10 @@
 		9B437F3721393DDD00DE2FC8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */; };
 		9B44DA1D231F8C1400949276 /* SetWatchDialViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B44DA1C231F8C1400949276 /* SetWatchDialViewModel.m */; };
 		9B4A58982500DD910005E55B /* GetNoDisturbViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A58972500DD910005E55B /* GetNoDisturbViewModel.m */; };
+		9B4AAEAE2696FC9500775EEB /* SetWallpaperViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4AAEAC2696FC9500775EEB /* SetWallpaperViewModel.m */; };
+		9B4AAEB12696FDB300775EEB /* ControlResetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4AAEAF2696FDB200775EEB /* ControlResetViewModel.m */; };
+		9B4AAEB42697007900775EEB /* GetEncryptionCodeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4AAEB22697007800775EEB /* GetEncryptionCodeViewModel.m */; };
+		9B4AAEB72697008F00775EEB /* GetBatteryLogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4AAEB52697008F00775EEB /* GetBatteryLogViewModel.m */; };
 		9B4AF76321E6DA95006926CA /* GetVersionInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4AF76221E6DA95006926CA /* GetVersionInfoViewModel.m */; };
 		9B568540217DD1B400462AE0 /* ThreeButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B56853F217DD1B400462AE0 /* ThreeButtonTableViewCell.m */; };
 		9B568543217DD60B00462AE0 /* TabCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B568542217DD60B00462AE0 /* TabCellModel.m */; };
@@ -386,6 +390,14 @@
 		9B44DA1C231F8C1400949276 /* SetWatchDialViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetWatchDialViewModel.m; sourceTree = "<group>"; };
 		9B4A58962500DD910005E55B /* GetNoDisturbViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNoDisturbViewModel.h; sourceTree = "<group>"; };
 		9B4A58972500DD910005E55B /* GetNoDisturbViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetNoDisturbViewModel.m; sourceTree = "<group>"; };
+		9B4AAEAC2696FC9500775EEB /* SetWallpaperViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetWallpaperViewModel.m; sourceTree = "<group>"; };
+		9B4AAEAD2696FC9500775EEB /* SetWallpaperViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetWallpaperViewModel.h; sourceTree = "<group>"; };
+		9B4AAEAF2696FDB200775EEB /* ControlResetViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlResetViewModel.m; sourceTree = "<group>"; };
+		9B4AAEB02696FDB300775EEB /* ControlResetViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlResetViewModel.h; sourceTree = "<group>"; };
+		9B4AAEB22697007800775EEB /* GetEncryptionCodeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetEncryptionCodeViewModel.m; sourceTree = "<group>"; };
+		9B4AAEB32697007800775EEB /* GetEncryptionCodeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetEncryptionCodeViewModel.h; sourceTree = "<group>"; };
+		9B4AAEB52697008F00775EEB /* GetBatteryLogViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetBatteryLogViewModel.m; sourceTree = "<group>"; };
+		9B4AAEB62697008F00775EEB /* GetBatteryLogViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBatteryLogViewModel.h; sourceTree = "<group>"; };
 		9B4AF76121E6DA95006926CA /* GetVersionInfoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetVersionInfoViewModel.h; sourceTree = "<group>"; };
 		9B4AF76221E6DA95006926CA /* GetVersionInfoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetVersionInfoViewModel.m; sourceTree = "<group>"; };
 		9B56853E217DD1B400462AE0 /* ThreeButtonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeButtonTableViewCell.h; sourceTree = "<group>"; };
@@ -708,6 +720,10 @@
 		183FC070214E323E00AD6484 /* GetViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9B4AAEB62697008F00775EEB /* GetBatteryLogViewModel.h */,
+				9B4AAEB52697008F00775EEB /* GetBatteryLogViewModel.m */,
+				9B4AAEB32697007800775EEB /* GetEncryptionCodeViewModel.h */,
+				9B4AAEB22697007800775EEB /* GetEncryptionCodeViewModel.m */,
 				183FC08D214E4C9E00AD6484 /* GetViewModel.h */,
 				183FC08E214E4C9E00AD6484 /* GetViewModel.m */,
 				18376C692164ADA7009D68F5 /* GetFuncTableViewModel.h */,
@@ -908,6 +924,8 @@
 		183FC079214E323E00AD6484 /* ControlViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9B4AAEB02696FDB300775EEB /* ControlResetViewModel.h */,
+				9B4AAEAF2696FDB200775EEB /* ControlResetViewModel.m */,
 				183FC090214E505500AD6484 /* ControlViewModel.h */,
 				183FC091214E505500AD6484 /* ControlViewModel.m */,
 				18376C812164EBDF009D68F5 /* TakePictureViewModel.h */,
@@ -1315,6 +1333,8 @@
 		9BD6478E23162EAB00653DA4 /* WatchDialViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9B4AAEAD2696FC9500775EEB /* SetWallpaperViewModel.h */,
+				9B4AAEAC2696FC9500775EEB /* SetWallpaperViewModel.m */,
 				9BD6478F23162F4B00653DA4 /* MainDialViewModel.h */,
 				9BD6479023162F4B00653DA4 /* MainDialViewModel.m */,
 				9BD64793231631AF00653DA4 /* GetWatchScreenInfoViewModel.h */,
@@ -1490,6 +1510,7 @@
 				18376C772164C948009D68F5 /* GetRealTimeViewModel.m in Sources */,
 				9B934B7B2435960E002AFB02 /* GetBatteryInfoViewModel.m in Sources */,
 				9BCC1FA522CF241D0049C4DB /* NSObject+DemoToDic.m in Sources */,
+				9B4AAEAE2696FC9500775EEB /* SetWallpaperViewModel.m in Sources */,
 				9B22214B215A3BAB006A2F9F /* SetHandUpViewModel.m in Sources */,
 				183FC0A7214E8E5200AD6484 /* FileViewModel.m in Sources */,
 				9BC1E453213E66ED008D832E /* ScanViewController.m in Sources */,
@@ -1510,6 +1531,7 @@
 				9B2A59BD23B6F9B20081D2DF /* SetIotButtonViewModel.m in Sources */,
 				9BBAF49921F809BC001BD3F9 /* SetUserNumberViewModel.m in Sources */,
 				9B7A135D2160D59D00CBA4BC /* ComLogViewModel.m in Sources */,
+				9B4AAEB42697007900775EEB /* GetEncryptionCodeViewModel.m in Sources */,
 				9B44DA1D231F8C1400949276 /* SetWatchDialViewModel.m in Sources */,
 				9B7A134E2160A6AC00CBA4BC /* SetDialParamViewModel.m in Sources */,
 				9BCE554A216DDBE2005B6F80 /* AppDataInterchangeModel.m in Sources */,
@@ -1542,6 +1564,7 @@
 				9BD348D3217EAC4500008142 /* QueryHrViewModel.m in Sources */,
 				183FC08C214E389B00AD6484 /* SetViewModel.m in Sources */,
 				9B7F44862237B16100671B31 /* QueryBpViewModel.m in Sources */,
+				9B4AAEB12696FDB300775EEB /* ControlResetViewModel.m in Sources */,
 				183FC0A1214E87DE00AD6484 /* EmptyTableViewCell.m in Sources */,
 				9B6F029C21ED7CEB00AA0BCD /* DataMigrationViewModel.m in Sources */,
 				9B675A242398F1760023AF44 /* UpdatePhotoViewModel.m in Sources */,
@@ -1594,6 +1617,7 @@
 				9BC479A1244E9A5900455A6E /* PQVoiceCircleView.m in Sources */,
 				9BC4799F244E9A5900455A6E /* PQTopArcAnimationView.m in Sources */,
 				9BCE53272255970300B942FD /* SetMenstruationViewModel.m in Sources */,
+				9B4AAEB72697008F00775EEB /* GetBatteryLogViewModel.m in Sources */,
 				9B6F029721ECA62000AA0BCD /* TipPoweredOffView.m in Sources */,
 				9BA70E5D24518A49006073AF /* SetSpo2SwitchViewModel.m in Sources */,
 				9B7A13482160674700CBA4BC /* SetGpsInfoViewModel.m in Sources */,

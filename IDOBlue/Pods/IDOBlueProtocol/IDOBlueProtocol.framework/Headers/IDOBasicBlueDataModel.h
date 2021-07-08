@@ -15,6 +15,57 @@
 
 @end
 
+#pragma mark ==== 设置alexa天气预报 item model ====
+@interface IDOSetALexaWeatherDataitemModel : IDOBluetoothBaseModel
+/**
+ 日期
+ */
+@property (nonatomic,strong) NSString * dateStr;
+/**
+ 天气状态
+ */
+@property (nonatomic,strong) NSString * weatherState;
+/**
+最小温度
+ */
+@property (nonatomic,assign) NSInteger minTemperature;
+/**
+ 最大温度
+ */
+@property (nonatomic,assign) NSInteger maxTemperature;
+
+@end
+
+#pragma mark ==== 设置alexa天气预报 model ====
+@interface IDOSetALexaWeatherDataModel : IDOBluetoothBaseModel
+/**
+ 当前温度
+ */
+@property (nonatomic,strong) NSString * currentTemperature;
+/**
+ 当前地点名称
+ */
+@property (nonatomic,strong) NSString * locationName;
+/**
+ 今天天气状态
+ */
+@property (nonatomic,strong) NSString * todayWeatherState;
+/**
+ 今天最小温度
+ */
+@property (nonatomic,assign) NSInteger minTemperature;
+/**
+ 今天最大温度
+ */
+@property (nonatomic,assign) NSInteger maxTemperature;
+
+/**
+ 后七天的天气情况
+ */
+@property (nonatomic,strong) NSArray <IDOSetALexaWeatherDataitemModel *>* futureWeathers;
+
+@end
+
 #pragma mark ==== 设置语音提醒 model ====
 @interface IDOSetVoiceReminderItemModel : IDOBluetoothBaseModel
 /**
@@ -46,6 +97,11 @@
  分 | minute
  */
 @property (nonatomic,assign) NSInteger minute;
+
+/**
+ 秒 | second
+ */
+@property (nonatomic,assign) NSInteger second;
 
 /**
  * 提醒ID  设置范围1-10
@@ -124,6 +180,21 @@
  */
 @property (nonatomic,assign) NSInteger resetState;
 /**
+app需要进入相机界面  0=>  无效 1=>  app进入相机
+ App needs to enter the camera interface 0=> invalid 1=> app enters the camera
+*/
+@property (nonatomic,assign) NSInteger intoCamera;
+/**
+ sos事件通知  0=>  无效 1=>  发起sos请求
+ sos event notification 0=> invalid 1=> initiate a sos request
+*/
+@property (nonatomic,assign) NSInteger callForHelp;
+/**
+ alexa闹钟状态  0=>  无效 1=>  alexa闹钟已修改
+ alexa Alarm state  0=>  invalid 1 => alexa alarm has been modified
+ */
+@property (nonatomic,assign) NSInteger alexaAlarmState;
+/**
  闹钟状态  0=>  无效 1=>  闹钟已修改
  Alarm state  0=>  invalid 1 => alarm has been modified
  */
@@ -133,6 +204,32 @@
 Alarm state  0=>  invalid 1 => alarm has been modified
 */
 @property (nonatomic,assign) NSInteger overHeat;
+/**
+ 亮屏参数有修改  0=>  无效 1=>  亮屏修改
+ Bright screen parameters have been modified 0=> invalid 1=> bright screen modification
+*/
+@property (nonatomic,assign) NSInteger brightScreenState;
+/**
+ 抬腕参数有修改  0=>  无效 1=>  抬腕修改
+ Wrist lift parameters have been modified 0=> Invalid 1=> Wrist lift modification
+*/
+@property (nonatomic,assign) NSInteger handUpState;
+/**
+ 勿擾模式获取  0=>  无效 1=>  勿擾模式修改
+ Get Do Not Disturb Mode 0=> Invalid 1=> Modify Do Not Disturb Mode
+*/
+@property (nonatomic,assign) NSInteger noDisturbState;
+/**
+ 手机音量下调  0=>  无效 1=>  手机音量下调修改
+ Phone volume down 0=> invalid 1=> phone volume down to modify
+*/
+@property (nonatomic,assign) NSInteger volumeDownState;
+/**
+ 固件错误码返回
+ 01: ACC  加速度、02: PPG  心率 、03: TP   触摸 、04: FLASH 、05: 过热（PPG）、06: 气压 、07: GPS、08: 地磁
+ 01: ACC acceleration, 02: PPG heart rate, 03: TP touch, 04: FLASH, 05: overheating (PPG), 06: air pressure, 07: GPS, 08: geomagnetism
+ */
+@property (nonatomic,assign) NSInteger errorIndex;
 
 @end
 
@@ -204,9 +301,10 @@ Last charging time second
 @property (nonatomic,assign) NSInteger matchVersion;
 /**
  字库校验码
- check code
+ check code 
  */
 @property (nonatomic,assign) NSInteger checkCode;
+
 @end
 
 #pragma mark ==== 获取错误日志记录 model ====

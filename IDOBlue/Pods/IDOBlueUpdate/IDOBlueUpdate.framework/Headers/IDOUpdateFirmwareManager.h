@@ -89,10 +89,18 @@
 /**
  * @brief 传入文件传输的名称 只适合 Apollo
  * 固件升级名称: @".fw" 图片资源名称: @".fzbin" 字库名称:@".bin"
+ * firmware upgrade name :@".fw" Image resource name :@".fzbin" font name :@".bin"
  * @param manager 升级管理中心对象 | Upgrade Management Center Objects
  * @return 文件传输名称 | file transfer type
  */
 - (NSString * _Nullable)fileTranNameUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager;
+
+/**
+ * @brief 返设置传输文件包文个数 只适合 Apollo
+ * @param manager 升级管理中心对象 | Upgrade Management Center Objects
+ * @return 传输文件包文个数 |  number of transfer file packet
+ */
+- (NSInteger)setTransferNumberPacketsUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager;
 
 @end
 

@@ -235,7 +235,9 @@
               [funcVc showToastWithText:lang(@"device unbind")];
               [strongSelf bindDevice];
            }else if(errorCode == 6){ //设备不支持
-              [strongSelf bindDevice];
+//              [strongSelf bindDevice];
+               [IDOFoundationCommand swithOrdinaryDeviceComplete];
+               [funcVc showToastWithText:lang(@"bind success")];
            }else { //失败
               [funcVc showToastWithText:lang(@"device switch failed")];
            }

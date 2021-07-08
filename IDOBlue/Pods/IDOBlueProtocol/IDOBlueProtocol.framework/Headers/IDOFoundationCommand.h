@@ -33,6 +33,11 @@
 + (void)disOta;
 
 /**
+ 协议库强制解绑状态 | mandatory unbind device
+ */
++ (void)mandatoryUnbind;
+
+/**
  断开发送通知 | Disconnect notification
  */
 + (void)disConnect;
@@ -49,7 +54,8 @@
 
 /**
  * 删除手环日志 ｜ clear device log
- * type: 0x01 = > 删除过热日志
+ * type: 0x01 : 删除过热日志  0x02：电池日志,重启日志
+ * state: 0x00成功, 0x01失败
  */
 + (void)clearLogCommandWithType:(int)type
                        callback:(void(^_Nullable)(int errorCode,int state))callback;
@@ -137,6 +143,13 @@
 + (BOOL)unbindCorrespondDeviceWithMacAddr:(NSString *_Nullable)macAddr;
 
 /**
+ * @brief 在断链的情况下解绑所有设备
+ * disconnect unbind all devices
+ * @return YES or NO
+ */
++ (BOOL)disConnectUnbindAllDevices;
+
+/**
  * @brief 在断链的情况下，解除当前设备的绑定。这种方法只适合绑定一个设备，而不适合同时绑定多个设备
  * In the case of broken chain, unbind the current device. This method is suitable for binding only one device,
  * but not for binding multiple devices at the same time
@@ -165,11 +178,17 @@
 + (void)switchDeviceDetectionEncryptionAuthCallback:(void(^_Nullable)(int errorCode))callback;
 
 /**
+ * @brief 普通非鉴权设备切换完成后执行
+ * Execute after the switching of ordinary non-authentication equipment is completed
+ */
++ (void)swithOrdinaryDeviceComplete;
+
+/**
  * @brief 设备强制解绑,设备连接时,双方解绑,设备断开时,app单方解绑 | Device forced unbundling
  * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Post-execution callback (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
-+ (void)mandatoryUnbindingCommand:(void(^_Nullable)(int errorCode))callback;
++ (void)mandatoryUnbindingCommand:(void(^_Nullable)(int errorCode,NSString * _Nullable undindMacAddr))callback;
 
 /**
  * @brief 设备配置复位 | Device Configuration Reset
@@ -223,17 +242,11 @@
 /**
  * @brief 语音控制开启指定活动 | Voice control turns on the specified activity
  * @param sportType 运动类型 | sport type
- * 0:无，1:走路，2:跑步，3:骑行，4:徒步，5:游泳，6:爬山，7:羽毛球，8:其他，
- * 9:健身，10:动感单车，11:椭圆机，12:跑步机，13:仰卧起坐，14:俯卧撑，15:哑铃，16:举重，
- * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
- * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，48:户外跑步，49:室内跑步，50:户外骑行，51:室内骑行，
- * 52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
- * 0: none, 1: walk, 2: run, 3: ride, 4: hike, 5: swim, 6: climb, 7: badminton, 8: others,
- * 9: fitness, 10: spinning, 11: elliptical, 12: treadmill, 13: sit-ups, 14: push-ups, 15: dumbbells, 16: weightlifting,
- * 17: aerobics, 18: yoga, 19: jump rope, 20: table tennis, 21: basketball, 22: football, 23: volleyball, 24: tennis,
- * 25: golf, 26: baseball, 27: skiing, 28: roller skating, 29: dancing，48: outdoor running, 49: indoor running, 50: outdoor cycling, 51: indoor cycling,
- * 52: outdoor walking, 53: indoor walking, 54: pool swimming, 55: open water swimming, 56: elliptical machine, 57: rowing machine,
- * 58: high-intensity interval training 75:cricket
+ * 0:跳转运动界面列表，1:户外跑步，2:室内跑步，3:户外走路，4:室内走路，5:徒步，6:户外骑行，7:室内骑行，8:板球，
+ * 9:泳池游泳，10:开放水域游泳，11:瑜伽，12:划船机，13:椭圆机，14:其他运动
+ * 0: Jump Sports Interface List, 1: Outdoor Running, 2: Indoor Running, 3: Outdoor Walking, 4: Indoor Walking, 5: Hiking,
+ * 6: Outdoor Riding, 7: Indoor Riding, 8: Cricket,9: pool swimming, 10: open water swimming, 11: yoga, 12: rowing machine,
+ * 13: elliptical machine, 14: other sports
  * @param callback 执行回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Execute callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
 */
@@ -287,10 +300,14 @@
 /**
  * @brief 语音控制跳转秒表界面 | Voice control jump stop watch interface
  * @param delayTime 延时 | delay time
+ * @param index 最多支持3个秒表 秒钟索引 0、1、2
+ * @param operate  0:增加  1:删除秒表  2:取消所有的秒表
  * @param callback 执行回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Execute callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
 */
 + (void)voiceControlToStopWatchDelay:(NSInteger)delayTime
+                               index:(NSInteger)index
+                             operate:(NSInteger)operate
                             callback:(void(^_Nullable)(int errorCode))callback;
 
 /**
@@ -373,6 +390,46 @@
 + (void)voiceControlToNotifyCommand:(void(^_Nullable)(int errorCode))callback;
 
 /**
+ * @brief 语音控制跳转UI 界面 | Voice control jump UI interface
+ * @param type  UI跳转类型
+ * 0:健康数据页,1:睡眠页面,2:心率检测,3:压力检测,4:血氧检测,5:打开帮助二维码界面,6:音乐控制,7:转至消息列表,8:查找手机
+ * 9:运动记录页面,10:呼吸页面,11:设置页面,12:手电筒,13:查看所有已设置的闹钟,14:打开亮度设置界面,15:打开消息详情
+ * 0: health data page,1: sleep page,2: heart rate detection,3: stress detection,4: blood oxygen detection,5: open the QR code interface,
+ * 6: music control,7: go to the message list,8: search for mobile phone
+ * 9: Motion record page,10: Breathing page,11: Setting page,12: Flashlight,13: View all the alarm clocks that have been set,
+ * 14: Open the brightness setting interface,15: Open the message details
+ * @param callback 执行回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Execute callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)voiceControlUiJumpWithType:(NSInteger)type
+                          callback:(void(^_Nullable)(int errorCode))callback;
+
+/**
+ * @brief 简单的控制命令 | Voice control jump alarm interface
+ * @param uiType  UI类型 1:亮度控制 2:勿扰控制 | UI Type 1: Brightness Control 2: Do Not Disturb Control
+ * @param operationType  亮度控制: 0:亮度控制界面 亮度++ 1:亮度控制界面 亮度-- 2:亮度调节最大 3:亮度调节最小 4:亮度等级
+ * 勿扰控制:0:勿扰控制开启 1:勿扰控制关闭
+ * @param cmdNumber  0:无效设置 亮度等级 1 ~ 5
+ * Brightness control: 0: brightness control interface brightness ++ 1: brightness control interface brightness --
+ * 2: brightness adjustment maximum 3: brightness adjustment minimum 4:brightness level
+ * Do not disturb control : 0: Do not disturb control on 1: Do not disturb control off
+ * @param callback 执行回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Execute callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+*/
++ (void)voiceControlUiType:(NSInteger)uiType
+             operationType:(NSInteger)operationType
+                 cmdNumber:(NSInteger)cmdNumber
+                  callback:(void(^_Nullable)(int errorCode))callback;
+/**
+ * @brief 语音控制设置天气 | Voice control set weather data
+ * @param weatherModel 天气 model (IDOSetALexaWeatherDataModel) | weather model (IDOSetALexaWeatherDataModel)
+ * @param callback 执行回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Execute callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+*/
++ (void)voiceControlWeatherData:(IDOSetALexaWeatherDataModel *_Nullable)weatherModel
+                       callback:(void(^_Nullable)(int errorCode))callback;
+
+/**
  * @brief 语音控制跳转闹钟界面 | Voice control jump alarm interface
  * @param alarmModel 闹钟 model (IDOSetVoiceV3AlarmInfoModel) | alarm model (IDOSetVoiceV3AlarmInfoModel)
  * @param callback 执行回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
@@ -411,6 +468,28 @@
                              titleText:(NSString *_Nullable)titleText
                           flagContinue:(BOOL)flagContinue
                               callback:(void(^_Nullable)(int errorCode))callback;
+/**
+ * @brief 语音控制运动类型开关
+ * @param isOn  是否开启
+ * @param type  UI跳转类型
+ *  0    无效 1    sport/exercise(跳到运动列表) 2    Outdoor Run（户外跑步） 3    Indoor run（室内跑步）4    Outdoor walk（户外步行）5    Indoor walk（室内步行）
+ 6    Hiking（徒步）7    Outdoor cycle（户外骑行）8    Indoor cycle（室内骑行） 9    Cricket（板球）10   Pool Swim（泳池游泳）11   Open water swim（开放式游泳）
+ 12   Yoga（瑜伽） 13   Rower（划船机）14   Elliptical（椭圆机）15   workout（健身 ）16   step/steps/calories/calory(健康数据页) 17   sleep/slept(睡眠页面)
+ 18   stress/pressure(压力检测) 19   help(打开帮助二维码界面) 20   music(音乐控制) 21   (转至消息列表) 22   find phone (查找手机)
+ 23   workout history/exercise  record/athletic records(运动记录) 24   breath training/relax（呼吸页面）25   settings/Options（设置）26   flashlight（手电筒）
+ 27   (查看所有已设置的闹钟)28   display  setting/brightness（亮度设置）29   message/text  notifications(消息详情)
+ * @param callback 执行回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Execute callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)voiceSetOnOff:(BOOL)isOn
+          commandType:(NSInteger)type
+             callback:(void(^_Nullable)(int errorCode))callback;
+
+/**
+ * @brief 语音停止传输
+ * voice file tran stop
+ */
++ (void)voiceFileTranStop;
 
 #pragma mark ======= set Command =======
 
@@ -706,6 +785,16 @@
                      callback:(void (^ _Nullable)(int errorCode))callback;
 
 /**
+ * @brief 设置天气城市名称 | Set weather city name
+ * @param weatherDataModel 天气预报数据 model (IDOSetWeatherDataInfoBluetoothModel)
+ * Weather Forecast Data model (IDOSetWeatherDataInfoBluetoothModel)
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setWeatherCityCommand:(IDOSetWeatherDataInfoBluetoothModel *_Nullable)weatherDataModel
+                     callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
  * @brief 设置天气预报数据 (定制扩展功能数据不存储) | Set weather forecast data (Extend functionality)
  * @param weatherData 天气预报数据 @{@"today":weatherModel,@"city":@"",@"oneHourWeather":@[@{@"type":@(0),@"temp":@(0)}...]}
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
@@ -762,7 +851,7 @@
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
 + (void)setConnParamCommand:(IDOSetConnParamInfoBluetoothModel * _Nullable)connParamModel
-                   callback:(void (^ _Nullable)(int errorCode))callback;
+                   callback:(void (^ _Nullable)(int modeCode,int errorCode))callback;
 
 /**
  * @brief  设置热启动参数 | Setting hot start parameters
@@ -1168,6 +1257,13 @@
 + (void)getV3AlarmsInfoCommand:(void(^_Nullable)(int errorCode,IDOSetExtensionAlarmInfoBluetoothModel * _Nullable data))callback;
 
 /**
+ * @brief  获取alexa闹钟  | get alexa alarms info
+ * @param callback 执行后回调 data (IDOSetVoiceV3AlarmInfoModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOSetVoiceV3AlarmInfoModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+*/
++ (void)getAlexaAlarmsInfoCommand:(void(^_Nullable)(int errorCode,IDOSetVoiceV3AlarmInfoModel * _Nullable data))callback;
+
+/**
  * @brief  获取v3心率模式  | get v3 heart rate mode info
  * @param callback 执行后回调 data (IDOSetV3HeartRateModeBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * callback data (IDOSetV3HeartRateModeBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
@@ -1187,6 +1283,13 @@
  * callback data (IDOGetOverHeatLogModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
 */
 + (void)getOverHeatLogInfoCommand:(void(^_Nullable)(int errorCode,IDOGetOverHeatLogModel * _Nullable data))callback;
+
+/**
+ * @brief  获取电池日志  | get battery log
+ * @param callback 执行后回调 data (NSDictionary) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (NSDictionary) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+*/
++ (void)getBatteryLogInfoCommand:(void(^_Nullable)(int errorCode,NSDictionary * _Nullable data))callback;
 
 /**
  * @brief  获取屏幕亮度  | get screen brightness
@@ -1229,6 +1332,13 @@
  * callback data (IDOGetV3LangLibListModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
 */
 + (void)getV3LangLibListCommand:(void(^_Nullable)(int errorCode,IDOGetV3LangLibListModel * _Nullable data))callback;
+
+/**
+ * @brief  获取固件日志状态  | get device log state
+ * @param callback 执行后回调  state 日志状态: 0:没有日志产生，1:固件重启log (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback state 0:no log，1:firmware restart log (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+*/
++ (void)getDeviceLogStateCommand:(void (^ _Nullable)(int errorCode,NSInteger state))callback;
 
 /**
  * @brief  获取星星的数量,数据不作存储（锐捷） | Get number of stars （ruijie）
@@ -1433,7 +1543,7 @@
  * @param stateCallback 监听回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str,state:语音状态)
  * Listening stateCallback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr,data:voice state)
  * state : 0 =>空闲 1=> 开始 2=> 停止 3=>超时 4=>断线 5=>登录状态 6=>开始 7=>app发起开始失败 8=>停止状态 9=>app发起结束失败
- * 10 =>按钮退出到主界面
+ * 10 =>按钮退出到主界面 11=>固件修改alexa设置的闹钟
  * 0 => idle 1=> start 2=> stop 3=> timeout 4=> disconnect 5=> login status 6=> start status  7=>start failure 8=> stop status 9=>app stop
  * 10 => button to exit the main interface
  * @param completeCallback 监听回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str,data:语音文件数据)

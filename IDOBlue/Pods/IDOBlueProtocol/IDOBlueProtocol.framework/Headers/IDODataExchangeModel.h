@@ -237,13 +237,20 @@
  */
 @property (nonatomic,copy) NSArray<NSNumber *> * hrValues;
 /**
- 信号强弱  0: 表示信号弱， 1: 表示信号强 | Signal strength 0: means signal is weak, 1: means signal is strong
+ * 信号强弱  0: 表示信号弱， 1: 表示信号强
+ * Signal strength 0: means signal is weak, 1: means signal is strong
  */
 @property (nonatomic,assign) NSInteger signalFlag;
 /**
- app计算显示实时配速 单位km/h，100倍 | App calculates and displays real-time speed per km/h, 100 times
+ * app计算显示实时速度 单位km/h 100倍 15秒一个记录
+ * App calculates and displays real-time speed km/h 100 times
  */
 @property (nonatomic,assign) NSInteger realTimeSpeed;
+/**
+ * app计算显示实时配速 单位 s
+ * App calculates and displays real-time pace unit second
+ */
+@property (nonatomic,assign) NSInteger realTimePace;
 /**
  * 0x00 : 混合泳; 0x01 : 自由泳; 0x02 : 蛙泳; 0x03 : 仰泳; 0x04 : 蝶泳;
  * 0x00: medley; 0x01: freestyle; 0x02: breaststroke; 0x03: backstroke; 0x04: butterfly stroke;

@@ -58,7 +58,7 @@ extern NSString * _Nonnull IDOBluetoothSyncHealthNotifyName;
 /*
  是否输出蓝牙协议运行日志 | Whether to output the Bluetooth protocol running log
  */
-@property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^outputProtocolLog)(BOOL isOutput);
+@property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^outputProtocolLog)(BOOL isOutput,BOOL isRecord);
 
 /*
  是否记录原始数据日志 | Whether to log raw data

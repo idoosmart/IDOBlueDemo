@@ -136,6 +136,7 @@ error flag
  */
 + (BOOL)deleteAllOverHeatLog;
 
+
 @end
 
 
@@ -161,6 +162,11 @@ error flag
  9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
 */
 @property (nonatomic,strong) NSArray<NSNumber *> * itemList;
+
+/**
+ 设备当前显示列表个数
+ */
+@property (nonatomic,assign) NSInteger currentShowNum;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -226,6 +232,17 @@ error flag
 
 /**
  运动类型值集合,集合排序就是运动类型排序 | set of motion type values, and set sort is motion type sort
+ * 0:无，1:走路，2:跑步，3:骑行，4:徒步，5:游泳，6:爬山，7:羽毛球，8:其他，
+ * 9:健身，10:动感单车，11:椭圆机，12:跑步机，13:仰卧起坐，14:俯卧撑，15:哑铃，16:举重，
+ * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
+ * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，48:户外跑步，49:室内跑步，50:户外骑行，51:室内骑行，
+ * 52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
+ * 0: none, 1: walk, 2: run, 3: ride, 4: hike, 5: swim, 6: climb, 7: badminton, 8: others,
+ * 9: fitness, 10: spinning, 11: elliptical, 12: treadmill, 13: sit-ups, 14: push-ups, 15: dumbbells, 16: weightlifting,
+ * 17: aerobics, 18: yoga, 19: jump rope, 20: table tennis, 21: basketball, 22: football, 23: volleyball, 24: tennis,
+ * 25: golf, 26: baseball, 27: skiing, 28: roller skating, 29: dancing，48: outdoor running, 49: indoor running, 50: outdoor cycling, 51: indoor cycling,
+ * 52: outdoor walking, 53: indoor walking, 54: pool swimming, 55: open water swimming, 56: elliptical machine, 57: rowing machine, 58: high-intensity interval training
+ * 75:cricket
  */
 @property (nonatomic,strong) NSArray * sportTypes;
 
@@ -535,6 +552,174 @@ error flag
 
 @end
 
+#pragma mark ==== 获取第37个功能表model ====
+@interface IDOGetFuncTable37BluetoothModel : IDOBluetoothBaseModel
+/**
+ 设置单位的增加骑行的单位设置
+ */
+@property (nonatomic,assign) BOOL supportCyclingUnit;
+
+/**
+ 设置单位的增加步行跑步的单位设置
+ */
+@property (nonatomic,assign) BOOL supportWalkRunUnit;
+
+/**
+ 设置目标增加中高运动时长
+ */
+@property (nonatomic,assign) BOOL midHighTimeGoal;
+
+/**
+ 设置走动提醒中的目标时间
+ */
+@property (nonatomic,assign) BOOL walkReminderTimeGoal;
+
+/**
+ v3的运动数据数据交换增加实时的配速字段
+ */
+@property (nonatomic,assign) BOOL exchangeDataRealTimePace;
+
+/**
+ 设置支持系统配对，每次连接的时候app不清除配对设备
+ */
+@property (nonatomic,assign) BOOL supportPairEachConnect;
+
+/**
+ 支持app下发压缩的sbc语言文件给ble
+ */
+@property (nonatomic,assign) BOOL supportAppSendVoiceToBle;
+
+/**
+ 设置血氧过低阈值
+ */
+@property (nonatomic,assign) BOOL setSpo2LowValue;
+
+/**
+ 支持app设置全天的血氧开关数据
+ */
+@property (nonatomic,assign) BOOL spo2AllDayOnOff;
+
+/**
+ 支持app设置智能心率
+ */
+@property (nonatomic,assign) BOOL smartHeartRate;
+
+/**
+ alexa语音提醒增加对应的s钟传输字段
+ */
+@property (nonatomic,assign) BOOL alexaReminderAddSecond;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable37BluetoothModel
+ */
++ (IDOGetFuncTable37BluetoothModel *)currentModel;
+
+@end
+
+#pragma mark ==== 获取第36个功能表model ====
+
+@interface IDOGetFuncTable36BluetoothModel : IDOBluetoothBaseModel
+/**
+ Alexa 设置天气
+ scientific sleep
+ */
+@property (nonatomic,assign) BOOL alexaSetWeather;
+
+/**
+ alexa 跳转运动界面
+ Alexa jump sport UI
+ */
+@property (nonatomic,assign) BOOL alexaJumpSportUi;
+
+/**
+ alexa 跳转界面
+ Alexa jump UI
+ */
+@property (nonatomic,assign) BOOL alexaJumpUi;
+
+/**
+ alexa 简单操作
+ scientific sleep
+ */
+@property (nonatomic,assign) BOOL alexaEasyOperate;
+
+/**
+ alexa 获取闹钟
+ alexa get alarm
+ */
+@property (nonatomic,assign) BOOL alexaGetAlarm;
+
+/**
+ alexa app设置开关命令
+ alexa set on off
+ */
+@property (nonatomic,assign) BOOL alexaSetOnOff;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable36BluetoothModel
+ */
++ (IDOGetFuncTable36BluetoothModel *)currentModel;
+
+@end
+
+#pragma mark ==== 获取第35个功能表model ====
+
+@interface IDOGetFuncTable35BluetoothModel : IDOBluetoothBaseModel
+/**
+ 支持科学睡眠
+ scientific sleep
+ */
+@property (nonatomic,assign) BOOL scientificSleep;
+
+/**
+ 支持获取电池日志
+ get battery log
+ */
+@property (nonatomic,assign) BOOL getBatteryLog;
+
+/**
+ 支持获取表盘列表的接口
+ get new watch list
+ */
+@property (nonatomic,assign) BOOL getNewWatchList;
+
+/**
+ 支持多个定时器
+ Multiple timers
+ */
+@property (nonatomic,assign) BOOL multipleTimers;
+
+/**
+ 获取设备列表
+ get menu list
+ */
+@property (nonatomic,assign) BOOL getMenuList;
+
+/**
+ v3健康数据同步，半个小时自动同步
+ auto sync v3 health data
+ */
+@property (nonatomic,assign) BOOL autoSyncV3HealthData;
+
+/**
+ app获取重启日志错误码和标志位
+ get device log state
+ */
+@property (nonatomic,assign) BOOL getDeviceLogState;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable35BluetoothModel
+ */
++ (IDOGetFuncTable35BluetoothModel *)currentModel;
+
+@end
+
 #pragma mark ==== 获取第34个功能表model ====
 
 @interface IDOGetFuncTable34BluetoothModel : IDOBluetoothBaseModel
@@ -561,6 +746,44 @@ error flag
  配置了这个，app的UI心率过高告警不显示，固件对应设置心率过高告警的不起作用
  */
 @property (nonatomic,assign) BOOL notSupportHrHighAlarm;
+
+/**
+ BIT1 k6项目不需要对应的壁纸表盘，veryFit默认的都是支持的，新加一个不支持的功能表，不需要的配置这个
+ no support photo wallpaper
+ */
+@property (nonatomic,assign) BOOL notSupportPhotoWallpaper;
+
+/**
+ 设置单位的增加卡路里设置
+ */
+@property (nonatomic,assign) BOOL supportCalorieUnit;
+
+/**
+ 设置单位的增加泳池的单位设置
+ */
+@property (nonatomic,assign) BOOL supportSwimPoolUnit;
+
+/**
+ app端用V3的获取运动排序协议中的最大最少默认字段，
+ gt01以前app都没有用到最大最少默认字段，适配k6项目需要配置对应的数据字段，添加功能表兼容
+ */
+@property (nonatomic,assign) BOOL v3GetSportSortField;
+
+/**
+ 获取alexa的默认语言
+ */
+@property (nonatomic,assign) BOOL getAlexaDefaultLanguage;
+
+/**
+ v3壁纸表盘颜色设置
+ */
+@property (nonatomic,assign) BOOL setWallpaperColor;
+
+/**
+ 获取每个小时的佩戴标志位，在当天的运动数据同步中获取
+ */
+@property (nonatomic,assign) BOOL supportWearFlag;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -613,6 +836,18 @@ error flag
  * jio tv
 */
 @property (nonatomic,assign) BOOL jioTv;
+/**
+ Microsoft
+ */
+@property (nonatomic,assign) BOOL microsoft;
+/**
+ whatsapp Business
+ */
+@property (nonatomic,assign) BOOL whatsappBusiness;
+/**
+ nioseFit
+ */
+@property (nonatomic,assign) BOOL nioseFit;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1858,6 +2093,21 @@ error flag
 @property (nonatomic,assign) BOOL callingNum;
 
 /**
+ 设置单位支持华氏度 | support fahrenheit
+ */
+@property (nonatomic,assign) BOOL supportFahrenheit;
+
+/**
+ V3功能表 | v3 function table
+ */
+@property (nonatomic,assign) BOOL v3FunctionTable;
+
+/**
+ 支持app设置屏幕亮度显示间隔 | set screen bright interval
+ */
+@property (nonatomic,assign) BOOL screenBrightInterval;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable7BluetoothModel
@@ -2348,6 +2598,21 @@ error flag
 @property (nonatomic,strong) IDOGetFuncTable34BluetoothModel      * funcTable34Model;
 
 /**
+ 35功能列表 scientific sleep | 35 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable35BluetoothModel      * funcTable35Model;
+
+/**
+ 36功能列表 alexa control | 36 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable36BluetoothModel      * funcTable36Model;
+
+/**
+ 37功能列表 unit goal | 37 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable37BluetoothModel      * funcTable37Model;
+
+/**
  是否支持版本信息 | version information is supported
  */
 @property (nonatomic,assign) BOOL versionInfo;
@@ -2436,7 +2701,7 @@ error flag
 
 /**
  * 手环的平台 | platform for bracelet
- * 0:nordic, 10:realtek 8762x ,20:cypress psoc6,30:Apollo3
+ * 0:nordic, 10:realtek 8762x ,20:cypress psoc6,30:Apollo3,40:汇顶
  */
 @property (nonatomic,assign) NSInteger platform;
 
@@ -2463,6 +2728,24 @@ error flag
  * device shape type 0: Invalid; 1:Watch ; 2: Bracelet
  */
 @property (nonatomic,assign) NSInteger deviceType;
+
+/**
+ * 自定义表盘主版本 从1开始 0:不支持对应的自定义表盘功能
+ * dial main version
+ */
+@property (nonatomic,assign) NSInteger dialMainVersion;
+
+/**
+ * 自定义表盘子版本 从0开始 主版本号如果是0，子版本无效
+ * dial sub version
+ */
+@property (nonatomic,assign) NSInteger dialSubVersion;
+
+/**
+ * 固件绑定时候显示勾ui界面 0:不需要 1:需要
+ * show bind choice UI
+ */
+@property (nonatomic,assign) NSInteger showBindChoiceUi;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

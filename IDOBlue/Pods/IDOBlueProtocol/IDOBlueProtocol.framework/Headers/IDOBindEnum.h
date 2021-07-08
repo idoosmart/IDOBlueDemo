@@ -50,6 +50,12 @@ typedef NS_ENUM(NSInteger, IDO_BIND_STATUS) {
      */
     IDO_BLUETOOTH_REFUSED_BINDED,
     
+    /**
+     * 绑定错误设备
+     * Binding the wrong device
+     */
+    IDO_BLUETOOTH_WORNG_DEVICE
+    
 };
 
 #endif /* IDOBindEnum_h */
