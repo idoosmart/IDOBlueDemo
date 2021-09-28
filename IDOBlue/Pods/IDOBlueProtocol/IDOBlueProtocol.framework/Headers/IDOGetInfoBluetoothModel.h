@@ -11,6 +11,151 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ==== 获取消息通知包名信息 ====
+@interface IDOGetAppPackNameListItemModel:IDOBluetoothBaseModel
+/**
+ * 每个包名给一个id，累加，后续用来拿增量数据，由0开始
+ */
+@property (nonatomic,assign) NSInteger itemId;
+/**
+ *  需要更新图标数据 0：不需要更新 1：更新
+ */
+@property (nonatomic,assign) NSInteger needSyncIcon;
+/**
+ *  该条消息收到次数 ios
+ */
+@property (nonatomic,assign) NSInteger msgCout;
+/**
+ *  事件类型;参考 通消息通知
+ */
+@property (nonatomic,assign) NSInteger evtType;
+/**
+ *  包名长度
+ */
+@property (nonatomic,assign) NSInteger packNameLen;
+/**
+ * 应用包名
+ */
+@property (nonatomic,copy) NSString * packName;
+/**
+ 应用名称
+ */
+@property (nonatomic,copy) NSString * appName;
+/**
+ icon 云端地址
+ */
+@property (nonatomic,copy) NSString *imageCloudPath;
+/**
+ icon本地地址
+ */
+@property (nonatomic,copy) NSString * imageLocalPath;
+/**
+ icon 大图标地址
+ */
+@property (nonatomic,copy) NSString * imageLocalPath100;
+/**
+ 是否下载APP信息
+ */
+@property (nonatomic,assign) BOOL isDownloadAppInfo;
+/**
+ 是否更新应用名称
+ */
+@property (nonatomic,assign) BOOL isUpdateAppName;
+/**
+ 是否更新应用图标
+ */
+@property (nonatomic,assign) BOOL isUpdateAppIcon;
+/**
+ 国家编码
+ */
+@property (nonatomic,copy) NSString * countryCode;
+
+@end
+
+@interface IDOGetAppPackNameModel:IDOBluetoothBaseModel
+/**
+ * 版本
+ */
+@property (nonatomic,assign) NSInteger infoVersion;
+/**
+ * icon 宽度
+ */
+@property (nonatomic,assign) NSInteger iconWidth;
+/**
+ * icon 高度
+ */
+@property (nonatomic,assign) NSInteger iconHeight;
+/**
+ * 颜色格式
+ */
+@property (nonatomic,assign) NSInteger format;
+/**
+ * 压缩块大小
+ */
+@property (nonatomic,assign) NSInteger blockSize;
+/**
+ * 单次获取个数
+ */
+@property (nonatomic,assign) NSInteger itemNum;
+
+/**
+ *所有个数
+ */
+@property (nonatomic,assign) NSInteger allItemNum;
+
+/**
+ 包名集合
+ */
+@property (nonatomic,copy) NSArray<IDOGetAppPackNameListItemModel *> *items;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetHealthSwitchStateModel
+ */
++ (IDOGetAppPackNameModel *)currentModel;
+
+@end
+
+#pragma mark ==== 获取健康监测开关 model ====
+@interface IDOGetHealthSwitchStateModel : IDOBluetoothBaseModel
+/**
+ 连续测量心率开关
+ */
+@property (nonatomic,assign) BOOL heartMode;
+/**
+ 压力自动检测开关
+ */
+@property (nonatomic,assign) BOOL pressureMode;
+/**
+ 血氧自动检测开关
+ */
+@property (nonatomic,assign) BOOL spo2Mode;
+/**
+ 科学睡眠开关
+ */
+@property (nonatomic,assign) BOOL scienceMode;
+/**
+ 夜间体温开关
+ */
+@property (nonatomic,assign) BOOL temperatureMode;
+/**
+ 噪声开关
+ */
+@property (nonatomic,assign) BOOL noiseMode;
+/**
+ 生理周期开关
+ */
+@property (nonatomic,assign) BOOL menstrualMode;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetHealthSwitchStateModel
+ */
++ (IDOGetHealthSwitchStateModel *)currentModel;
+
+@end
+
 #pragma mark ==== 获取v3设备字库列表 ====
 @interface IDOGetV3LangLibListModel : IDOBluetoothBaseModel
 /**
@@ -54,12 +199,12 @@
    已经支持语言 @[@{@"type":@(type),@"version":@(version)}...]
    lang support items
  */
-@property (nonatomic,strong) NSArray * langSupportItems;
+@property (nonatomic,copy) NSArray * langSupportItems;
 /**
    已经存储语言 @[@{@"type":@(type),@"version":@(version)}...]
    lang storage items
  */
-@property (nonatomic,strong) NSArray * langStorageItems;
+@property (nonatomic,copy) NSArray * langStorageItems;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -157,7 +302,8 @@ error flag
 /**
  菜单排序集合
  0 =>无效 1 =>步数 2 =>心率 3=> 睡眠 4=> 拍照 5=> 闹钟 6=> 音乐 7=> 秒表 8=> 计时器
- 9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面
+ 9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
+ 17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示
  0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
  9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
 */
@@ -237,6 +383,16 @@ error flag
  * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
  * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，48:户外跑步，49:室内跑步，50:户外骑行，51:室内骑行，
  * 52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
+ * 自由训练 : 100  功能性力量训练 : 101 核心训练  : 102 踏步机  : 103 整理放松 : 104
+ * 传统力量训练  : 110 普拉提 : 111 引体向上 : 112 平板支撑 :  113 开合跳 :  114 深蹲 : 115 高抬腿 : 116
+ * 拳击 : 117  杠铃 : 118 武术 : 119 太极 : 120 跆拳道 : 121  空手道 : 122  自由搏击 : 123  击剑 : 124
+ * 射箭 : 125 体操 : 126 单杠 : 127 双杠 : 128 漫步机 : 129 登山机 : 130
+ * 保龄球 : 131 台球 : 132 曲棍球 : 133 橄榄球 : 134 壁球 : 135 垒球 : 136 手球 : 137 毽球 : 138
+ * 沙滩足球 : 139 藤球 : 140 躲避球 : 141 广场舞 : 151街舞 : 152 芭蕾 : 153  社交舞 : 154 飞盘 : 155 飞镖 : 156
+ * 骑马 : 157 爬楼 : 158 放风筝 : 159 钓鱼 : 160 雪橇 : 161 雪车 : 162 单板滑雪 : 163 雪上运动 : 164 高山滑雪 : 165
+ * 越野滑雪 : 166 冰壶  : 167  冰球 : 168 冬季两项 : 169 冲浪 : 170  帆船 : 171 帆板 : 172 皮艇 : 173
+ * 摩托艇 : 174 划艇 : 175 赛艇 : 176 龙舟 : 177 水球 : 178 漂流 : 179 滑板 : 180 攀岩 : 181
+ * 蹦极 : 182 跑酷 : 183 BMX : 184
  * 0: none, 1: walk, 2: run, 3: ride, 4: hike, 5: swim, 6: climb, 7: badminton, 8: others,
  * 9: fitness, 10: spinning, 11: elliptical, 12: treadmill, 13: sit-ups, 14: push-ups, 15: dumbbells, 16: weightlifting,
  * 17: aerobics, 18: yoga, 19: jump rope, 20: table tennis, 21: basketball, 22: football, 23: volleyball, 24: tennis,
@@ -255,7 +411,7 @@ error flag
 
 @end
 
-#pragma mark ==== 获取版本信息model ====
+#pragma mark ==== 获取软硬件版本信息model ====
 @interface IDOGetVersionInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
@@ -293,6 +449,41 @@ error flag
  * PCB version number is x10, and 11 represents version 1.1
  */
 @property (nonatomic,assign) NSInteger pcbVersion;
+
+/**
+ 固件版本version1
+ */
+@property (nonatomic,assign) NSInteger firmwareVersion1;
+
+/**
+ 固件版本version2
+ */
+@property (nonatomic,assign) NSInteger firmwareVersion2;
+
+/**
+ 固件版本version3
+ */
+@property (nonatomic,assign) NSInteger firmwareVersion3;
+
+/**
+ BT版本生效标志位; 0：无效，1：说明固件有对应的BT固件
+ */
+@property (nonatomic,assign) NSInteger btFlag;
+
+/**
+ BT的版本version1
+ */
+@property (nonatomic,assign) NSInteger btVersion1;
+
+/**
+ BT的版本version2
+ */
+@property (nonatomic,assign) NSInteger btVersion2;
+
+/**
+ BT的版本version3
+ */
+@property (nonatomic,assign) NSInteger btVersion3;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -552,63 +743,183 @@ error flag
 
 @end
 
+#pragma mark ==== 获取第38个功能表model ====
+@interface IDOGetFuncTable38BluetoothModel : IDOBluetoothBaseModel
+/**
+ 走动提醒增加通知类型
+ */
+@property (nonatomic,assign) BOOL walkReminderAddNotify;
+/**
+ 支持健身指导开关下发
+ */
+@property (nonatomic,assign) BOOL setFitnessGuidance;
+/**
+ 支持联系人同步
+ */
+@property (nonatomic,assign) BOOL syncContact;
+/**
+ 支持天气推送增加日落日出时间
+ */
+@property (nonatomic,assign) BOOL setWeatherSunTime;
+/**
+ 支持V3天气
+ */
+@property (nonatomic,assign) BOOL setV3Weather;
+/**
+ 支持世界时间设置
+ */
+@property (nonatomic,assign) BOOL setV3WorldTime;
+/**
+ 消息提醒增加8国语言app名字新的协议
+ */
+@property (nonatomic,assign) BOOL setNotifyAddAppName;
+/**
+ 支持固件音乐传输
+ */
+@property (nonatomic,assign) BOOL transferMusicFile;
+/**
+ 支持运动模式识别开关获取
+ */
+@property (nonatomic,assign) BOOL getActivitySwitch;
+/**
+ 支持经期的历史数据下发
+ */
+@property (nonatomic,assign) BOOL historyMenstrual;
+/**
+ 获得固件三级版本和BT的三级版本
+ */
+@property (nonatomic,assign) BOOL bleAndBtVersion;
+/**
+ 音乐添加歌手名
+ */
+@property (nonatomic,assign) BOOL musicAddSingerName;
+/**
+ v2经期提醒设置 增加易孕期和结束时间设置
+ menstrual remind add pregnancy
+ */
+@property (nonatomic,assign) BOOL menstrualAddPregnancy;
+/**
+ alexa100种运动新增功能表
+ ui controll 100 sports
+ */
+@property (nonatomic,assign) BOOL alexaControll100sports;
+/**
+ 207a定制   走动实时提醒
+ */
+@property (nonatomic,assign) BOOL walkTimeReminder DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
+/**
+ 未读信息红点提示开关
+ set unread app reminder
+ */
+@property (nonatomic,assign) BOOL setUnreadAppReminder;
+/**
+ 100级亮度判断
+ set alexa operation 100brightness
+ */
+@property (nonatomic,assign) BOOL alexaControll100brightness;
+/**
+ 获取bt蓝牙地址（gt01）
+ get bt addr
+ */
+@property (nonatomic,assign) BOOL getBleMacAddr;
+/**
+ 通知应用状态设置
+ set notification status
+ */
+@property (nonatomic,assign) BOOL setNotificationStatus;
+/**
+ 同步V3的多运动增加新的参数
+ set notification status
+ */
+@property (nonatomic,assign) BOOL syncV3ActivityAddParam;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable37BluetoothModel
+ */
++ (IDOGetFuncTable38BluetoothModel *)currentModel;
+
+@end
+
 #pragma mark ==== 获取第37个功能表model ====
 @interface IDOGetFuncTable37BluetoothModel : IDOBluetoothBaseModel
 /**
  设置单位的增加骑行的单位设置
  */
 @property (nonatomic,assign) BOOL supportCyclingUnit;
-
 /**
  设置单位的增加步行跑步的单位设置
  */
 @property (nonatomic,assign) BOOL supportWalkRunUnit;
-
 /**
  设置目标增加中高运动时长
  */
 @property (nonatomic,assign) BOOL midHighTimeGoal;
-
 /**
  设置走动提醒中的目标时间
  */
 @property (nonatomic,assign) BOOL walkReminderTimeGoal;
-
 /**
  v3的运动数据数据交换增加实时的配速字段
  */
 @property (nonatomic,assign) BOOL exchangeDataRealTimePace;
-
 /**
  设置支持系统配对，每次连接的时候app不清除配对设备
  */
 @property (nonatomic,assign) BOOL supportPairEachConnect;
-
 /**
  支持app下发压缩的sbc语言文件给ble
  */
 @property (nonatomic,assign) BOOL supportAppSendVoiceToBle;
-
 /**
  设置血氧过低阈值
  */
 @property (nonatomic,assign) BOOL setSpo2LowValue;
-
 /**
  支持app设置全天的血氧开关数据
  */
 @property (nonatomic,assign) BOOL spo2AllDayOnOff;
-
 /**
  支持app设置智能心率
  */
 @property (nonatomic,assign) BOOL smartHeartRate;
-
 /**
  alexa语音提醒增加对应的s钟传输字段
  */
 @property (nonatomic,assign) BOOL alexaReminderAddSecond;
-
+/**
+ 同步噪音
+ */
+@property (nonatomic,assign) BOOL syncNoise;
+/**
+ 同步温度
+ */
+@property (nonatomic,assign) BOOL syncTemperature;
+/**
+ 100种运动数据排序
+ */
+@property (nonatomic,assign) BOOL set100SportSort;
+/**
+ 20种基础运动数据子参数排序
+ */
+@property (nonatomic,assign) BOOL set20SportParamSort;
+/**
+ 主界面ui控件排列
+ */
+@property (nonatomic,assign) BOOL setMainUiSort;
+/**
+ 日程提醒
+ */
+@property (nonatomic,assign) BOOL scheduleReminder;
+/**
+ 运动模式自动识别开关设置
+ */
+@property (nonatomic,assign) BOOL autoActivitySwitch;
+/**
+ 运动三环目标获取
+ */
+@property (nonatomic,assign) BOOL getCalorieDistanceGoal;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -626,37 +937,55 @@ error flag
  scientific sleep
  */
 @property (nonatomic,assign) BOOL alexaSetWeather;
-
 /**
  alexa 跳转运动界面
  Alexa jump sport UI
  */
 @property (nonatomic,assign) BOOL alexaJumpSportUi;
-
 /**
  alexa 跳转界面
  Alexa jump UI
  */
 @property (nonatomic,assign) BOOL alexaJumpUi;
-
 /**
  alexa 简单操作
  scientific sleep
  */
 @property (nonatomic,assign) BOOL alexaEasyOperate;
-
 /**
  alexa 获取闹钟
  alexa get alarm
  */
 @property (nonatomic,assign) BOOL alexaGetAlarm;
-
 /**
  alexa app设置开关命令
  alexa set on off
  */
 @property (nonatomic,assign) BOOL alexaSetOnOff;
-
+/**
+ 走动提醒目标获取
+ */
+@property (nonatomic,assign) BOOL getWalkReminder;
+/**
+ 音乐名称设置
+ */
+@property (nonatomic,assign) BOOL setMusicName;
+/**
+ 长包城市名称
+ */
+@property (nonatomic,assign) BOOL longCityName;
+/**
+ 算法的最大摄氧量
+ */
+@property (nonatomic,assign) BOOL maxBloodOxygen;
+/**
+ 支持系统拍照
+ */
+@property (nonatomic,assign) BOOL systemTakePictures;
+/**
+ 207a定制   走动实时提醒(c库功能表废弃了)
+ */
+@property (nonatomic,assign) BOOL walkTimeReminder;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -674,43 +1003,72 @@ error flag
  scientific sleep
  */
 @property (nonatomic,assign) BOOL scientificSleep;
-
 /**
  支持获取电池日志
  get battery log
  */
 @property (nonatomic,assign) BOOL getBatteryLog;
-
 /**
  支持获取表盘列表的接口
  get new watch list
  */
 @property (nonatomic,assign) BOOL getNewWatchList;
-
 /**
  支持多个定时器
  Multiple timers
  */
 @property (nonatomic,assign) BOOL multipleTimers;
-
 /**
  获取设备列表
  get menu list
  */
 @property (nonatomic,assign) BOOL getMenuList;
-
 /**
  v3健康数据同步，半个小时自动同步
  auto sync v3 health data
  */
 @property (nonatomic,assign) BOOL autoSyncV3HealthData;
-
 /**
  app获取重启日志错误码和标志位
  get device log state
  */
 @property (nonatomic,assign) BOOL getDeviceLogState;
-
+/**
+ 支持断点续传
+ */
+@property (nonatomic,assign) BOOL dataTranContinue;
+/**
+ 消息提醒图标自适应
+ */
+@property (nonatomic,assign) BOOL notifyIconAdaptive;
+/**
+ 科学睡眠开关
+ */
+@property (nonatomic,assign) BOOL setScientificSleepSwitch;
+/**
+ 压力开关增加通知类型和全天压力模式设置
+ */
+@property (nonatomic,assign) BOOL pressureNotifyFlagMode;
+/**
+ 血氧开关增加通知类型
+ */
+@property (nonatomic,assign) BOOL spo2NotifyFlag;
+/**
+ 血氧开关增加通知类型
+ */
+@property (nonatomic,assign) BOOL menstrualNotifyFlag;
+/**
+ 喝水开关增加通知类型
+ */
+@property (nonatomic,assign) BOOL drinkWaterNotifyFlag;
+/**
+ 获取所有的健康监测开关
+ */
+@property (nonatomic,assign) BOOL getHealthSwitchState;
+/**
+ 设置夜间体温开关
+ */
+@property (nonatomic,assign) BOOL setTemperatureSwitch;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -848,6 +1206,14 @@ error flag
  nioseFit
  */
 @property (nonatomic,assign) BOOL nioseFit;
+/**
+ 未接来电提醒 missed call
+ */
+@property (nonatomic,assign) BOOL missedCall;
+/**
+ 事项提醒的功能表
+ */
+@property (nonatomic,assign) BOOL mattersRemind;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1246,6 +1612,18 @@ error flag
  板球运动 | cricket
  */
 @property (nonatomic,assign) BOOL cricket;
+/**
+ 普拉提 | pilates
+ */
+@property (nonatomic,assign) BOOL pilates;
+/**
+ 户外玩耍(定制 kr01) | outdoor play
+ */
+@property (nonatomic,assign) BOOL outdoorPlay;
+/**
+ 其他运动(定制 kr01) | other activity
+ */
+@property (nonatomic,assign) BOOL otherActivity;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -2159,6 +2537,34 @@ error flag
 @property (nonatomic,assign) BOOL custom;
 
 /**
+ 吃饭 | dinner
+ */
+@property (nonatomic,assign) BOOL dinner;
+
+/**
+ 刷牙 | brush teeth
+ */
+@property (nonatomic,assign) BOOL brushTeeth;
+
+/**
+ 休息 | rest
+ */
+@property (nonatomic,assign) BOOL rest;
+
+/**
+ 课程 | course
+ */
+@property (nonatomic,assign) BOOL course;
+/**
+ 洗澡 | shower
+ */
+@property (nonatomic,assign) BOOL shower;
+/**
+ 学习 | learning
+ */
+@property (nonatomic,assign) BOOL learning;
+
+/**
  * @brief  查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable6BluetoothModel
@@ -2613,6 +3019,11 @@ error flag
 @property (nonatomic,strong) IDOGetFuncTable37BluetoothModel      * funcTable37Model;
 
 /**
+ 38功能列表 weather sun time | 38 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable38BluetoothModel      * funcTable38Model;
+
+/**
  是否支持版本信息 | version information is supported
  */
 @property (nonatomic,assign) BOOL versionInfo;
@@ -2748,6 +3159,11 @@ error flag
 @property (nonatomic,assign) NSInteger showBindChoiceUi;
 
 /**
+ * 主账号设备 :  1  子账号设备  :  2
+ */
+@property (nonatomic,assign) NSInteger masterDevice;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetDeviceInfoBluetoothModel
@@ -2774,6 +3190,10 @@ error flag
 + (IDOGetMacAddrInfoBluetoothModel *)currentModel;
 @end
 
+
 @interface IDOGetInfoBluetoothModel : IDOBluetoothBaseModel
 
 @end
+
+
+

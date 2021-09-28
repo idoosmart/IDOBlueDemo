@@ -18,6 +18,7 @@
 #import "ScanViewController.h"
 #import "FirmwareTypeViewModel.h"
 #import "OneLabelTableViewCell.h"
+#import "GetEncryptionCodeViewModel.h"
 
 @interface UpdateFirmwareViewModel()<IDOUpdateManagerDelegate>
 @property (nonatomic,copy) NSString * logStr;

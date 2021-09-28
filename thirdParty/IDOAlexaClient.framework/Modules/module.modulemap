@@ -1,0 +1,6 @@
+framework module IDOAlexaClient {
+  umbrella header "IDOAlexaClient.h"
+
+  export *
+  module * { export * }
+}

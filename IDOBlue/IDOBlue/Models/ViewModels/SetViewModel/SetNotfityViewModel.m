@@ -235,6 +235,36 @@
             }else {
                 isSupport = NO;
             }
+        }else if (switchCellModel.index == 32) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.microsoft) {
+                strongSelf.noticeModel.isOnMicrosoft = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 33) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.whatsappBusiness) {
+                strongSelf.noticeModel.isOnWhatsAppBusiness = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 34) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.nioseFit) {
+                strongSelf.noticeModel.isOnNioseFit = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 35) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.missedCall) {
+                strongSelf.noticeModel.isOnDidNotCall = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 36) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.mattersRemind) {
+                strongSelf.noticeModel.isOnMattersRemind = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
         }
         if (!isSupport){
             [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
@@ -253,6 +283,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:lang(@"set notice switch...")];
+        strongSelf.noticeModel.isOnDidNotCall = YES;
         [IDOFoundationCommand setSwitchNoticeCommand:strongSelf.noticeModel
                                             callback:^(BOOL isNeedDisconnect, int stateCode) {
             [funcVC showLoadingWithMessage:lang(@"set notice switch...")];
@@ -345,7 +376,8 @@
                        @[@(self.noticeModel.isOnVkontakte),@(self.noticeModel.isOnLine),@(self.noticeModel.isOnViber),@(self.noticeModel.isOnKakaoTalk),
                          @(self.noticeModel.isOnGmail),@(self.noticeModel.isOnOutlook),@(self.noticeModel.isOnSnapchat),@(self.noticeModel.isOnTelegram)],
                        @[@(self.noticeModel.isOnChatwork),@(self.noticeModel.isOnSlack),@(self.noticeModel.isOnYahooMail),@(self.noticeModel.isOnTumblr),
-                         @(self.noticeModel.isOnYoutube),@(self.noticeModel.isOnYahooPinterest)]];
+                         @(self.noticeModel.isOnYoutube),@(self.noticeModel.isOnYahooPinterest)],
+        @[@(self.noticeModel.isOnMicrosoft),@(self.noticeModel.isOnWhatsAppBusiness),@(self.noticeModel.isOnNioseFit),@(self.noticeModel.isOnDidNotCall),@(self.noticeModel.isOnMattersRemind)]];
     }
     return _dataArray;
 }

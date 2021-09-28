@@ -162,9 +162,17 @@
     [self getSortSportModes];
     int i = 0;
     for (NSDictionary * dic in self.selectSportModes) {
-        NSInteger type = [[dic valueForKey:@"type"] integerValue] - 1;
-        if(type > 28)type = type - 18;
-        NSString * sportName = self.pickerDataModel.sportSortTitleArray[type];
+        NSString * sportName = lang(@"other activity");
+        NSInteger type = [[dic valueForKey:@"type"] integerValue];
+        if (type > 192) {
+            if (type == 193) {
+                sportName = lang(@"outdoor play");
+            }
+        }else {
+            type = type - 1;
+            if(type > 28)type = type - 18;
+            sportName = self.pickerDataModel.sportSortTitleArray[type];
+        }
         LabelCellModel * model = [[LabelCellModel alloc]init];
         model.typeStr = @"oneLabel";
         model.data = @[sportName];
@@ -190,9 +198,17 @@
     
     i = 0;
     for (NSDictionary * dic in self.noSelectSportModes) {
-        NSInteger type = [[dic valueForKey:@"type"] integerValue] - 1;
-        if(type > 28)type = type - 18;
-        NSString * sportName = self.pickerDataModel.sportSortTitleArray[type];
+        NSString * sportName = lang(@"other activity");
+        NSInteger type = [[dic valueForKey:@"type"] integerValue];
+        if (type > 192) {
+            if (type == 193) {
+                sportName = lang(@"outdoor play");
+            }
+        }else {
+            type = type - 1;
+            if(type > 28)type = type - 18;
+            sportName = self.pickerDataModel.sportSortTitleArray[type];
+        }
         LabelCellModel * model = [[LabelCellModel alloc]init];
         model.typeStr = @"oneLabel";
         model.data = @[sportName];
@@ -225,6 +241,8 @@
                 [_allSportModes addObject:@{@"type":@(i),@"isSelected":@(0),@"index":@(0)}];
             }
         }
+        [_allSportModes addObject:@{@"type":@(193),@"isSelected":@(0),@"index":@(0)}];
+        [_allSportModes addObject:@{@"type":@(194),@"isSelected":@(0),@"index":@(0)}];
     }
     return _allSportModes;
 }

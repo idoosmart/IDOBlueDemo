@@ -124,6 +124,18 @@
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncBloodOxygen)(void(^ _Nullable bloodOxygenDataCallback)(NSString * _Nullable jsonStr));
 
 /**
+ * 同步健康噪音数据回调
+ * Synchronize healthy noise data callback
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncNoise)(void(^ _Nullable noiseDataCallback)(NSString * _Nullable jsonStr));
+
+/**
+ * 同步健康体温数据回调
+ * Synchronize healthy temperature data callback
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncTemperature)(void(^ _Nullable temperatureDataCallback)(NSString * _Nullable jsonStr));
+
+/**
  * 同步压力数据回调
  * Synchronize pressure data callback
  */
@@ -168,6 +180,11 @@ IDOSyncManager * _Nonnull initSyncManager(void);
  结束同步 | End sync
  */
 + (void)stopSync;
+
+/**
+ 暂停同步 | suspend sync
+ */
++ (void)suspendSync;
 
 /**
  * 删除当天数据回调

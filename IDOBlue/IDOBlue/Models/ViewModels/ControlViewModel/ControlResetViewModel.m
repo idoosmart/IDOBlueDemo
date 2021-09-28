@@ -32,7 +32,7 @@
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data = @[lang(@"setting factory reset")];
+    model1.data = @[lang(@"factory reset")];
     model1.cellHeight = 70.0f;
     model1.cellClass = [OneButtonTableViewCell class];
     model1.modelClass = [NSNull class];
@@ -47,14 +47,14 @@
 {
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:lang(@"setting factory reset...")];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"factory reset")]];
         [IDOFoundationCommand setRestoreFactoryCommand:^(int errorCode) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:lang(@"setting factory reset successfully")];
+                [funcVC showToastWithText:lang(@"factory reset successfully")];
             }else if (errorCode == 6) {
                 [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
-                [funcVC showToastWithText:lang(@"failed to setting factory reset")];
+                [funcVC showToastWithText:lang(@"factory reset failed")];
             }
         }];
     };

@@ -1,0 +1,1481 @@
+{
+  "skill": [
+    {
+      "type": "4",
+      "capability": [
+        {
+          "instance": "sport_list",
+          "sutype": "0",
+          "stopcmd": "0",
+          "friendlyNames": [
+            {
+              "text": "Exercise",
+              "locale": "en-AU"
+            },{
+              "text": "Exercise",
+              "locale": "en-CA"
+            },{
+              "text": "Exercise",
+              "locale": "en-GB"
+            },{
+              "text": "Exercise",
+              "locale": "en-IN"
+            },{
+              "text": "Exercise",
+              "locale": "en-US"
+            },{
+              "text": "Übung",
+              "locale": "de-DE"
+            },{
+              "text": "ejercicio",
+              "locale": "es-ES"
+            },{
+              "text": "ejercicio",
+              "locale": "es-MX"
+            },{
+              "text": "exercice",
+              "locale": "fr-CA"
+            },{
+              "text": "exercice",
+              "locale": "fr-FR"
+            },{
+              "text": "esercizio",
+              "locale": "it-IT"
+            },
+            {
+              "text": "Sport",
+              "locale": "en-AU"
+            },{
+              "text": "Sport",
+              "locale": "en-CA"
+            },{
+              "text": "Sport",
+              "locale": "en-GB"
+            },{
+              "text": "Sport",
+              "locale": "en-IN"
+            },{
+              "text": "Sport",
+              "locale": "en-US"
+            },{
+              "text": "sport",
+              "locale": "de-DE"
+            },{
+              "text": "deporte",
+              "locale": "es-ES"
+            },{
+              "text": "deporte",
+              "locale": "es-MX"
+            },{
+              "text": "sport",
+              "locale": "fr-CA"
+            },{
+              "text": "sport",
+              "locale": "fr-FR"
+            },{
+              "text": "sport",
+              "locale": "it-IT"
+            },{
+              "text": "スポーツ",
+              "locale": "ja-JP"
+            },{
+              "text": "sports mode list",
+              "locale": "en-AU"
+            },{
+              "text": "sports mode list",
+              "locale": "en-CA"
+            },{
+              "text": "sports mode list",
+              "locale": "en-GB"
+            },{
+              "text": "sports mode list",
+              "locale": "en-IN"
+            },{
+              "text": "sports mode list",
+              "locale": "en-US"
+            }
+          ]
+        },
+        {
+          "instance": "Outdoor_Run",
+          "sutype": "1",
+          "stopcmd": "1",
+          "friendlyNames": [
+            {
+              "text": "Outdoor run",
+              "locale": "en-AU"
+            },{
+              "text": "Outdoor run",
+              "locale": "en-CA"
+            },{
+              "text": "Outdoor run",
+              "locale": "en-GB"
+            },{
+              "text": "Outdoor run",
+              "locale": "en-IN"
+            },{
+              "text": "Outdoor run",
+              "locale": "en-US"
+            },{
+              "text": "Outdoor running",
+              "locale": "en-AU"
+            },{
+              "text": "Outdoor running",
+              "locale": "en-CA"
+            },{
+              "text": "Outdoor running",
+              "locale": "en-GB"
+            },{
+              "text": "Outdoor running",
+              "locale": "en-IN"
+            },{
+              "text": "Outdoor running",
+              "locale": "en-US"
+            },{
+              "text": "Laufen",
+              "locale": "de-DE"
+            },{
+              "text": "carrera en exteriores",
+              "locale": "es-ES"
+            },{
+              "text": "carrera en exteriores",
+              "locale": "es-MX"
+            },{
+              "text": "course en plein air",
+              "locale": "fr-CA"
+            },{
+              "text": "course en plein air",
+              "locale": "fr-FR"
+            },{
+              "text": "corsa all'aperto",
+              "locale": "it-IT"
+            },{
+              "text": "屋外ランニング",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "Indoor_run",
+          "sutype": "2",
+          "stopcmd": "2",
+          "friendlyNames": [
+            {
+              "text": "Indoor run",
+              "locale": "en-AU"
+            },{
+              "text": "Indoor run",
+              "locale": "en-CA"
+            },{
+              "text": "Indoor run",
+              "locale": "en-GB"
+            },{
+              "text": "Indoor run",
+              "locale": "en-IN"
+            },{
+              "text": "Indoor run",
+              "locale": "en-US"
+            },{
+              "text": "Indoor running",
+              "locale": "en-AU"
+            },{
+              "text": "Indoor running",
+              "locale": "en-CA"
+            },{
+              "text": "Indoor running",
+              "locale": "en-GB"
+            },{
+              "text": "Indoor running",
+              "locale": "en-IN"
+            },{
+              "text": "Indoor running",
+              "locale": "en-US"
+            },{
+              "text": "Laufband Laufen",
+              "locale": "de-DE"
+            },{
+              "text": "carrera en interiores",
+              "locale": "es-ES"
+            },{
+              "text": "carrera en interiores",
+              "locale": "es-MX"
+            },{
+              "text": "course en intérieur",
+              "locale": "fr-CA"
+            },{
+              "text": "course en intérieur",
+              "locale": "fr-FR"
+            },{
+              "text": "correre al coperto",
+              "locale": "it-IT"
+            },{
+              "text": "屋内ランニング",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "Outdoor_walk",
+          "sutype": "3",
+          "stopcmd": "3",
+          "friendlyNames": [
+            {
+              "text": "Outdoor walk",
+              "locale": "en-AU"
+            },{
+              "text": "Outdoor walk",
+              "locale": "en-CA"
+            },{
+              "text": "Outdoor walk",
+              "locale": "en-GB"
+            },{
+              "text": "Outdoor walk",
+              "locale": "en-IN"
+            },{
+              "text": "Outdoor walk",
+              "locale": "en-US"
+            },{
+              "text": "Outdoor walking",
+              "locale": "en-AU"
+            },{
+              "text": "Outdoor walking",
+              "locale": "en-CA"
+            },{
+              "text": "Outdoor walking",
+              "locale": "en-GB"
+            },{
+              "text": "Outdoor walking",
+              "locale": "en-IN"
+            },{
+              "text": "Outdoor walking",
+              "locale": "en-US"
+            },{
+              "text": "Gehen",
+              "locale": "de-DE"
+            },{
+              "text": "caminata en exteriores",
+              "locale": "es-ES"
+            },{
+              "text": "caminata en exteriores",
+              "locale": "es-MX"
+            },{
+              "text": "marcher à l'extérieur",
+              "locale": "fr-CA"
+            },{
+              "text": "marcher à l'extérieur",
+              "locale": "fr-FR"
+            },{
+              "text": "passeggiata all'aperto",
+              "locale": "it-IT"
+            },{
+              "text": "アウトドアウォーク",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "Indoor_walk",
+          "sutype": "4",
+          "stopcmd": "4",
+          "friendlyNames": [
+            {
+              "text": "Indoor walk",
+              "locale": "en-AU"
+            },{
+              "text": "Indoor walk",
+              "locale": "en-CA"
+            },{
+              "text": "Indoor walk",
+              "locale": "en-GB"
+            },{
+              "text": "Indoor walk",
+              "locale": "en-IN"
+            },{
+              "text": "Indoor walk",
+              "locale": "en-US"
+            }, {
+              "text": "Indoor walking",
+              "locale": "en-AU"
+            },{
+              "text": "Indoor walking",
+              "locale": "en-CA"
+            },{
+              "text": "Indoor walking",
+              "locale": "en-GB"
+            },{
+              "text": "Indoor walking",
+              "locale": "en-IN"
+            },{
+              "text": "Indoor walking",
+              "locale": "en-US"
+            },{
+              "text": "Laufband Gehen",
+              "locale": "de-DE"
+            },{
+              "text": "caminata en interiores",
+              "locale": "es-ES"
+            },{
+              "text": "caminata en interiores",
+              "locale": "es-MX"
+            },{
+              "text": "marche en intérieur",
+              "locale": "fr-CA"
+            },{
+              "text": "marche en intérieur",
+              "locale": "fr-FR"
+            },{
+              "text": "camminare al coperto",
+              "locale": "it-IT"
+            },{
+              "text": "インドアウォーク",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "Hiking",
+          "sutype": "5",
+          "stopcmd": "5",
+          "friendlyNames": [
+            {
+              "text": "Hiking",
+              "locale": "en-AU"
+            },{
+              "text": "Hiking",
+              "locale": "en-CA"
+            },{
+              "text": "Hiking",
+              "locale": "en-GB"
+            },{
+              "text": "Hiking",
+              "locale": "en-IN"
+            },{
+              "text": "Hiking",
+              "locale": "en-US"
+            },{
+              "text": "Wandern",
+              "locale": "de-DE"
+            },{
+              "text": "senderismo",
+              "locale": "es-ES"
+            },{
+              "text": "senderismo",
+              "locale": "es-MX"
+            },{
+              "text": "randonnée",
+              "locale": "fr-CA"
+            },{
+              "text": "randonnée",
+              "locale": "fr-FR"
+            },{
+              "text": "escursionismo",
+              "locale": "it-IT"
+            },{
+              "text": "ハイキング",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "Outdoor_cycling",
+          "sutype": "6",
+          "stopcmd": "6",
+          "friendlyNames": [
+            {
+              "text": "Outdoor cycling",
+              "locale": "en-AU"
+            },{
+              "text": "Outdoor cycling",
+              "locale": "en-CA"
+            },{
+              "text": "Outdoor cycling",
+              "locale": "en-GB"
+            },{
+              "text": "Outdoor cycling",
+              "locale": "en-IN"
+            },{
+              "text": "Outdoor cycling",
+              "locale": "en-US"
+            },{
+              "text": "Outdoor cycle",
+              "locale": "en-AU"
+            },{
+              "text": "Outdoor cycle",
+              "locale": "en-CA"
+            },{
+              "text": "Outdoor cycle",
+              "locale": "en-GB"
+            },{
+              "text": "Outdoor cycle",
+              "locale": "en-IN"
+            },{
+              "text": "Outdoor cycle",
+              "locale": "en-US"
+            },{
+              "text": "Radfahren",
+              "locale": "de-DE"
+            },{
+              "text": "ciclismo en exteriores",
+              "locale": "es-ES"
+            },{
+              "text": "ciclismo en exteriores",
+              "locale": "es-MX"
+            },{
+              "text": "cycle extérieur",
+              "locale": "fr-CA"
+            },{
+              "text": "cycle extérieur",
+              "locale": "fr-FR"
+            },{
+              "text": "bici all'aperto",
+              "locale": "it-IT"
+            },{
+              "text": "アウトドアサイクル",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "Indoor_cycling",
+          "sutype": "7",
+          "stopcmd": "7",
+          "friendlyNames": [
+            {
+              "text": "Indoor cycling",
+              "locale": "en-AU"
+            },{
+              "text": "Indoor cycling",
+              "locale": "en-CA"
+            },{
+              "text": "Indoor cycling",
+              "locale": "en-GB"
+            },{
+              "text": "Indoor cycling",
+              "locale": "en-IN"
+            },{
+              "text": "Indoor cycling",
+              "locale": "en-US"
+            },{
+              "text": "Indoor cycle",
+              "locale": "en-AU"
+            },{
+              "text": "Indoor cycle",
+              "locale": "en-CA"
+            },{
+              "text": "Indoor cycle",
+              "locale": "en-GB"
+            },{
+              "text": "Indoor cycle",
+              "locale": "en-IN"
+            },{
+              "text": "Indoor cycle",
+              "locale": "en-US"
+            },{
+              "text": "Heimtrainer",
+              "locale": "de-DE"
+            },{
+              "text": "ciclismo en interiores",
+              "locale": "es-ES"
+            },{
+              "text": "ciclismo en interiores",
+              "locale": "es-MX"
+            },{
+              "text": "vélo en salle",
+              "locale": "fr-CA"
+            },{
+              "text": "vélo en salle",
+              "locale": "fr-FR"
+            },{
+              "text": "bici al chiuso",
+              "locale": "it-IT"
+            },{
+              "text": "インドアサイクル",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "Cricket",
+          "sutype": "8",
+          "stopcmd": "8",
+          "friendlyNames": [
+            {
+              "text": "Cricket",
+              "locale": "en-AU"
+            },{
+              "text": "Cricket",
+              "locale": "en-CA"
+            },{
+              "text": "Cricket",
+              "locale": "en-GB"
+            },{
+              "text": "Cricket",
+              "locale": "en-IN"
+            },{
+              "text": "Cricket",
+              "locale": "en-US"
+            },{
+              "text": "Cricket",
+              "locale": "de-DE"
+            },{
+              "text": "cricket",
+              "locale": "es-ES"
+            },{
+              "text": "cricket",
+              "locale": "es-MX"
+            },{
+              "text": "cricket",
+              "locale": "fr-CA"
+            },{
+              "text": "cricket",
+              "locale": "fr-FR"
+            },{
+              "text": "cricket",
+              "locale": "it-IT"
+            },{
+              "text": "クリケット",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "Pool_Swiming",
+          "sutype": "9",
+          "stopcmd": "9",
+          "friendlyNames": [
+            {
+              "text": "Pool swimming",
+              "locale": "en-AU"
+            },{
+              "text": "Pool swimming",
+              "locale": "en-CA"
+            },{
+              "text": "Pool swimming",
+              "locale": "en-GB"
+            },{
+              "text": "Pool swimming",
+              "locale": "en-IN"
+            },{
+              "text": "Pool swimming",
+              "locale": "en-US"
+            },{
+              "text": "Pool swim",
+              "locale": "en-AU"
+            },{
+              "text": "Pool swim",
+              "locale": "en-CA"
+            },{
+              "text": "Pool swim",
+              "locale": "en-GB"
+            },{
+              "text": "Pool swim",
+              "locale": "en-IN"
+            },{
+              "text": "Pool swim",
+              "locale": "en-US"
+            },{
+              "text": "Schwimmen im Pool",
+              "locale": "de-DE"
+            },{
+              "text": "natación en piscina",
+              "locale": "es-ES"
+            },{
+              "text": "natación en piscina",
+              "locale": "es-MX"
+            },{
+              "text": "nager dans la piscine",
+              "locale": "fr-CA"
+            },{
+              "text": "nager dans la piscine",
+              "locale": "fr-FR"
+            },{
+              "text": "nuoto in piscina",
+              "locale": "it-IT"
+            },{
+              "text": "プールスイミング",
+              "locale": "ja-JP"
+            },{
+              "text": "ウールスイミング",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "outdoor_swimming",
+          "sutype": "10",
+          "stopcmd": "10",
+          "friendlyNames": [
+            {
+              "text": "outdoor swimming",
+              "locale": "en-AU"
+            },{
+              "text": "outdoor swimming",
+              "locale": "en-CA"
+            },{
+              "text": "outdoor swimming",
+              "locale": "en-GB"
+            },{
+              "text": "outdoor swimming",
+              "locale": "en-IN"
+            },{
+              "text": "outdoor swimming",
+              "locale": "en-US"
+            },{
+              "text": "outdoor swim",
+              "locale": "en-AU"
+            },{
+              "text": "outdoor swim",
+              "locale": "en-CA"
+            },{
+              "text": "outdoor swim",
+              "locale": "en-GB"
+            },{
+              "text": "outdoor swim",
+              "locale": "en-IN"
+            },{
+              "text": "outdoor swim",
+              "locale": "en-US"
+            },{
+              "text": "Offene Schwimmen",
+              "locale": "de-DE"
+            },{
+              "text": "natación en mar abierto",
+              "locale": "es-ES"
+            },{
+              "text": "natación en mar abierto",
+              "locale": "es-MX"
+            },{
+              "text": "natation libre",
+              "locale": "fr-CA"
+            },{
+              "text": "natation libre",
+              "locale": "fr-FR"
+            },{
+              "text": "nuoto in acque aperte",
+              "locale": "it-IT"
+            },{
+              "text": "オープンスイミング",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "Yoga",
+          "sutype": "11",
+          "stopcmd": "11",
+          "friendlyNames": [
+            {
+              "text": "Yogaa exercise",
+              "locale": "en-AU"
+            },{
+              "text": "Yogaa exercise",
+              "locale": "en-CA"
+            },{
+              "text": "Yogaa exercise",
+              "locale": "en-GB"
+            },{
+              "text": "Yogaa exercise",
+              "locale": "en-IN"
+            },{
+              "text": "Yogaa exercise",
+              "locale": "en-US"
+            },{
+              "text": "Yoga exercise",
+              "locale": "en-AU"
+            },{
+              "text": "Yoga exercise",
+              "locale": "en-CA"
+            },{
+              "text": "Yoga exercise",
+              "locale": "en-GB"
+            },{
+              "text": "Yoga exercise",
+              "locale": "en-IN"
+            },{
+              "text": "Yoga exercise",
+              "locale": "en-US"
+            },{
+              "text": "Yoga",
+              "locale": "en-AU"
+            },{
+              "text": "Yoga",
+              "locale": "en-CA"
+            },{
+              "text": "Yoga",
+              "locale": "en-GB"
+            },{
+              "text": "Yoga",
+              "locale": "en-IN"
+            },{
+              "text": "Yoga",
+              "locale": "en-US"
+            },{
+              "text": "Yoga Übung",
+              "locale": "de-DE"
+            },{
+              "text": "Ejercicio de yoga",
+              "locale": "es-ES"
+            },{
+              "text": "Ejercicio de yoga",
+              "locale": "es-MX"
+            },{
+              "text": "Exercice de yoga",
+              "locale": "fr-CA"
+            },{
+              "text": "Exercice de yoga",
+              "locale": "fr-FR"
+            },{
+              "text": "Esercizio di yoga",
+              "locale": "it-IT"
+            },{
+              "text": "ヨガの練習",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "rowing_mode",
+          "sutype": "12",
+          "stopcmd": "12",
+          "friendlyNames": [
+            {
+              "text": "Rowing mode",
+              "locale": "en-AU"
+            },{
+              "text": "Rowing mode",
+              "locale": "en-CA"
+            },{
+              "text": "Rowing mode",
+              "locale": "en-GB"
+            },{
+              "text": "Rowing mode",
+              "locale": "en-IN"
+            },{
+              "text": "Rowing mode",
+              "locale": "en-US"
+            },{
+              "text": "Rudergerät",
+              "locale": "de-DE"
+            },{
+              "text": "remo",
+              "locale": "es-ES"
+            },{
+              "text": "remo",
+              "locale": "es-MX"
+            },{
+              "text": "rameur",
+              "locale": "fr-CA"
+            },{
+              "text": "rameur",
+              "locale": "fr-FR"
+            },{
+              "text": "vogatore",
+              "locale": "it-IT"
+            },{
+              "text": "ローイング",
+              "locale": "ja-JP"
+            },{
+              "text": "ボーイング",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "Elliptical",
+          "sutype": "13",
+          "stopcmd": "13",
+          "friendlyNames": [
+            {
+              "text": "Elliptical trainer",
+              "locale": "en-AU"
+            },{
+              "text": "Elliptical trainer",
+              "locale": "en-CA"
+            },{
+              "text": "Elliptical trainer",
+              "locale": "en-GB"
+            },{
+              "text": "Elliptical trainer",
+              "locale": "en-IN"
+            },{
+              "text": "Elliptical trainer",
+              "locale": "en-US"
+            },{
+              "text": "Ellipsentrainer",
+              "locale": "de-DE"
+            },{
+              "text": "Entrenador elíptico",
+              "locale": "es-ES"
+            },{
+              "text": "Entrenador elíptico",
+              "locale": "es-MX"
+            },{
+              "text": "vélo elliptique",
+              "locale": "fr-CA"
+            },{
+              "text": "vélo elliptique",
+              "locale": "fr-FR"
+            },{
+              "text": "trainer ellittico",
+              "locale": "it-IT"
+            },{
+              "text": "クロストレーナー",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "workout",
+          "sutype": "14",
+          "stopcmd": "14",
+          "friendlyNames": [
+            {
+              "text": "Workout",
+              "locale": "en-AU"
+            },{
+              "text": "Workout",
+              "locale": "en-CA"
+            },{
+              "text": "Workout",
+              "locale": "en-GB"
+            },{
+              "text": "Workout",
+              "locale": "en-IN"
+            },{
+              "text": "Workout",
+              "locale": "en-US"
+            },{
+              "text": "Fitness",
+              "locale": "en-AU"
+            },{
+              "text": "Fitness",
+              "locale": "en-CA"
+            },{
+              "text": "Fitness",
+              "locale": "en-GB"
+            },{
+              "text": "Fitness",
+              "locale": "en-IN"
+            },{
+              "text": "Fitness",
+              "locale": "en-US"
+            },{
+              "text": "Training",
+              "locale": "de-DE"
+            },{
+              "text": "entrenamiento",
+              "locale": "es-ES"
+            },{
+              "text": "entrenamiento",
+              "locale": "es-MX"
+            },{
+              "text": "entraînement",
+              "locale": "fr-CA"
+            },{
+              "text": "entraînement",
+              "locale": "fr-FR"
+            },{
+              "text": "fitness",
+              "locale": "it-IT"
+            },{
+              "text": "フィットネス",
+              "locale": "ja-JP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "5",
+      "capability": [
+        {
+          "instance": "sleep_mode",
+          "sutype": "1",
+          "stopcmd": "15",
+          "friendlyNames": [
+            {
+              "text": "Sleep mode",
+              "locale": "en-AU"
+            },{
+              "text": "Sleep mode",
+              "locale": "en-CA"
+            },{
+              "text": "Sleep mode",
+              "locale": "en-GB"
+            },{
+              "text": "Sleep mode",
+              "locale": "en-IN"
+            },{
+              "text": "Sleep mode",
+              "locale": "en-US"
+            },{
+              "text": "Sleep data",
+              "locale": "en-AU"
+            },{
+              "text": "Sleep data",
+              "locale": "en-CA"
+            },{
+              "text": "Sleep data",
+              "locale": "en-GB"
+            },{
+              "text": "Sleep data",
+              "locale": "en-IN"
+            },{
+              "text": "Sleep data",
+              "locale": "en-US"
+            },{
+              "text": "Schlafmodus",
+              "locale": "de-DE"
+            },{
+              "text": "modo de sueño",
+              "locale": "es-ES"
+            },{
+              "text": "modo de sueño",
+              "locale": "es-MX"
+            },{
+              "text": "sommeil",
+              "locale": "fr-CA"
+            },{
+              "text": "sommeil",
+              "locale": "fr-FR"
+            },{
+              "text": "modalità risparmio",
+              "locale": "it-IT"
+            },{
+              "text": "スリープモード",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "stress",
+          "sutype": "3",
+          "stopcmd": "16",
+          "friendlyNames": [
+            {
+              "text": "Stress monitoring",
+              "locale": "en-AU"
+            },{
+              "text": "Stress monitoring",
+              "locale": "en-CA"
+            },{
+              "text": "Stress monitoring",
+              "locale": "en-GB"
+            },{
+              "text": "Stress monitoring",
+              "locale": "en-IN"
+            },{
+              "text": "Stress monitoring",
+              "locale": "en-US"
+            },{
+              "text": "Stress monitoring",
+              "locale": "de-DE"
+            },{
+              "text": "Stress monitor",
+              "locale": "en-AU"
+            },{
+              "text": "Stress monitor",
+              "locale": "en-CA"
+            },{
+              "text": "Stress monitor",
+              "locale": "en-GB"
+            },{
+              "text": "Stress monitor",
+              "locale": "en-IN"
+            },{
+              "text": "Stress monitor",
+              "locale": "en-US"
+            },{
+              "text": "Stress",
+              "locale": "de-DE"
+            },{
+              "text": "estrés",
+              "locale": "es-ES"
+            },{
+              "text": "estrés",
+              "locale": "es-MX"
+            },{
+              "text": "stress",
+              "locale": "fr-CA"
+            },{
+              "text": "stress",
+              "locale": "fr-FR"
+            },{
+              "text": "stress",
+              "locale": "it-IT"
+            },{
+              "text": "ストレス",
+              "locale": "ja-JP"
+            },
+            {
+              "text": "Pressure",
+              "locale": "en-AU"
+            },{
+              "text": "Pressure",
+              "locale": "en-CA"
+            },{
+              "text": "Pressure",
+              "locale": "en-GB"
+            },{
+              "text": "Pressure",
+              "locale": "en-IN"
+            },{
+              "text": "Pressure",
+              "locale": "en-US"
+            },{
+              "text": "presión",
+              "locale": "es-ES"
+            },{
+              "text": "presión",
+              "locale": "es-MX"
+            },{
+              "text": "pressione",
+              "locale": "it-IT"
+            }
+          ]
+        },
+        {
+          "instance": "help",
+          "sutype": "5",
+          "stopcmd": "17",
+          "friendlyNames": [
+            {
+              "text": "Help",
+              "locale": "en-AU"
+            },{
+              "text": "Help",
+              "locale": "en-CA"
+            },{
+              "text": "Help",
+              "locale": "en-GB"
+            },{
+              "text": "Help",
+              "locale": "en-IN"
+            },{
+              "text": "Help",
+              "locale": "en-US"
+            },{
+              "text": "Hilfe",
+              "locale": "de-DE"
+            },{
+              "text": "ayuda",
+              "locale": "es-ES"
+            },{
+              "text": "ayuda",
+              "locale": "es-MX"
+            },{
+              "text": "servir",
+              "locale": "fr-CA"
+            },{
+              "text": "servir",
+              "locale": "fr-FR"
+            },{
+              "text": "aiuto",
+              "locale": "it-IT"
+            },{
+              "text": "ヘルプ",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "find_phone",
+          "sutype": "8",
+          "stopcmd": "18",
+          "friendlyNames": [
+            {
+              "text": "Find my phone",
+              "locale": "en-AU"
+            },{
+              "text": "Find my phone",
+              "locale": "en-CA"
+            },{
+              "text": "Find my phone",
+              "locale": "en-GB"
+            },{
+              "text": "Find my phone",
+              "locale": "en-IN"
+            },{
+              "text": "Find my phone",
+              "locale": "en-US"
+            },{
+              "text": "Telefon suchen",
+              "locale": "de-DE"
+            },{
+              "text": "buscar teléfono",
+              "locale": "es-ES"
+            },{
+              "text": "buscar teléfono",
+              "locale": "es-MX"
+            },{
+              "text": "trouver un téléphone",
+              "locale": "fr-CA"
+            },{
+              "text": "trouver un téléphone",
+              "locale": "fr-FR"
+            },{
+              "text": "ricerca telefono",
+              "locale": "it-IT"
+            },{
+              "text": "スマホを探す",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "breath_training",
+          "sutype": "10",
+          "stopcmd": "19",
+          "friendlyNames": [
+            {
+              "text": "Breath training",
+              "locale": "en-AU"
+            },{
+              "text": "Breath training",
+              "locale": "en-CA"
+            },{
+              "text": "Breath training",
+              "locale": "en-GB"
+            },{
+              "text": "Breath training",
+              "locale": "en-IN"
+            },{
+              "text": "Breath training",
+              "locale": "en-US"
+            },{
+              "text": "Breath train",
+              "locale": "en-AU"
+            },{
+              "text": "Breath train",
+              "locale": "en-CA"
+            },{
+              "text": "Breath train",
+              "locale": "en-GB"
+            },{
+              "text": "Breath train",
+              "locale": "en-IN"
+            },{
+              "text": "Breath train",
+              "locale": "en-US"
+            },{
+              "text": "Mindfulness",
+              "locale": "en-AU"
+            },{
+              "text": "Mindfulness",
+              "locale": "en-CA"
+            },{
+              "text": "Mindfulness",
+              "locale": "en-GB"
+            },{
+              "text": "Mindfulness",
+              "locale": "en-IN"
+            },{
+              "text": "Mindfulness",
+              "locale": "en-US"
+            },{
+              "text": "entrenamiento respiratorio",
+              "locale": "es-ES"
+            },{
+              "text": "entrenamiento respiratorio",
+              "locale": "es-MX"
+            },{
+              "text": "entraînement réspiratoire",
+              "locale": "fr-CA"
+            },{
+              "text": "entraînement réspiratoire",
+              "locale": "fr-FR"
+            },{
+              "text": "entraînement respiratoire",
+              "locale": "fr-CA"
+            },{
+              "text": "entraînement respiratoire",
+              "locale": "fr-FR"
+            },{
+              "text": "呼吸トレーニング",
+              "locale": "ja-JP"
+            },
+            {
+              "text": "Relax",
+              "locale": "en-AU"
+            },{
+              "text": "Relax",
+              "locale": "en-CA"
+            },{
+              "text": "Relax",
+              "locale": "en-GB"
+            },{
+              "text": "Relax",
+              "locale": "en-IN"
+            },{
+              "text": "Relax",
+              "locale": "en-US"
+            },{
+              "text": "Entspannen",
+              "locale": "de-DE"
+            },{
+              "text": "relajación",
+              "locale": "es-ES"
+            },{
+              "text": "relajación",
+              "locale": "es-MX"
+            },{
+              "text": "relaxation",
+              "locale": "fr-CA"
+            },{
+              "text": "relaxation",
+              "locale": "fr-FR"
+            },{
+              "text": "relax",
+              "locale": "it-IT"
+            },{
+              "text": "リラックス",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "settings",
+          "sutype": "11",
+          "stopcmd": "20",
+          "friendlyNames": [
+            {
+              "text": "Settings",
+              "locale": "en-AU"
+            },{
+              "text": "Settings",
+              "locale": "en-CA"
+            },{
+              "text": "Settings",
+              "locale": "en-GB"
+            },{
+              "text": "Settings",
+              "locale": "en-IN"
+            },{
+              "text": "Settings",
+              "locale": "en-US"
+            },{
+              "text": "Setting",
+              "locale": "en-AU"
+            },{
+              "text": "Setting",
+              "locale": "en-CA"
+            },{
+              "text": "Setting",
+              "locale": "en-GB"
+            },{
+              "text": "Setting",
+              "locale": "en-IN"
+            },{
+              "text": "Setting",
+              "locale": "en-US"
+            },{
+              "text": "Einstellungen",
+              "locale": "de-DE"
+            },{
+              "text": "ajustes",
+              "locale": "es-ES"
+            },{
+              "text": "ajustes",
+              "locale": "es-MX"
+            },{
+              "text": "réglages",
+              "locale": "fr-CA"
+            },{
+              "text": "réglages",
+              "locale": "fr-FR"
+            },{
+              "text": "impostazioni",
+              "locale": "it-IT"
+            },{
+              "text": "セッティング",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "torch",
+          "sutype": "12",
+          "stopcmd": "21",
+          "friendlyNames": [
+            {
+              "text": "Torch",
+              "locale": "en-AU"
+            },{
+              "text": "Torch",
+              "locale": "en-CA"
+            },{
+              "text": "Torch",
+              "locale": "en-GB"
+            },{
+              "text": "Torch",
+              "locale": "en-IN"
+            },{
+              "text": "Torch",
+              "locale": "en-US"
+            },{
+              "text": "flashlight",
+              "locale": "en-AU"
+            },{
+              "text": "flashlight",
+              "locale": "en-CA"
+            },{
+              "text": "flashlight",
+              "locale": "en-GB"
+            },{
+              "text": "flashlight",
+              "locale": "en-IN"
+            },{
+              "text": "flashlight",
+              "locale": "en-US"
+            },{
+              "text": "Taschenlampe",
+              "locale": "de-DE"
+            },{
+              "text": "Linterna",
+              "locale": "es-ES"
+            },{
+              "text": "Linterna",
+              "locale": "es-MX"
+            },{
+              "text": "lampe torche",
+              "locale": "fr-CA"
+            },{
+              "text": "lampe torche",
+              "locale": "fr-FR"
+            },{
+              "text": "torcia",
+              "locale": "it-IT"
+            },{
+              "text": "懐中電灯",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "display_settings",
+          "sutype": "14",
+          "stopcmd": "22",
+          "friendlyNames": [
+            {
+              "text": "Display settings",
+              "locale": "en-AU"
+            },{
+              "text": "Display settings",
+              "locale": "en-CA"
+            },{
+              "text": "Display settings",
+              "locale": "en-GB"
+            },{
+              "text": "Display settings",
+              "locale": "en-IN"
+            },{
+              "text": "Display settings",
+              "locale": "en-US"
+            },{
+              "text": "Display setting",
+              "locale": "en-AU"
+            },{
+              "text": "Display setting",
+              "locale": "en-CA"
+            },{
+              "text": "Display setting",
+              "locale": "en-GB"
+            },{
+              "text": "Display setting",
+              "locale": "en-IN"
+            },{
+              "text": "Display setting",
+              "locale": "en-US"
+            },{
+              "text": "display brightness setting",
+              "locale": "en-AU"
+            },{
+              "text": "display brightness setting",
+              "locale": "en-CA"
+            },{
+              "text": "display brightness setting",
+              "locale": "en-GB"
+            },{
+              "text": "display brightness setting",
+              "locale": "en-IN"
+            },{
+              "text": "display brightness setting",
+              "locale": "en-US"
+            },{
+              "text": "Display Einstellungen",
+              "locale": "de-DE"
+            },{
+              "text": "ajustes de pantalla",
+              "locale": "es-ES"
+            },{
+              "text": "ajustes de pantalla",
+              "locale": "es-MX"
+            },{
+              "text": "paramètres d'affichage",
+              "locale": "fr-CA"
+            },{
+              "text": "paramètres d'affichage",
+              "locale": "fr-FR"
+            },{
+              "text": "paramètre d'affichage",
+              "locale": "fr-CA"
+            },{
+              "text": "paramètre d'affichage",
+              "locale": "fr-FR"
+            },{
+              "text": "impostazioni di visualizzazione",
+              "locale": "it-IT"
+            },{
+              "text": "ディスプレイの設定",
+              "locale": "ja-JP"
+            }
+          ]
+        },
+        {
+          "instance": "messages",
+          "sutype": "15",
+          "stopcmd": "23",
+          "friendlyNames": [
+            {
+              "text": "Messages",
+              "locale": "en-AU"
+            },{
+              "text": "Messages",
+              "locale": "en-CA"
+            },{
+              "text": "Messages",
+              "locale": "en-GB"
+            },{
+              "text": "Messages",
+              "locale": "en-IN"
+            },{
+              "text": "Messages",
+              "locale": "en-US"
+            },{
+              "text": "Nachrichten",
+              "locale": "de-DE"
+            },{
+              "text": "mensaje",
+              "locale": "es-ES"
+            },{
+              "text": "mensaje",
+              "locale": "es-MX"
+            },{
+              "text": "message",
+              "locale": "fr-CA"
+            },{
+              "text": "message",
+              "locale": "fr-FR"
+            },{
+              "text": "notifiche messaggi",
+              "locale": "it-IT"
+            },{
+              "text": "メッセージ",
+              "locale": "ja-JP"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

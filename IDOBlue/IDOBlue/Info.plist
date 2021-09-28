@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>APIKey</key>
-	<string>eyJhbGciOiJSU0EtU0hBMjU2IiwidmVyIjoiMSJ9.eyJ2ZXIiOiIzIiwiZW5kcG9pbnRzIjp7ImF1dGh6IjoiaHR0cHM6Ly93d3cuYW1hem9uLmNvbS9hcC9vYSIsInRva2VuRXhjaGFuZ2UiOiJodHRwczovL2FwaS5hbWF6b24uY29tL2F1dGgvbzIvdG9rZW4ifSwiY2xpZW50SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi1vYTItY2xpZW50LjI2MTAzZDYzODc0NjRjNmJiMjNlMjE5YWI3MmM5MDYwIiwiYXBwRmFtaWx5SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi43NGEzZGVkMDhjNjA0NTFlYTljYjZhNmNiODdjNjg4NSIsImJ1bmRsZVNlZWRJZCI6ImNvbS5pZG8uc2RrLnd1IiwiYnVuZGxlSWQiOiJjb20uaWRvLnNkay53dSIsImlzcyI6IkFtYXpvbiIsInR5cGUiOiJBUElLZXkiLCJhcHBWYXJpYW50SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi1jbGllbnQuMDdhY2IwOTU2YmY1NGNhNzg5Zjk4MDY5MWI1MmViMGIiLCJ0cnVzdFBvb2wiOm51bGwsImFwcElkIjoiYW16bjEuYXBwbGljYXRpb24tY2xpZW50LjA3YWNiMDk1NmJmNTRjYTc4OWY5ODA2OTFiNTJlYjBiIiwiaWQiOiIxZDJjNTc0My1iYzliLTRjNDctYTBkNi03MWI1MzFjNzFkN2MiLCJpYXQiOiIxNjA2NzAyNTk4MjExIn0=.fCfreAxhcorywOQ0rD4nVuttezCj62HFxofY3hrhea+loQZt2YLq3iu+IU/UG+hNcCPrCL9qkemxLVuX57zwAkHmX5e7NTRhAV/zFyt3cNfpforDfThHO1vlE0t0k8oBsRf2LrB4LWlVFFQ+QJqTNqLurrXNqWYUbnCCtnQVJ0xzt8UY83lV8piK3CZ52xHpVIGt+NGy+1rUJsTZoitMtR+r+oEbqu56AcFFS5oYITcJ45eqpgmuG6JCnWDhZ90rK08P8wSmjUM0G+9RBfHxdXjVmrbnYKr2iEeFzKFh2/gNofeluo8nUAg69B6/SRMqHXAUWK4sWcLqu5XIItn9Eg==</string>
+	<string>eyJhbGciOiJSU0EtU0hBMjU2IiwidmVyIjoiMSJ9.eyJ2ZXIiOiIzIiwiZW5kcG9pbnRzIjp7ImF1dGh6IjoiaHR0cHM6Ly93d3cuYW1hem9uLmNvbS9hcC9vYSIsInRva2VuRXhjaGFuZ2UiOiJodHRwczovL2FwaS5hbWF6b24uY29tL2F1dGgvbzIvdG9rZW4ifSwiY2xpZW50SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi1vYTItY2xpZW50LjIyMjZhNTRmNjM5NTQ3YzA5ZmZlYmU0OTE4Y2E5NDJmIiwiYXBwRmFtaWx5SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi41MTE4NjZiMjg1MjA0MjgyYjA1MDM2YzJlMDdjYzBhZiIsImJ1bmRsZVNlZWRJZCI6ImNvbS5pZG8ubGlmZSIsImJ1bmRsZUlkIjoiY29tLmlkby5saWZlIiwiaXNzIjoiQW1hem9uIiwidHlwZSI6IkFQSUtleSIsImFwcFZhcmlhbnRJZCI6ImFtem4xLmFwcGxpY2F0aW9uLWNsaWVudC5jOWUwMTA2MzgyYmU0YWEyYjZhM2RlNjc0OTIxOWFjMyIsInRydXN0UG9vbCI6bnVsbCwiYXBwSWQiOiJhbXpuMS5hcHBsaWNhdGlvbi1jbGllbnQuYzllMDEwNjM4MmJlNGFhMmI2YTNkZTY3NDkyMTlhYzMiLCJpZCI6IjljNDU2N2FhLTI4MmEtNDY5MC04NDE5LTY4NjQxNjAwNWQyMyIsImlhdCI6IjE2MTIzMjExNTMyNzkifQ==.STlWig+g439P7NPz6L+GIiqX9qcBcKJjQ5W6AjxZOxnhr5qnSUbhU72L+UO2MTTT7ALSEDBriUMgOVNgcUPiKcizdmzvPMki5gyqWP+aGcSAkDCyzI+RYu8tKw57YpTUhxj/H1bkqtF1dF6v8bCoZc8URZ50l6uFNL2lp+gN1SuaesD6pHEgvO7mPo531f7ZuXuefARXJyY4Urjn+gAp0raUWX8BR/nrdcGGfS6axN5635HvwK0FMle7EuvVy7YKYpMDwe22HYFnS8d1UnK6NZYY5TShKMFZnnUNVvLQMdaPadzoTK+XUA4XlinvT6YszfbDzQQ63V+o8dz2SNdN8w==</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -41,10 +43,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.ido.sdk.wu</string>
+			<string>com.ido.life</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>amzn-com.ido.sdk.wu</string>
+				<string>amzn-com.ido.life</string>
 			</array>
 		</dict>
 	</array>
@@ -63,6 +65,8 @@
 	<string>For Your Attention</string>
 	<key>NSCameraUsageDescription</key>
 	<string>相机</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>test audio</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>相册</string>
 	<key>UIBackgroundModes</key>

@@ -227,10 +227,11 @@ static int countdown = 0;
         NSString * str = [NSString stringWithFormat:@"%@...",lang(@"set page jump")];
         [funcVC showLoadingWithMessage:str];
         if (cellModel.index == 0) {
+            /*
+            NSString * dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
+            dirPath = [dirPath stringByAppendingPathComponent:@"IDOVoice"];
+            NSString * filePath = [dirPath stringByAppendingPathComponent:@"audio_8k.pcm"];
             
-            /* 测试代码
-            NSString * filePath = [NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-            filePath = [filePath stringByAppendingPathComponent:@"mixRecord.pcm"];
             __strong typeof(self) strongSelf = weakSelf;
              NSFileManager* manager = [NSFileManager defaultManager];
               int fileSize = (int)[[manager attributesOfItemAtPath:filePath error:nil] fileSize];
@@ -245,8 +246,7 @@ static int countdown = 0;
              }
             
             return;
-             */
-            
+            */
             
             if (   strongSelf.textField1.text.length == 0
                 || strongSelf.textField2.text.length == 0) {
@@ -573,6 +573,8 @@ static int countdown = 0;
         }else {
             
         }
+    } lostData:^(int lostSize, int allSize) {
+        
     } complete:^(NSData * _Nullable data) {
         
     }];

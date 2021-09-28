@@ -34,6 +34,13 @@
 #import "GetNoDisturbViewModel.h"
 #import "GetBatteryLogViewModel.h"
 #import "GetEncryptionCodeViewModel.h"
+#import "GetCalorieDistanceGoalViewModel.h"
+#import "GetWalkReminderViewModel.h"
+#import "GetHealthSwitchViewModel.h"
+#import "GetMainUiSortViewModel.h"
+#import "GetScheduleRemindViewModel.h"
+#import "GetV3NotifyStateViewModel.h"
+#import "GetSportSortViewModel.h"
 
 @interface GetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -55,16 +62,38 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"get function list")],@[lang(@"get Mac address")],
-                          @[lang(@"get device information")],@[lang(@"get real-time data")],
-                          @[lang(@"get the number of activities")],@[lang(@"get GPS information")],
-                          @[lang(@"get notification status")],@[lang(@"get version information")],
-                          @[lang(@"get the number of stars")],@[lang(@"get ota auth information")],
-                          @[lang(@"get flash info")],@[lang(@"get battery info")],
-                          @[lang(@"get default language")],@[lang(@"get menu list")],@[lang(@"get five heart rate")],
-                          @[lang(@"get default sport type")],@[lang(@"get error log state")],@[lang(@"get v3 alarms info")],
-                          @[lang(@"get v3 heart rate mode")],@[lang(@"get blue mtu info")],
-                          @[lang(@"get over heat log")],@[lang(@"get device battery log")],@[lang(@"get not disturb mode")],@[lang(@"get encrypted code")]];
+        _buttonTitles = @[@[lang(@"get function list")],
+                          @[lang(@"get Mac address")],
+                          @[lang(@"get device information")],
+                          @[lang(@"get real-time data")],
+                          @[lang(@"get the number of activities")],
+                          @[lang(@"get GPS information")],
+                          @[lang(@"get notification status")],
+                          @[lang(@"get version information")],
+                          @[lang(@"get the number of stars")],
+                          @[lang(@"get ota auth information")],
+                          @[lang(@"get flash info")],
+                          @[lang(@"get battery info")],
+                          @[lang(@"get default language")],
+                          @[lang(@"get menu list")],
+                          @[lang(@"get five heart rate")],
+                          @[lang(@"get default sport type")],
+                          @[lang(@"get error log state")],
+                          @[lang(@"get v3 alarms info")],
+                          @[lang(@"get v3 heart rate mode")],
+                          @[lang(@"get blue mtu info")],
+                          @[lang(@"get over heat log")],
+                          @[lang(@"get device battery log")],
+                          @[lang(@"get not disturb mode")],
+                          @[lang(@"get encrypted code")],
+                          @[lang(@"get target info")],
+                          @[lang(@"get walk reminder")],
+                          @[lang(@"get health switch state")],
+                          @[lang(@"get main ui sort")],
+                          @[lang(@"get schedule reminder")],
+                          @[lang(@"get V3 notification status")], //"get V3 notification status"
+                          @[lang(@"get sport sort")]
+                        ];
     }
     return _buttonTitles;
 }
@@ -72,14 +101,38 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[GetFuncTableViewModel class],[GetMacViewModel class],[GetDeviceViewModel class],
-                         [GetRealTimeViewModel class],[GetActivityViewModel class],[GetGpsInfoViewModel class],
-                         [GetNotifyStateViewModel class],[GetVersionInfoViewModel class],[GetStartCountViewModel class],
-                         [GetOtaAuthInfoViewModel class],[GetFlashInfoViewModel class],[GetBatteryInfoViewModel class],
-                         [GetDefaultLanguageViewModel class],[GetMenuListViewModel class],[GetFiveHeartRateViewModel class],
-                         [GetDefaultSportViewModel class],[GetErrorLogViewModel class],[GetV3AlarmsViewModel class],
-                         [GetV3HearRateViewModel class],[GetMtuInfoViewModel class],[GetOverHeatLogViewModel class],
-                         [GetBatteryLogViewModel class],[GetNoDisturbViewModel class],[GetEncryptionCodeViewModel class]];
+        _modelClasss = @[[GetFuncTableViewModel class],
+                         [GetMacViewModel class],
+                         [GetDeviceViewModel class],
+                         [GetRealTimeViewModel class],
+                         [GetActivityViewModel class],
+                         [GetGpsInfoViewModel class],
+                         [GetNotifyStateViewModel class],
+                         [GetVersionInfoViewModel class],
+                         [GetStartCountViewModel class],
+                         [GetOtaAuthInfoViewModel class],
+                         [GetFlashInfoViewModel class],
+                         [GetBatteryInfoViewModel class],
+                         [GetDefaultLanguageViewModel class],
+                         [GetMenuListViewModel class],
+                         [GetFiveHeartRateViewModel class],
+                         [GetDefaultSportViewModel class],
+                         [GetErrorLogViewModel class],
+                         [GetV3AlarmsViewModel class],
+                         [GetV3HearRateViewModel class],
+                         [GetMtuInfoViewModel class],
+                         [GetOverHeatLogViewModel class],
+                         [GetBatteryLogViewModel class],
+                         [GetNoDisturbViewModel class],
+                         [GetEncryptionCodeViewModel class],
+                         [GetCalorieDistanceGoalViewModel class],
+                         [GetWalkReminderViewModel class],
+                         [GetHealthSwitchViewModel class],
+                         [GetMainUiSortViewModel class],
+                         [GetScheduleRemindViewModel class],
+                         [GetV3NotifyStateViewModel class],
+                         [GetSportSortViewModel class]
+                        ];
     }
     return _modelClasss;
 }

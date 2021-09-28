@@ -149,6 +149,8 @@
         [TipPoweredOffView show];
     }else if (state == IDO_MANAGER_STATE_POWEREDON) {
         [TipPoweredOffView hidView];
+    }else if (state == IDO_MANAGER_STATE_DIS_CONNECT) {
+        
     }
 }
 

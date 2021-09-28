@@ -113,7 +113,8 @@
         NSString * message = [NSString stringWithFormat:@"%@...",[model.data firstObject]];
         [funcVc showLoadingWithMessage:message];
         if (model.index == 0) { //通用日志
-            [IDORecordDeviceLog getFlashLogRecordCallback:^(int errorCode) {
+            [IDORecordDeviceLog getFlashLogRecordWithType:IDO_FLASH_LOG_GENERAL_TYPE
+                                                 callback:^(int errorCode) {
                 if (errorCode == 0) {
                     [funcVc showToastWithText:lang(@"get flash log complete")];
                 }else if(errorCode == 6){

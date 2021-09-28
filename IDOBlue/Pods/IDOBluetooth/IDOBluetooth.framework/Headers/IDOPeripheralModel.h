@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface IDOPeripheralModel : NSObject
+@interface IDOPeripheralModel : NSObject <NSCopying>
 
 /**
  外围设备 | peripheral

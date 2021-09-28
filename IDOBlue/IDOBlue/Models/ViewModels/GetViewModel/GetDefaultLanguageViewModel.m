@@ -51,6 +51,19 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get default language")]];
+        
+        [IDOFoundationCommand getV3LangLibListCommand:^(int errorCode, IDOGetV3LangLibListModel * _Nullable data) {
+            if (errorCode == 0) {
+                [funcVC showToastWithText:lang(@"get default language success")];
+                strongSelf.textView.text = [NSString stringWithFormat:@"%@",data.dicFromObject];
+            }else if (errorCode == 6) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+            }else {
+                [funcVC showToastWithText:lang(@"get default language failed")];
+            }
+        }];
+        
+        return;
         [IDOFoundationCommand getDefaultLanguageCommand:^(int errorCode, IDOGetDownLanguageBluetoothModel * _Nullable data) {
             if (errorCode == 0) {
                 [funcVC showToastWithText:lang(@"get default language success")];

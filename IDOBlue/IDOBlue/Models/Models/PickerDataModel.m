@@ -167,6 +167,49 @@
     return _weekArray;
 }
 
+- (NSArray *)weekTypeArray
+{
+    if (!_weekTypeArray)
+    {
+        NSMutableArray * weekTypeMArray = [NSMutableArray array];
+        for (int i = 0; i< 7; i++)
+        {
+            [weekTypeMArray addObject:@(i)];
+        }
+        _weekTypeArray = weekTypeMArray;
+    }
+    return _weekTypeArray;
+}
+
+
+- (NSArray *)monthArray
+{
+    if (!_monthArray)
+    {
+        NSMutableArray * monthMArray = [NSMutableArray array];
+        for (int i = 1; i<= 12; i++)
+        {
+            [monthMArray addObject:@(i)];
+        }
+        _monthArray = monthMArray;
+    }
+    return _monthArray;
+}
+
+- (NSArray *)dayArray
+{
+    if (!_dayArray)
+    {
+        NSMutableArray * dayMArray = [NSMutableArray array];
+        for (int i = 1 ; i <= 30; i++)
+        {
+            [dayMArray addObject:@(i)];
+        }
+        _dayArray = dayMArray;
+    }
+    return _dayArray;
+}
+
 - (NSArray *)typeArray
 {
     if (!_typeArray) {
@@ -376,13 +419,14 @@
 
 - (NSArray *)sportTypes
 {
+//    193:Outdoor Fun（户外玩耍）, 194:Other Activity（其他运动）48:户外跑步 52:户外走路 50:户外骑行
     if (!_sportTypes) {
         _sportTypes =  @[lang(@"walk"),lang(@"run"),lang(@"ride"),lang(@"hike"),lang(@"swim"),lang(@"mountain climbing"),lang(@"badminton"),lang(@"other"),
                          lang(@"fitness"),lang(@"spinning"),lang(@"elliptical machine"),lang(@"treadmill"),lang(@"sit-ups"),lang(@"push-ups"),lang(@"dumbbells"),lang(@"weight lifting"),
                          lang(@"calisthenics"),lang(@"yoga"),lang(@"rope skipping"),lang(@"table tennis"),lang(@"basketball"),lang(@"football"),lang(@"volleyball"),lang(@"tennis"),
                          lang(@"golf"),lang(@"baseball"),lang(@"skiing"),lang(@"roller skating"),lang(@"dancing"),
                          lang(@"indoor rowing"),lang(@"pilates"),lang(@"cross training"),lang(@"aerobics"),lang(@"zumba"),
-                         lang(@"square dance"),lang(@"plank"),lang(@"gym")];
+                         lang(@"square dance"),lang(@"plank"),lang(@"gym"),lang(@"outdoor running"),lang(@"outdoor walking"),lang(@"outdoor cycling"),lang(@"outdoor play"),lang(@"other activity")];
     }
     return _sportTypes;
 }
@@ -471,5 +515,15 @@
     }
     return _widgetColor;
 }
+
+//通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+- (NSArray *)notifyFlagArray
+{
+    if (!_widgetColor) {
+         _widgetColor = @[lang(@"notify flag unknow"),lang(@"allow notify flag"),lang(@"silence notify flag"),lang(@"close notify flag")];
+    }
+    return _widgetColor;
+}
+
 
 @end

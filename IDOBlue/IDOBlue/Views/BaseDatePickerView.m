@@ -29,7 +29,7 @@
             make.top.equalTo(@0);
         }];
         self.datePickerMode = UIDatePickerModeDate;
-        self.maximumDate = [NSDate date];
+//        self.maximumDate = [NSDate date];
         self.backgroundColor = [UIColor whiteColor];
         NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
         formatter.dateFormat = @"yyyy-MM-dd";

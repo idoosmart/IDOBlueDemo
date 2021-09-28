@@ -166,6 +166,11 @@
  */
 @property (nonatomic,assign) BOOL didWriteValueError;
 
+/**
+ 发现服务特征完成
+ */
+@property (nonatomic,assign) BOOL findCharacteristicsEnd;
+
 @end
 
 @interface IDOBluetoothUserInfoEngine : NSObject
@@ -249,6 +254,16 @@
  */
 @property (nonatomic,assign) BOOL isUseFunctionTable;
 
+/**
+ * 是否控制台输出日志
+ */
+@property (nonatomic,assign) BOOL isOutPrintLog;
+
+/**
+ 是否记录SDK日志
+ */
+@property (nonatomic,assign) BOOL isRecordLog;
+ 
 @end
 
 @interface IDOBluetoothUnitInfoEngine : NSObject
@@ -293,6 +308,7 @@
 @interface IDOBluetoothEngine : NSObject
 + (IDOBluetoothEngine *)shareInstance;
 - (void)deserialization;
+- (void)getCacheDataWithMacAddr:(NSString *)macAddr;
 @property (nonatomic,strong) IDOBluetoothManagerInfoEngine    * managerEngine;
 @property (nonatomic,strong) IDOBluetoothPeripheralInfoEngine * peripheralEngine;
 @property (nonatomic,strong) IDOBluetoothUserInfoEngine       * userEngine;

@@ -15,8 +15,54 @@
 
 @end
 
+#pragma mark ==== 设置经期历史数据 item model ====
+@interface IDOMenstrualHistoryDataItemModel : IDOBluetoothBaseModel
+/**
+ 经期开始的年
+ */
+@property (nonatomic,assign) NSInteger year;
+/**
+ 经期开始的月
+ */
+@property (nonatomic,assign) NSInteger month;
+/**
+ 经期开始的日
+ */
+@property (nonatomic,assign) NSInteger day;
+/**
+ 经期长度 单位天
+ */
+@property (nonatomic,assign) NSInteger menstrualDay;
+/**
+ 周期长度 单位天
+ */
+@property (nonatomic,assign) NSInteger cycleDay;
+
+@end
+
+#pragma mark ==== 设置经期历史数据 model ====
+@interface IDOMenstrualHistoryDataModel : IDOBluetoothBaseModel
+/**
+ 平均经期长度
+ */
+@property (nonatomic,assign) NSInteger avgMenstrualDay;
+/**
+ 平均周期长度
+ */
+@property (nonatomic,assign) NSInteger avgCycleDay;
+/**
+ 个数 最多5个
+ */
+@property (nonatomic,assign) NSInteger itemsCount;
+/**
+ 经期的历史数据集合
+ */
+@property (nonatomic,copy) NSArray <IDOMenstrualHistoryDataItemModel *>* items;
+
+@end
+
 #pragma mark ==== 设置alexa天气预报 item model ====
-@interface IDOSetALexaWeatherDataitemModel : IDOBluetoothBaseModel
+@interface IDOSetAlexaWeatherDataItemModel : IDOBluetoothBaseModel
 /**
  日期
  */
@@ -26,18 +72,18 @@
  */
 @property (nonatomic,strong) NSString * weatherState;
 /**
-最小温度
+最小温度 (需要带单位)
  */
-@property (nonatomic,assign) NSInteger minTemperature;
+@property (nonatomic,copy) NSString * minTemperature;
 /**
- 最大温度
+ 最大温度 (需要带单位)
  */
-@property (nonatomic,assign) NSInteger maxTemperature;
+@property (nonatomic,copy) NSString * maxTemperature;
 
 @end
 
 #pragma mark ==== 设置alexa天气预报 model ====
-@interface IDOSetALexaWeatherDataModel : IDOBluetoothBaseModel
+@interface IDOSetAlexaWeatherDataModel : IDOBluetoothBaseModel
 /**
  当前温度
  */
@@ -51,18 +97,17 @@
  */
 @property (nonatomic,strong) NSString * todayWeatherState;
 /**
- 今天最小温度
+ 今天最小温度 (需要带单位)
  */
-@property (nonatomic,assign) NSInteger minTemperature;
+@property (nonatomic,copy) NSString * minTemperature;
 /**
- 今天最大温度
+ 今天最大温度 (需要带单位)
  */
-@property (nonatomic,assign) NSInteger maxTemperature;
-
+@property (nonatomic,copy) NSString * maxTemperature;
 /**
  后七天的天气情况
  */
-@property (nonatomic,strong) NSArray <IDOSetALexaWeatherDataitemModel *>* futureWeathers;
+@property (nonatomic,copy) NSArray <IDOSetAlexaWeatherDataItemModel *>* futureWeathers;
 
 @end
 
@@ -87,28 +132,23 @@
  日 | day
  */
 @property (nonatomic,assign) NSInteger day;
-
 /**
  时 | hour
  */
 @property (nonatomic,assign) NSInteger hour;
-
 /**
  分 | minute
  */
 @property (nonatomic,assign) NSInteger minute;
-
 /**
  秒 | second
  */
 @property (nonatomic,assign) NSInteger second;
-
 /**
  * 提醒ID  设置范围1-10
  * remind ID   Set the range to 1-10
  */
 @property (nonatomic,assign) NSInteger remindId;
-
 /**
  * 提醒消息 支持128字节
  * reminder message support 128 byte
@@ -230,6 +270,22 @@ Alarm state  0=>  invalid 1 => alarm has been modified
  01: ACC acceleration, 02: PPG heart rate, 03: TP touch, 04: FLASH, 05: overheating (PPG), 06: air pressure, 07: GPS, 08: geomagnetism
  */
 @property (nonatomic,assign) NSInteger errorIndex;
+/**
+ 14 : 固件请求重新设置天气，app收到收，下发天气数据
+ 15:  固件步数每次增加2000步，设备请求app同步数据，app调用同步接口
+ 16:  固件探测到睡眠结束，请求app同步睡眠数据，app调用同步接口同步
+ 17:  固件三环数据修改，通知app更新三环数据
+ */
+@property (nonatomic,assign) NSInteger dataType;
+/**
+ 1  闹钟已经修改
+ 2  固件过热异常告警
+ 4 亮屏参数有修改（02 b0）
+ 8 抬腕参数有修改（02 b1）
+ 16 勿擾模式获取（02 30）
+ 32 手机音量的下发（03  0xE3）（删除），app音量修改，直接下发
+ */
+@property (nonatomic,assign) NSInteger notifyType;
 
 @end
 

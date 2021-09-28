@@ -13,6 +13,7 @@
 #import "TwoTextFieldTableViewCell.h"
 #import "EmpltyCellModel.h"
 #import "EmptyTableViewCell.h"
+#import "OneTextFieldTableViewCell.h"
 #import "FuncCellModel.h"
 #import "OneButtonTableViewCell.h"
 #import "FuncViewController.h"
@@ -89,6 +90,20 @@
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             };
         }
+        else if (indexPath.row == 4)
+        {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.hundredArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.hundredArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.hundredArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.spo2Model.lowValue  = [selectStr integerValue];
+            };
+        }
     };
 }
 
@@ -122,6 +137,11 @@
             SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
             strongSelf.spo2Model.onOff = onSwitch.isOn;
             switchCellModel.data = @[@(strongSelf.spo2Model.onOff)];
+        }
+        else if (indexPath.row == 3) {
+            SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            strongSelf.spo2Model.lowOnOff = onSwitch.isOn;
+            switchCellModel.data = @[@(strongSelf.spo2Model.lowOnOff)];
         }
     };
 }
@@ -162,6 +182,32 @@
     model5.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model5];
     
+    
+    SwitchCellModel * model10 = [[SwitchCellModel alloc]init];
+    model10.typeStr = @"oneSwitch";
+    model10.titleStr = [NSString stringWithFormat:@"%@ :",@"血氧过低开关"];
+    model10.data = @[@(self.spo2Model.lowOnOff)];
+    model10.cellHeight = 70.0f;
+    model10.cellClass = [OneSwitchTableViewCell class];
+    model10.modelClass = [NSNull class];
+    model10.isShowLine = YES;
+    model10.switchCallback = self.switchCallback;
+    [cellModels addObject:model10];
+    
+    
+    TextFieldCellModel * model11 = [[TextFieldCellModel alloc]init];
+    model11.typeStr = @"oneTextField";
+    model11.titleStr = @"血氧过低阈值";
+    model11.data = @[@(self.spo2Model.lowValue)];
+    model11.cellHeight = 70.0f;
+    model11.cellClass = [OneTextFieldTableViewCell class];
+    model11.modelClass = [NSNull class];
+    model11.isShowLine = YES;
+    model11.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model11];
+    
+    
+    
     EmpltyCellModel * model6 = [[EmpltyCellModel alloc]init];
     model6.typeStr = @"empty";
     model6.cellHeight = 30.0f;
@@ -184,3 +230,4 @@
 
 
 @end
+

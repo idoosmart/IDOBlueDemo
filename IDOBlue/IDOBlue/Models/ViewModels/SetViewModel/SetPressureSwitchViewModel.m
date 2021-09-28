@@ -107,6 +107,20 @@
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             };
         }
+        else if (indexPath.row == 13)
+        {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.hundredArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.hundredArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.hundredArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.pressureModel.highThreshold  = [selectStr integerValue];
+            };
+        }
     };
 }
 
@@ -244,6 +258,20 @@
         model.isSelected = [self.pressureModel.repeat[i] boolValue];
         [cellModels addObject:model];
     }
+    
+    
+    TextFieldCellModel * model10 = [[TextFieldCellModel alloc]init];
+    model10.typeStr = @"oneTextField";
+    model10.titleStr = @"压力过高阈值";
+    model10.data = @[@(self.pressureModel.highThreshold)];
+    model10.cellHeight = 70.0f;
+    model10.cellClass = [OneTextFieldTableViewCell class];
+    model10.modelClass = [NSNull class];
+    model10.isShowLine = YES;
+    model10.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model10];
+    
+    
     
     FuncCellModel * model7 = [[FuncCellModel alloc]init];
     model7.typeStr = @"oneButton";

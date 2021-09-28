@@ -70,6 +70,16 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      */
     IDO_SYNC_HEALTH_WEAR_LOG,
     /**
+     * 同步健康 噪音
+     * Synchronous Health noise
+     */
+    IDO_SYNC_HEALTH_NOISE_LOG,
+    /**
+     * 同步健康 体温
+     * Synchronous Health temperature
+     */
+    IDO_SYNC_HEALTH_TEMPERATURE_LOG,
+    /**
      * 同步健康 睡眠
      * Synchronized Health Sleep
      */
@@ -213,7 +223,24 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      * 传输壁纸日志
      * transmission photo file log
      */
-    IDO_PHOTO_TRANSMISSION_FILE_LOG
+    IDO_PHOTO_TRANSMISSION_FILE_LOG,
+    /**
+     * 传输消息运动图标日志
+     */
+    IDO_ICON_TRANSMISSION_FILE_LOG,
+    /**
+     VBUS 模型数据日志
+     */
+    IDO_MODEL_DATA_LOG,
+    /**
+      Alexa音频下发日志
+     */
+    IDO_ALEXA_AUDIO_TRANSMISSION_LOG,
+    /**
+      音乐操作日志
+     */
+    IDO_MUSIC_TRANSMISSION_LOG
+    
 };
 
 typedef NS_ENUM(NSInteger, IDO_FLASH_LOG_TYPE)  {

@@ -47,7 +47,11 @@ typedef NS_ENUM(NSInteger, IDO_DATA_FILE_TRAN_TYPE) {
     /**
      图片文件 | photo file type
      */
-    IDO_DATA_FILE_TRAN_PHOTO_TYPE = 4
+    IDO_DATA_FILE_TRAN_PHOTO_TYPE = 4,
+    /**
+     音乐文件 | music file type
+     */
+    IDO_DATA_FILE_TRAN_MUSIC_TYPE = 5
 };
 
 /**

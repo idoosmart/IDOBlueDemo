@@ -27,7 +27,8 @@
  * Start record bracelet flash log
  * @param callback 日志信息获取完成回调 | Log information acquisition completion callback
  */
-+ (void)getFlashLogRecordCallback:(void(^_Nullable)(int errorCode))callback;
++ (void)getFlashLogRecordWithType:(IDO_FLASH_LOG_TYPE)type
+                         callback:(void(^_Nullable)(int errorCode))callback;
 
 /**
  * @brief 记录协议库外的蓝牙日志 （内部使用）

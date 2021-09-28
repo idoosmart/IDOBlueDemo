@@ -70,8 +70,8 @@
 @property (nonatomic,weak) id<IDOBluetoothManagerDelegate> delegate;
 
 /**
- * 自动扫描连接、手动扫描连接超时时长 默认 20
- * Auto Scan Connection Timeout Duration Default 20
+ * 自动扫描连接、手动扫描连接超时时长 默认 30
+ * Auto Scan Connection Timeout Duration Default 30
  */
 @property (nonatomic,assign) NSInteger timeout;
 
@@ -155,12 +155,12 @@
 /**
  开始扫描 | Start scanning
  */
-+ (void)startScan;
++ (BOOL)startScan;
 
 /**
  停止扫描 | Stop scanning
  */
-+ (void)stopScan;
++ (BOOL)stopScan;
 
 /**
  * @brief 1、普通模式下选择外围设备连接 2、ota模式下选择外围设备连接

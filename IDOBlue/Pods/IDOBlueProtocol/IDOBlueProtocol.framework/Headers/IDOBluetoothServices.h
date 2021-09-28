@@ -31,7 +31,7 @@ extern NSString * _Nonnull IDOBluetoothStopScanNotifyName;
 extern NSString * _Nonnull IDOBluetoothOtaModeNotifyName;
 
 // 蓝牙日志打开记录通知名字 | Bluetooth log opens record notification name
-extern NSString * _Nonnull IDOBluetoothOpenLogRecordNotifyName;
+extern NSString * _Nonnull IDOBluetoothOpenLogRecordNotifyName DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 
 // 数据迁移状态通知名字 | Data migration status notification name
 extern NSString * _Nonnull IDOBluetoothDataMigrationNotifyName;
@@ -47,6 +47,9 @@ extern NSString * _Nonnull IDOBluetoothSyncConfigNotifyName;
 
 // 同步健康数据完成通知名字 | sync health data complete notification name
 extern NSString * _Nonnull IDOBluetoothSyncHealthNotifyName;
+
+// 刚连接时快速配置完成通知名字 | fast sync complete notification name
+extern NSString * _Nonnull IDOBluetoothFastSyncNotifyName;
 
 @interface IDOBluetoothServices : NSObject
 
@@ -70,6 +73,11 @@ extern NSString * _Nonnull IDOBluetoothSyncHealthNotifyName;
  */
 @property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^useFunctionTable)(BOOL isUse);
 
+/*
+ 开始启动需要连接的设备 | Start the device that needs to be connected
+ */
+@property (nonatomic,copy,nullable) IDOBluetoothServices *_Nonnull(^startConnectDevice)(NSString * _Nullable macAddr);
+
 /**
  * 注册SDK服务后,初始化设备信息并返回,需开始启动蓝牙,根据各自业务需求,可以选择自己的APP创建蓝牙管理,也可以使用我们提供的库创建蓝牙管理.
  * After the SDK service is registered, the device information is initialized and returned, and bluetooth needs to be started.
@@ -80,6 +88,7 @@ extern NSString * _Nonnull IDOBluetoothSyncHealthNotifyName;
 /**
  * @brief  注册SDK服务,初始化设备信息 | Register for SDK service,initializes device info
  * password 数据库密码 ｜ Database password
+ * macAddr 需要连接的设备 
  * @return IDOBluetoothServices
  */
 IDOBluetoothServices * _Nonnull registrationServices(NSString * _Nullable password);

@@ -43,12 +43,12 @@ static void AudioPlayerAQInputCallback(void* inUserData, AudioQueueRef outQ, Aud
 
     sysnLock = [[NSLock alloc] init];
     ///设置音频参数
-    audioDescription.mSampleRate = 16000; //采样率
+    audioDescription.mSampleRate = 24000; //采样率
     audioDescription.mFormatID = kAudioFormatLinearPCM;
     audioDescription.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;
     audioDescription.mChannelsPerFrame = 1; ///单声道
     audioDescription.mFramesPerPacket = 1; //每一个packet一侦数据
-    audioDescription.mBitsPerChannel = 16; //每个采样点16bit量化
+    audioDescription.mBitsPerChannel = 32; //每个采样点16bit量化
     audioDescription.mBytesPerFrame = (audioDescription.mBitsPerChannel / 8) * audioDescription.mChannelsPerFrame;
     audioDescription.mBytesPerPacket = audioDescription.mBytesPerFrame;
 

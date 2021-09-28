@@ -203,7 +203,7 @@
     [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"word update")]];
     initTransferManager().transferType = IDO_DATA_FILE_TRAN_WORD_TYPE;
     initTransferManager().compressionType = IDO_DATA_TRAN_COMPRESSION_FASTLZ_TYPE;
-    initTransferManager().fileName = self.fileName?:@"";
+    initTransferManager().fileName = @".fzbin";
     initTransferManager().filePath = self.filePath;
     initTransferManager().numberPackets = 10;
     initTransferManager().isSetConnectParam = YES;

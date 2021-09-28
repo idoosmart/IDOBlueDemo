@@ -12,7 +12,7 @@
 #import "FuncViewController.h"
 
 @interface SetWatchDialViewModel()
-@property (nonatomic,strong) NSArray * allDevices;
+@property (nonatomic,strong) NSMutableArray * allDevices;
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @end
 
@@ -29,13 +29,13 @@
     return self;
 }
 
-- (NSArray *)allDevices
+- (NSMutableArray *)allDevices
 {
     if (!_allDevices) {
         if (__IDO_FUNCTABLE__.funcTable35Model.getNewWatchList) {
-            _allDevices = [IDOV3WatchDialInfoModel currentModel].dialArray;
+            _allDevices = [[IDOV3WatchDialInfoModel currentModel].dialArray mutableCopy];
         }else {
-            _allDevices = [IDOWatchDialInfoModel currentModel].dialArray;
+            _allDevices = [[IDOWatchDialInfoModel currentModel].dialArray mutableCopy];
         }
     }
     return _allDevices;
@@ -44,7 +44,7 @@
 - (void)getCellModels
 {
     NSMutableArray * cellModels = [NSMutableArray array];
-    self.allDevices = nil;
+//    self.allDevices = nil;
     for (int i = 0; i < self.allDevices.count; i++) {
         IDOWatchDialInfoItemModel * watchModel = [self.allDevices objectAtIndex:i];
         LabelCellModel * model = [[LabelCellModel alloc]init];
@@ -120,6 +120,7 @@
                 if (__IDO_FUNCTABLE__.funcTable35Model.getNewWatchList) {
                     initWatchDialManager().getDialListInfo(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
                         if (errorCode == 0) {
+                            [strongSelf.allDevices removeObjectAtIndex:indexPath.row];
                              [strongSelf getCellModels];
                              [funcVc reloadData];
                         }
@@ -127,6 +128,7 @@
                 }else {
                     initWatchDialManager().getV3WatchListInfo(^(IDOV3WatchDialInfoModel * _Nullable model, int errorCode) {
                         if (errorCode == 0) {
+                            [strongSelf.allDevices removeObjectAtIndex:indexPath.row];
                              [strongSelf getCellModels];
                              [funcVc reloadData];
                         }

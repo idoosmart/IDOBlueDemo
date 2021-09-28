@@ -121,6 +121,18 @@
         [cellModels addObject:model];
     }
     
+    TextFieldCellModel * model10 = [[TextFieldCellModel alloc]init];
+    model10.typeStr = @"oneTextField";
+    model10.titleStr = @"设置目标时间";
+    model10.data = @[@(self.walkReminderModel.goalTime)];
+    model10.cellHeight = 70.0f;
+    model10.cellClass = [OneTextFieldTableViewCell class];
+    model10.modelClass = [NSNull class];
+    model10.isShowLine = YES;
+    model10.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model10];
+    
+    
     EmpltyCellModel * model6 = [[EmpltyCellModel alloc]init];
     model6.typeStr = @"empty";
     model6.cellHeight = 30.0f;
@@ -241,6 +253,20 @@
                 }
                 textFieldModel.data = @[@(strongSelf.walkReminderModel.endHour),@(strongSelf.walkReminderModel.endMinute)];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            };
+        }
+        else if (indexPath.row == 12)
+        {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.hundredArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.hundredArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.hundredArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.walkReminderModel.goalTime  = [selectStr integerValue];
             };
         }
     };

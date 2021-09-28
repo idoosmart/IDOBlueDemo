@@ -17,6 +17,7 @@
 #import "ControlRestartViewModel.h"
 #import "ListenVoiceDataViewModel.h"
 #import "ControlResetViewModel.h"
+#import "ControlAudioRecordViewModel.h"
 
 @interface ControlViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -40,7 +41,7 @@
     if (!_buttonTitles) {
         _buttonTitles = @[@[lang(@"photo control")],@[lang(@"music control")],@[lang(@"notification control")],
                           @[lang(@"recovery control")],@[lang(@"reboot control")],@[lang(@"voice control")],
-        @[lang(@"factory reset")]];
+        @[lang(@"factory reset")],@[lang(@"audio record control")]];
     }
     return _buttonTitles;
 }
@@ -49,7 +50,7 @@
 {
     if (!_modelClasss) {
         _modelClasss = @[[TakePictureViewModel class],[ControlMusicViewModel class],[ControlNotifyViewModel class],
-                         [ControlRestoreViewModel class],[ControlRestartViewModel class],[ListenVoiceDataViewModel class],[ControlResetViewModel class]];
+                         [ControlRestoreViewModel class],[ControlRestartViewModel class],[ListenVoiceDataViewModel class],[ControlResetViewModel class],[ControlAudioRecordViewModel class]];
     }
     return _modelClasss;
 }

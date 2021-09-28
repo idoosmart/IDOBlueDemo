@@ -58,12 +58,13 @@
                                                 name:IDOBluetoothDeviceBindNotifyName
                                               object:nil];
 #ifdef DEBUG
-    registrationServices(@"MYdJ9BaaET5KcObzpEGmEbg27BdZ4n").outputSdkLog(YES).outputProtocolLog(YES,YES).rawDataLog(YES).useFunctionTable(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(YES,YES).rawDataLog(YES).useFunctionTable(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
+        [IDOMessageIconManager listenForUpdate].baseUrlPath = @"http://cloud.user.veryfitplus.com:90";
        if(__IDO_BIND__)[IDOBluetoothManager startScan];
     });
 #else
-    registrationServices(@"MYdJ9BaaET5KcObzpEGmEbg27BdZ4n").outputSdkLog(YES).outputProtocolLog(NO,YES).rawDataLog(YES).useFunctionTable(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
+    registrationServices(nil).outputSdkLog(YES).outputProtocolLog(NO,YES).rawDataLog(YES).useFunctionTable(NO).startScanBule(^(IDOGetDeviceInfoBluetoothModel * _Nullable model) {
         //You can use your own bluetooth management here
         if(__IDO_BIND__)[IDOBluetoothManager startScan];
     });

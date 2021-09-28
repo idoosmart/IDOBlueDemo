@@ -69,10 +69,15 @@
 @property (nonatomic,assign) BOOL isQueryWriteState;
 
 /**
- * 是否重试启动传输
+ * 是否重试启动传输 默认 YES
  * is retries
  */
 @property (nonatomic,assign) BOOL isRetries;
+
+/**
+ 传输文件完成是否设置慢速模式，默认是YES
+ */
+@property (nonatomic,assign) BOOL isSetSlowState;
 
 /**
  * 检测文件回调
@@ -121,6 +126,5 @@ IDOTransferFileManager * _Nonnull initTransferManager(void);
  * file stop transfer
  */
 + (void)stopTransfer;
-
 
 @end

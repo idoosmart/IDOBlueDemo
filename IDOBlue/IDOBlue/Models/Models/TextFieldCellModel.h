@@ -10,6 +10,7 @@
 
 @interface TextFieldCellModel : BaseCellModel
 @property (nonatomic,copy)void(^textFeildCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
+@property (nonatomic,copy)void(^textFeildDidEditCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)    NSString * titleStr;
 @property (nonatomic,copy)    NSArray * placeholders;
 @property (nonatomic,assign)  BOOL isShowKeyboard;

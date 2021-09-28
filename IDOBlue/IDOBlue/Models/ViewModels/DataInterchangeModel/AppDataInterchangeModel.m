@@ -174,6 +174,26 @@
             funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
                 textField.text = selectStr;
                 model.data = @[selectStr];
+                if ([selectStr isEqualToString:lang(@"outdoor running")]) {
+                    strongSelf.dataModel.sportType = 48;
+                    return;
+                }
+                if ([selectStr isEqualToString:lang(@"outdoor walking")]) {
+                    strongSelf.dataModel.sportType = 52;
+                    return;
+                }
+                if ([selectStr isEqualToString:lang(@"outdoor cycling")]) {
+                    strongSelf.dataModel.sportType = 50;
+                    return;
+                }
+                if ([selectStr isEqualToString:lang(@"outdoor play")]) {
+                    strongSelf.dataModel.sportType = 193;
+                    return;
+                }
+                if ([selectStr isEqualToString:lang(@"other activity")]) {
+                    strongSelf.dataModel.sportType = 194;
+                    return;
+                }
                 strongSelf.dataModel.sportType  = [strongSelf.pickerDataModel.sportTypes containsObject:textField.text] ?
                 ([strongSelf.pickerDataModel.sportTypes indexOfObject:textField.text] + 1) : 1;
             };

@@ -22,6 +22,9 @@
 @property (nonatomic,strong) NSArray * minuteArray;
 @property (nonatomic,strong) NSArray * typeArray;
 @property (nonatomic,strong) NSArray * weekArray;
+@property (nonatomic,strong) NSArray * weekTypeArray;
+@property (nonatomic,strong) NSArray * monthArray;
+@property (nonatomic,strong) NSArray * dayArray;
 @property (nonatomic,strong) NSArray * tempArray;
 @property (nonatomic,strong) NSArray * screenModeArray;
 @property (nonatomic,strong) NSArray * weatherArray;
@@ -56,4 +59,6 @@
 @property (nonatomic,strong) NSArray * hideType;
 @property (nonatomic,strong) NSArray * widgetType;
 @property (nonatomic,strong) NSArray * widgetColor;
+@property (nonatomic,strong) NSArray * notifyFlagArray;
+
 @end

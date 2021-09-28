@@ -50,6 +50,20 @@
 #import "SetWalkRemindViewModel.h"
 #import "SetPressureSwitchViewModel.h"
 #import "SetWashHandReminderViewModel.h"
+#import "SetSmartHeartRateModeViewModel.h"
+#import "Setv3ScientificSleepViewModel.h"
+#import "SetV3TemperatureViewModel.h"
+#import "SetV3NoiseViewModel.h"
+#import "SetFitnessGuidanceViewModel.h"
+#import "SetWorldTimeViewModel.h"
+#import "SetWeatchSunTimeViewModel.h"
+#import "SetV3WeatherViewModel.h"
+#import "SetSportParamSortViewModel.h"
+#import "SetV3ScheduleReminderViewModel.h"
+#import "SetMainUISortViewModel.h"
+#import "SetSyncContactViewModel.h"
+#import "SetV3NoticeMessageViewModel.h"
+#import "AllWorldTimeViewModel.h"
 
 @interface SetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -77,16 +91,60 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"set user info")],@[lang(@"set target info")],@[lang(@"set find phone")],@[lang(@"set hand up identify")],
-                          @[lang(@"set left right hand")],@[lang(@"set prevent lost")],@[lang(@"set display mode")],@[lang(@"set smart notfity")],
-                          @[lang(@"set current time")],@[lang(@"set alarm remind")],@[lang(@"set long sit remind")],@[lang(@"set weather forecast")],
-                          @[lang(@"set heart rate mode")],@[lang(@"set heart rate interval")],@[lang(@"set no disturb mode")],@[lang(@"set device unit")],
-                          @[lang(@"set one key sos")],@[lang(@"set shortcut mode")],@[lang(@"set blood pressure calibration")],@[lang(@"set sport shortcut")],
-                          @[lang(@"set sport mode sort")],@[lang(@"set screen brightness")],@[lang(@"set music open off")],@[lang(@"set gps info")],
-                          @[lang(@"set hot start info")],@[lang(@"set dial parameters")],@[lang(@"set sleep time")],@[lang(@"set menstruation parameter")],
-                          @[lang(@"set menstruation remind")],@[lang(@"custom set func")],@[lang(@"send prompt message")],@[lang(@"set menu list")],
-                          @[lang(@"set drink water reminder")],@[lang(@"set v3 heart rate mode")],@[lang(@"set sport identify switch")],
-                          @[lang(@"set spo2 switch")],@[lang(@"set breathe train")],@[lang(@"set walk reminder")],@[lang(@"set pressure switch")],@[lang(@"set wash hand reminder")]];
+        _buttonTitles = @[@[lang(@"set user info")],
+                          @[lang(@"set target info")],
+                          @[lang(@"set find phone")],
+                          @[lang(@"set hand up identify")],
+                          @[lang(@"set left right hand")],
+                          @[lang(@"set prevent lost")],
+                          @[lang(@"set display mode")],
+                          @[lang(@"set smart notfity")],
+                          @[lang(@"set current time")],
+                          @[lang(@"set alarm remind")],
+                          @[lang(@"set long sit remind")],
+                          @[lang(@"set weather forecast")],
+                          @[lang(@"set heart rate mode")],
+                          @[lang(@"set heart rate interval")],
+                          @[lang(@"set no disturb mode")],
+                          @[lang(@"set device unit")],
+                          @[lang(@"set one key sos")],
+                          @[lang(@"set shortcut mode")],
+                          @[lang(@"set blood pressure calibration")],
+                          @[lang(@"set sport shortcut")],
+                          @[lang(@"set sport mode sort")],
+                          @[lang(@"set screen brightness")],
+                          @[lang(@"set music open off")],
+                          @[lang(@"set gps info")],
+                          @[lang(@"set hot start info")],
+                          @[lang(@"set dial parameters")],
+                          @[lang(@"set sleep time")],
+                          @[lang(@"set menstruation parameter")],
+                          @[lang(@"set menstruation remind")],
+                          @[lang(@"custom set func")],
+                          @[lang(@"send prompt message")],
+                          @[lang(@"set menu list")],
+                          @[lang(@"set drink water reminder")],
+                          @[lang(@"set v3 heart rate mode")],
+                          @[lang(@"set sport identify switch")],
+                          @[lang(@"set spo2 switch")],
+                          @[lang(@"set breathe train")],
+                          @[lang(@"set walk reminder")],
+                          @[lang(@"set pressure switch")],
+                          @[lang(@"set wash hand reminder")],
+                          @[lang(@"set smart heart rate")],
+                          @[lang(@"set sleep switch")],
+                          @[lang(@"set nocturnal temperature switch")],
+                          @[lang(@"set noise switch")],
+                          @[lang(@"fitness guidance switch")],
+                          @[lang(@"set world time")],
+                          @[lang(@"sunrise sunset time")],
+                          @[lang(@"set V3 weather data")],
+                          @[lang(@"set sport param sort")],
+                          @[lang(@"set schedule reminder")],
+                          @[lang(@"set main interface sort")],
+                          @[lang(@"set bule contact")],
+                          @[lang(@"set app notify status")],
+                        ];
     }
     return _buttonTitles;
 }
@@ -94,16 +152,60 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[SetUserInfoViewModel class],[SetTargetViewModel class],[SetFindPhoneViewModel class],[SetHandUpViewModel class],
-                         [SetLeftRightHandViewModel class],[SetPreventLostViewModel class],[SetDisplayViewModel class],[SetNotfityViewModel class],
-                         [SetTimeViewModel class],[AllAlarmViewModel class],[SetLongSitViewModel class],[SetWeatherViewModel class],
-                         [SetHrModeViewModel class],[SetHrIntervalViewModel class],[SetNoDisturbViewModel class],[SetUnitViewModel class],
-                         [SetOneKeySosViewModel class],[SetShortcutViewModel class],[SetBloodPressureViewModel class],[SetSportShortcutViewModel class],
-                         [SetSportModeSortViewModel class],[SetScreenViewModel class],[SetMusicViewModel class],[SetGpsInfoViewModel class],
-                         [SetHotStartViewModel class],[SetDialParamViewModel class],[SetSleepTimeViewModel class],[SetMenstruationViewModel class],
-                         [SetMenstruationRemindViewModel class],[SetCustomFuncViewModel class],[SendMessageViewModel class],[SetMenuListViewModel class],
-                         [SetDrinkWaterViewModel class],[SetHrSwitchViewModel class],[SetSportSwitchViewModel class],[SetSpo2SwitchViewModel class],
-                         [SetBreatheViewModel class],[SetWalkRemindViewModel class],[SetPressureSwitchViewModel class],[SetWashHandReminderViewModel class]];
+        _modelClasss = @[[SetUserInfoViewModel class],
+                         [SetTargetViewModel class],
+                         [SetFindPhoneViewModel class],
+                         [SetHandUpViewModel class],
+                         [SetLeftRightHandViewModel class],
+                         [SetPreventLostViewModel class],
+                         [SetDisplayViewModel class],
+                         [SetNotfityViewModel class],
+                         [SetTimeViewModel class],
+                         [AllAlarmViewModel class],
+                         [SetLongSitViewModel class],
+                         [SetWeatherViewModel class],
+                         [SetHrModeViewModel class],
+                         [SetHrIntervalViewModel class],
+                         [SetNoDisturbViewModel class],
+                         [SetUnitViewModel class],
+                         [SetOneKeySosViewModel class],
+                         [SetShortcutViewModel class],
+                         [SetBloodPressureViewModel class],
+                         [SetSportShortcutViewModel class],
+                         [SetSportModeSortViewModel class],
+                         [SetScreenViewModel class],
+                         [SetMusicViewModel class],
+                         [SetGpsInfoViewModel class],
+                         [SetHotStartViewModel class],
+                         [SetDialParamViewModel class],
+                         [SetSleepTimeViewModel class],
+                         [SetMenstruationViewModel class],
+                         [SetMenstruationRemindViewModel class],
+                         [SetCustomFuncViewModel class],
+                         [SendMessageViewModel class],
+                         [SetMenuListViewModel class],
+                         [SetDrinkWaterViewModel class],
+                         [SetHrSwitchViewModel class],
+                         [SetSportSwitchViewModel class],
+                         [SetSpo2SwitchViewModel class],
+                         [SetBreatheViewModel class],
+                         [SetWalkRemindViewModel class],
+                         [SetPressureSwitchViewModel class],
+                         [SetWashHandReminderViewModel class],
+                         [SetSmartHeartRateModeViewModel class],
+                         [Setv3ScientificSleepViewModel class],
+                         [SetV3TemperatureViewModel class],
+                         [SetV3NoiseViewModel class],
+                         [SetFitnessGuidanceViewModel class],
+                         [AllWorldTimeViewModel class],
+                         [SetWeatchSunTimeViewModel class],
+                         [SetV3WeatherViewModel class],
+                         [SetSportParamSortViewModel class],
+                         [SetV3ScheduleReminderViewModel class],
+                         [SetMainUISortViewModel class],
+                         [SetSyncContactViewModel class],
+                         [SetV3NoticeMessageViewModel class],
+                        ];
     }
     return _modelClasss;
 }
@@ -140,5 +242,10 @@
         [funcVc.navigationController pushViewController:newFuncVc animated:YES];
     };
 }
+
+
+
+
+
 
 @end

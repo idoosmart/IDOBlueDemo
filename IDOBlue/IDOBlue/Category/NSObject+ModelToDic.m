@@ -30,7 +30,12 @@
         } else if (value == nil) {
             [dic setObject:[NSNull null] forKey:name];
         }else {
-            [dic setObject:[value dicFromObject] forKey:name];
+            if ([value isKindOfClass:[NSNull class]]) {
+                [dic setObject:[NSNull null] forKey:name];
+            }else {
+                [dic setObject:[value dicFromObject] forKey:name];
+            }
+            
         }
     }
     free(propertyList);

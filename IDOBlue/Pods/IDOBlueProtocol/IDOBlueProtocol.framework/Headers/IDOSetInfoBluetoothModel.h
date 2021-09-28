@@ -11,6 +11,793 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ====  设置通知应用状态 model ====
+@interface IDOSetNotificationStatusModel : IDOBluetoothBaseModel
+
+/**
+ 通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger notifyFlag;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetUnReadAppReminderModel
+ */
++ (IDOSetNotificationStatusModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置未读APP提醒(应用通知红点提醒) model ====
+@interface IDOSetUnReadAppReminderModel : IDOBluetoothBaseModel
+//开关
+@property (nonatomic,assign) BOOL onOff;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetUnReadAppReminderModel
+ */
++ (IDOSetUnReadAppReminderModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置自定义时间走动提醒(定制) model ====
+
+@interface IDOSetCustomTimeWalkReminderModel : IDOBluetoothBaseModel
+
+/**
+ 开关
+ */
+@property (nonatomic,assign) BOOL onOff;
+/**
+ 走动提醒数组，最多20个。数组元素为字典，
+ 包含remindHour\remindMinute,eg:{@"remindHour":@"10",@"remindMinute":@"30"}
+ */
+@property (nonatomic,copy) NSArray <NSDictionary *>* items;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetCustomTimeWalkReminderModel
+ */
++ (IDOSetCustomTimeWalkReminderModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置智能心率模式 model ====
+@interface IDOSetSmartHeartRateModel : IDOBluetoothBaseModel
+/**
+ 智能心率模式   yes 为开  no 为关
+ */
+@property (nonatomic,assign) BOOL modeFlag;
+/**
+ 通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger notifyFlag;
+/**
+ 开启智能心率过高提醒开关 yes 为开 no为关
+ */
+@property (nonatomic,assign)BOOL highHeartMode;
+
+/**
+ 开启智能心率过低提醒开关  yes 为开 no为关
+ */
+@property (nonatomic,assign)BOOL lowHeartMode;
+
+/**
+ 智能心率过高提醒阈值
+*/
+@property (nonatomic,assign) NSInteger highHeartValue;
+
+/**
+智能心率过低提醒阈值
+*/
+@property (nonatomic,assign) NSInteger lowHeartValue;
+
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetWeatherSunTimeModel
+ */
++ (IDOSetSmartHeartRateModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置科学睡眠开关 model ====
+@interface IDOSetV3ScientificSleepModel : IDOBluetoothBaseModel
+
+/**
+ 模式 yes（科学睡眠）,no(普通睡眠)
+ */
+@property (nonatomic,assign) BOOL mode;
+/**
+ 开始  时
+ */
+@property (nonatomic,assign) NSInteger startHour;
+/**
+ 开始  分
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+/**
+ 结束  时
+ */
+@property (nonatomic,assign) NSInteger endHour;
+/**
+ 结束  分
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetV3ScientificSleepModel
+ */
++ (IDOSetV3ScientificSleepModel *)currentModel;
+
+@end
+
+#pragma mark ====  夜间体温开关 model ====
+@interface IDOSetV3TemperatureModel : IDOBluetoothBaseModel
+/**
+ 开关 yes开,no关闭
+ */
+@property (nonatomic,assign) BOOL mode;
+/**
+ 开始  时
+ */
+@property (nonatomic,assign) NSInteger startHour;
+/**
+ 开始  分
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+/**
+ 结束  时
+ */
+@property (nonatomic,assign) NSInteger endHour;
+/**
+ 结束  分
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetV3TemperatureModel
+ */
++ (IDOSetV3TemperatureModel *)currentModel;
+
+@end
+
+#pragma mark ====  增加环境音量的开关 model ===
+@interface IDOSetV3NoiseSwitchModel : IDOBluetoothBaseModel
+/**
+ 开关 yes:开,no关闭
+ */
+@property (nonatomic,assign) BOOL mode;
+/**
+ 开始  时
+ */
+@property (nonatomic,assign) NSInteger startHour;
+/**
+ 开始  分
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+/**
+ 结束  时
+ */
+@property (nonatomic,assign) NSInteger endHour;
+/**
+ 结束  分
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+/**
+ 阀值开关 yes:开,no关闭
+ */
+@property (nonatomic,assign) BOOL highNoiseOnOff;
+/**
+ 阈值
+ */
+@property (nonatomic,assign) NSInteger highNoiseValue;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetV3NoiseSwitchModel
+ */
++ (IDOSetV3NoiseSwitchModel *)currentModel;
+
+@end
+
+
+#pragma mark ====  健身指导开关下发 model ===
+@interface IDOSetFitnessGuidanceModel : IDOBluetoothBaseModel
+/**
+ 开关 yes开,no关闭
+ */
+@property (nonatomic,assign) BOOL mode;
+/**
+ 走动提醒开关 yes开,no关闭
+ */
+@property (nonatomic,assign) BOOL walkMode;
+/**
+ 开始  时
+ */
+@property (nonatomic,assign) NSInteger startHour;
+/**
+ 开始  分
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+/**
+ 结束  时
+ */
+@property (nonatomic,assign) NSInteger endHour;
+/**
+ 结束  分
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+/**
+ 通知类型  0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger notifyFlag;
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,copy) NSArray<NSNumber *> * repeat;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetFitnessGuidanceModel
+ */
++ (IDOSetFitnessGuidanceModel *)currentModel;
+
+@end
+
+#pragma mark ==== 常用联系人的模型 ====
+@interface IDOSetContactItemModel:IDOBluetoothBaseModel
+/**
+ 号码
+ */
+@property (nonatomic,copy) NSString * phone;
+
+/**
+ 名字
+ */
+@property (nonatomic,copy) NSString * name;
+
+@end
+
+#pragma mark ==== 同步协议蓝牙通话常用联系人 ====
+@interface IDOSetSyncContactModel:IDOBluetoothBaseModel
+/**
+ 版本号    version
+ */
+@property (nonatomic,assign) NSInteger conVersion;
+/**
+ 操作 0：无效； 1： 设置， 2：查询
+ */
+@property (nonatomic,assign) NSInteger operat;
+/**
+ items的个数
+ */
+@property (nonatomic,assign) NSInteger itemsNum;
+/**
+联系人集合 ｜ alarm items
+*/
+@property (nonatomic,copy) NSArray <IDOSetContactItemModel *>* items;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetSyncContactModel
+ */
++ (IDOSetSyncContactModel *)currentModel;
+
+@end
+
+#pragma mark ==== 设置世界时间 ====
+@interface IDOSetV3WorldTimeItemModel:IDOBluetoothBaseModel
+/**
+ 每个城市的id号
+ */
+@property (nonatomic,assign) NSInteger cityId;
+/**
+ 当前的时间和0时区的偏移分钟数据
+ */
+@property (nonatomic,assign) NSInteger minuteOffset;
+/**
+ 城市的名称（city_name）长度
+ */
+@property (nonatomic,assign) NSInteger cityNameLen;
+/**
+ 城市名称
+ */
+@property (nonatomic,copy) NSString  * cityName;
+/**
+ 日出的时
+ */
+@property (nonatomic,assign) NSInteger sunriseHour;
+/**
+ 日出的分
+ */
+@property (nonatomic,assign) NSInteger sunriseMin;
+/**
+ 日落的时
+ */
+@property (nonatomic,assign) NSInteger sunsetHour;
+/**
+ 日落的分
+ */
+@property (nonatomic,assign) NSInteger sunsetMin;
+/**
+ 经度标志位   1: 东经； 2：西经
+ */
+@property (nonatomic,assign) NSInteger longitudeFlag;
+/**
+ lon=104°4’ => (104 + 4/60)*100 取整
+ 经度  保留2位小数扩大100倍传输， app需要将对应的分转换成度
+ */
+@property (nonatomic,assign) NSInteger longitude;
+/**
+ 纬度标志位  1: 北纬； 2：南纬
+ */
+@property (nonatomic,assign) NSInteger latitudeFlag;
+/**
+ lat=104°4’ => (104 + 4/60)*100 取整
+ 纬度  保留2位小数扩大100倍传输， app需要将对应的分转换成度
+ */
+@property (nonatomic,assign) NSInteger latitude;
+
+@end
+
+@interface IDOSetV3WorldTimeModel:IDOBluetoothBaseModel
+/**
+ 版本号
+ */
+@property (nonatomic,assign) NSInteger worldVersion;
+/**
+ items的个数
+ */
+@property (nonatomic,assign) NSInteger itemsNum;
+/**
+闹钟集合 ｜ alarm items
+*/
+@property (nonatomic,copy) NSArray <IDOSetV3WorldTimeItemModel *>* items;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetV3WorldTimeModel
+ */
++ (IDOSetV3WorldTimeModel *)currentModel;
+
+@end
+
+#pragma mark ==== 未来7天天气情况 Model ====
+@interface IDOFuture7DayWeatherDataModel:IDOBluetoothBaseModel
+/**
+ 天气类型
+ */
+@property (nonatomic,assign) NSInteger weatherType;
+/**
+ 最大温度
+ */
+@property (nonatomic,assign) NSInteger maxTemp;
+/**
+ 最小温度
+ */
+@property (nonatomic,assign) NSInteger minTemp;
+
+@end
+
+#pragma mark ==== 未来24小时天气情况 Model ====
+@interface IDOFuture24HourWeatherModel:IDOBluetoothBaseModel
+/**
+ 天气类型
+ */
+@property (nonatomic,assign) NSInteger weatherType;
+/**
+ 温度
+ */
+@property (nonatomic,assign) NSInteger temperature;
+/**
+ 出现的概率
+ */
+@property (nonatomic,assign) NSInteger probability;
+
+@end
+
+#pragma mark ==== V3 天气设置 Model ====
+@interface IDOSetV3WeatherDataModel:IDOBluetoothBaseModel
+/**
+ 版本号
+ */
+@property (nonatomic,assign) NSInteger weatherVersion;
+/**
+ month
+ */
+@property (nonatomic,assign) NSInteger month;
+/**
+ day
+ */
+@property (nonatomic,assign) NSInteger day;
+/**
+ week
+ */
+@property (nonatomic,assign) NSInteger week;
+/**
+ * 天气情况(0:其他， 1:晴， 2:多云， 3:阴，4:雨，5:暴雨，
+ * 6:雷阵雨， 7:雪， 8:雨夹雪，9:台风， 10:沙尘暴, 11:夜 间晴，
+ * 12:夜间多云， 13:热， 14:冷， 15:清风， 16:大风， 17:雾霭，18:阵雨, 19:多云转晴)
+ * weather conditions (0: others, 1: sunny, 2: cloudy, 3: cloudy, 4: rain, 5: rainstorm,
+ * 6: thunderstorm, 7: snow, 8: sleet, 9: typhoon, 10: sandstorm, 11: night clear,
+ * 12: cloudy night, 13: hot, 14: cold, 15: breezy, 16: blustery, 17: mist, 18: showers, 19: cloudy to clear)
+ */
+@property (nonatomic,assign) NSInteger weatherType;
+/**
+ 当前的温度
+ */
+@property (nonatomic,assign) NSInteger todayTmp;
+/**
+ 最大温度
+ */
+@property (nonatomic,assign) NSInteger todayMaxTemp;
+/**
+ 最少温度
+ */
+@property (nonatomic,assign) NSInteger todayMinTemp;
+/**
+ 城市长度
+ */
+@property (nonatomic,assign) NSInteger cityNameLen;
+/**
+ 城市名称
+ */
+@property (nonatomic,copy) NSString * cityName;
+/**
+ 空气质量
+ */
+@property (nonatomic,assign) NSInteger airQuality;
+/**
+ 降水概率
+ */
+@property (nonatomic,assign) NSInteger precipitationProbability;
+/**
+ 湿度
+ */
+@property (nonatomic,assign) NSInteger humidity;
+/**
+ 紫外线强度
+ */
+@property (nonatomic,assign) NSInteger todayUvIntensity;
+/**
+ 风速
+ */
+@property (nonatomic,assign) NSInteger windSpeed;
+/**
+ 日出 时钟
+ */
+@property (nonatomic,assign) NSInteger sunriseHour;
+/**
+ 日出 分钟
+ */
+@property (nonatomic,assign) NSInteger sunriseMin;
+/**
+ 日落 时钟
+ */
+@property (nonatomic,assign) NSInteger sunsetHour;
+/**
+ 日落 发钟
+ */
+@property (nonatomic,assign) NSInteger sunsetMin;
+/**
+未来24小时天气集合 ｜  items
+*/
+@property (nonatomic,copy) NSArray <IDOFuture24HourWeatherModel *>* future24HoursItems;
+/**
+ 未来7天气集合 ｜  items
+*/
+@property (nonatomic,copy) NSArray <IDOFuture7DayWeatherDataModel *>* future7DaysItems;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetV3WeatherDataModel
+ */
++ (IDOSetV3WeatherDataModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置第三方应用的通知状态 item  model ====
+@interface IDOSetAppNotifyStateItemModel : IDOBluetoothBaseModel
+/**
+ 事件类型
+*/
+@property (nonatomic,assign) NSInteger evtType;
+/**
+ 通知状态  允许通知：1，静默通知 ：2， 关闭通知：3
+ */
+@property (nonatomic,assign) NSInteger notifyState;
+/**
+ 0x00:无效； 1：有下载对应的图片；2：没有对应的图片  (设置通知状态，此属性忽略)
+ */
+@property (nonatomic,assign) NSInteger picFlag;
+/**
+ 应用包名 (设置通知状态，此属性忽略)
+ */
+@property (nonatomic,copy) NSString * packName;
+/**
+ 应用名称  (设置通知状态，此属性忽略)
+ */
+@property (nonatomic,copy) NSString * appName;
+
+@end
+
+#pragma mark ====  设置第三方应用的通知状态  model ====
+@interface IDOSetV3NotifyStateModel : IDOBluetoothBaseModel
+/**
+ 版本
+ */
+@property (nonatomic,assign) NSInteger msgVersion;
+/**
+ 增删改  1：增加； 2：修改;  3:获取查询
+ */
+@property (nonatomic,assign) NSInteger operat;
+/**
+ 发送的总包数
+ */
+@property (nonatomic,assign) NSInteger allSendNum;
+/**
+ 当前发送的序列 
+ */
+@property (nonatomic,assign) NSInteger nowSendIndex;
+/**
+ 集合个数
+ */
+@property (nonatomic,assign) NSInteger itemsNum;
+/**
+ 通知状态集合 ｜  items
+*/
+@property (nonatomic,copy) NSArray <IDOSetAppNotifyStateItemModel *>* items;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetV3NotifyStateModel
+ */
++ (IDOSetV3NotifyStateModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置运动子项数据排列  model ====
+@interface IDOSetSportParameterSortModel : IDOBluetoothBaseModel
+/**
+ * 版本
+ */
+@property (nonatomic,assign) NSInteger paraVersion;
+/**
+ *  操作 0:无效； 1查询； 2设置
+ */
+@property (nonatomic,assign) NSInteger operate;
+/**
+ * 运动类型
+ */
+@property (nonatomic,assign) NSInteger sportType;
+/**
+ * 已经添加的运动索引
+ */
+@property (nonatomic,assign) NSInteger currentIndex;
+/**
+ * 个数
+ */
+@property (nonatomic,assign) NSInteger allNum;
+/**
+ * 0无效 1运动时长 2距离 3卡路里 4实时心率 + 心率区间
+ * 5实时配速 6实时步频 7有氧训练效果 8滚动配速 9平均配速
+ * 10步数 11趟数 12最近泳姿 13最近一趟SWOLF 14步数
+ * 15踏频 16有氧训练效果 17浆次 18浆频 19时间
+ */
+@property (nonatomic,copy) NSArray<NSNumber *> * items;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetSportParamSortModel
+ */
++ (IDOSetSportParameterSortModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置日程提醒 model ====
+@interface IDOSetRemindItemModel : IDOBluetoothBaseModel
+/**
+ 日程提醒id
+ */
+@property (nonatomic,assign) NSInteger remindId;
+/**
+ 年份
+ */
+@property (nonatomic,assign) NSInteger year;
+/**
+ 月份
+ */
+@property (nonatomic,assign) NSInteger month;
+/**
+ 日期
+ */
+@property (nonatomic,assign) NSInteger day;
+/**
+ 时
+ */
+@property (nonatomic,assign) NSInteger hour;
+/**
+ 分
+ */
+@property (nonatomic,assign) NSInteger minute;
+/**
+ 秒
+ */
+@property (nonatomic,assign) NSInteger second;
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,copy) NSArray<NSNumber *> * repeat;
+/**
+ * 提醒类型 0:不提醒 2:准时 4:提前5分钟 8:提前10分钟 16:提前30分钟 32:提前1小时 64:提前1天
+ */
+@property (nonatomic,assign) NSInteger nowDayRemindType;
+/**
+ * 超过天数提醒类型 0:当天 2:提前1天 4:提前2天 8:提前3天 16:提前1周
+ */
+@property (nonatomic,assign) NSInteger futureRemindType;
+/**
+ 当天提醒开关 0是关,1是开
+ */
+@property (nonatomic,assign) BOOL remindOnOff;
+/**
+ * 状态码 0:无效, 1：删除状态, 2：启用状态
+ */
+@property (nonatomic,assign) NSInteger state;
+/**
+ 标题
+ */
+@property (nonatomic,strong) NSString *title;
+/**
+ 提示
+ */
+@property (nonatomic,strong) NSString *note;
+
+@end
+
+@interface IDOSetV3ScheduleReminderModel : IDOBluetoothBaseModel
+/**
+ * 版本号
+ */
+@property (nonatomic,assign) NSInteger scVersion;
+/**
+ * 操作类型 0:无效,1:增, 2:删, 3:查,4:改
+ */
+@property (nonatomic,assign) NSInteger operate;
+/**
+ * items的个数
+ */
+@property (nonatomic,assign) NSInteger num;
+/**
+ * 最大设置5个数据过去 设置的时候填充对应的数据结构体
+ */
+@property (nonatomic,copy) NSArray<IDOSetRemindItemModel *> * items;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetV3ScheduleReminderModel
+ */
++ (IDOSetV3ScheduleReminderModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置主界面控件的排序 model ====
+@interface IDOMainInterfaceItemModel : IDOBluetoothBaseModel
+/**
+ * 横轴x 从1开始
+ */
+@property (nonatomic,assign) NSInteger locationX;
+/**
+ * 纵轴y 从1开始
+ */
+@property (nonatomic,assign) NSInteger locationY;
+/**
+ * 0无效；1：大图标(一个占用一个大的横格)； 2：小图标（2个占用一个横格）
+ */
+@property (nonatomic,assign) NSInteger sizeType;
+/**
+ 固件支持可以编辑的图标类型 0 ： 无效； 1：大图标； 2：小图标；3:大图标+小图标；
+ */
+@property (nonatomic,assign) NSInteger supportSizeType;
+/**
+ * 0无效1活动三环 （小图标）2步数 3最近一次活动 4音乐 5天气 6心率 7压力 8睡眠
+ * 9Alexa 10体温 11血氧 12计时器 13闹钟 14事项提醒（现日程提醒）
+ * 15噪声 16电量 17电话（联系人）18世界时间
+ */
+@property (nonatomic,assign) NSInteger widgetsType;
+
+@end
+
+@interface IDOMainInterfaceSupportItemModel : IDOBluetoothBaseModel
+/**
+ 固件支持可以编辑的图标类型 0 ： 无效； 1：大图标； 2：小图标；3:大图标+小图标
+ */
+@property (nonatomic,assign) NSInteger supportSizeType;
+/**
+ * 0无效1活动三环 （小图标）2步数 3最近一次活动 4音乐 5天气 6心率 7压力 8睡眠
+ * 9Alexa 10体温 11血氧 12计时器 13闹钟 14事项提醒（现日程提醒）
+ * 15噪声 16电量 17电话（联系人）18世界时间
+ */
+@property (nonatomic,assign) NSInteger widgetsType;
+
+@end
+
+@interface IDOMainInterfaceSortModel : IDOBluetoothBaseModel
+/**
+ * 版本号
+ */
+@property (nonatomic,assign) NSInteger mainUiVersion;
+/**
+ * 0：无效； 1查询； 2设置
+ */
+@property (nonatomic,assign) NSInteger operate;
+/**
+ * 当前固件组件类型个数
+ */
+@property (nonatomic,assign) NSInteger allNum;
+/**
+ * 固件支持所有小组件的类型
+ */
+@property (nonatomic,assign) NSInteger allSupportNum;
+/**
+ * 主界面集合
+ */
+@property (nonatomic,copy) NSArray<IDOMainInterfaceItemModel *> * items;
+/**
+ * 固件支持可以编辑的图标集合
+ */
+@property (nonatomic,copy) NSArray<IDOMainInterfaceSupportItemModel *> * supportItems;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOMainInterfaceSortModel
+ */
++ (IDOMainInterfaceSortModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置天气日出日落的时间 model ====
+@interface IDOSetWeatherSunTimeModel : IDOBluetoothBaseModel
+/**
+ 日出 时钟
+ */
+@property (nonatomic,assign) NSInteger sunriseHour;
+/**
+ 日出 分钟
+ */
+@property (nonatomic,assign) NSInteger sunriseMinute;
+/**
+ 日落 时钟
+ */
+@property (nonatomic,assign) NSInteger sunsetHour;
+/**
+ 日落 分钟
+ */
+@property (nonatomic,assign) NSInteger sunsetMinute;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetWeatherSunTimeModel
+ */
++ (IDOSetWeatherSunTimeModel *)currentModel;
+
+@end
+
 #pragma mark ====  设置洗手提醒 model ====
 @interface IDOSetWashHandReminderModel:IDOBluetoothBaseModel
 /**
@@ -97,7 +884,7 @@
  * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
-@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+@property (nonatomic,copy)NSArray<NSNumber *> * repeat;
 
 /**
  提醒间隔 单位分钟，默认60分钟 ｜ interval
@@ -139,7 +926,7 @@
 /**
  吃药提醒集合 ｜ taking medicine reminder array
  */
-@property (nonatomic,strong) NSArray<IDOSetTakingMedicineReminderItemModel *> * items;
+@property (nonatomic,copy) NSArray<IDOSetTakingMedicineReminderItemModel *> * items;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -185,7 +972,7 @@
  * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
-@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+@property (nonatomic,copy)NSArray<NSNumber *> * repeat;
 
 /**
  提醒间隔,单位分钟 默认60分钟 | interval (unit minutes)
@@ -196,6 +983,12 @@
  压力过高阈值 | High pressure threshold
  */
 @property (nonatomic,assign) NSInteger highThreshold;
+
+/**
+ 通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知 根据功能表：pressure_add_notify_flag_and_mode_03_45
+ */
+@property (nonatomic,assign) NSInteger notifyFlag;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -235,7 +1028,12 @@
  * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
-@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+@property (nonatomic,copy)NSArray<NSNumber *> * repeat;
+/**
+ 通知类型 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger notifyFlag;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -248,7 +1046,7 @@
 @interface IDOSetV3HeartRateModeBluetoothModel:IDOBluetoothBaseModel
 /**
  * 心率模式 0:关闭心率监测功能(无效) 1:手动模式 2:自动模式(5分钟) 3:持续监测(5秒钟)（默认：自动模式）
- * 4:默认类型(第一次绑定同步配置使用) 5:设置对应测量间隔,选择4和5模式则2和3模式无效
+ * 4:默认类型(第一次绑定同步配置使用) 5:设置对应测量间隔,选择4和5模式则2和3模式无效 6:智能心率模式 （206沃尔定制）
  * Heart Rate Mode 0: turn off heart rate monitoring function 1: manual mode 2: auto mode 3:continuously monitor(Default: Auto mode)
  * 4: default type (used for the first binding synchronization configuration) 5: set the corresponding measurement interval
  */
@@ -285,9 +1083,9 @@
 @property (nonatomic,assign) NSInteger  measurementInterval;
 /**
  获取手表支持的心率类型集合 | get support  heart rate item type array
- 分别:5s,1分钟,3分钟,5分钟,10分钟,30分钟
+ 分别:5s,1分钟,3分钟,5分钟,10分钟,30分钟,智能心率(255s)
  */
-@property (nonatomic,strong) NSArray * hrModeTypes;
+@property (nonatomic,copy) NSArray * hrModeTypes;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -323,6 +1121,19 @@
  结束提醒开关 | end remind on off
  */
 @property (nonatomic,assign) BOOL endRemindOnOff;
+
+/**
+ 自动识别椭圆机开关 | auto_identify_sport_elliptical
+ */
+@property (nonatomic,assign) BOOL sportEllipticalOnOff;
+/**
+ 自动识别划船机开关 | auto_identify_sport_rowing
+ */
+@property (nonatomic,assign) BOOL sportRowingOnOff;
+/**
+ 自动识别游泳开关 | auto_identify_sport_swim
+ */
+@property (nonatomic,assign) BOOL sportSwimOnOff;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -368,6 +1179,11 @@
  血氧过低阈值 | low spo2 value
  */
 @property (nonatomic,assign) NSInteger lowValue;
+
+/**
+ 通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知  bool spo2_add_notify_flag_03_44;// 血氧开关增加通知类型
+ */
+@property (nonatomic,assign) NSInteger notifyFlag;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -423,11 +1239,15 @@
  * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
-@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+@property (nonatomic,copy)NSArray<NSNumber *> * repeat;
 /**
  目标时间 单位(小时)
  */
 @property (nonatomic,assign) NSInteger goalTime;
+/**
+ 通知类型
+ */
+@property (nonatomic,assign) NSInteger notifyFlag;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -455,7 +1275,18 @@
  提醒时间 （分） | Reminder time (minutes)
  */
 @property (nonatomic,assign) NSInteger minute;
-
+/**
+ 易孕期 开始的时候 提前多少天提醒
+ */
+@property (nonatomic,assign) NSInteger pregnancyDayBeforeRemind;
+/**
+ 易孕期 结束的时候 提前多少天提醒
+ */
+@property (nonatomic,assign) NSInteger pregnancyDayEndRemind;
+/**
+ 经期结束 提前多少天提醒
+ */
+@property (nonatomic,assign) NSInteger menstrualDayEndRemind;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -503,6 +1334,10 @@
  经期后一天 | | One day after menstruation
  */
 @property (nonatomic,assign) NSInteger ovulationAfterDay;
+/**
+通知类型
+ */
+@property (nonatomic,assign) NSInteger notifyFlag;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -884,27 +1719,22 @@
  * 12: cloudy night, 13: hot, 14: cold, 15: breezy, 16: blustery, 17: mist, 18: showers, 19: cloudy to clear)
  */
 @property (nonatomic,assign) NSInteger todayType;
-
 /**
  今天最高温度 | Today's highest temperature
  */
 @property (nonatomic,assign) NSInteger todayMaxTemp;
-
 /**
  今天最小温度 | Today's minimum temperature
  */
 @property (nonatomic,assign) NSInteger todayMinTemp;
-
 /**
  湿度 | Humidity
  */
 @property (nonatomic,assign) NSInteger humidity;
-
 /**
  紫外线强度 | UV intensity
  */
 @property (nonatomic,assign) NSInteger todayUvIntensity;
-
 /**
  空气污染指数 | Air Pollution Index
  */
@@ -914,14 +1744,12 @@
  * 后三天天的天气集合  @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
  * Weather collection for the last three days @{@"type":@(0),@"maxTemp":@(0),@"minTemp":@(0)}
  */
-@property (nonatomic,strong) NSArray<NSDictionary*>* future;
-
+@property (nonatomic,copy) NSArray<NSDictionary*>* future;
 /**
  城市名称
  city name
  */
 @property (nonatomic,copy) NSString * cityName;
-
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -936,34 +1764,80 @@
 
 /**
  * 排序索引 index //排序,从1、2、3、4....,0:无效
+ * 100中运动排序不需要设置此属性
  * Sort index // sort from 1, 2, 3, 4... , 0: invalid
  */
 @property (nonatomic,assign) NSInteger index;
-
 /**
  * 运动模式 | Sport mode
  * 0:无，1:走路，2:跑步，3:骑行，4:徒步，5:游泳，6:爬山，7:羽毛球，8:其他，
  * 9:健身，10:动感单车，11:椭圆机，12:跑步机，13:仰卧起坐，14:俯卧撑，15:哑铃，16:举重，
  * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
- * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，48:户外跑步，49:室内跑步，50:户外骑行，51:室内骑行，
- * 52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
- * 0: none, 1: walk, 2: run, 3: ride, 4: hike, 5: swim, 6: climb, 7: badminton, 8: others,
- * 9: fitness, 10: spinning, 11: elliptical, 12: treadmill, 13: sit-ups, 14: push-ups, 15: dumbbells, 16: weightlifting,
- * 17: aerobics, 18: yoga, 19: jump rope, 20: table tennis, 21: basketball, 22: football, 23: volleyball, 24: tennis,
- * 25: golf, 26: baseball, 27: skiing, 28: roller skating, 29: dancing，48: outdoor running, 49: indoor running, 50: outdoor cycling, 51: indoor cycling,
- * 52: outdoor walking, 53: indoor walking, 54: pool swimming, 55: open water swimming, 56: elliptical machine, 57: rowing machine, 58: high-intensity interval training
- * 75:cricket
+ * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，31：室内划船/roller machine， 32：普拉提/pilates， 33:交叉训练/cross train,
+ * 34:有氧运动/cardio，35：尊巴舞/Zumba, 36:广场舞/square dance, 37:平板支撑/Plank, 38:健身房/gym 48:户外跑步，49:室内跑步，
+ * 50:户外骑行，51:室内骑行，52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
+ 基础运动：
+ 100：自由训练，101：功能性力量训练，102：核心训练，103：踏步机，104：整理放松
+ 健身（25种）
+ 110：传统力量训练，112：引体向上，114：开合跳，115：深蹲，116：高抬腿，117：拳击，118：杠铃，119：武术，
+ 120：太极，121：跆拳道，122：空手道，123：自由搏击，124：击剑，125：射箭，126：体操，127:单杠，128:双杠,129:漫步机,
+ 130:登山机
+
+ 球类:
+ 131:保龄球,132:台球,133:曲棍球,134:橄榄球,135:壁球,136:垒球,137:手球,138:毽球,139:沙滩足球,
+ 140:藤球,141:躲避球
+
+ 休闲运动
+ 152:街舞,153:芭蕾,154:社交舞,155:飞盘,156:飞镖,157:骑马,158:爬楼,159:放风筝,
+ 160:钓鱼
+
+ 冰雪运动
+ 161:雪橇,162:雪车,163:单板滑雪,164:雪上运动,165:高山滑雪,166:越野滑雪,167:冰壶,168:冰球,169:冬季两项
+
+ 水上运动（10种）
+ 170:冲浪,171:帆船,172:帆板,173:皮艇,174:摩托艇,175:划艇,176:赛艇,177:龙舟,178:水球,179:漂流,
+
+ 极限运动（5种）
+ 180:滑板,181:攀岩,182:蹦极,183:跑酷,184:BMX,
+ 
+ kr01定制项目
+ 193:Outdoor Fun（户外玩耍）, 194:Other Activity（其他运动）
  */
 @property (nonatomic,assign) NSInteger type;
+
+/**
+ 01：图片已下载成功   00：图片没有下载
+ */
+@property (nonatomic,assign) NSInteger flag;
 
 @end
 
 @interface IDOSetSportSortingInfoBluetoothModel:IDOBluetoothBaseModel
 
 /**
- 运动模式排序集合最多8个或14个 | Sports mode sort set up to 8 or 14
+ 操作 0：无效； 1查询； 2设置
  */
-@property (nonatomic,strong)NSArray <IDOSetSportSortingItemModel *>* sportSortingItems;
+@property (nonatomic,assign) NSInteger operat;
+/**
+ 当前已添加运动类型的索引
+ */
+@property (nonatomic,assign) NSInteger currentIndex;
+/**
+ 个数
+ */
+@property (nonatomic,assign) NSInteger allNum;
+/**
+ 最少显示个数
+ */
+@property (nonatomic,assign) NSInteger minShowNum;
+/**
+ 最大显示个数
+ */
+@property (nonatomic,assign) NSInteger maxShowNum;
+/**
+ 运动模式排序集合最多8个或14个或30个或150 | Sports mode sort set up to 8 or 14 or 30 or 150
+ */
+@property (nonatomic,copy)NSArray <IDOSetSportSortingItemModel *>* sportSortingItems;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1163,6 +2037,7 @@
  * @return IDOSetBloodPressureInfoBluetoothModel
  */
 + (IDOSetBloodPressureInfoBluetoothModel *)currentModel;
+
 @end
 
 #pragma mark ==== 设置快捷方式model ====
@@ -1183,7 +2058,6 @@
 
 #pragma mark ==== 设置闹钟model ====
 @interface IDOSetAlarmInfoBluetoothModel:IDOBluetoothBaseModel
-
 /**
  开关 | Switch
  */
@@ -1201,59 +2075,50 @@
 
 /**
  类型 | Type
- 0x00：起床， 0x01：睡觉， 0x02：锻炼， 0x03：吃药， 0x04：约会， 0x05：聚会， 0x06:会议， 0x07：其他
+ 0：起床， 1：睡觉， 2：锻炼， 3：吃药， 4：约会， 5：聚会， 6:会议，7：其他
+ 8：吃饭， 9：刷牙，10 :休息  11 : 课程  12: 洗澡  13:学习
  */
 @property (nonatomic,assign) NSInteger type;
-
 /**
  时 | hour
  */
 @property (nonatomic,assign) NSInteger hour;
-
 /**
  分 | minute
  */
 @property (nonatomic,assign) NSInteger minute;
-
 /**
  * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
-@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
-
+@property (nonatomic,copy)NSArray<NSNumber *> * repeat;
 /**
  贪睡时长 | Sleepy time
  */
 @property (nonatomic,assign) NSInteger tsnoozeDuration;
-
 /**
  闹钟ID | Alarm ID
  */
 @property (nonatomic,assign) NSInteger alarmId;
-
 /**
  闹钟修改的时间戳 (可以不赋值)｜ set up time stamp (can be unassigned)
  */
 @property (nonatomic,copy) NSString * setTimeStamp DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
-
 /**
  震动开关
  shock on off
  */
 @property (nonatomic,assign) BOOL shockOnOff;
-
 /**
  延时分钟
  delay minute
  */
 @property (nonatomic,assign) NSInteger delayMinute;
-
 /**
  闹钟名字 长度限制 23个字节
  name
  */
 @property (nonatomic,copy) NSString * alarmName;
-
 /**
  * @brief 初始化闹钟集合 | Initialize the alarm collection
  * @return 闹钟集合 | Alarm clock collection
@@ -1270,7 +2135,6 @@
 
 #pragma mark ==== 设置扩展v3闹钟model ====
 @interface IDOSetExtensionAlarmInfoBluetoothModel:IDOBluetoothBaseModel
-
 /**
  闹钟版本号 ｜ alarm version
  */
@@ -1295,7 +2159,7 @@
 /**
 闹钟集合 ｜ alarm items
 */
-@property (nonatomic,strong) NSArray <IDOSetAlarmInfoBluetoothModel *>* items;
+@property (nonatomic,copy) NSArray <IDOSetAlarmInfoBluetoothModel *>* items;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1353,7 +2217,7 @@
  * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
-@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+@property (nonatomic,copy)NSArray<NSNumber *> * repeat;
 
 @end
 
@@ -1372,7 +2236,7 @@
 /**
 闹钟集合 ｜ alarm items
 */
-@property (nonatomic,strong) NSArray <IDOSetVoiceV3AlarmItemInfoModel *>* items;
+@property (nonatomic,copy) NSArray <IDOSetVoiceV3AlarmItemInfoModel *>* items;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1655,7 +2519,7 @@
  * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
-@property (nonatomic,strong)NSArray<NSNumber *> * repeat;
+@property (nonatomic,copy)NSArray<NSNumber *> * repeat;
 
 /*
 午休开关 | noon time on off
@@ -1835,7 +2699,7 @@
   * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
   * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  */
-@property (nonatomic,strong) NSArray <NSNumber *>* selectWeeks;
+@property (nonatomic,copy) NSArray <NSNumber *>* selectWeeks;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2241,6 +3105,14 @@
  nioseFit 提醒 | noiseFit
  */
 @property (nonatomic,assign) BOOL isOnNioseFit;
+/**
+ did no call 提醒 | did no call
+ */
+@property (nonatomic,assign) BOOL isOnDidNotCall;
+/**
+ 事项 提醒 | matters remind
+ */
+@property (nonatomic,assign) BOOL isOnMattersRemind;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2253,72 +3125,66 @@
 
 #pragma mark ==== 设置用户信息model ====
 @interface IDOSetUserInfoBuletoothModel : IDOBluetoothBaseModel
-
 /**
  身高(厘米) | Height(cm)
  */
 @property (nonatomic,assign) NSInteger height;
-
 /**
- 当前体重(千克) | Current weight(kg)
+ 当前体重(千克)*100 | Current weight(kg)*100
  */
 @property (nonatomic,assign) NSInteger weight;
-
 /**
  性别 1: 男 2 ：女 | Gender 1: Male 2: Female
  */
 @property (nonatomic,assign) NSInteger gender;
-
 /**
  年 | year
  */
 @property (nonatomic,assign) NSInteger year;
-
 /**
  月 | Month
  */
 @property (nonatomic,assign) NSInteger month;
-
 /**
  日 | day
  */
 @property (nonatomic,assign) NSInteger day;
-
 /**
  目标睡眠 (时) | Target sleep (hours)
  */
 @property (nonatomic,assign) NSInteger goalSleepDataHour;
-
 /**
  目标睡眠 (分) | Target sleep (minutes)
  */
 @property (nonatomic,assign) NSInteger goalSleepDataMinute;
-
 /**
  目标步数 | Target steps
  */
 @property (nonatomic,assign) NSInteger goalStepData;
-
 /**
  目标卡路里 | Goal Calories
  */
 @property (nonatomic,assign) NSInteger goalCalorieData;
-
 /**
  目标距离(米) | Target distance(m)
  */
 @property (nonatomic,assign) NSInteger goalDistanceData;
-
 /**
  中高运动时长的目标(秒) | mid high time goal(s)
  */
 @property (nonatomic,assign) NSInteger goalMidHighTimeData;
-
+/**
+ 走动每小时目标步数
+ */
+@property (nonatomic,assign) NSInteger goalWalkStep DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
+/**
+ 走动目标时间 单位 s
+ */
+@property (nonatomic,assign) NSInteger goalWalkTime;
 /**
  目标体重(千克) | Target weight(kg)
  */
 @property (nonatomic,assign) NSInteger goalWeightData;
-
 /**
  * 目标类型 (类型 : 0 : 步数  1 : 卡路里  2 : 距离) 设置一种类型的目标需要执行一次命令
  * Target type (type : 0 : step 1 : calories 2 : distance) Setting a type of target requires a command to be executed

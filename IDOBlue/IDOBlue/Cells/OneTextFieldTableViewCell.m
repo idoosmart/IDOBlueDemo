@@ -31,6 +31,8 @@
         self.textField.borderStyle = UITextBorderStyleRoundedRect;
         self.textField.textColor = [UIColor blackColor];
         self.textField.textAlignment = NSTextAlignmentCenter;
+        self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.textField.delegate = self;
         self.textField.font = [UIFont systemFontOfSize:14];
         [self.contentView addSubview:self.textField];
@@ -88,7 +90,10 @@
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
-     [funcVC.tableView setContentInset:UIEdgeInsetsZero];
+    if (self.textFieldCellModel.textFeildDidEditCallback) {
+        self.textFieldCellModel.textFeildDidEditCallback([IDODemoUtility getCurrentVC],textField,self);
+    }
+    [funcVC.tableView setContentInset:UIEdgeInsetsZero];
     return self.textFieldCellModel.isShowKeyboard;
 }
 

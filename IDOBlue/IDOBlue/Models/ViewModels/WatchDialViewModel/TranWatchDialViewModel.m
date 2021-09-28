@@ -136,6 +136,10 @@
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return ;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"transfer dial file")]];
+        IDOWatchScreenInfoModel *model = [IDOWatchScreenInfoModel currentModel];
+        initWatchDialManager().colorFormat = model.colorFormat;
+        initWatchDialManager().blockSize = model.blockSize;
+        
         initWatchDialManager().addDialProgress(^(int progress) {
             [funcVC showSyncProgress:progress/100.0f];
         }).addDialTransfer(^(int errorCode) {

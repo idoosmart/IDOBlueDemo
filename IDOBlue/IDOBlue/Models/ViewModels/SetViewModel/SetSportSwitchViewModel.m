@@ -40,7 +40,12 @@
                          @{@"title":lang(@"run on off"),@"switch":@(self.sportModel.sportRunOnOff)},
                          @{@"title":lang(@"bicycle on off"),@"switch":@(self.sportModel.sportBicycleOnOff)},
                          @{@"title":lang(@"auto pause on off"),@"switch":@(self.sportModel.autoPauseOnOff)},
-                         @{@"title":lang(@"end remind on off"),@"switch":@(self.sportModel.endRemindOnOff)}];
+                         @{@"title":lang(@"end remind on off"),@"switch":@(self.sportModel.endRemindOnOff)},
+                         @{@"title":@"自动识别椭圆机开关",@"switch":@(self.sportModel.sportEllipticalOnOff)},
+                         @{@"title":@"自动识别划船机开关",@"switch":@(self.sportModel.sportRowingOnOff)},
+                         @{@"title":@"自动识别游泳开关",@"switch":@(self.sportModel.sportSwimOnOff)},
+        
+                        ];
     }
     return _switchArray;
 }
@@ -76,6 +81,15 @@
         }else if (indexPath.row == 4) {
             strongSelf.sportModel.endRemindOnOff = onSwitch.isOn;
             switchCellModel.data = @[@(strongSelf.sportModel.endRemindOnOff)];
+        }else if (indexPath.row == 5) {
+            strongSelf.sportModel.sportEllipticalOnOff = onSwitch.isOn;
+            switchCellModel.data = @[@(strongSelf.sportModel.sportEllipticalOnOff)];
+        }else if (indexPath.row == 6) {
+            strongSelf.sportModel.sportRowingOnOff = onSwitch.isOn;
+            switchCellModel.data = @[@(strongSelf.sportModel.sportRowingOnOff)];
+        }else if (indexPath.row == 7) {
+            strongSelf.sportModel.sportSwimOnOff = onSwitch.isOn;
+            switchCellModel.data = @[@(strongSelf.sportModel.sportSwimOnOff)];
         }
     };
 }
