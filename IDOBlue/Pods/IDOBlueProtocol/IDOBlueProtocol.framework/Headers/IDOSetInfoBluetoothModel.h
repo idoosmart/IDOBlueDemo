@@ -554,6 +554,10 @@
  */
 @property (nonatomic,assign) NSInteger itemsNum;
 /**
+ 所有消息通知开关
+ */
+@property (nonatomic,assign) BOOL allOnOff;
+/**
  通知状态集合 ｜  items
 */
 @property (nonatomic,copy) NSArray <IDOSetAppNotifyStateItemModel *>* items;
@@ -1820,6 +1824,7 @@
 @property (nonatomic,assign) NSInteger operat;
 /**
  当前已添加运动类型的索引
+ funcTable37Model.set100SportSort 支持100种运动才需要赋值
  */
 @property (nonatomic,assign) NSInteger currentIndex;
 /**

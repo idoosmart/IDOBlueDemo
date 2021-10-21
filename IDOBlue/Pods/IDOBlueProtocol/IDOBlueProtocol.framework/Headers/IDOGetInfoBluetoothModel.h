@@ -146,6 +146,42 @@
  生理周期开关
  */
 @property (nonatomic,assign) BOOL menstrualMode;
+/**
+ 走动提醒开关
+ */
+@property (nonatomic,assign) BOOL walkMode;
+/**
+ 洗手提醒开关
+ */
+@property (nonatomic,assign) BOOL handWashingMode;
+/**
+ 喝水提醒开关
+ */
+@property (nonatomic,assign) BOOL drinkWaterMode;
+/**
+ 心率通知状态类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger heartModeNotifyFlag;
+/**
+ 压力通知状态类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger pressureNotifyFlag;
+/**
+ 血氧通知状态类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger spo2NotifyFlag;
+/**
+ 生理周期通知状态类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger menstrualNotifyFlag;
+/**
+ 健身指导通知状态类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger guidanceNotifyFlag;
+/**
+ 提醒事项通知状态类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger reminderNotifyFlag;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

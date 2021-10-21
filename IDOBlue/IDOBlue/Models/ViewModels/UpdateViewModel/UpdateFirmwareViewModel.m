@@ -341,6 +341,11 @@
     return IDO_DATA_FILE_TRAN_DIAL_TYPE;
 }
 
+- (IDO_DATA_TRAN_COMPRESSION_TYPE)fileTranCompressionTypeUpdateManager:(IDOUpdateFirmwareManager *)manager
+{
+    return IDO_DATA_TRAN_COMPRESSION_FASTLZ_TYPE;
+}
+
 - (NSString * _Nullable)fileTranNameUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager
 {
     return @".fw";
@@ -348,7 +353,7 @@
 
 - (NSInteger)setTransferNumberPacketsUpdateManager:(IDOUpdateFirmwareManager *)manager
 {
-    return 20;
+    return 10;
 }
 
 @end

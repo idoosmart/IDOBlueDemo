@@ -54,7 +54,6 @@
 
 - (void)getButtonCallback
 {
-    __weak typeof(self) weakSelf = self;
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get music list info")]];
@@ -93,41 +92,12 @@
     if (errorCode == 0) {
         [funcVC showToastWithText:lang(@"get list info success")];
         NSDictionary * dic = model.dicFromObject;
-        NSMutableArray * array = [NSMutableArray array];
-        for (IDOMusicFileModel *music in model.musicItems) {
-            NSDictionary * dic = music.dicFromObject;
-            [array addObject:dic];
-        }
-        for (IDOMusicDirectoryModel *directory in model.folderItems) {
-            NSDictionary * dic = directory.dicFromObject;
-            [array addObject:dic];
-        }
-        self.textView.text = [NSString stringWithFormat:@"%@\n%@",dic,array];
+        self.textView.text = [NSString stringWithFormat:@"%@",dic];
     }else if (errorCode == 6) {
         [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
     }else {
         [funcVC showToastWithText:lang(@"get list info failed")];
     }
 }
-
-- (void)musicFileTransferComplete:(int)errorCode {
-    
-}
-
-
-- (void)musicFileTransferProgress:(float)progress {
-    
-}
-
-
-- (void)operatMusicFileReplyErrorCode:(int)errorCode {
-    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
-    if (errorCode == 6) {
-        [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-    }else {
-        [funcVC showToastWithText:lang(@"get list info failed")];
-    }
-}
-
 
 @end

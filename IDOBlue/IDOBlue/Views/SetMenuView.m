@@ -93,7 +93,9 @@
     _isLeftType = isLeftType;
     if (_isLeftType) {
         [self.arrawView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(@0);
+            CGRect rectStatus = [[UIApplication sharedApplication] statusBarFrame];
+            CGRect rectNav = [IDODemoUtility getCurrentVC].navigationController.navigationBar.frame;
+            make.top.equalTo(@(rectStatus.size.height + rectNav.size.height));
             make.left.equalTo(@30);
             make.width.equalTo(@20);
             make.height.equalTo(@10);
@@ -108,7 +110,9 @@
         }];
     }else {
         [self.arrawView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(@0);
+            CGRect rectStatus = [[UIApplication sharedApplication] statusBarFrame];
+            CGRect rectNav = [IDODemoUtility getCurrentVC].navigationController.navigationBar.frame;
+            make.top.equalTo(@(rectStatus.size.height + rectNav.size.height));
             make.right.equalTo(@(-30));
             make.width.equalTo(@20);
             make.height.equalTo(@10);

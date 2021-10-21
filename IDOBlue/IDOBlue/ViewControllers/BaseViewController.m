@@ -104,8 +104,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self modificationNavigationBarStyle];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationController.navigationBar.translucent=NO;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.navigationController.navigationBar.translucent=NO;
     self.view.backgroundColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(listenConnectState:)

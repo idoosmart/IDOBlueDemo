@@ -51,6 +51,9 @@ extern NSString * _Nonnull IDOBluetoothSyncHealthNotifyName;
 // 刚连接时快速配置完成通知名字 | fast sync complete notification name
 extern NSString * _Nonnull IDOBluetoothFastSyncNotifyName;
 
+// 设备固件版本改变通知名字 | device firmware version change notification name
+extern NSString * _Nonnull IDOBluetoothDeviceVersionNotifyName;
+
 @interface IDOBluetoothServices : NSObject
 
 /*

@@ -50,12 +50,10 @@
     [IDOMusicFileManager shareInstance].delegate = self;
 }
 
-
 - (NSMutableArray <IDOMusicDirectoryModel *>*)folderItems
 {
-    if (!_folderItems)
-    {
-        _folderItems = [NSMutableArray new];
+    if (!_folderItems) {
+         _folderItems = [NSMutableArray new];
     }
     return _folderItems;
 }
@@ -66,10 +64,8 @@
    
 }
 
-
 - (void)getAddButtonCallback
 {
-    
     __weak typeof(self) weakSelf = self;
     self.addbuttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
@@ -98,7 +94,8 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:lang(@"set data...")];
-        [IDOMusicFileManager addMusicFiles:[strongSelf.folderItems copy]];
+        IDOMusicDirectoryModel * model = [strongSelf.folderItems lastObject];
+        [IDOMusicFileManager addMusicFolders:@[model]];
     };
 }
 
@@ -106,14 +103,11 @@
 - (void)getCellModels
 {
     NSMutableArray * cellModels = [NSMutableArray array];
-    
     int index = 0;
     for (IDOMusicDirectoryModel * item in self.folderItems) {
-        
         LabelCellModel * model = [[LabelCellModel alloc]init];
         model.typeStr = @"oneLabel";
-        NSString * name = [NSString stringWithFormat:@"%@",item.folderName];
-        model.data = @[name];
+        model.data = @[item.folderName?:@""];
         model.cellHeight = 40.0f;
         model.cellClass  = [OneLabelTableViewCell class];
         model.modelClass = [NSNull class];
@@ -122,16 +116,17 @@
         model.isShowLine = YES;
         model.isDelete   = YES;
         [cellModels addObject:model];
-        
         index ++;
     }
     
-    EmpltyCellModel * model6 = [[EmpltyCellModel alloc]init];
-    model6.typeStr = @"empty";
-    model6.cellHeight = 30.0f;
-    model6.isShowLine = YES;
-    model6.cellClass  = [EmptyTableViewCell class];
-    [cellModels addObject:model6];
+    if (self.folderItems.count > 0) {
+        EmpltyCellModel * model6 = [[EmpltyCellModel alloc]init];
+        model6.typeStr = @"empty";
+        model6.cellHeight = 30.0f;
+        model6.isShowLine = YES;
+        model6.cellClass  = [EmptyTableViewCell class];
+        [cellModels addObject:model6];
+    }
     
     FuncCellModel * model7 = [[FuncCellModel alloc]init];
     model7.typeStr = @"oneButton";
@@ -153,33 +148,14 @@
     model8.buttconCallback = self.buttconCallback;
     [cellModels addObject:model8];
     
-    
     self.cellModels = cellModels;
 }
-
-//获取音乐信息回调数据
-- (void)getMusicFileInfoReplyModel:(IDOMusicInfoModel *)model
-                         errorCode:(int)errorCode
-{
-    
-}
-
-- (void)musicFileTransferComplete:(int)errorCode {
-    
-}
-
-
-- (void)musicFileTransferProgress:(float)progress {
-    
-}
-
 
 - (void)operatMusicFileReplyErrorCode:(int)errorCode {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     if (errorCode == 0) {
         [funcVC showToastWithText:lang(@"set info success")];
-    }
-    else if (errorCode == 6) {
+    }else if (errorCode == 6) {
         [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
     }else {
         [funcVC showToastWithText:lang(@"set info failed")];

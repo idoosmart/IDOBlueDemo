@@ -1,8 +1,8 @@
 PODS:
-  - IDOBlueProtocol (3.27.8)
+  - IDOBlueProtocol (3.28.8)
   - IDOBluetooth (3.11.8):
     - IDOBlueProtocol
-  - IDOBlueUpdate (3.6.0):
+  - IDOBlueUpdate (3.6.2):
     - IDOBlueProtocol
 
 DEPENDENCIES:
@@ -17,9 +17,9 @@ SPEC REPOS:
     - IDOBlueUpdate
 
 SPEC CHECKSUMS:
-  IDOBlueProtocol: dcaa341e19ae221bfa113d4c5844c10e5fed4aa4
+  IDOBlueProtocol: 130b74011775ab40e75c07ac056b88eb7fddaca8
   IDOBluetooth: 5a1de4aa86aa55dd195685437dd1b8f3d37accc2
-  IDOBlueUpdate: 1a6b2672e72264e5ffd7a93ea0b0c1c6ad031538
+  IDOBlueUpdate: 5f45a7c25cd7e97403a3d32777e54e65e1766398
 
 PODFILE CHECKSUM: 312dd79334faab13fcfd8f9ff4cf87b38eb1b65b
 

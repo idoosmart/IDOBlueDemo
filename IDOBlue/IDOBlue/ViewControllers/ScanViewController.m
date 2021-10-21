@@ -114,8 +114,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationController.navigationBar.translucent=NO;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.navigationController.navigationBar.translucent=NO;
     self.tableView.tableFooterView = [UIView new];
     [self modificationNavigationBarStyle];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -381,7 +381,8 @@ static BOOL BIND_STATE = NO;
 
 - (void)cancelBindButton
 {
-   
+    [_bindView removeFromSuperview];
+    _bindView = nil;
 }
 
 - (void)allowBinding
@@ -390,10 +391,10 @@ static BOOL BIND_STATE = NO;
     if (self.currentModel.isOta || mode == 1) {
         [self updateAction:nil];
     }else {
-        [IDOFoundationCommand getDeviceInfoCommand:^(int errorCode, IDOGetDeviceInfoBluetoothModel * _Nullable data) {
-            [self bindAction:nil];
-        }];
+        [self bindAction:nil];
     }
+    [_bindView removeFromSuperview];
+    _bindView = nil;
 }
 
 - (void)showAuthView

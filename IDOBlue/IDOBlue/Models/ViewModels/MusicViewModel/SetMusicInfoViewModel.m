@@ -42,7 +42,7 @@
 - (NSArray *)allMusicInfo
 {
     if (!_allMusicInfo) {
-        _allMusicInfo = [IDOMusicInfoModel currentModel].musicItems;
+         _allMusicInfo = [IDOMusicInfoModel currentModel].musicItems;
     }
     return _allMusicInfo;
 }
@@ -69,13 +69,6 @@
         model.labelSelectCallback = self.labelSelectCallback;
         [cellModels addObject:model];
     }
-    EmpltyCellModel * model3 = [[EmpltyCellModel alloc]init];
-    model3.typeStr = @"empty";
-    model3.cellHeight = 30.0f;
-    model3.isShowLine = YES;
-    model3.cellClass  = [EmptyTableViewCell class];
-    [cellModels addObject:model3];
-    
     self.cellModels = cellModels;
 }
 
@@ -93,36 +86,35 @@
         IDOMusicFileModel * model = strongSelf.allMusicInfo[indexPath.row];
         [IDOMusicFileManager deleteMusicFiles:@[model]];
         [funcVc showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"delete current music")]];
-        
     };
+}
+
+- (void)operatMusicFileReplyErrorCode:(int)errorCode operateType:(int)type {
+    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    if (errorCode == 0) {
+        [funcVC showToastWithText:lang(@"set info success")];
+        [IDOMusicFileManager getMusicInfo];
+    }
+    else if (errorCode == 6) {
+        [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+    }else {
+        [funcVC showToastWithText:lang(@"set info failed")];
+    }
 }
 
 //获取音乐信息回调数据
 - (void)getMusicFileInfoReplyModel:(IDOMusicInfoModel *)model
                          errorCode:(int)errorCode
 {
-    
-}
-
-- (void)musicFileTransferComplete:(int)errorCode {
-    
-}
-
-
-- (void)musicFileTransferProgress:(float)progress {
-    
-}
-
-
-- (void)operatMusicFileReplyErrorCode:(int)errorCode {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     if (errorCode == 0) {
-        [funcVC showToastWithText:lang(@"set info success")];
-    }
-    else if (errorCode == 6) {
+        [funcVC showToastWithText:lang(@"get list info success")];
+        [self getCellModels];
+        [funcVC reloadData];
+    }else if (errorCode == 6) {
         [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
     }else {
-        [funcVC showToastWithText:lang(@"set info failed")];
+        [funcVC showToastWithText:lang(@"get list info failed")];
     }
 }
 

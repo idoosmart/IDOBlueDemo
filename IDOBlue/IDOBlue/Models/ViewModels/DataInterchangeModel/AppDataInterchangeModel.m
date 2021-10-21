@@ -301,6 +301,17 @@
                 __strong typeof(self) strongSelf = weakSelf;
                 [strongSelf addMessageText:[NSString stringWithFormat:@"app运动停止:\n%@\n\n",model.dicFromObject]];
                 if (errorCode == 0 && model.retCode == 0) {
+                    //根据需求执行命令
+                    //获取一分钟心率
+                    [IDOFoundationCommand getOneMinuteHeartRateCommand:strongSelf.dataModel
+                                                              callback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
+                        
+                    }];
+                    //获取最后一次数据交换
+                    [IDOFoundationCommand getEndV3ActivityDataCommand:strongSelf.dataModel
+                                                             callback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
+                        
+                    }];
                     [funcVC showToastWithText:lang(@"app stop activity success")];
                 }else if (model.retCode == 2) {
                     [funcVC showToastWithText:lang(@"device low power")];
@@ -326,14 +337,6 @@
                     [funcVC showToastWithText:lang(@"send data failed")];
                 }
             }];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                __strong typeof(self) strongSelf = weakSelf;
-                [IDOFoundationCommand getEndV3ActivityDataCommand:strongSelf.dataModel
-                                                         callback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
-                    
-                }];
-            });
         }
     };
 }

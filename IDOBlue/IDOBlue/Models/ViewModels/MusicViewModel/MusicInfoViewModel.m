@@ -29,10 +29,11 @@
 @property (nonatomic,copy)void(^textFeildCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^textFeildDidEditCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
-
-@property (nonatomic, copy)NSArray *notifyStateArray;
-@property (nonatomic, strong)UITextField *textField;
-
+@property (nonatomic, copy)NSArray * notifyStateArray;
+@property (nonatomic,strong) UITextField * textField1;
+@property (nonatomic,strong) UITextField * textField2;
+@property (nonatomic,strong) UITextField * textField3;
+@property (nonatomic,strong) UITextField * textField4;
 @end
 
 @implementation MusicInfoViewModel
@@ -50,15 +51,12 @@
     return self;
 }
 
--(void)setMusicItemModel:(IDOMusicFileModel *)musicItemModel {
-    _musicItemModel = musicItemModel;
+- (IDOMusicFileModel *)musicItemModel
+{
     if (!_musicItemModel) {
-        _musicItemModel = [[IDOMusicFileModel alloc] init];
-    }else {
-        FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
-        [self getCellModels];
-        [funcVC reloadData];
+         _musicItemModel = [[IDOMusicFileModel alloc] init];
     }
+    return _musicItemModel;
 }
 
 - (void)getTextFeildDidEditCallback {
@@ -68,15 +66,13 @@
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 0) {
-            strongSelf.musicItemModel.musicName = textField.text;
-        }
-        else if (indexPath.row == 1) {
-            strongSelf.musicItemModel.singerName = textField.text;
-        }
-        else if (indexPath.row == 2) {
-            strongSelf.musicItemModel.musicId = [textField.text integerValue];
+            strongSelf.textField1 = textField;
+        }else if (indexPath.row == 1) {
+            strongSelf.textField2 = textField;
+        }else if (indexPath.row == 2) {
+            strongSelf.textField3 = textField;
         }else {
-            strongSelf.musicItemModel.musicMemory = [textField.text integerValue];
+            strongSelf.textField4 = textField;
         }
         TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         textFieldModel.data = @[textField.text];
@@ -90,15 +86,16 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        strongSelf.musicItemModel.musicName = strongSelf.textField1.text?:@"";
+        strongSelf.musicItemModel.singerName = strongSelf.textField2.text?:@"";
+        strongSelf.musicItemModel.musicId = [strongSelf.textField3.text integerValue];
+        strongSelf.musicItemModel.musicMemory = [strongSelf.textField4.text integerValue];
         if (strongSelf.addMusicFileItemModelmComplete) {
-            [funcVC showToastWithText:@"添加成功"];
             strongSelf.addMusicFileItemModelmComplete(YES, strongSelf.musicItemModel);
             [funcVC.navigationController popViewControllerAnimated:YES];
         }
-        
     };
 }
-
 
 - (void)getCellModels
 {
@@ -153,7 +150,6 @@
     model13.keyType = UIKeyboardTypeNumberPad;
     model13.textFeildCallback  = self.textFeildDidEditCallback;
     [cellModels addObject:model13];
-
 
     FuncCellModel * model9 = [[FuncCellModel alloc]init];
     model9.typeStr = @"oneButton";

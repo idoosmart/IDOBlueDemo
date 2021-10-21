@@ -281,5 +281,39 @@
  数据版本
  */
 @property (nonatomic,assign) NSInteger dataVersion;
+/**
+ 最大摄氧量；  单位：毫升/公斤/分钟； 范围  0-80
+ */
+@property (nonatomic,assign) NSInteger vo2Max;
+
+/**
+ 恢复时间点年
+ */
+@property (nonatomic,assign) NSInteger recoveryTimeYear;
+
+/**
+ 恢复时间点月
+ */
+@property (nonatomic,assign) NSInteger recoveryTimeMon;
+
+/**
+ 恢复时间点日
+ */
+@property (nonatomic,assign) NSInteger recoveryTimeDay;
+
+/**
+ 恢复时间点时
+ */
+@property (nonatomic,assign) NSInteger recoveryTimeHour;
+
+/**
+ 恢复时间点分
+ */
+@property (nonatomic,assign) NSInteger recoveryTimeMin;
+
+/**
+ 恢复时间点秒
+ */
+@property (nonatomic,assign) NSInteger recoveryTimeSecond;
 
 @end

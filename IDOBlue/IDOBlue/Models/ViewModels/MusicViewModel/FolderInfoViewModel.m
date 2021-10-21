@@ -28,9 +28,10 @@
 @property (nonatomic,copy)void(^textFeildCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^textFeildDidEditCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
-@property (nonatomic,copy) NSMutableArray<NSNumber *> * musicIdAarray;
-@property (nonatomic,copy) NSMutableArray<NSNumber *> * selectedIdArray;
-
+@property (nonatomic,copy) NSMutableArray<IDOMusicFileModel *> * allAarray;
+@property (nonatomic,copy) NSMutableArray<IDOMusicFileModel *> * selectedArray;
+@property (nonatomic,strong) UITextField * textField1;
+@property (nonatomic,strong) UITextField * textField2;
 @end
 
 @implementation FolderInfoViewModel
@@ -44,33 +45,38 @@
         [self getButtonCallback];
         [self getLabelCallback];
         [self getCellModels];
-       
     }
-    
     return self;
 }
 
--(void)setMusicDirectoryModel:(IDOMusicDirectoryModel *)musicDirectoryModel {
-    _musicDirectoryModel = musicDirectoryModel;
+- (IDOMusicDirectoryModel *)musicDirectoryModel
+{
     if (!_musicDirectoryModel) {
-        _musicDirectoryModel = [[IDOMusicDirectoryModel alloc] init];
-    }else {
-        FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
-        [self getCellModels];
-        [funcVC reloadData];
+         _musicDirectoryModel = [[IDOMusicDirectoryModel alloc]init];
     }
+    return _musicDirectoryModel;
 }
 
-- (NSMutableArray <NSNumber *>*)musicIdAarray
+- (NSMutableArray<IDOMusicFileModel *> *)allAarray
 {
-    if (!_musicIdAarray)
+    if (!_allAarray)
     {
-        _musicIdAarray = [NSMutableArray new];
-        for (IDOMusicFileModel *model in [IDOMusicInfoModel currentModel].musicItems) {
-            [_musicIdAarray addObject:@(model.musicId)];
+        NSArray * array = [IDOMusicInfoModel currentModel].musicItems;
+        if (array.count > 0) {
+            _allAarray = [NSMutableArray arrayWithArray:array];
+        }else {
+            _allAarray = [NSMutableArray array];
         }
     }
-    return _musicIdAarray;
+    return _allAarray;
+}
+
+- (NSMutableArray<IDOMusicFileModel *> *)selectedArray
+{
+    if (!_selectedArray) {
+        _selectedArray = [NSMutableArray array];
+    }
+    return _selectedArray;
 }
 
 - (void)getTextFeildDidEditCallback {
@@ -80,10 +86,9 @@
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 0) {
-            strongSelf.musicDirectoryModel.folderName = textField.text;
-        }
-        else if (indexPath.row == 1) {
-            strongSelf.musicDirectoryModel.folderId = [textField.text integerValue];
+            strongSelf.textField1 = textField;
+        }else if (indexPath.row == 1) {
+            strongSelf.textField2 = textField;
         }
         TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         textFieldModel.data = @[textField.text];
@@ -100,11 +105,11 @@
         LabelCellModel * labelModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if (labelModel.isMultiSelect)labelModel.isSelected = !labelModel.isSelected;
         if (labelModel.isSelected) {
-            [strongSelf.selectedIdArray addObject:strongSelf.musicIdAarray[labelModel.index]];
+            [strongSelf.selectedArray addObject:strongSelf.allAarray[labelModel.index]];
         }else{
-            [strongSelf.selectedIdArray removeObject:strongSelf.musicIdAarray[labelModel.index]];
+            [strongSelf.selectedArray removeObject:strongSelf.allAarray[labelModel.index]];
         }
-        [funcVC.tableView reloadData];
+        [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     };
 }
 
@@ -115,10 +120,15 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        strongSelf.musicDirectoryModel.musicNum = strongSelf.selectedIdArray.count;
-        strongSelf.musicDirectoryModel.musicIdAarray = strongSelf.selectedIdArray;
+        strongSelf.musicDirectoryModel.musicNum = strongSelf.selectedArray.count;
+        NSMutableArray * array = [NSMutableArray array];
+        for (IDOMusicFileModel * item in strongSelf.selectedArray) {
+            [array addObject:@(item.musicId)];
+        }
+        strongSelf.musicDirectoryModel.musicIdArray = array;
+        strongSelf.musicDirectoryModel.folderName = strongSelf.textField1.text;
+        strongSelf.musicDirectoryModel.folderId = [strongSelf.textField2.text integerValue];
         if (strongSelf.addMusicDirectoryItemModelmComplete) {
-            [funcVC showToastWithText:@"添加成功"];
             strongSelf.addMusicDirectoryItemModelmComplete(YES, strongSelf.musicDirectoryModel);
             [funcVC.navigationController popViewControllerAnimated:YES];
         }
@@ -142,7 +152,6 @@
     model10.textFeildCallback  = self.textFeildDidEditCallback;
     [cellModels addObject:model10];
     
-    
     TextFieldCellModel * model12 = [[TextFieldCellModel alloc]init];
     model12.typeStr = @"oneTextField";
     model12.titleStr = lang(@"folderId");
@@ -156,10 +165,11 @@
     model12.textFeildCallback  = self.textFeildDidEditCallback;
     [cellModels addObject:model12];
     
-    for (int i = 0; i < self.musicIdAarray.count; i++) {
+    for (int i = 0; i < self.allAarray.count; i++) {
         LabelCellModel * model = [[LabelCellModel alloc]init];
         model.typeStr = @"oneLabel";
-        model.data = @[self.musicIdAarray[i]];
+        IDOMusicFileModel * item = self.allAarray[i];
+        model.data = @[item.musicName?:@""];
         model.cellHeight = 40.0f;
         model.cellClass = [OneLabelTableViewCell class];
         model.modelClass = [NSNull class];
@@ -173,7 +183,7 @@
     
     FuncCellModel * model9 = [[FuncCellModel alloc]init];
     model9.typeStr = @"oneButton";
-    model9.data = @[lang(@"setup")];
+    model9.data = @[lang(@"add folder info")];
     model9.cellHeight = 70.0f;
     model9.cellClass = [OneButtonTableViewCell class];
     model9.modelClass = [NSNull class];

@@ -8,13 +8,16 @@
 
 #import "TranMusicInfoViewModel.h"
 #import "FileViewModel.h"
+#import "NSObject+DemoToDic.h"
 #import "FuncCellModel.h"
 #import "EmpltyCellModel.h"
+#import "TextFieldCellModel.h"
 #import "TextViewCellModel.h"
 #import "FuncViewController.h"
 #import "EmptyTableViewCell.h"
 #import "OneButtonTableViewCell.h"
 #import "OneTextViewTableViewCell.h"
+#import "OneTextFieldTableViewCell.h"
 
 @interface TranMusicInfoViewModel()<IDOMusicFileManagerDelegate>
 @property (nonatomic,copy) NSString * logStr;
@@ -23,7 +26,11 @@
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,NSString * titleStr);
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
+@property (nonatomic,copy)void(^textFeildCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
 @property (nonatomic,strong) NSMutableArray <IDOMusicFileTransferModel *>* models;
+@property (nonatomic,strong) UITextField * textField1;
+@property (nonatomic,strong) UITextField * textField2;
+@property (nonatomic,strong) UITextField * textField3;
 @end
 
 @implementation TranMusicInfoViewModel
@@ -39,6 +46,7 @@
         self.rightButtonTitle = lang(@"selected file");
         self.isRightButton = YES;
         self.rightButton   = @selector(actionButton:);
+        [self getTextFeildCallback];
         [self getButtonCallback];
         [self getTextViewCallback];
         [self getCellModels];
@@ -52,9 +60,8 @@
 }
 - (NSMutableArray <IDOMusicFileTransferModel *>*)models
 {
-    if (!_models)
-    {
-        _models = [NSMutableArray new];
+    if (!_models) {
+         _models = [NSMutableArray new];
     }
     return _models;
 }
@@ -85,14 +92,48 @@
     model1.buttconCallback = self.buttconCallback;
     model1.cellClass  = [OneButtonTableViewCell class];
     
-    TextViewCellModel * model2 = [[TextViewCellModel alloc]init];
-    model2.typeStr = @"oneTextView";
-    model2.data    = @[self.logStr ?: @""];
-    model2.textViewCallback = self.textViewCallback;
-    model2.cellHeight = [UIScreen mainScreen].bounds.size.height / 2 - 20;
-    model2.cellClass  = [OneTextViewTableViewCell class];
+    TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
+    model2.typeStr = @"oneTextField";
+    model2.titleStr = lang(@"musicName");
+    model2.data = @[@""];
+    model2.cellHeight = 70.0f;
+    model2.cellClass = [OneTextFieldTableViewCell class];
+    model2.modelClass = [NSNull class];
+    model2.isShowLine = YES;
+    model2.isShowKeyboard = YES;
+    model2.textFeildCallback  = self.textFeildCallback;
     
-    self.cellModels = @[model1,model2];
+    TextFieldCellModel * model3 = [[TextFieldCellModel alloc]init];
+    model3.typeStr = @"oneTextField";
+    model3.titleStr = lang(@"singerName");
+    model3.data = @[@""];
+    model3.cellHeight = 70.0f;
+    model3.cellClass = [OneTextFieldTableViewCell class];
+    model3.modelClass = [NSNull class];
+    model3.isShowLine = YES;
+    model3.isShowKeyboard = YES;
+    model3.textFeildCallback  = self.textFeildCallback;
+    
+    TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
+    model4.typeStr = @"oneTextField";
+    model4.titleStr = lang(@"musicId");
+    model4.data = @[@(0)];
+    model4.cellHeight = 70.0f;
+    model4.cellClass = [OneTextFieldTableViewCell class];
+    model4.modelClass = [NSNull class];
+    model4.isShowLine = YES;
+    model4.isShowKeyboard = YES;
+    model4.keyType = UIKeyboardTypeNumberPad;
+    model4.textFeildCallback  = self.textFeildCallback;
+    
+    TextViewCellModel * model5 = [[TextViewCellModel alloc]init];
+    model5.typeStr = @"oneTextView";
+    model5.data    = @[self.logStr ?: @""];
+    model5.textViewCallback = self.textViewCallback;
+    model5.cellHeight = [UIScreen mainScreen].bounds.size.height / 2 - 20;
+    model5.cellClass  = [OneTextViewTableViewCell class];
+    
+    self.cellModels = @[model2,model3,model4,model1,model5];
 }
 
 - (NSString *)selectedFileWithFilePath:(NSString *)filePath
@@ -123,9 +164,18 @@
     NSString * typeStr = [@"Type : "stringByAppendingString:@"music File"];
     NSString * fileStr = [NSString stringWithFormat:@"%@\n%@\n%@",nameStr,sizeStr,typeStr];
     IDOMusicFileTransferModel * model = [IDOMusicFileTransferModel new];
-    model.fileName = fileName;
-    model.filePath = path;
+    model.fileName = [fileName copy];
+    model.filePath = [path copy];
+    model.musicId  = [self.textField3.text integerValue];
+    model.singerName = self.textField2.text?:@"";
+    model.musicName  = self.textField1.text?:@"";
+    model.musicMemory = data.length;
     [self.models addObject:model];
+    NSString * logStr = @"";
+    for (IDOMusicFileTransferModel * item in self.models) {
+        logStr = [logStr stringByAppendingFormat:@"%@",item.dicFromObject];
+    }
+    fileStr = [fileStr stringByAppendingFormat:@"\n%@",logStr];
     return fileStr;
 }
 
@@ -135,7 +185,7 @@
     TextViewCellModel * model = [self.cellModels lastObject];
     model.data = @[self.logStr?:@""];
     self.textView.text = self.logStr;
-    [self.textView scrollRangeToVisible:NSMakeRange(self.textView.text.length, 1)];
+    [self.textView scrollRangeToVisible:NSMakeRange(self.textView.text.length,1)];
 }
 
 
@@ -146,11 +196,33 @@
         __strong typeof(self) strongSelf = weakSelf;
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return ;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"transfer music file")]];
-        [IDOMusicFileManager shareInstance].models = [strongSelf.models copy];
-        [[IDOMusicFileManager shareInstance] startTransfer];
+        [IDOMusicFileManager shareInstance].models = strongSelf.models;
+        if ([[IDOMusicFileManager shareInstance] startTransfer]) {
+            [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"transfer music file")]];
+        }else {
+            [funcVC showToastWithText:lang(@"transfer music file failed")];
+        }
     };
 }
+
+- (void)getTextFeildCallback {
+    __weak typeof(self) weakSelf = self;
+    self.textFeildCallback = ^(UIViewController *viewController, UITextField *textField, UITableViewCell *tableViewCell) {
+        __strong typeof(self) strongSelf = weakSelf;
+        FuncViewController * funcVC = (FuncViewController *)viewController;
+        NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
+        if (indexPath.row == 0) {
+            strongSelf.textField1 = textField;
+        }else if (indexPath.row == 1) {
+            strongSelf.textField2 = textField;
+        }else if (indexPath.row == 2) {
+            strongSelf.textField3 = textField;
+        }
+        TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+        textFieldModel.data = @[textField.text];
+    };
+}
+
 
 - (void)getTextViewCallback
 {
@@ -159,13 +231,6 @@
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.textView = textView;
     };
-}
-
-//获取音乐信息回调数据
-- (void)getMusicFileInfoReplyModel:(IDOMusicInfoModel *)model
-                         errorCode:(int)errorCode
-{
-    
 }
 
 - (void)musicFileTransferComplete:(int)errorCode {
@@ -179,15 +244,24 @@
     }
 }
 
-
 - (void)musicFileTransferProgress:(float)progress {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     [funcVC showSyncProgress:progress/100.0f];
 }
 
-
-- (void)operatMusicFileReplyErrorCode:(int)errorCode {
-   
+- (void)getMusicFileInfoReplyModel:(IDOMusicInfoModel *)model
+                         errorCode:(int)errorCode
+{
+    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    if (errorCode == 0) {
+        [funcVC showToastWithText:lang(@"get list info success")];
+        NSDictionary * dic = model.dicFromObject;
+        self.textView.text = [NSString stringWithFormat:@"%@",dic];
+    }else if (errorCode == 6) {
+        [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+    }else {
+        [funcVC showToastWithText:lang(@"get list info failed")];
+    }
 }
 
 @end

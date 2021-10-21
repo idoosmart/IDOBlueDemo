@@ -136,13 +136,15 @@
         NSDictionary * dic = strongSelf.noSelectSportModes[labelModel.index];
         NSMutableArray * sportItems = [NSMutableArray arrayWithArray:strongSelf.sportModeSortModel.sportSortingItems];
         IDOSetSportSortingItemModel * item = [IDOSetSportSortingItemModel new];
-        item.index = [[dic valueForKey:@"index"] integerValue] + sportItems.count + 1;
+        item.index = sportItems.count + 1;
         item.type  = [[dic valueForKey:@"type"] integerValue];
         if (__IDO_FUNCTABLE__.funcTable28Model.v3SportsType) {
-          if (sportItems.count >= 14) {
+          if (sportItems.count >= 30) {
              [funcVC showToastWithText:lang(@"fourteen motion sequences have been set")];
              return;
           }
+        }else if (__IDO_FUNCTABLE__.funcTable37Model.set100SportSort) {
+            
         }else {
           if (sportItems.count >= 8) {
               [funcVC showToastWithText:lang(@"eight motion sequences have been set")];
@@ -150,6 +152,11 @@
           }
         }
         [sportItems addObject:item];
+        NSInteger index = 1;
+        for (IDOSetSportSortingItemModel * item1 in sportItems) {
+            item1.index = index;
+            index++;
+        }
         strongSelf.sportModeSortModel.sportSortingItems = sportItems;
         [strongSelf getCellModels];
         [funcVC reloadData];
