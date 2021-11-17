@@ -84,7 +84,8 @@
     };
 }
 
-- (void)operatMusicFileReplyErrorCode:(int)errorCode {
+- (void)operatMusicFileReplyErrorCode:(int)errorCode
+                          operateType:(int)type {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     if (errorCode == 0) {
         [funcVC showToastWithText:lang(@"set info success")];

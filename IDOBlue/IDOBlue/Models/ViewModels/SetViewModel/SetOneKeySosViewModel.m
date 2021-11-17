@@ -92,7 +92,7 @@
 {
     
     [IDOFoundationCommand listenSosStartCommand:^(int errorCode) {
-        
+        NSLog(@"listenSosStartCommand error_code == %d",errorCode);
     }];
     __weak typeof(self) weakSelf = self;
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {

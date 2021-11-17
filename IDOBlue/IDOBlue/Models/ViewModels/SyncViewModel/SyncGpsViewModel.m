@@ -65,7 +65,7 @@
         }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
             [funcVC showSyncProgress:progress];
         }).addSyncFailed(^(int errorCode) {
-            if(errorCode == 37) {
+            if(errorCode == 1044) {
                 TextViewCellModel * model = [strongSelf.cellModels firstObject];
                 model.data = @[lang(@"no GPS data syn")?:@""];
                 strongSelf.textView.text = lang(@"no GPS data syn")?:@"";

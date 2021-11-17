@@ -1076,4 +1076,17 @@
 "add music info"= "add music info";
 "add folder info"=  "add folder info";
 "tran music info"=  "tran music info";
-
+"selected music file"= "selected music file";
+"music name"= "music name";
+"singer name"= "singer name";
+"music id"= "music id";
+"transfer music file"= "transfer music file";
+"start transfer music file"=  "start transfer music file";
+"stop transfer music file"=  "stop transfer music file";
+"transfer music file failed"=  "transfer music file failed";
+"transfer music file success"=  "transfer music file success";
+"update sport icon"= "update sport icon";
+"transfer icon file"= "transfer icon file";
+"start transfer icon file"= "start transfer icon file";
+"transfer icon file success"= "transfer icon file success";
+"transfer icon file failed"= "transfer icon file failed";

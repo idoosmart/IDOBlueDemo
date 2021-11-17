@@ -47,6 +47,7 @@
 {
     if (!_dataModel) {
         _dataModel = [IDODataExchangeModel new];
+        _dataModel.sportType = 1;
     }
     return _dataModel;
 }

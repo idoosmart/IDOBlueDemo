@@ -16,7 +16,7 @@
 #import "OneTextViewTableViewCell.h"
 #import "NSObject+DemoToDic.h"
 
-@interface UpdateMessageIconViewModel ()<IDOMessageIconManagerDelegate,IDOSportIconManagerDelegate>
+@interface UpdateMessageIconViewModel ()<IDOMessageIconManagerDelegate>
 @property (nonatomic,copy) NSString * logStr;
 @property (nonatomic,strong) UITextView * textView;
 @property (nonatomic,strong) UITextField * textField;
@@ -162,58 +162,9 @@
         }else if (indexPath.row == 3) {
             strongSelf.textView.text = @"";
         }else if (indexPath.row == 4) {
-//            [[IDOMessageIconManager listenForUpdate] getAppIconAndName];
-             
+            [[IDOMessageIconManager listenForUpdate] getAppIconAndName];
         }
     };
-}
-
-/**
- NSString * dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
- NSString * dirPath1 = [dirPath stringByAppendingPathComponent:@"12345"];
- NSString * filePath1 = [dirPath1 stringByAppendingPathComponent:@"icon_sport1_60x60.bmp"];
- NSString * filePath2 = [dirPath1 stringByAppendingPathComponent:@"icon_sport2_60x60.bmp"];
- NSString * filePath3 = [dirPath1 stringByAppendingPathComponent:@"icon_sport3_60x60.bmp"];
- NSString * filePath4 = [dirPath1 stringByAppendingPathComponent:@"icon_sport4_60x60.bmp"];
- 
- IDOSportIconModel * model = [[IDOSportIconModel alloc]init];
- model.filePath = filePath1;
- model.iconNum = 1;
- model.iconType = 1;
- model.sportType = 1;
- 
- IDOSportIconModel * model1 = [[IDOSportIconModel alloc]init];
- model1.filePath = filePath2;
- model1.iconNum = 1;
- model1.iconType = 1;
- model1.sportType = 2;
- 
- IDOSportIconModel * model2 = [[IDOSportIconModel alloc]init];
- model2.filePath = filePath3;
- model2.iconNum = 1;
- model2.iconType = 1;
- model2.sportType = 3;
- 
- IDOSportIconModel * model3 = [[IDOSportIconModel alloc]init];
- model3.filePath = filePath4;
- model3.iconNum = 1;
- model3.iconType = 1;
- model3.sportType = 4;
- 
- [IDOSportIconManager shareInstance].iconModels = @[model,model1,model2,model3];
- [IDOSportIconManager shareInstance].delegate = weakSelf;
- [[IDOSportIconManager shareInstance] startTransfer];
- return;
- */
-
-- (void)sportIconTransferProgress:(float)progress
-{
-    NSLog(@"progress == %.2f",progress);
-}
-
-- (void)sportIconTransferComplete:(int)errorCode message:(NSString *)message
-{
-    NSLog(@"message === %@",message);
 }
 
 - (void)getTextFieldCallback

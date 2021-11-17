@@ -14,7 +14,7 @@
 @property (nonatomic,strong) UIView * bgView;
 @property (nonatomic,strong) UIImageView * iconView;
 @property (nonatomic,strong) UILabel * tipLabel;
-
+@property (nonatomic,strong) UIWindow * window;
 @end
 
 @implementation TipPoweredOffView
@@ -42,15 +42,15 @@
 
 + (void)show
 {
-    UIWindow * window = [UIApplication sharedApplication].delegate.window;
-    TipPoweredOffView * tipView = [[TipPoweredOffView alloc]initWithFrame:window.bounds];
-    [window addSubview:tipView];
+    UIViewController * vc = [IDODemoUtility getCurrentVC];
+    TipPoweredOffView * tipView = [[TipPoweredOffView alloc]initWithFrame:vc.view.bounds];
+    [vc.view addSubview:tipView];
 }
 
 + (void)hidView
 {
-    UIWindow * window = [UIApplication sharedApplication].delegate.window;
-    for (UIView * view in window.subviews) {
+    UIViewController * vc = [IDODemoUtility getCurrentVC];
+    for (UIView * view in vc.view.subviews) {
         if ([view isKindOfClass:[TipPoweredOffView class]]) {
             view.hidden = YES;
             [view removeFromSuperview];

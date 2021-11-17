@@ -13,7 +13,6 @@
 #import "GetMusicInfoViewModel.h"
 #import "SetMusicInfoViewModel.h"
 #import "SetFolderInfoViewModel.h"
-#import "AddMusicInfoViewModel.h"
 #import "AddFolderInfoViewModel.h"
 #import "TranMusicInfoViewModel.h"
 
@@ -38,8 +37,8 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"get music info")],@[lang(@"set music info")],@[lang(@"set folder info")],@[lang(@"add music info")],
-        @[lang(@"add folder info")],@[lang(@"tran music info")]];
+        _buttonTitles = @[@[lang(@"get music info")],@[lang(@"set music info")],
+        @[lang(@"set folder info")],@[lang(@"add folder info")],@[lang(@"tran music info")]];
     }
     return _buttonTitles;
 }
@@ -48,7 +47,7 @@
 {
     if (!_modelClasss) {
         _modelClasss = @[[GetMusicInfoViewModel class],[SetMusicInfoViewModel class],[SetFolderInfoViewModel class],
-                         [AddMusicInfoViewModel class],[AddFolderInfoViewModel class],[TranMusicInfoViewModel class]];
+                         [AddFolderInfoViewModel class],[TranMusicInfoViewModel class]];
     }
     return _modelClasss;
 }

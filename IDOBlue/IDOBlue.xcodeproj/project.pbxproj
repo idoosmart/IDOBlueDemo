@@ -219,7 +219,6 @@
 		9BF5CA5E2703433500FBA91F /* TranMusicInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C9652703433400FBA91F /* TranMusicInfoViewModel.m */; };
 		9BF5CA5F2703433500FBA91F /* AddFolderInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C9662703433400FBA91F /* AddFolderInfoViewModel.m */; };
 		9BF5CA602703433500FBA91F /* SetFolderInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C9672703433400FBA91F /* SetFolderInfoViewModel.m */; };
-		9BF5CA612703433500FBA91F /* AddMusicInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C96A2703433400FBA91F /* AddMusicInfoViewModel.m */; };
 		9BF5CA622703433500FBA91F /* MusicInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C96C2703433400FBA91F /* MusicInfoViewModel.m */; };
 		9BF5CA632703433500FBA91F /* GetMusicInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C96D2703433400FBA91F /* GetMusicInfoViewModel.m */; };
 		9BF5CA642703433500FBA91F /* MainMeasureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C96F2703433400FBA91F /* MainMeasureViewModel.m */; };
@@ -692,7 +691,6 @@
 		9BF5C95F2703433400FBA91F /* SetFolderInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetFolderInfoViewModel.h; sourceTree = "<group>"; };
 		9BF5C9602703433400FBA91F /* FolderInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderInfoViewModel.m; sourceTree = "<group>"; };
 		9BF5C9612703433400FBA91F /* MusicViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicViewModel.m; sourceTree = "<group>"; };
-		9BF5C9622703433400FBA91F /* AddMusicInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMusicInfoViewModel.h; sourceTree = "<group>"; };
 		9BF5C9632703433400FBA91F /* GetMusicInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMusicInfoViewModel.h; sourceTree = "<group>"; };
 		9BF5C9642703433400FBA91F /* MusicInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicInfoViewModel.h; sourceTree = "<group>"; };
 		9BF5C9652703433400FBA91F /* TranMusicInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranMusicInfoViewModel.m; sourceTree = "<group>"; };
@@ -700,7 +698,6 @@
 		9BF5C9672703433400FBA91F /* SetFolderInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetFolderInfoViewModel.m; sourceTree = "<group>"; };
 		9BF5C9682703433400FBA91F /* SetMusicInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetMusicInfoViewModel.h; sourceTree = "<group>"; };
 		9BF5C9692703433400FBA91F /* MusicViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicViewModel.h; sourceTree = "<group>"; };
-		9BF5C96A2703433400FBA91F /* AddMusicInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMusicInfoViewModel.m; sourceTree = "<group>"; };
 		9BF5C96B2703433400FBA91F /* FolderInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderInfoViewModel.h; sourceTree = "<group>"; };
 		9BF5C96C2703433400FBA91F /* MusicInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicInfoViewModel.m; sourceTree = "<group>"; };
 		9BF5C96D2703433400FBA91F /* GetMusicInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMusicInfoViewModel.m; sourceTree = "<group>"; };
@@ -1472,7 +1469,6 @@
 				9BF5C95F2703433400FBA91F /* SetFolderInfoViewModel.h */,
 				9BF5C9602703433400FBA91F /* FolderInfoViewModel.m */,
 				9BF5C9612703433400FBA91F /* MusicViewModel.m */,
-				9BF5C9622703433400FBA91F /* AddMusicInfoViewModel.h */,
 				9BF5C9632703433400FBA91F /* GetMusicInfoViewModel.h */,
 				9BF5C9642703433400FBA91F /* MusicInfoViewModel.h */,
 				9BF5C9652703433400FBA91F /* TranMusicInfoViewModel.m */,
@@ -1480,7 +1476,6 @@
 				9BF5C9672703433400FBA91F /* SetFolderInfoViewModel.m */,
 				9BF5C9682703433400FBA91F /* SetMusicInfoViewModel.h */,
 				9BF5C9692703433400FBA91F /* MusicViewModel.h */,
-				9BF5C96A2703433400FBA91F /* AddMusicInfoViewModel.m */,
 				9BF5C96B2703433400FBA91F /* FolderInfoViewModel.h */,
 				9BF5C96C2703433400FBA91F /* MusicInfoViewModel.m */,
 				9BF5C96D2703433400FBA91F /* GetMusicInfoViewModel.m */,
@@ -1668,7 +1663,7 @@
 		9B437EE121393ADC00DE2FC8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = hedongyang;
 				TargetAttributes = {
 					9B437EE821393ADC00DE2FC8 = {
@@ -1974,7 +1969,6 @@
 				9BF5CA152703433400FBA91F /* SetUserNumberViewModel.m in Sources */,
 				9BF5CA5A2703433500FBA91F /* UnbindingViewModel.m in Sources */,
 				9BF5CA6B2703433500FBA91F /* TakePictureViewModel.m in Sources */,
-				9BF5CA612703433500FBA91F /* AddMusicInfoViewModel.m in Sources */,
 				9BF5CA532703433500FBA91F /* UpdateApolloViewModel.m in Sources */,
 				9BF5C9D72703433400FBA91F /* QueryBopViewModel.m in Sources */,
 				9B9C402D2566693C00809576 /* MASLayoutConstraint.m in Sources */,
@@ -2078,7 +2072,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2131,7 +2125,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -2159,7 +2153,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = IDOBlue/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2197,7 +2191,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = IDOBlue/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

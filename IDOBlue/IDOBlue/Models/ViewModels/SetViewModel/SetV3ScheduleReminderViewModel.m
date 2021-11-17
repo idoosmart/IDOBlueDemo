@@ -295,26 +295,6 @@
     model7.buttconCallback = self.buttconCallback;
     [cellModels addObject:model7];
     
-//    // 设置日程提醒
-//    NSMutableArray * itemArray = [NSMutableArray arrayWithCapacity:0];
-//    IDOSetRemindItemModel * itemModel = [[IDOSetRemindItemModel alloc] init];
-//    itemModel.remindId = 110;
-//    itemModel.year = 2021;
-//    itemModel.month = 10;
-//    itemModel.day = 10;
-//    itemModel.hour = 10;
-//    itemModel.minute = 10;
-//    itemModel.second = 10;
-//    itemModel.repeat = @[@(1),@(2)];
-//    itemModel.nowDayRemindType = 1;
-//    itemModel.state = 2;
-//    itemModel.title = @"标题";
-//    itemModel.note = @"注意";
-//
-//    [itemArray addObject:itemModel];
-//    
-//    self.scheduleReminderModel.items = itemArray;
-    
     self.cellModels = cellModels;
 }
 

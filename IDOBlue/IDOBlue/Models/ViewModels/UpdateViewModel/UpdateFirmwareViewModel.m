@@ -341,6 +341,7 @@
     return IDO_DATA_FILE_TRAN_DIAL_TYPE;
 }
 
+
 - (IDO_DATA_TRAN_COMPRESSION_TYPE)fileTranCompressionTypeUpdateManager:(IDOUpdateFirmwareManager *)manager
 {
     return IDO_DATA_TRAN_COMPRESSION_FASTLZ_TYPE;

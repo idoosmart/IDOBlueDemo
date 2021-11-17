@@ -88,12 +88,18 @@
 
 /**
  * @brief 传入文件传输的名称 只适合 Apollo
- * 固件升级名称: @".fw" 图片资源名称: @".fzbin" 字库名称:@".bin"
- * firmware upgrade name :@".fw" Image resource name :@".fzbin" font name :@".bin"
+ * 固件升级名称: @".fw" 图片资源名称: @".fzbin" 字库名称:@".bin" 语言:@".lang"
+ * firmware upgrade name :@".fw" Image resource name :@".fzbin" font name :@".bin" language: @"lang"
  * @param manager 升级管理中心对象 | Upgrade Management Center Objects
  * @return 文件传输名称 | file transfer type
  */
 - (NSString * _Nullable)fileTranNameUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager;
+
+/**
+ * @brief 传入文件传输压缩类型 只适合 Apollo
+ * 默认 IDO_DATA_TRAN_COMPRESSION_NO_USE_TYPE
+ */
+- (IDO_DATA_TRAN_COMPRESSION_TYPE)fileTranCompressionTypeUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager;
 
 /**
  * @brief 返设置传输文件包文个数 只适合 Apollo

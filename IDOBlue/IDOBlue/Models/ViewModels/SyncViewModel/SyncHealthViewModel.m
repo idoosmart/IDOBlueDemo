@@ -57,6 +57,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:lang(@"sync health data...")];
+        //只针对v2运动数据有效
         initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_HEALTH_ITEM_TYPE;
         initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {
             if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {

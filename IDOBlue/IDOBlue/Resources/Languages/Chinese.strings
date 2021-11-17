@@ -1092,3 +1092,17 @@
 "add music info"= "添加音乐信息";
 "add folder info"=  "添加歌单信息";
 "tran music info"=  "传输音乐文件";
+"selected music file"= "选择音乐";
+"music name"= "音乐名称";
+"singer name"= "歌手名称";
+"music id"= "音乐id";
+"transfer music file"= "传输音乐文件";
+"start transfer music file"=  "开始传输音乐文件";
+"stop transfer music file"=  "停止传输音乐文件";
+"transfer music file failed"=  "传输音乐文件失败";
+"transfer music file success"=  "传输音乐文件成功";
+"update sport icon"= "更新运动图标";
+"transfer icon file"= "传输运动图标";
+"start transfer icon file"= "开始传输图标文件";
+"transfer icon file success"= "传输图标文件成功";
+"transfer icon file failed"= "传输图标文件失败";

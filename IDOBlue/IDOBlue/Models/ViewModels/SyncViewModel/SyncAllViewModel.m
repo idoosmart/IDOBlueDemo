@@ -89,6 +89,62 @@
         [IDOSyncManager deleteSyncFlag];
         initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_CONFIG_ITEM_TYPE | IDO_WANT_TO_SYNC_HEALTH_ITEM_TYPE
         | IDO_WANT_TO_SYNC_ACTIVITY_ITEM_TYPE | IDO_WANT_TO_SYNC_GPS_ITEM_TYPE;
+        initSyncManager().addSyncConfigInitData(^NSArray<IDOBluetoothBaseModel *> * _Nullable(IDO_SYNC_CONFIG_DATA_TYPE type) {
+                if (type == IDO_SYNC_SET_SPORT_MODE_SELECT_TYPE) {
+                IDOSetSportShortcutInfoBluetoothModel *sportModel = [IDOSetSportShortcutInfoBluetoothModel currentModel];
+                sportModel.isWalk = YES;
+                sportModel.isRun = YES;
+                sportModel.isByBike = YES;
+                
+                sportModel.isOnFoot = NO;
+                sportModel.isSwim = NO;
+                sportModel.isMountainClimbing = NO;
+                sportModel.isBadminton = NO;
+                sportModel.isOther = NO;
+                sportModel.isFitness = NO;
+                sportModel.isSpinning = NO;
+                sportModel.isEllipsoid = NO;
+                sportModel.isTreadmill = NO;
+                sportModel.isSitUp = NO;
+                sportModel.isPushUp = NO;
+                sportModel.isDumbbell = NO;
+                sportModel.isWeightlifting = NO;
+                sportModel.isBodybuildingExercise = NO;
+                sportModel.isYoga = NO;
+                sportModel.isRopeSkipping = NO;
+                sportModel.isTableTennis = NO;
+                sportModel.isBasketball = NO;
+                sportModel.isFootball = NO;
+                sportModel.isVolleyball = NO;
+                sportModel.isTennis = NO;
+                sportModel.isGolf = NO;
+                sportModel.isBaseball = NO;
+                sportModel.isSkiing = NO;
+                sportModel.isRollerSkating = NO;
+                sportModel.isDance = NO;
+                IDOGetDeviceFuncBluetoothModel * funcTable = [IDOBluetoothEngine shareInstance].managerEngine.funcTableModel;
+                if (funcTable.funcTable19Model.gps) {
+                    sportModel.isOnFoot = YES;
+                    sportModel.isMountainClimbing = YES;
+                    sportModel.isBadminton = YES;
+                    sportModel.isFitness = YES;
+                    sportModel.isSpinning = YES;
+                }else{
+                    if (funcTable.sportShowCount == 8) {
+                        sportModel.isOnFoot = YES;
+                        sportModel.isTreadmill = YES;
+                        sportModel.isFitness = YES;
+                        sportModel.isBasketball = YES;
+                        sportModel.isBadminton = YES;
+                    }
+                    else if(funcTable.sportShowCount == 4){
+                        sportModel.isFitness = YES;
+                    }
+                }
+                 return @[sportModel];
+                }
+                return @[];
+        });
         initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[SyncAllViewModel getStateCode:stateCode]];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
@@ -155,7 +211,7 @@
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
-        }).mandatorySyncConfig(YES);
+        }).mandatorySyncConfig(YES); //第一次绑定时设置YES,其他时候设置为No
         [IDOSyncManager startSync];
     };
 }

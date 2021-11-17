@@ -43,10 +43,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    [IDOFoundationCommand listenSosStartCommand:^(int errorCode) {
-        [IDORecordDeviceLog recordBlueLogWithType:IDO_AUTO_CONNECT_LOG logStr:@"listenSosStartCommand"];
-    }];
-    
+   
     NSArray * centralManagerIdentifiers = launchOptions[UIApplicationLaunchOptionsBluetoothCentralsKey];
     
     NSLog(@"launchOptions == %@ centralManagerIdentifiers == %@",launchOptions,centralManagerIdentifiers);

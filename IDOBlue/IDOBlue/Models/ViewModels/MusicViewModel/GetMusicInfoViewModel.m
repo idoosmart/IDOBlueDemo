@@ -90,13 +90,13 @@
 {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
     if (errorCode == 0) {
-        [funcVC showToastWithText:lang(@"get list info success")];
+        [funcVC showToastWithText:lang(@"get music list info success")];
         NSDictionary * dic = model.dicFromObject;
         self.textView.text = [NSString stringWithFormat:@"%@",dic];
     }else if (errorCode == 6) {
         [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
     }else {
-        [funcVC showToastWithText:lang(@"get list info failed")];
+        [funcVC showToastWithText:lang(@"get music list info failed")];
     }
 }
 

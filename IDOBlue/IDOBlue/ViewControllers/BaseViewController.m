@@ -96,6 +96,7 @@
 {
     if (!_progressHUD) {
         _progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
+        _progressHUD.userInteractionEnabled = NO;
         [self.view addSubview:_progressHUD];
     }
     return _progressHUD;

@@ -94,7 +94,8 @@
 
 + (UIViewController *)getCurrentVC
 {
-    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIWindow * window = [UIApplication sharedApplication].delegate.window;
+    UIViewController *rootViewController = window.rootViewController;
     UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
     return currentVC;
 }
