@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol IDOSportIconManagerDelegate <NSObject>
 
-//传输进度
+//传输进度 0-1.0
 - (void)sportIconTransferProgress:(float)progress;
 
 //传输完成 非0为错误 错误码和错误日志

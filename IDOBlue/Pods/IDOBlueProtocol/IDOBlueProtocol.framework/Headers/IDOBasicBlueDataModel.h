@@ -15,6 +15,48 @@
 
 @end
 
+#pragma mark ====  获取BT配对开关状态 model ====
+@interface IDOGetBtPairStateModel : IDOBluetoothBaseModel
+/**
+ bt连接状态
+ */
+@property (nonatomic,assign) BOOL btConnectState;
+/**
+ bt配对状态
+ */
+@property (nonatomic,assign) BOOL btPairState;
+/**
+  a2dp连接状态
+ */
+@property (nonatomic,assign) BOOL a2dpConnectState;
+/**
+ hfp连接状态
+ */
+@property (nonatomic,assign) BOOL hfpConnectState;
+
+@end
+
+#pragma mark ====  设置压力校准 model ====
+@interface IDOSetStressCalibrationModel : IDOBluetoothBaseModel
+/**
+ 压力分数(1~100)
+ */
+@property (nonatomic,assign) NSInteger stressScore;
+/**
+ 0:开始校准设置 1：取消校准设置
+ */
+@property (nonatomic,assign) NSInteger status;
+/**
+  压力值 （设置不需要赋值，只为获取赋值）
+ */
+@property (nonatomic,assign) NSInteger stressValue;
+/**
+ 阀值 （设置不需要赋值，只为获取赋值）
+ */
+@property (nonatomic,assign) NSInteger threshold;
+
+@end
+
 #pragma mark ==== 设置经期历史数据 item model ====
 @interface IDOMenstrualHistoryDataItemModel : IDOBluetoothBaseModel
 /**
@@ -275,6 +317,16 @@ Alarm state  0=>  invalid 1 => alarm has been modified
  15:  固件步数每次增加2000步，设备请求app同步数据，app调用同步接口
  16:  固件探测到睡眠结束，请求app同步睡眠数据，app调用同步接口同步
  17:  固件三环数据修改，通知app更新三环数据
+ 18:  固件充满电完成发送提醒，app收到后通知栏显示设备充电完成
+ 19: 结束运动后，手动测量心率后，手动测量血氧后，手动测量压力后，
+    设备自动请求同步，先检查链接状态，未连接本次同步不执行，满足下个自动同步条件后再次判断发起同步请求
+ 20: 固件修改心率通知状态类型、压力通知状态类型、血氧通知状态类型、生理周期通知状态类型、
+    健康指导通知状态类型、提醒事项通知状态类型通知app更新心率、压力、血氧、生理周期、健康指导、提醒事项通知状态类型
+ 21: 固件压力值计算完成，通知app获取压力值
+ 22: 固件通知app，固件压力校准失败(固件退出测量界面/检测失败/检测超时/未佩戴)
+ 23: 固件产生心率过高或者过低提醒时，通知app获取心率数据
+ 24: 固件通知app bt蓝牙已连接
+ 25: 固件通知app bt蓝牙断开连接
  */
 @property (nonatomic,assign) NSInteger dataType;
 /**

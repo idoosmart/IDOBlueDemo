@@ -71,6 +71,11 @@
  */
 @property (nonatomic,strong) IDOGetDeviceFuncBluetoothModel * funcTableModel;
 
+/**
+ 软硬件版本信息
+ */
+@property (nonatomic,strong) IDOGetVersionInfoBluetoothModel * versionModel;
+
 @end
 
 @interface IDOBluetoothPeripheralInfoEngine : NSObject

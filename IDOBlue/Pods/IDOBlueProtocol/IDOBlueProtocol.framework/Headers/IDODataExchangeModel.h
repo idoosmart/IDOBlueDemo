@@ -285,7 +285,10 @@
  最大摄氧量；  单位：毫升/公斤/分钟； 范围  0-80
  */
 @property (nonatomic,assign) NSInteger vo2Max;
-
+/**
+ 训练效果；  单位：无   范围 1.0 ~ 5.0 （*10倍）
+ */
+@property (nonatomic,assign) NSInteger trainingEffect;
 /**
  恢复时间点年
  */

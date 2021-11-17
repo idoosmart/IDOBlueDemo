@@ -38,6 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 //初始化消息通知图标和名字更新
 + (instancetype)listenForUpdate;
 
+//主动获取图标和名字
+- (BOOL)getAppIconAndName;
+
 @end
 
 NS_ASSUME_NONNULL_END

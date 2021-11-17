@@ -270,6 +270,12 @@
 @property (nonatomic,copy) NSDictionary * minutesHrDic;
 
 /**
+ * 高低心率集合 | height low heart rate items
+ * @[@{@"hour":@(hour),@"minute":@(minute),@"type":@(type:0：心率过低时的心率值 0：心率过高时的心率值),@"hr_value":@(hr_value)}];
+ */
+@property (nonatomic,copy) NSArray <NSDictionary *>* heightLowHrItems;
+
+/**
  时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;

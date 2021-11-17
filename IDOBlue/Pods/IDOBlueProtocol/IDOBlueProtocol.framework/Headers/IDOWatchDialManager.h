@@ -73,6 +73,12 @@ typedef void(^_Nullable setComplete)(int errorCode);
  */
 @property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^setWallpaperDialInfo)(setComplete block,IDOV3WallpaperDialInfoModel * _Nullable model);
 
+/**
+ * 设置表盘排序
+ * Set watch face sorting
+ */
+@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^setWatchDialSort)(setComplete block,IDOV3WatchDialInfoModel * _Nullable model);
+
 
 #pragma mark ====== watch transmission ===========
 

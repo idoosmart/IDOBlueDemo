@@ -244,6 +244,10 @@
  */
 @property (nonatomic,copy) NSArray<NSNumber *> * repeat;
 /**
+ 目标步数
+ */
+@property (nonatomic,assign) NSInteger targetSteps;
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetFitnessGuidanceModel
@@ -647,11 +651,11 @@
 /**
  * 提醒类型 0:不提醒 2:准时 4:提前5分钟 8:提前10分钟 16:提前30分钟 32:提前1小时 64:提前1天
  */
-@property (nonatomic,assign) NSInteger nowDayRemindType;
+@property (nonatomic,assign) NSInteger nowDayRemindType DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 /**
  * 超过天数提醒类型 0:当天 2:提前1天 4:提前2天 8:提前3天 16:提前1周
  */
-@property (nonatomic,assign) NSInteger futureRemindType;
+@property (nonatomic,assign) NSInteger futureRemindType DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 /**
  当天提醒开关 0是关,1是开
  */
@@ -994,6 +998,11 @@
 @property (nonatomic,assign) NSInteger notifyFlag;
 
 /**
+ 阈值 根据功能表：bool v2_send_stress_calibration_threshold_03_45;
+ */
+@property (nonatomic,assign) NSInteger stressThreshold;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetPressureSwitchBluetoothModel
@@ -1087,7 +1096,7 @@
 @property (nonatomic,assign) NSInteger  measurementInterval;
 /**
  获取手表支持的心率类型集合 | get support  heart rate item type array
- 分别:5s,1分钟,3分钟,5分钟,10分钟,30分钟,智能心率(255s)
+ 分别:5s,1分钟,3分钟,5分钟,10分钟,30分钟,智能心率(255s),15分钟
  */
 @property (nonatomic,copy) NSArray * hrModeTypes;
 
@@ -2847,7 +2856,7 @@
 @interface IDOSetNoticeInfoBuletoothModel : IDOBluetoothBaseModel
 
 /**
- 是否配对 | Pairing
+ ble是否配对 | Pairing
  */
 @property (nonatomic,assign) BOOL isPairing;
 
@@ -2938,7 +2947,7 @@
 @property (nonatomic,assign) BOOL isOnAlarm;
 
 /**
- Pokeman 提醒 | Pokemon Reminder
+ Pokeman (其他)提醒 | Pokemon Reminder(other)
  */
 @property (nonatomic,assign) BOOL isOnPokeman;
 
@@ -3118,6 +3127,18 @@
  事项 提醒 | matters remind
  */
 @property (nonatomic,assign) BOOL isOnMattersRemind;
+/**
+ uber 提醒 | uber
+ */
+@property (nonatomic,assign) BOOL isOnUber;
+/**
+ ola 提醒 | ola
+ */
+@property (nonatomic,assign) BOOL isOnOla;
+/**
+ yt music 提醒 | yt music
+ */
+@property (nonatomic,assign) BOOL isOnYtMusic;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -3183,7 +3204,7 @@
  */
 @property (nonatomic,assign) NSInteger goalWalkStep DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 /**
- 走动目标时间 单位 s
+ 走动目标时间 单位 时
  */
 @property (nonatomic,assign) NSInteger goalWalkTime;
 /**

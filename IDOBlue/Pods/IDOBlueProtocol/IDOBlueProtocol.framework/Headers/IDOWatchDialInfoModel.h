@@ -127,6 +127,11 @@
  */
 @property (nonatomic,assign) NSInteger watchVersion;
 
+/**
+ *表盘排列序号,从0开始
+ */
+@property (nonatomic,assign) NSInteger sortNumber;
+
 @end
 
 
@@ -181,6 +186,18 @@
  */
 @property (nonatomic,assign) NSInteger watchListNum;
 
+/**
+ 表盘的总容量 单位：字节
+ */
+@property (nonatomic,assign) NSInteger watchTotalSize;
+/**
+ 表盘的已经使用容量
+ */
+@property (nonatomic,assign) NSInteger watchUsedSize;
+/**
+ 最大的可用表盘下载连续空间大小
+ */
+@property (nonatomic,assign) NSInteger maxDownloadSpaceSize;
 /**
  * 当前手表所有表盘信息
  * Current bracelet all dial information

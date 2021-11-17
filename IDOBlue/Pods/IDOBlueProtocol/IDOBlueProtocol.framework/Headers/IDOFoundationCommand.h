@@ -1252,13 +1252,22 @@
                                 callback:(void (^ _Nullable)(int errorCode))callback;
 
 /**
- * @brief //设置通知应用状态
- * @param statusModel 设置通知应用状态数据模型
+ * @brief //设置事项提醒通知应用状态
+ * @param statusModel 设置通事项提醒通知应用状态数据模型
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
 + (void)setNotificationStatusCommand:(IDOSetNotificationStatusModel *_Nullable)statusModel
                             callback:(void (^ _Nullable)(int errorCode))callback;
+/**
+ * @brief //设置压力校准
+ * @param stressModel 设置压力校准数据模型
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * retCode（0x00:成功，0x01：失败-正在校准<br />0x02：失败-正在充电，0x03：失败-未佩戴，0x04：失败-运动场景中）
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setStressCalibrationCommand:(IDOSetStressCalibrationModel *_Nullable)stressModel
+                           callback:(void (^ _Nullable)(int errorCode,int retCode))callback;
 
 #pragma mark ======= get Command =======
 
@@ -1607,6 +1616,20 @@
  * callback state 0:no log，1:firmware restart log (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
 */
 + (void)getDeviceLogStateCommand:(void (^ _Nullable)(int errorCode,NSInteger state))callback;
+
+/**
+ * @brief 校验完压力获取压力值和阀值
+ * @param callback 执行后回调 data (IDOSetStressCalibrationModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOSetStressCalibrationModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getStressThresholdCommand:(void (^ _Nullable)(int errorCode,IDOSetStressCalibrationModel * _Nullable data))callback;
+
+/**
+ * @brief 获取bt 配对连接状态
+ * @param callback 执行后回调 data (IDOGetBtPairStateModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOGetBtPairStateModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getBtPairStateCommand:(void (^ _Nullable)(int errorCode,IDOGetBtPairStateModel * _Nullable data))callback;
 
 /**
  * @brief  获取星星的数量,数据不作存储（锐捷） | Get number of stars （ruijie）

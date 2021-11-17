@@ -14,6 +14,7 @@
 		9B437EF921393ADC00DE2FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B437EF721393ADC00DE2FC8 /* LaunchScreen.storyboard */; };
 		9B437EFC21393ADC00DE2FC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437EFB21393ADC00DE2FC8 /* main.m */; };
 		9B437F3721393DDD00DE2FC8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */; };
+		9B5F57D32744A34C003B1442 /* UpdateSportIconViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F57D12744A34C003B1442 /* UpdateSportIconViewModel.m */; };
 		9B6629FA23BB3D9A001EED9D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6629F923BB3D88001EED9D /* libc++.tbd */; };
 		9B803338224E14C2003BA448 /* Chinese.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B803336224DBE14003BA448 /* Chinese.strings */; };
 		9B803339224E14C2003BA448 /* English.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B803337224DBE69003BA448 /* English.strings */; };
@@ -293,6 +294,8 @@
 		9B437F2721393DDD00DE2FC8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9B437F2821393DDD00DE2FC8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9B5702A4213BEE1500BCE1CE /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		9B5F57D12744A34C003B1442 /* UpdateSportIconViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateSportIconViewModel.m; sourceTree = "<group>"; };
+		9B5F57D22744A34C003B1442 /* UpdateSportIconViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateSportIconViewModel.h; sourceTree = "<group>"; };
 		9B6629F923BB3D88001EED9D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		9B803336224DBE14003BA448 /* Chinese.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Chinese.strings; sourceTree = "<group>"; };
 		9B803337224DBE69003BA448 /* English.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = English.strings; sourceTree = "<group>"; };
@@ -1403,6 +1406,8 @@
 		9BF5C9372703433400FBA91F /* UpdateViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9B5F57D22744A34C003B1442 /* UpdateSportIconViewModel.h */,
+				9B5F57D12744A34C003B1442 /* UpdateSportIconViewModel.m */,
 				9BF5C9382703433400FBA91F /* OtherFileViewModel.h */,
 				9BF5C9392703433400FBA91F /* FileViewModel.h */,
 				9BF5C93A2703433400FBA91F /* UpdateWordViewModel.m */,
@@ -1774,6 +1779,7 @@
 				9BF5CA562703433500FBA91F /* RestartLogViewModel.m in Sources */,
 				9BF5CA1C2703433400FBA91F /* SyncViewModel.m in Sources */,
 				9BF5CA3B2703433400FBA91F /* GetMtuInfoViewModel.m in Sources */,
+				9B5F57D32744A34C003B1442 /* UpdateSportIconViewModel.m in Sources */,
 				9BF5C9DC2703433400FBA91F /* SetSleepTimeViewModel.m in Sources */,
 				9BF5C9E62703433400FBA91F /* SetSyncContactViewModel.m in Sources */,
 				9BF5CA722703433500FBA91F /* TabCellModel.m in Sources */,

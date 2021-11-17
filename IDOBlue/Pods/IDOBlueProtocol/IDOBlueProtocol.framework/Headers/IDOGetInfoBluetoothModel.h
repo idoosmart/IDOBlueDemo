@@ -486,6 +486,36 @@ error flag
  */
 @property (nonatomic,assign) NSInteger pcbVersion;
 
+//血氧算法版本
+@property (nonatomic,assign) NSInteger spo2Version;
+
+//压力算法版本
+@property (nonatomic,assign) NSInteger stressVersion;
+
+//卡路里算法版本
+@property (nonatomic,assign) NSInteger kcalVersion;
+
+//距离算法版本
+@property (nonatomic,assign) NSInteger disVersion;
+
+//三轴传感器游泳算法版本
+@property (nonatomic,assign) NSInteger axle3SwimVersion;
+
+//六轴传感器游泳算法版本
+@property (nonatomic,assign) NSInteger axle6SwimVersion;
+
+//运动自识别算法版本
+@property (nonatomic,assign) NSInteger actModeTypeVersion;
+
+//全天心率算法版本
+@property (nonatomic,assign) NSInteger allDayHrVersion;
+
+//gps算法版本
+@property (nonatomic,assign) NSInteger gpsVersion;
+
+//外设版本 206项目外设版本
+@property (nonatomic,assign) NSInteger peripheralsVersion;
+
 /**
  固件版本version1
  */
@@ -520,6 +550,21 @@ error flag
  BT的版本version3
  */
 @property (nonatomic,assign) NSInteger btVersion3;
+
+/**
+ BT的所需要匹配的版本version1
+ */
+@property (nonatomic,assign) NSInteger btMatchVersion1;
+
+/**
+ BT的所需要匹配的版本version2
+ */
+@property (nonatomic,assign) NSInteger btMatchVersion2;
+
+/**
+ BT的所需要匹配的版本version3
+ */
+@property (nonatomic,assign) NSInteger btMatchVersion3;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -854,7 +899,7 @@ error flag
  */
 @property (nonatomic,assign) BOOL alexaControll100brightness;
 /**
- 获取bt蓝牙地址（gt01）
+ 获取bt蓝牙地址（gt01 pro）
  get bt addr
  */
 @property (nonatomic,assign) BOOL getBleMacAddr;
@@ -868,6 +913,10 @@ error flag
  set notification status
  */
 @property (nonatomic,assign) BOOL syncV3ActivityAddParam;
+/**
+ 压力开关阀值设置
+ */
+@property (nonatomic,assign) BOOL stressCalibrationThreshold;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -957,6 +1006,18 @@ error flag
  */
 @property (nonatomic,assign) BOOL getCalorieDistanceGoal;
 /**
+ 206新增压力校准设置
+ */
+@property (nonatomic,assign) BOOL setStressCalibration;
+/**
+ 支持显示表盘容量
+ */
+@property (nonatomic,assign) BOOL watchCapacitySizeDisplay;
+/**
+ 支持壁纸表盘时间位置移动、控件图标颜色修改、控件功能选择
+ */
+@property (nonatomic,assign) BOOL watchPhotoPositionMove;
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable37BluetoothModel
@@ -1022,6 +1083,10 @@ error flag
  207a定制   走动实时提醒(c库功能表废弃了)
  */
 @property (nonatomic,assign) BOOL walkTimeReminder;
+/**
+ 支持获取心率过高过低提醒时的心率数据
+ */
+@property (nonatomic,assign) BOOL getHeartRateReminder;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1179,6 +1244,11 @@ error flag
 @property (nonatomic,assign) BOOL supportWearFlag;
 
 /**
+ 设置表盘顺序
+ */
+@property (nonatomic,assign) BOOL watchDialSort;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable34BluetoothModel
@@ -1250,7 +1320,18 @@ error flag
  事项提醒的功能表
  */
 @property (nonatomic,assign) BOOL mattersRemind;
-
+/**
+ YTmusic
+ */
+@property (nonatomic,assign) BOOL ytmusic;
+/**
+ Uber
+ */
+@property (nonatomic,assign) BOOL uber;
+/**
+ ola
+ */
+@property (nonatomic,assign) BOOL ola;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -2432,7 +2513,10 @@ error flag
  */
 @property (nonatomic,assign) BOOL alarmClock;
 
-
+/**
+ 其他提醒
+ */
+@property (nonatomic,assign) BOOL otherReminder;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -3217,7 +3301,10 @@ error flag
 
 #pragma mark ==== 获取mac地址model ====
 @interface IDOGetMacAddrInfoBluetoothModel:IDOBluetoothBaseModel
-
+/**
+ BT  Mac 地址
+ */
+@property (nonatomic,copy) NSString * btMacAddr;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object

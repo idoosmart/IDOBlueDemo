@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 //获取音乐信息回调数据
 - (void)getMusicFileInfoReplyModel:(IDOMusicInfoModel *)model
                          errorCode:(int)errorCode;
-//传输进度 0-100
+//传输进度 0-1.0
 - (void)musicFileTransferProgress:(float)progress;
 
 //传输完成 非0为错误
@@ -44,16 +44,15 @@ NS_ASSUME_NONNULL_BEGIN
 //修改歌单名称(只能修改歌单名称，其他歌单关联的歌曲不能被修改)
 + (BOOL)reviseMusicFolderNames:(NSArray <IDOMusicDirectoryModel *>*)models;
 //导入歌单
-+ (BOOL)importMusicFolder:(IDOMusicDirectoryModel *)model
-               musicFiles:(NSArray <IDOMusicFileModel *>*)musics;
++ (BOOL)importMusicFolder:(NSArray<IDOMusicDirectoryModel *> *)models;
 //从歌单删除歌曲(歌曲和歌单解除关系，不是实质删除歌曲文件)
-+ (BOOL)deletMusicFromFolder:(IDOMusicDirectoryModel *)model
-                  musicFiles:(NSArray <IDOMusicFileModel *>*)musics;
++ (BOOL)deletMusicFromFolder:(NSArray<IDOMusicDirectoryModel *> *)models;
 //获取音乐信息
 + (BOOL)getMusicInfo;
 //开始传输
 - (BOOL)startTransfer;
-
+//停止传输
+- (BOOL)stopTransfer;
 @end
 
 NS_ASSUME_NONNULL_END

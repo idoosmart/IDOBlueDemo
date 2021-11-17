@@ -293,7 +293,7 @@ max step stride
 @property (nonatomic,assign) NSInteger fastPaceSpeed;
 
 /**
- 训练效果；  单位：无
+ 训练效果；  单位：无   范围 1.0 ~ 5.0 （*10倍）
  */
 @property (nonatomic,assign) NSInteger trainingEffect;
 
@@ -338,9 +338,24 @@ max step stride
 @property (nonatomic,assign) NSInteger minHrValue;
 
 /**
- 实时配速数组  传过来的是 s 钟  每5S算一次
+ 实时配速数组  传过来的是 s 钟  每5s算一次
  */
 @property (nonatomic,strong) NSArray * paceSpeedItems;
+
+/**
+ 桨次数组 一分钟保存一次
+ */
+@property (nonatomic,strong) NSArray * paddleNumberItems;
+
+/**
+ 桨频数组 一分钟保存一次 存平均值
+ */
+@property (nonatomic,strong) NSArray * paddleFrequencyItems;
+
+/**
+ 踏频数组 一分钟保存一次 存平均值
+ */
+@property (nonatomic,strong) NSArray * treadFrequencyItems;
 
 @end
 
