@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1817F4F3214B2BBF001C90D5 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1817F4F2214B2BBF001C90D5 /* test.swift */; };
+		9B05E7442748F0CB004EA85A /* GetActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B05E7432748F0CB004EA85A /* GetActivityViewModel.m */; };
 		9B41B6D72445C87F00BE04A4 /* lib_lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41B6D62445C86D00BE04A4 /* lib_lame.a */; };
 		9B437EEE21393ADC00DE2FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437EED21393ADC00DE2FC8 /* AppDelegate.m */; };
 		9B437EF621393ADC00DE2FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B437EF521393ADC00DE2FC8 /* Assets.xcassets */; };
@@ -186,7 +187,6 @@
 		9BF5CA3C2703433400FBA91F /* GetDefaultLanguageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C9132703433400FBA91F /* GetDefaultLanguageViewModel.m */; };
 		9BF5CA3D2703433400FBA91F /* GetErrorLogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C9152703433400FBA91F /* GetErrorLogViewModel.m */; };
 		9BF5CA3E2703433400FBA91F /* GetWalkReminderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C91A2703433400FBA91F /* GetWalkReminderViewModel.m */; };
-		9BF5CA3F2703433400FBA91F /* GetActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C91D2703433400FBA91F /* GetActivityViewModel.m */; };
 		9BF5CA402703433400FBA91F /* GetV3AlarmsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C91E2703433400FBA91F /* GetV3AlarmsViewModel.m */; };
 		9BF5CA412703433400FBA91F /* GetDeviceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C9212703433400FBA91F /* GetDeviceViewModel.m */; };
 		9BF5CA422703433400FBA91F /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5C9242703433400FBA91F /* BaseViewModel.m */; };
@@ -280,6 +280,7 @@
 		1817F4F2214B2BBF001C90D5 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		35FFA1193E14B5840110953D /* Pods_IDOBlue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDOBlue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A9262FD9568A68B014C256 /* Pods-IDOBlue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDOBlue.release.xcconfig"; path = "Target Support Files/Pods-IDOBlue/Pods-IDOBlue.release.xcconfig"; sourceTree = "<group>"; };
+		9B05E7432748F0CB004EA85A /* GetActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetActivityViewModel.m; path = IDOBlue/Models/ViewModels/GetViewModel/GetActivityViewModel.m; sourceTree = SOURCE_ROOT; };
 		9B4045FA2143C29300ACDE9F /* IDOBlue.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOBlue.pch; sourceTree = "<group>"; };
 		9B41B6D62445C86D00BE04A4 /* lib_lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib_lame.a; path = ../thirdParty/Lame/lib_lame.a; sourceTree = "<group>"; };
 		9B41B6D82445C89E00BE04A4 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lame.h; path = ../../thirdParty/Lame/lame.h; sourceTree = "<group>"; };
@@ -632,7 +633,6 @@
 		9BF5C91A2703433400FBA91F /* GetWalkReminderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetWalkReminderViewModel.m; sourceTree = "<group>"; };
 		9BF5C91B2703433400FBA91F /* GetBatteryLogViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBatteryLogViewModel.h; sourceTree = "<group>"; };
 		9BF5C91C2703433400FBA91F /* GetMacViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMacViewModel.h; sourceTree = "<group>"; };
-		9BF5C91D2703433400FBA91F /* GetActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetActivityViewModel.m; sourceTree = "<group>"; };
 		9BF5C91E2703433400FBA91F /* GetV3AlarmsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetV3AlarmsViewModel.m; sourceTree = "<group>"; };
 		9BF5C91F2703433400FBA91F /* GetMainUiSortViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMainUiSortViewModel.h; sourceTree = "<group>"; };
 		9BF5C9202703433400FBA91F /* GetVersionInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetVersionInfoViewModel.h; sourceTree = "<group>"; };
@@ -729,7 +729,6 @@
 		9BF5C98A2703433400FBA91F /* TextFieldCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCellModel.m; sourceTree = "<group>"; };
 		9BF5C98B2703433400FBA91F /* SwitchCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCellModel.h; sourceTree = "<group>"; };
 		9BF5C98C2703433400FBA91F /* LabelCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelCellModel.h; sourceTree = "<group>"; };
-		9BF5C98D2703433400FBA91F /* AlexaViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlexaViewModel.h; sourceTree = "<group>"; };
 		9BF5C98E2703433400FBA91F /* FuncCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuncCellModel.h; sourceTree = "<group>"; };
 		9BF5C98F2703433400FBA91F /* SliderCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderCellModel.m; sourceTree = "<group>"; };
 		9BF5C9902703433400FBA91F /* TabCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabCellModel.m; sourceTree = "<group>"; };
@@ -1303,6 +1302,7 @@
 		9BF5C8E12703433300FBA91F /* GetViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9B05E7432748F0CB004EA85A /* GetActivityViewModel.m */,
 				9BF5C8E22703433300FBA91F /* GetStartCountViewModel.m */,
 				9BF5C8E32703433300FBA91F /* GetV3HearRateViewModel.h */,
 				9BF5C8E52703433300FBA91F /* GetViewModel.m */,
@@ -1361,7 +1361,6 @@
 				9BF5C91A2703433400FBA91F /* GetWalkReminderViewModel.m */,
 				9BF5C91B2703433400FBA91F /* GetBatteryLogViewModel.h */,
 				9BF5C91C2703433400FBA91F /* GetMacViewModel.h */,
-				9BF5C91D2703433400FBA91F /* GetActivityViewModel.m */,
 				9BF5C91E2703433400FBA91F /* GetV3AlarmsViewModel.m */,
 				9BF5C91F2703433400FBA91F /* GetMainUiSortViewModel.h */,
 				9BF5C9202703433400FBA91F /* GetVersionInfoViewModel.h */,
@@ -1537,7 +1536,6 @@
 				9BF5C98A2703433400FBA91F /* TextFieldCellModel.m */,
 				9BF5C98B2703433400FBA91F /* SwitchCellModel.h */,
 				9BF5C98C2703433400FBA91F /* LabelCellModel.h */,
-				9BF5C98D2703433400FBA91F /* AlexaViewModel.h */,
 				9BF5C98E2703433400FBA91F /* FuncCellModel.h */,
 				9BF5C98F2703433400FBA91F /* SliderCellModel.m */,
 				9BF5C9902703433400FBA91F /* TabCellModel.m */,
@@ -1788,7 +1786,6 @@
 				1817F4F3214B2BBF001C90D5 /* test.swift in Sources */,
 				9B9C402C2566693C00809576 /* MASConstraintMaker.m in Sources */,
 				9BF5C9E12703433400FBA91F /* SetNotfityViewModel.m in Sources */,
-				9BF5CA3F2703433400FBA91F /* GetActivityViewModel.m in Sources */,
 				9BF5CA5D2703433500FBA91F /* MusicViewModel.m in Sources */,
 				9BF5CA052703433400FBA91F /* SetWalkRemindViewModel.m in Sources */,
 				9BF5C9F82703433400FBA91F /* SetWeatherViewModel.m in Sources */,
@@ -1961,6 +1958,7 @@
 				9BF5CA872703433500FBA91F /* BasePickerView.m in Sources */,
 				9B437EEE21393ADC00DE2FC8 /* AppDelegate.m in Sources */,
 				9BC4799E244E9A5900455A6E /* PQCircleAnimationView.m in Sources */,
+				9B05E7442748F0CB004EA85A /* GetActivityViewModel.m in Sources */,
 				9BF5CA732703433500FBA91F /* LabelCellModel.m in Sources */,
 				9BF5C8212703431C00FBA91F /* ScanTableViewCell.m in Sources */,
 				9BF5C9D12703433400FBA91F /* QuerySleepViewModel.m in Sources */,
