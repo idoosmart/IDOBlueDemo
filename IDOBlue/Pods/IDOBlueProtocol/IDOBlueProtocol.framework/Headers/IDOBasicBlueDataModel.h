@@ -327,6 +327,8 @@ Alarm state  0=>  invalid 1 => alarm has been modified
  23: 固件产生心率过高或者过低提醒时，通知app获取心率数据
  24: 固件通知app bt蓝牙已连接
  25: 固件通知app bt蓝牙断开连接
+ 26: 固件蓝牙通话开始
+ 27: 固件蓝牙通话结束
  */
 @property (nonatomic,assign) NSInteger dataType;
 /**

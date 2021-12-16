@@ -13,7 +13,6 @@
 @property (copy,readonly,nonatomic,nullable) NSArray<NSString *>  * originColumnNames;
 @property (copy,readonly,nonatomic,nullable) NSArray<NSString *>  * columnNames;
 @property (copy,readonly,nonatomic,nullable) NSArray<NSString *>  * columnTypes;
-
 @property (nonatomic,assign) NSInteger pk;
 
 @property (nonatomic,copy,nullable) NSString * macAddr;

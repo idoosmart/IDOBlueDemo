@@ -35,7 +35,7 @@
 @interface IDOSyncV3SleepDataInfoBluetoothModel : IDOBluetoothBaseModel
 
 /**
- 睡眠类型0x01 正常睡眠,0x02 午睡小憩  | Sleep type 0x01 Normal sleep,0x02 nap
+ 睡眠类型0x01 正常睡眠,0x02 午睡小憩,0x04 不支持眼动（科学睡眠） | Sleep type 0x01 Normal sleep,0x02 nap
  */
 @property (nonatomic,assign) NSInteger dataType;
 

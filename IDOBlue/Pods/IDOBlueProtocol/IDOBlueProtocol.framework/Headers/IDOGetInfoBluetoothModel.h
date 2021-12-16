@@ -824,7 +824,7 @@ error flag
 
 @end
 
-#pragma mark ==== 获取第38个功能表model ====
+#pragma mark
 @interface IDOGetFuncTable38BluetoothModel : IDOBluetoothBaseModel
 /**
  走动提醒增加通知类型
@@ -1088,6 +1088,15 @@ error flag
  */
 @property (nonatomic,assign) BOOL getHeartRateReminder;
 /**
+ 一分钟间隔步数
+ */
+@property (nonatomic,assign) BOOL stepsOneMinute;
+/**
+ 206boat新增 心率检测模式支持展示检测时段
+ */
+@property (nonatomic,assign) BOOL showDetectionTime;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable36BluetoothModel
@@ -1332,6 +1341,11 @@ error flag
  ola
  */
 @property (nonatomic,assign) BOOL ola;
+/**
+ google meet
+ */
+@property (nonatomic,assign) BOOL googleMeet;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1741,6 +1755,10 @@ error flag
  其他运动(定制 kr01) | other activity
  */
 @property (nonatomic,assign) BOOL otherActivity;
+/**
+ 尊巴舞 206Lite项目要求新增功能表
+ */
+@property (nonatomic,assign) BOOL zumba;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -2683,6 +2701,11 @@ error flag
  学习 | learning
  */
 @property (nonatomic,assign) BOOL learning;
+
+/**
+ 玩耍时间
+ */
+@property (nonatomic,assign) BOOL playTime;
 
 /**
  * @brief  查询数据库,如果查询不到初始化新的model对象

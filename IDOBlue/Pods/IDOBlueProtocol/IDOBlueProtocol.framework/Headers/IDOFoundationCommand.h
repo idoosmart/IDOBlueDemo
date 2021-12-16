@@ -433,10 +433,14 @@
 
 /**
  * @brief 简单的控制命令 | Voice control jump alarm interface
- * @param uiType  UI类型 1:亮度控制 2:勿扰控制 | UI Type 1: Brightness Control 2: Do Not Disturb Control
- * @param operationType  亮度控制: 0:亮度控制界面 亮度++ 1:亮度控制界面 亮度-- 2:亮度调节最大 3:亮度调节最小 4:亮度等级
- * 勿扰控制:0:勿扰控制开启 1:勿扰控制关闭
- * @param cmdNumber  0:无效设置 亮度等级 1 ~ 5
+ * @param uiType  UI类型 1:亮度控制 2:勿扰控制 3:抬腕亮屏 | UI Type 1: Brightness Control 2: Do Not Disturb Control
+ * @param operationType
+ * 亮度控制: 0:亮度控制界面 亮度++ 1:亮度控制界面 亮度-- 2:亮度调节最大 3:亮度调节最小 4:亮度等级
+ *        6:亮度控制界面 亮度++（增加10%亮度）7:亮度控制界面 亮度--（减少10%亮度）8:新增设置具体的亮度等级（百分比）
+ * 勿扰控制: 0:勿扰控制开启 1:勿扰控制关闭
+ * 抬腕亮屏控制: 0:抬腕亮屏开启 1:抬腕亮屏关闭
+ * @param cmdNumber  0:无效设置
+ * 亮度控制: 1-5或者1-3,根据功能表是3级的还是5级的,operationType == 8,亮度等级（百分比）1-100
  * Brightness control: 0: brightness control interface brightness ++ 1: brightness control interface brightness --
  * 2: brightness adjustment maximum 3: brightness adjustment minimum 4:brightness level
  * Do not disturb control : 0: Do not disturb control on 1: Do not disturb control off
@@ -503,7 +507,8 @@
  * 5   Hiking（徒步）6    Outdoor cycle（户外骑行）7   Indoor cycle（室内骑行） 8    Cricket（板球）9  Pool Swim（泳池游泳）10   Open water swim（开放式游泳）
  * 11   Yoga（瑜伽） 12   Rower（划船机）13   Elliptical（椭圆机）14   workout（健身 ）15   sleep/slept(睡眠页面) 16   stress/pressure(压力检测)
  * 17  help(打开帮助二维码界面) 18  find phone (查找手机) 19   breath training/relax（呼吸页面） 20   settings/Options（设置）21   flashlight（手电筒）
- * 22   display  setting/brightness（亮度设置）23   message/text  notifications(消息详情)
+ * 22   display  setting/brightness（亮度设置）23   message/text  notifications(消息详情) 241 stopwatch(秒表) 242 event reminder(事项提醒)
+ * 243 phone(打开电话) 244 noise measurement(噪音测量) 245 skin temperature(皮肤温度)
  * @param callback 执行回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Execute callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */

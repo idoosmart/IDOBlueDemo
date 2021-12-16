@@ -251,8 +251,8 @@ typedef NS_ENUM(NSInteger, IDO_BLUETOOTH_CONNECT_ERROR_TYPE) {
      */
     IDO_BLUETOOTH_TRY_CONNECT_DEIVCIE_TIMEOUT_TYPE = 19,
     /**
-     * 尝试连接超时
-     * Try connect device timeout
+     * 蓝牙写入数据无权限
+     * blue data write insufficient
      */
     IDO_BLUETOOTH_DATA_WRITE_INSUFFICIENT_TYPE = 20
     

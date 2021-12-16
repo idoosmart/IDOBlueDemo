@@ -424,6 +424,19 @@
  */
 @property (nonatomic,assign) NSInteger day;
 /**
+ hour
+ */
+@property (nonatomic,assign) NSInteger hour;
+/**
+ min
+ */
+@property (nonatomic,assign) NSInteger min;
+/**
+ sec
+ */
+@property (nonatomic,assign) NSInteger sec;
+
+/**
  week
  */
 @property (nonatomic,assign) NSInteger week;
@@ -1094,6 +1107,10 @@
  测量间隔,单位秒钟 | measurement Interval,unit:second
  */
 @property (nonatomic,assign) NSInteger  measurementInterval;
+/**
+ 支持秒级心率 只获取有效，设置不需要赋值
+ */
+@property (nonatomic,assign) BOOL getSecondMode;
 /**
  获取手表支持的心率类型集合 | get support  heart rate item type array
  分别:5s,1分钟,3分钟,5分钟,10分钟,30分钟,智能心率(255s),15分钟
@@ -1819,7 +1836,7 @@
 @property (nonatomic,assign) NSInteger type;
 
 /**
- 01：图片已下载成功   00：图片没有下载
+ 01 表示小图标已下载；02 表示大图标已下载；03 表示小图标和大图表都已经下载；00 表示图标未下载
  */
 @property (nonatomic,assign) NSInteger flag;
 
@@ -2090,7 +2107,7 @@
 /**
  类型 | Type
  0：起床， 1：睡觉， 2：锻炼， 3：吃药， 4：约会， 5：聚会， 6:会议，7：其他
- 8：吃饭， 9：刷牙，10 :休息  11 : 课程  12: 洗澡  13:学习
+ 8：吃饭， 9：刷牙，10 :休息  11 : 课程  12: 洗澡  13:学习 14: 玩耍
  */
 @property (nonatomic,assign) NSInteger type;
 /**
@@ -3139,6 +3156,10 @@
  yt music 提醒 | yt music
  */
 @property (nonatomic,assign) BOOL isOnYtMusic;
+/**
+ google meet 提醒
+ */
+@property (nonatomic,assign) BOOL isOnGoogleMeet;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
