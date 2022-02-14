@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sportIconTransferComplete:(int)errorCode
                           message:(NSString *)message;
 
+//根据运动图标大小获取当前运动图标新的地址
+- (NSString *)getPathWithSportIconSize:(CGSize)size
+                             iconModel:(IDOSportIconModel *)model;
+
 @end
 
 

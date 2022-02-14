@@ -147,7 +147,7 @@
 
 /**
  * 手环的平台 | platform for bracelet
- * 0:nordic, 10:realtek 8762x ,20:cypress psoc6,30:Apollo3
+ * 0:nordic,10:realtek 8762x ,20:cypress psoc6,30:Apollo3,40:汇顶,50:nordic+泰凌微,60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340
  */
 @property (nonatomic,assign) NSInteger platform;
 

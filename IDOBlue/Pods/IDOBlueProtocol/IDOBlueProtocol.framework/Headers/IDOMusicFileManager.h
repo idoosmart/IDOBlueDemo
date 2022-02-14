@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol IDOMusicFileManagerDelegate <NSObject>
+
 @optional
 //操作音乐回调状态
 //type=> 0:无效操作；1:删除音乐；2:增加音乐 3:删除文件夹；4:增加文件夹；5:修改歌单 6:导入歌单 7:歌单删除音乐
@@ -25,6 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 //传输完成 非0为错误
 - (void)musicFileTransferComplete:(int)errorCode;
+
+//开始修改音乐采样率（MP3的采样率不是44.1k需要修改采样率 比较耗时）
+- (void)oneOfMusicFileStartCorrectSamplingRate;
+
+//结束修复音乐采样率
+- (void)oneOfMusicFileEndCorrectSamplingRate;
 
 @end
 
@@ -53,6 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)startTransfer;
 //停止传输
 - (BOOL)stopTransfer;
+
 @end
 
 NS_ASSUME_NONNULL_END

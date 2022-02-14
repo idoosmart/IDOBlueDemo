@@ -336,7 +336,7 @@ error flag
  */
 @property (nonatomic,assign) NSInteger maxNum;
 /**
- 菜单排序集合
+ 菜单排序当前显示集合
  0 =>无效 1 =>步数 2 =>心率 3=> 睡眠 4=> 拍照 5=> 闹钟 6=> 音乐 7=> 秒表 8=> 计时器
  9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
  17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示
@@ -344,12 +344,19 @@ error flag
  9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
 */
 @property (nonatomic,strong) NSArray<NSNumber *> * itemList;
-
+/**
+ 菜单排序最大显示集合
+ 0 =>无效 1 =>步数 2 =>心率 3=> 睡眠 4=> 拍照 5=> 闹钟 6=> 音乐 7=> 秒表 8=> 计时器
+ 9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
+ 17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示
+ 0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
+ 9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
+ */
+@property (nonatomic,strong) NSArray<NSNumber *> * maxItemList;
 /**
  设备当前显示列表个数
  */
 @property (nonatomic,assign) NSInteger currentShowNum;
-
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -986,6 +993,10 @@ error flag
  */
 @property (nonatomic,assign) BOOL set100SportSort;
 /**
+ 100种运动需要的中图功能表
+ */
+@property (nonatomic,assign) BOOL sportMediumIcon;
+/**
  20种基础运动数据子参数排序
  */
 @property (nonatomic,assign) BOOL set20SportParamSort;
@@ -1216,6 +1227,17 @@ error flag
 @property (nonatomic,assign) BOOL notSupportHrHighAlarm;
 
 /**
+ V3的心率 -- 208BT过高过低提醒功能表
+ */
+@property (nonatomic,assign) BOOL supportHrHighOrLowBtAlarm;
+
+/**
+ 208BT定制 支持发送解压前的文件大小命令 文件传输-->表盘使用
+ */
+@property (nonatomic,assign) BOOL supportSendOriginalSizeD1;
+
+
+/**
  BIT1 k6项目不需要对应的壁纸表盘，veryFit默认的都是支持的，新加一个不支持的功能表，不需要的配置这个
  no support photo wallpaper
  */
@@ -1256,6 +1278,21 @@ error flag
  设置表盘顺序
  */
 @property (nonatomic,assign) BOOL watchDialSort;
+
+/**
+ 支持ping回调
+ */
+@property (nonatomic,assign) BOOL suppportPing;
+
+/**
+ 205L血压 v3健康数据同步支持
+ */
+@property (nonatomic,assign) BOOL supportV3Bp;
+
+/**
+ 血压校准与设置
+ */
+@property (nonatomic,assign) BOOL v2BpSetOrMeasurement;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2176,6 +2213,11 @@ error flag
  网球 |  tennis
  */
 @property (nonatomic,assign) BOOL tennis;
+
+/**
+ 滑板 | skateboard
+ */
+@property (nonatomic,assign) BOOL skateboard;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -3255,7 +3297,7 @@ error flag
 
 /**
  * 手环的平台 | platform for bracelet
- * 0:nordic, 10:realtek 8762x ,20:cypress psoc6,30:Apollo3,40:汇顶
+ * 0:nordic,10:realtek 8762x ,20:cypress psoc6,30:Apollo3,40:汇顶,50:nordic+泰凌微,60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340
  */
 @property (nonatomic,assign) NSInteger platform;
 

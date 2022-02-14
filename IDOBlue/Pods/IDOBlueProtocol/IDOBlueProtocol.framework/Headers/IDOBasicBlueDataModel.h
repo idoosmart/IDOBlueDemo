@@ -329,6 +329,7 @@ Alarm state  0=>  invalid 1 => alarm has been modified
  25: 固件通知app bt蓝牙断开连接
  26: 固件蓝牙通话开始
  27: 固件蓝牙通话结束
+ 28: 新版本固件每等4分30秒发送一个通知命令，用于修复离线的问题
  */
 @property (nonatomic,assign) NSInteger dataType;
 /**

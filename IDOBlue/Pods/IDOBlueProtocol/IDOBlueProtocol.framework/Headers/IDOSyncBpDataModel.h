@@ -52,7 +52,6 @@
 @end
 
 @interface IDOSyncBpDataInfoBluetoothModel : IDOBluetoothBaseModel
-
 /**
  血压数据包量 | Blood pressure data package
  */

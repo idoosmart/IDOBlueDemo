@@ -50,5 +50,11 @@ IDOMakePhotoManager * _Nonnull initMakePhotoManager(void);
  */
 + (void)stopPhotoTransfer;
 
+/**
+ *png 图片转 16位 bmp图片
+ */
++ (BOOL)pngTo16Bmp:(NSString * _Nullable )pngPath
+           bmpPath:(NSString * _Nullable *_Nullable)bmpPath;
+
 @end
 

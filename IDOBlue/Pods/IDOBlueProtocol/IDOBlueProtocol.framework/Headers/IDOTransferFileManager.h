@@ -56,6 +56,12 @@
  */
 @property (nonatomic,copy,nullable) NSData * fileData;
 
+/*
+ * 传输解压文件大小（208BT）
+ * Transfer Unzip file size (208BT)
+ */
+@property (nonatomic,assign) NSInteger unzipFileSize;
+
 /**
  * 是否设置连接参数 默认设置YES
  * Set connection parameters default YES

@@ -31,6 +31,11 @@
 + (void)disOta;
 
 /**
+ 设备进入泰凌微ota模式
+ */
++ (void)tlwOta;
+
+/**
  协议库强制解绑状态 | mandatory unbind device
  */
 + (void)mandatoryUnbind;

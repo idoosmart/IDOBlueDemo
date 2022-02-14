@@ -239,8 +239,15 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
     /**
       音乐操作日志
      */
-    IDO_MUSIC_TRANSMISSION_LOG
-    
+    IDO_MUSIC_TRANSMISSION_LOG,
+    /**
+     同步数据存储日志
+     */
+    IDO_SYNC_DATA_SAVE_LOG,
+    /**
+     *DB日志
+     */
+    IDO_DB_DATA_SAVE_LOG,
 };
 
 typedef NS_ENUM(NSInteger, IDO_FLASH_LOG_TYPE)  {
@@ -268,7 +275,8 @@ typedef NS_ENUM(NSInteger, IDO_FLASH_LOG_TYPE)  {
      *重启日志
      *restart log
      */
-    IDO_FLASH_LOG_RESTART_TYPE   =   4
+    IDO_FLASH_LOG_RESTART_TYPE   =   4,
+    
 };
 
 

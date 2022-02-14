@@ -1071,10 +1071,10 @@
 #pragma mark ====  设置心率开关同步 model ====
 @interface IDOSetV3HeartRateModeBluetoothModel:IDOBluetoothBaseModel
 /**
- * 心率模式 0:关闭心率监测功能(无效) 1:手动模式 2:自动模式(5分钟) 3:持续监测(5秒钟)（默认：自动模式）
- * 4:默认类型(第一次绑定同步配置使用) 5:设置对应测量间隔,选择4和5模式则2和3模式无效 6:智能心率模式 （206沃尔定制）
+ * 心率模式 0:关闭心率监测功能(无效) 1:手动模式(关闭自动) 2:自动模式(5分钟) 3:持续监测(5秒钟)（默认：自动模式）
+ * 4:默认类型(第一次绑定同步配置使用) 5:设置对应测量间隔（设置对应的measurement_interval）,选择4和5模式则2和3模式无效 6:智能心率模式 （206沃尔定制）
  * Heart Rate Mode 0: turn off heart rate monitoring function 1: manual mode 2: auto mode 3:continuously monitor(Default: Auto mode)
- * 4: default type (used for the first binding synchronization configuration) 5: set the corresponding measurement interval
+ * 4: default type (used for the first binding synchronization configuration) 5: set the corresponding measurement interval（set the measurementInterval interval to have an effect）
  */
 @property (nonatomic,assign) NSInteger modeType;
 
@@ -1103,10 +1103,32 @@
  结束 (分) | End (minutes)
  */
 @property (nonatomic,assign) NSInteger  endMinute;
+
 /**
  测量间隔,单位秒钟 | measurement Interval,unit:second
+ modeType == 5，设置measurementInterval间隔才有效果 | modeType == 5, set the measurementInterval interval to have an effect
  */
 @property (nonatomic,assign) NSInteger  measurementInterval;
+/**
+ 通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ */
+@property (nonatomic,assign) NSInteger  notifyFlag;
+/**
+ 智能心率过高提醒开关
+ */
+@property (nonatomic,assign) BOOL  highHeartMode;
+/**
+ 智能心率过低提醒开关
+ */
+@property (nonatomic,assign) BOOL  lowHeartMode;
+/**
+ 智能心率过高提醒阈值
+ */
+@property (nonatomic,assign) NSInteger  highHeartValue;
+/**
+ 智能心率过低提醒阈值
+ */
+@property (nonatomic,assign) NSInteger  lowHeartValue;
 /**
  支持秒级心率 只获取有效，设置不需要赋值
  */
