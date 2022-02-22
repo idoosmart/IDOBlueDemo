@@ -24,6 +24,9 @@ extern NSString * _Nonnull IDOBluetoothDisconnectNotifyName;
 // 蓝牙主动发送ping通知，用与app的保活，保证alexa等功能的使用 | Bluetooth ping notification listener name
 extern NSString * _Nonnull IDOBluetoothPingNotifyName;
 
+// 蓝牙多运动数据暂停开启结束通知 | Bluetooth SwitchActivity notification listener name
+extern NSString * _Nonnull IDOBluetoothSwitchActivityNotifyName;
+
 // 蓝牙主动开始扫描通知监听名字,多在配对和固件升级使用 | Bluetooth start scan notification listener name
 extern NSString * _Nonnull IDOBluetoothStartScanNotifyName;
 

@@ -853,6 +853,12 @@ error flag
  支持V3天气
  */
 @property (nonatomic,assign) BOOL setV3Weather;
+
+/**
+ 支持3天日落日出天气设置
+ */
+@property (nonatomic,assign) BOOL setV3WeatherSunrise;
+
 /**
  支持世界时间设置
  */
@@ -924,6 +930,11 @@ error flag
  压力开关阀值设置
  */
 @property (nonatomic,assign) BOOL stressCalibrationThreshold;
+
+/**
+ realme wear  默认为显示，有此功能表就不支持支持来电提醒页面的“延迟三秒”开关设置项显示
+ */
+@property (nonatomic,assign) BOOL notSurportCalling3SDelay;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

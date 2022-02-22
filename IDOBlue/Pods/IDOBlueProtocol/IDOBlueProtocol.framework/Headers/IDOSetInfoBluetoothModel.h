@@ -392,6 +392,28 @@
 
 @end
 
+
+#pragma mark ==== 未来3天日出日落情况 Model ====
+@interface IDOFutureSunriseWeatherDataItems:IDOBluetoothBaseModel
+/**
+ 日出 时钟
+ */
+@property (nonatomic,assign) NSInteger sunriseHour;
+/**
+ 日出 分钟
+ */
+@property (nonatomic,assign) NSInteger sunriseMin;
+/**
+ 日落 时钟
+ */
+@property (nonatomic,assign) NSInteger sunsetHour;
+/**
+ 日落 发钟
+ */
+@property (nonatomic,assign) NSInteger sunsetMin;
+
+@end
+
 #pragma mark ==== 未来24小时天气情况 Model ====
 @interface IDOFuture24HourWeatherModel:IDOBluetoothBaseModel
 /**
@@ -513,6 +535,11 @@
  未来7天气集合 ｜  items
 */
 @property (nonatomic,copy) NSArray <IDOFuture7DayWeatherDataModel *>* future7DaysItems;
+
+/**
+ 未来3日落日出天气集合 ｜3Days  items（V3 Sunrise）
+*/
+@property (nonatomic,copy) NSArray <IDOFutureSunriseWeatherDataItems *>* futureSunriseItems;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2157,6 +2184,12 @@
  闹钟修改的时间戳 (可以不赋值)｜ set up time stamp (can be unassigned)
  */
 @property (nonatomic,copy) NSString * setTimeStamp DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
+
+/**
+ 重复闹铃次数 重复闹几次
+ */
+@property (nonatomic,assign) NSInteger repeatTime;
+
 /**
  震动开关
  shock on off
@@ -2201,7 +2234,7 @@
 /**
  重复闹铃次数 重复闹几次
  */
-@property (nonatomic,assign) NSInteger repeatTime;
+@property (nonatomic,assign) NSInteger repeatTime DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 
 /**
  延时分钟

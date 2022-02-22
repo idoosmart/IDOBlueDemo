@@ -167,6 +167,12 @@
 @property (nonatomic,assign) BOOL isOta;
 
 /**
+ * 当前连接设备是否泰凌微ota | Is the current connected device tlw ota?
+ *  当前在泰凌微ota模式下，优先升级bt文件
+ */
+@property (nonatomic,assign) BOOL isTlwOta;
+
+/**
  写入蓝牙数据失败 | did write value error
  */
 @property (nonatomic,assign) BOOL didWriteValueError;
