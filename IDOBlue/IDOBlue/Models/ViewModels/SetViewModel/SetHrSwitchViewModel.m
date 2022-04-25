@@ -63,8 +63,10 @@
                 textField.text = selectStr;
                 textFieldModel.data = @[selectStr];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                strongSelf.v3HrModel.modeType  = [strongSelf.pickerDataModel.v3HrModeArray containsObject:selectStr] ?
+                NSInteger modeType =  [strongSelf.pickerDataModel.v3HrModeArray containsObject:selectStr] ?
                 [strongSelf.pickerDataModel.v3HrModeArray indexOfObject:selectStr] : 0 ;
+                NSLog(@"picker v3HrModel modeType -->%ld",modeType);
+                strongSelf.v3HrModel.modeType  = modeType;
             };
         }else if (indexPath.row == 2) {
             TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
@@ -138,7 +140,7 @@
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set v3 heart rate mode")]];
         IDOSetTimeInfoBluetoothModel * timeModel = [[IDOSetTimeInfoBluetoothModel alloc] init];
         strongSelf.v3HrModel.updateTime = timeModel.timeStamp;
-        strongSelf.v3HrModel.modeType = 5;
+//        strongSelf.v3HrModel.modeType = 5;
         [IDOFoundationCommand setV3HrModelCommand:strongSelf.v3HrModel callback:^(int errorCode) {
             if(errorCode == 0) {
                  [funcVC showToastWithText:lang(@"set v3 heart rate mode success")];

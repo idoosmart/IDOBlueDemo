@@ -94,7 +94,7 @@
 {
     int strlength = 0;
     char* p = (char*)[strtemp cStringUsingEncoding:NSUnicodeStringEncoding];
-    for (int i=0 ; i<[strtemp lengthOfBytesUsingEncoding:NSUnicodeStringEncoding] ;i++) {
+    for (int i=0 ; i<[strtemp lengthOfBytesUsingEncoding:NSUnicodeStringEncoding];i++) {
         if (*p) {
             p++;
             strlength++;
@@ -244,7 +244,7 @@
         
         strongSelf.weatherDataModel.cityName = strongSelf.textField.text;
         strongSelf.weatherDataModel.cityNameLen = [strongSelf convertToInt:strongSelf.textField.text];
-        
+        strongSelf.weatherDataModel.airGradeInfo = @"今天的天气真好呀!";
         
         [IDOFoundationCommand setV3WeatcherDataCommand:strongSelf.weatherDataModel callback:^(int errorCode) {
             if(errorCode == 0) {

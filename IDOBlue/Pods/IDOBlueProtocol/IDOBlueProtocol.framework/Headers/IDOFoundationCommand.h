@@ -111,6 +111,13 @@
 + (void)findDeviceStopCommand:(void(^_Nullable)(int errorCode))callback;
 
 /**
+ * @brief 结束寻找手机 | End finding phone
+ * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Post-execution callback (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)findPhoneStopCommand:(void(^_Nullable)(int errorCode))callback;
+
+/**
  * @brief 打开ANCS(苹果通知中心) | Open ANCS (Apple Notification Center)
  * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Post-execution callback (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
@@ -1192,6 +1199,16 @@
  */
 + (void)setSyncContactCommand:(IDOSetSyncContactModel *_Nullable)contactModel
                      callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+ * @brief //设置通话常用联系人（数据量比较大）
+ * @param contactModel //设置通话常用联系人
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setSyncAllContactCommand:(IDOSetSyncAllContactModel *_Nullable)contactModel
+                        callback:(void (^ _Nullable)(int errorCode,NSString* _Nullable path))callback;
+
 /**
  * @brief //设置世界时间
  * @param worldTimeModel //设置世界时间
@@ -1648,6 +1665,13 @@
  */
 + (void)getStartCountCommand:(void (^ _Nullable)(int errorCode,NSInteger startCount))callback;
 
+/**
+ * @brief  获取通讯录更新时间状态  | get ContactReviceTime state
+ * @param callback 执行后回调  state  00: 不需要下发联系人文件     0x01：需要下发联系人数据  (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback state 0:no log，1:firmware restart log (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+*/
++ (void)getContactReviceTimeStateCommand:(void (^ _Nullable)(int errorCode,NSInteger state))callback;
+
 #pragma mark ======= listen Command =======
 
 /**
@@ -1870,6 +1894,14 @@
  * Listening callback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
 */
 + (void)listenStateChangeCommand:(void(^_Nullable)(int errorCode,IDOControlDataUpdateModel *_Nullable model))callback;
+
+/**
+ * @brief Alexa手环状态改变 | Alexa Bracelet state change
+ * @param callback 监听回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Listening callback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+*/
++ (void)listenAlexaStateChangeCommand:(void(^_Nullable)(int errorCode,IDOControlAlexaDataUpdateModel *_Nullable model))callback;
+
 
 #pragma mark ======= progress Command =======
 

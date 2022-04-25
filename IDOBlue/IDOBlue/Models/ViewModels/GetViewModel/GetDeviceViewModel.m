@@ -50,6 +50,7 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        NSString*device = IDO_BLUE_ENGINE.peripheralEngine.deviceId;
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get device information")]];
         [IDOFoundationCommand getDeviceInfoCommand:^(int errorCode, IDOGetDeviceInfoBluetoothModel * _Nullable data) {
             if (errorCode == 0) {

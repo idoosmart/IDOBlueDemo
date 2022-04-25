@@ -161,7 +161,7 @@
         path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
         NSRange range = [filePath rangeOfString:@"Documents"];
         if (range.location != NSNotFound) {
-            fileName = [filePath substringFromIndex:range.location + range.length];
+            fileName = [filePath substringFromIndex:range.location + range.length + 1];
             path = [path stringByAppendingPathComponent: fileName];
         }
     }
@@ -176,8 +176,8 @@
     model.fileName = [fileName copy];
     model.filePath = [path copy];
     model.musicId  = [self.textField3.text integerValue];
-    model.singerName = self.textField2.text?:@"";
-    model.musicName  = self.textField1.text?:@"";
+    model.singerName = [self.textField2.text?:@"" copy];
+    model.musicName  = [self.textField1.text?:@"" copy];
     model.musicMemory = data.length;
     [self.models addObject:model];
     fileStr = [fileStr stringByAppendingFormat:@"\n%@",model.dicFromObject];
@@ -243,6 +243,21 @@
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.textView = textView;
     };
+}
+
+- (void)oneOfMusicFileStartCorrectSamplingRate
+{
+    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    [funcVC showLoadingWithMessage:lang(@"开始修改mp3采样率...")];
+}
+
+- (void)oneOfMusicFileEndCorrectSamplingRate
+{
+    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    [funcVC showToastWithText:lang(@"完成修改mp3采样率")];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"transfer music file")]];
+    });
 }
 
 - (void)musicFileTransferComplete:(int)errorCode {

@@ -17,6 +17,7 @@
 #import "UpdateApolloViewModel.h"
 #import "UpdateMessageIconViewModel.h"
 #import "UpdateSportIconViewModel.h"
+#import "UpateContactViewModel.h"
 #import "ScanViewController.h"
 
 @interface UpdateMainViewModel()
@@ -62,7 +63,7 @@
 {
     if (!_buttonTitles) {
         _buttonTitles = @[@[lang(@"nordic update")],@[lang(@"realtk update")],@[lang(@"apollo update")],
-                          @[lang(@"agps update")],@[lang(@"word update")],@[lang(@"photo update")],@[lang(@"update message icon")],@[lang(@"update sport icon")]];
+                          @[lang(@"agps update")],@[lang(@"word update")],@[lang(@"联系人文件传输")],@[lang(@"photo update")],@[lang(@"update message icon")],@[lang(@"update sport icon")]];
     }
     return _buttonTitles;
 }
@@ -71,7 +72,7 @@
 {
     if (!_modelClasss) {
         _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],
-                         [UpdateAgpsViewModel class],[UpdateWordViewModel class],[UpdatePhotoViewModel class],[UpdateMessageIconViewModel class],[UpdateSportIconViewModel class]];
+                         [UpdateAgpsViewModel class],[UpdateWordViewModel class],[UpateContactViewModel class],[UpdatePhotoViewModel class],[UpdateMessageIconViewModel class],[UpdateSportIconViewModel class]];
     }
     return _modelClasss;
 }

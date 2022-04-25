@@ -80,9 +80,14 @@
                 [funcVC showToastWithText:lang(@"audio record control failed")];
             }
         }else {
+          NSString*deviceId =  IDO_BLUE_ENGINE.peripheralEngine.deviceId;
+            if (deviceId.length <= 0) {
+                deviceId = @"id206";
+            }
+            
             [IDOAlexaManager registerAlexa];
             [IDOAlexaManager isPlayAudio:YES];
-            [IDOAlexaManager authorizeRequestWithproductId:@"id206"
+            [IDOAlexaManager authorizeRequestWithproductId:deviceId
                                                    Handler:^(BOOL isLogin) {
                 if (isLogin) {
                     NSLog(@"alexe 登录成功");

@@ -100,6 +100,15 @@
 "misty" = "雾霭";
 "showers" = "阵雨";
 "cloudy to clear" = "多云转晴";
+"N moon" = "新月";
+"WXC moon" = "蛾眉月";
+"FQ moon" = "上弦月";
+"WXG moon" = "盈凸月";
+"F moon" = "满月";
+"WNG moon" = "亏凸月";
+"LQ moon" = "下弦月";
+"WNC moon" = "残月";
+
 "current weather type:" = "当前天气类型:";
 "current temperature:" = "当前温度:";
 "current top temperature:" = "当天最高温度:";
@@ -545,6 +554,10 @@
 "get watch dial list info" = "获取手表表盘列表信息";
 "get watch dial list info success" = "获取手表表盘列表信息成功";
 "get watch dial list info failed" = "获取手表表盘列表信息失败";
+"get watch dial name" = "获取手表表盘名字";
+"get watch dial name success" = "获取手表表盘名字成功";
+"get watch dial name failed" = "获取手表表盘名字失败";
+
 "set current dial info" = "设置当前表盘信息";
 "current dial has been deleted" = "当前表盘已经删除";
 "set current dial info success" = "设置当前表盘信息成功";
@@ -612,6 +625,12 @@
 "get GPS information" = "获取GPS信息";
 "get GPS information success" = "获取GPS信息成功";
 "get GPS information failed" = "获取GPS信息失败";
+
+"get PressureThreshold information" = "获取压力阈值信息";
+"get PressureThreshold information success" = "获取压力阈值信息成功";
+"get PressureThreshold information failed" = "获取压力阈值信息失败";
+
+
 "get notification status" = "获取通知状态";
 "get notification status success" = "获取通知状态成功";
 "get notification status failed" = "获取通知状态失败";
@@ -752,6 +771,7 @@
  */
 "command log" = "命令日志";
 "restart log" = "重启日志";
+"Latest 7 days database log" = "最新7天数据库日志";
 "flash log" = "flash日志";
 "get log" = "获取日志";
 "get the device logs..." = "获取设备日志...";

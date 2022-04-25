@@ -88,8 +88,8 @@
 
 /**
  * @brief 传入文件传输的名称 只适合 Apollo
- * 固件升级名称: @".fw" 图片资源名称: @".fzbin" 字库名称:@".bin" 语言:@".lang"
- * firmware upgrade name :@".fw" Image resource name :@".fzbin" font name :@".bin" language: @"lang"
+ * 固件升级名称: @".fw" 图片资源名称: @".fzbin" 字库名称:@".bin" 语言:@".lang",bt升级:@".bt"
+ * firmware upgrade name :@".fw" Image resource name :@".fzbin" font name :@".bin" language: @"lang",bt update:@".bt"
  * @param manager 升级管理中心对象 | Upgrade Management Center Objects
  * @return 文件传输名称 | file transfer type
  */

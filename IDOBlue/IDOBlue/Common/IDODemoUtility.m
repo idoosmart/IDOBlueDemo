@@ -136,10 +136,10 @@
 
 + (NSDateFormatter *)obtainDateFormatter
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-    [formatter setLocale:locale];
-    return formatter;
+    NSDateFormatter *_dateFormater = [NSDateFormatter new];
+    _dateFormater.locale = [NSLocale systemLocale];
+    _dateFormater.timeZone = [NSTimeZone systemTimeZone];
+    return _dateFormater;
 }
 
 + (NSString *)timeStrFromTimeStamp:(NSString *)timeStamp
@@ -193,6 +193,15 @@
     return preferredLang;
 }
 
-
++ (NSString *)get1970timeTempWithYear:(NSInteger)year
+                             andMonth:(NSInteger)month
+                               andDay:(NSInteger)day
+{
+    NSDateFormatter *formatter = [self obtainDateFormatter];
+    [formatter setDateFormat:@"yyyyMMdd"];
+    NSString *dateString = [NSString stringWithFormat:@"%04ld%02ld%02ld",(long)year,(long)month,(long)day];
+    NSDate *date = [formatter dateFromString:dateString];
+    return [NSString stringWithFormat:@"%lld",(long long)[date timeIntervalSince1970]];
+}
 
 @end

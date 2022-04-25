@@ -157,6 +157,10 @@
  结束  分
  */
 @property (nonatomic,assign) NSInteger endMinute;
+/**
+ 体温单位设置： 1 ：c（摄氏度）   16 ：f（华摄氏度）
+ */
+@property (nonatomic,assign) NSInteger unit;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -459,7 +463,7 @@
 @property (nonatomic,assign) NSInteger sec;
 
 /**
- week
+ week 周日：0、周一：1、周二：2、周三：3、周四：4、周五：5、周六：6
  */
 @property (nonatomic,assign) NSInteger week;
 /**
@@ -527,6 +531,10 @@
  日落 发钟
  */
 @property (nonatomic,assign) NSInteger sunsetMin;
+/**
+ 空气质量描述
+ */
+@property (nonatomic,copy) NSString * airGradeInfo;
 /**
 未来24小时天气集合 ｜  items
 */
@@ -2156,7 +2164,7 @@
 /**
  类型 | Type
  0：起床， 1：睡觉， 2：锻炼， 3：吃药， 4：约会， 5：聚会， 6:会议，7：其他
- 8：吃饭， 9：刷牙，10 :休息  11 : 课程  12: 洗澡  13:学习 14: 玩耍
+ 8：吃饭， 9：刷牙，10 :休息  11 : 课程  12: 洗澡  13:学习 14: 玩耍  42：自定义名称
  */
 @property (nonatomic,assign) NSInteger type;
 /**
@@ -2379,6 +2387,7 @@
 
 /**
  时区(1-24)｜time zone (1-24)
+ 功能表第36表中 =>timeZoneFloat 如果支持 时区*100 例如：8.10*100 = 810
  */
 @property (nonatomic,assign) NSInteger timeZone;
 
@@ -2425,11 +2434,11 @@
  * 波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
  * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,
  * 韩语:21,印地语:22,葡萄牙语:23,土耳其:24,泰国语:25,越南语:26,缅甸语:27,
- * 菲律宾语:28,繁体中文:29,希腊语:30,阿拉伯语:31
+ * 菲律宾语:28,繁体中文:29,希腊语:30,阿拉伯语:31,瑞典语:32
  * Language unit Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
  * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
  * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19,Indonesian: 20,korean:21,hindi:22
- * portuguese:23,turkish:24,thai:25,vietnamese:26,burmese:27,filipino:28,traditional Chinese:29,greek:30,arabic:31
+ * portuguese:23,turkish:24,thai:25,vietnamese:26,burmese:27,filipino:28,traditional Chinese:29,greek:30,arabic:31,sweden:32
  */
 @property (nonatomic,assign) NSInteger languageUnit;
 
@@ -3215,7 +3224,62 @@
  google meet 提醒
  */
 @property (nonatomic,assign) BOOL isOnGoogleMeet;
-
+/**
+ mormaii smartwatch 提醒
+ */
+@property (nonatomic,assign) BOOL isOnMormaiiSmartwatch;
+/**
+ technos connect 提醒
+ */
+@property (nonatomic,assign) BOOL isOnTechnosConnect;
+/**
+ enioei 提醒
+ */
+@property (nonatomic,assign) BOOL isOnEnioei;
+/**
+ aliexpress 提醒
+ */
+@property (nonatomic,assign) BOOL isOnAliexpress;
+/**
+ shopee 提醒
+ */
+@property (nonatomic,assign) BOOL isOnShopee;
+/**
+ teams 提醒
+ */
+@property (nonatomic,assign) BOOL isOnTeams;
+/**
+ 99 taxi 提醒
+ */
+@property (nonatomic,assign) BOOL isOn99Taxi;
+/**
+ uber eats 提醒
+ */
+@property (nonatomic,assign) BOOL isOnUberEats;
+/**
+ l food 提醒
+ */
+@property (nonatomic,assign) BOOL isOnLfood;
+/**
+ rappi 提醒
+ */
+@property (nonatomic,assign) BOOL isOnRappi;
+/**
+ mercado Livre 提醒
+ */
+@property (nonatomic,assign) BOOL isOnMercadoLivre;
+/**
+ Magalu 提醒
+ */
+@property (nonatomic,assign) BOOL isOnMagalu;
+/**
+ Americanas 提醒
+ */
+@property (nonatomic,assign) BOOL isOnAmericanas;
+/**
+ Yahoo 提醒
+ */
+@property (nonatomic,assign) BOOL isOnYahoo;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -3276,9 +3340,18 @@
  */
 @property (nonatomic,assign) NSInteger goalMidHighTimeData;
 /**
- 走动每小时目标步数
+ 活动卡路里最小值 单位：千卡
  */
-@property (nonatomic,assign) NSInteger goalWalkStep DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
+@property (nonatomic,assign) NSInteger calorieMin;
+/**
+ 活动卡路里最大值 单位：千卡
+ */
+@property (nonatomic,assign) NSInteger calorieMax;
+/**
+ 走动每小时目标步数
+ 接口： setTargetInfoCommand
+ */
+@property (nonatomic,assign) NSInteger goalWalkStep;
 /**
  走动目标时间 单位 时
  */
@@ -3317,3 +3390,4 @@
 @interface IDOSetInfoBluetoothModel : IDOBluetoothBaseModel
 
 @end
+

@@ -111,6 +111,13 @@
 @property (nonatomic,assign) NSInteger type;
 
 /**
+ *计划类型：1：跑步计划3km ，2：跑步计划5km ，3：跑步计划10km ， 4：半程马拉松训练（二期） ，5：马拉松训练（二期）
+ *64 : 6分钟轻松跑 , 65：10分钟轻松跑  ，66：15分钟轻松跑 ，67：走跑结合初级 ，68：走跑结合进阶 ，69：走跑结合强化
+ *128: 跑后拉伸
+ */
+@property (nonatomic,assign) NSInteger planType;
+
+/**
  步数(骑行 时，步数为 0) | Number of steps (when riding, the number of steps is 0)
  */
 @property (nonatomic,assign) NSInteger step;
@@ -333,6 +340,26 @@ max step stride
 @property (nonatomic,assign) NSInteger recoveryTimeSecond;
 
 /**
+ 运动结束时间 月
+ */
+@property (nonatomic,assign) NSInteger endMonth;
+
+/*
+ 运动结束时间 日
+ */
+@property (nonatomic,assign) NSInteger endDay;
+
+/**
+ 运动结束时间 时
+ */
+@property (nonatomic,assign) NSInteger endHour;
+
+/**
+ 运动结束时间 分
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+
+/**
  最少心率值
  */
 @property (nonatomic,assign) NSInteger minHrValue;
@@ -356,6 +383,17 @@ max step stride
  踏频数组 一分钟保存一次 存平均值
  */
 @property (nonatomic,strong) NSArray * treadFrequencyItems;
+
+/**
+ 动作详情集合
+ * type: 动作类型（十进制）  1快走；2慢跑；3中速跑；4快跑 ；
+ * 71左腿前测拉伸；72右腿前测拉伸；73左腿后侧拉伸；74右腿后侧拉伸；75左腿弓步拉伸；76右腿弓步拉伸；
+ * 77左腿内侧拉伸；78右腿内侧拉伸；79左侧小腿拉伸；80右侧小腿拉伸
+ * actualTime : 实际运动时间
+ * goalTime : 目标时间 单位 s
+ * heartValue : 心率控制值
+ */
+@property (nonatomic,strong) NSArray<NSDictionary *> * actionItems;
 
 @end
 

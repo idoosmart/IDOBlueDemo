@@ -98,10 +98,44 @@
 @property (nonatomic,copy,nullable) IDOTransferFileManager *_Nonnull(^addProgress)(void(^ _Nullable progressCallback)(int progress));
 
 /**
- * 文件传输完成回调
+ * 其他文件传输完成回调
  * File transfer complete callback
+ * (errorCode + 0) ///< Successful command
+ (errorCode + 1) ///< SVC handler is missing
+ (errorCode + 2) ///< SoftDevice has not been enabled
+ (errorCode + 3) ///< Internal Error
+ (errorCode + 4) ///< No Memory for operation
+ (errorCode + 5) ///< Not found
+ (errorCode + 6) ///< Not supported
+ (errorCode + 7) ///< Invalid Parameter
+ (errorCode + 8) ///< Invalid state, operation disallowed in this state
+ (errorCode + 9) ///< Invalid Length
+ (errorCode + 10) ///< Invalid Flags
+ (errorCode + 11) ///< Invalid Data
+ (errorCode + 12) ///< Invalid Data size
+ (errorCode + 13) ///< Operation timed out
+ (errorCode + 14) ///< Null Pointer
+ (errorCode + 15) ///< Forbidden Operation
+ (errorCode + 16) ///< Bad Memory Address
+ (errorCode + 17) ///< Busy
+ (errorCode + 18) ///< Maximum connection count exceeded.
+ (errorCode + 19) ///< Not enough resources for operation
+ (errorCode + 20) ///< Bt Bluetooth upgrade error
+ (errorCode + 21) ///< Not enough space for operation
+ (errorCode + 22) ///< Low Battery
+ (errorCode + 23) ///< Invalid File Name/Format
+ *
  */
 @property (nonatomic,copy,nullable) IDOTransferFileManager *_Nonnull(^addTransfer)(void(^ _Nullable transferComplete)(int errorCode));
+
+/**
+ 表盘文件传输完成回调
+ 以上面错误码一致并增加以下错误码
+ (errorCode + 24) ///< 表盘空间够但需要整理
+ (errorCode + 25) ///< 表盘空间整理中
+ finishingTime :只有错误码在24和25才有效，固件预计整理时长
+ */
+@property (nonatomic,copy,nullable) IDOTransferFileManager *_Nonnull(^addDialTransfer)(void(^ _Nullable transferDialComplete)(int errorCode,int finishingTime));
 
 /**
  * 文件写入完成回调 agps文件传输完成后需要查询写入状态

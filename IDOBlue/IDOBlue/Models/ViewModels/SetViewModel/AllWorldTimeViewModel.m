@@ -56,6 +56,73 @@
     if (!_V3WorldTimeModel)
     {
         _V3WorldTimeModel = [IDOSetV3WorldTimeModel currentModel];
+        IDOSetV3WorldTimeItemModel * item1 = [IDOSetV3WorldTimeItemModel new];
+        item1.cityId = 31;
+        item1.cityName = @"Beijing";
+        item1.cityNameLen = 7;
+        item1.latitude = 3990;
+        item1.latitudeFlag = 1;
+        item1.longitude = 11640;
+        item1.longitudeFlag = 1;
+        item1.minuteOffset = 480;
+        item1.sunriseHour = 5;
+        item1.sunriseMin = 41;
+        item1.sunsetHour = 18;
+        item1.sunsetMin = 49;
+        IDOSetV3WorldTimeItemModel * item2 = [IDOSetV3WorldTimeItemModel new];
+        item2.cityId = 148;
+        item2.cityName = @"London";
+        item2.cityNameLen = 6;
+        item2.latitude = 5150;
+        item2.latitudeFlag = 1;
+        item2.longitude = 12;
+        item2.longitudeFlag = 2;
+        item2.minuteOffset = 60;
+        item2.sunriseHour = 13;
+        item2.sunriseMin = 10;
+        item2.sunsetHour = 2;
+        item2.sunsetMin = 51;
+        IDOSetV3WorldTimeItemModel * item3 = [IDOSetV3WorldTimeItemModel new];
+        item3.cityId = 197;
+        item3.cityName = @"New York";
+        item3.cityNameLen = 8;
+        item3.latitude = 4071;
+        item3.latitudeFlag = 1;
+        item3.longitude = 7400;
+        item3.longitudeFlag = 2;
+        item3.minuteOffset = -240;
+        item3.sunriseHour = 18;
+        item3.sunriseMin = 21;
+        item3.sunsetHour = 7;
+        item3.sunsetMin = 32;
+        IDOSetV3WorldTimeItemModel * item4 = [IDOSetV3WorldTimeItemModel new];
+        item4.cityId = 295;
+        item4.cityName = @"Tokyo";
+        item4.cityNameLen = 5;
+        item4.latitude = 3567;
+        item4.latitudeFlag = 1;
+        item4.longitude = 13965;
+        item4.longitudeFlag = 1;
+        item4.minuteOffset = 540;
+        item4.sunriseHour = 4;
+        item4.sunriseMin = 12;
+        item4.sunsetHour = 17;
+        item4.sunsetMin = 11;
+        IDOSetV3WorldTimeItemModel * item5 = [IDOSetV3WorldTimeItemModel new];
+        item5.cityId = 4;
+        item5.cityName = @"Addis Ababa";
+        item5.cityNameLen = 11;
+        item5.latitude = 898;
+        item5.latitudeFlag = 1;
+        item5.longitude = 3875;
+        item5.longitudeFlag = 1;
+        item5.minuteOffset = 180;
+        item5.sunriseHour = 11;
+        item5.sunriseMin = 16;
+        item5.sunsetHour = 23;
+        item5.sunsetMin = 34;
+        _V3WorldTimeModel.items = @[item1,item2,item3,item4,item5];
+        _V3WorldTimeModel.itemsNum = 5;
     }
     return _V3WorldTimeModel;
 }
@@ -184,7 +251,6 @@
     NSMutableArray * cellModels = [NSMutableArray array];
     int index = 0;
     for (IDOSetV3WorldTimeItemModel * item in self.items) {
-        
             LabelCellModel * model = [[LabelCellModel alloc]init];
             model.typeStr = @"oneLabel";
             NSString * cityStr = [NSString stringWithFormat:@"%ld : %@",(long)item.cityId,item.cityName];

@@ -16,6 +16,7 @@
 #import "GetRealTimeViewModel.h"
 #import "GetActivityViewModel.h"
 #import "GetGpsInfoViewModel.h"
+#import "GetStressThresholdModel.h"
 #import "GetNotifyStateViewModel.h"
 #import "GetVersionInfoViewModel.h"
 #import "GetStartCountViewModel.h"
@@ -68,6 +69,7 @@
                           @[lang(@"get real-time data")],
                           @[lang(@"get the number of activities")],
                           @[lang(@"get GPS information")],
+                          @[lang(@"get PressureThreshold information")],
                           @[lang(@"get notification status")],
                           @[lang(@"get version information")],
                           @[lang(@"get the number of stars")],
@@ -107,6 +109,7 @@
                          [GetRealTimeViewModel class],
                          [GetActivityViewModel class],
                          [GetGpsInfoViewModel class],
+                         [GetStressThresholdModel class],
                          [GetNotifyStateViewModel class],
                          [GetVersionInfoViewModel class],
                          [GetStartCountViewModel class],

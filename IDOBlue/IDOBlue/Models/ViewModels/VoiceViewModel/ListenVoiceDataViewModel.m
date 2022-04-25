@@ -227,27 +227,7 @@ static int countdown = 0;
         NSString * str = [NSString stringWithFormat:@"%@...",lang(@"set page jump")];
         [funcVC showLoadingWithMessage:str];
         if (cellModel.index == 0) {
-            /*
-            NSString * dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
-            dirPath = [dirPath stringByAppendingPathComponent:@"IDOVoice"];
-            NSString * filePath = [dirPath stringByAppendingPathComponent:@"audio_8k.pcm"];
-            
-            __strong typeof(self) strongSelf = weakSelf;
-             NSFileManager* manager = [NSFileManager defaultManager];
-              int fileSize = (int)[[manager attributesOfItemAtPath:filePath error:nil] fileSize];
-              strongSelf.pcmFile = fopen([filePath UTF8String],"r");
-              if (strongSelf.pcmFile) {
-                  countdown = 0;
-                 fseek(strongSelf.pcmFile, 0, SEEK_SET);
-                 strongSelf.pcmDataBuffer = malloc(EVERY_READ_LENGTH);
-                 strongSelf.offset = 0;
-                 strongSelf.bufferLength = fileSize;
-                 [strongSelf.sendDataTimer setFireDate:[NSDate date]];
-             }
-            
-            return;
-            */
-            
+        
             if (   strongSelf.textField1.text.length == 0
                 || strongSelf.textField2.text.length == 0) {
                 [funcVC showToastWithText:lang(@"set page jump failed")];

@@ -330,6 +330,8 @@ Alarm state  0=>  invalid 1 => alarm has been modified
  26: 固件蓝牙通话开始
  27: 固件蓝牙通话结束
  28: 新版本固件每等4分30秒发送一个通知命令，用于修复离线的问题
+ 29：通知app运动开始（作用于拦截表盘传输同26）
+ 30：通知app运动结束（作用于拦截表盘传输同27）
  */
 @property (nonatomic,assign) NSInteger dataType;
 /**
@@ -342,6 +344,12 @@ Alarm state  0=>  invalid 1 => alarm has been modified
  */
 @property (nonatomic,assign) NSInteger notifyType;
 
+@end
+
+#pragma mark ==== alexa状态 model ====
+@interface IDOControlAlexaDataUpdateModel : IDOBluetoothBaseModel
+@property (nonatomic,assign) NSInteger notifyType;
+@property (nonatomic,assign) NSInteger value;
 @end
 
 #pragma mark ==== 获取电池信息 model ====
@@ -496,5 +504,35 @@ Last charging time second
  * AGPS is valid, the remaining period is valid, non-zero is valid,
  */
 @property (nonatomic,assign) NSInteger isAgpsVaild;
+
+@end
+
+#pragma mark ==== 常用联系人的模型 ====
+@interface IDOSetAllContactItemModel:IDOBluetoothBaseModel
+//电话号码
+@property (nonatomic,copy)   NSString * phone;
+//名字
+@property (nonatomic,copy)   NSString * name;
+
+@end
+
+#pragma mark ==== 同步协议蓝牙通话常用联系人 ====
+@interface IDOSetSyncAllContactModel:IDOBluetoothBaseModel
+//年份
+@property (nonatomic,assign) NSInteger year;
+//月份
+@property (nonatomic,assign) NSInteger month;
+//日
+@property (nonatomic,assign) NSInteger day;
+//时
+@property (nonatomic,assign) NSInteger hour;
+//分
+@property (nonatomic,assign) NSInteger minute;
+//秒
+@property (nonatomic,assign) NSInteger second;
+//联系人个数
+@property (nonatomic,assign) NSInteger contactItemNum;
+//联系人集合 ｜ alarm items
+@property (nonatomic,copy) NSArray <IDOSetAllContactItemModel *>* items;
 
 @end

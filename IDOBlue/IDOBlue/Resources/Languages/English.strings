@@ -100,6 +100,15 @@
 "misty" = "misty";
 "showers" = "showers";
 "cloudy to clear" = "cloudy to clear";
+"N moon" = "N moon";
+"WXC moon" = "WXC moon";
+"FQ moon" = "FQ moon";
+"WXG moon" = "WXG moon";
+"F moon" = "F moon";
+"WNG moon" = "WNG moon";
+"LQ moon" = "LQ moon";
+"WNC moon" = "WNC moon";
+
 "current weather type:" = "current weather type:";
 "current temperature:" = "current temperature:";
 "current top temperature:" = "current top temperature:";
@@ -541,6 +550,9 @@
 "get watch dial list info" = "get watch dial list info";
 "get watch dial list info success" = "get watch dial list info success";
 "get watch dial list info failed" = "get watch dial list info failed";
+"get watch dial name" = "get watch dial name";
+"get watch dial name success" = "get watch dial name success";
+"get watch dial name failed" = "get watch dial name failed";
 "set current dial info" = "set current dial info";
 "current dial has been deleted" = "urrent dial has been deleted";
 "set current dial info success" = "et current dial info success";
@@ -607,6 +619,11 @@
 "get GPS information" = "get gps information";
 "get GPS information success" = "get gps information success";
 "get GPS information failed" = "get gps information failed";
+
+"get PressureThreshold information" = "get Pressure threshold information";
+"get PressureThreshold information success" = "get Pressure threshold information success";
+"get PressureThreshold information failed" = "get Pressure threshold information failed";
+
 "get notification status" = "get notification status";
 "get notification status success" = "get notification status success";
 "get notification status failed" = "get notification status failed";
@@ -739,6 +756,7 @@
  */
 "command log" = "command log";
 "restart log" = "restart log";
+"Latest 7 days database log" = "Latest 7 days database log";
 "flash log" = "flash log";
 "get log" = "get log";
 "get the device logs..." = "get the device logs...";

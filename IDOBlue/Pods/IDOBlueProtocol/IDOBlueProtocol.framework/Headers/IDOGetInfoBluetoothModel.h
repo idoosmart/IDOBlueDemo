@@ -370,6 +370,15 @@ error flag
 @interface IDOGetDownLanguageBluetoothModel:IDOBluetoothBaseModel
 /**
  * 当前使用的语言 | use lang
+ * 语言单位 无效:0,中文:1,英文:2,法语:3,德语:4,意大利语:5,西班牙语:6,日语:7,
+ * 波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
+ * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,
+ * 韩语:21,印地语:22,葡萄牙语:23,土耳其:24,泰国语:25,越南语:26,缅甸语:27,
+ * 菲律宾语:28,繁体中文:29,希腊语:30,阿拉伯语:31
+ * Language unit Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
+ * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
+ * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19,Indonesian: 20,korean:21,hindi:22
+ * portuguese:23,turkish:24,thai:25,vietnamese:26,burmese:27,filipino:28,traditional Chinese:29,greek:30,arabic:31
  */
 @property (nonatomic,assign) NSInteger useLang;
 /**
@@ -860,6 +869,11 @@ error flag
 @property (nonatomic,assign) BOOL setV3WeatherSunrise;
 
 /**
+ gt01pro 支持V3天气 下发空气质量等级
+ */
+@property (nonatomic,assign) BOOL setV3WeatherAddAirGrade;
+
+/**
  支持世界时间设置
  */
 @property (nonatomic,assign) BOOL setV3WorldTime;
@@ -1039,6 +1053,26 @@ error flag
  支持壁纸表盘时间位置移动、控件图标颜色修改、控件功能选择
  */
 @property (nonatomic,assign) BOOL watchPhotoPositionMove;
+
+/**
+ 固件升级方式区分
+ */
+@property (nonatomic,assign) BOOL chooseOtherOtaMode;
+
+/**
+ 支持新固件app删除设备不删除数据
+ */
+@property (nonatomic,assign) BOOL surpportNewRetainData;
+
+/**
+ 固件支持每小时目标步数设置和获取
+ */
+@property (nonatomic,assign) BOOL supportWalkGoalSteps;
+
+/**
+ 固件支持解绑不清除设备上的数据
+ */
+@property (nonatomic,assign) BOOL newRetainData;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1117,6 +1151,15 @@ error flag
  206boat新增 心率检测模式支持展示检测时段
  */
 @property (nonatomic,assign) BOOL showDetectionTime;
+/**
+ 支持世界时钟设备在有此功能表的情况下时间设置中 time_zone为浮点型小数点后有两位，
+ app此时的时区设定值为实际时区值的扩大一百倍 ，无此功能表则按实际时区值下发
+ */
+@property (nonatomic,assign) BOOL timeZoneFloat;
+/**
+ kr01定制   支持v3闹钟设置获取指定类型和名称
+ */
+@property (nonatomic,assign) BOOL setAlarmSpecifyType;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1201,6 +1244,10 @@ error flag
  设置夜间体温开关
  */
 @property (nonatomic,assign) BOOL setTemperatureSwitch;
+/**
+ 泰坦定制 支持结束寻找手机功能表
+ */
+@property (nonatomic,assign) BOOL findPhoneStop;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1306,6 +1353,11 @@ error flag
 @property (nonatomic,assign) BOOL v2BpSetOrMeasurement;
 
 /**
+ 206lite   壁纸表盘只支持移动时间、日期和修改颜色
+ */
+@property (nonatomic,assign) BOOL wallpaperOnlyTimeColor;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable34BluetoothModel
@@ -1393,6 +1445,66 @@ error flag
  google meet
  */
 @property (nonatomic,assign) BOOL googleMeet;
+/**
+ 通知支持Mormaii Smartwatch的功能
+ */
+@property (nonatomic,assign) BOOL mormaiiSmartwatch;
+/**
+ 通知支持Technos Connect的功能
+ */
+@property (nonatomic,assign) BOOL technosConnect;
+/**
+ 通知支持 enioei 功能
+ */
+@property (nonatomic,assign) BOOL enioei;
+/**
+ 通知支持 aliexpress 功能
+ */
+@property (nonatomic,assign) BOOL aliexpress;
+/**
+ 通知支持 shopee 功能
+ */
+@property (nonatomic,assign) BOOL shopee;
+/**
+ 通知支持 teams 功能
+ */
+@property (nonatomic,assign) BOOL teams;
+/**
+ 通知支持 99Taxi 功能
+ */
+@property (nonatomic,assign) BOOL support99Taxi;
+/**
+ 通知支持 uberEats 功能
+ */
+@property (nonatomic,assign) BOOL uberEats;
+/**
+ 通知支持 lFood 功能
+ */
+@property (nonatomic,assign) BOOL lFood;
+/**
+ 通知支持 rappi 功能
+ */
+@property (nonatomic,assign) BOOL rappi;
+/**
+ 通知支持 mercado Livre 功能
+ */
+@property (nonatomic,assign) BOOL mercadoLivre;
+/**
+ 通知支持 Magalu 功能
+ */
+@property (nonatomic,assign) BOOL magalu;
+/**
+ 通知支持 Americanas  功能
+ */
+@property (nonatomic,assign) BOOL americanas;
+/**
+ 通知支持 Yahoo 功能
+ */
+@property (nonatomic,assign) BOOL yahoo;
+/**
+ gto1pro 固件支持app获取联系人本地文件修改时间或者上传全部通讯录联系人
+ */
+@property (nonatomic,assign) BOOL v2SupportGetAllContact;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1711,6 +1823,11 @@ error flag
  *arabic
  */
 @property (nonatomic,assign) BOOL arabic;
+/**
+ 瑞典语
+ sweden
+ */
+@property (nonatomic,assign) BOOL sweden;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -3358,6 +3475,11 @@ error flag
  * 主账号设备 :  1  子账号设备  :  2
  */
 @property (nonatomic,assign) NSInteger masterDevice;
+
+/**
+ 设备bt名字
+ */
+@property (nonatomic,copy) NSString * deviceBtName;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

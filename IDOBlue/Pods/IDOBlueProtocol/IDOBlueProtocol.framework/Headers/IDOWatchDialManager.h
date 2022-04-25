@@ -91,8 +91,12 @@ typedef void(^_Nullable setComplete)(int errorCode);
 /**
  * 表盘传输完成回调
  * File transfer complete callback
+ 跟传输文件错误码一致
+ (errorCode + 24) ///< 表盘空间够但需要整理
+ (errorCode + 25) ///< 表盘空间整理中
+ finishingTime :只有错误码在24和25才有效，固件预计整理时长
  */
-@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^addDialTransfer)(void(^ _Nullable transferComplete)(int errorCode));
+@property (nonatomic,copy,nullable) IDOWatchDialManager *_Nonnull(^addDialTransfer)(void(^ _Nullable transferComplete)(int errorCode,int finishingTime));
 
 /**
  * 初始化表盘传输管理对象(单例)
@@ -111,5 +115,19 @@ IDOWatchDialManager * _Nonnull initWatchDialManager(void);
  * file stop transfer
  */
 + (void)stopDialTransfer;
+
+/**
+ 云端表盘文件制作iwf文件
+ */
++ (BOOL)makeIwfFile:(NSString * _Nullable)zipPath
+        colorFormat:(NSInteger)colorFormat
+            iwfPath:(NSString *_Nullable*_Nullable)iwfPath
+           fileSize:(unsigned long long *_Nullable)fileSize;
+
+/**
+ iwf 文件目录地址
+ 根据目录自行管理文件
+ */
++ (NSString *_Nullable)iwfDirPath;
 
 @end

@@ -65,3 +65,5 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOSportIconManager.h>
 #import <IDOBlueProtocol/IDOAlexaAudioManager.h>
 #import <IDOBlueProtocol/IDOMusicFileManager.h>
+#import <IDOBlueProtocol/IDOStatisticsManager.h>
+#import <IDOBlueProtocol/IDOSportPlanManager.h>

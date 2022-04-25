@@ -233,9 +233,11 @@
 - (NSArray *)weatherArray
 {
     if (!_weatherArray) {
+       
+        /**/
         _weatherArray =  @[lang(@"other"),lang(@"sunny days"),lang(@"cloudy1"),lang(@"cloudy2"),lang(@"rain1"),lang(@"rain2"),
                            lang(@"thunder storm"),lang(@"snow"),lang(@"snow rain"),lang(@"typhoon"),lang(@"sandstorm"),lang(@"shine at night"),
-                           lang(@"cloudy at night"),lang(@"hot"),lang(@"cold"),lang(@"breezy"),lang(@"windy"),lang(@"misty"),lang(@"showers"),lang(@"cloudy to clear")];
+                           lang(@"cloudy at night"),lang(@"hot"),lang(@"cold"),lang(@"breezy"),lang(@"windy"),lang(@"misty"),lang(@"showers"),lang(@"cloudy to clear"),lang(@"N moon"),lang(@"WXC moon"),lang(@"FQ moon"),lang(@"WXG moon"),lang(@"F moon"),lang(@"WNG moon"),lang(@"LQ moon"),lang(@"WNC moon")];
     }
     return _weatherArray;
 }
@@ -461,7 +463,7 @@
     if (!_menuListTypes) {
         _menuListTypes = @[lang(@"steps"),lang(@"heart rate"),lang(@"sleep"),lang(@"picture"),lang(@"alarm clock"),
                            lang(@"music"),lang(@"stopwatch"),lang(@"timer"),lang(@"exercise mode"),lang(@"weather"),
-        lang(@"breathing exercise"),lang(@"find mobile phone"),lang(@"pressure"),lang(@"data tricycle"),lang(@"time interface")];
+        lang(@"breathing exercise"),lang(@"find mobile phone"),lang(@"pressure"),lang(@"data tricycle"),lang(@"time interface"),lang(@"最近一次活动"),lang(@"健康数据"),lang(@"血氧"),lang(@"菜单设置"),lang(@"alexa语音提示")];
     }
     return _menuListTypes;
 }

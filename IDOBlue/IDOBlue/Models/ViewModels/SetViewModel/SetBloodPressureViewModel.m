@@ -38,6 +38,7 @@
 {
     if (!_bpModel) {
         _bpModel = [IDOSetBloodPressureInfoBluetoothModel currentModel];
+        _bpModel.flag = 1;
     }
     return _bpModel;
 }
@@ -117,19 +118,36 @@
     __weak typeof(self) weakSelf = self;
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
-        FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set blood pressure data")] ];
-        [IDOFoundationCommand setBpCalCommand:strongSelf.bpModel
-                                     callback:^(int errorCode, IDOSetBloodPressureInfoBluetoothModel * _Nullable model) {
-                 if(errorCode == 0) {
-                     [funcVC showToastWithText:lang(@"set blood pressure data success") ];
-                 }else if (errorCode == 6) {
-                     [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-                 }else {
-                     [funcVC showToastWithText:lang(@"set blood pressure data failed") ];
-                 }
-        }];
+        strongSelf.bpModel.flag = 1;
+        [strongSelf queryBpCalCommand];
     };
+}
+
+- (void)queryBpCalCommand
+{
+    __weak typeof(self) weakSelf = self;
+    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set blood pressure data")]];
+    [IDOFoundationCommand setBpCalCommand:self.bpModel
+                                 callback:^(int errorCode, IDOSetBloodPressureInfoBluetoothModel * _Nullable model) {
+             __strong typeof(self) strongSelf = weakSelf;
+             if(errorCode == 0) {
+                 if (model.statusCode == 0x01) {
+                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                         strongSelf.bpModel.flag = 2;
+                         [strongSelf queryBpCalCommand];
+                     });
+                 }else if (model.statusCode > 0x02) {
+                     [funcVC showToastWithText:lang(@"set blood pressure data failed") ];
+                 }else {
+                     [funcVC showToastWithText:lang(@"set blood pressure data success") ];
+                 }
+             }else if (errorCode == 6) {
+                 [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+             }else {
+                 [funcVC showToastWithText:lang(@"set blood pressure data failed") ];
+             }
+    }];
 }
 
 @end

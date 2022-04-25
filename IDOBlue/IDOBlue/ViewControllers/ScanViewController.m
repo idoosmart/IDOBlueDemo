@@ -38,6 +38,7 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    _bindView = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -435,6 +436,10 @@ static BOOL BIND_STATE = NO;
     didConnectPeripheral:(CBPeripheral *)peripheral
                isOatMode:(BOOL)isOtaMode
 {
+//    if ([peripheral.name isEqualToString:@"tlwota"]) {
+//        [self setRootViewController];
+//        return YES;
+//    }
     if (self.isConnect) {
        [self bindAction:nil];
        [NSObject cancelPreviousPerformRequestsWithTarget:self
@@ -461,7 +466,8 @@ static BOOL BIND_STATE = NO;
     }else {
        self.currentModel = nil;
     }
-    self.devices = allDevices;
+    
+    self.devices = [NSMutableArray arrayWithArray:allDevices];
     [self.tableView reloadData];
 }
 

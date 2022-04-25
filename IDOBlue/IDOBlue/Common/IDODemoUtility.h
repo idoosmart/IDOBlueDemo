@@ -92,4 +92,17 @@
  */
 + (NSString *)langWithKey:(NSString *)key;
 
+
+/**
+ 年、月、日 转 time interval since 1970
+
+ @param year 年份
+ @param month 月份
+ @param day 日期
+ @return 1970 time temp
+ */
++ (NSString *)get1970timeTempWithYear:(NSInteger)year
+                             andMonth:(NSInteger)month
+                               andDay:(NSInteger)day;
+
 @end

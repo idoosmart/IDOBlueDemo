@@ -33,6 +33,10 @@ typedef NS_ENUM(NSInteger, IDO_DATA_TRAN_COMPRESSION_TYPE) {
  */
 typedef NS_ENUM(NSInteger, IDO_DATA_FILE_TRAN_TYPE) {
     /**
+     通讯类 文件 | contact file type
+     */
+    IDO_DATA_FILE_TRAN_CONTACT_TYPE = 0,
+    /**
      AGPS 文件 | AGPS file type
      */
     IDO_DATA_FILE_TRAN_AGPS_TYPE = 1,

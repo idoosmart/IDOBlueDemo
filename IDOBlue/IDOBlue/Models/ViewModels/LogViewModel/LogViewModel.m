@@ -13,6 +13,7 @@
 #import "ComLogViewModel.h"
 #import "RestartLogViewModel.h"
 #import "FlashLogViewModel.h"
+#import "DBLogViewModel.h"
 
 @interface LogViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -34,7 +35,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"restart log")],@[lang(@"command log")],@[lang(@"flash log")]];
+        _buttonTitles = @[@[lang(@"restart log")],@[lang(@"command log")],@[lang(@"flash log")],@[lang(@"Latest 7 days database log")]];
     }
     return _buttonTitles;
 }
@@ -42,7 +43,7 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[RestartLogViewModel class],[ComLogViewModel class],[FlashLogViewModel class]];
+        _modelClasss = @[[RestartLogViewModel class],[ComLogViewModel class],[FlashLogViewModel class],[DBLogViewModel class]];
     }
     return _modelClasss;
 }

@@ -150,7 +150,7 @@
                 textField.text = selectStr;
                 textFieldModel.data = @[@([selectStr integerValue])];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                strongSelf.timeItemModel.longitude  = [selectStr integerValue];
+                strongSelf.timeItemModel.longitude  = [selectStr integerValue]*100;
             };
         }
         else if (indexPath.row == 8)   // 纬度
@@ -164,7 +164,7 @@
                 textField.text = selectStr;
                 textFieldModel.data = @[@([selectStr integerValue])];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                strongSelf.timeItemModel.latitude  = [selectStr integerValue];
+                strongSelf.timeItemModel.latitude  = [selectStr integerValue]*100;
             };
         }
         

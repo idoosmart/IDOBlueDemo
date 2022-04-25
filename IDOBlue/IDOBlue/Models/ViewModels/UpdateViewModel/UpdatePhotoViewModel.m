@@ -112,6 +112,13 @@
     model1.buttconCallback = self.buttconCallback;
     model1.cellClass  = [OneButtonTableViewCell class];
     
+    FuncCellModel * model5 = [[FuncCellModel alloc]init];
+    model5.typeStr = @"oneButton";
+    model5.data    = @[lang(@"删除壁纸表盘")];
+    model5.cellHeight = 70.0f;
+    model5.buttconCallback = self.buttconCallback;
+    model5.cellClass  = [OneButtonTableViewCell class];
+        
     TextViewCellModel * model2 = [[TextViewCellModel alloc]init];
     model2.typeStr = @"oneTextView";
     model2.data    = @[self.logStr ?: @""];
@@ -129,7 +136,7 @@
     model3.isShowLine = YES;
     model3.isCenter   = YES;
     
-    self.cellModels = @[model4,model1,model2,model3];
+    self.cellModels = @[model4,model1,model5,model2,model3];
 }
 
 - (NSString *)selectedFileWithFilePath:(NSString *)filePath
@@ -146,7 +153,12 @@
     path = [path stringByAppendingPathComponent: fileName];
     }
     self.filePath = path;
+    /*
+    NSString * newPath = nil;
+    [IDOMakePhotoManager pngTo16Bmp:path bmpPath:&newPath];
+     */
     NSURL * url = [NSURL URLWithString:path];
+     
     NSString * lastPathComponent = @"";
     if (!url) {
         lastPathComponent = [[path componentsSeparatedByString:@"/"] lastObject]?:@"";
@@ -180,7 +192,24 @@
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
-        [strongSelf updatePhotoWithVc:funcVC];
+        NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
+        if (indexPath.row == 1) {
+            [strongSelf updatePhotoWithVc:funcVC];
+        }else if (indexPath.row == 2) {
+            IDOWatchDialInfoItemModel * model = [IDOWatchDialInfoItemModel new];
+            model.fileName = @"wallpaper.z";
+            model.operate = 0x02;
+            [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"delete the wallpaper dial")]];
+            initWatchDialManager().setCurrentDial(^(int errorCode) {
+                if (errorCode == 0) {
+                    [funcVC showToastWithText:lang(@"delete the wallpaper dial success")];
+                }else if (errorCode == 6) {
+                    [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                }else {
+                    [funcVC showToastWithText:lang(@"delete the wallpaper dial failed")];
+                }
+            }, model);
+        }
     };
 }
 
@@ -308,7 +337,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         if (currentModel.height == 0 || currentModel.width == 0) {
             initWatchDialManager().getDialScreenInfo(^(IDOWatchScreenInfoModel * _Nullable model, int errorCode) {
                 if (errorCode == 0) {
-                    UIImage * newImage = [strongSelf getScaleImage:image width:model.width height:model.height];
+                    UIImage * newImage = [strongSelf scaleCurrentImage:image
+                                                                 width:currentModel.width
+                                                                height:currentModel.height];
                     NSData * data = UIImagePNGRepresentation(newImage);
                     [wirteFileHandle seekToEndOfFile];
                     [wirteFileHandle writeData:data];
@@ -318,7 +349,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                 }
             });
         }else {
-            UIImage * newImage = [strongSelf getScaleImage:image width:currentModel.width height:currentModel.height];
+            UIImage * newImage = [strongSelf scaleCurrentImage:image
+                                                         width:currentModel.width
+                                                        height:currentModel.height];
             NSData * data = UIImagePNGRepresentation(newImage);
             [wirteFileHandle seekToEndOfFile];
             [wirteFileHandle writeData:data];
@@ -331,16 +364,46 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     }];
 }
 
-- (UIImage *)getScaleImage:(UIImage *)originImage
-                     width:(NSInteger)width
-                    height:(NSInteger)height
-{
-    CGRect rect = CGRectMake(0,0,width,height);
-    UIGraphicsBeginImageContext(rect.size);
-    [originImage drawInRect:rect];
-    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+- (UIImage *)scaleCurrentImage:(UIImage *)currentImage
+                         width:(NSInteger)width
+                        height:(NSInteger)height{
+//    CGImageRef imageRef = currentImage.CGImage;
+    CGRect rect = CGRectMake(0.f, 0.f, width,height);
+    rect = CGRectMake(0.f, 0.f, currentImage.size.width, currentImage.size.width);
+    UIImage* decompressedImage = [self scaleImage:currentImage size:rect.size];
+    return decompressedImage;
+    /*
+    CGContextRef bitmapContext = CGBitmapContextCreate(NULL,
+                                                       rect.size.width,
+                                                       rect.size.height,
+                                                       CGImageGetBitsPerComponent(imageRef),
+                                                       CGImageGetBytesPerRow(imageRef),
+                                                       CGImageGetColorSpace(imageRef),
+                                                       kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Little
+                                                       );
+    CGContextDrawImage(bitmapContext, rect, imageRef);
+
+    CGImageRef decompressedImageRef = CGBitmapContextCreateImage(bitmapContext);
+    UIImage* decompressedImage = [UIImage imageWithCGImage:decompressedImageRef
+                                                     scale:[[UIScreen mainScreen] scale]
+                                               orientation:UIImageOrientationUp];
+    CGImageRelease(decompressedImageRef);
+    CGContextRelease(bitmapContext);
+
+    return decompressedImage;
+     */
+}
+
+- (UIImage *)scaleImage:(UIImage *)image size:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, 0.0, size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextSetBlendMode(context, kCGBlendModeCopy);
+    CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), image.CGImage);
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return image;
+    return newImage;
 }
 
 @end

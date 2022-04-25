@@ -19,6 +19,11 @@
 @property (nonatomic,strong) UITextView * textView;
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
+/**
+ 是否为配置同步失败
+ */
+@property (nonatomic, assign) BOOL configDataSyncFail;
+
 @end
 
 @implementation SyncConfigViewModel
@@ -32,6 +37,7 @@
 {
     self = [super init];
     if (self) {
+        self.configDataSyncFail = YES;
         [self getButtonCallback];
         [self getTextViewCallback];
         [self getCellModels];
@@ -56,11 +62,17 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:lang(@"sync config data...")];       
+        [funcVC showLoadingWithMessage:lang(@"sync config data...")];
+        
         initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_CONFIG_ITEM_TYPE;
+        
         initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {
             if (stateCode == IDO_SYNC_GLOBAL_COMPLETE) {
                 [funcVC showToastWithText:lang(@"sync data complete")];
+            }else if(stateCode == IDO_SYNC_CONFIG_COMPLETE_EXCEPTION){
+                weakSelf.configDataSyncFail = YES;
+            }else if(stateCode == IDO_SYNC_CONFIG_COMPLETE){
+                weakSelf.configDataSyncFail = NO;
             }
         }).addSyncProgess(^(IDO_CURRENT_SYNC_TYPE type, float progress) {
             [funcVC showSyncProgress:progress];
@@ -87,7 +99,7 @@
                 return @[model];
             }
             return [NSArray array];
-        }).mandatorySyncConfig(YES);
+        }).mandatorySyncConfig(weakSelf.configDataSyncFail);
         [IDOSyncManager startSync];
     };
 }

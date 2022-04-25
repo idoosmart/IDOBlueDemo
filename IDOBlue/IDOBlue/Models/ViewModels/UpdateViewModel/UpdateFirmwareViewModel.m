@@ -349,7 +349,7 @@
 
 - (NSString * _Nullable)fileTranNameUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager
 {
-    return @".fw";
+    return @".bt";
 }
 
 - (NSInteger)setTransferNumberPacketsUpdateManager:(IDOUpdateFirmwareManager *)manager

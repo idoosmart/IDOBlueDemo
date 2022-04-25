@@ -27,6 +27,15 @@ extern NSString * _Nonnull IDOBluetoothPingNotifyName;
 // 蓝牙多运动数据暂停开启结束通知 | Bluetooth SwitchActivity notification listener name
 extern NSString * _Nonnull IDOBluetoothSwitchActivityNotifyName;
 
+//固件重启后重连发送通知
+extern NSString * _Nonnull IDOBluetoothFirmwareRebootNotifyName;
+
+//设备Alexa空闲超过1h发送通知
+extern NSString * _Nonnull IDOBluetoothAlexaIdleMoreThan1hNotifyName;
+
+//设备Alexa音量0或100的通知
+extern NSString * _Nonnull IDOBluetoothAlexaFirmwareVolumeNotifyName;
+
 // 蓝牙主动开始扫描通知监听名字,多在配对和固件升级使用 | Bluetooth start scan notification listener name
 extern NSString * _Nonnull IDOBluetoothStartScanNotifyName;
 

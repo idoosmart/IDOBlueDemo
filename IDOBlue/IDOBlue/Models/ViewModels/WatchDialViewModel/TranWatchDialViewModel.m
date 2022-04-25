@@ -139,10 +139,10 @@
         IDOWatchScreenInfoModel *model = [IDOWatchScreenInfoModel currentModel];
         initWatchDialManager().colorFormat = model.colorFormat;
         initWatchDialManager().blockSize = model.blockSize;
-        
+    
         initWatchDialManager().addDialProgress(^(int progress) {
             [funcVC showSyncProgress:progress/100.0f];
-        }).addDialTransfer(^(int errorCode) {
+        }).addDialTransfer(^(int errorCode,int finishingTime) {
             strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
             if (errorCode == 0) {
                 [funcVC showToastWithText:lang(@"transfer dial file success")];
