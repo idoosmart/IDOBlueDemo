@@ -90,6 +90,11 @@
  */
 @property (nonatomic,assign) NSInteger minBloodOxygen;
 
+/**
+ 血氧等级  1:低等   2:业余   3:一般  4:平均    5:良好  6:优秀   7:专业
+ */
+@property (nonatomic,assign) NSInteger grade DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
+
 @end
 
 

@@ -118,7 +118,7 @@
  * @return gps信息数据 坐标item对象集合 | gps information data coordinate item object collection
  */
 + (IDOSyncGpsDataInfoBluetoothModel *)queryOneActivityCoordinatesWithTimeStr:(NSString *)timeStr
-                                                                              macAddr:(NSString *)macAddr;
+                                                                     macAddr:(NSString *)macAddr;
 
 /**
  * @brief 根据时间戳查询某个活动是否存在轨迹 | Query whether an activity has a track based on a timestamp

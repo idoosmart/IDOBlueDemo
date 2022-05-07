@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  * dias_blood ：舒张压
  * offset ：偏移量 (分钟)
  */
-@property (nonatomic,copy)   NSArray <NSDictionary *>* bloodbPressures;
+@property (nonatomic,copy) NSArray <NSDictionary *>* bloodbPressures;
 
 /**
  时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)

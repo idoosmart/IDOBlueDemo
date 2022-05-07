@@ -99,6 +99,7 @@
             }
             if (indexPath.row == 0) {
                 strongSelf.unitMode.distanceUnit = [pickerArray containsObject:selectStr] ? [pickerArray indexOfObject:selectStr] : 0 ;
+                strongSelf.unitMode.walkRunUnit = 2;
             }else if (indexPath.row == 1) {
                 strongSelf.unitMode.weightUnit = [pickerArray containsObject:selectStr] ? [pickerArray indexOfObject:selectStr] : 0 ;
             }else if (indexPath.row == 2) {

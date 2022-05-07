@@ -11,7 +11,7 @@
 #import "OneButtonTableViewCell.h"
 #import "FuncViewController.h"
 #import "AppDataInterchangeModel.h"
-#import "BlueDataInterchangeModel.h"
+#import "NewAppDataInterchangeModel.h"
 
 @interface DataInterchangeModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -33,7 +33,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"app initiates data exchange")],@[lang(@"bracelet initiates data exchange")]];
+         _buttonTitles = @[@[lang(@"app initiates data exchange")],@[lang(@"new app initiates data exchange")]];
     }
     return _buttonTitles;
 }
@@ -41,7 +41,7 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[AppDataInterchangeModel class],[BlueDataInterchangeModel class]];
+        _modelClasss = @[[AppDataInterchangeModel class],[NewAppDataInterchangeModel class]];
     }
     return _modelClasss;
 }

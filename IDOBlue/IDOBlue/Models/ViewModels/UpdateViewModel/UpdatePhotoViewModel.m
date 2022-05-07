@@ -367,31 +367,31 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 - (UIImage *)scaleCurrentImage:(UIImage *)currentImage
                          width:(NSInteger)width
                         height:(NSInteger)height{
-//    CGImageRef imageRef = currentImage.CGImage;
-    CGRect rect = CGRectMake(0.f, 0.f, width,height);
-    rect = CGRectMake(0.f, 0.f, currentImage.size.width, currentImage.size.width);
-    UIImage* decompressedImage = [self scaleImage:currentImage size:rect.size];
-    return decompressedImage;
-    /*
-    CGContextRef bitmapContext = CGBitmapContextCreate(NULL,
-                                                       rect.size.width,
-                                                       rect.size.height,
-                                                       CGImageGetBitsPerComponent(imageRef),
-                                                       CGImageGetBytesPerRow(imageRef),
-                                                       CGImageGetColorSpace(imageRef),
-                                                       kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Little
-                                                       );
-    CGContextDrawImage(bitmapContext, rect, imageRef);
+    //    CGImageRef imageRef = currentImage.CGImage;
+        CGRect rect = CGRectMake(0.f, 0.f, width,height);
+        rect = CGRectMake(0.f, 0.f, currentImage.size.width, currentImage.size.width);
+        UIImage* decompressedImage = [self scaleImage:currentImage size:rect.size];
+        return decompressedImage;
+        /*
+        CGContextRef bitmapContext = CGBitmapContextCreate(NULL,
+                                                           rect.size.width,
+                                                           rect.size.height,
+                                                           CGImageGetBitsPerComponent(imageRef),
+                                                           CGImageGetBytesPerRow(imageRef),
+                                                           CGImageGetColorSpace(imageRef),
+                                                           kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Little
+                                                           );
+        CGContextDrawImage(bitmapContext, rect, imageRef);
 
-    CGImageRef decompressedImageRef = CGBitmapContextCreateImage(bitmapContext);
-    UIImage* decompressedImage = [UIImage imageWithCGImage:decompressedImageRef
-                                                     scale:[[UIScreen mainScreen] scale]
-                                               orientation:UIImageOrientationUp];
-    CGImageRelease(decompressedImageRef);
-    CGContextRelease(bitmapContext);
+        CGImageRef decompressedImageRef = CGBitmapContextCreateImage(bitmapContext);
+        UIImage* decompressedImage = [UIImage imageWithCGImage:decompressedImageRef
+                                                         scale:[[UIScreen mainScreen] scale]
+                                                   orientation:UIImageOrientationUp];
+        CGImageRelease(decompressedImageRef);
+        CGContextRelease(bitmapContext);
 
-    return decompressedImage;
-     */
+        return decompressedImage;
+         */
 }
 
 - (UIImage *)scaleImage:(UIImage *)image size:(CGSize)size {

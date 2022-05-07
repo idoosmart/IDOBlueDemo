@@ -94,7 +94,7 @@
  */
 @property (nonatomic,assign) NSInteger blockSize;
 /**
- * 单次获取个数
+ * 当前获取累加个数
  */
 @property (nonatomic,assign) NSInteger itemNum;
 
@@ -1358,6 +1358,11 @@ error flag
 @property (nonatomic,assign) BOOL wallpaperOnlyTimeColor;
 
 /**
+ 固件支持呼吸率开关设置 ，以及呼吸率数据同步返回
+ */
+@property (nonatomic,assign) BOOL supportBreathRate;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable34BluetoothModel
@@ -1616,6 +1621,11 @@ error flag
 @property (nonatomic,assign) BOOL getDevName;
 
 /**
+ * 亮屏时长
+ */
+@property (nonatomic,assign) BOOL brightScreenTime;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable31BluetoothModel
@@ -1828,7 +1838,16 @@ error flag
  sweden
  */
 @property (nonatomic,assign) BOOL sweden;
-
+/**
+ 芬兰语
+ finland
+ */
+@property (nonatomic,assign) BOOL finland;
+/**
+ 波斯语
+ persia
+ */
+@property (nonatomic,assign) BOOL persia;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object

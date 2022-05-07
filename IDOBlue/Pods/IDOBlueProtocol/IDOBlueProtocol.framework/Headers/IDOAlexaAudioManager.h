@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface IDOAlexaAudioManager : NSObject
+
 //alexa 语音下发管理
 @property (nonatomic,weak) id<IDOAlexaAudioManagerDelegate> delegate;
 /**

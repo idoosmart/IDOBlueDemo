@@ -132,6 +132,11 @@
  */
 @property (nonatomic,assign) NSInteger sortNumber;
 
+/**
+ 表盘文件大小
+ */
+@property (nonatomic,assign) NSInteger size;
+
 @end
 
 

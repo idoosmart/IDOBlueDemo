@@ -310,6 +310,11 @@ max step stride
 @property (nonatomic,assign) NSInteger vo2Max;
 
 /**
+ 摄氧量等级  1:低等   2:业余   3:一般  4：平均    5：良好  6：优秀   7：专业
+ */
+@property (nonatomic,assign) NSInteger grade;
+
+/**
  恢复时间点年
  */
 @property (nonatomic,assign) NSInteger recoveryTimeYear;

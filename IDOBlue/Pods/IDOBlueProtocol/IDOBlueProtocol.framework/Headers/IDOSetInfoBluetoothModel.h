@@ -11,6 +11,21 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ====  设置呼吸率开关 model ====
+@interface IDOSetBreathRateSwitchModel : IDOBluetoothBaseModel
+/**
+ 开关状态
+ */
+@property (nonatomic,assign) BOOL onOff;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetBreathRateSwitchModel
+ */
++ (IDOSetBreathRateSwitchModel *)currentModel;
+
+@end
+
 #pragma mark ====  设置通知应用状态 model ====
 @interface IDOSetNotificationStatusModel : IDOBluetoothBaseModel
 
@@ -21,7 +36,7 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOSetUnReadAppReminderModel
+ * @return IDOSetNotificationStatusModel
  */
 + (IDOSetNotificationStatusModel *)currentModel;
 
@@ -469,7 +484,9 @@
 /**
  * 天气情况(0:其他， 1:晴， 2:多云， 3:阴，4:雨，5:暴雨，
  * 6:雷阵雨， 7:雪， 8:雨夹雪，9:台风， 10:沙尘暴, 11:夜 间晴，
- * 12:夜间多云， 13:热， 14:冷， 15:清风， 16:大风， 17:雾霭，18:阵雨, 19:多云转晴)
+ * 12:夜间多云， 13:热， 14:冷， 15:清风， 16:大风， 17:雾霭，18:阵雨, 19:多云转晴
+ * 20: 新月 , 21: 峨眉月 , 22: 上弦月 23: 盈凸月 24: 满月 25: 亏凸月 , 26: 下弦月 27: 残月
+ * 48:雷 , 49:冰雹 , 50:扬沙 , 51:龙卷风)
  * weather conditions (0: others, 1: sunny, 2: cloudy, 3: cloudy, 4: rain, 5: rainstorm,
  * 6: thunderstorm, 7: snow, 8: sleet, 9: typhoon, 10: sandstorm, 11: night clear,
  * 12: cloudy night, 13: hot, 14: cold, 15: breezy, 16: blustery, 17: mist, 18: showers, 19: cloudy to clear)
@@ -536,14 +553,13 @@
  */
 @property (nonatomic,copy) NSString * airGradeInfo;
 /**
-未来24小时天气集合 ｜  items
+未来24小时天气集合(扩展可下发48小时天气) ｜  items
 */
 @property (nonatomic,copy) NSArray <IDOFuture24HourWeatherModel *>* future24HoursItems;
 /**
  未来7天气集合 ｜  items
 */
 @property (nonatomic,copy) NSArray <IDOFuture7DayWeatherDataModel *>* future7DaysItems;
-
 /**
  未来3日落日出天气集合 ｜3Days  items（V3 Sunrise）
 */
@@ -2434,11 +2450,12 @@
  * 波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
  * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,
  * 韩语:21,印地语:22,葡萄牙语:23,土耳其:24,泰国语:25,越南语:26,缅甸语:27,
- * 菲律宾语:28,繁体中文:29,希腊语:30,阿拉伯语:31,瑞典语:32
+ * 菲律宾语:28,繁体中文:29,希腊语:30,阿拉伯语:31,瑞典语:32,芬兰语:33,波斯语:34
  * Language unit Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
  * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
  * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19,Indonesian: 20,korean:21,hindi:22
  * portuguese:23,turkish:24,thai:25,vietnamese:26,burmese:27,filipino:28,traditional Chinese:29,greek:30,arabic:31,sweden:32
+ * finland:33,persia:34
  */
 @property (nonatomic,assign) NSInteger languageUnit;
 

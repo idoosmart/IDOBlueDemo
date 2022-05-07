@@ -48,7 +48,6 @@
 		9BBFAB1B28168E9000DC7671 /* TextViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9AB28168E8E00DC7671 /* TextViewCellModel.m */; };
 		9BBFAB1C28168E9000DC7671 /* AppDataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9AF28168E8E00DC7671 /* AppDataInterchangeModel.m */; };
 		9BBFAB1D28168E9000DC7671 /* DataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9B128168E8E00DC7671 /* DataInterchangeModel.m */; };
-		9BBFAB1E28168E9000DC7671 /* BlueDataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9B328168E8E00DC7671 /* BlueDataInterchangeModel.m */; };
 		9BBFAB1F28168E9000DC7671 /* MakeDialFileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9B628168E8E00DC7671 /* MakeDialFileViewModel.m */; };
 		9BBFAB2028168E9000DC7671 /* DataMigrationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9B828168E8E00DC7671 /* DataMigrationViewModel.m */; };
 		9BBFAB2128168E9000DC7671 /* QueryHrViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9BB28168E8E00DC7671 /* QueryHrViewModel.m */; };
@@ -225,6 +224,7 @@
 		9BC479A5244E9A5900455A6E /* PQVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC4799B244E9A5900455A6E /* PQVoiceView.m */; };
 		9BC479A6244E9A5900455A6E /* UIView+PQViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC4799D244E9A5900455A6E /* UIView+PQViewExtension.m */; };
 		9BCE553E216D9799005B6F80 /* Files in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE553D216D9799005B6F80 /* Files */; };
+		9BF2574A28264EDF005DB163 /* NewAppDataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2574928264EDF005DB163 /* NewAppDataInterchangeModel.m */; };
 		9BF5C7D32703410100FBA91F /* IDOAlexaClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF5C7D22703410100FBA91F /* IDOAlexaClient.framework */; platformFilter = ios; };
 		9BF5C7D42703410100FBA91F /* IDOAlexaClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF5C7D22703410100FBA91F /* IDOAlexaClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C8F990274B3078009BA60D /* IDODemoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F7C3274B3077009BA60D /* IDODemoUtility.m */; };
@@ -364,10 +364,8 @@
 		9BBFA9AB28168E8E00DC7671 /* TextViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewCellModel.m; sourceTree = "<group>"; };
 		9BBFA9AE28168E8E00DC7671 /* DataInterchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataInterchangeModel.h; sourceTree = "<group>"; };
 		9BBFA9AF28168E8E00DC7671 /* AppDataInterchangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDataInterchangeModel.m; sourceTree = "<group>"; };
-		9BBFA9B028168E8E00DC7671 /* BlueDataInterchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueDataInterchangeModel.h; sourceTree = "<group>"; };
 		9BBFA9B128168E8E00DC7671 /* DataInterchangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataInterchangeModel.m; sourceTree = "<group>"; };
 		9BBFA9B228168E8E00DC7671 /* AppDataInterchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDataInterchangeModel.h; sourceTree = "<group>"; };
-		9BBFA9B328168E8E00DC7671 /* BlueDataInterchangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueDataInterchangeModel.m; sourceTree = "<group>"; };
 		9BBFA9B528168E8E00DC7671 /* MakeDialFileViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeDialFileViewModel.h; sourceTree = "<group>"; };
 		9BBFA9B628168E8E00DC7671 /* MakeDialFileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeDialFileViewModel.m; sourceTree = "<group>"; };
 		9BBFA9B828168E8E00DC7671 /* DataMigrationViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataMigrationViewModel.m; sourceTree = "<group>"; };
@@ -720,6 +718,8 @@
 		9BC4799C244E9A5900455A6E /* UIView+PQViewExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PQViewExtension.h"; sourceTree = "<group>"; };
 		9BC4799D244E9A5900455A6E /* UIView+PQViewExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PQViewExtension.m"; sourceTree = "<group>"; };
 		9BCE553D216D9799005B6F80 /* Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Files; sourceTree = "<group>"; };
+		9BF2574828264EDF005DB163 /* NewAppDataInterchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAppDataInterchangeModel.h; sourceTree = "<group>"; };
+		9BF2574928264EDF005DB163 /* NewAppDataInterchangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAppDataInterchangeModel.m; sourceTree = "<group>"; };
 		9BF5C7D22703410100FBA91F /* IDOAlexaClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOAlexaClient.framework; path = ../thirdParty/IDOAlexaClient.framework; sourceTree = "<group>"; };
 		B0C8F7C2274B3077009BA60D /* IDODemoUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDODemoUtility.h; sourceTree = "<group>"; };
 		B0C8F7C3274B3077009BA60D /* IDODemoUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDODemoUtility.m; sourceTree = "<group>"; };
@@ -1032,11 +1032,11 @@
 			isa = PBXGroup;
 			children = (
 				9BBFA9AE28168E8E00DC7671 /* DataInterchangeModel.h */,
-				9BBFA9AF28168E8E00DC7671 /* AppDataInterchangeModel.m */,
-				9BBFA9B028168E8E00DC7671 /* BlueDataInterchangeModel.h */,
 				9BBFA9B128168E8E00DC7671 /* DataInterchangeModel.m */,
+				9BBFA9AF28168E8E00DC7671 /* AppDataInterchangeModel.m */,
 				9BBFA9B228168E8E00DC7671 /* AppDataInterchangeModel.h */,
-				9BBFA9B328168E8E00DC7671 /* BlueDataInterchangeModel.m */,
+				9BF2574828264EDF005DB163 /* NewAppDataInterchangeModel.h */,
+				9BF2574928264EDF005DB163 /* NewAppDataInterchangeModel.m */,
 			);
 			path = DataInterchangeModel;
 			sourceTree = "<group>";
@@ -1833,7 +1833,6 @@
 				9BBFAB7328168E9000DC7671 /* SyncHealthViewModel.m in Sources */,
 				9BBFAB4D28168E9000DC7671 /* SetContactItemViewModel.m in Sources */,
 				9BBFAB7828168E9000DC7671 /* GetSportSortViewModel.m in Sources */,
-				9BBFAB1E28168E9000DC7671 /* BlueDataInterchangeModel.m in Sources */,
 				9BBFABBF28168E9000DC7671 /* ControlRestartViewModel.m in Sources */,
 				9BBFABAE28168E9000DC7671 /* FlashLogViewModel.m in Sources */,
 				9BBFAB7E28168E9000DC7671 /* GetNotifyStateViewModel.m in Sources */,
@@ -1992,6 +1991,7 @@
 				9BBFABAB28168E9000DC7671 /* UpdateFirmwareViewModel.m in Sources */,
 				9BBFAB5328168E9000DC7671 /* SetSportModeSortViewModel.m in Sources */,
 				9B9C402F2566693C00809576 /* MASViewConstraint.m in Sources */,
+				9BF2574A28264EDF005DB163 /* NewAppDataInterchangeModel.m in Sources */,
 				9BBFABA528168E9000DC7671 /* UpateContactViewModel.m in Sources */,
 				9BBFAB8C28168E9000DC7671 /* GetHealthSwitchViewModel.m in Sources */,
 				9B437EEE21393ADC00DE2FC8 /* AppDelegate.m in Sources */,

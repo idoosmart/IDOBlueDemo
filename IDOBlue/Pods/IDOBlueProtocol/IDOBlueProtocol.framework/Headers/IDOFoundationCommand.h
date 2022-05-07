@@ -56,6 +56,11 @@
 + (void)detectionEncryptedCode;
 
 /**
+ 启动bt设备广播
+ */
++ (BOOL)openBtDeviceBroadcast;
+
+/**
  * 删除手环日志 ｜ clear device log
  * type: 0x01 : 删除过热日志  0x02：电池日志  0x03：重启日志； 04：异常
  * state: 0x00成功, 0x01失败
@@ -1295,6 +1300,14 @@
  */
 + (void)setStressCalibrationCommand:(IDOSetStressCalibrationModel *_Nullable)stressModel
                            callback:(void (^ _Nullable)(int errorCode,int retCode))callback;
+/**
+ * @brief //设置呼吸率开关
+ * @param switchModel 设置呼吸率开关模型
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setBreathRateSwitchCommand:(IDOSetBreathRateSwitchModel *_Nullable)switchModel
+                          callback:(void (^ _Nullable)(int errorCode))callback;
 
 #pragma mark ======= get Command =======
 

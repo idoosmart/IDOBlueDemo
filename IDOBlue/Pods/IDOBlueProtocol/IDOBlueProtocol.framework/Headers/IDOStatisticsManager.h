@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getDeviceStatisticsData:(IDOUserHabitModel *)model
                       errorCode:(int)errorCode;
 
-
 @end
 
 @interface IDOStatisticsManager : NSObject
