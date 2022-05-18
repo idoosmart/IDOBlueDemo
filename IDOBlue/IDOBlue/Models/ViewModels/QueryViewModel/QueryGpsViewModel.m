@@ -94,15 +94,21 @@
     __weak typeof(self) weakSelf = self;
     self.labelSelectCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
+        
         FuncViewController * funcVc = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         IDOSyncActivityDataInfoBluetoothModel * model = [strongSelf.allActivitys objectAtIndex:indexPath.row];
-        IDOSyncGpsDataInfoBluetoothModel * gpsModel = [IDOSyncGpsDataModel queryOneActivityCoordinatesWithTimeStr:model.timeStr macAddr:@""];
         FuncViewController * newFuncVc = [FuncViewController new];
         QueryActivityDetailViewModel * detailModel = [QueryActivityDetailViewModel new];
-        detailModel.activityModel = gpsModel ? gpsModel : model;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            //建议放在异步执行
+            IDOSyncGpsDataInfoBluetoothModel * gpsModel = [IDOSyncGpsDataModel queryOneActivityCoordinatesWithTimeStr:model.timeStr macAddr:@""];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                detailModel.activityModel = gpsModel ? gpsModel : model;
+            });
+        });
+        newFuncVc.title = lang(@"GPS detail");
         newFuncVc.model = detailModel;
-        newFuncVc.title = gpsModel ? lang(@"GPS detail") : lang(@"activity detail");
         [funcVc.navigationController pushViewController:newFuncVc animated:YES];
     };
 }

@@ -16,6 +16,7 @@
 #import "NSObject+DemoToDic.h"
 
 @interface SyncAllViewModel()
+@property (nonatomic,assign) BOOL firstBind;
 @property (nonatomic,strong) UITextView * textView;
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
@@ -32,6 +33,7 @@
 {
     self = [super init];
     if (self) {
+        self.firstBind = YES;
         [self getButtonCallback];
         [self getTextViewCallback];
         [self getCellModels];
@@ -146,6 +148,10 @@
                 return @[];
         });
         initSyncManager().addSyncComplete(^(IDO_SYNC_COMPLETE_STATUS stateCode) {
+            if (stateCode == IDO_SYNC_CONFIG_COMPLETE) {
+                weakSelf.firstBind = NO;
+                //advice “firstBind” save NSUserDefaults
+            }
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,[SyncAllViewModel getStateCode:stateCode]];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
@@ -162,56 +168,66 @@
             strongSelf.textView.text = newLogStr;
             [funcVC showToastWithText:lang(@"sync data failed")];
         }).addSyncSwim(^(NSString * jsonStr){
+            //this command is only used for debugging
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncHeartRate(^(NSString * jsonStr){
+            //this command is only used for debugging
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncBloodOxygen(^(NSString * jsonStr){
+            //this command is only used for debugging
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncBp(^(NSString * jsonStr){
+            //this command is only used for debugging
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncSleep(^(NSString * jsonStr){
+            //this command is only used for debugging
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncGps(^(NSString * jsonStr){
+            //this command is only used for debugging
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncSport(^(NSString * jsonStr){
+            //this command is only used for debugging
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncPressure(^(NSString * jsonStr){
+            //this command is only used for debugging
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncActivity(^(NSString * jsonStr){
+            //this command is only used for debugging
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncConfig(^(NSString * logStr){
+            //this command is only used for debugging
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,logStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
-        }).mandatorySyncConfig(YES); //第一次绑定时设置YES,其他时候设置为No
+        }).mandatorySyncConfig(self.firstBind); //第一次绑定时设置YES,其他时候设置为No
         [IDOSyncManager startSync];
     };
 }

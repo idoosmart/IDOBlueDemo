@@ -79,8 +79,10 @@
  * 9:健身，10:动感单车，11:椭圆机，12:跑步机，13:仰卧起坐，14:俯卧撑，15:哑铃，16:举重，
  * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
  * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，31：室内划船/roller machine， 32：普拉提/pilates， 33:交叉训练/cross train,
- * 34:有氧运动/cardio，35：尊巴舞/Zumba, 36:广场舞/square dance, 37:平板支撑/Plank, 38:健身房/gym 48:户外跑步，49:室内跑步，
- * 50:户外骑行，51:室内骑行，52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
+ * 34:有氧运动/cardio，35：尊巴舞/Zumba, 36:广场舞/square dance, 37:平板支撑/Plank, 38:健身房/gym
+ 
+ * 48:户外跑步，49:室内跑步，50:户外骑行，51:室内骑行，52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，
+ * 56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
  基础运动：
  100：自由训练，101：功能性力量训练，102：核心训练，103：踏步机，104：整理放松
  健身（25种）
@@ -136,6 +138,21 @@
  距离(单位: 米) | Distance (in meters)
  */
 @property (nonatomic,assign) NSInteger distance;
+
+/**
+ 课内卡路里 (单 位:大卡) | in class Calories (Unit: Big Card)
+ */
+@property (nonatomic,assign) NSInteger inClassCalories;
+
+/**
+ 动作完成率 0-100
+ */
+@property (nonatomic,assign) NSInteger completionRate;
+
+/**
+ 心率控制率  0—100
+ */
+@property (nonatomic,assign) NSInteger hrCompletionRate;
 
 /**
  平均心率 | Average heart rate

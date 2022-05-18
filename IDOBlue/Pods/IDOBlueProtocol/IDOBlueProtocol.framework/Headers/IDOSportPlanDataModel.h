@@ -34,6 +34,15 @@ NS_ASSUME_NONNULL_BEGIN
 //计划开始时间 日
 @property (nonatomic,assign) NSInteger day;
 
+//计划开始时间 时
+@property (nonatomic,assign) NSInteger hour;
+
+//计划开始时间 分
+@property (nonatomic,assign) NSInteger minute;
+
+//计划开始时间 秒
+@property (nonatomic,assign) NSInteger second;
+
 @end
 
 @interface IDOSportActionDataModel : IDOBluetoothBaseModel
@@ -71,12 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface IDOBleNoticeAppPlanModel : IDOSportPlanDataModel
 //动作类型  1快走；2慢跑；3中速跑；4快跑  ；5结束课程运动 （还要等待用户是否有自由运动）；6课程结束后自由运动 （此字段当operate为0x05起作用）
 @property (nonatomic,assign) NSInteger actionType;
-// 时 | hour
-@property (nonatomic,assign) NSInteger hour;
-// 分 | minute
-@property (nonatomic,assign) NSInteger minute;
-// 秒 | second
-@property (nonatomic,assign) NSInteger second;
 //目标时间  单位秒
 @property (nonatomic,assign) NSInteger time;
 //心率范围低值
@@ -93,12 +96,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface IDOAppNoticeBlePlanModel : IDOSportPlanDataModel
-// 时 | hour
-@property (nonatomic,assign) NSInteger hour;
-// 分 | minute
-@property (nonatomic,assign) NSInteger minute;
-// 秒 | second
-@property (nonatomic,assign) NSInteger second;
 //目标时间  单位秒
 @property (nonatomic,assign) NSInteger time;
 //心率范围低值

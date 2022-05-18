@@ -48,5 +48,10 @@
     };
 }
 
+- (void)setActivityModel:(IDOBluetoothBaseModel *)activityModel
+{
+    _activityModel = activityModel;
+    self.textView.text = [NSString stringWithFormat:@"%@",activityModel.dicFromObject];
+}
 
 @end

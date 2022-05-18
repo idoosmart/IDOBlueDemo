@@ -1249,6 +1249,10 @@ error flag
  */
 @property (nonatomic,assign) BOOL findPhoneStop;
 /**
+ 泰坦定制 支持app被禁用、开启权限通知固件
+ */
+@property (nonatomic,assign) BOOL permissionsState;
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable35BluetoothModel
@@ -1849,6 +1853,11 @@ error flag
  */
 @property (nonatomic,assign) BOOL persia;
 /**
+ 挪威语
+ norwegian
+ */
+@property (nonatomic,assign) BOOL norwegian;
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable27BluetoothModel
@@ -2365,6 +2374,16 @@ error flag
  滑板 | skateboard
  */
 @property (nonatomic,assign) BOOL skateboard;
+
+/**
+ 登山
+ */
+@property (nonatomic,assign) BOOL mountaineering;
+
+/**
+ 深蹲
+ */
+@property (nonatomic,assign) BOOL squat;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

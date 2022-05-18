@@ -30,7 +30,6 @@
 @end
 
 @implementation NewAppDataInterchangeModel
-
 - (instancetype)init
 {
     self = [super init];
@@ -345,6 +344,7 @@
 
 - (void)appPauseSportReplyWithModel:(nonnull IDOAppPauseReplyExchangeModel *)model
                           errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"appPauseSportReplyWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {
@@ -357,6 +357,7 @@
 
 - (void)appRestoreSportReplyWithModel:(nonnull IDOAppRestoreReplyExchangeModel *)model
                             errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"appRestoreSportReplyWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {
@@ -369,6 +370,7 @@
 
 - (void)appStartSportReplyWithModel:(nonnull IDOAppStartReplyExchangeModel *)model
                           errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"appStartSportReplyWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {
@@ -381,6 +383,7 @@
 
 - (void)bleEndAppSportWithModel:(nonnull IDOBleEndExchangeModel *)model
                       errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"bleEndAppSportWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {
@@ -393,6 +396,7 @@
 
 - (void)blePauseAppSportWithModel:(nonnull IDONewDataExchangeModel *)model
                         errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"blePauseAppSportWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {
@@ -405,6 +409,7 @@
 
 - (void)bleRestoreAppSportWithModel:(nonnull IDONewDataExchangeModel *)model
                           errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"bleRestoreAppSportWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {
@@ -417,6 +422,7 @@
 
 - (void)v2_appEndSportReplyWithModel:(nonnull IDOAppEndReplyExchangeModel *)model
                            errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"v2_appEndSportReplyWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {
@@ -429,6 +435,7 @@
 
 - (void)v2_appIngSportReplyWithModel:(nonnull IDOV2AppIngReplyExchangeModel *)model
                            errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"v2_appIngSportReplyWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {
@@ -441,6 +448,7 @@
 
 - (void)v3_appEndSportReplyWithModel:(nonnull IDOV3SportEndDataExchangeModel *)model
                            errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"v3_appEndSportReplyWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {
@@ -453,6 +461,7 @@
 
 - (void)v3_appIngSportReplyWithModel:(nonnull IDOV3AppIngReplyExchangeModel *)model
                            errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"v3_appIngSportReplyWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {
@@ -465,6 +474,7 @@
 
 - (void)v3_appSportHrReplyWithModel:(nonnull IDOHrDataExchangeModel *)model
                           errorCode:(int)errorCode {
+    if (errorCode != 0) return;
     NSLog(@"v3_appSportHrReplyWithModel:%@",model.dicFromObject);
     NSString * message = @"";
     if ([IDODataExchangeManager shareInstance].isV3ActivityExchange) {

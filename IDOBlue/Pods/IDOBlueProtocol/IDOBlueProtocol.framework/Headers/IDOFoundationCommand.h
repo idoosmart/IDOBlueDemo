@@ -1308,6 +1308,14 @@
  */
 + (void)setBreathRateSwitchCommand:(IDOSetBreathRateSwitchModel *_Nullable)switchModel
                           callback:(void (^ _Nullable)(int errorCode))callback;
+/**
+ * @brief //设置权限状态
+ * @param stateModel 设置权限状态模型
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setPermissionsStateCommand:(IDOSetPermissionsModel *_Nullable)stateModel
+                          callback:(void (^ _Nullable)(int errorCode))callback;
 
 #pragma mark ======= get Command =======
 
@@ -1424,18 +1432,6 @@
  * stateCode 0x00: verification success,0x01:ID number verification failure,0x02: version number verification failure,0x03: insufficient power,0x04: other errors
  */
 + (void)getOtaAuthInfoCommand:(void(^_Nullable)(int errorCode,int stateCode))callback;
-
-/**
- * @brief 获取5个心率区间交换数据 | Exchange data of 5 heart rate intervals were obtained
- * @param exchangeModel 运动过程中交互数据模型 | Interactive data model during motion
- * @param callback 执行后回调 data (IDOGetFiveHrReplyInfoBluetoothModel)
- * (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
- * callback data (IDOGetFiveHrReplyInfoBluetoothModel)
- * (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
- */
-+ (void)getSwithHrInterval:(IDODataExchangeModel * _Nullable)exchangeModel
-                  callback:(void(^_Nullable)(int errorCode,IDOGetFiveHrReplyInfoBluetoothModel * _Nullable data))callback;
-
 
 /**
  * @brief  默认的运动类型 | get default sport type
@@ -1977,7 +1973,7 @@
  * Motion initiated callback (errorCode : 0 transmission succeeded, other values are errors, error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)appStartSportCommand:(IDODataExchangeModel * _Nullable)model
-               startCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))startCallback;
+               startCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))startCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 /**
  * @brief app 发起运动结束 | app initiates the end of the campaign
@@ -1990,7 +1986,7 @@
  * Motion stop callback (errorCode : 0 transfer succeeded, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
 + (void)appEndSportCommand:(IDODataExchangeModel *_Nullable)model
-            appEndcallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))appEndCallback;
+            appEndcallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))appEndCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 /**
  * @brief app发起的运动 手环主动结束 | App-initiated sports bracelet ends actively
@@ -2001,7 +1997,7 @@
  * The bracelet initiates a stop callback (errorCode: 0 is successfully transmitted, other values are incorrect, and error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)appBleEndReplyCommand:(IDODataExchangeModel *_Nullable)model
-            appBleEndCallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))appBleEndCallback;
+            appBleEndCallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))appBleEndCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 
 /**
@@ -2013,7 +2009,7 @@
  * Motion pause callback (errorCode : 0 transmission success, other values are errors, you can get error code str according to IDOErrorCodeToStr)
  */
 + (void)appPauseSportCommand:(IDODataExchangeModel *_Nullable)model
-               pauseCallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))pauseCallback;
+               pauseCallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))pauseCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 
 
@@ -2025,8 +2021,7 @@
  * The bracelet initiates a pause callback (errorCode: 0 is successfully transmitted, other values are errors, and error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)appBlePauseReplyCommand:(IDODataExchangeModel *_Nullable)model
-            appBlePauseCallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))appBlePauseCallback;
-
+            appBlePauseCallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))appBlePauseCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 /**
  * @brief app 发起运动恢复 | app initiates motion recovery
@@ -2037,7 +2032,7 @@
  * Motion recovery callback (errorCode : 0 transmission succeeded, other values are wrong, error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)appRestoreSportCommand:(IDODataExchangeModel * _Nullable)model
-            appRestoreCallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))appRestoreCallback;
+            appRestoreCallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))appRestoreCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 /**
  * @brief app发起的运动 手环主动恢复 | app-initiated sports bracelet active recovery
@@ -2047,7 +2042,7 @@
  * The bracelet initiates a recovery callback (errorCode : 0 is successfully transmitted, other values are incorrect, and error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)appBleRestoreReplyCommand:(IDODataExchangeModel *_Nullable)model
-            appBleRestoreCallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))appBleRestoreCallback;
+            appBleRestoreCallback:(void (^_Nullable)(IDODataExchangeModel *  _Nullable model,int errorCode))appBleRestoreCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 /**
  * @brief app发起数据交换过程 | app initiates the data exchange process
@@ -2060,7 +2055,7 @@
  * Motion sends data callback (errorCode : 0 transmission succeeded, other values are errors, error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)appIngSportCommand:(IDODataExchangeModel *_Nullable)model
-            appIngCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))appIngCallback;
+            appIngCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))appIngCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 /**
  * @brief 手环发起运动开始 | The bracelet starts the campaign
@@ -2070,7 +2065,7 @@
  * The bracelet initiates a motion start callback (errorCode : 0 is successfully transmitted, other values are wrong, and error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)bleStartSportCommand:(IDODataExchangeModel *_Nullable)model
-            bleStartCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))bleStartCallback;
+            bleStartCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))bleStartCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 /**
  * @brief 手环发起运动暂停 | The bracelet initiates a motion pause
@@ -2080,8 +2075,7 @@
  * The bracelet initiates a motion pause callback (errorCode : 0 is successfully transmitted, other values are incorrect, and error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)blePauseSportCommand:(IDODataExchangeModel *_Nullable)model
-            blePauseCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))blePauseCallback;
-
+            blePauseCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))blePauseCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 /**
  * @brief 手环发起运动恢复 | Bracelet initiates sports recovery
  * @param model IDODataExchangeModel 只需要给 retCode 这个属性需要赋值
@@ -2090,7 +2084,7 @@
  * The bracelet initiates a motion recovery callback (errorCode : 0 is successfully transmitted, other values are wrong, and error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)bleRestoreSportCommand:(IDODataExchangeModel *_Nullable)model
-            bleRestoreCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))bleRestoreCallback;
+            bleRestoreCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))bleRestoreCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 /**
  * @brief 手环发起运动结束 | The bracelet starts the campaign
@@ -2100,23 +2094,21 @@
  * The bracelet initiates a motion end callback (errorCode : 0 is successfully transmitted, other values are errors, and error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)bleEndSportCommand:(IDODataExchangeModel *_Nullable)model
-            bleEndCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))bleEndCallback;
-
+            bleEndCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))bleEndCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 /**
  * @brief 手环发起运动发送数据 | The bracelet initiates a motion to send data
  * @param model IDODataExchangeModel 只需要给 distance 这个属性需要赋值
  * @param bleIngCallback 手环发起运动发送数据回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  */
 + (void)bleIngSportCommand:(IDODataExchangeModel *_Nullable)model
-            bleIngCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))bleIngCallback;
-
+            bleIngCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))bleIngCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 /**
  * @brief 获取一分钟的心率  | Get  heart rate for one minute
  * @param model IDODataExchangeModel 只需要给 distance 这个属性需要赋值
  * @param callback 手环发起运动发送数据回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  */
 + (void)getOneMinuteHeartRateCommand:(IDODataExchangeModel *_Nullable)model
-                            callback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))callback;
+                            callback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))callback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 
 
 /**
@@ -2125,6 +2117,5 @@
  * @param callback 手环发起运动发送数据回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  */
 + (void)getEndV3ActivityDataCommand:(IDODataExchangeModel *_Nullable)model
-                           callback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))callback;
-
+                           callback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))callback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
 @end

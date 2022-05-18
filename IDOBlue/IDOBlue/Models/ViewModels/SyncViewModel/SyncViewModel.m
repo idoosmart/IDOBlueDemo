@@ -10,10 +10,6 @@
 #import "FuncCellModel.h"
 #import "OneButtonTableViewCell.h"
 #import "FuncViewController.h"
-#import "SyncConfigViewModel.h"
-#import "SyncActivityViewModel.h"
-#import "SyncHealthViewModel.h"
-#import "SyncGpsViewModel.h"
 #import "SyncAllViewModel.h"
 
 @interface SyncViewModel()<IDOBluetoothManagerDelegate>
@@ -42,8 +38,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"config data sync")],@[lang(@"activity data sync")],@[lang(@"health data sync")],
-                          @[lang(@"GPS data sync")],@[lang(@"all data sync")]];
+        _buttonTitles = @[@[lang(@"all data sync")]];
     }
     return _buttonTitles;
 }
@@ -51,8 +46,7 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[SyncConfigViewModel class],[SyncActivityViewModel class],[SyncHealthViewModel class],
-                         [SyncGpsViewModel class],[SyncAllViewModel class]];
+        _modelClasss = @[[SyncAllViewModel class]];
     }
     return _modelClasss;
 }

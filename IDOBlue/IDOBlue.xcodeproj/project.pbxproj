@@ -126,12 +126,8 @@
 		9BBFAB6B28168E9000DC7671 /* SendMessageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA5028168E8F00DC7671 /* SendMessageViewModel.m */; };
 		9BBFAB6C28168E9000DC7671 /* SetScreenViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA5228168E8F00DC7671 /* SetScreenViewModel.m */; };
 		9BBFAB6D28168E9000DC7671 /* SetNoDisturbViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA5428168E8F00DC7671 /* SetNoDisturbViewModel.m */; };
-		9BBFAB6E28168E9000DC7671 /* SyncGpsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA5628168E8F00DC7671 /* SyncGpsViewModel.m */; };
 		9BBFAB6F28168E9000DC7671 /* SyncViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA5728168E8F00DC7671 /* SyncViewModel.m */; };
-		9BBFAB7028168E9000DC7671 /* SyncConfigViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA5B28168E8F00DC7671 /* SyncConfigViewModel.m */; };
 		9BBFAB7128168E9000DC7671 /* SyncAllViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA5F28168E8F00DC7671 /* SyncAllViewModel.m */; };
-		9BBFAB7228168E9000DC7671 /* SyncActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA6028168E8F00DC7671 /* SyncActivityViewModel.m */; };
-		9BBFAB7328168E9000DC7671 /* SyncHealthViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA6128168E8F00DC7671 /* SyncHealthViewModel.m */; };
 		9BBFAB7428168E9000DC7671 /* GetStartCountViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA6328168E8F00DC7671 /* GetStartCountViewModel.m */; };
 		9BBFAB7628168E9000DC7671 /* GetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA6628168E8F00DC7671 /* GetViewModel.m */; };
 		9BBFAB7728168E9000DC7671 /* GetOverHeatLogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA6728168E8F00DC7671 /* GetOverHeatLogViewModel.m */; };
@@ -144,7 +140,6 @@
 		9BBFAB7E28168E9000DC7671 /* GetNotifyStateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA7428168E8F00DC7671 /* GetNotifyStateViewModel.m */; };
 		9BBFAB7F28168E9000DC7671 /* GetScheduleRemindViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA7628168E8F00DC7671 /* GetScheduleRemindViewModel.m */; };
 		9BBFAB8028168E9000DC7671 /* GetNoDisturbViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA7728168E8F00DC7671 /* GetNoDisturbViewModel.m */; };
-		9BBFAB8128168E9000DC7671 /* GetFiveHeartRateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA7928168E8F00DC7671 /* GetFiveHeartRateViewModel.m */; };
 		9BBFAB8228168E9000DC7671 /* GetGpsInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA7A28168E8F00DC7671 /* GetGpsInfoViewModel.m */; };
 		9BBFAB8328168E9000DC7671 /* GetEncryptionCodeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA7C28168E8F00DC7671 /* GetEncryptionCodeViewModel.m */; };
 		9BBFAB8428168E9000DC7671 /* GetDefaultSportViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAA7D28168E8F00DC7671 /* GetDefaultSportViewModel.m */; };
@@ -522,18 +517,10 @@
 		9BBFAA5228168E8F00DC7671 /* SetScreenViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetScreenViewModel.m; sourceTree = "<group>"; };
 		9BBFAA5328168E8F00DC7671 /* SetMenstruationViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetMenstruationViewModel.h; sourceTree = "<group>"; };
 		9BBFAA5428168E8F00DC7671 /* SetNoDisturbViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetNoDisturbViewModel.m; sourceTree = "<group>"; };
-		9BBFAA5628168E8F00DC7671 /* SyncGpsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncGpsViewModel.m; sourceTree = "<group>"; };
 		9BBFAA5728168E8F00DC7671 /* SyncViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewModel.m; sourceTree = "<group>"; };
-		9BBFAA5828168E8F00DC7671 /* SyncHealthViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncHealthViewModel.h; sourceTree = "<group>"; };
-		9BBFAA5928168E8F00DC7671 /* SyncActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncActivityViewModel.h; sourceTree = "<group>"; };
 		9BBFAA5A28168E8F00DC7671 /* SyncAllViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncAllViewModel.h; sourceTree = "<group>"; };
-		9BBFAA5B28168E8F00DC7671 /* SyncConfigViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncConfigViewModel.m; sourceTree = "<group>"; };
-		9BBFAA5C28168E8F00DC7671 /* SyncGpsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncGpsViewModel.h; sourceTree = "<group>"; };
 		9BBFAA5D28168E8F00DC7671 /* SyncViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewModel.h; sourceTree = "<group>"; };
-		9BBFAA5E28168E8F00DC7671 /* SyncConfigViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncConfigViewModel.h; sourceTree = "<group>"; };
 		9BBFAA5F28168E8F00DC7671 /* SyncAllViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncAllViewModel.m; sourceTree = "<group>"; };
-		9BBFAA6028168E8F00DC7671 /* SyncActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncActivityViewModel.m; sourceTree = "<group>"; };
-		9BBFAA6128168E8F00DC7671 /* SyncHealthViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncHealthViewModel.m; sourceTree = "<group>"; };
 		9BBFAA6328168E8F00DC7671 /* GetStartCountViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStartCountViewModel.m; sourceTree = "<group>"; };
 		9BBFAA6428168E8F00DC7671 /* GetV3HearRateViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetV3HearRateViewModel.h; sourceTree = "<group>"; };
 		9BBFAA6628168E8F00DC7671 /* GetViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetViewModel.m; sourceTree = "<group>"; };
@@ -555,7 +542,6 @@
 		9BBFAA7628168E8F00DC7671 /* GetScheduleRemindViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetScheduleRemindViewModel.m; sourceTree = "<group>"; };
 		9BBFAA7728168E8F00DC7671 /* GetNoDisturbViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetNoDisturbViewModel.m; sourceTree = "<group>"; };
 		9BBFAA7828168E8F00DC7671 /* GetWalkReminderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetWalkReminderViewModel.h; sourceTree = "<group>"; };
-		9BBFAA7928168E8F00DC7671 /* GetFiveHeartRateViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetFiveHeartRateViewModel.m; sourceTree = "<group>"; };
 		9BBFAA7A28168E8F00DC7671 /* GetGpsInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetGpsInfoViewModel.m; sourceTree = "<group>"; };
 		9BBFAA7B28168E8F00DC7671 /* GetStressThresholdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetStressThresholdModel.h; sourceTree = "<group>"; };
 		9BBFAA7C28168E8F00DC7671 /* GetEncryptionCodeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetEncryptionCodeViewModel.m; sourceTree = "<group>"; };
@@ -590,7 +576,6 @@
 		9BBFAA9928168E8F00DC7671 /* GetEncryptionCodeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetEncryptionCodeViewModel.h; sourceTree = "<group>"; };
 		9BBFAA9A28168E8F00DC7671 /* GetStressThresholdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStressThresholdModel.m; sourceTree = "<group>"; };
 		9BBFAA9B28168E8F00DC7671 /* GetGpsInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetGpsInfoViewModel.h; sourceTree = "<group>"; };
-		9BBFAA9C28168E8F00DC7671 /* GetFiveHeartRateViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetFiveHeartRateViewModel.h; sourceTree = "<group>"; };
 		9BBFAA9D28168E8F00DC7671 /* GetWalkReminderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetWalkReminderViewModel.m; sourceTree = "<group>"; };
 		9BBFAA9E28168E8F00DC7671 /* GetBatteryLogViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBatteryLogViewModel.h; sourceTree = "<group>"; };
 		9BBFAA9F28168E8F00DC7671 /* GetMacViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMacViewModel.h; sourceTree = "<group>"; };
@@ -1228,18 +1213,10 @@
 		9BBFAA5528168E8F00DC7671 /* SyncViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9BBFAA5628168E8F00DC7671 /* SyncGpsViewModel.m */,
 				9BBFAA5728168E8F00DC7671 /* SyncViewModel.m */,
-				9BBFAA5828168E8F00DC7671 /* SyncHealthViewModel.h */,
-				9BBFAA5928168E8F00DC7671 /* SyncActivityViewModel.h */,
 				9BBFAA5A28168E8F00DC7671 /* SyncAllViewModel.h */,
-				9BBFAA5B28168E8F00DC7671 /* SyncConfigViewModel.m */,
-				9BBFAA5C28168E8F00DC7671 /* SyncGpsViewModel.h */,
 				9BBFAA5D28168E8F00DC7671 /* SyncViewModel.h */,
-				9BBFAA5E28168E8F00DC7671 /* SyncConfigViewModel.h */,
 				9BBFAA5F28168E8F00DC7671 /* SyncAllViewModel.m */,
-				9BBFAA6028168E8F00DC7671 /* SyncActivityViewModel.m */,
-				9BBFAA6128168E8F00DC7671 /* SyncHealthViewModel.m */,
 			);
 			path = SyncViewModel;
 			sourceTree = "<group>";
@@ -1268,7 +1245,6 @@
 				9BBFAA7628168E8F00DC7671 /* GetScheduleRemindViewModel.m */,
 				9BBFAA7728168E8F00DC7671 /* GetNoDisturbViewModel.m */,
 				9BBFAA7828168E8F00DC7671 /* GetWalkReminderViewModel.h */,
-				9BBFAA7928168E8F00DC7671 /* GetFiveHeartRateViewModel.m */,
 				9BBFAA7A28168E8F00DC7671 /* GetGpsInfoViewModel.m */,
 				9BBFAA7B28168E8F00DC7671 /* GetStressThresholdModel.h */,
 				9BBFAA7C28168E8F00DC7671 /* GetEncryptionCodeViewModel.m */,
@@ -1303,7 +1279,6 @@
 				9BBFAA9928168E8F00DC7671 /* GetEncryptionCodeViewModel.h */,
 				9BBFAA9A28168E8F00DC7671 /* GetStressThresholdModel.m */,
 				9BBFAA9B28168E8F00DC7671 /* GetGpsInfoViewModel.h */,
-				9BBFAA9C28168E8F00DC7671 /* GetFiveHeartRateViewModel.h */,
 				9BBFAA9D28168E8F00DC7671 /* GetWalkReminderViewModel.m */,
 				9BBFAA9E28168E8F00DC7671 /* GetBatteryLogViewModel.h */,
 				9BBFAA9F28168E8F00DC7671 /* GetMacViewModel.h */,
@@ -1824,13 +1799,11 @@
 				9BBFABB528168E9000DC7671 /* MusicViewModel.m in Sources */,
 				9BBFAB7928168E9000DC7671 /* GetBatteryInfoViewModel.m in Sources */,
 				9B437EFC21393ADC00DE2FC8 /* main.m in Sources */,
-				9BBFAB6E28168E9000DC7671 /* SyncGpsViewModel.m in Sources */,
 				9BBFABA428168E9000DC7671 /* UpdateSportIconViewModel.m in Sources */,
 				9B9C40322566693C00809576 /* View+MASAdditions.m in Sources */,
 				B0C8F994274B3078009BA60D /* NSObject+ModelToDic.m in Sources */,
 				9BBFABAA28168E9000DC7671 /* UpdateApolloViewModel.m in Sources */,
 				9BBFAB6428168E9000DC7671 /* SetHandUpViewModel.m in Sources */,
-				9BBFAB7328168E9000DC7671 /* SyncHealthViewModel.m in Sources */,
 				9BBFAB4D28168E9000DC7671 /* SetContactItemViewModel.m in Sources */,
 				9BBFAB7828168E9000DC7671 /* GetSportSortViewModel.m in Sources */,
 				9BBFABBF28168E9000DC7671 /* ControlRestartViewModel.m in Sources */,
@@ -1921,7 +1894,6 @@
 				B0C8F9AF274B3078009BA60D /* TwoButtonTableViewCell.m in Sources */,
 				9BBFAB5128168E9000DC7671 /* SetFindPhoneViewModel.m in Sources */,
 				9BBFAB2528168E9000DC7671 /* QueryViewModel.m in Sources */,
-				9BBFAB7228168E9000DC7671 /* SyncActivityViewModel.m in Sources */,
 				9BBFAB6C28168E9000DC7671 /* SetScreenViewModel.m in Sources */,
 				9BBFABB628168E9000DC7671 /* TranMusicInfoViewModel.m in Sources */,
 				9BBFAB3E28168E9000DC7671 /* SetFitnessGuidanceViewModel.m in Sources */,
@@ -1962,7 +1934,6 @@
 				9BC479A5244E9A5900455A6E /* PQVoiceView.m in Sources */,
 				9BBFAB1F28168E9000DC7671 /* MakeDialFileViewModel.m in Sources */,
 				9BBFAB4228168E9000DC7671 /* AllAlarmViewModel.m in Sources */,
-				9BBFAB7028168E9000DC7671 /* SyncConfigViewModel.m in Sources */,
 				9BBFAB2B28168E9000DC7671 /* QueryGpsViewModel.m in Sources */,
 				B0C8F9B6274B3078009BA60D /* ThreeButtonTableViewCell.m in Sources */,
 				9BBFABA228168E9000DC7671 /* UpdateMessageIconViewModel.m in Sources */,
@@ -2026,7 +1997,6 @@
 				9BBFAB7D28168E9000DC7671 /* GetFlashInfoViewModel.m in Sources */,
 				9BBFAB1928168E9000DC7671 /* PickerDataModel.m in Sources */,
 				B0C8F9A1274B3078009BA60D /* FuncTableView.m in Sources */,
-				9BBFAB8128168E9000DC7671 /* GetFiveHeartRateViewModel.m in Sources */,
 				9BBFAB2D28168E9000DC7671 /* SetMenuListViewModel.m in Sources */,
 				9BBFABBE28168E9000DC7671 /* SwitchDeviceViewModel.m in Sources */,
 				9BBFABB828168E9000DC7671 /* SetFolderInfoViewModel.m in Sources */,

@@ -15,6 +15,19 @@
 
 @end
 
+#pragma mark ====  设置设备权限状态 model ====
+@interface IDOSetPermissionsModel : IDOBluetoothBaseModel
+/**
+ 0:相机权限
+ */
+@property (nonatomic,assign) NSInteger type;
+/**
+ 是否开启
+ */
+@property (nonatomic,assign) BOOL isOpen;
+
+@end
+
 #pragma mark ====  获取BT配对开关状态 model ====
 @interface IDOGetBtPairStateModel : IDOBluetoothBaseModel
 /**

@@ -25,7 +25,6 @@
 #import "GetBatteryInfoViewModel.h"
 #import "GetDefaultLanguageViewModel.h"
 #import "GetMenuListViewModel.h"
-#import "GetFiveHeartRateViewModel.h"
 #import "GetDefaultSportViewModel.h"
 #import "GetErrorLogViewModel.h"
 #import "GetV3AlarmsViewModel.h"
@@ -78,7 +77,6 @@
                           @[lang(@"get battery info")],
                           @[lang(@"get default language")],
                           @[lang(@"get menu list")],
-                          @[lang(@"get five heart rate")],
                           @[lang(@"get default sport type")],
                           @[lang(@"get error log state")],
                           @[lang(@"get v3 alarms info")],
@@ -118,7 +116,6 @@
                          [GetBatteryInfoViewModel class],
                          [GetDefaultLanguageViewModel class],
                          [GetMenuListViewModel class],
-                         [GetFiveHeartRateViewModel class],
                          [GetDefaultSportViewModel class],
                          [GetErrorLogViewModel class],
                          [GetV3AlarmsViewModel class],
