@@ -111,7 +111,7 @@
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
- * @return IDOSetWeatherSunTimeModel
+ * @return IDOSetSmartHeartRateModel
  */
 + (IDOSetSmartHeartRateModel *)currentModel;
 
@@ -1348,7 +1348,7 @@
  */
 @property (nonatomic,assign) NSInteger goalTime;
 /**
- 通知类型
+ 通知类型  0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
  */
 @property (nonatomic,assign) NSInteger notifyFlag;
 
@@ -1877,8 +1877,9 @@
  * 9:健身，10:动感单车，11:椭圆机，12:跑步机，13:仰卧起坐，14:俯卧撑，15:哑铃，16:举重，
  * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
  * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，31：室内划船/roller machine， 32：普拉提/pilates， 33:交叉训练/cross train,
- * 34:有氧运动/cardio，35：尊巴舞/Zumba, 36:广场舞/square dance, 37:平板支撑/Plank, 38:健身房/gym 48:户外跑步，49:室内跑步，
- * 50:户外骑行，51:室内骑行，52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
+ * 34:有氧运动/cardio，35：尊巴舞/Zumba, 36:广场舞/square dance, 37:平板支撑/Plank, 38:健身房/gym
+ * 48:户外跑步，49:室内跑步，50:户外骑行，51:室内骑行，52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，
+ * 56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
  基础运动：
  100：自由训练，101：功能性力量训练，102：核心训练，103：踏步机，104：整理放松
  健身（25种）
@@ -1909,7 +1910,8 @@
 @property (nonatomic,assign) NSInteger type;
 
 /**
- 01 表示小图标已下载；02 表示大图标已下载；03 表示小图标和大图表都已经下载；00 表示图标未下载
+ * 01 表示小图标已下载；02 表示大图标已下载；03 表示小图标和大图表都已经下载；00 表示图标未下载
+ * 支持运动图标下发才有效
  */
 @property (nonatomic,assign) NSInteger flag;
 
@@ -1931,11 +1933,11 @@
  */
 @property (nonatomic,assign) NSInteger allNum;
 /**
- 最少显示个数
+ 最少显示个数（支持100种运动才有效，设置不需要赋值，获取返回的值）
  */
 @property (nonatomic,assign) NSInteger minShowNum;
 /**
- 最大显示个数
+ 最大显示个数（支持100种运动才有效，设置不需要赋值，获取返回的值）
  */
 @property (nonatomic,assign) NSInteger maxShowNum;
 /**

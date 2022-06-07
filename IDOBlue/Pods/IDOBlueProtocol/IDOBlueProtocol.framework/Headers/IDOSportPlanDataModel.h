@@ -15,7 +15,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOSportPlanDataModel : IDOBluetoothBaseModel
-
+//00成功 01:失败  02：已开启另一跑步计划
+@property (nonatomic,assign) NSInteger errorCode;
 //计划版本号 00
 @property (nonatomic,assign) NSInteger planVersion;
 
@@ -74,42 +75,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 //计划集合
 @property (nonatomic,strong) NSArray<IDOSportContentDataModel *> * items;
-
-@end
-
-@interface IDOBleNoticeAppPlanModel : IDOSportPlanDataModel
-//动作类型  1快走；2慢跑；3中速跑；4快跑  ；5结束课程运动 （还要等待用户是否有自由运动）；6课程结束后自由运动 （此字段当operate为0x05起作用）
-@property (nonatomic,assign) NSInteger actionType;
-//目标时间  单位秒
-@property (nonatomic,assign) NSInteger time;
-//心率范围低值
-@property (nonatomic,assign) NSInteger lowHeart;
-//心率范围高值
-@property (nonatomic,assign) NSInteger heightHeart;
-@end
-
-@interface IDOBleNoticeAppReplyPlanModel : IDOSportPlanDataModel
-//动作类型  1快走；2慢跑；3中速跑；4快跑  ；5结束课程运动 （还要等待用户是否有自由运动）；6课程结束后自由运动 （此字段当operate为0x05起作用）
-@property (nonatomic,assign) NSInteger actionType;
-//00成功   其他失败
-@property (nonatomic,assign) NSInteger errorCode;
-@end
-
-@interface IDOAppNoticeBlePlanModel : IDOSportPlanDataModel
-//目标时间  单位秒
-@property (nonatomic,assign) NSInteger time;
-//心率范围低值
-@property (nonatomic,assign) NSInteger lowHeart;
-//心率范围高值
-@property (nonatomic,assign) NSInteger heightHeart;
-
-@end
-
-@interface IDOAppNoticeBleReplyPlanModel : IDOSportPlanDataModel
-//0x00:成功 其他失败
-@property (nonatomic,assign) NSInteger errorCode;
-//动作类型  1快走；2慢跑；3中速跑；4快跑  ；5结束课程运动 （还要等待用户是否有自由运动）；6课程结束后自由运动 （此字段当operate为0x05起作用）
-@property (nonatomic,assign) NSInteger actionType;
 
 @end
 

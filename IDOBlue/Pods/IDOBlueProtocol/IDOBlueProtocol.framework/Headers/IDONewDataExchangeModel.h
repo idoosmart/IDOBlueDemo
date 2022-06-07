@@ -56,6 +56,8 @@ NS_ASSUME_NONNULL_BEGIN
  180:滑板,181:攀岩,182:蹦极,183:跑酷,184:BMX,
  kr01定制项目
  193:Outdoor Fun（户外玩耍）, 194:Other Activity（其他运动）
+ 计划类型：
+ 0x01：跑步计划3km ，0x02：跑步计划5km ， 0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
  */
 @property (nonatomic,assign) NSInteger sportType;
 
@@ -78,6 +80,82 @@ NS_ASSUME_NONNULL_BEGIN
  是否强制开始 0:不强制,1:强制 | is mandatory start
  */
 @property (nonatomic,assign) NSInteger forceStart;
+
+@end
+
+#pragma mark ==== app 操作计划运动 ====
+@interface IDOAppOperatePlanExchangeModel : IDONewDataExchangeModel
+
+//0x01:开始运动 ，0x02：暂停运动 , 0x03:恢复运动 ，0x04：结束运动 0x05: 切换动作
+@property (nonatomic,assign) NSInteger operate;
+
+//训练的课程日期偏移 从0开始
+@property (nonatomic,assign) NSInteger trainingOffset;
+/**
+ 动作类型  1快走；2慢跑；3中速跑；4快跑  ；
+ 5结束课程运动 （还要等待用户是否有自由运动）；6课程结束后自由运动 （此字段当operate为0x05起作用）
+ */
+@property (nonatomic,assign) NSInteger actionType;
+/**
+ 计划类型：0x01：跑步计划3km ，0x02：跑步计划5km ，
+ 0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
+ */
+@property (nonatomic,assign) NSInteger planType;
+
+//0x00:成功 其他失败
+@property (nonatomic,assign) NSInteger errorCode;
+
+@end
+
+#pragma mark ==== ble 操作计划运动 ====
+@interface IDOBleOperatePlanExchangeModel : IDONewDataExchangeModel
+//0x01:开始运动 ，0x02：暂停运动 , 0x03:恢复运动 ，0x04：结束运动 ，0x05: 切换动作
+@property (nonatomic,assign) NSInteger operate;
+/**
+ 动作类型  1快走；2慢跑；3中速跑；4快跑  ；
+ 5结束课程运动 （还要等待用户是否有自由运动）；6课程结束后自由运动 （此字段当operate为0x05起作用）
+ */
+@property (nonatomic,assign) NSInteger actionType;
+/**
+ 计划类型：0x01：跑步计划3km ，0x02：跑步计划5km ，
+ 0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
+ */
+@property (nonatomic,assign) NSInteger planType;
+//0x00:成功 其他失败
+@property (nonatomic,assign) NSInteger errorCode;
+//训练课程年份
+@property (nonatomic,assign) NSInteger trainingYear;
+//训练课程月份
+@property (nonatomic,assign) NSInteger trainingMonth;
+//训练课程日期
+@property (nonatomic,assign) NSInteger trainingDay;
+//动作目标时间  单位秒
+@property (nonatomic,assign) NSInteger time;
+//心率范围低值
+@property (nonatomic,assign) NSInteger lowHeart;
+//心率范围高值
+@property (nonatomic,assign) NSInteger heightHeart;
+
+@end
+
+#pragma mark ==== ble 操作计划运动回复 ====
+@interface IDOBleOperatePlanReplyExchangeModel : IDONewDataExchangeModel
+
+//0x01:开始运动 ，0x02：暂停运动 , 0x03:恢复运动 ，0x04：结束运动，0x05: 切换动作
+@property (nonatomic,assign) NSInteger operate;
+/**
+ 动作类型  1快走；2慢跑；3中速跑；4快跑  ；
+ 5结束课程运动 （还要等待用户是否有自由运动）；6课程结束后自由运动 （此字段当operate为0x05起作用）
+ */
+@property (nonatomic,assign) NSInteger actionType;
+/**
+ 计划类型：0x01：跑步计划3km ，0x02：跑步计划5km ，
+ 0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
+ */
+@property (nonatomic,assign) NSInteger planType;
+
+//0x00:成功 其他失败
+@property (nonatomic,assign) NSInteger errorCode;
 
 @end
 
@@ -259,6 +337,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark ==== v3数据交换中 ====
 @interface IDOV3AppIngDataExchangeModel : IDONewDataExchangeModel
 /**
+ 数据版本
+ 运动计划版本号为0x20,不需要传sportType
+ */
+@property (nonatomic,assign) NSInteger dataVersion;
+/**
  持续时间 (单位:秒钟) | durations
  */
 @property (nonatomic,assign) NSInteger durations;
@@ -287,6 +370,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface IDOV3AppIngReplyExchangeModel : IDONewDataExchangeModel
 /**
  数据版本
+ 运动计划版本号为0x20
  */
 @property (nonatomic,assign) NSInteger dataVersion;
 /**
@@ -333,15 +417,35 @@ NS_ASSUME_NONNULL_BEGIN
  * App calculates and displays real-time pace unit second
  */
 @property (nonatomic,assign) NSInteger realTimePace;
+/**
+ 无氧训练效果；  单位：无   范围 1.0 ~ 5.0 （*10倍）
+ */
+@property (nonatomic,assign) NSInteger anaerobicTrainingEffect;
+/**
+ 有氧训练效果；  单位：无   范围 1.0 ~ 5.0 （*10倍）
+ */
+@property (nonatomic,assign) NSInteger trainingEffect;
+/**
+ 运动倒计时
+ */
+@property (nonatomic,assign) NSInteger countHour;
+/**
+ 运动倒计时分
+ */
+@property (nonatomic,assign) NSInteger countMinute;
+/**
+ 运动倒计时秒
+ */
+@property (nonatomic,assign) NSInteger countSecond;
 
 @end
 
 #pragma mark ==== v2数据交换中 ====
 @interface IDOV2AppIngDataExchangeModel : IDONewDataExchangeModel
 /**
- flag:0:全部有效, 1:距离无效， 2: gps 信号弱 | status 0:all effective 1:distance invalid 2:gps signal weak
+ status:0:全部有效, 1:距离无效， 2: gps 信号弱 | status 0:all effective 1:distance invalid 2:gps signal weak
  */
-@property (nonatomic,assign) NSInteger flag;
+@property (nonatomic,assign) NSInteger status;
 /**
  距离 (单位:米) | distance
  */
@@ -414,10 +518,25 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark ==== v3运动结束数据交换 ====
 @interface IDOV3SportEndDataExchangeModel : IDONewDataExchangeModel
 /**
+ 年份
+ */
+@property (nonatomic,assign) NSInteger year;
+/**
+月份
+ */
+@property (nonatomic,assign) NSInteger month;
+/**
  数据版本
+ 运动计划版本号为0x20
  */
 @property (nonatomic,assign) NSInteger dataVersion;
 /**
+ 计划类型：
+ 0x01：跑步计划3km ，0x02：跑步计划5km ，
+ 0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
+ */
+@property (nonatomic,assign) NSInteger planType;
+ /**
  心率间隔 | heart rate interval
  */
 @property (nonatomic,assign) NSInteger intervalSecond;
@@ -549,64 +668,43 @@ NS_ASSUME_NONNULL_BEGIN
  最大摄氧量；  单位：毫升/公斤/分钟； 范围  0-80
  */
 @property (nonatomic,assign) NSInteger vo2Max;
+/**
+ 本次动作训练个数
+ */
+@property (nonatomic,assign) NSInteger actionDataCount;
+/**
+ 课程内运动热量  单位千卡
+ */
+@property (nonatomic,assign) NSInteger inClassCalories;
+/**
+ 动作完成率 0—100
+ */
+@property (nonatomic,assign) NSInteger completionRate;
+/**
+ 心率控制率  0—100
+ */
+@property (nonatomic,assign) NSInteger hrCompletionRate;
+/**
+ 恢复时长：单位小时(app收到该数据之后，每过一小时需要自减一)
+ */
+@property (nonatomic,assign) NSInteger recoverTime;
+/**
+ 摄氧量等级  0x01:低等   0x02:业余   0x03:一般  0x04：平均    0x05：良好  0x06：优秀   0x07：专业
+ */
+@property (nonatomic,assign) NSInteger grade;
+/**
+ 动作完成内容
+ type : 动作类型  1快走；2慢跑; 3中速跑；4快跑
+ heart_con_value : 每个动作心率控制
+ time : 动作完成时间 单位秒
+ goal_time ：动作目标时间
+ */
+@property (nonatomic,copy) NSMutableArray<NSDictionary *> * actionData;
 
-@end
-
-#pragma mark ==== 运动计划数据交换 ====
-@interface IDOSportPlanDataExchangeModel : IDONewDataExchangeModel
-//计划版本号默认0x20
-@property (nonatomic,assign) NSInteger planVersion;
-//0 表示信号弱， 1：表示信号强
-@property (nonatomic,assign) NSInteger signalFlag;
-//app 距离
-@property (nonatomic,assign) NSInteger distance;
-//持续时间
-@property (nonatomic,assign) NSInteger duration;
-//卡路里
-@property (nonatomic,assign) NSInteger calories;
-//计划类型：0x01：跑步计划3km ，0x02：跑步计划5km ， 0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
-@property (nonatomic,assign) NSInteger planType;
-//app计算显示实时配速 配速uint16_t 单位km/h，100倍
-@property (nonatomic,assign) NSInteger realTimeSpeed;
-
-@end
-
-#pragma mark ==== 运动计划数据交换回复 ====
-@interface IDOSportPlanDataReplyExchangeModel : IDONewDataExchangeModel
-//计划版本号默认0x20
-@property (nonatomic,assign) NSInteger planVersion;
-//计划类型：0x01：跑步计划3km ，0x02：跑步计划5km ， 0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
-@property (nonatomic,assign) NSInteger planType;
-//动作类型  1快走；2慢跑；3中速跑；4快跑  ；5结束课程运动 （还要等待用户是否有自由运动）；6课程结束后自由运动（此字段当operate为0x05起作用）
-@property (nonatomic,assign) NSInteger actionType;
-//运动倒计时（注：递减）， 或课程结束后计时（（注：递增））   action_type = 1—5时递减  ， action_type = 6递增
-@property (nonatomic,assign) NSInteger countHour;
-//运动倒计时（注：递减）， 或课程结束后计时（（注：递增））   action_type = 1—5时递减  ， action_type = 6递增
-@property (nonatomic,assign) NSInteger countMinute;
-//运动倒计时（注：递减）， 或课程结束后计时（（注：递增））   action_type = 1—5时递减  ， action_type = 6递增
-@property (nonatomic,assign) NSInteger countSecond;
-//心率数据
-@property (nonatomic,assign) NSInteger heartRate;
-//距离 按照设置的单位数据显示
-@property (nonatomic,assign) NSInteger distance;
-//app计算显示实时配速 配速uint16_t 单位km/h，100倍
-@property (nonatomic,assign) NSInteger realTimeSpeed;
-//app计算显示实时配速 配速uint16_t 单位km/h，100倍
-@property (nonatomic,assign) NSInteger kmSpeed;
-//动态卡路里
-@property (nonatomic,assign) NSInteger realTimeCalories;
-//步数
-@property (nonatomic,assign) NSInteger steps;
-//状态 开始 1， 手动暂停 2， 结束 3，  自动暂停 4，   0是无效状态
-@property (nonatomic,assign) NSInteger status;
-//持续时间 秒钟数据
-@property (nonatomic,assign) NSInteger duration;
-//实时的配速 s
-@property (nonatomic,assign) NSInteger realTimeSpeedPace;
-//有氧训练效果等级  单位无  范围 0-50 扩大10倍传输
-@property (nonatomic,assign) NSInteger aerobicTraining;
-//无氧运动训练效果等级 单位无  范围 0-50 扩大10倍传输
-@property (nonatomic,assign) NSInteger anaerobicTraining;
+/**
+ 训练的课程日期偏移 从0开始
+ */
+@property (nonatomic,assign) NSInteger trainingOffset;
 
 @end
 

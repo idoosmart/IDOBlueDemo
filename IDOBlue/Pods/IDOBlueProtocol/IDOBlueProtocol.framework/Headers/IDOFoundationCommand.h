@@ -639,7 +639,7 @@
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
 + (void)setChildSwitchNoticeStateCommand:(IDOSetNoticeInfoBuletoothModel * _Nullable)noticModel
-                                callback:(void (^_Nullable)(int errorCode))callback;
+                                callback:(void (^_Nullable)(int errorCode))callback DEPRECATED_MSG_ATTRIBUTE("Method deprecated");
 
 /**
  * @brief 设置蓝牙配对 (不可重复设置,会引起无法再连接设备.只要配对成功,就不需要再设置,只有获取到系统配对设备被忽略,才可设置配对。⚠️在配对过程中不要执行其他命令。)
@@ -651,7 +651,7 @@
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
  */
 + (void)setBluetoothPairingCommandWithCallback:(void (^_Nullable)(BOOL isNeedDisconnect,int stateCode))callback
-                               pairingComplete:(void (^_Nullable)(int errorCode))complete;
+                               pairingComplete:(void (^_Nullable)(int errorCode))complete DEPRECATED_MSG_ATTRIBUTE("Method deprecated");
 
 /**
  * @brief 设置寻找手机 | Set looking for a mobile phone

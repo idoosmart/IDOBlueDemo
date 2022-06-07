@@ -21,6 +21,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)transferAudioStateCode:(int)stateCode
                        message:(NSString *)message;
 
+/**
+ 解析avs响应数据
+ */
+- (void)avsParseResponseData:(NSDictionary *)dic
+                   errorCode:(int)errorCode;
+
+//opus 编码数据 (分段多次回调语音数据)
+- (void)opusEncodeData:(NSData *)data;
+
 @end
 
 @interface IDOAlexaAudioManager : NSObject
@@ -42,6 +51,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 //单例
 + (instancetype)shareInstance;
+
+//avs响应原始数据
+- (BOOL)avsResponseData:(NSData *)data;
 
 //mp3 转 pcm 文件
 - (BOOL)mp3AudioToPcmWithData:(NSData *)data;

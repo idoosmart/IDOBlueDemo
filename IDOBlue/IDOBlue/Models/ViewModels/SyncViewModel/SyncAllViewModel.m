@@ -92,6 +92,7 @@
         initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_CONFIG_ITEM_TYPE | IDO_WANT_TO_SYNC_HEALTH_ITEM_TYPE
         | IDO_WANT_TO_SYNC_ACTIVITY_ITEM_TYPE | IDO_WANT_TO_SYNC_GPS_ITEM_TYPE;
         initSyncManager().addSyncConfigInitData(^NSArray<IDOBluetoothBaseModel *> * _Nullable(IDO_SYNC_CONFIG_DATA_TYPE type) {
+            
                 if (type == IDO_SYNC_SET_SPORT_MODE_SELECT_TYPE) {
                 IDOSetSportShortcutInfoBluetoothModel *sportModel = [IDOSetSportShortcutInfoBluetoothModel currentModel];
                 sportModel.isWalk = YES;
@@ -144,6 +145,27 @@
                     }
                 }
                  return @[sportModel];
+                }
+                else if (type == IDO_SYNC_SET_SPORT_MODE_SORT_TYPE) {
+                    IDOSetSportSortingInfoBluetoothModel * model = [IDOSetSportSortingInfoBluetoothModel currentModel];
+                    if (model.sportSortingItems.count > 0) { //如果发现items的数据个数大于0,说明用户设置过运动排序
+                        return @[model];
+                    }
+                    IDOSetSportSortingItemModel * item1 = [[IDOSetSportSortingItemModel alloc]init];
+                    item1.index = 1;
+                    item1.type = 1;
+                    IDOSetSportSortingItemModel * item2 = [[IDOSetSportSortingItemModel alloc]init];
+                    item2.index = 2;
+                    item2.type = 2;
+                    IDOSetSportSortingItemModel * item3 = [[IDOSetSportSortingItemModel alloc]init];
+                    item3.index = 3;
+                    item3.type = 3;
+                    IDOSetSportSortingItemModel * item4 = [[IDOSetSportSortingItemModel alloc]init];
+                    item4.index = 4;
+                    item4.type = 4;
+                    model.sportSortingItems = @[item1,item2,item3,item4];
+                    model.allNum = model.sportSortingItems.count;
+                    return @[model];
                 }
                 return @[];
         });

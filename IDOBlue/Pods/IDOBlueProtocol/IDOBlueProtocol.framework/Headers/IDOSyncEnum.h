@@ -298,12 +298,47 @@ typedef NS_ENUM(NSInteger, IDO_SYNC_CONFIG_DATA_TYPE) {
      * 获取下载语言信息
      * get down language
      */
-    IDO_SYNC_GET_DOWN_LANGUAGE = 34,
+    IDO_SYNC_GET_DOWN_LANGUAGE_TYPE = 34,
     /*
      * 设置菜单列表
      * set menu list
      */
-    IDO_SYNC_SET_MENU_LIST_TYPE = 35
+    IDO_SYNC_SET_MENU_LIST_TYPE = 35,
+    /**
+     * 设置科学睡眠开关
+     * set scientific sleep switch
+     */
+    IDO_SYNC_SET_SCIENTIFIC_SLEEP_SWITCH_TYPE = 36,
+    /**
+     * 设置温度开关
+     * set temperature switch
+     */
+    IDO_SYNC_SET_TEMPERATURE_SWITCH_TYPE = 37,
+    /**
+     * 设置健身指导
+     * set fitness guidane
+     */
+    IDO_SYNC_SET_FITNESS_GUIDANCE_TYPE = 38,
+    /**
+     * 设置血氧开关
+     * set spo2 switch
+     */
+    IDO_SYNC_SET_SPO2_SWITCH_TYPE = 39,
+    /**
+     * 设置噪音开关
+     * set noise switch
+     */
+    IDO_SYNC_SET_NOISE_SWITCH_TYPE = 40,
+    /**
+     * 设置呼吸率开关
+     * set respi rate switch
+     */
+    IDO_SYNC_SET_RESPI_RATE_TYPE = 41,
+    /**
+     * 设置智能心率模式
+     * set heart rate mode smart
+     */
+    IDO_SYNC_SET_HEART_RATE_MODE_SMART = 42,
 };
 
 /**

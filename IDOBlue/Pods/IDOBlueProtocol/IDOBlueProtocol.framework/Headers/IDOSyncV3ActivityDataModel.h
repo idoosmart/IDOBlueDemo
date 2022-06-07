@@ -320,9 +320,8 @@ max step stride
  训练效果；  单位：无   范围 1.0 ~ 5.0 （*10倍）
  */
 @property (nonatomic,assign) NSInteger trainingEffect;
-
 /**
- 最大摄氧量；  单位：毫升/公斤/分钟； 范围  0-80
+ 最大摄氧量；  单位：毫升/公斤/分钟； 范围  0-80  不放大100倍
  */
 @property (nonatomic,assign) NSInteger vo2Max;
 
@@ -330,7 +329,6 @@ max step stride
  摄氧量等级  1:低等   2:业余   3:一般  4：平均    5：良好  6：优秀   7：专业
  */
 @property (nonatomic,assign) NSInteger grade;
-
 /**
  恢复时间点年
  */
@@ -416,6 +414,11 @@ max step stride
  * heartValue : 心率控制值
  */
 @property (nonatomic,strong) NSArray<NSDictionary *> * actionItems;
+
+/**
+ 训练的课程日期偏移 从0开始
+ */
+@property (nonatomic,assign) NSInteger trainingOffset;
 
 @end
 

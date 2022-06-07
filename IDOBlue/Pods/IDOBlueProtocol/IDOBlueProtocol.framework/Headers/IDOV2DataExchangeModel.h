@@ -74,10 +74,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  status:0:全部有效, 1:距离无效， 2: gps 信号弱 | status 0:all effective 1:distance invalid 2:gps signal weak
  */
-@property (nonatomic,assign) NSInteger flag;
-/**
- status:0:全部有效, 1:距离无效， 2: gps 信号弱 | status 0:all effective 1:distance invalid 2:gps signal weak
- */
 @property (nonatomic,assign) NSInteger status;
 /**
  当前心率 | current heart rate

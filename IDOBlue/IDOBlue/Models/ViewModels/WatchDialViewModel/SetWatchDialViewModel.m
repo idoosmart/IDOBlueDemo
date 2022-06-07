@@ -76,7 +76,6 @@
         }
         model.operate = 0x01;
         [funcVc showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set current dial info")]];
-        
         initWatchDialManager().setCurrentDial(^(int errorCode) {
             if (errorCode == 0) {
                [funcVc showToastWithText:lang(@"set current dial info success")];

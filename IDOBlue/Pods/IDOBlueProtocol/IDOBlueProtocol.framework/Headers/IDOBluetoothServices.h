@@ -49,12 +49,12 @@ extern NSString * _Nonnull IDOBluetoothOtaModeNotifyName;
 extern NSString * _Nonnull IDOBluetoothOpenLogRecordNotifyName DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 
 // 数据迁移状态通知名字 | Data migration status notification name
-extern NSString * _Nonnull IDOBluetoothDataMigrationNotifyName;
+extern NSString * _Nonnull IDOBluetoothDataMigrationNotifyName DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 
 // 设备绑定状态通知名字 | device bind status notification name
 extern NSString * _Nonnull IDOBluetoothDeviceBindNotifyName;
 
-// 获取设备信息通知名字 | get device info notification name
+// 同步配置获取设备信息通知名字 | get device info notification name
 extern NSString * _Nonnull IDOBluetoothGetDeviceInfoNotifyName;
 
 // 同步配置完成通知名字 | sync config complete notification name

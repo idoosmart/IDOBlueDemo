@@ -962,11 +962,11 @@ error flag
 #pragma mark ==== 获取第37个功能表model ====
 @interface IDOGetFuncTable37BluetoothModel : IDOBluetoothBaseModel
 /**
- 设置单位的增加骑行的单位设置
+ 增加骑行的单位设置
  */
 @property (nonatomic,assign) BOOL supportCyclingUnit;
 /**
- 设置单位的增加步行跑步的单位设置
+ 增加步行跑步的单位设置
  */
 @property (nonatomic,assign) BOOL supportWalkRunUnit;
 /**
@@ -1365,6 +1365,14 @@ error flag
  固件支持呼吸率开关设置 ，以及呼吸率数据同步返回
  */
 @property (nonatomic,assign) BOOL supportBreathRate;
+/**
+ 多运动同步数据支持摄氧量等级数据
+ */
+@property (nonatomic,assign) BOOL supportGrade;
+/**
+ 支持跑步计划协议以及跑步课程功能表
+ */
+@property (nonatomic,assign) BOOL supportSportPlan;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

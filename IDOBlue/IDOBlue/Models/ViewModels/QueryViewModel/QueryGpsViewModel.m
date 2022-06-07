@@ -101,7 +101,6 @@
         FuncViewController * newFuncVc = [FuncViewController new];
         QueryActivityDetailViewModel * detailModel = [QueryActivityDetailViewModel new];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            //建议放在异步执行
             IDOSyncGpsDataInfoBluetoothModel * gpsModel = [IDOSyncGpsDataModel queryOneActivityCoordinatesWithTimeStr:model.timeStr macAddr:@""];
             dispatch_async(dispatch_get_main_queue(), ^{
                 detailModel.activityModel = gpsModel ? gpsModel : model;

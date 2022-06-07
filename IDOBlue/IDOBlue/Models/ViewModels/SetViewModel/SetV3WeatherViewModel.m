@@ -47,7 +47,22 @@
 - (IDOSetV3WeatherDataModel *)weatherDataModel
 {
     if (!_weatherDataModel) {
-        _weatherDataModel = [IDOSetV3WeatherDataModel currentModel];
+         _weatherDataModel = [IDOSetV3WeatherDataModel currentModel];
+        //test code
+        IDOSetTimeInfoBluetoothModel * time = [IDOSetTimeInfoBluetoothModel new];
+        _weatherDataModel.month = time.month;
+        _weatherDataModel.day = time.day;
+        _weatherDataModel.min = time.minute;
+        _weatherDataModel.sec = time.second;
+        _weatherDataModel.week = time.weekDay;
+        _weatherDataModel.weatherType = 1;
+        _weatherDataModel.todayTmp = 16;
+        _weatherDataModel.todayMaxTemp = 20;
+        _weatherDataModel.todayMinTemp = 5;
+        _weatherDataModel.sunriseHour = 6;
+        _weatherDataModel.sunriseMin = 0;
+        _weatherDataModel.sunsetHour = 18;
+        _weatherDataModel.sunsetMin = 0;
     }
     return _weatherDataModel;
 }
@@ -133,7 +148,6 @@
         [cellModels addObject:model];
     }
     
-    
     TextFieldCellModel * model1 = [[TextFieldCellModel alloc] init];
     model1.typeStr = @"twoTextField";
     model1.titleStr = lang(@"month day");
@@ -144,7 +158,6 @@
     model1.isShowLine = YES;
     model1.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model1];
-    
     
     TextFieldCellModel * model2 = [[TextFieldCellModel alloc] init];
     model2.typeStr = @"twoTextField";
@@ -157,7 +170,6 @@
     model2.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model2];
     
-    
     TextFieldCellModel * model3 = [[TextFieldCellModel alloc] init];
     model3.typeStr = @"twoTextField";
     model3.titleStr = lang(@"sunset time");
@@ -168,7 +180,6 @@
     model3.isShowLine = YES;
     model3.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model3];
-    
     
     TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
     model4.typeStr = @"oneTextField";
@@ -182,9 +193,6 @@
     model4.keyType = UIKeyboardTypeDefault;
     model4.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model4];
-    
-    
-    
     
     EmpltyCellModel * model6 = [[EmpltyCellModel alloc]init];
     model6.typeStr = @"empty";
@@ -203,14 +211,14 @@
     model7.buttconCallback = self.buttconCallback;
     [cellModels addObject:model7];
     
-    // 24 小时天气 模拟数据
+    // 24、48 小时天气 模拟数据
     NSMutableArray * hourWeaArray = [NSMutableArray arrayWithCapacity:0];
     for (int i = 0; i < 24; i ++)
     {
         IDOFuture24HourWeatherModel * wModel = [[IDOFuture24HourWeatherModel alloc] init];
         wModel.weatherType = 1;
         wModel.temperature = 20 + arc4random() % 15;
-        wModel.probability = 50 +  (arc4random() % 51);
+        wModel.probability = 50 + (arc4random() % 51);
         [hourWeaArray addObject:wModel];
     }
     self.weatherDataModel.future24HoursItems = hourWeaArray;
@@ -227,8 +235,17 @@
     }
     self.weatherDataModel.future7DaysItems = futureWeaArray;
     
-
-    
+    // 未来三天日出日落 模拟数据
+    NSMutableArray * futureSunriseArray = [NSMutableArray arrayWithCapacity:0];
+    for (int i = 0; i < 3; i ++)
+    {
+        IDOFutureSunriseWeatherDataItems * model = [[IDOFutureSunriseWeatherDataItems alloc] init];
+        model.sunriseHour = 6;
+        model.sunriseMin = 0;
+        model.sunsetHour = 18;
+        model.sunsetMin = 18;
+        [futureSunriseArray addObject:model];
+    }
     self.cellModels = cellModels;
 }
 
@@ -238,7 +255,6 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        //NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
 
         [funcVC showLoadingWithMessage:lang(@"set weather forecast data...")];
         
@@ -275,12 +291,11 @@
             NSArray * dataArray = [NSArray array];
             if(textFieldModel.index == 0) {
                 dataArray = strongSelf.pickerDataModel.weatherArray;
-            }else if (textFieldModel.index <= 2 && textFieldModel.index > 0) {
+            }else if (textFieldModel.index <= 3 && textFieldModel.index > 0) {
                 dataArray = strongSelf.pickerDataModel.tempArray;
             }else if (textFieldModel.index == 9){
                 dataArray = strongSelf.pickerDataModel.weekArray;
-            }
-            else {
+            }else {
                 dataArray = strongSelf.pickerDataModel.tenArray;
             }
             funcVC.pickerView.pickerArray = dataArray;
@@ -333,7 +348,7 @@
             funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
                 textField.text = selectStr;
                 if (twoCell.textField1 == textField) {
-                    strongSelf.weatherDataModel.month    = [selectStr integerValue];
+                    strongSelf.weatherDataModel.month = [selectStr integerValue];
                 }else {
                     strongSelf.weatherDataModel.day = [selectStr integerValue];
                 }

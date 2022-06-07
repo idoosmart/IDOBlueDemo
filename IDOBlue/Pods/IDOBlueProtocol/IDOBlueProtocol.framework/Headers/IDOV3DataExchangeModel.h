@@ -12,6 +12,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOV3DataExchangeModel : IDONewDataExchangeModel
 /**
+ 计划类型：
+ 0x01：跑步计划3km ，0x02：跑步计划5km ，
+ 0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
+ */
+@property (nonatomic,assign) NSInteger planType;
+/**
+ 动作类型  1快走；2慢跑；3中速跑；4快跑  ；
+ 5结束课程运动 （还要等待用户是否有自由运动）；6课程结束后自由运动 （此字段当operate为0x05起作用）
+ */
+@property (nonatomic,assign) NSInteger actionType;
+
+/**
  目标类型 | target type
  0x00:无目标， 0x01:重复次数，单位：次，
  0x02:距离,单位：米,  0x03：卡路里, 单位：大卡,
@@ -31,6 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 0:success 1:into sport mode failed 2:Low power of equipment 3: the bracelet is charging 4:Using Alexa 5:In the call
  */
 @property (nonatomic,assign) NSInteger retCode;
+/**
+ 运动计划操作错误码，0为成功，其他为失败
+ */
+@property (nonatomic,assign) NSInteger errorCode;
 /**
  数据版本
  */
@@ -200,9 +216,86 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign) NSInteger trainingEffect;
 /**
+ 无氧训练效果；  单位：无   范围 1.0 ~ 5.0 （*10倍）
+ */
+@property (nonatomic,assign) NSInteger anaerobicTrainingEffect;
+/**
  最大摄氧量；  单位：毫升/公斤/分钟； 范围  0-80
  */
 @property (nonatomic,assign) NSInteger vo2Max;
+/**
+ 本次动作训练个数
+ */
+@property (nonatomic,assign) NSInteger actionDataCount;
+/**
+ 课程内运动热量  单位千卡
+ */
+@property (nonatomic,assign) NSInteger inClassCalories;
+/**
+ 动作完成率 0—100
+ */
+@property (nonatomic,assign) NSInteger completionRate;
+/**
+ 心率控制率  0—100
+ */
+@property (nonatomic,assign) NSInteger hrCompletionRate;
+/**
+ 恢复时长：单位小时(app收到该数据之后，每过一小时需要自减一)
+ */
+@property (nonatomic,assign) NSInteger recoverTime;
+/**
+ 摄氧量等级  0x01:低等   0x02:业余   0x03:一般  0x04：平均    0x05：良好  0x06：优秀   0x07：专业
+ */
+@property (nonatomic,assign) NSInteger grade;
+/**
+ 动作完成内容
+ type : 动作类型  1快走；2慢跑; 3中速跑；4快跑
+ heart_con_value : 每个动作心率控制
+ time : 动作完成时间 单位秒
+ goal_time ：动作目标时间
+ */
+@property (nonatomic,copy) NSMutableArray<NSDictionary *> * actionData;
+
+/**
+ 训练的课程日期偏移 从0开始
+ */
+@property (nonatomic,assign) NSInteger trainingOffset;
+/**
+ 运动倒计时
+ */
+@property (nonatomic,assign) NSInteger countHour;
+/**
+ 运动倒计时分
+ */
+@property (nonatomic,assign) NSInteger countMinute;
+/**
+ 运动倒计时秒
+ */
+@property (nonatomic,assign) NSInteger countSecond;
+/**
+ 训练课程年份
+ */
+@property (nonatomic,assign) NSInteger trainingYear;
+/**
+ 训练课程月份
+ */
+@property (nonatomic,assign) NSInteger trainingMonth;
+/**
+ 训练课程日期
+ */
+@property (nonatomic,assign) NSInteger trainingDay;
+/**
+ 动作目标时间  单位秒
+ */
+@property (nonatomic,assign) NSInteger time;
+/**
+ 心率范围低值
+ */
+@property (nonatomic,assign) NSInteger lowHeart;
+/**
+ 心率范围高值
+ */
+@property (nonatomic,assign) NSInteger heightHeart;
 
 @end
 

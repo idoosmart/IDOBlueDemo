@@ -102,6 +102,7 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        
         [funcVC showLoadingWithMessage:lang(@"set find phone switch...")];
         [IDOFoundationCommand setFindPhoneCommand:strongSelf.findPhoneModel
                                         callback:^(int errorCode) {

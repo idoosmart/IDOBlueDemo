@@ -267,7 +267,20 @@
             strongSelf.dataModel.minute = timeModel.minute;
             strongSelf.dataModel.second = timeModel.second;
             
-            [IDODataExchangeManager appStartSportCommandWithModel:model error:nil];
+//            [IDODataExchangeManager appStartSportCommandWithModel:model error:nil];
+            
+            IDOAppOperatePlanExchangeModel * model1 = [[IDOAppOperatePlanExchangeModel alloc]init];
+            model1.day = timeModel.day;
+            model1.hour = timeModel.hour;
+            model1.minute = timeModel.minute;
+            model1.second = timeModel.second;
+            model1.operate = 0x01;
+            model1.trainingOffset = 0;
+            model1.actionType = 1;
+            model1.planType = 1;
+            model1.errorCode = 0;
+            
+            [IDODataExchangeManager appPlanSportCommandWithModel:model1 error:nil];
 
         }else if (model.index == 1) {
             //pause sport
@@ -312,7 +325,6 @@
                 model.distance = 10000;
                 model.calories = 1000;
                 model.durations = 200;
-                model.flag = 0;
                 [IDODataExchangeManager v2_appIngSportCommandWithModel:model error:nil];
             }
         }
@@ -483,6 +495,18 @@
         message = [NSString stringWithFormat:@"v3 app hr sport : %@",[IDODataExchangeManager shareInstance].v2Model.dicFromObject];
     }
     [self addMessageText:message];
+}
+
+- (void)appOperatePlanReplyWithModel:(IDOAppOperatePlanExchangeModel *)model errorCode:(int)errorCode
+{
+    
+}
+
+- (void)bleOperatePlanWithModel:(IDOBleOperatePlanExchangeModel *)model errorCode:(int)errorCode
+{
+    if (model.operate == 4) {
+        [IDODataExchangeManager v3_getActivityEndDataWithError:nil];
+    }
 }
 
 @end

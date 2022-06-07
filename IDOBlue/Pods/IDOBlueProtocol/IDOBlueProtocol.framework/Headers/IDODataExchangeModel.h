@@ -286,37 +286,37 @@
  */
 @property (nonatomic,assign) NSInteger vo2Max;
 /**
- 训练效果；  单位：无   范围 1.0 ~ 5.0 （*10倍）
+ 无氧训练效果；  单位：无   范围 1.0 ~ 5.0 （*10倍）
+ */
+@property (nonatomic,assign) NSInteger anaerobicTrainingEffect;
+/**
+ 有氧训练效果；  单位：无   范围 1.0 ~ 5.0 （*10倍）
  */
 @property (nonatomic,assign) NSInteger trainingEffect;
 /**
- 恢复时间点年
+ 本次动作训练个数
  */
-@property (nonatomic,assign) NSInteger recoveryTimeYear;
-
+@property (nonatomic,assign) NSInteger actionDataCount;
 /**
- 恢复时间点月
+ 课程内运动热量  单位千卡
  */
-@property (nonatomic,assign) NSInteger recoveryTimeMon;
-
+@property (nonatomic,assign) NSInteger inClassCalories;
 /**
- 恢复时间点日
+ 动作完成率 0—100
  */
-@property (nonatomic,assign) NSInteger recoveryTimeDay;
-
+@property (nonatomic,assign) NSInteger completionRate;
 /**
- 恢复时间点时
+ 心率控制率  0—100
  */
-@property (nonatomic,assign) NSInteger recoveryTimeHour;
-
+@property (nonatomic,assign) NSInteger hrCompletionRate;
 /**
- 恢复时间点分
+ 恢复时长：单位小时(app收到该数据之后，每过一小时需要自减一)
  */
-@property (nonatomic,assign) NSInteger recoveryTimeMin;
-
+@property (nonatomic,assign) NSInteger recoverTime;
 /**
- 恢复时间点秒
+ 摄氧量等级  0x01:低等   0x02:业余   0x03:一般  0x04：平均    0x05：良好  0x06：优秀   0x07：专业
  */
-@property (nonatomic,assign) NSInteger recoveryTimeSecond;
+@property (nonatomic,assign) NSInteger grade;
 
 @end
+

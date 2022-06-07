@@ -16,15 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 //运动计划操作完成回调
 - (void)sportPlanOperateComplete:(int)errorCode
                        planModel:(IDOSportPlanDataModel *)model;
-
-//蓝牙通知app切换计划
-- (void)bleNoticeAppTogglePlanComplete:(int)errorCode
-                             planModel:(IDOBleNoticeAppPlanModel *)model;
-
-//app通知ble切换计划回调
-- (void)appNoticeBleTogglePlanComplete:(int)errorCode
-                             planModel:(IDOAppNoticeBleReplyPlanModel *)model;
-
 @end
 
 
@@ -47,12 +38,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 //查询运动计划
 + (BOOL)querySportPlan;
-
-//蓝牙通知app切换计划中的动作回复
-+ (BOOL)setBleNoticeTogglePlanReply:(IDOBleNoticeAppReplyPlanModel *)model;
-
-//app通知切换计划中的动作
-+ (BOOL)setAppNoticeTogglePlan:(IDOAppNoticeBlePlanModel *)model;
 
 @end
 
