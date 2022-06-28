@@ -694,8 +694,7 @@
                    callback:(void (^ _Nullable)(int errorCode))callback;
 
 /**
- * @brief 设置预防丢失 | Set to prevent loss
-
+ * @brief 设置预防丢失 | Set to prevent lost
  * @param lostModel 预防丢失 model (IDOSetPreventLostInfoBuletoothModel)
  * Prevent loss model (IDOSetPreventLostInfoBuletoothModel)
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
@@ -1582,7 +1581,7 @@
 + (void)getHealthSwitchStateCommand:(void (^_Nullable)(int errorCode, IDOGetHealthSwitchStateModel * _Nullable data))callback;
 
 /**
- * @brief 获取设置的卡路里/距离/中高运动时长的目标设置
+ * @brief 获取卡路里/距离/中高运动时长的目标
  * @param callback 执行后回调 data (IDOSetUserInfoBuletoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * callback data (IDOSetUserInfoBuletoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
@@ -1857,20 +1856,6 @@
  * Listening callback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
 */
 + (void)listenIotButtonCommand:(void(^_Nullable)(int errorCode,int index))callback;
-
-/**
- * @brief 手环发送语音数据 | Bracelet send voice data
- * @param stateCallback 监听回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str,state:语音状态)
- * Listening stateCallback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr,data:voice state)
- * state : 0 =>空闲 1=> 开始 2=> 停止 3=>超时 4=>断线 5=>登录状态 6=>开始 7=>app发起开始失败 8=>停止状态 9=>app发起结束失败
- * 10 =>按钮退出到主界面
- * 0 => idle 1=> start 2=> stop 3=> timeout 4=> disconnect 5=> login status 6=> start status  7=>start failure 8=> stop status 9=>app stop
- * 10 => button to exit the main interface
- * @param completeCallback 监听回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str,data:语音文件数据)
- * Listening completeCallback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr,data:voice data)
-*/
-+ (void)listenVoiceFileDataCommand:(void(^_Nullable)(int state,int errorCode))stateCallback
-                          complete:(void(^_Nullable)(NSString * _Nullable filePath))completeCallback;
 
 /**
  * @brief 手环分段发送返回语音数据 | Bracelet send voice data in segments

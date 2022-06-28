@@ -69,9 +69,7 @@
 @property (nonatomic,assign) NSInteger itemsCount;
 
 /**
- * 血氧集合 只有定义好的查询方法才能转成model集合，自定义的查询方法无法直接转成model集合，需要再查询itemModel赋给当前属性
- * blood oxygen collection Only defined query methods can be converted into model collections. Custom query methods cannot be directly converted
- * into model collections. You need to query itemModel to assign current attributes.
+ * 血氧集合 
  */
 @property (nonatomic,copy) NSArray <IDOSyncBloodOxygenItemInfoBluetoothModel *>* bloodOxygens;
 
@@ -110,8 +108,8 @@
  * Blood oxygen data collection for 12 months a year, where the IDOSyncBloodOxygenDataInfoBluetoothModel object is the total blood oxygen data model for the day
  */
 + (NSArray <NSArray<IDOSyncBloodOxygenDataInfoBluetoothModel *>*> *)queryOneYearBloodOxygenWithYear:(NSInteger)year
-                                                                                                     macAddr:(NSString *)macAddr
-                                                                                                isQueryItems:(BOOL)isQuery;
+                                                                                         macAddr:(NSString *)macAddr
+                                                                                    isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -127,10 +125,10 @@
  * A one-month blood oxygen data collection, where the IDOSyncHrDataInfoBluetoothModel object is the total blood oxygen data model for the day
  */
 + (NSArray <IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneMonthBloodOxygenWithYear:(NSInteger)year
-                                                                                             month:(NSInteger)month
-                                                                                           macAddr:(NSString *)macAddr
-                                                                                      datesOfMonth:(NSArray <NSString *>**)dates
-                                                                                      isQueryItems:(BOOL)isQuery;
+                                                                                 month:(NSInteger)month
+                                                                               macAddr:(NSString *)macAddr
+                                                                          datesOfMonth:(NSArray <NSString *>**)dates
+                                                                          isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -146,10 +144,10 @@
  * A week's blood oxygen data collection, where the IDOSyncBloodOxygenDataInfoBluetoothModel object is the total blood oxygen data model for the day
  */
 + (NSArray <IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneWeekBloodOxygenWithWeekIndex:(NSInteger)weekIndex
-                                                                                          weekStartDay:(NSInteger)weekStartDay
-                                                                                               macAddr:(NSString *)macAddr
-                                                                                           datesOfWeek:(NSArray <NSString *>**)dates
-                                                                                          isQueryItems:(BOOL)isQuery;
+                                                                              weekStartDay:(NSInteger)weekStartDay
+                                                                                   macAddr:(NSString *)macAddr
+                                                                               datesOfWeek:(NSArray <NSString *>**)dates
+                                                                              isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天血氧数据并有详情数据
@@ -161,9 +159,9 @@
  * @return 一天血氧数据的集合和详情数据结合 | Collection of day blood oxygen data and details data
  */
 + (NSArray <IDOSyncBloodOxygenDataInfoBluetoothModel *>*)queryOneDayBloodOxygenDetailWithMac:(NSString *)macAddr
-                                                                                                  year:(NSInteger)year
-                                                                                                 month:(NSInteger)month
-                                                                                                   day:(NSInteger)day;
+                                                                                      year:(NSInteger)year
+                                                                                     month:(NSInteger)month
+                                                                                       day:(NSInteger)day;
 
 /**
  * @brief 查询所有血氧数据,血氧包个数大于0

@@ -53,6 +53,15 @@
     [self.textView scrollRangeToVisible:NSMakeRange(self.textView.text.length,1)];
 }
 
+- (void)handleIconAndNameComplete
+{
+    self.logStr = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,@"get package name complete."];
+    TextViewCellModel * model = [self.cellModels lastObject];
+    model.data = @[self.logStr?:@""];
+    self.textView.text = self.logStr;
+    [self.textView scrollRangeToVisible:NSMakeRange(self.textView.text.length,1)];
+}
+
 - (IDOGetAppPackNameModel *)appPackNameModel
 {
     if (!_appPackNameModel) {
@@ -78,39 +87,10 @@
     model1.textViewCallback = self.textViewCallback;
     model1.cellHeight = [UIScreen mainScreen].bounds.size.height / 2 - 20;
     model1.cellClass  = [OneTextViewTableViewCell class];
-    
-    TextFieldCellModel * model2 = [[TextFieldCellModel alloc]init];
-    model2.typeStr = @"oneTextField";
-    model2.titleStr = @"输入包名:";
-    model2.placeholders = @[@"com.tencent.xin"];
-    model2.data    = @[@""];
-    model2.isShowLine = YES;
-    model2.isShowKeyboard = YES;
-    model2.textFeildCallback = self.textFeildCallback;
-    model2.cellHeight = 70.0f;
-    model2.cellClass  = [OneTextFieldTableViewCell class];
-    
-    FuncCellModel * model3 = [[FuncCellModel alloc]init];
-    model3.typeStr = @"oneButton";
-    model3.data = @[@"添加包名"];
-    model3.cellHeight = 70.0f;
-    model3.cellClass = [OneButtonTableViewCell class];
-    model3.modelClass = [NSNull class];
-    model3.isShowLine = YES;
-    model3.buttconCallback = self.buttconCallback;
-    
-    FuncCellModel * model5 = [[FuncCellModel alloc]init];
-    model5.typeStr = @"oneButton";
-    model5.data = @[@"删除包名"];
-    model5.cellHeight = 70.0f;
-    model5.cellClass = [OneButtonTableViewCell class];
-    model5.modelClass = [NSNull class];
-    model5.isShowLine = YES;
-    model5.buttconCallback = self.buttconCallback;
-    
+        
     FuncCellModel * model4 = [[FuncCellModel alloc]init];
     model4.typeStr = @"oneButton";
-    model4.data = @[@"清除日志显示"];
+    model4.data = @[lang(@"clear log display")];
     model4.cellHeight = 70.0f;
     model4.cellClass = [OneButtonTableViewCell class];
     model4.modelClass = [NSNull class];
@@ -119,14 +99,14 @@
     
     FuncCellModel * model6 = [[FuncCellModel alloc]init];
     model6.typeStr = @"oneButton";
-    model6.data = @[@"获取固件包名"];
+    model6.data = @[lang(@"get firmware package name")];
     model6.cellHeight = 70.0f;
     model6.cellClass = [OneButtonTableViewCell class];
     model6.modelClass = [NSNull class];
     model6.isShowLine = YES;
     model6.buttconCallback = self.buttconCallback;
     
-    self.cellModels = @[model2,model3,model5,model4,model6,model1];
+    self.cellModels = @[model4,model6,model1];
 }
 
 - (void)getButtonCallback
@@ -136,32 +116,14 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
-        if (indexPath.row == 1) {
-            if (strongSelf.textField.text.length == 0) {
-                [funcVC showToastWithText:@"请输入包名"];
-                return;
-            }
-            NSMutableArray * items = [NSMutableArray arrayWithArray:strongSelf.appPackNameModel.items];
-            IDOGetAppPackNameListItemModel * item = [[IDOGetAppPackNameListItemModel alloc]init];
-            item.packName = strongSelf.textField.text;
-            [items addObject:item];
-            strongSelf.appPackNameModel.items = [items copy];
-            [strongSelf getItemsjsonStr];
-            [strongSelf getCellModels];
-            [funcVC.tableView reloadData];
-        }else if (indexPath.row == 2) {
-            NSMutableArray * items = [NSMutableArray arrayWithArray:strongSelf.appPackNameModel.items];
-            if (items.count == 0) {
-                return;
-            }
-            [items removeLastObject];
-            strongSelf.appPackNameModel.items = [items copy];
-            [strongSelf getItemsjsonStr];
-            [strongSelf getCellModels];
-            [funcVC.tableView reloadData];
-        }else if (indexPath.row == 3) {
+        if (indexPath.row == 0) {
             strongSelf.textView.text = @"";
-        }else if (indexPath.row == 4) {
+            [funcVC showToastWithText:lang(@"log complete clearing")];
+        }else if (indexPath.row == 1) {
+            if (!__IDO_FUNCTABLE__.funcTable38Model.setNotifyAddAppName) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                return;
+            }
             [[IDOMessageIconManager listenForUpdate] getAppIconAndName];
         }
     };

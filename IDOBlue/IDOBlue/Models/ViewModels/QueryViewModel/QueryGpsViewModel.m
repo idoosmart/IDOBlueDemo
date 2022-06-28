@@ -16,8 +16,7 @@
 #import "QueryActivityDetailViewModel.h"
 
 @interface QueryGpsViewModel()
-@property (nonatomic,strong) NSMutableArray * allActivitys;
-@property (nonatomic,strong) NSMutableArray * allCellModels;
+@property (nonatomic,strong) NSArray * allActivitys;
 @property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @end
 
@@ -33,32 +32,24 @@
     return self;
 }
 
-- (NSMutableArray *)allActivitys
-{
-    if (!_allActivitys) {
-        _allActivitys = [NSMutableArray array];
-    }
-    return _allActivitys;
-}
-
-- (NSMutableArray *)allCellModels
-{
-    if (!_allCellModels) {
-        _allCellModels = [NSMutableArray array];
-    }
-    return _allCellModels;
-}
-
 - (void)getCellModels
 {
-    NSArray <IDOSyncActivityDataInfoBluetoothModel *> * activitys = [IDOSyncActivityDataModel queryAllTrajectorySportActivitysWithMac:@""];
-    [self.allActivitys addObjectsFromArray:activitys];
-    
+    if (__IDO_FUNCTABLE__.funcTable22Model.v3GpsData) {
+        self.allActivitys = [IDOSyncV3ActivityDataModel queryAllTrajectorySportV3ActivitysWithMac:__IDO_MAC_ADDR__];
+    }else if(__IDO_FUNCTABLE__.funcTable19Model.gps){
+        self.allActivitys = [IDOSyncActivityDataModel queryAllTrajectorySportActivitysWithMac:__IDO_MAC_ADDR__];
+    }else {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            FuncViewController * funcVc = (FuncViewController *)[IDODemoUtility getCurrentVC];
+            [funcVc showToastWithText:lang(@"feature is not supported on the current device")];
+        });
+        return;
+    }
     NSMutableArray * cellModels = [NSMutableArray array];
-    for (IDOSyncActivityDataInfoBluetoothModel * activity in activitys) {
+    for (IDOBluetoothBaseModel * item in self.allActivitys) {
         LabelCellModel * model = [[LabelCellModel alloc]init];
         model.typeStr = @"oneLabel";
-        NSString * str = [self dataStrWithModel:activity];
+        NSString * str = [self dataStrWithModel:item];
         model.data = @[str];
         model.cellHeight = [self getCellHeightWithStr:str];
         model.cellClass = [OneLabelTableViewCell class];
@@ -67,21 +58,34 @@
         model.isShowLine = YES;
         [cellModels addObject:model];
     }
-    [self.allCellModels addObjectsFromArray:cellModels];
-    self.cellModels = self.allCellModels;
+    self.cellModels = cellModels;
 }
 
-- (NSString *)dataStrWithModel:(IDOSyncActivityDataInfoBluetoothModel *)model
+- (NSString *)dataStrWithModel:(IDOBluetoothBaseModel *)item
 {
-    BOOL isGps = [IDOSyncGpsDataModel queryActivityHasCoordinatesWithTimeStr:model.timeStr macAddr:@""];
-    NSString * type = model.type < self.pickerDataModel.sportTypes.count ? [self.pickerDataModel.sportTypes objectAtIndex:model.type] : lang(@"walk");
-    NSString * titleStr = [NSString stringWithFormat:@"%@:%@ [%@]",lang(@"activty type"),type,isGps ? lang(@"trajectory"):lang(@"no trajectory")];
-    NSString * timeStr     = [NSString stringWithFormat:@"%@%@",lang(@"time"),[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];
-    NSString * macAddrStr  = [NSString stringWithFormat:@"MAC:%@",model.macAddr];
-    NSString * dataStr     = [NSString stringWithFormat:@"%@:%ld\n%@:%ld\n%@:%ld",lang(@"calories"),(long)model.calories,
-                           lang(@"step"),(long)model.step,lang(@"avg heart rate"),(long)model.avgHrValue];
-    NSString * str = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",titleStr,macAddrStr,timeStr,dataStr];
-    return str;
+    if (__IDO_FUNCTABLE__.funcTable22Model.v3GpsData) {
+        IDOSyncV3ActivityDataInfoBluetoothModel * model = (IDOSyncV3ActivityDataInfoBluetoothModel *)item;
+        BOOL isGps = [IDOSyncGpsDataModel queryActivityHasCoordinatesWithTimeStr:model.timeStr macAddr:@""];
+        NSString * type = model.type < self.pickerDataModel.sportTypes.count ? [self.pickerDataModel.sportTypes objectAtIndex:model.type] : lang(@"walk");
+        NSString * titleStr = [NSString stringWithFormat:@"%@:%@ [%@]",lang(@"activty type"),type,isGps ? lang(@"trajectory"):lang(@"no trajectory")];
+        NSString * timeStr     = [NSString stringWithFormat:@"%@%@",lang(@"time"),[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];
+        NSString * macAddrStr  = [NSString stringWithFormat:@"MAC:%@",model.macAddr];
+        NSString * dataStr     = [NSString stringWithFormat:@"%@:%ld\n%@:%ld\n%@:%ld",lang(@"calories"),(long)model.calories,
+                               lang(@"step"),(long)model.step,lang(@"avg heart rate"),(long)model.avgHrValue];
+        NSString * str = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",titleStr,macAddrStr,timeStr,dataStr];
+        return str;
+    }else {
+        IDOSyncActivityDataInfoBluetoothModel * model = (IDOSyncActivityDataInfoBluetoothModel *)item;
+        BOOL isGps = [IDOSyncGpsDataModel queryActivityHasCoordinatesWithTimeStr:model.timeStr macAddr:@""];
+        NSString * type = model.type < self.pickerDataModel.sportTypes.count ? [self.pickerDataModel.sportTypes objectAtIndex:model.type] : lang(@"walk");
+        NSString * titleStr = [NSString stringWithFormat:@"%@:%@ [%@]",lang(@"activty type"),type,isGps ? lang(@"trajectory"):lang(@"no trajectory")];
+        NSString * timeStr     = [NSString stringWithFormat:@"%@%@",lang(@"time"),[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];
+        NSString * macAddrStr  = [NSString stringWithFormat:@"MAC:%@",model.macAddr];
+        NSString * dataStr     = [NSString stringWithFormat:@"%@:%ld\n%@:%ld\n%@:%ld",lang(@"calories"),(long)model.calories,
+                               lang(@"step"),(long)model.step,lang(@"avg heart rate"),(long)model.avgHrValue];
+        NSString * str = [NSString stringWithFormat:@"%@\n%@\n%@\n%@",titleStr,macAddrStr,timeStr,dataStr];
+        return str;
+    }
 }
 
 - (CGFloat)getCellHeightWithStr:(NSString *)str

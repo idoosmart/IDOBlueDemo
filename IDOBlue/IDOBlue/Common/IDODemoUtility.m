@@ -150,6 +150,15 @@
     return [formatter stringFromDate:date];
 }
 
++ (NSString *)timeStampFromTimeStr:(NSString *)timeStr
+{
+    NSDateFormatter *formatter = [self obtainDateFormatter];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate * date = [formatter dateFromString:timeStr];
+    NSTimeInterval interval = [date timeIntervalSince1970];
+    return [NSString stringWithFormat:@"%ld",(long)interval];
+}
+
 + (NSInteger)getDaysInMonthWithYear:(NSInteger)year
                               month:(NSInteger)month
 {

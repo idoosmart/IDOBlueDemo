@@ -207,18 +207,23 @@
  * @return model IDOSyncSwimmingDataInfoBluetoothModel
  */
 + (IDOSyncSwimmingDataInfoBluetoothModel *)querySwimDataWithTimeStr:(NSString *)timeStr
-                                                                     macAddr:(NSString *)macAddr;
+                                                            macAddr:(NSString *)macAddr;
 
 /**
  * @brief 当前设备查询一天所有游泳数据
  * The current device queries an swim details based on the event start time
  * @param macAddr  mac地址 | Mac address
  * @param dateStr 日期时间戳 | Date time stamp
- * @param isQuery 是否查询items | is query items
  * @return 一天游泳数据的集合 | Collection of day swim data
  */
 + (NSArray <IDOSyncSwimmingDataInfoBluetoothModel *>*)querySwimDataWithDateStr:(NSString *)dateStr
-                                                                                macAddr:(NSString *)macAddr
-                                                                           isQueryItems:(BOOL)isQuery;
+                                                                       macAddr:(NSString *)macAddr;
+
+/**
+ * 查询所有游泳数据
+ * @param macAddr  mac地址 | Mac address
+ */
++ (NSArray <IDOSyncSwimmingDataInfoBluetoothModel *>*)queryAllSwimDataWithMacAddr:(NSString *)macAddr;
 
 @end
+

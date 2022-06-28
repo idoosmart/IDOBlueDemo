@@ -111,12 +111,12 @@
 @property (nonatomic,assign) NSInteger totalCalories;
 
 /**
- 活动卡路里（大卡） | activity calories (unit: big card)
+ 活动卡路里 (单位 ：大卡) | activity calories (unit: big card)
  */
 @property (nonatomic,assign) NSInteger activitycalories;
 
 /**
- 静息卡路里 | rest  calories
+ 静息卡路里 (单位 ：大卡)  | rest  calories
  */
 @property (nonatomic,assign) NSInteger restingCalories;
 
@@ -182,10 +182,10 @@
  * One month of motion data collection, where the IDOSyncV3SportDataInfoBluetoothModel object is the total day motion data model
  */
 + (NSArray <IDOSyncV3SportDataInfoBluetoothModel *>*)queryOneMonthV3SportsWithYear:(NSInteger)year
-                                                                                      month:(NSInteger)month
-                                                                                    macAddr:(NSString *)macAddr
-                                                                               datesOfMonth:(NSArray <NSString *>**)dates
-                                                                               isQueryItems:(BOOL)isQuery;
+                                                                          month:(NSInteger)month
+                                                                        macAddr:(NSString *)macAddr
+                                                                   datesOfMonth:(NSArray <NSString *>**)dates
+                                                                   isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -201,10 +201,10 @@
  * A week of motion data collection, where the IDOSyncV3SportDataInfoBluetoothModel object is the total day motion data model
  */
 + (NSArray <IDOSyncV3SportDataInfoBluetoothModel *>*)queryOneWeekV3SportsWithWeekIndex:(NSInteger)weekIndex
-                                                                                   weekStartDay:(NSInteger)weekStartDay
-                                                                                        macAddr:(NSString *)macAddr
-                                                                                    datesOfWeek:(NSArray <NSString *>**)dates
-                                                                                   isQueryItems:(BOOL)isQuery;
+                                                                           weekStartDay:(NSInteger)weekStartDay
+                                                                                macAddr:(NSString *)macAddr
+                                                                            datesOfWeek:(NSArray <NSString *>**)dates
+                                                                           isQueryItems:(BOOL)isQuery;
 
 
 /**
@@ -216,9 +216,9 @@
  * @return 一天运动数据的集合和详情数据集合 | Collection of daily exercise data and detailed data
  */
 + (NSArray <IDOSyncV3SportDataInfoBluetoothModel *>*)queryOneDayV3SportDetailWithMac:(NSString *)macAddr
-                                                                                         year:(NSInteger)year
-                                                                                        month:(NSInteger)month
-                                                                                          day:(NSInteger)day;
+                                                                                 year:(NSInteger)year
+                                                                                month:(NSInteger)month
+                                                                                  day:(NSInteger)day;
 
 /**
  * @brief 查询所有运动数据 步数大于0 | Query all motion data Steps greater than 0

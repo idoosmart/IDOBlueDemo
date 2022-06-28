@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign) NSInteger timeType;
 /**
- * dataType 0 : 步数； 1 : 心率；2 : 血压；3 : 睡眠；4 : 血氧；5 : 压力；
+ * dataType 0 : 步数； 1 : 心率；2 : 血压；3 : 睡眠；4 : 血氧；5 : 压力；6：噪音；7：皮温；8：呼吸率；9：身体电量
  */
 @property (nonatomic,assign) NSInteger dataType;
 @end

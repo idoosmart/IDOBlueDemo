@@ -22,6 +22,11 @@
 #import "QueryBopViewModel.h"
 #import "QueryPressureViewModel.h"
 #import "QueryGpsViewModel.h"
+#import "QueryNoiseViewModel.h"
+#import "QueryTemperatureViewModel.h"
+#import "QueryBodyPowerViewModel.h"
+#import "QueryBreathRateViewModel.h"
+#import "QuerySwimViewModel.h"
 
 @interface QueryViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -43,8 +48,12 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"step data query")],@[lang(@"sleep data query")],@[lang(@"heart rate data query")],@[lang(@"blood pressure data query")],
-                          @[lang(@"blood oxygen data query")],@[lang(@"pressure data query")],@[lang(@"activity data query")],@[lang(@"GPS data query")]];
+        _buttonTitles = @[@[lang(@"step data query")],@[lang(@"sleep data query")],
+                          @[lang(@"heart rate data query")],@[lang(@"blood pressure data query")],
+                          @[lang(@"blood oxygen data query")],@[lang(@"pressure data query")],
+                          @[lang(@"noise data query")],@[lang(@"temperature data query")],
+                          @[lang(@"breath rate data query")],@[lang(@"body power data query")],
+                          @[lang(@"activity data query")],@[lang(@"GPS data query")],@[lang(@"swim data query")]];
     }
     return _buttonTitles;
 }
@@ -52,8 +61,11 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[QuerySportsViewModel class],[QuerySleepViewModel class],[QueryHrViewModel class],[QueryBpViewModel class],
-                         [QueryBopViewModel class],[QueryPressureViewModel class],[QueryActivityViewModel class],[QueryGpsViewModel class]];
+        _modelClasss = @[[QuerySportsViewModel class],[QuerySleepViewModel class],[QueryHrViewModel class],
+                         [QueryBpViewModel class],[QueryBopViewModel class],[QueryPressureViewModel class],
+                         [QueryNoiseViewModel class],[QueryTemperatureViewModel class],[QueryBreathRateViewModel class],
+                         [QueryBodyPowerViewModel class],[QueryActivityViewModel class],[QueryGpsViewModel class],
+                         [QuerySwimViewModel class]];
     }
     return _modelClasss;
 }

@@ -62,8 +62,10 @@
 - (NSArray *)dataArray
 {
     if (!_dataArray) {
-        _dataArray = @[@(self.weatherDataModel.todayType),@(self.weatherDataModel.todayTemp),@(self.weatherDataModel.todayMaxTemp),@(self.weatherDataModel.todayMinTemp),
-                       @(self.weatherDataModel.humidity),@(self.weatherDataModel.todayUvIntensity),@(self.weatherDataModel.todayAqi)];
+        _dataArray = @[@(self.weatherDataModel.todayType),@(self.weatherDataModel.todayTemp),
+                       @(self.weatherDataModel.todayMaxTemp),@(self.weatherDataModel.todayMinTemp),
+                       @(self.weatherDataModel.humidity),@(self.weatherDataModel.todayUvIntensity),
+                       @(self.weatherDataModel.todayAqi)];
     }
     return _dataArray;
 }

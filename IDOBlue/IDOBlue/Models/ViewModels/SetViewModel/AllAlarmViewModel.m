@@ -45,7 +45,7 @@
 - (NSArray <IDOSetAlarmInfoBluetoothModel *>*)alarmModels
 {
     if (!_alarmModels) {
-        _alarmModels = [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
+         _alarmModels = [IDOSetAlarmInfoBluetoothModel queryAllAlarms];
     }
     return _alarmModels;
 }

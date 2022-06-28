@@ -22,6 +22,10 @@
 @property (nonatomic,strong) NSArray * minuteArray;
 @property (nonatomic,strong) NSArray * typeArray;
 @property (nonatomic,strong) NSArray * weekArray;
+@property (nonatomic,strong) NSArray * calorieArray;
+@property (nonatomic,strong) NSArray * swimPoolArray;
+@property (nonatomic,strong) NSArray * cyclingArray;
+@property (nonatomic,strong) NSArray * walkRunArray;
 @property (nonatomic,strong) NSArray * weekTypeArray;
 @property (nonatomic,strong) NSArray * monthArray;
 @property (nonatomic,strong) NSArray * dayArray;
@@ -50,6 +54,8 @@
 @property (nonatomic,strong) NSArray * targetTypes;
 @property (nonatomic,strong) NSArray * sportTypes;
 @property (nonatomic,strong) NSArray * firmwareTypes;
+@property (nonatomic,strong) NSArray * updateFileTypes;
+@property (nonatomic,strong) NSArray * agpsUpdateTypes;
 @property (nonatomic,strong) NSArray * fileTranTypes;
 @property (nonatomic,strong) NSArray * compressionTypes;
 @property (nonatomic,strong) NSArray * menuListTypes;

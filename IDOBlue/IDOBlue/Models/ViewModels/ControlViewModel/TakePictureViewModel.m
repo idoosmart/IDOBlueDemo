@@ -124,11 +124,7 @@
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf.imagePickerController takePicture];
     }];
-    
-    [IDOFoundationCommand listenPhotoBurstCommand:^(int errorCode) {
         
-    }];
-    
     [IDOFoundationCommand listenPhotoStartCommand:^(int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
         UIViewController * vc = [IDODemoUtility getCurrentVC];

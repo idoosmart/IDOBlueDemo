@@ -123,7 +123,6 @@
 }
 
 
-
 - (void)getCellModels
 {
     NSMutableArray * cellModels = [NSMutableArray array];
@@ -216,9 +215,9 @@
     for (int i = 0; i < 24; i ++)
     {
         IDOFuture24HourWeatherModel * wModel = [[IDOFuture24HourWeatherModel alloc] init];
-        wModel.weatherType = 1;
-        wModel.temperature = 20 + arc4random() % 15;
-        wModel.probability = 50 + (arc4random() % 51);
+        wModel.weatherType = i+1;
+        wModel.temperature = 20;
+        wModel.probability = 50;
         [hourWeaArray addObject:wModel];
     }
     self.weatherDataModel.future24HoursItems = hourWeaArray;

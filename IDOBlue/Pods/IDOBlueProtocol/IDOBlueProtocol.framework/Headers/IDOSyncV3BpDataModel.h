@@ -8,8 +8,6 @@
 
 #import <IDOBlueProtocol/IDOBlueProtocol.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface IDOSyncV3BpDataModel : IDOBluetoothBaseModel
 /**
  血压数据包量 | Blood pressure data package
@@ -59,6 +57,69 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign) NSUInteger minuteOffset;
 
-@end
+/**
+ * @brief 查询当前设备某年12个月所有数据 (如果查询当月无数据,会创建空的数据对象,大于当月的数据不累加)
+ * Query all data of the current device for 12 months in a certain year (If there is no data in the current month, an empty data object will be created,
+ * and the data larger than the current month will not be accumulated)
+ * @param year 年 (如 : 2018) | year (eg 2018)
+ * @return 一年12个月的血压数据集合,其中IDOSyncV3BpDataModel对象是一天总血压数据模型
+ * A 12-month blood pressure data collection, where the IDOSyncV3BpDataModel object is a total blood pressure data model for the day
+ */
++ (NSArray <NSArray<IDOSyncV3BpDataModel *>*> *)queryOneYearBpWithYear:(NSInteger)year
+                                                               macAddr:(NSString *)macAddr;
 
-NS_ASSUME_NONNULL_END
+/**
+ * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
+ * Query all data of the current device for a certain month (If there is no data on the query day, an empty data object will be created,
+ * which is larger than the data of the day)
+ * @param year 年 (如 : 2018) | Year (eg: 2018)
+ * @param month 月 (如 : 9) | Month (eg: 9)
+ * @param dates 当前查询月份的所有日期集合的指针 (格式 ：[10/01...10/31])
+ * Pointer to all date collections for the current query month (format: [10/01...10/31])
+ * @return 一个月的血压数据集合,其中IDOSyncV3BpDataModel对象是一天总血压数据模型
+ * One month blood pressure data set, where the IDOSyncV3BpDataModel object is the total day blood pressure data model
+ */
++ (NSArray <IDOSyncV3BpDataModel *>*)queryOneMonthBpWithYear:(NSInteger)year
+                                                       month:(NSInteger)month
+                                                     macAddr:(NSString *)macAddr
+                                                datesOfMonth:(NSArray <NSString *>**)dates;
+
+/**
+ * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
+ * Query all data of the current device for a certain week (If there is no data on the day of the query, an empty data object will be created,
+ * and the data larger than the current day will not be accumulated)
+ * @param weekIndex 周的查询索引 (0 : 当周, 1 : 上一周, 2 : 上两周 ...) | Week's query index (0: week, 1 : last week, 2 : last two weeks...)
+ * @param weekStartDay 星期的开始日 (0 : 星期日, 1 : 星期一, 2 : 星期二 ...) | Start of the week (0: Sunday, 1 : Monday, 2 : Tuesday ...)
+ * @param dates 当前查询周的所有日期集合的指针 (格式 ：[10/01...10/07])
+ * Pointer to all date collections for the current query week (format: [10/01...10/07])
+ * @return 一周的血压数据集合,其中IDOSyncV3BpDataModel对象是一天总血压数据模型
+ * A week's blood pressure data collection, where the IDOSyncV3BpDataModel object is the total day blood pressure data model
+ */
++ (NSArray <IDOSyncV3BpDataModel *>*)queryOneWeekBpWithWeekIndex:(NSInteger)weekIndex
+                                                    weekStartDay:(NSInteger)weekStartDay
+                                                         macAddr:(NSString *)macAddr
+                                                     datesOfWeek:(NSArray <NSString *>**)dates;
+
+/**
+ * @brief 查询当前设备某天血压数据并有详情数据
+ * Query current device blood pressure data for one day and have detailed data
+ * @param macAddr mac 地址 | mac address
+ * @param year  年份 | year
+ * @param month 月份 | month
+ * @param day   日期 | day
+ * @return 一天血压数据的集合和详情数据集合 | Collection of day blood pressure data and detailed data
+ */
++ (NSArray<IDOSyncV3BpDataModel *> *)queryOneDayBpDetailWithMac:(NSString *)macAddr
+                                                           year:(NSInteger)year
+                                                          month:(NSInteger)month
+                                                            day:(NSInteger)day;
+
+/**
+ * @brief 查询所有血压数据 血压包数大于0
+ * Query all blood pressure data The number of blood pressure packets is greater than 0
+ * @param macAddr mac 地址 | mac address
+ * @return 所有血压数据的集合和详情数据 | Collection and detailed data of all blood pressure data
+ */
++ (NSArray <IDOSyncV3BpDataModel *>*)queryAllBpWithMac:(NSString *)macAddr;
+
+@end

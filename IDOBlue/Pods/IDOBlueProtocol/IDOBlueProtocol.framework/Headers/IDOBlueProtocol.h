@@ -20,6 +20,7 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOLogEnum.h>
 #import <IDOBlueProtocol/IDOBindEnum.h>
 #import <IDOBlueProtocol/IDOTranEnum.h>
+#import <IDOBlueProtocol/IDOSportTypeEnum.h>
 #import <IDOBlueProtocol/IDOCommonMacro.h>
 
 #import <IDOBlueProtocol/IDOBluetoothBaseModel.h>
@@ -47,6 +48,7 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOWeightBluetoothModel.h>
 #import <IDOBlueProtocol/IDOWatchDialInfoModel.h>
 #import <IDOBlueProtocol/IDOSyncBreathRateDataModel.h>
+#import <IDOBlueProtocol/IDOSyncBodyPowerDataModel.h>
 
 #import <IDOBlueProtocol/IDOSyncManager.h>
 #import <IDOBlueProtocol/IDOBluetoothEngine.h>

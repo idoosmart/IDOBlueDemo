@@ -9,5 +9,5 @@
 #import "BaseViewModel.h"
 
 @interface UpdateFirmwareViewModel : BaseViewModel
-
+@property (nonatomic,assign) NSInteger platformType;
 @end

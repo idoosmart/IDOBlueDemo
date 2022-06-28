@@ -89,6 +89,39 @@
                 textFieldModel.data = @[@(strongSelf.menstruationRemindModel.hour),@(strongSelf.menstruationRemindModel.minute)];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             };
+        }else if (indexPath.row == 3){
+            NSArray * pickerArray = strongSelf.pickerDataModel.minuteArray;
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.minuteArray;
+            funcVC.pickerView.currentIndex = [pickerArray containsObject:@([textField.text intValue])] ? [pickerArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                strongSelf.menstruationRemindModel.pregnancyDayBeforeRemind = [selectStr integerValue];
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            };
+        }else if (indexPath.row == 4){
+            NSArray * pickerArray = strongSelf.pickerDataModel.minuteArray;
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.minuteArray;
+            funcVC.pickerView.currentIndex = [pickerArray containsObject:@([textField.text intValue])] ? [pickerArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                strongSelf.menstruationRemindModel.pregnancyDayEndRemind = [selectStr integerValue];
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            };
+        }else if (indexPath.row == 5){
+            NSArray * pickerArray = strongSelf.pickerDataModel.minuteArray;
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.minuteArray;
+            funcVC.pickerView.currentIndex = [pickerArray containsObject:@([textField.text intValue])] ? [pickerArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                strongSelf.menstruationRemindModel.menstrualDayEndRemind = [selectStr integerValue];
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            };
         }
     };
 }
@@ -149,6 +182,39 @@
     model3.isShowLine = YES;
     model3.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model3];
+    
+    TextFieldCellModel * model6 = [[TextFieldCellModel alloc]init];
+    model6.typeStr = @"oneTextField";
+    model6.titleStr = lang(@"pregnancy day before remind:");
+    model6.data = @[@(self.menstruationRemindModel.pregnancyDayBeforeRemind)];
+    model6.cellHeight = 70.0f;
+    model6.cellClass = [OneTextFieldTableViewCell class];
+    model6.modelClass = [NSNull class];
+    model6.isShowLine = YES;
+    model6.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model6];
+    
+    TextFieldCellModel * model7 = [[TextFieldCellModel alloc]init];
+    model7.typeStr = @"oneTextField";
+    model7.titleStr = lang(@"pregnancy day end remind:");
+    model7.data = @[@(self.menstruationRemindModel.pregnancyDayEndRemind)];
+    model7.cellHeight = 70.0f;
+    model7.cellClass = [OneTextFieldTableViewCell class];
+    model7.modelClass = [NSNull class];
+    model7.isShowLine = YES;
+    model7.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model7];
+    
+    TextFieldCellModel * model8 = [[TextFieldCellModel alloc]init];
+    model8.typeStr = @"oneTextField";
+    model8.titleStr = lang(@"menstrual day end remind:");
+    model8.data = @[@(self.menstruationRemindModel.menstrualDayEndRemind)];
+    model8.cellHeight = 70.0f;
+    model8.cellClass = [OneTextFieldTableViewCell class];
+    model8.modelClass = [NSNull class];
+    model8.isShowLine = YES;
+    model8.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model8];
     
     EmpltyCellModel * model4 = [[EmpltyCellModel alloc]init];
     model4.typeStr = @"empty";

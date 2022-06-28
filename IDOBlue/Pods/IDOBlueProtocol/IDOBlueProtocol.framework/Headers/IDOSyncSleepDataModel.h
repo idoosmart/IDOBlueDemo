@@ -150,8 +150,8 @@
  * 12 months of sleep data collection, IDOSyncSleepDataInfoBluetoothModel object is the total day sleep data model
  */
 + (NSArray <NSArray <IDOSyncSleepDataInfoBluetoothModel *>*>*)queryOneYearSleepsWithYear:(NSInteger)year
-                                                                                          macAddr:(NSString *)macAddr
-                                                                                     isQueryItems:(BOOL)isQuery;
+                                                                              macAddr:(NSString *)macAddr
+                                                                         isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -167,10 +167,10 @@
  * A one-month sleep data collection, where the IDOSyncSleepDataInfoBluetoothModel object is the total day sleep data model
  */
 + (NSArray <IDOSyncSleepDataInfoBluetoothModel *>*)queryOneMonthSleepsWithYear:(NSInteger)year
-                                                                                  month:(NSInteger)month
-                                                                                macAddr:(NSString *)macAddr
-                                                                           datesOfMonth:(NSArray <NSString *>**)dates
-                                                                           isQueryItems:(BOOL)isQuery;
+                                                                      month:(NSInteger)month
+                                                                    macAddr:(NSString *)macAddr
+                                                               datesOfMonth:(NSArray <NSString *>**)dates
+                                                               isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -185,10 +185,10 @@
  * A week's sleep data collection, where the IDOSyncSleepDataInfoBluetoothModel object is the total day sleep data model
  */
 + (NSArray <IDOSyncSleepDataInfoBluetoothModel *>*)queryOneWeekSleepsWithWeekIndex:(NSInteger)weekIndex
-                                                                               weekStartDay:(NSInteger)weekStartDay
-                                                                                    macAddr:(NSString *)macAddr
-                                                                                datesOfWeek:(NSArray <NSString *>**)dates
-                                                                               isQueryItems:(BOOL)isQuery;
+                                                                       weekStartDay:(NSInteger)weekStartDay
+                                                                            macAddr:(NSString *)macAddr
+                                                                        datesOfWeek:(NSArray <NSString *>**)dates
+                                                                       isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天睡眠数据并有详情数据 | Query the current device's sleep data and have detailed data
@@ -199,9 +199,9 @@
  * @return 一天睡眠数据的集合和详情数据集合 | Collection of daily sleep data and detailed data
  */
 + (NSArray <IDOSyncSleepDataInfoBluetoothModel *>*)queryOneDaySleepsDetailWithMac:(NSString *)macAddr
-                                                                                       year:(NSInteger)year
-                                                                                      month:(NSInteger)month
-                                                                                        day:(NSInteger)day;
+                                                                           year:(NSInteger)year
+                                                                          month:(NSInteger)month
+                                                                            day:(NSInteger)day;
 
 /**
  * @brief 查询所有睡眠数据 睡眠时长大于0 | Query all sleep data Sleep duration is greater than 0

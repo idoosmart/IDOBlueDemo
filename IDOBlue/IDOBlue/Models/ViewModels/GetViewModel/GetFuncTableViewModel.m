@@ -51,6 +51,7 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get function list")]];
         [IDOFoundationCommand getFuncTableCommand:^(int errorCode, IDOGetDeviceFuncBluetoothModel * _Nullable data) {
             if (errorCode == 0) {

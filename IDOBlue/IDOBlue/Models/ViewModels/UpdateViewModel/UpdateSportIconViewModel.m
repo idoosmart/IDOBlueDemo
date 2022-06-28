@@ -176,6 +176,10 @@
         NSIndexPath * indexPath =  [funcVC.tableView indexPathForCell:tableViewCell];
         BaseCellModel * model = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if (model.index == 0) {
+            if (!__IDO_FUNCTABLE__.funcTable35Model.notifyIconAdaptive) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                return;
+            }
             [IDOSportIconManager shareInstance].iconModels = strongSelf.models;
             [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"transfer icon file")]];
             [[IDOSportIconManager shareInstance] startTransfer];
@@ -200,6 +204,17 @@
         [funcVC showToastWithText:lang(@"transfer icon file failed")];
     }
 }
+
+- (nonnull NSString *)getPathWithSportIconSize:(CGSize)size
+                                     iconModel:(nonnull IDOSportIconModel *)model
+{
+    /**
+     Determine whether the size of the current picture is the same according to the returned size,
+     if not, crop the original picture, if it is the same, return the current address directly
+     */
+    return model.filePath;
+}
+
 
 - (void)getTextViewCallback
 {

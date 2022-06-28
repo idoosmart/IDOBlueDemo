@@ -9,5 +9,5 @@
 #import "BaseViewModel.h"
 
 @interface FirmwareTypeViewModel : BaseViewModel
-
+@property (nonatomic,assign) NSInteger type;
 @end

@@ -248,13 +248,13 @@
 - (void)oneOfMusicFileStartCorrectSamplingRate
 {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
-    [funcVC showLoadingWithMessage:lang(@"开始修改mp3采样率...")];
+    [funcVC showLoadingWithMessage:lang(@"start modifying the MP3 sample rate")];
 }
 
 - (void)oneOfMusicFileEndCorrectSamplingRate
 {
     FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
-    [funcVC showToastWithText:lang(@"完成修改mp3采样率")];
+    [funcVC showToastWithText:lang(@"finish modifying the mp3 sample rate")];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"transfer music file")]];
     });

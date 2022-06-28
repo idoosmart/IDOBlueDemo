@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		1817F4F3214B2BBF001C90D5 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1817F4F2214B2BBF001C90D5 /* test.swift */; };
+		9B0F6916286AEEF800E8BE11 /* QueryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F68F6286AEEF600E8BE11 /* QueryViewModel.m */; };
+		9B0F6917286AEEF800E8BE11 /* QueryDataDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F68F7286AEEF700E8BE11 /* QueryDataDetailViewModel.m */; };
+		9B0F6918286AEEF800E8BE11 /* QueryNoiseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F68FB286AEEF700E8BE11 /* QueryNoiseViewModel.m */; };
+		9B0F6919286AEEF800E8BE11 /* QuerySleepViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F68FD286AEEF700E8BE11 /* QuerySleepViewModel.m */; };
+		9B0F691A286AEEF800E8BE11 /* QueryPressureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F68FE286AEEF700E8BE11 /* QueryPressureViewModel.m */; };
+		9B0F691B286AEEF800E8BE11 /* QuerySwimViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F68FF286AEEF700E8BE11 /* QuerySwimViewModel.m */; };
+		9B0F691C286AEEF800E8BE11 /* QueryBpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F6901286AEEF700E8BE11 /* QueryBpViewModel.m */; };
+		9B0F691D286AEEF800E8BE11 /* QueryBopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F6903286AEEF700E8BE11 /* QueryBopViewModel.m */; };
+		9B0F691E286AEEF800E8BE11 /* QuerySportsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F6907286AEEF700E8BE11 /* QuerySportsViewModel.m */; };
+		9B0F691F286AEEF800E8BE11 /* QueryHrViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F690A286AEEF800E8BE11 /* QueryHrViewModel.m */; };
+		9B0F6920286AEEF800E8BE11 /* QueryBodyPowerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F690C286AEEF800E8BE11 /* QueryBodyPowerViewModel.m */; };
+		9B0F6921286AEEF800E8BE11 /* QueryBreathRateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F690E286AEEF800E8BE11 /* QueryBreathRateViewModel.m */; };
+		9B0F6922286AEEF800E8BE11 /* QueryActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F6910286AEEF800E8BE11 /* QueryActivityViewModel.m */; };
+		9B0F6923286AEEF800E8BE11 /* QueryGpsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F6911286AEEF800E8BE11 /* QueryGpsViewModel.m */; };
+		9B0F6924286AEEF800E8BE11 /* QueryActivityDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F6912286AEEF800E8BE11 /* QueryActivityDetailViewModel.m */; };
+		9B0F6925286AEEF800E8BE11 /* QueryTemperatureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F6913286AEEF800E8BE11 /* QueryTemperatureViewModel.m */; };
 		9B41B6D72445C87F00BE04A4 /* lib_lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41B6D62445C86D00BE04A4 /* lib_lame.a */; };
 		9B437EEE21393ADC00DE2FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437EED21393ADC00DE2FC8 /* AppDelegate.m */; };
 		9B437EF621393ADC00DE2FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B437EF521393ADC00DE2FC8 /* Assets.xcassets */; };
@@ -50,17 +66,6 @@
 		9BBFAB1D28168E9000DC7671 /* DataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9B128168E8E00DC7671 /* DataInterchangeModel.m */; };
 		9BBFAB1F28168E9000DC7671 /* MakeDialFileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9B628168E8E00DC7671 /* MakeDialFileViewModel.m */; };
 		9BBFAB2028168E9000DC7671 /* DataMigrationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9B828168E8E00DC7671 /* DataMigrationViewModel.m */; };
-		9BBFAB2128168E9000DC7671 /* QueryHrViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9BB28168E8E00DC7671 /* QueryHrViewModel.m */; };
-		9BBFAB2228168E9000DC7671 /* QueryActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9BC28168E8E00DC7671 /* QueryActivityViewModel.m */; };
-		9BBFAB2328168E9000DC7671 /* QuerySportsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9BE28168E8E00DC7671 /* QuerySportsViewModel.m */; };
-		9BBFAB2428168E9000DC7671 /* QuerySleepViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9BF28168E8E00DC7671 /* QuerySleepViewModel.m */; };
-		9BBFAB2528168E9000DC7671 /* QueryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9C028168E8E00DC7671 /* QueryViewModel.m */; };
-		9BBFAB2628168E9000DC7671 /* QueryActivityDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9C228168E8E00DC7671 /* QueryActivityDetailViewModel.m */; };
-		9BBFAB2728168E9000DC7671 /* QueryBpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9C328168E8E00DC7671 /* QueryBpViewModel.m */; };
-		9BBFAB2828168E9000DC7671 /* QueryPressureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9C828168E8E00DC7671 /* QueryPressureViewModel.m */; };
-		9BBFAB2928168E9000DC7671 /* QueryDataDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9CE28168E8E00DC7671 /* QueryDataDetailViewModel.m */; };
-		9BBFAB2A28168E9000DC7671 /* QueryBopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9CF28168E8E00DC7671 /* QueryBopViewModel.m */; };
-		9BBFAB2B28168E9000DC7671 /* QueryGpsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9D028168E8E00DC7671 /* QueryGpsViewModel.m */; };
 		9BBFAB2C28168E9000DC7671 /* SetHotStartViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9D228168E8E00DC7671 /* SetHotStartViewModel.m */; };
 		9BBFAB2D28168E9000DC7671 /* SetMenuListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9D928168E8E00DC7671 /* SetMenuListViewModel.m */; };
 		9BBFAB2E28168E9000DC7671 /* Setv3ScientificSleepViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFA9DC28168E8E00DC7671 /* Setv3ScientificSleepViewModel.m */; };
@@ -285,6 +290,38 @@
 		1817F4F2214B2BBF001C90D5 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		35FFA1193E14B5840110953D /* Pods_IDOBlue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDOBlue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A9262FD9568A68B014C256 /* Pods-IDOBlue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDOBlue.release.xcconfig"; path = "Target Support Files/Pods-IDOBlue/Pods-IDOBlue.release.xcconfig"; sourceTree = "<group>"; };
+		9B0F68F6286AEEF600E8BE11 /* QueryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryViewModel.m; sourceTree = "<group>"; };
+		9B0F68F7286AEEF700E8BE11 /* QueryDataDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryDataDetailViewModel.m; sourceTree = "<group>"; };
+		9B0F68F8286AEEF700E8BE11 /* QueryBopViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryBopViewModel.h; sourceTree = "<group>"; };
+		9B0F68F9286AEEF700E8BE11 /* QueryActivityDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryActivityDetailViewModel.h; sourceTree = "<group>"; };
+		9B0F68FA286AEEF700E8BE11 /* QueryActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryActivityViewModel.h; sourceTree = "<group>"; };
+		9B0F68FB286AEEF700E8BE11 /* QueryNoiseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryNoiseViewModel.m; sourceTree = "<group>"; };
+		9B0F68FC286AEEF700E8BE11 /* QueryTemperatureViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTemperatureViewModel.h; sourceTree = "<group>"; };
+		9B0F68FD286AEEF700E8BE11 /* QuerySleepViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuerySleepViewModel.m; sourceTree = "<group>"; };
+		9B0F68FE286AEEF700E8BE11 /* QueryPressureViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryPressureViewModel.m; sourceTree = "<group>"; };
+		9B0F68FF286AEEF700E8BE11 /* QuerySwimViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuerySwimViewModel.m; sourceTree = "<group>"; };
+		9B0F6900286AEEF700E8BE11 /* QuerySportsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuerySportsViewModel.h; sourceTree = "<group>"; };
+		9B0F6901286AEEF700E8BE11 /* QueryBpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryBpViewModel.m; sourceTree = "<group>"; };
+		9B0F6902286AEEF700E8BE11 /* QuerySleepViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuerySleepViewModel.h; sourceTree = "<group>"; };
+		9B0F6903286AEEF700E8BE11 /* QueryBopViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryBopViewModel.m; sourceTree = "<group>"; };
+		9B0F6904286AEEF700E8BE11 /* QueryNoiseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryNoiseViewModel.h; sourceTree = "<group>"; };
+		9B0F6905286AEEF700E8BE11 /* QueryHrViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryHrViewModel.h; sourceTree = "<group>"; };
+		9B0F6906286AEEF700E8BE11 /* QueryViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryViewModel.h; sourceTree = "<group>"; };
+		9B0F6907286AEEF700E8BE11 /* QuerySportsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuerySportsViewModel.m; sourceTree = "<group>"; };
+		9B0F6908286AEEF700E8BE11 /* QuerySwimViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuerySwimViewModel.h; sourceTree = "<group>"; };
+		9B0F6909286AEEF800E8BE11 /* QueryDataDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryDataDetailViewModel.h; sourceTree = "<group>"; };
+		9B0F690A286AEEF800E8BE11 /* QueryHrViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryHrViewModel.m; sourceTree = "<group>"; };
+		9B0F690B286AEEF800E8BE11 /* QueryPressureViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryPressureViewModel.h; sourceTree = "<group>"; };
+		9B0F690C286AEEF800E8BE11 /* QueryBodyPowerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryBodyPowerViewModel.m; sourceTree = "<group>"; };
+		9B0F690D286AEEF800E8BE11 /* QueryBpViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryBpViewModel.h; sourceTree = "<group>"; };
+		9B0F690E286AEEF800E8BE11 /* QueryBreathRateViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryBreathRateViewModel.m; sourceTree = "<group>"; };
+		9B0F690F286AEEF800E8BE11 /* QueryBodyPowerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryBodyPowerViewModel.h; sourceTree = "<group>"; };
+		9B0F6910286AEEF800E8BE11 /* QueryActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryActivityViewModel.m; sourceTree = "<group>"; };
+		9B0F6911286AEEF800E8BE11 /* QueryGpsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryGpsViewModel.m; sourceTree = "<group>"; };
+		9B0F6912286AEEF800E8BE11 /* QueryActivityDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryActivityDetailViewModel.m; sourceTree = "<group>"; };
+		9B0F6913286AEEF800E8BE11 /* QueryTemperatureViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTemperatureViewModel.m; sourceTree = "<group>"; };
+		9B0F6914286AEEF800E8BE11 /* QueryGpsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryGpsViewModel.h; sourceTree = "<group>"; };
+		9B0F6915286AEEF800E8BE11 /* QueryBreathRateViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryBreathRateViewModel.h; sourceTree = "<group>"; };
 		9B4045FA2143C29300ACDE9F /* IDOBlue.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOBlue.pch; sourceTree = "<group>"; };
 		9B41B6D62445C86D00BE04A4 /* lib_lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib_lame.a; path = ../thirdParty/Lame/lib_lame.a; sourceTree = "<group>"; };
 		9B41B6D82445C89E00BE04A4 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lame.h; path = ../../thirdParty/Lame/lame.h; sourceTree = "<group>"; };
@@ -365,28 +402,6 @@
 		9BBFA9B628168E8E00DC7671 /* MakeDialFileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeDialFileViewModel.m; sourceTree = "<group>"; };
 		9BBFA9B828168E8E00DC7671 /* DataMigrationViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataMigrationViewModel.m; sourceTree = "<group>"; };
 		9BBFA9B928168E8E00DC7671 /* DataMigrationViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataMigrationViewModel.h; sourceTree = "<group>"; };
-		9BBFA9BB28168E8E00DC7671 /* QueryHrViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryHrViewModel.m; sourceTree = "<group>"; };
-		9BBFA9BC28168E8E00DC7671 /* QueryActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryActivityViewModel.m; sourceTree = "<group>"; };
-		9BBFA9BD28168E8E00DC7671 /* QueryPressureViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryPressureViewModel.h; sourceTree = "<group>"; };
-		9BBFA9BE28168E8E00DC7671 /* QuerySportsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuerySportsViewModel.m; sourceTree = "<group>"; };
-		9BBFA9BF28168E8E00DC7671 /* QuerySleepViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuerySleepViewModel.m; sourceTree = "<group>"; };
-		9BBFA9C028168E8E00DC7671 /* QueryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryViewModel.m; sourceTree = "<group>"; };
-		9BBFA9C128168E8E00DC7671 /* QueryDataDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryDataDetailViewModel.h; sourceTree = "<group>"; };
-		9BBFA9C228168E8E00DC7671 /* QueryActivityDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryActivityDetailViewModel.m; sourceTree = "<group>"; };
-		9BBFA9C328168E8E00DC7671 /* QueryBpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryBpViewModel.m; sourceTree = "<group>"; };
-		9BBFA9C428168E8E00DC7671 /* QueryBopViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryBopViewModel.h; sourceTree = "<group>"; };
-		9BBFA9C528168E8E00DC7671 /* QueryGpsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryGpsViewModel.h; sourceTree = "<group>"; };
-		9BBFA9C628168E8E00DC7671 /* QueryViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryViewModel.h; sourceTree = "<group>"; };
-		9BBFA9C728168E8E00DC7671 /* QuerySleepViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuerySleepViewModel.h; sourceTree = "<group>"; };
-		9BBFA9C828168E8E00DC7671 /* QueryPressureViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryPressureViewModel.m; sourceTree = "<group>"; };
-		9BBFA9C928168E8E00DC7671 /* QuerySportsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuerySportsViewModel.h; sourceTree = "<group>"; };
-		9BBFA9CA28168E8E00DC7671 /* QueryHrViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryHrViewModel.h; sourceTree = "<group>"; };
-		9BBFA9CB28168E8E00DC7671 /* QueryActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryActivityViewModel.h; sourceTree = "<group>"; };
-		9BBFA9CC28168E8E00DC7671 /* QueryBpViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryBpViewModel.h; sourceTree = "<group>"; };
-		9BBFA9CD28168E8E00DC7671 /* QueryActivityDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryActivityDetailViewModel.h; sourceTree = "<group>"; };
-		9BBFA9CE28168E8E00DC7671 /* QueryDataDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryDataDetailViewModel.m; sourceTree = "<group>"; };
-		9BBFA9CF28168E8E00DC7671 /* QueryBopViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryBopViewModel.m; sourceTree = "<group>"; };
-		9BBFA9D028168E8E00DC7671 /* QueryGpsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryGpsViewModel.m; sourceTree = "<group>"; };
 		9BBFA9D228168E8E00DC7671 /* SetHotStartViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetHotStartViewModel.m; sourceTree = "<group>"; };
 		9BBFA9D328168E8E00DC7671 /* SetContactItemViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetContactItemViewModel.h; sourceTree = "<group>"; };
 		9BBFA9D428168E8E00DC7671 /* SetDisplayViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetDisplayViewModel.h; sourceTree = "<group>"; };
@@ -1047,28 +1062,38 @@
 		9BBFA9BA28168E8E00DC7671 /* QueryViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9BBFA9BB28168E8E00DC7671 /* QueryHrViewModel.m */,
-				9BBFA9BC28168E8E00DC7671 /* QueryActivityViewModel.m */,
-				9BBFA9BD28168E8E00DC7671 /* QueryPressureViewModel.h */,
-				9BBFA9BE28168E8E00DC7671 /* QuerySportsViewModel.m */,
-				9BBFA9BF28168E8E00DC7671 /* QuerySleepViewModel.m */,
-				9BBFA9C028168E8E00DC7671 /* QueryViewModel.m */,
-				9BBFA9C128168E8E00DC7671 /* QueryDataDetailViewModel.h */,
-				9BBFA9C228168E8E00DC7671 /* QueryActivityDetailViewModel.m */,
-				9BBFA9C328168E8E00DC7671 /* QueryBpViewModel.m */,
-				9BBFA9C428168E8E00DC7671 /* QueryBopViewModel.h */,
-				9BBFA9C528168E8E00DC7671 /* QueryGpsViewModel.h */,
-				9BBFA9C628168E8E00DC7671 /* QueryViewModel.h */,
-				9BBFA9C728168E8E00DC7671 /* QuerySleepViewModel.h */,
-				9BBFA9C828168E8E00DC7671 /* QueryPressureViewModel.m */,
-				9BBFA9C928168E8E00DC7671 /* QuerySportsViewModel.h */,
-				9BBFA9CA28168E8E00DC7671 /* QueryHrViewModel.h */,
-				9BBFA9CB28168E8E00DC7671 /* QueryActivityViewModel.h */,
-				9BBFA9CC28168E8E00DC7671 /* QueryBpViewModel.h */,
-				9BBFA9CD28168E8E00DC7671 /* QueryActivityDetailViewModel.h */,
-				9BBFA9CE28168E8E00DC7671 /* QueryDataDetailViewModel.m */,
-				9BBFA9CF28168E8E00DC7671 /* QueryBopViewModel.m */,
-				9BBFA9D028168E8E00DC7671 /* QueryGpsViewModel.m */,
+				9B0F68F9286AEEF700E8BE11 /* QueryActivityDetailViewModel.h */,
+				9B0F6912286AEEF800E8BE11 /* QueryActivityDetailViewModel.m */,
+				9B0F68FA286AEEF700E8BE11 /* QueryActivityViewModel.h */,
+				9B0F6910286AEEF800E8BE11 /* QueryActivityViewModel.m */,
+				9B0F690F286AEEF800E8BE11 /* QueryBodyPowerViewModel.h */,
+				9B0F690C286AEEF800E8BE11 /* QueryBodyPowerViewModel.m */,
+				9B0F68F8286AEEF700E8BE11 /* QueryBopViewModel.h */,
+				9B0F6903286AEEF700E8BE11 /* QueryBopViewModel.m */,
+				9B0F690D286AEEF800E8BE11 /* QueryBpViewModel.h */,
+				9B0F6901286AEEF700E8BE11 /* QueryBpViewModel.m */,
+				9B0F6915286AEEF800E8BE11 /* QueryBreathRateViewModel.h */,
+				9B0F690E286AEEF800E8BE11 /* QueryBreathRateViewModel.m */,
+				9B0F6909286AEEF800E8BE11 /* QueryDataDetailViewModel.h */,
+				9B0F68F7286AEEF700E8BE11 /* QueryDataDetailViewModel.m */,
+				9B0F6914286AEEF800E8BE11 /* QueryGpsViewModel.h */,
+				9B0F6911286AEEF800E8BE11 /* QueryGpsViewModel.m */,
+				9B0F6905286AEEF700E8BE11 /* QueryHrViewModel.h */,
+				9B0F690A286AEEF800E8BE11 /* QueryHrViewModel.m */,
+				9B0F6904286AEEF700E8BE11 /* QueryNoiseViewModel.h */,
+				9B0F68FB286AEEF700E8BE11 /* QueryNoiseViewModel.m */,
+				9B0F690B286AEEF800E8BE11 /* QueryPressureViewModel.h */,
+				9B0F68FE286AEEF700E8BE11 /* QueryPressureViewModel.m */,
+				9B0F6902286AEEF700E8BE11 /* QuerySleepViewModel.h */,
+				9B0F68FD286AEEF700E8BE11 /* QuerySleepViewModel.m */,
+				9B0F6900286AEEF700E8BE11 /* QuerySportsViewModel.h */,
+				9B0F6907286AEEF700E8BE11 /* QuerySportsViewModel.m */,
+				9B0F6908286AEEF700E8BE11 /* QuerySwimViewModel.h */,
+				9B0F68FF286AEEF700E8BE11 /* QuerySwimViewModel.m */,
+				9B0F68FC286AEEF700E8BE11 /* QueryTemperatureViewModel.h */,
+				9B0F6913286AEEF800E8BE11 /* QueryTemperatureViewModel.m */,
+				9B0F6906286AEEF700E8BE11 /* QueryViewModel.h */,
+				9B0F68F6286AEEF600E8BE11 /* QueryViewModel.m */,
 			);
 			path = QueryViewModel;
 			sourceTree = "<group>";
@@ -1776,7 +1801,6 @@
 				9BBFAB7A28168E9000DC7671 /* GetMenuListViewModel.m in Sources */,
 				9B9C400D2566693900809576 /* DeviceScanView.m in Sources */,
 				9BBFAB8A28168E9000DC7671 /* GetV3HearRateViewModel.m in Sources */,
-				9BBFAB2928168E9000DC7671 /* QueryDataDetailViewModel.m in Sources */,
 				B0C8F999274B3078009BA60D /* BaseViewController.m in Sources */,
 				9BBFAB6828168E9000DC7671 /* SetUserNumberViewModel.m in Sources */,
 				9BBFAB2E28168E9000DC7671 /* Setv3ScientificSleepViewModel.m in Sources */,
@@ -1791,6 +1815,8 @@
 				9BBFAB6128168E9000DC7671 /* SetSpo2SwitchViewModel.m in Sources */,
 				9BBFAB7428168E9000DC7671 /* GetStartCountViewModel.m in Sources */,
 				9BBFAB3D28168E9000DC7671 /* SetMenstruationViewModel.m in Sources */,
+				9B0F691F286AEEF800E8BE11 /* QueryHrViewModel.m in Sources */,
+				9B0F6918286AEEF800E8BE11 /* QueryNoiseViewModel.m in Sources */,
 				9BBFABB928168E9000DC7671 /* AddMusicInfoViewModel.m in Sources */,
 				9BC479A3244E9A5900455A6E /* PQVoiceTopArcView.m in Sources */,
 				9BBFAB4B28168E9000DC7671 /* SetWeatherViewModel.m in Sources */,
@@ -1798,6 +1824,7 @@
 				9BBFAB9928168E9000DC7671 /* TranWatchDialViewModel.m in Sources */,
 				9BBFABB528168E9000DC7671 /* MusicViewModel.m in Sources */,
 				9BBFAB7928168E9000DC7671 /* GetBatteryInfoViewModel.m in Sources */,
+				9B0F691D286AEEF800E8BE11 /* QueryBopViewModel.m in Sources */,
 				9B437EFC21393ADC00DE2FC8 /* main.m in Sources */,
 				9BBFABA428168E9000DC7671 /* UpdateSportIconViewModel.m in Sources */,
 				9B9C40322566693C00809576 /* View+MASAdditions.m in Sources */,
@@ -1805,6 +1832,7 @@
 				9BBFABAA28168E9000DC7671 /* UpdateApolloViewModel.m in Sources */,
 				9BBFAB6428168E9000DC7671 /* SetHandUpViewModel.m in Sources */,
 				9BBFAB4D28168E9000DC7671 /* SetContactItemViewModel.m in Sources */,
+				9B0F6925286AEEF800E8BE11 /* QueryTemperatureViewModel.m in Sources */,
 				9BBFAB7828168E9000DC7671 /* GetSportSortViewModel.m in Sources */,
 				9BBFABBF28168E9000DC7671 /* ControlRestartViewModel.m in Sources */,
 				9BBFABAE28168E9000DC7671 /* FlashLogViewModel.m in Sources */,
@@ -1828,28 +1856,31 @@
 				9B9C400E2566693900809576 /* ScanDemoViewController.m in Sources */,
 				9BBFAB4F28168E9000DC7671 /* SetBreatheViewModel.m in Sources */,
 				9BBFAB4A28168E9000DC7671 /* SetSportSwitchViewModel.m in Sources */,
-				9BBFAB2328168E9000DC7671 /* QuerySportsViewModel.m in Sources */,
 				B0C8F995274B3078009BA60D /* NSObject+DemoToDic.m in Sources */,
+				9B0F691A286AEEF800E8BE11 /* QueryPressureViewModel.m in Sources */,
 				9BBFABBD28168E9000DC7671 /* BpMeasureViewModel.m in Sources */,
 				9BBFAB4328168E9000DC7671 /* SetCustomFuncViewModel.m in Sources */,
+				9B0F691B286AEEF800E8BE11 /* QuerySwimViewModel.m in Sources */,
 				9BBFAB9728168E9000DC7671 /* ModeSelectViewModel.m in Sources */,
 				9B9C40312566693C00809576 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				9BBFAB5428168E9000DC7671 /* SetShortcutViewModel.m in Sources */,
 				9BBFABC428168E9000DC7671 /* ControlNotifyViewModel.m in Sources */,
 				9BBFAB4C28168E9000DC7671 /* SetWashHandReminderViewModel.m in Sources */,
 				9BBFAB3528168E9000DC7671 /* SetUnitViewModel.m in Sources */,
-				9BBFAB2A28168E9000DC7671 /* QueryBopViewModel.m in Sources */,
 				9B9C40332566693C00809576 /* ViewController+MASAdditions.m in Sources */,
 				9BBFAB5628168E9000DC7671 /* AllWorldTimeViewModel.m in Sources */,
 				9BBFABA328168E9000DC7671 /* OtherFileViewModel.m in Sources */,
+				9B0F6917286AEEF800E8BE11 /* QueryDataDetailViewModel.m in Sources */,
 				9BBFAB8F28168E9000DC7671 /* GetDefaultLanguageViewModel.m in Sources */,
 				9BBFAB6528168E9000DC7671 /* SetBloodPressureViewModel.m in Sources */,
 				9BBFABAF28168E9000DC7671 /* LogViewModel.m in Sources */,
 				9BBFAB6A28168E9000DC7671 /* SetWeatchSunTimeViewModel.m in Sources */,
 				B0C8F9B3274B3078009BA60D /* OneSwitchTableViewCell.m in Sources */,
+				9B0F6924286AEEF800E8BE11 /* QueryActivityDetailViewModel.m in Sources */,
 				9BBFAB9128168E9000DC7671 /* GetStressThresholdModel.m in Sources */,
 				9B9C402E2566693C00809576 /* MASViewAttribute.m in Sources */,
 				9BBFAB8628168E9000DC7671 /* GetMainUiSortViewModel.m in Sources */,
+				9B0F6920286AEEF800E8BE11 /* QueryBodyPowerViewModel.m in Sources */,
 				9BBFAB8228168E9000DC7671 /* GetGpsInfoViewModel.m in Sources */,
 				9BBFAB8028168E9000DC7671 /* GetNoDisturbViewModel.m in Sources */,
 				9BBFAB9D28168E9000DC7671 /* SetWatchDialViewModel.m in Sources */,
@@ -1857,8 +1888,8 @@
 				9B437F3721393DDD00DE2FC8 /* MBProgressHUD.m in Sources */,
 				B0C8F9AC274B3078009BA60D /* TwoTextFieldTableViewCell.m in Sources */,
 				9BBFAB9B28168E9000DC7671 /* MainDialViewModel.m in Sources */,
+				9B0F6919286AEEF800E8BE11 /* QuerySleepViewModel.m in Sources */,
 				B0C8F99D274B3078009BA60D /* RecordAudio.m in Sources */,
-				9BBFAB2628168E9000DC7671 /* QueryActivityDetailViewModel.m in Sources */,
 				B0C8F9AD274B3078009BA60D /* SexTableViewCell.m in Sources */,
 				9BBFAB9828168E9000DC7671 /* FuncViewModel.m in Sources */,
 				9BBFAB6728168E9000DC7671 /* SetSportShortcutViewModel.m in Sources */,
@@ -1893,7 +1924,6 @@
 				9BBFAB1428168E9000DC7671 /* TabCellModel.m in Sources */,
 				B0C8F9AF274B3078009BA60D /* TwoButtonTableViewCell.m in Sources */,
 				9BBFAB5128168E9000DC7671 /* SetFindPhoneViewModel.m in Sources */,
-				9BBFAB2528168E9000DC7671 /* QueryViewModel.m in Sources */,
 				9BBFAB6C28168E9000DC7671 /* SetScreenViewModel.m in Sources */,
 				9BBFABB628168E9000DC7671 /* TranMusicInfoViewModel.m in Sources */,
 				9BBFAB3E28168E9000DC7671 /* SetFitnessGuidanceViewModel.m in Sources */,
@@ -1917,6 +1947,7 @@
 				9BBFABC328168E9000DC7671 /* TakePictureViewModel.m in Sources */,
 				9BC479A6244E9A5900455A6E /* UIView+PQViewExtension.m in Sources */,
 				B0C8F99C274B3078009BA60D /* PCMDataPlayer.m in Sources */,
+				9B0F691C286AEEF800E8BE11 /* QueryBpViewModel.m in Sources */,
 				9BC479A0244E9A5900455A6E /* PQVoiceBottomView.m in Sources */,
 				9BBFAB5D28168E9000DC7671 /* SetV3NoticeMessageViewModel.m in Sources */,
 				9BBFAB5828168E9000DC7671 /* SetWalkRemindViewModel.m in Sources */,
@@ -1927,21 +1958,18 @@
 				B0C8F9AA274B3078009BA60D /* OneLabelTableViewCell.m in Sources */,
 				9BBFABBB28168E9000DC7671 /* GetMusicInfoViewModel.m in Sources */,
 				9BBFAB5728168E9000DC7671 /* SetWorldTimeViewModel.m in Sources */,
-				9BBFAB2828168E9000DC7671 /* QueryPressureViewModel.m in Sources */,
 				9BC4799F244E9A5900455A6E /* PQTopArcAnimationView.m in Sources */,
 				B0C8F9A2274B3078009BA60D /* SetMenuView.m in Sources */,
 				9BBFAB1A28168E9000DC7671 /* BaseCellModel.m in Sources */,
 				9BC479A5244E9A5900455A6E /* PQVoiceView.m in Sources */,
 				9BBFAB1F28168E9000DC7671 /* MakeDialFileViewModel.m in Sources */,
 				9BBFAB4228168E9000DC7671 /* AllAlarmViewModel.m in Sources */,
-				9BBFAB2B28168E9000DC7671 /* QueryGpsViewModel.m in Sources */,
 				B0C8F9B6274B3078009BA60D /* ThreeButtonTableViewCell.m in Sources */,
 				9BBFABA228168E9000DC7671 /* UpdateMessageIconViewModel.m in Sources */,
 				9BBFAB6228168E9000DC7671 /* SetMusicViewModel.m in Sources */,
 				9BBFAB8528168E9000DC7671 /* GetVersionInfoViewModel.m in Sources */,
 				B0C8F9AE274B3078009BA60D /* SelectDefaultTableViewCell.m in Sources */,
-				9BBFAB2728168E9000DC7671 /* QueryBpViewModel.m in Sources */,
-				9BBFAB2228168E9000DC7671 /* QueryActivityViewModel.m in Sources */,
+				9B0F691E286AEEF800E8BE11 /* QuerySportsViewModel.m in Sources */,
 				9BBFAB3A28168E9000DC7671 /* SetHrIntervalViewModel.m in Sources */,
 				9BBFAB8E28168E9000DC7671 /* GetMtuInfoViewModel.m in Sources */,
 				B0C8F9A7274B3078009BA60D /* BindDeviceView.m in Sources */,
@@ -1955,7 +1983,6 @@
 				9BBFABC128168E9000DC7671 /* ControlAudioRecordViewModel.m in Sources */,
 				B0C8F9B4274B3078009BA60D /* OneButtonTableViewCell.m in Sources */,
 				B0C8F9B1274B3078009BA60D /* ScanTableViewCell.m in Sources */,
-				9BBFAB2128168E9000DC7671 /* QueryHrViewModel.m in Sources */,
 				9BBFAB7F28168E9000DC7671 /* GetScheduleRemindViewModel.m in Sources */,
 				9BBFABC528168E9000DC7671 /* ControlMusicViewModel.m in Sources */,
 				9BBFAB4428168E9000DC7671 /* SetV3NoiseViewModel.m in Sources */,
@@ -1969,13 +1996,13 @@
 				9BBFABB328168E9000DC7671 /* SetMusicInfoViewModel.m in Sources */,
 				9BBFAB8B28168E9000DC7671 /* GetCalorieDistanceGoalViewModel.m in Sources */,
 				B0C8F9B5274B3078009BA60D /* ThreeTextFieldTableViewCell.m in Sources */,
-				9BBFAB2428168E9000DC7671 /* QuerySleepViewModel.m in Sources */,
 				9BBFAB1528168E9000DC7671 /* LabelCellModel.m in Sources */,
 				9BBFAB5C28168E9000DC7671 /* SetTargetViewModel.m in Sources */,
 				9BBFAB3B28168E9000DC7671 /* SetViewModel.m in Sources */,
 				9BBFABA128168E9000DC7671 /* FirmwareTypeViewModel.m in Sources */,
 				9BBFAB7628168E9000DC7671 /* GetViewModel.m in Sources */,
 				9BBFAB9E28168E9000DC7671 /* SetWallpaperViewModel.m in Sources */,
+				9B0F6923286AEEF800E8BE11 /* QueryGpsViewModel.m in Sources */,
 				9BC4799E244E9A5900455A6E /* PQCircleAnimationView.m in Sources */,
 				9BBFABBA28168E9000DC7671 /* MusicInfoViewModel.m in Sources */,
 				9BBFAB5928168E9000DC7671 /* SetCityNameViewModel.m in Sources */,
@@ -1983,6 +2010,7 @@
 				9BBFAB8328168E9000DC7671 /* GetEncryptionCodeViewModel.m in Sources */,
 				9BBFAB6928168E9000DC7671 /* SetPreventLostViewModel.m in Sources */,
 				9BBFAB3C28168E9000DC7671 /* SetV3TemperatureViewModel.m in Sources */,
+				9B0F6916286AEEF800E8BE11 /* QueryViewModel.m in Sources */,
 				9BBFABA628168E9000DC7671 /* FileViewModel.m in Sources */,
 				9BBFAB3028168E9000DC7671 /* SetTimeViewModel.m in Sources */,
 				9BBFAB1828168E9000DC7671 /* FuncCellModel.m in Sources */,
@@ -1990,6 +2018,7 @@
 				9BBFABC228168E9000DC7671 /* ControlViewModel.m in Sources */,
 				B0C8F991274B3078009BA60D /* UINavigationItem+Button.m in Sources */,
 				9BBFAB8728168E9000DC7671 /* GetMacViewModel.m in Sources */,
+				9B0F6921286AEEF800E8BE11 /* QueryBreathRateViewModel.m in Sources */,
 				9B9C402D2566693C00809576 /* MASLayoutConstraint.m in Sources */,
 				9BBFAB4728168E9000DC7671 /* SetMenstruationRemindViewModel.m in Sources */,
 				9BBFAB9428168E9000DC7671 /* GetV3AlarmsViewModel.m in Sources */,
@@ -2010,6 +2039,7 @@
 				9BBFAB3628168E9000DC7671 /* SetV3WeatherViewModel.m in Sources */,
 				9BBFAB4028168E9000DC7671 /* SetGpsInfoViewModel.m in Sources */,
 				9BBFAB6628168E9000DC7671 /* SetUserNameViewModel.m in Sources */,
+				9B0F6922286AEEF800E8BE11 /* QueryActivityViewModel.m in Sources */,
 				9BBFAB3928168E9000DC7671 /* SetSyncContactViewModel.m in Sources */,
 				9BBFAB4128168E9000DC7671 /* SetV3ScheduleRemindItemViewModel.m in Sources */,
 			);
@@ -2163,7 +2193,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = IDOBlue/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2201,7 +2231,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IDOBlue/IDOBlue.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = IDOBlue/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

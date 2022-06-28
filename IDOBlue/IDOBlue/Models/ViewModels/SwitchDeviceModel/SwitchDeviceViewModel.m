@@ -93,7 +93,7 @@
 {
     //查询所有绑定过或者连接过的设备
     if (!_allDevices) {
-        _allDevices = [IDOGetDeviceInfoBluetoothModel queryAllDeviceModels];
+         _allDevices = [IDOGetDeviceInfoBluetoothModel queryAllDeviceModels];
     }
     return _allDevices;
 }
@@ -235,7 +235,6 @@
               [funcVc showToastWithText:lang(@"device unbind")];
               [strongSelf bindDevice];
            }else if(errorCode == 6){ //设备不支持
-//              [strongSelf bindDevice];
                [IDOFoundationCommand swithOrdinaryDeviceComplete];
                [funcVc showToastWithText:lang(@"bind success")];
            }else { //失败

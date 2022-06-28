@@ -96,7 +96,6 @@
  */
 @property (nonatomic,copy) NSArray <IDOSyncV3GpsDataItemInfoBluetoothModel *>* gpsItems;
 
-
 @end
 
 @interface IDOSyncV3GpsDataModel : IDOBluetoothBaseModel
@@ -107,6 +106,15 @@
  * @return gps信息数据 坐标item对象集合 | gps information data coordinate item object collection
 */
 + (IDOSyncV3GpsDataInfoBluetoothModel *)queryV3GpsCoordinatesWithTimeStr:(NSString *)timeStr
-                                                                          macAddr:(NSString *)macAddr;
+                                                                 macAddr:(NSString *)macAddr;
+
+/**
+ * @brief 根据时间戳查询某个活动是否存在轨迹 | Query whether an activity has a track based on a timestamp
+ * @param timeStr 时间戳  time interval since 1970 (如:1444361933) | Timestamp time interval since 1970 (eg: 14443361933)
+ * @param macAddr mac 地址 | mac address
+ * @return 是否存在轨迹 yes or no | Is there a track?
+ */
++ (BOOL)queryActivityHasCoordinatesWithTimeStr:(NSString *)timeStr
+                                       macAddr:(NSString *)macAddr;
 
 @end

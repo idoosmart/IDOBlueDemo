@@ -100,7 +100,12 @@
 
 - (NSString *)dataStrWithModel:(IDOSyncActivityDataInfoBluetoothModel *)model
 {
-    BOOL isGps = [IDOSyncGpsDataModel queryActivityHasCoordinatesWithTimeStr:model.timeStr macAddr:@""];
+    BOOL isGps = NO;
+    if (__IDO_FUNCTABLE__.funcTable29Model.v3SyncActivity) {
+        isGps = [IDOSyncV3GpsDataModel queryActivityHasCoordinatesWithTimeStr:model.timeStr macAddr:self.macAddr];
+    }else {
+        isGps = [IDOSyncGpsDataModel queryActivityHasCoordinatesWithTimeStr:model.timeStr macAddr:self.macAddr];
+    }
     NSString * type = model.type < self.pickerDataModel.sportTypes.count ? [self.pickerDataModel.sportTypes objectAtIndex:model.type] : lang(@"walk");
     NSString * titleStr = [NSString stringWithFormat:@"%@:%@ [%@]",lang(@"activty type"),type,isGps ? lang(@"trajectory"):lang(@"no trajectory")];
     NSString * timeStr     = [NSString stringWithFormat:@"%@%@",lang(@"time"),[IDODemoUtility timeStrFromTimeStamp:model.timeStr]];

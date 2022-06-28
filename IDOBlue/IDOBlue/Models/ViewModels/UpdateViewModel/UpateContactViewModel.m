@@ -41,36 +41,12 @@
 {
     self = [super init];
     if (self) {
-        self.rightButtonTitle = lang(@"selected agps file");
-        self.isRightButton = YES;
-        self.rightButton   = @selector(actionButton:);
         [self getViewWillDisappearCallback];
         [self getButtonCallback];
         [self getTextViewCallback];
         [self getCellModels];
-        [[NSNotificationCenter defaultCenter]addObserver:self
-                                                selector:@selector(selectFileNotice:)
-                                                    name:@"idoDemoSelectFileNotice"
-                                                  object:nil];
     }
     return self;
-}
-
-- (void)actionButton:(UIButton *)sender
-{
-    FuncViewController * vc = [[FuncViewController alloc]init];
-    FileViewModel * fileModel = [FileViewModel new];
-    fileModel.type = 1;
-    vc.model = fileModel;
-    vc.title = lang(@"selected agps file");
-    [[IDODemoUtility getCurrentVC].navigationController pushViewController:vc animated:YES];
-}
-
-- (void)selectFileNotice:(NSNotification*)notice
-{
-    NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:TRAN_FILE_PATH_KEY];
-    NSString * infoStr = [self selectedFileWithFilePath:filePath];
-    [self addMessageText:infoStr];
 }
 
 - (void)getViewWillDisappearCallback
@@ -84,12 +60,14 @@
 
 - (void)getCellModels
 {
+    /*
     NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:TRAN_FILE_PATH_KEY];
     self.logStr = [self selectedFileWithFilePath:filePath];
+    */
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
-    model1.data    = @[lang(@"联系人文件传输")];
+    model1.data    = @[lang(@"contact update")];
     model1.cellHeight = 70.0f;
     model1.buttconCallback = self.buttconCallback;
     model1.cellClass  = [OneButtonTableViewCell class];
@@ -160,7 +138,7 @@
     NSString * dataSize = [NSString stringWithFormat:@"%ld bytes",(long)data.length];
     NSString * nameStr = [@"Name : "stringByAppendingString:lastPathComponent];
     NSString * sizeStr = [@"Size : "stringByAppendingString:dataSize];
-    NSString * typeStr = [@"Type : "stringByAppendingString:@"contact File"];
+    NSString * typeStr = [@"Type : "stringByAppendingString:@"contact file"];
     NSString * fileStr = [NSString stringWithFormat:@"%@\n%@\n%@",nameStr,sizeStr,typeStr];
     return fileStr;
 }
@@ -181,26 +159,33 @@
         __strong typeof(self) strongSelf = weakSelf;
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        
+        if (!__IDO_FUNCTABLE__.funcTable33Model.v2SupportGetAllContact) {
+            [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+            return;
+        }
+        
         NSMutableArray * items = [NSMutableArray array];
         IDOSetTimeInfoBluetoothModel * time = [[IDOSetTimeInfoBluetoothModel alloc]init];
         IDOSetSyncAllContactModel * model = [[IDOSetSyncAllContactModel alloc]init];
-        model.year = time.year;
+        model.year  = time.year;
         model.month = time.month;
-        model.day = time.day;
-        model.hour = time.hour;
+        model.day   = time.day;
+        model.hour  = time.hour;
         model.minute = time.minute;
         model.second = time.second;
         model.contactItemNum = 500;
         for (int i = 0; i < 500; i++) {
             IDOSetAllContactItemModel * item = [[IDOSetAllContactItemModel alloc]init];
-            item.name = [NSString stringWithFormat:@"联系人%d",i];
+            item.name = [NSString stringWithFormat:@"person %d",i];
             item.phone = [NSString stringWithFormat:@"1234567890%d",i];
             [items addObject:item];
         }
         model.items = items;
         [IDOFoundationCommand setSyncAllContactCommand:model
                                               callback:^(int errorCode, NSString * _Nullable path) {
-            weakSelf.filePath = [path copy];
+            NSString * logStr = [strongSelf selectedFileWithFilePath:path];
+            [strongSelf addMessageText:logStr];
             [strongSelf updateWordwithVc:funcVC];
         }];
     };
@@ -209,8 +194,7 @@
 - (void)updateWordwithVc:(FuncViewController *)funcVC
 {
     [self startTimer];
-   // BOOL isConnect = [[NSUserDefaults standardUserDefaults]boolForKey:IS_SET_CONNECT_PARAMSERS];
-    [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"联系人文件传输")]];
+    [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"contact file transfer")]];
     initTransferManager().transferType = IDO_DATA_FILE_TRAN_CONTACT_TYPE;
     initTransferManager().compressionType = IDO_DATA_TRAN_COMPRESSION_NO_USE_TYPE;
     initTransferManager().fileName = @".ml";

@@ -41,10 +41,9 @@
                          @{@"title":lang(@"bicycle on off"),@"switch":@(self.sportModel.sportBicycleOnOff)},
                          @{@"title":lang(@"auto pause on off"),@"switch":@(self.sportModel.autoPauseOnOff)},
                          @{@"title":lang(@"end remind on off"),@"switch":@(self.sportModel.endRemindOnOff)},
-                         @{@"title":@"自动识别椭圆机开关",@"switch":@(self.sportModel.sportEllipticalOnOff)},
-                         @{@"title":@"自动识别划船机开关",@"switch":@(self.sportModel.sportRowingOnOff)},
-                         @{@"title":@"自动识别游泳开关",@"switch":@(self.sportModel.sportSwimOnOff)},
-        
+                         @{@"title":lang(@"auto elliptical machine switch"),@"switch":@(self.sportModel.sportEllipticalOnOff)},
+                         @{@"title":lang(@"auto rowing machine switch"),@"switch":@(self.sportModel.sportRowingOnOff)},
+                         @{@"title":lang(@"auto swimming switch"),@"switch":@(self.sportModel.sportSwimOnOff)},
                         ];
     }
     return _switchArray;

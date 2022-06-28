@@ -39,7 +39,6 @@
     if (self) {
         [self getButtonCallback];
         [self getAddButtonCallback];
-        [self getLabelCallback];
         [self getCellModels];
         [self initMusic];
     }
@@ -56,12 +55,6 @@
          _folderItems = [NSMutableArray new];
     }
     return _folderItems;
-}
-
-
-- (void)getLabelCallback
-{
-   
 }
 
 - (void)getAddButtonCallback
@@ -93,6 +86,10 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        if (strongSelf.folderItems.count == 0) {
+            [funcVC showToastWithText:lang(@"please add floder info")];
+            return;
+        }
         [funcVC showLoadingWithMessage:lang(@"set data...")];
         IDOMusicDirectoryModel * model = [strongSelf.folderItems lastObject];
         [IDOMusicFileManager addMusicFolders:@[model]];

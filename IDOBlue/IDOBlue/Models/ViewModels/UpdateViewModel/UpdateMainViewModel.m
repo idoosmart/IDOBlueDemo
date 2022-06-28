@@ -12,9 +12,7 @@
 #import "FuncViewController.h"
 #import "UpdateFirmwareViewModel.h"
 #import "UpdateAgpsViewModel.h"
-#import "UpdateWordViewModel.h"
 #import "UpdatePhotoViewModel.h"
-#import "UpdateApolloViewModel.h"
 #import "UpdateMessageIconViewModel.h"
 #import "UpdateSportIconViewModel.h"
 #import "UpateContactViewModel.h"
@@ -62,8 +60,11 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"nordic update")],@[lang(@"realtk update")],@[lang(@"apollo update")],
-                          @[lang(@"agps update")],@[lang(@"word update")],@[lang(@"联系人文件传输")],@[lang(@"photo update")],@[lang(@"update message icon")],@[lang(@"update sport icon")]];
+        _buttonTitles = @[@[lang(@"nordic update")],@[lang(@"realtk update")],
+                          @[lang(@"apollo update")],@[lang(@"word update")],
+                          @[lang(@"agps update")],@[lang(@"contact update")],
+                          @[lang(@"photo update")],@[lang(@"update message icon")],
+                          @[lang(@"update sport icon")]];
     }
     return _buttonTitles;
 }
@@ -71,8 +72,11 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],
-                         [UpdateAgpsViewModel class],[UpdateWordViewModel class],[UpateContactViewModel class],[UpdatePhotoViewModel class],[UpdateMessageIconViewModel class],[UpdateSportIconViewModel class]];
+        _modelClasss = @[[UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],
+                         [UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],
+                         [UpdateAgpsViewModel class],[UpateContactViewModel class],
+                         [UpdatePhotoViewModel class],[UpdateMessageIconViewModel class],
+                         [UpdateSportIconViewModel class]];
     }
     return _modelClasss;
 }
@@ -101,17 +105,15 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVc = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
-        if (indexPath.row == 0) {
-            [IDOUpdateFirmwareManager shareInstance].updateType = IDO_NORDIC_PLATFORM_TYPE;
-        }else if (indexPath.row == 1) {
-            [IDOUpdateFirmwareManager shareInstance].updateType = IDO_REALTK_PLATFORM_TYPE;
-        }else if (indexPath.row == 2) {
-            [IDOUpdateFirmwareManager shareInstance].updateType = IDO_APOLLO_PLATFORM_TYPE;
-        }
         BaseCellModel * model = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if ([NSStringFromClass(model.modelClass)isEqualToString:@"NSNull"])return;
         FuncViewController * newFuncVc = [FuncViewController new];
-        newFuncVc.model = [model.modelClass new];
+        BaseViewModel * viewModel = [model.modelClass new];
+        if ([viewModel isKindOfClass:[UpdateFirmwareViewModel class]]) {
+            UpdateFirmwareViewModel * firmwareModel = (UpdateFirmwareViewModel *)viewModel;
+            firmwareModel.platformType = indexPath.row;
+        }
+        newFuncVc.model = viewModel;
         newFuncVc.title = [model.data firstObject];
         [funcVc.navigationController pushViewController:newFuncVc animated:YES];
     };

@@ -120,6 +120,10 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        if (strongSelf.textField1.text.length == 0) {
+            [funcVC showToastWithText:lang(@"please enter folder name")];
+            return;
+        }
         strongSelf.musicDirectoryModel.musicNum = strongSelf.selectedArray.count;
         NSMutableArray * array = [NSMutableArray array];
         for (IDOMusicFileModel * item in strongSelf.selectedArray) {
@@ -142,7 +146,7 @@
     
     TextFieldCellModel * model10 = [[TextFieldCellModel alloc]init];
     model10.typeStr = @"oneTextField";
-    model10.titleStr = lang(@"folderName");
+    model10.titleStr = lang(@"folder name");
     model10.data = @[self.musicDirectoryModel.folderName ?self.musicDirectoryModel.folderName:@""];
     model10.cellHeight = 70.0f;
     model10.cellClass = [OneTextFieldTableViewCell class];
@@ -154,7 +158,7 @@
     
     TextFieldCellModel * model12 = [[TextFieldCellModel alloc]init];
     model12.typeStr = @"oneTextField";
-    model12.titleStr = lang(@"folderId");
+    model12.titleStr = lang(@"folder id");
     model12.data = @[@(self.musicDirectoryModel.folderId)];
     model12.cellHeight = 70.0f;
     model12.cellClass = [OneTextFieldTableViewCell class];

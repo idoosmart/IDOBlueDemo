@@ -92,9 +92,12 @@
 
 - (void)getCellModels
 {
+    /*
     NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:TRAN_FILE_PATH_KEY];
-    self.logStr = [self selectedFileWithFilePath:filePath];
-    
+    if ([filePath rangeOfString:@".png"].location != NSNotFound) {
+        self.logStr = [self selectedFileWithFilePath:filePath];
+    }*/
+     
     TextFieldCellModel * model4 = [[TextFieldCellModel alloc]init];
     model4.typeStr = @"oneTextField";
     model4.titleStr = lang(@"file name:");
@@ -191,11 +194,14 @@
         __strong typeof(self) strongSelf = weakSelf;
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
         if (indexPath.row == 1) {
             [strongSelf updatePhotoWithVc:funcVC];
         }else if (indexPath.row == 2) {
+            if (!__IDO_FUNCTABLE__.funcTable34Model.setWallpaperColor) {
+                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                return;
+            }
             IDOWatchDialInfoItemModel * model = [IDOWatchDialInfoItemModel new];
             model.fileName = @"wallpaper.z";
             model.operate = 0x02;
@@ -215,7 +221,18 @@
 
 - (void)updatePhotoWithVc:(FuncViewController *)funcVC
 {
+    if (!__IDO_FUNCTABLE__.funcTable26Model.multiDial) {
+        [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+        return;
+    }
+    
+    if ([self.filePath rangeOfString:@".png"].location == NSNotFound) {
+        [funcVC showToastWithText:lang(@"please select a png image")];
+        return;
+    }
+
     [self startTimer];
+    
     [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"photo update")]];
     initMakePhotoManager().filePath = self.filePath;
     initMakePhotoManager().fileName = @"wallpaper.z";
@@ -332,14 +349,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         
         NSFileHandle * wirteFileHandle = [NSFileHandle fileHandleForWritingAtPath:documentsPath];
         if (!wirteFileHandle)return;
-        //从本地获取设备屏幕信息，如果屏幕信息没有则通过命令获取
+        /**
+         * Get the device screen information from the local,
+         * if there is no screen information, get it through the command
+         */
         IDOWatchScreenInfoModel * currentModel = [IDOWatchScreenInfoModel currentModel];
         if (currentModel.height == 0 || currentModel.width == 0) {
             initWatchDialManager().getDialScreenInfo(^(IDOWatchScreenInfoModel * _Nullable model, int errorCode) {
                 if (errorCode == 0) {
                     UIImage * newImage = [strongSelf scaleCurrentImage:image
-                                                                 width:currentModel.width
-                                                                height:currentModel.height];
+                                                                 width:model.width
+                                                                height:model.height];
                     NSData * data = UIImagePNGRepresentation(newImage);
                     [wirteFileHandle seekToEndOfFile];
                     [wirteFileHandle writeData:data];
@@ -368,8 +388,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                          width:(NSInteger)width
                         height:(NSInteger)height{
     //    CGImageRef imageRef = currentImage.CGImage;
-        CGRect rect = CGRectMake(0.f, 0.f, width,height);
-        rect = CGRectMake(0.f, 0.f, currentImage.size.width, currentImage.size.width);
+        CGRect rect = CGRectMake(0.f,0.f,width,height);
         UIImage* decompressedImage = [self scaleImage:currentImage size:rect.size];
         return decompressedImage;
         /*
@@ -394,16 +413,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
          */
 }
 
-- (UIImage *)scaleImage:(UIImage *)image size:(CGSize)size {
-    UIGraphicsBeginImageContext(size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextTranslateCTM(context, 0.0, size.height);
-    CGContextScaleCTM(context, 1.0, -1.0);
-    CGContextSetBlendMode(context, kCGBlendModeCopy);
-    CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), image.CGImage);
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+- (UIImage *)scaleImage:(UIImage *)originImage size:(CGSize)size {
+    CGRect rect = CGRectMake(0,0,size.width,size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    [originImage drawInRect:rect];
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return newImage;
+    return image;
 }
 
 @end

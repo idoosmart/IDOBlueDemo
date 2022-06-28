@@ -513,6 +513,7 @@ static int countdown = 0;
 
 - (void)listenVoiceCallback
 {
+    /*
     __weak typeof(self) weakSelf = self;
     [IDOFoundationCommand listenVoiceFileDataCommand:^(int state, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
@@ -542,22 +543,12 @@ static int countdown = 0;
              [strongSelf.sendDataTimer setFireDate:[NSDate date]];
          }
     }];
+     */
 }
 
 - (void)listenVoiceOneItemCallback
 {
-    [IDOFoundationCommand listenVoiceOneItemDataCommand:^(int state, int errorCode) {
-        NSLog(@"state === %d",state);
-        if (errorCode == 0) {
-            
-        }else {
-            
-        }
-    } lostData:^(int lostSize, int allSize) {
-        
-    } complete:^(NSData * _Nullable data) {
-        
-    }];
+   
 }
 
 - (void)getCellModels

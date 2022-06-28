@@ -16,6 +16,11 @@
 @interface IDORecordDeviceLog : NSObject
 
 /**
+ 功能表转成JSON文件
+ */
++ (void)funcTableToJsonFile:(void(^_Nullable)(NSString * _Nullable filePath))complete;
+
+/**
   * @brief 命令执行记录数据库日志（7天最新数据） | Command execution log path
   * @param complete 日志存储 IDOBD.log | Log information acquisition completion callback
   */

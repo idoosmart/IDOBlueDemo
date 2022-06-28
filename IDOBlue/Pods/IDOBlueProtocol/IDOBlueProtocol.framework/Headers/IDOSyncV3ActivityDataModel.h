@@ -380,7 +380,7 @@ max step stride
 @property (nonatomic,assign) NSInteger endMinute;
 
 /**
- 最少心率值
+ 最小心率值
  */
 @property (nonatomic,assign) NSInteger minHrValue;
 
@@ -444,9 +444,9 @@ max step stride
  * @return 活动集合 | Activity collection
  */
 + (NSArray <IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOneDayV3ActivityDataWithMacAddr:(NSString *)macAddr
-                                                                                                 year:(NSInteger)year
-                                                                                                month:(NSInteger)month
-                                                                                                  day:(NSInteger)day;
+                                                                                         year:(NSInteger)year
+                                                                                        month:(NSInteger)month
+                                                                                          day:(NSInteger)day;
 
 
 /**
@@ -458,8 +458,8 @@ max step stride
  * @return 活动集合 | Activity collection
  */
 + (NSArray <IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOneMonthV3ActivityDataWithMacAddr:(NSString *)macAddr
-                                                                                                   year:(NSInteger)year
-                                                                                                  month:(NSInteger)month;
+                                                                                           year:(NSInteger)year
+                                                                                          month:(NSInteger)month;
 
 
 /**
@@ -470,7 +470,7 @@ max step stride
  * @return 活动集合 | Activity collection
  */
 + (NSArray <IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOneYearV3ActivityDataWithMacAddr:(NSString *)macAddr
-                                                                                                  year:(NSInteger)year;
+                                                                                         year:(NSInteger)year;
 
 
 /**
@@ -481,8 +481,8 @@ max step stride
  * @return 活动集合
  */
 + (NSArray <IDOSyncV3ActivityDataInfoBluetoothModel *>*)queryOnePageV3ActivityDataWithPageIndex:(NSInteger)pageIndex
-                                                                                               numOfPage:(NSInteger)numOfPage
-                                                                                                 macAddr:(NSString *)macAddr;
+                                                                                      numOfPage:(NSInteger)numOfPage
+                                                                                        macAddr:(NSString *)macAddr;
 
 /**
  * @brief 当前设备所有轨迹运动 | Current track motion of all devices

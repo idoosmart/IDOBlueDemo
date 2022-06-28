@@ -303,8 +303,8 @@
  * Heart rate data collection for 12 months a year, where the IDOSyncHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
 + (NSArray <NSArray<IDOSyncHrDataInfoBluetoothModel *>*> *)queryOneYearHearRatesWithYear:(NSInteger)year
-                                                                                          macAddr:(NSString *)macAddr
-                                                                                     isQueryItems:(BOOL)isQuery;
+                                                                                  macAddr:(NSString *)macAddr
+                                                                             isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -320,10 +320,10 @@
  * A one-month heart rate data collection, where the IDOSyncHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
 + (NSArray <IDOSyncHrDataInfoBluetoothModel *>*)queryOneMonthHearRatesWithYear:(NSInteger)year
-                                                                                  month:(NSInteger)month
-                                                                                macAddr:(NSString *)macAddr
-                                                                           datesOfMonth:(NSArray <NSString *>**)dates
-                                                                           isQueryItems:(BOOL)isQuery;
+                                                                      month:(NSInteger)month
+                                                                    macAddr:(NSString *)macAddr
+                                                               datesOfMonth:(NSArray <NSString *>**)dates
+                                                               isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -339,10 +339,10 @@
  * A week's heart rate data collection, where the IDOSyncHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
 + (NSArray <IDOSyncHrDataInfoBluetoothModel *>*)queryOneWeekHearRatesWithWeekIndex:(NSInteger)weekIndex
-                                                                               weekStartDay:(NSInteger)weekStartDay
-                                                                                    macAddr:(NSString *)macAddr
-                                                                                datesOfWeek:(NSArray <NSString *>**)dates
-                                                                               isQueryItems:(BOOL)isQuery;
+                                                                       weekStartDay:(NSInteger)weekStartDay
+                                                                            macAddr:(NSString *)macAddr
+                                                                        datesOfWeek:(NSArray <NSString *>**)dates
+                                                                       isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天心率数据并有详情数据 | Query current heart rate data of the current device and have detailed data
@@ -353,9 +353,9 @@
  * @return 一天心率数据的集合和详情数据集合 | Collection of day heart rate data and details data
  */
 + (NSArray<IDOSyncHrDataInfoBluetoothModel *> *)queryOneDayHearRatesDetailWithMac:(NSString *)macAddr
-                                                                                       year:(NSInteger)year
-                                                                                      month:(NSInteger)month
-                                                                                        day:(NSInteger)day;
+                                                                           year:(NSInteger)year
+                                                                          month:(NSInteger)month
+                                                                            day:(NSInteger)day;
 
 /**
  * @brief 查询所有心率数据 心率包个数大于0 | Query all heart rate data The number of heart rate packets is greater than 0
@@ -387,8 +387,8 @@
  * second heart rate data collection for 12 months a year, where the IDOSyncSecHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
 + (NSArray <NSArray<IDOSyncSecHrDataInfoBluetoothModel *>*> *)queryOneYearSecHearRatesWithYear:(NSInteger)year
-                                                                                                macAddr:(NSString *)macAddr
-                                                                                           isQueryItems:(BOOL)isQuery;
+                                                                                    macAddr:(NSString *)macAddr
+                                                                               isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -404,10 +404,10 @@
  * one-month second heart rate data collection, where the IDOSyncSecHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
 + (NSArray <IDOSyncSecHrDataInfoBluetoothModel *>*)queryOneMonthSecHearRatesWithYear:(NSInteger)year
-                                                                                         month:(NSInteger)month
-                                                                                       macAddr:(NSString *)macAddr
-                                                                                  datesOfMonth:(NSArray <NSString *>**)dates
-                                                                                  isQueryItems:(BOOL)isQuery;
+                                                                             month:(NSInteger)month
+                                                                           macAddr:(NSString *)macAddr
+                                                                      datesOfMonth:(NSArray <NSString *>**)dates
+                                                                      isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -423,10 +423,10 @@
  * one week second heart rate data collection, where the IDOSyncSecHrDataInfoBluetoothModel object is the total heart rate data model for the day
  */
 + (NSArray <IDOSyncSecHrDataInfoBluetoothModel *>*)queryOneWeekSecHearRatesWithWeekIndex:(NSInteger)weekIndex
-                                                                                     weekStartDay:(NSInteger)weekStartDay
-                                                                                          macAddr:(NSString *)macAddr
-                                                                                      datesOfWeek:(NSArray <NSString *>**)dates
-                                                                                     isQueryItems:(BOOL)isQuery;
+                                                                         weekStartDay:(NSInteger)weekStartDay
+                                                                              macAddr:(NSString *)macAddr
+                                                                          datesOfWeek:(NSArray <NSString *>**)dates
+                                                                         isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天秒钟心率数据并有详情数据 | Query current day second heart rate data of the current device and have detailed data

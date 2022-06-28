@@ -109,6 +109,28 @@
                 textFieldModel.data = @[@(strongSelf.screenModel.endHour),@(strongSelf.screenModel.endMinute)];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             };
+        }else if (indexPath.row == 5) {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray  = strongSelf.pickerDataModel.hundredArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.hundredArray containsObject:@([textField.text intValue])] ? [strongSelf.pickerDataModel.hundredArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.screenModel.nightLevel = [selectStr integerValue];
+            };
+        }else if (indexPath.row == 6) {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray  = strongSelf.pickerDataModel.tenArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.tenArray containsObject:@([textField.text intValue])] ? [strongSelf.pickerDataModel.tenArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.screenModel.showInterval = [selectStr integerValue];
+            };
         }
     };
 }
@@ -205,13 +227,35 @@
     model5.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model5];
     
+    TextFieldCellModel * model8 = [[TextFieldCellModel alloc]init];
+    model8.typeStr = @"oneTextField";
+    model8.titleStr = lang(@"night brightness level:");
+    model8.data = @[@(self.screenModel.nightLevel)];
+    model8.cellHeight = 70.0f;
+    model8.cellClass = [OneTextFieldTableViewCell class];
+    model8.modelClass = [NSNull class];
+    model8.isShowLine = YES;
+    model8.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model8];
+    
+    TextFieldCellModel * model9 = [[TextFieldCellModel alloc]init];
+    model9.typeStr = @"oneTextField";
+    model9.titleStr = lang(@"show interval:");
+    model9.data = @[@(self.screenModel.showInterval)];
+    model9.cellHeight = 70.0f;
+    model9.cellClass = [OneTextFieldTableViewCell class];
+    model9.modelClass = [NSNull class];
+    model9.isShowLine = YES;
+    model9.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model9];
+    
     EmpltyCellModel * model6 = [[EmpltyCellModel alloc]init];
     model6.typeStr = @"empty";
     model6.cellHeight = 30.0f;
     model6.isShowLine = YES;
     model6.cellClass  = [EmptyTableViewCell class];
     [cellModels addObject:model6];
-    
+        
     FuncCellModel * model7 = [[FuncCellModel alloc]init];
     model7.typeStr = @"oneButton";
     model7.data = @[lang(@"set screen brightness")];
@@ -221,7 +265,7 @@
     model7.isShowLine = YES;
     model7.buttconCallback = self.buttconCallback;
     [cellModels addObject:model7];
-    
+        
     self.cellModels = cellModels;
 }
 

@@ -89,8 +89,8 @@
  * pressure data collection for 12 months a year, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
 + (NSArray <NSArray<IDOSyncPressureDataInfoBluetoothModel *>*> *)queryOneYearPressureWithYear:(NSInteger)year
-                                                                                               macAddr:(NSString *)macAddr
-                                                                                          isQueryItems:(BOOL)isQuery;
+                                                                                   macAddr:(NSString *)macAddr
+                                                                              isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -106,10 +106,10 @@
  * A one-month pressure data collection, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
 + (NSArray <IDOSyncPressureDataInfoBluetoothModel *>*)queryOneMonthPressureWithYear:(NSInteger)year
-                                                                                       month:(NSInteger)month
-                                                                                     macAddr:(NSString *)macAddr
-                                                                                datesOfMonth:(NSArray <NSString *>**)dates
-                                                                                isQueryItems:(BOOL)isQuery;
+                                                                           month:(NSInteger)month
+                                                                         macAddr:(NSString *)macAddr
+                                                                    datesOfMonth:(NSArray <NSString *>**)dates
+                                                                    isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -125,10 +125,10 @@
  * A week's pressure data collection, where the IDOSyncPressureDataInfoBluetoothModel object is the total pressure data model for the day
  */
 + (NSArray <IDOSyncPressureDataInfoBluetoothModel *>*)queryOneWeekPressureWithWeekIndex:(NSInteger)weekIndex
-                                                                                    weekStartDay:(NSInteger)weekStartDay
-                                                                                         macAddr:(NSString *)macAddr
-                                                                                     datesOfWeek:(NSArray <NSString *>**)dates
-                                                                                    isQueryItems:(BOOL)isQuery;
+                                                                        weekStartDay:(NSInteger)weekStartDay
+                                                                             macAddr:(NSString *)macAddr
+                                                                         datesOfWeek:(NSArray <NSString *>**)dates
+                                                                        isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天压力数据并有详情数据
@@ -140,9 +140,9 @@
  * @return 一天压力数据的集合和详情数据集合 | Collection of day pressure data and details data
  */
 + (NSArray <IDOSyncPressureDataInfoBluetoothModel *>*)queryOneDayPressureDetailWithMac:(NSString *)macAddr
-                                                                                            Year:(NSInteger)year
-                                                                                           month:(NSInteger)month
-                                                                                             day:(NSInteger)day;
+                                                                                year:(NSInteger)year
+                                                                               month:(NSInteger)month
+                                                                                 day:(NSInteger)day;
 
 /**
  * @brief 查询所有压力数据，压力包个数大于0

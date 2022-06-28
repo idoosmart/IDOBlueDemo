@@ -76,6 +76,14 @@
 + (NSString *)timeStrFromTimeStamp:(NSString *)timeStamp;
 
 /**
+ 时间字符串转时间戳
+ 
+ @param timeStr 时间字符串
+ @return 时间戳
+ */
++ (NSString *)timeStampFromTimeStr:(NSString *)timeStr;
+
+/**
  查询
  
  @param year 年

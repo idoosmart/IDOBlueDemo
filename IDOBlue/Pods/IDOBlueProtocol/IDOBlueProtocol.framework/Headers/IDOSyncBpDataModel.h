@@ -117,8 +117,8 @@
  * A 12-month blood pressure data collection, where the IDOSyncBpDataInfoBluetoothModel object is a total blood pressure data model for the day
  */
 + (NSArray <NSArray<IDOSyncBpDataInfoBluetoothModel *>*> *)queryOneYearBloodPressuresWithYear:(NSInteger)year
-                                                                                               macAddr:(NSString *)macAddr
-                                                                                          isQueryItems:(BOOL)isQuery;
+                                                                                      macAddr:(NSString *)macAddr
+                                                                                 isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -133,10 +133,10 @@
  * One month blood pressure data set, where the IDOSyncBpDataInfoBluetoothModel object is the total day blood pressure data model
  */
 + (NSArray <IDOSyncBpDataInfoBluetoothModel *>*)queryOneMonthBloodPressuresWithYear:(NSInteger)year
-                                                                                       month:(NSInteger)month
-                                                                                     macAddr:(NSString *)macAddr
-                                                                                datesOfMonth:(NSArray <NSString *>**)dates
-                                                                                isQueryItems:(BOOL)isQuery;
+                                                                               month:(NSInteger)month
+                                                                             macAddr:(NSString *)macAddr
+                                                                        datesOfMonth:(NSArray <NSString *>**)dates
+                                                                        isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某周的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)
@@ -151,10 +151,10 @@
  * A week's blood pressure data collection, where the IDOSyncBpDataInfoBluetoothModel object is the total day blood pressure data model
  */
 + (NSArray <IDOSyncBpDataInfoBluetoothModel *>*)queryOneWeekBloodPressuresWithWeekIndex:(NSInteger)weekIndex
-                                                                                    weekStartDay:(NSInteger)weekStartDay
-                                                                                         macAddr:(NSString *)macAddr
-                                                                                     datesOfWeek:(NSArray <NSString *>**)dates
-                                                                                    isQueryItems:(BOOL)isQuery;
+                                                                        weekStartDay:(NSInteger)weekStartDay
+                                                                             macAddr:(NSString *)macAddr
+                                                                         datesOfWeek:(NSArray <NSString *>**)dates
+                                                                        isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某天血压数据并有详情数据
@@ -166,9 +166,9 @@
  * @return 一天血压数据的集合和详情数据集合 | Collection of day blood pressure data and detailed data
  */
 + (NSArray<IDOSyncBpDataInfoBluetoothModel *> *)queryOneDayBloodPressureDetailWithMac:(NSString *)macAddr
-                                                                                           year:(NSInteger)year
-                                                                                          month:(NSInteger)month
-                                                                                            day:(NSInteger)day;
+                                                                               year:(NSInteger)year
+                                                                              month:(NSInteger)month
+                                                                                day:(NSInteger)day;
 
 /**
  * @brief 查询当前设备最近一天血压数据并有详情数据

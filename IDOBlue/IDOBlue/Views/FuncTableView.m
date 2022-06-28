@@ -121,21 +121,21 @@
     return cellModel.isDelete || cellModel.isMoveRow;
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    BaseCellModel * cellModel = nil;
-    if (_model.is2dArray) {
-        cellModel = _model.cellModels[indexPath.section][indexPath.row];
-    }else {
-        cellModel = _model.cellModels[indexPath.row];
-    }
-    if (cellModel.isDelete && !tableView.isEditing) {
-        return UITableViewCellEditingStyleDelete;
-    }else if (cellModel.isMoveRow) {
-        return UITableViewCellEditingStyleNone;
-    }
-    return UITableViewCellEditingStyleNone;
-}
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    BaseCellModel * cellModel = nil;
+//    if (_model.is2dArray) {
+//        cellModel = _model.cellModels[indexPath.section][indexPath.row];
+//    }else {
+//        cellModel = _model.cellModels[indexPath.row];
+//    }
+//    if (cellModel.isDelete && !tableView.isEditing) {
+//        return UITableViewCellEditingStyleDelete;
+//    }else if (cellModel.isMoveRow) {
+//        return UITableViewCellEditingStyleNone;
+//    }
+//    return UITableViewCellEditingStyleNone;
+//}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -176,5 +176,6 @@
         _model.moveRowCellCallback([IDODemoUtility getCurrentVC],sourceIndexPath,destinationIndexPath);
     }
 }
+
 
 @end

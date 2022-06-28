@@ -49,7 +49,9 @@
     if (!_unitDataArray) {
         _unitDataArray = @[@(self.unitMode.distanceUnit),@(self.unitMode.weightUnit),@(self.unitMode.tempUnit),
                            @(self.unitMode.languageUnit),@(self.unitMode.strideWalk),@(self.unitMode.strideRun),
-                           @(self.unitMode.strideGps),@(self.unitMode.timeUnit),@(self.unitMode.weekStart)];
+                           @(self.unitMode.strideGps),@(self.unitMode.timeUnit),@(self.unitMode.weekStart),
+                           @(self.unitMode.calorieUnit),@(self.unitMode.swimPoolUnit),
+                           @(self.unitMode.cyclingUnit),@(self.unitMode.walkRunUnit)];
     }
     return _unitDataArray;
 }
@@ -57,9 +59,13 @@
 - (NSArray *)unitOptions
 {
     if (!_unitOptions) {
-        _unitOptions = @[self.pickerDataModel.distanceUnitArray,self.pickerDataModel.weightUnitArray,self.pickerDataModel.tempUnitArray,
-                         self.pickerDataModel.languageUnitArray,self.pickerDataModel.hundredArray,self.pickerDataModel.hundredArray,
-                         self.pickerDataModel.strideGpsArray,self.pickerDataModel.timeUnitArray,self.pickerDataModel.weekArray];
+        _unitOptions = @[self.pickerDataModel.distanceUnitArray,self.pickerDataModel.weightUnitArray,
+                         self.pickerDataModel.tempUnitArray,self.pickerDataModel.languageUnitArray,
+                         self.pickerDataModel.hundredArray,self.pickerDataModel.hundredArray,
+                         self.pickerDataModel.strideGpsArray,self.pickerDataModel.timeUnitArray,
+                         self.pickerDataModel.weekArray,self.pickerDataModel.calorieArray,
+                         self.pickerDataModel.swimPoolArray,self.pickerDataModel.cyclingArray,
+                         self.pickerDataModel.walkRunArray];
     }
     return _unitOptions;
 }
@@ -122,6 +128,14 @@
                 }else if ([selectStr isEqualToString:lang(@"saturday")]) {
                     strongSelf.unitMode.weekStart = 0x03;
                 }
+            }else if (indexPath.row == 9) {
+                strongSelf.unitMode.calorieUnit = [pickerArray containsObject:selectStr] ? [pickerArray indexOfObject:selectStr] : 0 ;
+            }else if (indexPath.row == 10) {
+                strongSelf.unitMode.swimPoolUnit = [pickerArray containsObject:selectStr] ? [pickerArray indexOfObject:selectStr] : 0 ;
+            }else if (indexPath.row == 11) {
+                strongSelf.unitMode.cyclingUnit = [pickerArray containsObject:selectStr] ? [pickerArray indexOfObject:selectStr] : 0 ;
+            }else if (indexPath.row == 12) {
+                strongSelf.unitMode.walkRunUnit = [pickerArray containsObject:selectStr] ? [pickerArray indexOfObject:selectStr] : 0 ;
             }
         };
     };

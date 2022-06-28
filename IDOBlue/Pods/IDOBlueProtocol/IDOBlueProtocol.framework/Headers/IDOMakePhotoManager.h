@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface IDOMakePhotoManager : NSObject
-
 /**
  * 图片文件名称
  * file name

@@ -119,6 +119,12 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.bpModel.flag = 1;
+        if(   !__IDO_FUNCTABLE__.funcTable18Model.bloodPressure
+           && !__IDO_FUNCTABLE__.funcTable34Model.supportV3Bp) {
+            FuncViewController * funcVC = (FuncViewController *)viewController;
+            [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+            return;
+        }
         [strongSelf queryBpCalCommand];
     };
 }

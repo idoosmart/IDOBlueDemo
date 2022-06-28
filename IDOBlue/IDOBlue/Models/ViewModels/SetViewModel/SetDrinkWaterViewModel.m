@@ -46,6 +46,7 @@
 
 - (IDOSetDrinkReminderModeBluetoothModel *)drinkReminderModel
 {
+    
     if (!_drinkReminderModel) {
         _drinkReminderModel = [IDOSetDrinkReminderModeBluetoothModel currentModel];
     }
@@ -98,6 +99,19 @@
     model4.isShowLine = YES;
     model4.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model4];
+    
+    if (__IDO_FUNCTABLE__.funcTable35Model.drinkWaterNotifyFlag) {
+        TextFieldCellModel * model8 = [[TextFieldCellModel alloc]init];
+        model8.typeStr = @"oneTextField";
+        model8.titleStr = lang(@"notify flag:");
+        model8.data = @[@(self.drinkReminderModel.notifyFlag)];
+        model8.cellHeight = 70.0f;
+        model8.cellClass = [OneTextFieldTableViewCell class];
+        model8.modelClass = [NSNull class];
+        model8.isShowLine = YES;
+        model8.textFeildCallback = self.textFeildCallback;
+        [cellModels addObject:model8];
+    }
     
     EmpltyCellModel * model5 = [[EmpltyCellModel alloc]init];
     model5.typeStr = @"empty";
@@ -241,6 +255,21 @@
                 }
                 textFieldModel.data = @[@(strongSelf.drinkReminderModel.endHour),@(strongSelf.drinkReminderModel.endMinute)];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            };
+        }else if (indexPath.row == 4) {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.tenArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.tenArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.tenArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                if ([selectStr integerValue] > 3) {
+                    return;
+                }
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.drinkReminderModel.notifyFlag  = [selectStr integerValue];
             };
         }
     };

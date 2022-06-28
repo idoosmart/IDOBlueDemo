@@ -401,11 +401,11 @@
  */
 @property (nonatomic,assign) NSInteger weatherType;
 /**
- 最大温度
+ 最大温度 温度值加 100
  */
 @property (nonatomic,assign) NSInteger maxTemp;
 /**
- 最小温度
+ 最小温度 温度值加 100
  */
 @property (nonatomic,assign) NSInteger minTemp;
 
@@ -440,7 +440,7 @@
  */
 @property (nonatomic,assign) NSInteger weatherType;
 /**
- 温度
+ 温度 温度值加 100
  */
 @property (nonatomic,assign) NSInteger temperature;
 /**
@@ -493,15 +493,15 @@
  */
 @property (nonatomic,assign) NSInteger weatherType;
 /**
- 当前的温度
+ 当前的温度 温度值加 100
  */
 @property (nonatomic,assign) NSInteger todayTmp;
 /**
- 最大温度
+ 最大温度 温度值加 100
  */
 @property (nonatomic,assign) NSInteger todayMaxTemp;
 /**
- 最少温度
+ 最少温度 温度值加 100
  */
 @property (nonatomic,assign) NSInteger todayMinTemp;
 /**
@@ -1108,6 +1108,7 @@
 @property (nonatomic,copy)NSArray<NSNumber *> * repeat;
 /**
  通知类型 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ __IDO_FUNCTABLE__.funcTable35Model.drinkWaterNotifyFlag
  */
 @property (nonatomic,assign) NSInteger notifyFlag;
 
@@ -1157,19 +1158,23 @@
 
 /**
  测量间隔,单位秒钟 | measurement Interval,unit:second
- modeType == 5，设置measurementInterval间隔才有效果 | modeType == 5, set the measurementInterval interval to have an effect
+ modeType == 5，设置measurementInterval间隔才有效果
+ modeType == 5, set the measurementInterval interval to have an effect
  */
 @property (nonatomic,assign) NSInteger  measurementInterval;
 /**
  通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ __IDO_FUNCTABLE__.funcTable34Model.supportHrHighOrLowBtAlarm 功能表支持才有效
  */
 @property (nonatomic,assign) NSInteger  notifyFlag;
 /**
  智能心率过高提醒开关
+ __IDO_FUNCTABLE__.funcTable34Model.supportHrHighOrLowBtAlarm 功能表支持才有效
  */
 @property (nonatomic,assign) BOOL  highHeartMode;
 /**
  智能心率过低提醒开关
+ __IDO_FUNCTABLE__.funcTable34Model.supportHrHighOrLowBtAlarm 功能表支持才有效
  */
 @property (nonatomic,assign) BOOL  lowHeartMode;
 /**
@@ -1181,12 +1186,14 @@
  */
 @property (nonatomic,assign) NSInteger  lowHeartValue;
 /**
- 支持秒级心率 只获取有效，设置不需要赋值
+ 支持秒级心率
+ 只获取有效，设置不需要赋值
  */
 @property (nonatomic,assign) BOOL getSecondMode;
 /**
  获取手表支持的心率类型集合 | get support  heart rate item type array
  分别:5s,1分钟,3分钟,5分钟,10分钟,30分钟,智能心率(255s),15分钟
+ 只获取有效，设置不需要赋值
  */
 @property (nonatomic,copy) NSArray * hrModeTypes;
 
@@ -1438,7 +1445,8 @@
  */
 @property (nonatomic,assign) NSInteger ovulationAfterDay;
 /**
-通知类型
+ 通知类型 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ __IDO_FUNCTABLE__.funcTable35Model.menstrualNotifyFlag 功能表支持才有效
  */
 @property (nonatomic,assign) NSInteger notifyFlag;
 
@@ -1746,7 +1754,7 @@
 #pragma mark ==== 设置屏幕亮度model ====
 @interface IDOSetScreenBrightnessInfoBluetoothModel:IDOBluetoothBaseModel
 /**
- 屏幕亮度级别 (1-100) | Screen brightness level (1-100)
+ 屏幕亮度级别 (0-100) | Screen brightness level (0-100)
  */
 @property (nonatomic,assign) NSInteger levelValue;
 /**
@@ -1782,7 +1790,7 @@
  */
 @property (nonatomic,assign) NSInteger endMinute;
 /**
- 夜间亮度 (realme项目) | night level
+ 夜间亮度 (realme项目) | night level  (0-100)
  */
 @property (nonatomic,assign) NSInteger nightLevel;
 /**
@@ -1873,44 +1881,14 @@
 @property (nonatomic,assign) NSInteger index;
 /**
  * 运动模式 | Sport mode
- * 0:无，1:走路，2:跑步，3:骑行，4:徒步，5:游泳，6:爬山，7:羽毛球，8:其他，
- * 9:健身，10:动感单车，11:椭圆机，12:跑步机，13:仰卧起坐，14:俯卧撑，15:哑铃，16:举重，
- * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
- * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，31：室内划船/roller machine， 32：普拉提/pilates， 33:交叉训练/cross train,
- * 34:有氧运动/cardio，35：尊巴舞/Zumba, 36:广场舞/square dance, 37:平板支撑/Plank, 38:健身房/gym
- * 48:户外跑步，49:室内跑步，50:户外骑行，51:室内骑行，52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，
- * 56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
- 基础运动：
- 100：自由训练，101：功能性力量训练，102：核心训练，103：踏步机，104：整理放松
- 健身（25种）
- 110：传统力量训练，112：引体向上，114：开合跳，115：深蹲，116：高抬腿，117：拳击，118：杠铃，119：武术，
- 120：太极，121：跆拳道，122：空手道，123：自由搏击，124：击剑，125：射箭，126：体操，127:单杠，128:双杠,129:漫步机,
- 130:登山机
-
- 球类:
- 131:保龄球,132:台球,133:曲棍球,134:橄榄球,135:壁球,136:垒球,137:手球,138:毽球,139:沙滩足球,
- 140:藤球,141:躲避球
-
- 休闲运动
- 152:街舞,153:芭蕾,154:社交舞,155:飞盘,156:飞镖,157:骑马,158:爬楼,159:放风筝,
- 160:钓鱼
-
- 冰雪运动
- 161:雪橇,162:雪车,163:单板滑雪,164:雪上运动,165:高山滑雪,166:越野滑雪,167:冰壶,168:冰球,169:冬季两项
-
- 水上运动（10种）
- 170:冲浪,171:帆船,172:帆板,173:皮艇,174:摩托艇,175:划艇,176:赛艇,177:龙舟,178:水球,179:漂流,
-
- 极限运动（5种）
- 180:滑板,181:攀岩,182:蹦极,183:跑酷,184:BMX,
- 
- kr01定制项目
- 193:Outdoor Fun（户外玩耍）, 194:Other Activity（其他运动）
  */
-@property (nonatomic,assign) NSInteger type;
+@property (nonatomic,assign) IDO_SPORT_TYPE type;
 
 /**
- * 01 表示小图标已下载；02 表示大图标已下载；03 表示小图标和大图表都已经下载；00 表示图标未下载
+ * 01 表示小图标已下载；
+ * 02 表示大图标已下载；
+ * 03 表示小图标和大图表都已经下载；
+ * 00 表示图标未下载
  * 支持运动图标下发才有效
  */
 @property (nonatomic,assign) NSInteger flag;
@@ -2659,7 +2637,16 @@
 午休结束分 | noon time rest end minute
 */
 @property (nonatomic,assign) NSInteger noonTimeEndMinute;
-
+/*
+ 全天勿扰开关 | all day on off
+ __IDO_FUNCTABLE__.funcTable31Model.noDisturbAllDayOnOff 功能表支持才有效
+*/
+@property (nonatomic,assign) BOOL allDayOnOff;
+/*
+ 智能勿扰开关 | smart on off
+ __IDO_FUNCTABLE__.funcTable31Model.noDisturbAllDayOnOff 功能表支持才有效
+*/
+@property (nonatomic,assign) BOOL smartOnOff;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -2712,6 +2699,7 @@
  * @return IDOSetHRModeInfoBluetoothModel
  */
 + (IDOSetHrModeInfoBluetoothModel *)currentModel;
+
 @end
 
 #pragma mark ==== 设置手环横竖屏model ====
@@ -2728,6 +2716,7 @@
  * @return IDOSetDisplayModeInfoBluetoothModel
  */
 + (IDOSetDisplayModeInfoBluetoothModel *)currentModel;
+
 @end
 
 #pragma mark ==== 设置抬腕手势model ====

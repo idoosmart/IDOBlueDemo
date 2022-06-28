@@ -114,6 +114,45 @@
                 textFieldModel.data = @[@(strongSelf.v3HrModel.endHour),@(strongSelf.v3HrModel.endMinute)];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             };
+        }else if (indexPath.row == 5) {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.tenArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.tenArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.tenArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                if ([selectStr integerValue] > 3) {
+                    return;
+                }
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.v3HrModel.notifyFlag  = [selectStr integerValue];
+            };
+        }else if (indexPath.row == 7) {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.hrArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.hrArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.hrArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.v3HrModel.highHeartValue  = [selectStr integerValue];
+            };
+        }else if (indexPath.row == 9) {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.hrArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.hrArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.hrArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.v3HrModel.lowHeartValue  = [selectStr integerValue];
+            };
         }
     };
 }
@@ -125,9 +164,19 @@
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
-        SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
-        strongSelf.v3HrModel.isHasTimeRange = onSwitch.isOn;
-        switchCellModel.data = @[@(strongSelf.v3HrModel.isHasTimeRange)];
+        if (indexPath.row == 1) {
+            SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            strongSelf.v3HrModel.isHasTimeRange = onSwitch.isOn;
+            switchCellModel.data = @[@(strongSelf.v3HrModel.isHasTimeRange)];
+        }else if (indexPath.row == 6) {
+            SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            strongSelf.v3HrModel.highHeartMode = onSwitch.isOn;
+            switchCellModel.data = @[@(strongSelf.v3HrModel.highHeartMode)];
+        }else if (indexPath.row == 8) {
+            SwitchCellModel * switchCellModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            strongSelf.v3HrModel.lowHeartMode = onSwitch.isOn;
+            switchCellModel.data = @[@(strongSelf.v3HrModel.lowHeartMode)];
+        }
     };
 }
 
@@ -211,6 +260,63 @@
     model4.isShowLine = YES;
     model4.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model4];
+    
+    if (__IDO_FUNCTABLE__.funcTable34Model.supportHrHighOrLowBtAlarm) {
+       TextFieldCellModel * model12 = [[TextFieldCellModel alloc]init];
+        model12.typeStr = @"oneTextField";
+        model12.titleStr = lang(@"notify flag:");
+        model12.data = @[@(self.v3HrModel.notifyFlag)];
+        model12.cellHeight = 70.0f;
+        model12.cellClass = [OneTextFieldTableViewCell class];
+        model12.modelClass = [NSNull class];
+        model12.isShowLine = YES;
+        model12.textFeildCallback = self.textFeildCallback;
+            [cellModels addObject:model12];
+
+        SwitchCellModel * model8 = [[SwitchCellModel alloc]init];
+        model8.typeStr = @"oneSwitch";
+        model8.titleStr = lang(@"high heart rate reminder switch");
+        model8.data = @[@(self.v3HrModel.highHeartMode)];
+        model8.cellHeight = 70.0f;
+        model8.cellClass = [OneSwitchTableViewCell class];
+        model8.modelClass = [NSNull class];
+        model8.isShowLine = YES;
+        model8.switchCallback = self.switchCallback;
+        [cellModels addObject:model8];
+        
+        TextFieldCellModel * model9 = [[TextFieldCellModel alloc]init];
+        model9.typeStr = @"oneTextField";
+        model9.titleStr = lang(@"heart rate too high threshold");
+        model9.data = @[@(self.v3HrModel.highHeartValue)];
+        model9.cellHeight = 70.0f;
+        model9.cellClass = [OneTextFieldTableViewCell class];
+        model9.modelClass = [NSNull class];
+        model9.isShowLine = YES;
+        model9.textFeildCallback = self.textFeildCallback;
+        [cellModels addObject:model9];
+        
+        SwitchCellModel * model10 = [[SwitchCellModel alloc]init];
+        model10.typeStr = @"oneSwitch";
+        model10.titleStr = lang(@"low heart rate reminder switch");
+        model10.data = @[@(self.v3HrModel.lowHeartMode)];
+        model10.cellHeight = 70.0f;
+        model10.cellClass = [OneSwitchTableViewCell class];
+        model10.modelClass = [NSNull class];
+        model10.isShowLine = YES;
+        model10.switchCallback = self.switchCallback;
+        [cellModels addObject:model10];
+        
+        TextFieldCellModel * model11 = [[TextFieldCellModel alloc]init];
+        model11.typeStr = @"oneTextField";
+        model11.titleStr = lang(@"heart rate too low threshold");
+        model11.data = @[@(self.v3HrModel.lowHeartValue)];
+        model11.cellHeight = 70.0f;
+        model11.cellClass = [OneTextFieldTableViewCell class];
+        model11.modelClass = [NSNull class];
+        model11.isShowLine = YES;
+        model11.textFeildCallback = self.textFeildCallback;
+        [cellModels addObject:model11];
+    }
     
     EmpltyCellModel * model5 = [[EmpltyCellModel alloc]init];
     model5.typeStr = @"empty";

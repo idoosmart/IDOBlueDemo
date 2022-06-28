@@ -12,6 +12,7 @@
 #import "EmpltyCellModel.h"
 #import "LabelCellModel.h"
 #import "TextViewCellModel.h"
+#import "FirmwareTypeViewModel.h"
 #import "FuncViewController.h"
 #import "EmptyTableViewCell.h"
 #import "OneLabelTableViewCell.h"
@@ -24,7 +25,7 @@
 @property (nonatomic,strong) NSString * filePath;
 @property (nonatomic,strong) NSString * fileName;
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
-@property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,NSString * titleStr);
+@property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @end
 
@@ -45,6 +46,7 @@
         [self getViewWillDisappearCallback];
         [self getButtonCallback];
         [self getTextViewCallback];
+        [self getLabelSelectCallback];
         [self getCellModels];
         [[NSNotificationCenter defaultCenter]addObserver:self
                                                 selector:@selector(selectFileNotice:)
@@ -82,8 +84,22 @@
 
 - (void)getCellModels
 {
+    /*
     NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:TRAN_FILE_PATH_KEY];
     self.logStr = [self selectedFileWithFilePath:filePath];
+    */
+    
+    NSString * fileType = @"online.ubx";
+    [[NSUserDefaults standardUserDefaults]setValue:fileType forKey:FIRMWARE_FILE_TYPE_KEY];
+    BOOL isOnline = [fileType isEqualToString: @"online.ubx"];
+    LabelCellModel * model4 = [[LabelCellModel alloc]init];
+    model4.typeStr = @"oneLabel";
+    model4.data    = @[[NSString stringWithFormat:@"Type : %@  [%@]",fileType,isOnline?@"online":@"offline"]];
+    model4.cellHeight = 45.0f;
+    model4.isShowLine = YES;
+    model4.labelSelectCallback = self.labelSelectCallback;
+    model4.cellClass  = [OneLabelTableViewCell class];
+    model4.modelClass = [NSNull class];
     
     FuncCellModel * model1 = [[FuncCellModel alloc]init];
     model1.typeStr = @"oneButton";
@@ -109,7 +125,7 @@
     model3.isShowLine = YES;
     model3.isCenter   = YES;
     
-    self.cellModels = @[model1,model2,model3];
+    self.cellModels = @[model4,model1,model2,model3];
 }
 
 - (void)startTimer
@@ -158,7 +174,7 @@
     NSString * dataSize = [NSString stringWithFormat:@"%ld bytes",(long)data.length];
     NSString * nameStr = [@"Name : "stringByAppendingString:lastPathComponent];
     NSString * sizeStr = [@"Size : "stringByAppendingString:dataSize];
-    NSString * typeStr = [@"Type : "stringByAppendingString:@"agps File"];
+    NSString * typeStr = [@"Type : "stringByAppendingString:@"agps file"];
     NSString * fileStr = [NSString stringWithFormat:@"%@\n%@\n%@",nameStr,sizeStr,typeStr];
     return fileStr;
 }
@@ -180,6 +196,12 @@
         __strong typeof(self) strongSelf = weakSelf;
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return ;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        
+        if (!__IDO_FUNCTABLE__.funcTable19Model.gps) {
+            [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+            return;
+        }
+        
         NSInteger modeType = [[NSUserDefaults standardUserDefaults]integerForKey:PRODUCTION_MODE_KEY];
         if (modeType == 1) { //在升级模式下需要先获取功能表
             [IDOFoundationCommand getFuncTableCommand:^(int errorCode, IDOGetDeviceFuncBluetoothModel * _Nullable data) {
@@ -195,12 +217,36 @@
     };
 }
 
+- (void)getLabelSelectCallback
+{
+    __weak typeof(self) weakSelf = self;
+    self.labelSelectCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
+        __strong typeof(self) strongSelf = weakSelf;
+        FuncViewController * vc = (FuncViewController *)viewController;
+        NSIndexPath * indexPath = [vc.tableView indexPathForCell:tableViewCell];
+        if (indexPath.row == 0) {
+            FuncViewController * funcVc = [[FuncViewController alloc]init];
+            FirmwareTypeViewModel * typeModel = [FirmwareTypeViewModel new];
+            typeModel.type = 2;
+            typeModel.viewWillDisappearCallback = ^(UIViewController *viewController) {
+                OneLabelTableViewCell * cell = (OneLabelTableViewCell *)tableViewCell;
+                NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                LabelCellModel * labelModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+                NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
+                if (!fileType) fileType = @"online.ubx";
+                BOOL isOnline = [fileType isEqualToString: @"online.ubx"];
+                labelModel.data = @[[NSString stringWithFormat:@"Type : %@  [%@]",fileType,isOnline?@"online":@"offline"]];
+                cell.title.text = [NSString stringWithFormat:@"Type : %@  [%@]",fileType,isOnline?@"online":@"offline"];
+            };
+            funcVc.model = typeModel;
+            funcVc.title = lang(@"agps update type");
+            [viewController.navigationController pushViewController:funcVc animated:YES];
+        }
+    };
+}
+
 - (void)getGpsStatusWithVc:(FuncViewController *)funcVC
 {
-//    if(!__IDO_FUNCTABLE__.funcTable19Model.gps) {
-//        [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-//        return;
-//    }
     __weak typeof(self) weakSelf = self;
     [IDOFoundationCommand getGpsStatusCommand:^(int errorCode, IDOGetGpsStatusBluetoothModel * _Nullable data) {
         __strong typeof(self) strongSelf = weakSelf;
@@ -210,7 +256,7 @@
                 [strongSelf updateAgpsWithVc:funcVC];
             }
         }else {
-            NSLog(@"获取gps状态失败");
+            NSLog(@"failed to get gps status");
         }
     }];
     
@@ -219,12 +265,16 @@
 - (void)updateAgpsWithVc:(FuncViewController *)funcVC
 {
     [self startTimer];
+    
+    NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
+    if (!fileType) fileType = @"online.ubx";
+    
     [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"agps update")]];
     initTransferManager().transferType = IDO_DATA_FILE_TRAN_AGPS_TYPE;
     initTransferManager().compressionType = IDO_DATA_TRAN_COMPRESSION_NO_USE_TYPE;
     initTransferManager().isSetConnectParam = YES;
     initTransferManager().isQueryWriteState = YES;
-    initTransferManager().fileName = self.fileName;
+    initTransferManager().fileName = fileType;
     initTransferManager().filePath = self.filePath;
     
     __weak typeof(self) weakSelf = self;
@@ -257,7 +307,5 @@
         strongSelf.textView = textView;
     };
 }
-
-
 
 @end

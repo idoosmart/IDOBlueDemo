@@ -343,15 +343,21 @@ Alarm state  0=>  invalid 1 => alarm has been modified
  26: 固件蓝牙通话开始
  27: 固件蓝牙通话结束
  28: 新版本固件每等4分30秒发送一个通知命令，用于修复离线的问题
- 29：通知app运动开始（作用于拦截表盘传输同26）
- 30：通知app运动结束（作用于拦截表盘传输同27）
+ 29: 通知app运动开始（作用于拦截表盘传输同26）
+ 30: 通知app运动结束（作用于拦截表盘传输同27）
+ 31: 固件重启发送通知给app  （app收到通知需要获取固件版本信息）
+ 32: 设备空闲时（没有使用aleax），需要上报通知给app（时间间隔为1小时）
+ 33: 固件整理空间完成通知app继续下传表盘文件
+ 34: 固件通知app结束寻找手环指令 （对应6.3寻找手环）
+ 35: 固件进入省电模式通知app
+ 36: 固件退出省电模式通知app
  */
 @property (nonatomic,assign) NSInteger dataType;
 /**
  1  闹钟已经修改
  2  固件过热异常告警
- 4 亮屏参数有修改（02 b0）
- 8 抬腕参数有修改（02 b1）
+ 4  亮屏参数有修改（02 b0）
+ 8  抬腕参数有修改（02 b1）
  16 勿擾模式获取（02 30）
  32 手机音量的下发（03  0xE3）（删除），app音量修改，直接下发
  */
@@ -367,6 +373,11 @@ Alarm state  0=>  invalid 1 => alarm has been modified
 
 #pragma mark ==== 获取电池信息 model ====
 @interface IDOGetDeviceBattInfoBluetoothModel : IDOBluetoothBaseModel
+/**
+ 1:正常模式（非省电模式） 2：省电模式
+ __IDO_FUNCTABLE__.funcTable31Model.getBatteryMode 功能表支持才有效
+ */
+@property (nonatomic,assign) NSInteger mode;
 /**
  电压，毫伏
  voltage
@@ -412,6 +423,7 @@ Last charging time minute
 Last charging time second
 */
 @property (nonatomic,assign) NSInteger lastChargingSecond;
+
 @end
 
 #pragma mark ==== 获取字库版本信息 model ====

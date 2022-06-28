@@ -218,6 +218,21 @@
     model7.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model7];
     
+    if (__IDO_FUNCTABLE__.funcTable35Model.menstrualNotifyFlag) {
+        TextFieldCellModel * model10 = [[TextFieldCellModel alloc]init];
+        model10.typeStr = @"oneTextField";
+        model10.titleStr = lang(@"notify flag:");
+        model10.data = @[@(self.menstruationModel.notifyFlag)];
+        model10.cellHeight = 70.0f;
+        model10.cellClass = [OneTextFieldTableViewCell class];
+        model10.modelClass = [NSNull class];
+        model10.isShowLine = YES;
+        model10.isShowKeyboard = YES;
+        model10.keyType = UIKeyboardTypeDecimalPad;
+        model10.textFeildCallback = self.textFeildCallback;
+        [cellModels addObject:model10];
+    }
+    
     EmpltyCellModel * model8 = [[EmpltyCellModel alloc]init];
     model8.typeStr = @"empty";
     model8.cellHeight = 30.0f;

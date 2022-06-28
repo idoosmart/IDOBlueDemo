@@ -199,6 +199,12 @@
             }else {
                isSupport = NO;
             }
+        }else if (switchCellModel.index == 25) {
+            if (__IDO_FUNCTABLE__.funcTable10Model.telegram) {
+                strongSelf.noticeModel.isOnTelegram = onSwitch.isOn;
+            }else {
+               isSupport = NO;
+            }
         }else if (switchCellModel.index == 26) {
             if (__IDO_FUNCTABLE__.funcTable21Model.chatwork) {
                 strongSelf.noticeModel.isOnChatwork = onSwitch.isOn;
@@ -236,32 +242,194 @@
                 isSupport = NO;
             }
         }else if (switchCellModel.index == 32) {
+            if (__IDO_FUNCTABLE__.funcTable21Model.keep) {
+                strongSelf.noticeModel.isOnKeep = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 33) {
+            if (__IDO_FUNCTABLE__.funcTable32Model.tiktok) {
+                strongSelf.noticeModel.isOnTikTok = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 34) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.netflix) {
+                strongSelf.noticeModel.isOnNetflix = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 35) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.gpay) {
+                strongSelf.noticeModel.isOnGpay = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 36) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.phonpe) {
+                strongSelf.noticeModel.isOnPhonpe = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 37) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.swiggy) {
+                strongSelf.noticeModel.isOnSwiggy = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 38) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.zomato) {
+                strongSelf.noticeModel.isOnZomato = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 39) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.makeMyTrip) {
+                strongSelf.noticeModel.isOnMakeMyTrip = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 40) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.jioTv) {
+                strongSelf.noticeModel.isOnJioTv = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 41) {
             if (__IDO_FUNCTABLE__.funcTable33Model.microsoft) {
                 strongSelf.noticeModel.isOnMicrosoft = onSwitch.isOn;
             }else {
                 isSupport = NO;
             }
-        }else if (switchCellModel.index == 33) {
+        }else if (switchCellModel.index == 42) {
             if (__IDO_FUNCTABLE__.funcTable33Model.whatsappBusiness) {
                 strongSelf.noticeModel.isOnWhatsAppBusiness = onSwitch.isOn;
             }else {
                 isSupport = NO;
             }
-        }else if (switchCellModel.index == 34) {
+        }else if (switchCellModel.index == 43) {
             if (__IDO_FUNCTABLE__.funcTable33Model.nioseFit) {
                 strongSelf.noticeModel.isOnNioseFit = onSwitch.isOn;
             }else {
                 isSupport = NO;
             }
-        }else if (switchCellModel.index == 35) {
+        }else if (switchCellModel.index == 44) {
             if (__IDO_FUNCTABLE__.funcTable33Model.missedCall) {
                 strongSelf.noticeModel.isOnDidNotCall = onSwitch.isOn;
             }else {
                 isSupport = NO;
             }
-        }else if (switchCellModel.index == 36) {
+        }else if (switchCellModel.index == 45) {
             if (__IDO_FUNCTABLE__.funcTable33Model.mattersRemind) {
                 strongSelf.noticeModel.isOnMattersRemind = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 46) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.uber) {
+                strongSelf.noticeModel.isOnUber = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 47) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.ola) {
+                strongSelf.noticeModel.isOnOla = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 48) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.ytmusic) {
+                strongSelf.noticeModel.isOnYtMusic = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 49) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.googleMeet) {
+                strongSelf.noticeModel.isOnGoogleMeet = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 50) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.mormaiiSmartwatch) {
+                strongSelf.noticeModel.isOnMormaiiSmartwatch = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 51) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.technosConnect) {
+                strongSelf.noticeModel.isOnTechnosConnect = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 52) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.enioei) {
+                strongSelf.noticeModel.isOnEnioei = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 53) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.aliexpress) {
+                strongSelf.noticeModel.isOnAliexpress = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 54) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.shopee) {
+                strongSelf.noticeModel.isOnShopee = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 55) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.teams) {
+                strongSelf.noticeModel.isOnTeams = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 56) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.support99Taxi) {
+                strongSelf.noticeModel.isOn99Taxi = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 57) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.uberEats) {
+                strongSelf.noticeModel.isOnUberEats = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 58) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.lFood) {
+                strongSelf.noticeModel.isOnLfood = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 59) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.rappi) {
+                strongSelf.noticeModel.isOnRappi = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 60) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.mercadoLivre) {
+                strongSelf.noticeModel.isOnMercadoLivre = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 61) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.magalu) {
+                strongSelf.noticeModel.isOnMagalu = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 62) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.americanas) {
+                strongSelf.noticeModel.isOnAmericanas = onSwitch.isOn;
+            }else {
+                isSupport = NO;
+            }
+        }else if (switchCellModel.index == 63) {
+            if (__IDO_FUNCTABLE__.funcTable33Model.yahoo) {
+                strongSelf.noticeModel.isOnYahoo = onSwitch.isOn;
             }else {
                 isSupport = NO;
             }
@@ -305,42 +473,6 @@
                 [funcVC showToastWithText:lang(@"set notice switch failed")];
             }
         }];
-        /*
-        IDOSetPairingInfoBuletoothModel * model = [IDOSetPairingInfoBuletoothModel currentModel];
-        if (!model.isPairing) {
-            [funcVC showLoadingWithMessage:lang(@"set pairing...")];
-            [IDOFoundationCommand setBluetoothPairingCommandWithCallback:^(BOOL isNeedDisconnect, int stateCode) {
-                [funcVC showLoadingWithMessage:lang(@"set pairing...")];
-            } pairingComplete:^(int errorCode) {
-                if(errorCode == 0) {
-                    [funcVC showToastWithText:lang(@"current device pairing success")];
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [IDOFoundationCommand getNoticeStatusCommand:^(int errorCode, IDOSetNoticeInfoBuletoothModel * _Nullable data) {
-                            if(errorCode == 0) {
-                                strongSelf.pairingModel = [IDOSetPairingInfoBuletoothModel currentModel];
-                                [strongSelf getCellModels];
-                                [funcVC reloadData];
-                            }
-                        }];
-                    });
-                }else {
-                    [funcVC showToastWithText:lang(@"current device pairing failed")];
-                }
-            }];
-            
-        }else {
-            [funcVC showLoadingWithMessage:lang(@"set notice switch...")];
-            //This method is used after a successful pairing, setting only the subswitch state.
-            [IDOFoundationCommand setChildSwitchNoticeStateCommand:strongSelf.noticeModel
-                                                          callback:^(int errorCode) {
-                 if(errorCode == 0) {
-                 [funcVC showToastWithText:lang(@"set notice switch success")];
-                 }else {
-                 [funcVC showToastWithText:lang(@"set notice switch failed")];
-                 }
-            }];
-        }
-       */
     };
 }
 
@@ -368,16 +500,43 @@
 - (NSArray *)dataArray
 {
     if (!_dataArray) {
-        _dataArray = @[@[@(self.noticeModel.isOnChild),@(self.noticeModel.callDelay),@(self.noticeModel.isOnCall)],
-                       @[@(self.noticeModel.isOnSms),@(self.noticeModel.isOnEmail),@(self.noticeModel.isOnWeChat),@(self.noticeModel.isOnQq),
-                         @(self.noticeModel.isOnWeibo),@(self.noticeModel.isOnFaceBook),@(self.noticeModel.isOnTwitter)],
-                       @[@(self.noticeModel.isOnWhatsapp),@(self.noticeModel.isOnMessenger),@(self.noticeModel.isOnInstagram),@(self.noticeModel.isOnLinkedIn),
-                         @(self.noticeModel.isOnCalendar),@(self.noticeModel.isOnSkype),@(self.noticeModel.isOnAlarm),@(self.noticeModel.isOnPokeman)],
-                       @[@(self.noticeModel.isOnVkontakte),@(self.noticeModel.isOnLine),@(self.noticeModel.isOnViber),@(self.noticeModel.isOnKakaoTalk),
-                         @(self.noticeModel.isOnGmail),@(self.noticeModel.isOnOutlook),@(self.noticeModel.isOnSnapchat),@(self.noticeModel.isOnTelegram)],
-                       @[@(self.noticeModel.isOnChatwork),@(self.noticeModel.isOnSlack),@(self.noticeModel.isOnYahooMail),@(self.noticeModel.isOnTumblr),
-                         @(self.noticeModel.isOnYoutube),@(self.noticeModel.isOnYahooPinterest)],
-        @[@(self.noticeModel.isOnMicrosoft),@(self.noticeModel.isOnWhatsAppBusiness),@(self.noticeModel.isOnNioseFit),@(self.noticeModel.isOnDidNotCall),@(self.noticeModel.isOnMattersRemind)]];
+        _dataArray = @[@[@(self.noticeModel.isOnChild),@(self.noticeModel.callDelay),
+                         @(self.noticeModel.isOnCall)],@[@(self.noticeModel.isOnSms),
+                         @(self.noticeModel.isOnEmail),@(self.noticeModel.isOnWeChat),
+                         @(self.noticeModel.isOnQq),@(self.noticeModel.isOnWeibo),
+                         @(self.noticeModel.isOnFaceBook),@(self.noticeModel.isOnTwitter)],
+                         @[@(self.noticeModel.isOnWhatsapp),@(self.noticeModel.isOnMessenger),
+                         @(self.noticeModel.isOnInstagram),@(self.noticeModel.isOnLinkedIn),
+                         @(self.noticeModel.isOnCalendar),@(self.noticeModel.isOnSkype),
+                         @(self.noticeModel.isOnAlarm),@(self.noticeModel.isOnPokeman)],
+                       @[@(self.noticeModel.isOnVkontakte),@(self.noticeModel.isOnLine),
+                         @(self.noticeModel.isOnViber),@(self.noticeModel.isOnKakaoTalk),
+                         @(self.noticeModel.isOnGmail),@(self.noticeModel.isOnOutlook),
+                         @(self.noticeModel.isOnSnapchat),@(self.noticeModel.isOnTelegram)],
+                       @[@(self.noticeModel.isOnChatwork),@(self.noticeModel.isOnSlack),
+                         @(self.noticeModel.isOnYahooMail),@(self.noticeModel.isOnTumblr),
+                         @(self.noticeModel.isOnYoutube),@(self.noticeModel.isOnYahooPinterest),
+                         @(self.noticeModel.isOnKeep),@(self.noticeModel.isOnTikTok)],
+                       @[@(self.noticeModel.isOnRedbus),@(self.noticeModel.isOnDailyhunt),
+                       @(self.noticeModel.isOnHotstar),@(self.noticeModel.isOnInshorts),
+                       @(self.noticeModel.isOnPaytm),@(self.noticeModel.isOnAmazon),
+                       @(self.noticeModel.isOnFlipkart),@(self.noticeModel.isOnPrime)],
+                       @[@(self.noticeModel.isOnNetflix),@(self.noticeModel.isOnGpay),
+                       @(self.noticeModel.isOnPhonpe),@(self.noticeModel.isOnSwiggy),
+                       @(self.noticeModel.isOnZomato),@(self.noticeModel.isOnMakeMyTrip),
+                       @(self.noticeModel.isOnJioTv),@(self.noticeModel.isOnMicrosoft)],
+                        @[@(self.noticeModel.isOnWhatsAppBusiness),@(self.noticeModel.isOnNioseFit),
+                        @(self.noticeModel.isOnDidNotCall),@(self.noticeModel.isOnMattersRemind),
+                        @(self.noticeModel.isOnUber),@(self.noticeModel.isOnOla),
+                        @(self.noticeModel.isOnYtMusic),@(self.noticeModel.isOnGoogleMeet),
+                        @(self.noticeModel.isOnMormaiiSmartwatch)],
+                        @[@(self.noticeModel.isOnTechnosConnect),@(self.noticeModel.isOnEnioei),
+                          @(self.noticeModel.isOnAliexpress),@(self.noticeModel.isOnShopee),
+                        @(self.noticeModel.isOnTeams),@(self.noticeModel.isOn99Taxi),
+                        @(self.noticeModel.isOnUberEats),@(self.noticeModel.isOnLfood)],
+                        @[@(self.noticeModel.isOnRappi),@(self.noticeModel.isOnMercadoLivre),
+                        @(self.noticeModel.isOnMagalu),@(self.noticeModel.isOnAmericanas),
+                        @(self.noticeModel.isOnYahoo)]];
     }
     return _dataArray;
 }

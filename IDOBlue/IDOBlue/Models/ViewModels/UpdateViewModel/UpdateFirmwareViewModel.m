@@ -47,8 +47,6 @@
         [self getButtonCallback];
         [self getLabelSelectCallback];
         [self getTextViewCallback];
-        [self getCellModels];
-        [IDOUpdateFirmwareManager shareInstance].delegate = self;
         [[NSNotificationCenter defaultCenter]addObserver:self
                                                 selector:@selector(selectFileNotice:)
                                                     name:@"idoDemoSelectFileNotice"
@@ -74,13 +72,29 @@
     [self addMessageText:infoStr];
 }
 
+- (void)setPlatformType:(NSInteger)platformType
+{
+    _platformType = platformType;
+    [self getCellModels];
+}
+
 - (void)getCellModels
 {
+    [IDOUpdateFirmwareManager shareInstance].delegate = self;
+    if (self.platformType == 0) {
+        [IDOUpdateFirmwareManager shareInstance].updateType = IDO_NORDIC_PLATFORM_TYPE;
+    }else if (self.platformType == 1) {
+        [IDOUpdateFirmwareManager shareInstance].updateType = IDO_REALTK_PLATFORM_TYPE;
+    }else if (self.platformType == 2) {
+        [IDOUpdateFirmwareManager shareInstance].updateType = IDO_APOLLO_PLATFORM_TYPE;
+    }else if (self.platformType == 3) {
+        [IDOUpdateFirmwareManager shareInstance].updateType = IDO_APOLLO_PLATFORM_TYPE;
+    }
+    
+    /*
     NSString * filePath = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_PATH_KEY];
     self.logStr = [self getCuttentFirmwareFileInfo:filePath];
-    
-    NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
-    if (!fileType) fileType = @"Application";
+    */
     
     TabCellModel * model1 = [[TabCellModel alloc]init];
     model1.typeStr = @"threeButton";
@@ -110,7 +124,16 @@
     model4.isShowLine = YES;
     model4.isCenter   = YES;
 
-    if ([IDOUpdateFirmwareManager shareInstance].updateType == IDO_NORDIC_PLATFORM_TYPE) {
+    if (   [IDOUpdateFirmwareManager shareInstance].updateType == IDO_NORDIC_PLATFORM_TYPE
+        || [IDOUpdateFirmwareManager shareInstance].updateType == IDO_APOLLO_PLATFORM_TYPE) {
+        NSString * fileType = @"";
+        if ([IDOUpdateFirmwareManager shareInstance].updateType == IDO_NORDIC_PLATFORM_TYPE) {
+            fileType = @"application";
+            [[NSUserDefaults standardUserDefaults]setValue:fileType forKey:FIRMWARE_FILE_TYPE_KEY];
+        }else {
+            fileType = @".fw";
+            [[NSUserDefaults standardUserDefaults]setValue:fileType forKey:FIRMWARE_FILE_TYPE_KEY];
+        }
         LabelCellModel * model2 = [[LabelCellModel alloc]init];
         model2.typeStr = @"oneLabel";
         model2.data    = @[[NSString stringWithFormat:@"Type : %@",fileType]];
@@ -197,12 +220,23 @@
         if (indexPath.row == 0) {
             FuncViewController * funcVc = [[FuncViewController alloc]init];
             FirmwareTypeViewModel * typeModel = [FirmwareTypeViewModel new];
+            if ([IDOUpdateFirmwareManager shareInstance].updateType == IDO_NORDIC_PLATFORM_TYPE) {
+                typeModel.type = 0;
+            }else {
+                typeModel.type = 1;
+            }
             typeModel.viewWillDisappearCallback = ^(UIViewController *viewController) {
                 OneLabelTableViewCell * cell = (OneLabelTableViewCell *)tableViewCell;
                 NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
                 LabelCellModel * labelModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
-                NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
-                if (!fileType) fileType = @"Application";
+                NSString * fileType = @"";
+                if ([IDOUpdateFirmwareManager shareInstance].updateType == IDO_NORDIC_PLATFORM_TYPE) {
+                    fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
+                    if (!fileType) fileType = @"Application";
+                }else {
+                    fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
+                    if (!fileType) fileType = @".fw";
+                }
                 labelModel.data = @[[NSString stringWithFormat:@"Type : %@",fileType]];
                 cell.title.text = [NSString stringWithFormat:@"Type : %@",fileType];
             };
@@ -255,8 +289,14 @@
     NSString * dataSize = [NSString stringWithFormat:@"%ld bytes",(long)data.length];
     NSString * nameStr = [@"Name : "stringByAppendingString:lastPathComponent];
     NSString * sizeStr = [@"Size : "stringByAppendingString:dataSize];
-    NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
-    if (!fileType) fileType = @"Application";
+    NSString * fileType = @"";
+    if ([IDOUpdateFirmwareManager shareInstance].updateType == IDO_NORDIC_PLATFORM_TYPE) {
+        fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
+        if (!fileType) fileType = @"application";
+    }else {
+        fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
+        if (!fileType) fileType = @".fw";
+    }
     NSString * typeStr = [@"Type : "stringByAppendingString:fileType];
     NSString * fileStr = [NSString stringWithFormat:@"%@\n%@\n%@",nameStr,sizeStr,typeStr];
     return fileStr;
@@ -321,9 +361,9 @@
 /********此方法可以忽略*********/
 - (IDO_UPDATE_DFU_FIRMWARE_TYPE)selectDfuFirmwareTypeWithUpdateManager:(IDOUpdateFirmwareManager * _Nullable)manager {
     NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
-    if (!fileType) fileType = @"Application";
+    if (!fileType) fileType = @"application";
     IDO_UPDATE_DFU_FIRMWARE_TYPE type = IDO_DFU_FIRMWARE_APPLICATION_TYPE;
-    if (![fileType isEqualToString:@"Application"]) {
+    if (![fileType isEqualToString:@"application"]) {
         type = [self.pickerDataModel.firmwareTypes indexOfObject:fileType] + 1;
     }
     return type;
@@ -349,7 +389,9 @@
 
 - (NSString * _Nullable)fileTranNameUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager
 {
-    return @".bt";
+    NSString * fileType = [[NSUserDefaults standardUserDefaults]objectForKey:FIRMWARE_FILE_TYPE_KEY];
+    if (!fileType) fileType = @".fw";
+    return fileType;
 }
 
 - (NSInteger)setTransferNumberPacketsUpdateManager:(IDOUpdateFirmwareManager *)manager

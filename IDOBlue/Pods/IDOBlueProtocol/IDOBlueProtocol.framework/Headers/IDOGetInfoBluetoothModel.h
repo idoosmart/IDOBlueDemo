@@ -324,15 +324,18 @@ error flag
 #pragma mark ==== 获取菜单列表 model ====
 @interface IDOGetMenuListInfoBluetoothModel : IDOBluetoothBaseModel
 /**
-菜单最小显示个数
+ 菜单最小显示个数
+ 只是获取命令返回的字段，设置命令不需要赋值
  */
 @property (nonatomic,assign) NSInteger minShowNum;
 /**
-菜单最大显示个数
+ 菜单最大显示个数
+ 只是获取命令返回的字段，设置命令不需要赋值
 */
 @property (nonatomic,assign) NSInteger maxShowNum;
 /**
  支持最大个数
+ 只是获取命令返回的字段，设置命令不需要赋值
  */
 @property (nonatomic,assign) NSInteger maxNum;
 /**
@@ -346,6 +349,7 @@ error flag
 @property (nonatomic,strong) NSArray<NSNumber *> * itemList;
 /**
  菜单排序最大显示集合
+ 只是获取命令返回的字段，设置命令不需要赋值
  0 =>无效 1 =>步数 2 =>心率 3=> 睡眠 4=> 拍照 5=> 闹钟 6=> 音乐 7=> 秒表 8=> 计时器
  9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
  17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示
@@ -355,6 +359,7 @@ error flag
 @property (nonatomic,strong) NSArray<NSNumber *> * maxItemList;
 /**
  设备当前显示列表个数
+ 只是获取命令返回的字段，设置命令不需要赋值
  */
 @property (nonatomic,assign) NSInteger currentShowNum;
 /**
@@ -430,27 +435,7 @@ error flag
 
 /**
  运动类型值集合,集合排序就是运动类型排序 | set of motion type values, and set sort is motion type sort
- * 0:无，1:走路，2:跑步，3:骑行，4:徒步，5:游泳，6:爬山，7:羽毛球，8:其他，
- * 9:健身，10:动感单车，11:椭圆机，12:跑步机，13:仰卧起坐，14:俯卧撑，15:哑铃，16:举重，
- * 17:健身操，18:瑜伽，19:跳绳，20:乒乓球，21:篮球，22:足球 ，23:排球，24:网球，
- * 25:高尔夫球，26:棒球，27:滑雪，28:轮滑，29:跳舞，48:户外跑步，49:室内跑步，50:户外骑行，51:室内骑行，
- * 52:户外走路，53:室内走路，54:泳池游泳，55:开放水域游泳，56:椭圆机，57:划船机，58:高强度间歇训练法，75:板球运动
- * 自由训练 : 100  功能性力量训练 : 101 核心训练  : 102 踏步机  : 103 整理放松 : 104
- * 传统力量训练  : 110 普拉提 : 111 引体向上 : 112 平板支撑 :  113 开合跳 :  114 深蹲 : 115 高抬腿 : 116
- * 拳击 : 117  杠铃 : 118 武术 : 119 太极 : 120 跆拳道 : 121  空手道 : 122  自由搏击 : 123  击剑 : 124
- * 射箭 : 125 体操 : 126 单杠 : 127 双杠 : 128 漫步机 : 129 登山机 : 130
- * 保龄球 : 131 台球 : 132 曲棍球 : 133 橄榄球 : 134 壁球 : 135 垒球 : 136 手球 : 137 毽球 : 138
- * 沙滩足球 : 139 藤球 : 140 躲避球 : 141 广场舞 : 151街舞 : 152 芭蕾 : 153  社交舞 : 154 飞盘 : 155 飞镖 : 156
- * 骑马 : 157 爬楼 : 158 放风筝 : 159 钓鱼 : 160 雪橇 : 161 雪车 : 162 单板滑雪 : 163 雪上运动 : 164 高山滑雪 : 165
- * 越野滑雪 : 166 冰壶  : 167  冰球 : 168 冬季两项 : 169 冲浪 : 170  帆船 : 171 帆板 : 172 皮艇 : 173
- * 摩托艇 : 174 划艇 : 175 赛艇 : 176 龙舟 : 177 水球 : 178 漂流 : 179 滑板 : 180 攀岩 : 181
- * 蹦极 : 182 跑酷 : 183 BMX : 184
- * 0: none, 1: walk, 2: run, 3: ride, 4: hike, 5: swim, 6: climb, 7: badminton, 8: others,
- * 9: fitness, 10: spinning, 11: elliptical, 12: treadmill, 13: sit-ups, 14: push-ups, 15: dumbbells, 16: weightlifting,
- * 17: aerobics, 18: yoga, 19: jump rope, 20: table tennis, 21: basketball, 22: football, 23: volleyball, 24: tennis,
- * 25: golf, 26: baseball, 27: skiing, 28: roller skating, 29: dancing，48: outdoor running, 49: indoor running, 50: outdoor cycling, 51: indoor cycling,
- * 52: outdoor walking, 53: indoor walking, 54: pool swimming, 55: open water swimming, 56: elliptical machine, 57: rowing machine, 58: high-intensity interval training
- * 75:cricket
+ 参照 IDO_SPORT_TYPE 枚举类型
  */
 @property (nonatomic,strong) NSArray * sportTypes;
 
@@ -465,13 +450,11 @@ error flag
 
 #pragma mark ==== 获取软硬件版本信息model ====
 @interface IDOGetVersionInfoBluetoothModel:IDOBluetoothBaseModel
-
 /**
  * SDK版本 数值为x10,11表示1.1的版本
  * SDK version number is x10, and 11 represents the 1.1 version
  */
 @property (nonatomic,assign) NSInteger sdkVersion;
-
 /**
  * 心率算法版本 数值为x10,11表示1.1的版本
  * Version value of the heart rate algorithm is x10, and 11 represents version 1.1
@@ -483,19 +466,16 @@ error flag
  * Sleep algorithm version number is x10, and 11 represents version 1.1
  */
 @property (nonatomic,assign) NSInteger sleepAlgorithmVersion;
-
 /**
  * 计步算法版本 数值为x10,11表示1.1的版本
  * Step counting algorithm version value is x10,11 represents 1.1 version
  */
 @property (nonatomic,assign) NSInteger stepAlgorithmVersion;
-
 /**
  * 手势识别算法 数值为x10,11表示1.1的版本
  * Value of gesture recognition algorithm is x10, and 11 represents version 1.1
  */
 @property (nonatomic,assign) NSInteger gestureRecognitionVersion;
-
 /**
  * PCB 版本 数值为x10,11表示1.1的版本
  * PCB version number is x10, and 11 represents version 1.1
@@ -1160,7 +1140,11 @@ error flag
  kr01定制   支持v3闹钟设置获取指定类型和名称
  */
 @property (nonatomic,assign) BOOL setAlarmSpecifyType;
-
+/**
+ 支持身体电量数据同步
+ */
+@property (nonatomic,assign) BOOL v3BodyPower;
+ 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1229,7 +1213,7 @@ error flag
  */
 @property (nonatomic,assign) BOOL spo2NotifyFlag;
 /**
- 血氧开关增加通知类型
+ 月经开关增加通知类型
  */
 @property (nonatomic,assign) BOOL menstrualNotifyFlag;
 /**
@@ -1297,7 +1281,6 @@ error flag
  208BT定制 支持发送解压前的文件大小命令 文件传输-->表盘使用
  */
 @property (nonatomic,assign) BOOL supportSendOriginalSizeD1;
-
 
 /**
  BIT1 k6项目不需要对应的壁纸表盘，veryFit默认的都是支持的，新加一个不支持的功能表，不需要的配置这个
@@ -1576,6 +1559,18 @@ error flag
  * flipkart
 */
 @property (nonatomic,assign) BOOL flipkart;
+/**
+ * 单独提醒雅虎邮箱
+ */
+@property (nonatomic,assign) BOOL onlyYahooEmail;
+/**
+ * 单独提醒outlook邮箱
+ */
+@property (nonatomic,assign) BOOL onlyOutlookEmail;
+/**
+ * 单独提醒gmail邮箱
+ */
+@property (nonatomic,assign) BOOL onlyGoogleGmail;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1636,7 +1631,23 @@ error flag
  * 亮屏时长
  */
 @property (nonatomic,assign) BOOL brightScreenTime;
-
+/**
+ 获取用户行为数据
+ */
+@property (nonatomic,assign) BOOL getHabitData;
+/**
+ 固件支持游泳六轴传感器，app用来区分显示泳姿，
+ 有该传感器app游泳界面需显示所有泳姿及其距离，否则只显示主泳姿机器距离
+ */
+@property (nonatomic,assign) BOOL sixAxisSensor;
+/**
+ 勿扰模式设置获取新增全天勿扰开关和只能开关
+ */
+@property (nonatomic,assign) BOOL noDisturbAllDayOnOff;
+/**
+ 支持获取固件电池模式
+ */
+@property (nonatomic,assign) BOOL getBatteryMode;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -2327,6 +2338,25 @@ error flag
  */
 @property (nonatomic,assign) BOOL dance;
 
+/**
+ 功能性训练 | functional training
+ */
+@property (nonatomic,assign) BOOL functionalTraining;
+
+/**
+ 核心训练 | core training
+ */
+@property (nonatomic,assign) BOOL  coreTraining;
+
+/**
+ 整体放松 | tidy up relax
+ */
+@property (nonatomic,assign) BOOL  tidyUpRelax;
+/**
+ 传统的力量训练
+ traditional strength training
+ */
+@property (nonatomic,assign) BOOL traditionalStrengthTraining;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object

@@ -85,6 +85,11 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      */
     IDO_SYNC_HEALTH_BREATH_RATE_LOG,
     /**
+     * 同步健康 身体电量
+     * Synchronous Health body power
+     */
+    IDO_SYNC_HEALTH_BODY_POWER_LOG,
+    /**
      * 同步健康 睡眠
      * Synchronized Health Sleep
      */

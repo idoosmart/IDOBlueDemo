@@ -163,6 +163,45 @@
     };
 }
 
+- (NSInteger)getIndexOfSportType:(NSInteger)type
+{
+    NSInteger index = 0;
+    if (type <= 75) {
+        if (type <= 29) {
+            index = type - 1;
+        }else if (type >= 31 && type <= 38) {
+            index = type - 3;
+        }else if (type >= 48 && type <= 58) {
+            index = type - 12;
+        }else {
+            index = 47;
+        }
+    }else if (type >= 100 && type < 110) {
+        index = 48 + (type - 100);
+    }else if (type >= 110 && type <= 141) {
+        if (type == 110) {
+            index = 53 + (type - 110);
+        }else if (type == 112) {
+            index = 53 + (type - 111);
+        }else {
+            index = 53 + (type - 112);
+        }
+    }else if (type >= 152 && type <= 160) {
+        index = 83 + (type - 152);
+    }else if (type >= 161 && type <= 169) {
+        index = 92 + (type - 161);
+    }else if (type >= 170 && type <= 179) {
+        index = 101 + (type - 170);
+    }else if (type >= 180 && type <= 184) {
+        index = 111 + (type - 180);
+    }else if (type == 193) {
+        index = 116;
+    }else if (type == 194) {
+        index = 117;
+    }
+    return index;
+}
+
 - (void)getCellModels
 {
     NSMutableArray * cellModels = [NSMutableArray array];
@@ -171,15 +210,8 @@
     for (NSDictionary * dic in self.selectSportModes) {
         NSString * sportName = lang(@"other activity");
         NSInteger type = [[dic valueForKey:@"type"] integerValue];
-        if (type > 192) {
-            if (type == 193) {
-                sportName = lang(@"outdoor play");
-            }
-        }else {
-            type = type - 1;
-            if(type > 28)type = type - 18;
-            sportName = self.pickerDataModel.sportSortTitleArray[type];
-        }
+        NSInteger index = [self getIndexOfSportType:type];
+        sportName = self.pickerDataModel.sportSortTitleArray[index];
         LabelCellModel * model = [[LabelCellModel alloc]init];
         model.typeStr = @"oneLabel";
         model.data = @[sportName];
@@ -207,15 +239,8 @@
     for (NSDictionary * dic in self.noSelectSportModes) {
         NSString * sportName = lang(@"other activity");
         NSInteger type = [[dic valueForKey:@"type"] integerValue];
-        if (type > 192) {
-            if (type == 193) {
-                sportName = lang(@"outdoor play");
-            }
-        }else {
-            type = type - 1;
-            if(type > 28)type = type - 18;
-            sportName = self.pickerDataModel.sportSortTitleArray[type];
-        }
+        NSInteger index = [self getIndexOfSportType:type];
+        sportName = self.pickerDataModel.sportSortTitleArray[index];
         LabelCellModel * model = [[LabelCellModel alloc]init];
         model.typeStr = @"oneLabel";
         model.data = @[sportName];
@@ -243,10 +268,34 @@
 {
     if (!_allSportModes) {
         _allSportModes = [NSMutableArray array];
-        for (int i = 1; i <= 58; i++) {
-            if (i <= 29 || i >= 48) {
+        for (int i = 1; i <= 75; i++) {
+            if (i <= 29 || (i >= 48 && i <= 58) || i == 75 || (i >= 31 && i <= 38)) {
                 [_allSportModes addObject:@{@"type":@(i),@"isSelected":@(0),@"index":@(0)}];
             }
+        }
+        for (int i = 0; i < 5; i++) {
+            [_allSportModes addObject:@{@"type":@(i + 100),@"isSelected":@(0),@"index":@(0)}];
+        }
+        for (int i = 0; i < 20; i++) {
+            if (i == 1 || i == 3) {
+                continue;
+            }
+            [_allSportModes addObject:@{@"type":@(i + 110),@"isSelected":@(0),@"index":@(0)}];
+        }
+        for (int i = 1; i <= 11; i++) {
+            [_allSportModes addObject:@{@"type":@(i + 130),@"isSelected":@(0),@"index":@(0)}];
+        }
+        for (int i = 2; i <= 10; i++) {
+            [_allSportModes addObject:@{@"type":@(i + 150),@"isSelected":@(0),@"index":@(0)}];
+        }
+        for (int i = 1; i <= 9; i++) {
+            [_allSportModes addObject:@{@"type":@(i + 160),@"isSelected":@(0),@"index":@(0)}];
+        }
+        for (int i = 0; i < 10; i++) {
+            [_allSportModes addObject:@{@"type":@(i + 170),@"isSelected":@(0),@"index":@(0)}];
+        }
+        for (int i = 0; i < 5; i++) {
+            [_allSportModes addObject:@{@"type":@(i + 180),@"isSelected":@(0),@"index":@(0)}];
         }
         [_allSportModes addObject:@{@"type":@(193),@"isSelected":@(0),@"index":@(0)}];
         [_allSportModes addObject:@{@"type":@(194),@"isSelected":@(0),@"index":@(0)}];
