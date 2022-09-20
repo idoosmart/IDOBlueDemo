@@ -175,7 +175,6 @@
 		9BBFAB9D28168E9000DC7671 /* SetWatchDialViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAB828168E8F00DC7671 /* SetWatchDialViewModel.m */; };
 		9BBFAB9E28168E9000DC7671 /* SetWallpaperViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAABA28168E8F00DC7671 /* SetWallpaperViewModel.m */; };
 		9BBFAB9F28168E9000DC7671 /* GetWatchScreenInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAABB28168E8F00DC7671 /* GetWatchScreenInfoViewModel.m */; };
-		9BBFABA028168E9000DC7671 /* UpdateWordViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAC128168E8F00DC7671 /* UpdateWordViewModel.m */; };
 		9BBFABA128168E9000DC7671 /* FirmwareTypeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAC428168E8F00DC7671 /* FirmwareTypeViewModel.m */; };
 		9BBFABA228168E9000DC7671 /* UpdateMessageIconViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAC628168E8F00DC7671 /* UpdateMessageIconViewModel.m */; };
 		9BBFABA328168E9000DC7671 /* OtherFileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAC928168E8F00DC7671 /* OtherFileViewModel.m */; };
@@ -185,7 +184,6 @@
 		9BBFABA728168E9000DC7671 /* UpdateAgpsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAACF28168E8F00DC7671 /* UpdateAgpsViewModel.m */; };
 		9BBFABA828168E9000DC7671 /* UpdatePhotoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAD028168E8F00DC7671 /* UpdatePhotoViewModel.m */; };
 		9BBFABA928168E9000DC7671 /* UpdateMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAD128168E8F00DC7671 /* UpdateMainViewModel.m */; };
-		9BBFABAA28168E9000DC7671 /* UpdateApolloViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAD228168E8F00DC7671 /* UpdateApolloViewModel.m */; };
 		9BBFABAB28168E9000DC7671 /* UpdateFirmwareViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAD428168E8F00DC7671 /* UpdateFirmwareViewModel.m */; };
 		9BBFABAC28168E9000DC7671 /* ListenVoiceDataViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAD728168E8F00DC7671 /* ListenVoiceDataViewModel.m */; };
 		9BBFABAD28168E9000DC7671 /* RestartLogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFAAD928168E8F00DC7671 /* RestartLogViewModel.m */; };
@@ -624,16 +622,13 @@
 		9BBFAABE28168E8F00DC7671 /* FileViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileViewModel.h; sourceTree = "<group>"; };
 		9BBFAABF28168E8F00DC7671 /* UpdateSportIconViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateSportIconViewModel.h; sourceTree = "<group>"; };
 		9BBFAAC028168E8F00DC7671 /* UpateContactViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpateContactViewModel.h; sourceTree = "<group>"; };
-		9BBFAAC128168E8F00DC7671 /* UpdateWordViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateWordViewModel.m; sourceTree = "<group>"; };
 		9BBFAAC228168E8F00DC7671 /* UpdatePhotoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePhotoViewModel.h; sourceTree = "<group>"; };
 		9BBFAAC328168E8F00DC7671 /* UpdateAgpsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateAgpsViewModel.h; sourceTree = "<group>"; };
 		9BBFAAC428168E8F00DC7671 /* FirmwareTypeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirmwareTypeViewModel.m; sourceTree = "<group>"; };
 		9BBFAAC528168E8F00DC7671 /* UpdateFirmwareViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateFirmwareViewModel.h; sourceTree = "<group>"; };
 		9BBFAAC628168E8F00DC7671 /* UpdateMessageIconViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMessageIconViewModel.m; sourceTree = "<group>"; };
-		9BBFAAC728168E8F00DC7671 /* UpdateApolloViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateApolloViewModel.h; sourceTree = "<group>"; };
 		9BBFAAC828168E8F00DC7671 /* UpdateMainViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateMainViewModel.h; sourceTree = "<group>"; };
 		9BBFAAC928168E8F00DC7671 /* OtherFileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherFileViewModel.m; sourceTree = "<group>"; };
-		9BBFAACA28168E8F00DC7671 /* UpdateWordViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateWordViewModel.h; sourceTree = "<group>"; };
 		9BBFAACB28168E8F00DC7671 /* UpdateSportIconViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateSportIconViewModel.m; sourceTree = "<group>"; };
 		9BBFAACC28168E8F00DC7671 /* UpateContactViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpateContactViewModel.m; sourceTree = "<group>"; };
 		9BBFAACD28168E8F00DC7671 /* FileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileViewModel.m; sourceTree = "<group>"; };
@@ -641,7 +636,6 @@
 		9BBFAACF28168E8F00DC7671 /* UpdateAgpsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateAgpsViewModel.m; sourceTree = "<group>"; };
 		9BBFAAD028168E8F00DC7671 /* UpdatePhotoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePhotoViewModel.m; sourceTree = "<group>"; };
 		9BBFAAD128168E8F00DC7671 /* UpdateMainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMainViewModel.m; sourceTree = "<group>"; };
-		9BBFAAD228168E8F00DC7671 /* UpdateApolloViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateApolloViewModel.m; sourceTree = "<group>"; };
 		9BBFAAD328168E8F00DC7671 /* UpdateMessageIconViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateMessageIconViewModel.h; sourceTree = "<group>"; };
 		9BBFAAD428168E8F00DC7671 /* UpdateFirmwareViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateFirmwareViewModel.m; sourceTree = "<group>"; };
 		9BBFAAD628168E8F00DC7671 /* ListenVoiceDataViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenVoiceDataViewModel.h; sourceTree = "<group>"; };
@@ -1358,16 +1352,13 @@
 				9BBFAABE28168E8F00DC7671 /* FileViewModel.h */,
 				9BBFAABF28168E8F00DC7671 /* UpdateSportIconViewModel.h */,
 				9BBFAAC028168E8F00DC7671 /* UpateContactViewModel.h */,
-				9BBFAAC128168E8F00DC7671 /* UpdateWordViewModel.m */,
 				9BBFAAC228168E8F00DC7671 /* UpdatePhotoViewModel.h */,
 				9BBFAAC328168E8F00DC7671 /* UpdateAgpsViewModel.h */,
 				9BBFAAC428168E8F00DC7671 /* FirmwareTypeViewModel.m */,
 				9BBFAAC528168E8F00DC7671 /* UpdateFirmwareViewModel.h */,
 				9BBFAAC628168E8F00DC7671 /* UpdateMessageIconViewModel.m */,
-				9BBFAAC728168E8F00DC7671 /* UpdateApolloViewModel.h */,
 				9BBFAAC828168E8F00DC7671 /* UpdateMainViewModel.h */,
 				9BBFAAC928168E8F00DC7671 /* OtherFileViewModel.m */,
-				9BBFAACA28168E8F00DC7671 /* UpdateWordViewModel.h */,
 				9BBFAACB28168E8F00DC7671 /* UpdateSportIconViewModel.m */,
 				9BBFAACC28168E8F00DC7671 /* UpateContactViewModel.m */,
 				9BBFAACD28168E8F00DC7671 /* FileViewModel.m */,
@@ -1375,7 +1366,6 @@
 				9BBFAACF28168E8F00DC7671 /* UpdateAgpsViewModel.m */,
 				9BBFAAD028168E8F00DC7671 /* UpdatePhotoViewModel.m */,
 				9BBFAAD128168E8F00DC7671 /* UpdateMainViewModel.m */,
-				9BBFAAD228168E8F00DC7671 /* UpdateApolloViewModel.m */,
 				9BBFAAD328168E8F00DC7671 /* UpdateMessageIconViewModel.h */,
 				9BBFAAD428168E8F00DC7671 /* UpdateFirmwareViewModel.m */,
 			);
@@ -1808,7 +1798,6 @@
 				B0C8F9A5274B3078009BA60D /* TimerAnimatView.m in Sources */,
 				9BBFAB9028168E9000DC7671 /* GetErrorLogViewModel.m in Sources */,
 				1817F4F3214B2BBF001C90D5 /* test.swift in Sources */,
-				9BBFABA028168E9000DC7671 /* UpdateWordViewModel.m in Sources */,
 				B0C8F997274B3078009BA60D /* NSArray+RemoveDuplicate.m in Sources */,
 				9B9C402C2566693C00809576 /* MASConstraintMaker.m in Sources */,
 				9BBFAB9628168E9000DC7671 /* BaseViewModel.m in Sources */,
@@ -1829,7 +1818,6 @@
 				9BBFABA428168E9000DC7671 /* UpdateSportIconViewModel.m in Sources */,
 				9B9C40322566693C00809576 /* View+MASAdditions.m in Sources */,
 				B0C8F994274B3078009BA60D /* NSObject+ModelToDic.m in Sources */,
-				9BBFABAA28168E9000DC7671 /* UpdateApolloViewModel.m in Sources */,
 				9BBFAB6428168E9000DC7671 /* SetHandUpViewModel.m in Sources */,
 				9BBFAB4D28168E9000DC7671 /* SetContactItemViewModel.m in Sources */,
 				9B0F6925286AEEF800E8BE11 /* QueryTemperatureViewModel.m in Sources */,
