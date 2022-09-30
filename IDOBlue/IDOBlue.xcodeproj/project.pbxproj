@@ -225,6 +225,11 @@
 		9BF2574A28264EDF005DB163 /* NewAppDataInterchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2574928264EDF005DB163 /* NewAppDataInterchangeModel.m */; };
 		9BF5C7D32703410100FBA91F /* IDOAlexaClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF5C7D22703410100FBA91F /* IDOAlexaClient.framework */; platformFilter = ios; };
 		9BF5C7D42703410100FBA91F /* IDOAlexaClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF5C7D22703410100FBA91F /* IDOAlexaClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B051AE2028E6CA6F00F86165 /* PeripheralViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B051AE1F28E6CA6F00F86165 /* PeripheralViewModel.m */; };
+		B051AE2328E6CAE100F86165 /* GetPeripheralsInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B051AE2228E6CAE100F86165 /* GetPeripheralsInfoViewModel.m */; };
+		B051AE2628E6CAFF00F86165 /* sendPeripheralsInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B051AE2528E6CAFF00F86165 /* sendPeripheralsInfoViewModel.m */; };
+		B051AE2928E6CB2000F86165 /* sendBindDeviceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B051AE2828E6CB2000F86165 /* sendBindDeviceViewModel.m */; };
+		B051AE2C28E6CB3800F86165 /* sendScalesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B051AE2B28E6CB3800F86165 /* sendScalesViewModel.m */; };
 		B0C8F990274B3078009BA60D /* IDODemoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F7C3274B3077009BA60D /* IDODemoUtility.m */; };
 		B0C8F991274B3078009BA60D /* UINavigationItem+Button.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F7C5274B3077009BA60D /* UINavigationItem+Button.m */; };
 		B0C8F992274B3078009BA60D /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F7C8274B3077009BA60D /* UIScrollView+Refresh.m */; };
@@ -715,6 +720,16 @@
 		9BF2574828264EDF005DB163 /* NewAppDataInterchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAppDataInterchangeModel.h; sourceTree = "<group>"; };
 		9BF2574928264EDF005DB163 /* NewAppDataInterchangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAppDataInterchangeModel.m; sourceTree = "<group>"; };
 		9BF5C7D22703410100FBA91F /* IDOAlexaClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDOAlexaClient.framework; path = ../thirdParty/IDOAlexaClient.framework; sourceTree = "<group>"; };
+		B051AE1E28E6CA6F00F86165 /* PeripheralViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeripheralViewModel.h; sourceTree = "<group>"; };
+		B051AE1F28E6CA6F00F86165 /* PeripheralViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeripheralViewModel.m; sourceTree = "<group>"; };
+		B051AE2128E6CAE100F86165 /* GetPeripheralsInfoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetPeripheralsInfoViewModel.h; sourceTree = "<group>"; };
+		B051AE2228E6CAE100F86165 /* GetPeripheralsInfoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetPeripheralsInfoViewModel.m; sourceTree = "<group>"; };
+		B051AE2428E6CAFF00F86165 /* sendPeripheralsInfoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendPeripheralsInfoViewModel.h; sourceTree = "<group>"; };
+		B051AE2528E6CAFF00F86165 /* sendPeripheralsInfoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sendPeripheralsInfoViewModel.m; sourceTree = "<group>"; };
+		B051AE2728E6CB2000F86165 /* sendBindDeviceViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendBindDeviceViewModel.h; sourceTree = "<group>"; };
+		B051AE2828E6CB2000F86165 /* sendBindDeviceViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sendBindDeviceViewModel.m; sourceTree = "<group>"; };
+		B051AE2A28E6CB3800F86165 /* sendScalesViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendScalesViewModel.h; sourceTree = "<group>"; };
+		B051AE2B28E6CB3800F86165 /* sendScalesViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sendScalesViewModel.m; sourceTree = "<group>"; };
 		B0C8F7C2274B3077009BA60D /* IDODemoUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDODemoUtility.h; sourceTree = "<group>"; };
 		B0C8F7C3274B3077009BA60D /* IDODemoUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDODemoUtility.m; sourceTree = "<group>"; };
 		B0C8F7C5274B3077009BA60D /* UINavigationItem+Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Button.m"; sourceTree = "<group>"; };
@@ -1001,6 +1016,7 @@
 		9BBFA9AC28168E8E00DC7671 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B051AE1D28E6C9D900F86165 /* PeripheralViewModel */,
 				9BBFA9AD28168E8E00DC7671 /* DataInterchangeModel */,
 				9BBFA9B428168E8E00DC7671 /* MakeDialZip */,
 				9BBFA9B728168E8E00DC7671 /* DataMigrationModel */,
@@ -1411,23 +1427,23 @@
 			isa = PBXGroup;
 			children = (
 				9BBFAAE728168E8F00DC7671 /* AddFolderInfoViewModel.h */,
-				9BBFAAE828168E8F00DC7671 /* TranMusicInfoViewModel.h */,
-				9BBFAAE928168E8F00DC7671 /* SetMusicInfoViewModel.m */,
-				9BBFAAEA28168E8F00DC7671 /* SetFolderInfoViewModel.h */,
-				9BBFAAEB28168E8F00DC7671 /* FolderInfoViewModel.m */,
-				9BBFAAEC28168E8F00DC7671 /* MusicViewModel.m */,
-				9BBFAAED28168E8F00DC7671 /* AddMusicInfoViewModel.h */,
-				9BBFAAEE28168E8F00DC7671 /* GetMusicInfoViewModel.h */,
-				9BBFAAEF28168E8F00DC7671 /* MusicInfoViewModel.h */,
-				9BBFAAF028168E8F00DC7671 /* TranMusicInfoViewModel.m */,
 				9BBFAAF128168E8F00DC7671 /* AddFolderInfoViewModel.m */,
-				9BBFAAF228168E8F00DC7671 /* SetFolderInfoViewModel.m */,
-				9BBFAAF328168E8F00DC7671 /* SetMusicInfoViewModel.h */,
-				9BBFAAF428168E8F00DC7671 /* MusicViewModel.h */,
+				9BBFAAED28168E8F00DC7671 /* AddMusicInfoViewModel.h */,
 				9BBFAAF528168E8F00DC7671 /* AddMusicInfoViewModel.m */,
 				9BBFAAF628168E8F00DC7671 /* FolderInfoViewModel.h */,
-				9BBFAAF728168E8F00DC7671 /* MusicInfoViewModel.m */,
+				9BBFAAEB28168E8F00DC7671 /* FolderInfoViewModel.m */,
+				9BBFAAEE28168E8F00DC7671 /* GetMusicInfoViewModel.h */,
 				9BBFAAF828168E8F00DC7671 /* GetMusicInfoViewModel.m */,
+				9BBFAAEF28168E8F00DC7671 /* MusicInfoViewModel.h */,
+				9BBFAAF728168E8F00DC7671 /* MusicInfoViewModel.m */,
+				9BBFAAF428168E8F00DC7671 /* MusicViewModel.h */,
+				9BBFAAEC28168E8F00DC7671 /* MusicViewModel.m */,
+				9BBFAAEA28168E8F00DC7671 /* SetFolderInfoViewModel.h */,
+				9BBFAAF228168E8F00DC7671 /* SetFolderInfoViewModel.m */,
+				9BBFAAF328168E8F00DC7671 /* SetMusicInfoViewModel.h */,
+				9BBFAAE928168E8F00DC7671 /* SetMusicInfoViewModel.m */,
+				9BBFAAE828168E8F00DC7671 /* TranMusicInfoViewModel.h */,
+				9BBFAAF028168E8F00DC7671 /* TranMusicInfoViewModel.m */,
 			);
 			path = MusicViewModel;
 			sourceTree = "<group>";
@@ -1499,6 +1515,23 @@
 				9BC4799D244E9A5900455A6E /* UIView+PQViewExtension.m */,
 			);
 			path = VoiceInput;
+			sourceTree = "<group>";
+		};
+		B051AE1D28E6C9D900F86165 /* PeripheralViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B051AE1E28E6CA6F00F86165 /* PeripheralViewModel.h */,
+				B051AE1F28E6CA6F00F86165 /* PeripheralViewModel.m */,
+				B051AE2128E6CAE100F86165 /* GetPeripheralsInfoViewModel.h */,
+				B051AE2228E6CAE100F86165 /* GetPeripheralsInfoViewModel.m */,
+				B051AE2428E6CAFF00F86165 /* sendPeripheralsInfoViewModel.h */,
+				B051AE2528E6CAFF00F86165 /* sendPeripheralsInfoViewModel.m */,
+				B051AE2728E6CB2000F86165 /* sendBindDeviceViewModel.h */,
+				B051AE2828E6CB2000F86165 /* sendBindDeviceViewModel.m */,
+				B051AE2A28E6CB3800F86165 /* sendScalesViewModel.h */,
+				B051AE2B28E6CB3800F86165 /* sendScalesViewModel.m */,
+			);
+			path = PeripheralViewModel;
 			sourceTree = "<group>";
 		};
 		B0C8F7C1274B3077009BA60D /* Common */ = {
@@ -1665,8 +1698,8 @@
 				9B437EE521393ADC00DE2FC8 /* Sources */,
 				9B437EE621393ADC00DE2FC8 /* Frameworks */,
 				9B437EE721393ADC00DE2FC8 /* Resources */,
-				E5942C8B64E3073C3CEA42D1 /* [CP] Embed Pods Frameworks */,
 				9BF5C7D52703410100FBA91F /* Embed Frameworks */,
+				42EE6EBA14F2CAD8C58F8F97 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1737,6 +1770,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		42EE6EBA14F2CAD8C58F8F97 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IDOBlue/Pods-IDOBlue-frameworks.sh",
+				"${PODS_ROOT}/IDOBlueProtocol/IDOBlueProtocol.framework",
+				"${PODS_ROOT}/IDOBlueUpdate/IDOBlueUpdate.framework",
+				"${PODS_ROOT}/IDOBluetooth/IDOBluetooth.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDOBlueProtocol.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDOBlueUpdate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDOBluetooth.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IDOBlue/Pods-IDOBlue-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D6DC7E9FB0EA1D6913E89D8A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1757,28 +1812,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E5942C8B64E3073C3CEA42D1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IDOBlue/Pods-IDOBlue-frameworks.sh",
-				"${PODS_ROOT}/IDOBlueProtocol/IDOBlueProtocol.framework",
-				"${PODS_ROOT}/IDOBlueUpdate/IDOBlueUpdate.framework",
-				"${PODS_ROOT}/IDOBluetooth/IDOBluetooth.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDOBlueProtocol.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDOBlueUpdate.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDOBluetooth.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IDOBlue/Pods-IDOBlue-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1843,6 +1876,7 @@
 				9BC479A4244E9A5900455A6E /* PQVoiceTopView.m in Sources */,
 				9B9C400E2566693900809576 /* ScanDemoViewController.m in Sources */,
 				9BBFAB4F28168E9000DC7671 /* SetBreatheViewModel.m in Sources */,
+				B051AE2628E6CAFF00F86165 /* sendPeripheralsInfoViewModel.m in Sources */,
 				9BBFAB4A28168E9000DC7671 /* SetSportSwitchViewModel.m in Sources */,
 				B0C8F995274B3078009BA60D /* NSObject+DemoToDic.m in Sources */,
 				9B0F691A286AEEF800E8BE11 /* QueryPressureViewModel.m in Sources */,
@@ -1902,6 +1936,7 @@
 				9BBFABB728168E9000DC7671 /* AddFolderInfoViewModel.m in Sources */,
 				9BBFAB4628168E9000DC7671 /* SetV3ScheduleReminderViewModel.m in Sources */,
 				9BBFAB7C28168E9000DC7671 /* GetRealTimeViewModel.m in Sources */,
+				B051AE2928E6CB2000F86165 /* sendBindDeviceViewModel.m in Sources */,
 				9BBFAB2028168E9000DC7671 /* DataMigrationViewModel.m in Sources */,
 				9BBFAB1D28168E9000DC7671 /* DataInterchangeModel.m in Sources */,
 				9BBFAB5B28168E9000DC7671 /* SetStartCountViewModel.m in Sources */,
@@ -1986,6 +2021,7 @@
 				B0C8F9B5274B3078009BA60D /* ThreeTextFieldTableViewCell.m in Sources */,
 				9BBFAB1528168E9000DC7671 /* LabelCellModel.m in Sources */,
 				9BBFAB5C28168E9000DC7671 /* SetTargetViewModel.m in Sources */,
+				B051AE2C28E6CB3800F86165 /* sendScalesViewModel.m in Sources */,
 				9BBFAB3B28168E9000DC7671 /* SetViewModel.m in Sources */,
 				9BBFABA128168E9000DC7671 /* FirmwareTypeViewModel.m in Sources */,
 				9BBFAB7628168E9000DC7671 /* GetViewModel.m in Sources */,
@@ -2003,6 +2039,7 @@
 				9BBFAB3028168E9000DC7671 /* SetTimeViewModel.m in Sources */,
 				9BBFAB1828168E9000DC7671 /* FuncCellModel.m in Sources */,
 				9BBFAB7B28168E9000DC7671 /* GetOtaAuthInfoViewModel.m in Sources */,
+				B051AE2028E6CA6F00F86165 /* PeripheralViewModel.m in Sources */,
 				9BBFABC228168E9000DC7671 /* ControlViewModel.m in Sources */,
 				B0C8F991274B3078009BA60D /* UINavigationItem+Button.m in Sources */,
 				9BBFAB8728168E9000DC7671 /* GetMacViewModel.m in Sources */,
@@ -2018,6 +2055,7 @@
 				9BBFABBE28168E9000DC7671 /* SwitchDeviceViewModel.m in Sources */,
 				9BBFABB828168E9000DC7671 /* SetFolderInfoViewModel.m in Sources */,
 				9BBFAB6D28168E9000DC7671 /* SetNoDisturbViewModel.m in Sources */,
+				B051AE2328E6CAE100F86165 /* GetPeripheralsInfoViewModel.m in Sources */,
 				9BC479A2244E9A5900455A6E /* PQVoiceInputView.m in Sources */,
 				9B9C40302566693C00809576 /* NSArray+MASAdditions.m in Sources */,
 				B0C8F9A3274B3078009BA60D /* BasePickerView.m in Sources */,

@@ -46,6 +46,17 @@
 + (void)getDeviceLogWithCallback:(void(^_Nullable)(BOOL isComplete))callback;
 
 /**
+ 获取flash log 是否在传输中
+ */
++ (BOOL)getFlashLogState;
+
+
+/**
+ 停止获取flash log 的传输
+ */
++ (BOOL)stopFlashLogRecord;
+
+/**
  * @brief 开始记录手环flash日志 （在设备连接ota模式下不能使用获取设备重启日志）
  * Start record bracelet flash log
  * @param callback 日志信息获取完成回调 | Log information acquisition completion callback

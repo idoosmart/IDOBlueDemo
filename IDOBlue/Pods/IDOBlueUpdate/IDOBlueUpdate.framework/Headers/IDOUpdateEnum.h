@@ -61,7 +61,10 @@ typedef NS_ENUM(NSInteger, IDO_UPDATE_STATE) {
      * Firmware upgrade completed
      */
     IDO_UPDATE_COMPLETED,
-    
+    /**
+     * apollo 升级主动停止
+     */
+    IDO_APOLLO_UPDATE_STOP
 };
 
 
@@ -147,7 +150,6 @@ typedef NS_ENUM(NSInteger, IDO_UPDATE_ERROR_TYPE) {
      * Apollo update timeout
      */
     IDO_APOLLO_UPDATE_TIMEOUT_TYPE
-    
 } ;
 
 /**

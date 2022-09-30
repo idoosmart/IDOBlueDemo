@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOV3DataExchangeModel : IDONewDataExchangeModel
 /**
+ 1:请求app打开gps  2：发起运动请求
+ */
+@property (nonatomic,assign) NSInteger operate;
+/**
  计划类型：
  0x01：跑步计划3km ，0x02：跑步计划5km ，
  0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
@@ -81,6 +85,11 @@ NS_ASSUME_NONNULL_BEGIN
  starts with :1, pauses :2, ends with :3,0: invalid status
  */
 @property (nonatomic,assign) NSInteger status;
+/**
+ * 信号强弱  0: 表示信号弱， 1: 表示信号强
+ * Signal strength 0: means signal is weak, 1: means signal is strong
+ */
+@property (nonatomic,assign) NSInteger signalFlag;
 /**
  是否存储 | is save
  */
@@ -254,7 +263,7 @@ NS_ASSUME_NONNULL_BEGIN
  time : 动作完成时间 单位秒
  goal_time ：动作目标时间
  */
-@property (nonatomic,copy) NSMutableArray<NSDictionary *> * actionData;
+@property (nonatomic,strong) NSMutableArray<NSDictionary *> * actionData;
 
 /**
  训练的课程日期偏移 从0开始
@@ -296,6 +305,26 @@ NS_ASSUME_NONNULL_BEGIN
  心率范围高值
  */
 @property (nonatomic,assign) NSInteger heightHeart;
+
+/**
+ 实时配速个数
+ */
+@property (nonatomic,assign) NSInteger paceSpeedCount;
+
+/**
+ 实时配速数组  传过来的是 s 钟  每5S算一次
+ */
+@property (nonatomic,strong) NSMutableArray<NSNumber *> * paceSpeeds;
+
+/**
+ 实时速度个数
+ */
+@property (nonatomic,assign) NSInteger realSpeedCount;
+
+/**
+ 实时速度数组 传过来的是 s 钟  每5S算一次
+ */
+@property (nonatomic,strong) NSMutableArray<NSNumber *> * realSpeeds;
 
 @end
 

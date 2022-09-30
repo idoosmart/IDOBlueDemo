@@ -90,6 +90,11 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      */
     IDO_SYNC_HEALTH_BODY_POWER_LOG,
     /**
+     * 同步健康 心率变异性水平
+     * Synchronous Health hrv
+     */
+    IDO_SYNC_HEALTH_HRV_LOG,
+    /**
      * 同步健康 睡眠
      * Synchronized Health Sleep
      */
@@ -258,6 +263,10 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      *DB日志
      */
     IDO_DB_DATA_SAVE_LOG,
+    /**
+     *心跳日志
+     */
+    IDO_DB_DATA_HEARTBEAT_LOG,
 };
 
 typedef NS_ENUM(NSInteger, IDO_FLASH_LOG_TYPE)  {

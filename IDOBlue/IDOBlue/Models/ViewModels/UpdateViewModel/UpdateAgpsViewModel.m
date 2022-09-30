@@ -285,7 +285,7 @@
         [funcVC showToastWithText:lang(@"transfer complete")];
     }).addProgress(^(int progress) {
         [funcVC showSyncProgress:progress/100.0f];
-    }).addTransfer(^(int errorCode) {
+    }).addTransfer(^(int errorCode,int value) {
         __strong typeof(self) strongSelf = weakSelf;
         [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(startTimer) object:nil];
         strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];

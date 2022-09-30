@@ -1316,6 +1316,16 @@
 + (void)setPermissionsStateCommand:(IDOSetPermissionsModel *_Nullable)stateModel
                           callback:(void (^ _Nullable)(int errorCode))callback;
 
+/**
+ * @brief //设置身体电量开关
+ * @param switchModel 设置身体电量开关模型
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setBodyPowerSwitchCommand:(IDOSetBodyPowerSwitchModel *_Nullable)switchModel
+                         callback:(void (^ _Nullable)(int errorCode))callback;
+
+
 #pragma mark ======= get Command =======
 
 /**
@@ -1581,11 +1591,23 @@
 + (void)getHealthSwitchStateCommand:(void (^_Nullable)(int errorCode, IDOGetHealthSwitchStateModel * _Nullable data))callback;
 
 /**
- * @brief 获取卡路里/距离/中高运动时长的目标
+ * @brief 获取卡路里/距离/中高运动时长的目标 | Goal of getting calories / distance / medium and high exercise duration
  * @param callback 执行后回调 data (IDOSetUserInfoBuletoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * callback data (IDOSetUserInfoBuletoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)getCalorieDistanceGoalCommand:(void (^_Nullable)(int errorCode, IDOSetUserInfoBuletoothModel * _Nullable data))callback;
+
+/**
+ * @brief 获取卡路里/距离/中高运动时长的目标 | Goal of getting calories / distance / medium and high exercise duration
+ * 功能表 | Function Table :   __IDO_FUNCTABLE__.funcTable29Model.timeGoalType
+ *                    支持app设置获取运动三环周目标 | Support app settings to get the goal of the three rings of sports
+ * @param dateGoalModel 获取目标数据类型的model | Get the model of the target data type
+ *        dateGoalModel.timeGoaltype == 1时，相当于接口 getCalorieDistanceGoalCommand
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)getCalorieDistanceDateGoalCommand:(IDOSetCalorieDistanceDateGoalModel *)dateGoalModel
+                                 callback:(void (^ _Nullable)(int errorCode))callback;
 
 /**
  * @brief 获取走动提醒
@@ -1679,6 +1701,22 @@
  * callback state 0:no log，1:firmware restart log (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
 */
 + (void)getContactReviceTimeStateCommand:(void (^ _Nullable)(int errorCode,NSInteger state))callback;
+
+
+/**
+ * @brief 获取V2心率监测模式
+ * @param callback 执行后回调 data (IDOSetHrModeInfoBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOSetHrModeInfoBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getV2HrModeInfoCommand:(void (^_Nullable)(int errorCode, IDOSetHrModeInfoBluetoothModel * _Nullable data))callback;
+
+/**
+ * @brief 获取固件本地提示音
+ *  * 功能表 | Function Table :   __IDO_FUNCTABLE__.funcTable31Model.supportGetBleBeep
+ * @param callback 执行后回调 data (IDOGetBeepFileListBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOGetBeepFileListBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getBeepFileListCommand:(void (^_Nullable)(int errorCode, IDOGetBeepFileListBluetoothModel * _Nullable data))callback;
 
 #pragma mark ======= listen Command =======
 
@@ -2051,6 +2089,17 @@
  */
 + (void)bleStartSportCommand:(IDODataExchangeModel *_Nullable)model
             bleStartCallback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))bleStartCallback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDOdataExchangeManager\"");
+
+/**
+ * @brief 手环发起运动开始 | The bracelet starts the campaign
+ */
++ (void)bleStartSportCommand:(void (^)(IDODataExchangeModel * _Nullable model, int errorCode))bleStartCallback;
+
+/**
+ * @brief 手环发起运动后，需要app告诉手环相关数据，比如gps状态等 | The bracelet starts the campaign
+ * @param model IDODataExchangeModel 只需要给 retCode  operate 属性需要赋值
+ */
++ (void)bleStartAppReplySportStateCommand:(IDODataExchangeModel *_Nullable)model;
 
 /**
  * @brief 手环发起运动暂停 | The bracelet initiates a motion pause

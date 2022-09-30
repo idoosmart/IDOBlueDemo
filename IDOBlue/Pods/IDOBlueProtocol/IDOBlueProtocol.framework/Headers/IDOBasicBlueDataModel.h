@@ -351,6 +351,7 @@ Alarm state  0=>  invalid 1 => alarm has been modified
  34: 固件通知app结束寻找手环指令 （对应6.3寻找手环）
  35: 固件进入省电模式通知app
  36: 固件退出省电模式通知app
+ 37: 固件通知请求app下发设置gps热启动参数
  */
 @property (nonatomic,assign) NSInteger dataType;
 /**

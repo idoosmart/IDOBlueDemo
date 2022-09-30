@@ -139,6 +139,13 @@
 @property (nonatomic,assign) IDO_UPDATE_PLATFORM_TYPE updateType;
 
 /**
+  内部协议升级才有效
+  是否正在传输文件，如果正在传输文件则先停止当前文件传输 “stopUpdate”
+  监听代理回调状态码 IDO_APOLLO_UPDATE_STOP
+ */
+@property (nonatomic,assign) BOOL transferredFileing;
+
+/**
  * @brief 初始化升级管理中心对象 | Initialize the Upgrade Management Center object
  * @return IDOUpdateManager
  */
@@ -148,6 +155,11 @@
 /**
  开始升级 | Start upgrading
  */
-+ (void)startUpdate;
++ (BOOL)startUpdate;
+
+/**
+ 只有apollo 升级有效
+ */
++ (void)stopUpdate;
 
 @end

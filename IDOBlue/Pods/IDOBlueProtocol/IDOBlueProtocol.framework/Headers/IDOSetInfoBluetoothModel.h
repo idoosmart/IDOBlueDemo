@@ -25,6 +25,21 @@
 + (IDOSetBreathRateSwitchModel *)currentModel;
 
 @end
+#pragma mark ====  设置身体电量开关 model ====
+@interface IDOSetBodyPowerSwitchModel : IDOBluetoothBaseModel
+/**
+ 开关状态
+ */
+@property (nonatomic,assign) BOOL onOff;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetBreathRateSwitchModel
+ */
++ (IDOSetBodyPowerSwitchModel *)currentModel;
+
+@end
+
 
 #pragma mark ====  设置通知应用状态 model ====
 @interface IDOSetNotificationStatusModel : IDOBluetoothBaseModel
@@ -91,23 +106,18 @@
  开启智能心率过高提醒开关 yes 为开 no为关
  */
 @property (nonatomic,assign)BOOL highHeartMode;
-
 /**
  开启智能心率过低提醒开关  yes 为开 no为关
  */
 @property (nonatomic,assign)BOOL lowHeartMode;
-
 /**
  智能心率过高提醒阈值
 */
 @property (nonatomic,assign) NSInteger highHeartValue;
-
 /**
 智能心率过低提醒阈值
 */
 @property (nonatomic,assign) NSInteger lowHeartValue;
-
-
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -930,7 +940,7 @@
 /**
  是否删除 ｜ is delete
  */
-@property (nonatomic,assign) BOOL isDelete;
+@property (nonatomic,assign) BOOL isDelete DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 
 /**
  开始时间 （时） | start hour
@@ -1050,19 +1060,17 @@
  提醒间隔,单位分钟 默认60分钟 | interval (unit minutes)
  */
 @property (nonatomic,assign) NSInteger interval;
-
 /**
  压力过高阈值 | High pressure threshold
  */
 @property (nonatomic,assign) NSInteger highThreshold;
-
 /**
- 通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知 根据功能表：pressure_add_notify_flag_and_mode_03_45
+ 通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ __IDO_FUNCTABLE__.funcTable35Model.pressureNotifyFlagMode
  */
 @property (nonatomic,assign) NSInteger notifyFlag;
-
 /**
- 阈值 根据功能表：bool v2_send_stress_calibration_threshold_03_45;
+ 压力校准阀值
  */
 @property (nonatomic,assign) NSInteger stressThreshold;
 
@@ -1132,6 +1140,7 @@
 
 /**
  * 更新时间unix 时间戳,秒级  (eg 14442361933)
+ * //更新时间unix 时间戳,秒级 等于0是获取，当前的utc时间挫是设置
  * Update time Unix timestamp, in seconds
  */
 @property (nonatomic,copy) NSString * updateTime;
@@ -1291,7 +1300,8 @@
 @property (nonatomic,assign) NSInteger lowValue;
 
 /**
- 通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知  bool spo2_add_notify_flag_03_44;// 血氧开关增加通知类型
+ 通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ __IDO_FUNCTABLE__.funcTable35Model.spo2NotifyFlag 功能表支持才有效
  */
 @property (nonatomic,assign) NSInteger notifyFlag;
 
@@ -1356,6 +1366,7 @@
 @property (nonatomic,assign) NSInteger goalTime;
 /**
  通知类型  0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
+ __IDO_FUNCTABLE__.funcTable38Model.walkReminderAddNotify
  */
 @property (nonatomic,assign) NSInteger notifyFlag;
 
@@ -1885,11 +1896,13 @@
 @property (nonatomic,assign) IDO_SPORT_TYPE type;
 
 /**
- * 01 表示小图标已下载；
- * 02 表示大图标已下载；
- * 03 表示小图标和大图表都已经下载；
- * 00 表示图标未下载
- * 支持运动图标下发才有效
+ * 0 表示图标未下载
+ * 1 表示小图标已下载
+ * 2 表示大图标已下载
+ * 4 表示中图标已下载
+ * 8 表示最小图标已下载
+ * 位组合图标下载状态
+ * 获取命令才有效
  */
 @property (nonatomic,assign) NSInteger flag;
 
@@ -3288,6 +3301,46 @@
  Yahoo 提醒
  */
 @property (nonatomic,assign) BOOL isOnYahoo;
+
+/**
+ Instantemail 提醒 | 支持Instantemail的功能表
+ */
+@property (nonatomic,assign) BOOL isOnInstantemail;
+
+/**
+ nhnemail 提醒 | 支持NAVER邮件的功能表
+ */
+@property (nonatomic,assign) BOOL isOnNhnemail;
+/**
+ zohoemail 提醒 | 支持ZoHo邮箱的功能表
+ */
+@property (nonatomic,assign) BOOL isOnZohoemail;
+/**
+ Exchangeemail 提醒 | 支持Exchange+ Mail Client 交换邮件的功能表
+ */
+@property (nonatomic,assign) BOOL isOnExchangeemail;
+/**
+ 189email 提醒 | 支持189邮件的功能表
+ */
+@property (nonatomic,assign) BOOL isOn189email;
+/**
+ googleGmail 提醒 | 支持谷歌邮箱的功能表
+ */
+@property (nonatomic,assign) BOOL isOnGoogleGmail;
+/**
+ Veryfit 提醒 的功能表 0x4F
+ */
+@property (nonatomic,assign) BOOL isOnVeryfit;
+
+/**
+ general 提醒 | 通知支持通用的功能表 0x50
+ */
+@property (nonatomic,assign) BOOL isOnGeneral;
+/**
+ 189email 提醒 |  通知支持阿里巴巴邮箱的功能表 type:0x51
+ */
+@property (nonatomic,assign) BOOL isOnAlibabaemail;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -3375,6 +3428,14 @@
 @property (nonatomic,assign) NSInteger goalType;
 
 /**
+ * 支持app设置获取运动三环周目标 | Support app settings to get the goal of the three rings of sports
+ 0：无效 | invalid
+ 1：日目标 | Daily target
+ 2：周目标 | Weekly target
+ */
+@property (nonatomic,assign) NSInteger timeGoalType;
+
+/**
  是否登陆 | Login
  */
 @property (nonatomic,assign) BOOL isLogin;
@@ -3399,3 +3460,20 @@
 
 @end
 
+#pragma mark ====  获取设置的卡路里/距离/中高运动时长的目标设置 model ====
+@interface IDOSetCalorieDistanceDateGoalModel : IDOBluetoothBaseModel
+/**
+  0：无效 | invalid
+  1：日目标 | Daily target
+  2：周目标 | Weekly target
+  默认值：1  |  default：1
+ */
+@property (nonatomic,assign) NSInteger timeGoaltype;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetBreathRateSwitchModel
+ */
++ (IDOSetCalorieDistanceDateGoalModel *)currentModel;
+
+@end

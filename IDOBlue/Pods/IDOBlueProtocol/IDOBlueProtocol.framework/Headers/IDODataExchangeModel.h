@@ -85,6 +85,10 @@
  */
 @property (nonatomic,assign) NSInteger retCode;
 /**
+ * 0x01:请求app打开gps   0x02：发起运动开始请求
+ */
+@property (nonatomic,assign) NSInteger operate;
+/**
  status:0:全部有效, 1:距离无效， 2: gps 信号弱 | status 0:all effective 1:distance invalid 2:gps signal weak
  */
 @property (nonatomic,assign) NSInteger status;
@@ -226,6 +230,14 @@
  */
 @property (nonatomic,assign) NSInteger mileCount;
 /**
+ 实时配速 个数
+ */
+@property (nonatomic,assign) NSInteger realSpeedCount;
+/**
+ 实时配速数组  传过来的是 s 钟  每5S算一次
+ */
+@property (nonatomic,assign) NSInteger paceSpeedCount;
+/**
  英里配速集合
  */
 @property (nonatomic,copy) NSArray<NSNumber *> * mileSpeeds;
@@ -237,6 +249,17 @@
  步频集合
  */
 @property (nonatomic,copy) NSArray<NSNumber *> * stepsFrequencys;
+
+/**
+ 实时配速集合
+ */
+@property (nonatomic,copy) NSArray<NSNumber *> * realSpeeds;
+
+/**
+ 实时配速数组  传过来的是 s 钟  每5S算一次
+ */
+@property (nonatomic,copy) NSArray<NSNumber *> * paceSpeeds;
+
 /**
  当前心率 | current heart rate
  */

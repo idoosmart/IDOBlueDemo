@@ -125,17 +125,14 @@
  (errorCode + 22) ///< Low Battery
  (errorCode + 23) ///< Invalid File Name/Format
  *
+ * 表盘文件、AGPS文件传输完成回调（如果空间不足，就会回调error = 24或者25，标明固件需要时间整理表盘碎片）
+ * The dial file and AGPS file transfer completion callback (if the space is insufficient, it will call back error = 24 or 25, indicating that the firmware needs time to defragment the dial)
+ (errorCode + 24) ///< 空间够但需要整理 | Plenty of space but needs to be organized
+ (errorCode + 25) ///<  空间整理中 | space in progress
+ * value == times ，只有错误码在24和25才有效，固件预计整理时长，单位为秒 | Only the error codes are valid in 24 and 25. The firmware estimates the sorting time in seconds.
+ *
  */
-@property (nonatomic,copy,nullable) IDOTransferFileManager *_Nonnull(^addTransfer)(void(^ _Nullable transferComplete)(int errorCode));
-
-/**
- 表盘文件传输完成回调
- 以上面错误码一致并增加以下错误码
- (errorCode + 24) ///< 表盘空间够但需要整理
- (errorCode + 25) ///< 表盘空间整理中
- finishingTime :只有错误码在24和25才有效，固件预计整理时长
- */
-@property (nonatomic,copy,nullable) IDOTransferFileManager *_Nonnull(^addDialTransfer)(void(^ _Nullable transferDialComplete)(int errorCode,int finishingTime));
+@property (nonatomic,copy,nullable) IDOTransferFileManager *_Nonnull(^addTransfer)(void(^ _Nullable transferComplete)(int errorCode, int value));
 
 /**
  * 文件写入完成回调 agps文件传输完成后需要查询写入状态

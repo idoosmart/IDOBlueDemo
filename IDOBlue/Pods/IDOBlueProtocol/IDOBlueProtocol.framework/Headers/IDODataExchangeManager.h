@@ -55,16 +55,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)v3_appSportHrReplyWithModel:(IDOHrDataExchangeModel *)model errorCode:(int)errorCode;
 //v3 app运动结束后返回数据
 - (void)v3_appEndSportReplyWithModel:(IDOV3SportEndDataExchangeModel *)model errorCode:(int)errorCode;
+//app操作运动计划返回
+- (void)appOperatePlanReplyWithModel:(IDOAppOperatePlanExchangeModel *)model errorCode:(int)errorCode;
+//ble操作运动计划返回
+- (void)bleOperatePlanWithModel:(IDOBleOperatePlanExchangeModel *)model errorCode:(int)errorCode;
+@optional
+//ble开始app运动
+- (void)bleStartAppSportWithModel:(IDOBleStartExchangeModel *)model errorCode:(int)errorCode;
 //ble停止app运动
 - (void)bleEndAppSportWithModel:(IDOBleEndExchangeModel *)model errorCode:(int)errorCode;
 //ble暂停app运动
 - (void)blePauseAppSportWithModel:(IDONewDataExchangeModel *)model errorCode:(int)errorCode;
 //ble恢复app运动
 - (void)bleRestoreAppSportWithModel:(IDONewDataExchangeModel *)model errorCode:(int)errorCode;
-//app操作运动计划返回
-- (void)appOperatePlanReplyWithModel:(IDOAppOperatePlanExchangeModel *)model errorCode:(int)errorCode;
-//ble操作运动计划返回
-- (void)bleOperatePlanWithModel:(IDOBleOperatePlanExchangeModel *)model errorCode:(int)errorCode;
 //设备断开
 - (void)bleDisconnect;
 //设备连接
@@ -108,6 +111,9 @@ NS_ASSUME_NONNULL_BEGIN
 //app 发起v3运动交换过程
 + (BOOL)v3_appIngSportCommandWithModel:(IDOV3AppIngDataExchangeModel *)model
                                  error:(NSError **)error;
+//ble 发起运动开始回复
++ (BOOL)bleStartSportReplyCommandWithModel:(IDOBleStartReplyExchangeModel *)model
+                                     error:(NSError **)error;
 //ble 发起运动结束回复
 + (BOOL)bleEndSportReplyCommandWithModel:(IDOBleEndReplyExchangeModel *)model
                                    error:(NSError **)error;

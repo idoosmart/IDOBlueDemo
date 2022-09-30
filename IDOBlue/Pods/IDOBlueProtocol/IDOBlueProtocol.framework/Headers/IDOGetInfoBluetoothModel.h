@@ -159,6 +159,16 @@
  */
 @property (nonatomic,assign) BOOL drinkWaterMode;
 /**
+ 呼吸率开关
+ __IDO_FUNCTABLE__.funcTable30Model.getSwithAppend 功能表判断
+ */
+@property (nonatomic,assign) BOOL breathRateMode;
+/**
+ 身体电量开关
+ __IDO_FUNCTABLE__.funcTable30Model.getSwithAppend 功能表判断
+ */
+@property (nonatomic,assign) BOOL bodyPowerMode;
+/**
  心率通知状态类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
  */
 @property (nonatomic,assign) NSInteger heartModeNotifyFlag;
@@ -342,9 +352,12 @@ error flag
  菜单排序当前显示集合
  0 =>无效 1 =>步数 2 =>心率 3=> 睡眠 4=> 拍照 5=> 闹钟 6=> 音乐 7=> 秒表 8=> 计时器
  9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
- 17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示
+ 17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示 21=> X屏（gt01pro-X新增）22=> 卡路里 （Doro Watch新增）
+ 23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增)
  0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
  9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
+ 16=> Last activity 17=> Health data 18=> Blood oxygen 19 => Menu setting 20=> Alexa voice prompt 21=> X screen 22=> Calories
+ 23=> Distance 24=> One-key measurement
 */
 @property (nonatomic,strong) NSArray<NSNumber *> * itemList;
 /**
@@ -352,9 +365,12 @@ error flag
  只是获取命令返回的字段，设置命令不需要赋值
  0 =>无效 1 =>步数 2 =>心率 3=> 睡眠 4=> 拍照 5=> 闹钟 6=> 音乐 7=> 秒表 8=> 计时器
  9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
- 17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示
+ 17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示 21=> X屏（gt01pro-X新增）22=> 卡路里 （Doro Watch新增）
+ 23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增)
  0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
  9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
+ 16=> Last activity 17=> Health data 18=> Blood oxygen 19 => Menu setting 20=> Alexa voice prompt 21=> X screen 22=> Calories
+ 23=> Distance 24=> One-key measurement
  */
 @property (nonatomic,strong) NSArray<NSNumber *> * maxItemList;
 /**
@@ -820,7 +836,8 @@ error flag
 
 @end
 
-#pragma mark
+#pragma mark ==== 获取第38个功能表model ====
+
 @interface IDOGetFuncTable38BluetoothModel : IDOBluetoothBaseModel
 /**
  走动提醒增加通知类型
@@ -1358,6 +1375,22 @@ error flag
 @property (nonatomic,assign) BOOL supportSportPlan;
 
 /**
+ app设置来电快速短信的命令
+ */
+@property (nonatomic,assign) BOOL supportMsgCallingQuick;
+
+/**
+ 支持设置获取消息应用总开关字段
+ */
+@property (nonatomic,assign) BOOL supportMsgAllSwitch;
+
+/**
+ 支持airoha芯片采gps数据功能表
+ */
+@property (nonatomic,assign) BOOL supportAirohaGpsChip;
+
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable34BluetoothModel
@@ -1568,9 +1601,37 @@ error flag
  */
 @property (nonatomic,assign) BOOL onlyOutlookEmail;
 /**
- * 单独提醒gmail邮箱
+ 通知支持instantemail的功能表 (邮箱独立出来通知)
+ */
+@property (nonatomic,assign) BOOL onlyInstantemail;
+/**
+ 通知支持nhnemail的功能表 (邮箱独立出来通知)
+ */
+@property (nonatomic,assign) BOOL onlyNhnemail;
+/**
+ 通知支持zohoemail的功能表 (邮箱独立出来通知)
+ */
+@property (nonatomic,assign) BOOL onlyZohoemail;
+/**
+ 通知支持exchangeemail的功能表 (邮箱独立出来通知)
+ */
+@property (nonatomic,assign) BOOL onlyExchangeemail;
+/**
+ 通知支持189email的功能表 (邮箱独立出来通知)
+ */
+@property (nonatomic,assign) BOOL only189email;
+/**
+ * 单独提醒gmail邮箱 (邮箱独立出来通知)
  */
 @property (nonatomic,assign) BOOL onlyGoogleGmail;
+/**
+ 通知支持veryfit的功能表
+ */
+@property (nonatomic,assign) BOOL veryFitNotice;
+/**
+ 通知支持general的功能表 | 通知支持通用的功能表
+ */
+@property (nonatomic,assign) BOOL general;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1649,6 +1710,32 @@ error flag
  */
 @property (nonatomic,assign) BOOL getBatteryMode;
 /**
+ v3多运动同步支持实时速度显示
+ */
+@property (nonatomic,assign) BOOL activitySyncRealTime;
+
+/**
+ 文件传输最后传输完成等待固件发送d1 02校验完后app在发送d1 03
+ */
+@property (nonatomic,assign) BOOL dataTranOverWaitBle;
+/**
+ 支持v3协议获取热启动参数
+ */
+@property (nonatomic,assign) BOOL supportSetHotStartParam;
+/**
+ 支持获取固件本地提示音文件信息
+ */
+@property (nonatomic,assign) BOOL supportGetBleBeep;
+/**
+ v3支持运动最小图标传输设置
+ */
+@property (nonatomic,assign) BOOL supporSportIconMinSmall DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
+/**
+ 支持第二套运动图标功能表    目前仅idw05支持
+ */
+@property (nonatomic,assign) BOOL secondSportIcon;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable31BluetoothModel
@@ -1703,6 +1790,14 @@ error flag
  * v3 activity exchange data
  */
 @property (nonatomic,assign) BOOL v3ActivityExchangeData;
+/**
+ v3血压校准
+ */
+@property (nonatomic,assign) BOOL v3BPCalibration;
+/**
+ 获取呼吸率、身体电量开关
+ */
+@property (nonatomic,assign) BOOL getSwithAppend;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1755,6 +1850,106 @@ error flag
  *v3 sleep
 */
 @property (nonatomic,assign) BOOL v3Sleep;
+
+/**
+ kr01定制    支持v3闹钟设置获取指定名称闹钟
+ */
+@property (nonatomic,assign) BOOL alarmSpecifyType;
+
+/**
+ IDW05新增需求快捷应用添加类型一键测量
+ */
+@property (nonatomic,assign) BOOL menuListTypeMeasure;
+
+/**
+ 支持v3血压校准
+ */
+@property (nonatomic,assign) BOOL bpCalibrationV3;
+
+/**
+ 支持app下发获取所有健康开关上添加身体电量开关和呼吸率开关
+ */
+@property (nonatomic,assign) BOOL switchStatusAppend;
+
+/**
+ 支持app下发v2获取心率监测模式
+ */
+@property (nonatomic,assign) BOOL heartRateModeV2;
+
+/**
+ 支持阿里巴巴邮箱
+ */
+@property (nonatomic,assign) BOOL alibabaEmail;
+
+/**
+ 通知支持Calendario(谷歌日历)
+ */
+@property (nonatomic,assign) BOOL calendario;
+/**
+ 支持app设置获取运动三环周目标
+ */
+@property (nonatomic,assign) BOOL timeGoalType;
+
+/**
+ 支持同步hrv(心率变异性水平)数据
+ */
+@property (nonatomic,assign) BOOL supportHrv;
+
+/**
+ 支持gps文件升级
+ */
+@property (nonatomic,assign) BOOL supportUpdateGps;
+
+/**
+ 支持支持跑前热身
+ */
+@property (nonatomic,assign) BOOL supportWarmUpBeforeRun;
+
+/**
+ 支持设置紧急联系人
+ */
+@property (nonatomic,assign) BOOL supportV3SetEmergencyConnact;
+/**
+ 支持喝水提醒设置免提醒时间段
+ */
+@property (nonatomic,assign) BOOL supportSetDrinkNoReminder;
+/**
+ 支持走动提醒设置免提醒时间段
+ */
+@property (nonatomic,assign) BOOL supportSetWalkNoReminder;
+/**
+ 支持v3日程提醒中重复提醒类型设置(0:无效 1:仅一次 2:每天 3:每周 4:每月 5:每年）
+ */
+@property (nonatomic,assign) BOOL supportV3RepScheduleReminder;
+/**
+ 支持v3天气协议未来48小时温度详情内发送单个小时的降水概率
+ */
+@property (nonatomic,assign) BOOL supportV3HourPrecipitation;
+/**
+ 支持app设置目标步数类型为周目标
+ */
+@property (nonatomic,assign) BOOL supportStepWeekTarget;
+
+/**
+ 支持操作小程序
+ */
+@property (nonatomic,assign) BOOL supportMiniProgram;
+/**
+ 润丰 支持获取固件外设信息
+ */
+@property (nonatomic,assign) BOOL supportRFGetPeripheralsInfo;
+/**
+ 润丰 支持app下发外设信息
+ */
+@property (nonatomic,assign) BOOL supportRFSetPeripheralsInfo;
+/**
+ 润丰 支持app下发体脂秤model映射表
+ */
+@property (nonatomic,assign) BOOL supportRFScalesModelMapTable;
+/**
+ 润丰 支持app下发绑定设备列表
+ */
+@property (nonatomic,assign) BOOL supportRFBindDeviceTable;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1972,6 +2167,24 @@ error flag
  */
 @property (nonatomic,assign) BOOL zumba;
 /**
+ 冲浪 运动类型170 ID205G-H(7613)定制
+ */
+@property (nonatomic,assign) BOOL surfing;
+/**
+ 足排球 运动类型187  ID205G-H(7613)定制
+ */
+@property (nonatomic,assign) BOOL footvolley;
+/**
+ 站立滑水 运动类型188 ID205G-H(7613)定制
+ */
+@property (nonatomic,assign) BOOL standWaterSkling;
+
+/**
+ 站绳 运动类型198  ID205G-H(7613)定制
+ */
+@property (nonatomic,assign) BOOL battlingRope;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable25BluetoothModel
@@ -2145,6 +2358,12 @@ error flag
  keep
  */
 @property (nonatomic,assign) BOOL keep;
+
+/**
+ 踏步机 | stepper
+ */
+@property (nonatomic,assign) BOOL stepper;
+
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2339,7 +2558,7 @@ error flag
 @property (nonatomic,assign) BOOL dance;
 
 /**
- 功能性训练 | functional training
+ 功能性训练 | functional training or  strength_training
  */
 @property (nonatomic,assign) BOOL functionalTraining;
 
@@ -3411,26 +3630,30 @@ error flag
  38功能列表 weather sun time | 38 func table
  */
 @property (nonatomic,strong) IDOGetFuncTable38BluetoothModel      * funcTable38Model;
-
 /**
  是否支持版本信息 | version information is supported
  */
 @property (nonatomic,assign) BOOL versionInfo;
-
 /**
  闹钟个数 | Number of alarms
  */
 @property (nonatomic,assign) NSInteger alarmCount;
-
 /**
  运动显示个数 | Number of sports displays
  */
 @property (nonatomic,assign) NSInteger sportShowCount;
-
 /**
   是否需要同步v2数据 ｜ is need sync v2 data
  */
 @property (nonatomic,assign) BOOL isNeedSyncV2;
+/**
+ 事项提醒支持数量为0 则默认是30
+ */
+@property (nonatomic,assign) NSInteger scheduleReminderCount DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
+/**
+ 常用联系人支持同步的最大数量  0的话最大个数默认是10
+ */
+@property (nonatomic,assign) NSInteger contactPhoneCount DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -3501,7 +3724,8 @@ error flag
 
 /**
  * 手环的平台 | platform for bracelet
- * 0:nordic,10:realtek 8762x ,20:cypress psoc6,30:Apollo3,40:汇顶,50:nordic+泰凌微,60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340
+ * 0:nordic,10:realtek 8762x ,20:cypress psoc6,30:Apollo3,40:汇顶,50:nordic+泰凌微,
+ * 60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340;90:炬心
  */
 @property (nonatomic,assign) NSInteger platform;
 
@@ -3547,6 +3771,12 @@ error flag
  */
 @property (nonatomic,assign) NSInteger showBindChoiceUi;
 
+
+/**
+ * nodic平台固件版本
+ * nodic bootloadVersion
+ */
+@property (nonatomic,assign) NSInteger bootloadVersion;
 /**
  * 主账号设备 :  1  子账号设备  :  2
  */
@@ -3589,6 +3819,34 @@ error flag
 
 
 @interface IDOGetInfoBluetoothModel : IDOBluetoothBaseModel
+
+@end
+
+#pragma mark ==== 获取固件本地提示音 model ====
+@interface IDOGetBeepFileListBluetoothModel : IDOBluetoothBaseModel
+/**
+ 从1开始
+ */
+@property (nonatomic,assign) NSInteger beepVersion;
+/**
+ 00 成功  非0失败
+*/
+@property (nonatomic,assign) NSInteger errCode;
+/**
+ item(提示音)个数
+ */
+@property (nonatomic,assign) NSInteger itemCount;
+/**
+ 提示音文件名列表
+ */
+@property (nonatomic,strong) NSArray<NSString *> * item;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetBeepFileListBluetoothModel
+ */
++ (IDOGetBeepFileListBluetoothModel *)currentModel;
 
 @end
 

@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOV2DataExchangeModel : IDONewDataExchangeModel
 /**
+ 1:请求app打开gps  2：发起运动请求
+ */
+@property (nonatomic,assign) NSInteger operate;
+/**
  目标类型 | target type
  0x00:无目标， 0x01:重复次数，单位：次，
  0x02:距离,单位：米,  0x03：卡路里, 单位：大卡,

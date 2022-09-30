@@ -1244,3 +1244,13 @@
 "start transfer icon file"= "开始传输图标文件";
 "transfer icon file success"= "传输图标文件成功";
 "transfer icon file failed"= "传输图标文件失败";
+
+//外设
+"Peripherals Function" = "外设功能";
+"get Peripherals Info" = "获取固件外设信息";
+"send Peripherals Info To Device" = "下发保存的外设信息给固件";
+"send bind Info To Device" = "下发绑定设备列表";
+"send Scales Model MapTable" = "下发体脂秤model映射表";
+
+"Data sent successfully" = "数据发送成功";
+"Data sending failed" = "数据发送失败";

@@ -155,6 +155,11 @@
 @property (nonatomic,assign) NSInteger hrCompletionRate;
 
 /**
+ 热身表现 0-100 需要功能表支持,bool supportWarmUpBeforeRun; //支持跑前热身
+ */
+@property (nonatomic,assign) NSInteger warmUpPerformance;
+
+/**
  平均心率 | Average heart rate
  */
 @property (nonatomic,assign) NSInteger  avgHrValue;
@@ -403,6 +408,12 @@ max step stride
  踏频数组 一分钟保存一次 存平均值
  */
 @property (nonatomic,strong) NSArray * treadFrequencyItems;
+
+/**
+ 实时速度集合  单位  千米/小时  5s出一个值
+ __IDO_FUNCTABLE__.funcTable31Model.activitySyncRealTime 功能表支持才有效
+ */
+@property (nonatomic,strong) NSArray * realSpeedItems;
 
 /**
  动作详情集合

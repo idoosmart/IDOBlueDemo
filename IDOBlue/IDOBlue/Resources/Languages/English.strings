@@ -1221,3 +1221,13 @@
 "start transfer icon file"= "start transfer icon file";
 "transfer icon file success"= "transfer icon file success";
 "transfer icon file failed"= "transfer icon file failed";
+
+//外设
+"Peripherals Function" = "Peripherals Function";
+"get Peripherals Info" = "get Peripherals Info";
+"send Peripherals Info To Device" = "send Peripherals Info To Device";
+"send bind Info To Device" = "send bind Info To Device";
+"send Scales Model MapTable" = "send Scales Model MapTable";
+
+"Data sent successfully" = "Data sent successfully";
+"Data sending failed" = "Data sending failed";

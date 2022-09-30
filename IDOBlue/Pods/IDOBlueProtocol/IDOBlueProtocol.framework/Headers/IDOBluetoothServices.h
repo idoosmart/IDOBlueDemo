@@ -69,6 +69,10 @@ extern NSString * _Nonnull IDOBluetoothFastSyncNotifyName;
 // 设备固件版本改变通知名字 | device firmware version change notification name
 extern NSString * _Nonnull IDOBluetoothDeviceVersionNotifyName;
 
+// 蓝牙连接同步配置主动获取固件BT连接状态改变通知名字 | device bt state change notification name
+//object -》NSNumber: 0 （disconnect），1 (connect)
+extern NSString * _Nonnull IDOBluetoothDeviceBTStateNotifyName;
+
 @interface IDOBluetoothServices : NSObject
 
 /*

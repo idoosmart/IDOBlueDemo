@@ -101,7 +101,11 @@ typedef NS_ENUM(NSInteger, IDO_DATA_FILE_TRAN_STATE_TYPE) {
     /**
      文件设置连接参数 | set connect parameter
      */
-    IDO_DATA_FILE_CONNECT_PARAMETER_TYPE = 9
+    IDO_DATA_FILE_CONNECT_PARAMETER_TYPE = 9,
+    /**
+     文件停止传输
+     */
+    IDO_DATA_FILE_STOP_TRAN_FILE = 10
 };
 
 

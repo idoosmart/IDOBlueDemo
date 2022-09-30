@@ -35,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 //base url 地址 如果未赋值则走Apple 接口
 @property (nonatomic,copy) NSString * baseUrlPath;
 
+//当前本地缓存的第三方应用信息，每次读取本地数据库
+@property (nonatomic,strong) IDOGetAppPackNameModel * currentModel;
+
 //初始化消息通知图标和名字更新
 + (instancetype)listenForUpdate;
 

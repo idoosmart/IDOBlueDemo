@@ -489,6 +489,14 @@ typedef NS_ENUM(NSInteger,IDO_SPORT_TYPE) {
          * BMX 越野自行车
          */
           IDO_SPORT_TYPE_BMX=184,
+        /**
+         * 户外玩耍
+         */
+        IDO_SPORT_TYPE_OUTDOOR_FUN=193,
+        /**
+         * 其他运动
+         */
+        IDO_SPORT_TYPE_OTHER_ACTIVITY=194,
 };
 
 #endif /* IDOSportTypeEnum_h */
