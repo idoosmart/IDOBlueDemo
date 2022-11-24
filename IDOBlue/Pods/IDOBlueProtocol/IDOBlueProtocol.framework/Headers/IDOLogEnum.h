@@ -150,6 +150,16 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      */
     IDO_RECEIVE_DATA_LOG,
     /**
+     * 蓝牙写入数据（方法发送）
+     * Bluetooth write data
+     */
+    IDO_WRITE_CMD_LOG,
+    /**
+     * 蓝牙接收数据 (方法接收）
+     * Bluetooth receiving data
+     */
+    IDO_RECEIVE_CMD_LOG,
+    /**
      * 手环开始升级
      * The bracelet starts to upgrade
      */

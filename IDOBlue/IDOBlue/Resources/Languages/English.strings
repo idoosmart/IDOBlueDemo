@@ -1231,3 +1231,7 @@
 
 "Data sent successfully" = "Data sent successfully";
 "Data sending failed" = "Data sending failed";
+
+"The dial memory is being defragmented, please wait for %ld seconds" = "The dial memory is being defragmented, please wait for %ld seconds";
+"Update dial list" = "Update dial list";
+"Successfully transferred music, updated the latest music list information"=  "Successfully transferred music, updated the latest music list information";

@@ -153,6 +153,11 @@
  目标睡眠时长 (单位 : 分钟) | Target sleep duration (unit: minute)
  */
 @property (nonatomic,assign) NSInteger goalSleepData;
+/**
+ 睡眠阶段的心率平均值  | Average heart rate during sleep
+ */
+@property (nonatomic,assign) NSInteger sleepAvgHrValue;
+
 
 @end
 

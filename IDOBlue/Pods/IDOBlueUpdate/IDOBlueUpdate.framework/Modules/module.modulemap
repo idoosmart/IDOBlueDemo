@@ -6,6 +6,6 @@ framework module IDOBlueUpdate {
 }
 
 module IDOBlueUpdate.Swift {
-    header "IDOBlueUpdate-Swift.h"
-    requires objc
+  header "IDOBlueUpdate-Swift.h"
+  requires objc
 }

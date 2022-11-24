@@ -1,0 +1,352 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name IDOBlueUpdate
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Compression
+import CoreBluetooth
+import CoreFoundation
+import Foundation
+@_exported import IDOBlueUpdate
+import Swift
+import _Concurrency
+import _StringProcessing
+@objc public enum DFUFirmwareType : Swift.UInt8 {
+  case softdevice = 1
+  case bootloader = 2
+  case application = 4
+  case softdeviceBootloader = 3
+  case softdeviceBootloaderApplication = 7
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+@objc public class DFUFirmware : ObjectiveC.NSObject {
+  @objc final public let fileName: Swift.String?
+  @objc final public let fileUrl: Foundation.URL?
+  @objc public var valid: Swift.Bool {
+    @objc get
+  }
+  @objc public var size: IDOBlueUpdate.DFUFirmwareSize {
+    @objc get
+  }
+  @objc public var parts: Swift.Int {
+    @objc get
+  }
+  @objc convenience public init?(urlToZipFile: Foundation.URL)
+  @objc public init?(urlToZipFile: Foundation.URL, type: IDOBlueUpdate.DFUFirmwareType)
+  @objc convenience public init?(zipFile: Foundation.Data)
+  @objc public init?(zipFile: Foundation.Data, type: IDOBlueUpdate.DFUFirmwareType)
+  @objc public init?(urlToBinOrHexFile: Foundation.URL, urlToDatFile: Foundation.URL?, type: IDOBlueUpdate.DFUFirmwareType)
+  @objc public init?(binFile: Foundation.Data, datFile: Foundation.Data?, type: IDOBlueUpdate.DFUFirmwareType)
+  @objc public init?(hexFile: Foundation.Data, datFile: Foundation.Data?, type: IDOBlueUpdate.DFUFirmwareType)
+  @objc deinit
+}
+extension Foundation.FileManager {
+  public func zipItem(at sourceURL: Foundation.URL, to destinationURL: Foundation.URL, shouldKeepParent: Swift.Bool = true, compressionMethod: IDOBlueUpdate.CompressionMethod = .none, progress: Foundation.Progress? = nil) throws
+  public func unzipItem(at sourceURL: Foundation.URL, to destinationURL: Foundation.URL, progress: Foundation.Progress? = nil, preferredEncoding: Swift.String.Encoding? = nil) throws
+}
+extension Foundation.URL {
+  public func isContained(in parentDirectoryURL: Foundation.URL) -> Swift.Bool
+}
+@objc public class DFUServiceInitiator : ObjectiveC.NSObject {
+  @objc weak public var delegate: IDOBlueUpdate.DFUServiceDelegate?
+  @objc weak public var progressDelegate: IDOBlueUpdate.DFUProgressDelegate?
+  @objc weak public var logger: IDOBlueUpdate.LoggerDelegate?
+  @objc public var peripheralSelector: IDOBlueUpdate.DFUPeripheralSelectorDelegate
+  @objc public var packetReceiptNotificationParameter: Swift.UInt16
+  @objc public var forceDfu: Swift.Bool
+  @objc public var alternativeAdvertisingNameEnabled: Swift.Bool
+  @objc public var enableUnsafeExperimentalButtonlessServiceInSecureDfu: Swift.Bool
+  @objc public init(centralManager: CoreBluetooth.CBCentralManager, target: CoreBluetooth.CBPeripheral)
+  @objc public func with(firmware file: IDOBlueUpdate.DFUFirmware) -> IDOBlueUpdate.DFUServiceInitiator
+  @objc public func start() -> IDOBlueUpdate.DFUServiceController?
+  @objc deinit
+}
+public let defaultReadChunkSize: Swift.UInt32
+public let defaultWriteChunkSize: Swift.UInt32
+public let defaultFilePermissions: Swift.UInt16
+public let defaultDirectoryPermissions: Swift.UInt16
+public enum CompressionMethod : Swift.UInt16 {
+  case none
+  case deflate
+  public init?(rawValue: Swift.UInt16)
+  public typealias RawValue = Swift.UInt16
+  public var rawValue: Swift.UInt16 {
+    get
+  }
+}
+final public class Archive : Swift.Sequence {
+  public enum ArchiveError : Swift.Error {
+    case unreadableArchive
+    case unwritableArchive
+    case invalidEntryPath
+    case invalidCompressionMethod
+    case invalidStartOfCentralDirectoryOffset
+    case missingEndOfCentralDirectoryRecord
+    case cancelledOperation
+    public static func == (a: IDOBlueUpdate.Archive.ArchiveError, b: IDOBlueUpdate.Archive.ArchiveError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum AccessMode : Swift.UInt {
+    case create
+    case read
+    case update
+    public init?(rawValue: Swift.UInt)
+    public typealias RawValue = Swift.UInt
+    public var rawValue: Swift.UInt {
+      get
+    }
+  }
+  final public let url: Foundation.URL
+  final public let accessMode: IDOBlueUpdate.Archive.AccessMode
+  public init?(url: Foundation.URL, accessMode mode: IDOBlueUpdate.Archive.AccessMode, preferredEncoding: Swift.String.Encoding? = nil)
+  @objc deinit
+  final public func makeIterator() -> Swift.AnyIterator<IDOBlueUpdate.Entry>
+  final public subscript(path: Swift.String) -> IDOBlueUpdate.Entry? {
+    get
+  }
+  public typealias Element = IDOBlueUpdate.Entry
+  public typealias Iterator = Swift.AnyIterator<IDOBlueUpdate.Entry>
+}
+extension IDOBlueUpdate.Archive {
+  final public func totalUnitCountForRemoving(_ entry: IDOBlueUpdate.Entry) -> Swift.Int64
+  final public func totalUnitCountForReading(_ entry: IDOBlueUpdate.Entry) -> Swift.Int64
+  final public func totalUnitCountForAddingItem(at url: Foundation.URL) -> Swift.Int64
+}
+@objc public enum LogLevel : Swift.Int {
+  case debug = 0
+  case verbose = 1
+  case info = 5
+  case application = 10
+  case warning = 15
+  case error = 20
+  public func name() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol LoggerDelegate {
+  @objc func logWith(_ level: IDOBlueUpdate.LogLevel, message: Swift.String)
+}
+@_inheritsConvenienceInitializers @objc public class LegacyDFUServiceInitiator : IDOBlueUpdate.DFUServiceInitiator {
+  @objc override public func start() -> IDOBlueUpdate.DFUServiceController?
+  @objc override public init(centralManager: CoreBluetooth.CBCentralManager, target: CoreBluetooth.CBPeripheral)
+  @objc deinit
+}
+public protocol DataConvertible {
+  static func + (lhs: Foundation.Data, rhs: Self) -> Foundation.Data
+  static func += (lhs: inout Foundation.Data, rhs: Self)
+}
+extension IDOBlueUpdate.DataConvertible {
+  public static func + (lhs: Foundation.Data, rhs: Self) -> Foundation.Data
+  public static func += (lhs: inout Foundation.Data, rhs: Self)
+}
+extension Swift.UInt8 : IDOBlueUpdate.DataConvertible {
+}
+extension Swift.UInt16 : IDOBlueUpdate.DataConvertible {
+}
+extension Swift.UInt32 : IDOBlueUpdate.DataConvertible {
+}
+extension Swift.Int : IDOBlueUpdate.DataConvertible {
+}
+extension Swift.Float : IDOBlueUpdate.DataConvertible {
+}
+extension Swift.Double : IDOBlueUpdate.DataConvertible {
+}
+extension Swift.String : IDOBlueUpdate.DataConvertible {
+  public static func + (lhs: Foundation.Data, rhs: Swift.String) -> Foundation.Data
+}
+extension Foundation.Data : IDOBlueUpdate.DataConvertible {
+  public static func + (lhs: Foundation.Data, rhs: Foundation.Data) -> Foundation.Data
+}
+@_inheritsConvenienceInitializers @objc public class SecureDFUServiceInitiator : IDOBlueUpdate.DFUServiceInitiator {
+  @objc override public func start() -> IDOBlueUpdate.DFUServiceController?
+  @objc override public init(centralManager: CoreBluetooth.CBCentralManager, target: CoreBluetooth.CBPeripheral)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc open class DFUFirmwareSize : ObjectiveC.NSObject {
+  open var softdevice: Swift.UInt32 {
+    get
+  }
+  open var bootloader: Swift.UInt32 {
+    get
+  }
+  open var application: Swift.UInt32 {
+    get
+  }
+  @objc deinit
+}
+@objc public enum DFUError : Swift.Int {
+  case remoteLegacyDFUSuccess = 1
+  case remoteLegacyDFUInvalidState = 2
+  case remoteLegacyDFUNotSupported = 3
+  case remoteLegacyDFUDataExceedsLimit = 4
+  case remoteLegacyDFUCrcError = 5
+  case remoteLegacyDFUOperationFailed = 6
+  case remoteSecureDFUSuccess = 11
+  case remoteSecureDFUOpCodeNotSupported = 12
+  case remoteSecureDFUInvalidParameter = 13
+  case remoteSecureDFUInsufficientResources = 14
+  case remoteSecureDFUInvalidObject = 15
+  case remoteSecureDFUSignatureMismatch = 16
+  case remoteSecureDFUUnsupportedType = 17
+  case remoteSecureDFUOperationNotpermitted = 18
+  case remoteSecureDFUOperationFailed = 20
+  case remoteSecureDFUExtendedError = 21
+  case remoteExperimentalButtonlessDFUSuccess = 9001
+  case remoteExperimentalButtonlessDFUOpCodeNotSupported = 9002
+  case remoteExperimentalButtonlessDFUOperationFailed = 9004
+  case remoteButtonlessDFUSuccess = 31
+  case remoteButtonlessDFUOpCodeNotSupported = 32
+  case remoteButtonlessDFUOperationFailed = 34
+  case fileNotSpecified = 101
+  case fileInvalid = 102
+  case extendedInitPacketRequired = 103
+  case initPacketRequired = 104
+  case failedToConnect = 201
+  case deviceDisconnected = 202
+  case bluetoothDisabled = 203
+  case serviceDiscoveryFailed = 301
+  case deviceNotSupported = 302
+  case readingVersionFailed = 303
+  case enablingControlPointFailed = 304
+  case writingCharacteristicFailed = 305
+  case receivingNotificationFailed = 306
+  case unsupportedResponse = 307
+  case bytesLost = 308
+  case crcError = 309
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum DFUState : Swift.Int {
+  case connecting
+  case starting
+  case enablingDfuMode
+  case uploading
+  case validating
+  case disconnecting
+  case completed
+  case aborted
+  public func description() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol DFUProgressDelegate {
+  @objc func dfuProgressDidChange(for part: Swift.Int, outOf totalParts: Swift.Int, to progress: Swift.Int, currentSpeedBytesPerSecond: Swift.Double, avgSpeedBytesPerSecond: Swift.Double)
+}
+@objc public protocol DFUServiceDelegate {
+  @objc func dfuStateDidChange(to state: IDOBlueUpdate.DFUState)
+  @objc func dfuError(_ error: IDOBlueUpdate.DFUError, didOccurWithMessage message: Swift.String)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class DFUServiceController : ObjectiveC.NSObject {
+  @objc public func pause()
+  @objc public func resume()
+  @objc public func abort() -> Swift.Bool
+  @objc public func restart()
+  @objc public var paused: Swift.Bool {
+    @objc get
+  }
+  @objc public var aborted: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
+}
+public struct Entry : Swift.Equatable {
+  public enum EntryType : Swift.Int {
+    case file
+    case directory
+    case symlink
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public func path(using encoding: Swift.String.Encoding) -> Swift.String
+  public var path: Swift.String {
+    get
+  }
+  public var fileAttributes: [Foundation.FileAttributeKey : Any] {
+    get
+  }
+  public var checksum: IDOBlueUpdate.CRC32 {
+    get
+  }
+  public var type: IDOBlueUpdate.Entry.EntryType {
+    get
+  }
+  public var compressedSize: Swift.Int {
+    get
+  }
+  public var uncompressedSize: Swift.Int {
+    get
+  }
+  public static func == (lhs: IDOBlueUpdate.Entry, rhs: IDOBlueUpdate.Entry) -> Swift.Bool
+}
+@objc public protocol DFUPeripheralSelectorDelegate {
+  @objc func select(_ peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Swift.AnyObject], RSSI: Foundation.NSNumber, hint name: Swift.String?) -> Swift.Bool
+  @objc func filterBy(hint dfuServiceUUID: CoreBluetooth.CBUUID) -> [CoreBluetooth.CBUUID]?
+}
+public typealias CRC32 = Swift.UInt32
+public typealias Consumer = (_ data: Foundation.Data) throws -> Swift.Void
+public typealias Provider = (_ position: Swift.Int, _ size: Swift.Int) throws -> Foundation.Data
+public let crcTable: [Swift.UInt32]
+extension Foundation.Data {
+  public func crc32(checksum: IDOBlueUpdate.CRC32) -> IDOBlueUpdate.CRC32
+}
+@_inheritsConvenienceInitializers @objc open class DFUPeripheralSelector : ObjectiveC.NSObject, IDOBlueUpdate.DFUPeripheralSelectorDelegate {
+  @objc open func select(_ peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Swift.AnyObject], RSSI: Foundation.NSNumber, hint name: Swift.String? = nil) -> Swift.Bool
+  @objc open func filterBy(hint dfuServiceUUID: CoreBluetooth.CBUUID) -> [CoreBluetooth.CBUUID]?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension IDOBlueUpdate.Archive {
+  final public func extract(_ entry: IDOBlueUpdate.Entry, to url: Foundation.URL, bufferSize: Swift.UInt32 = defaultReadChunkSize, progress: Foundation.Progress? = nil) throws -> IDOBlueUpdate.CRC32
+  final public func extract(_ entry: IDOBlueUpdate.Entry, bufferSize: Swift.UInt32 = defaultReadChunkSize, progress: Foundation.Progress? = nil, consumer: (_ data: Foundation.Data) throws -> Swift.Void) throws -> IDOBlueUpdate.CRC32
+}
+extension IDOBlueUpdate.Archive {
+  final public func addEntry(with path: Swift.String, relativeTo baseURL: Foundation.URL, compressionMethod: IDOBlueUpdate.CompressionMethod = .none, bufferSize: Swift.UInt32 = defaultWriteChunkSize, progress: Foundation.Progress? = nil) throws
+  final public func addEntry(with path: Swift.String, type: IDOBlueUpdate.Entry.EntryType, uncompressedSize: Swift.UInt32, modificationDate: Foundation.Date = Date(), permissions: Swift.UInt16? = nil, compressionMethod: IDOBlueUpdate.CompressionMethod = .none, bufferSize: Swift.UInt32 = defaultWriteChunkSize, progress: Foundation.Progress? = nil, provider: (_ position: Swift.Int, _ size: Swift.Int) throws -> Foundation.Data) throws
+  final public func remove(_ entry: IDOBlueUpdate.Entry, bufferSize: Swift.UInt32 = defaultReadChunkSize, progress: Foundation.Progress? = nil) throws
+}
+@objc @_inheritsConvenienceInitializers public class IntelHex2BinConverter : ObjectiveC.NSObject {
+  public static func convert(_ hex: Foundation.Data, mbrSize: Swift.UInt32 = 0) -> Foundation.Data?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension IDOBlueUpdate.DFUFirmwareType : Swift.Equatable {}
+extension IDOBlueUpdate.DFUFirmwareType : Swift.Hashable {}
+extension IDOBlueUpdate.DFUFirmwareType : Swift.RawRepresentable {}
+extension IDOBlueUpdate.CompressionMethod : Swift.Equatable {}
+extension IDOBlueUpdate.CompressionMethod : Swift.Hashable {}
+extension IDOBlueUpdate.CompressionMethod : Swift.RawRepresentable {}
+extension IDOBlueUpdate.Archive.ArchiveError : Swift.Equatable {}
+extension IDOBlueUpdate.Archive.ArchiveError : Swift.Hashable {}
+extension IDOBlueUpdate.Archive.AccessMode : Swift.Equatable {}
+extension IDOBlueUpdate.Archive.AccessMode : Swift.Hashable {}
+extension IDOBlueUpdate.Archive.AccessMode : Swift.RawRepresentable {}
+extension IDOBlueUpdate.LogLevel : Swift.Equatable {}
+extension IDOBlueUpdate.LogLevel : Swift.Hashable {}
+extension IDOBlueUpdate.LogLevel : Swift.RawRepresentable {}
+extension IDOBlueUpdate.DFUError : Swift.Equatable {}
+extension IDOBlueUpdate.DFUError : Swift.Hashable {}
+extension IDOBlueUpdate.DFUError : Swift.RawRepresentable {}
+extension IDOBlueUpdate.DFUState : Swift.Equatable {}
+extension IDOBlueUpdate.DFUState : Swift.Hashable {}
+extension IDOBlueUpdate.DFUState : Swift.RawRepresentable {}
+extension IDOBlueUpdate.Entry.EntryType : Swift.Equatable {}
+extension IDOBlueUpdate.Entry.EntryType : Swift.Hashable {}
+extension IDOBlueUpdate.Entry.EntryType : Swift.RawRepresentable {}

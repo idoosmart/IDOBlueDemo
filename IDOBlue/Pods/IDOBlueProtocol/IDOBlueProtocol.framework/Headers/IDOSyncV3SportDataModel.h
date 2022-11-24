@@ -35,6 +35,7 @@
 
 /**
  静息卡路里 | rest  calories
+ ps: totalCalories(总卡路里)-(activityCalories)活动卡路里
  */
 @property (nonatomic,assign) NSInteger restingCalories;
 
@@ -55,6 +56,7 @@
 
 /**
  序列号 | Serial number
+ ps：15分钟一组数据，全天1440分钟，所以num是0到95，一共96个num
  */
 @property (nonatomic,assign) NSInteger serialNumber;
 

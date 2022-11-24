@@ -1254,3 +1254,7 @@
 
 "Data sent successfully" = "数据发送成功";
 "Data sending failed" = "数据发送失败";
+
+"The dial memory is being defragmented, please wait for %ld seconds" = "表盘内存碎片整理中，请的等待%ld秒";
+"Update dial list" = "更新表盘列表";
+"Successfully transferred music, updated the latest music list information"=  "传输音乐成功，更新最新音乐列表信息";

@@ -98,8 +98,10 @@
         NSString * mainPath = [NSBundle mainBundle].bundlePath;
         path = [mainPath stringByAppendingPathComponent:@"Files"];
         NSURL * fileUrl = [NSURL URLWithString:filePath];
-        fileName = fileUrl.lastPathComponent;
-        path = [path stringByAppendingPathComponent:fileName];
+        if (fileUrl.lastPathComponent) {
+            fileName = fileUrl.lastPathComponent;
+            path = [path stringByAppendingPathComponent:fileName];
+        }
     }else { // sandbox
         path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
         NSRange range = [filePath rangeOfString:@"Documents"];
@@ -131,29 +133,52 @@
 - (void)getButtonCallback
 {
     __weak typeof(self) weakSelf = self;
+    /*  Transfer dial file
+     1：Get watch dial information data
+        initWatchDialManager().getDialScreenInfo
+     2：Transfer dial file
+        initWatchDialManager().startDialTransfer
+     */
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         if (!IDO_BLUE_ENGINE.managerEngine.isConnected)return ;
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"transfer dial file")]];
-        IDOWatchScreenInfoModel *model = [IDOWatchScreenInfoModel currentModel];
-        initWatchDialManager().colorFormat = model.colorFormat;
-        initWatchDialManager().blockSize = model.blockSize;
-    
-        initWatchDialManager().addDialProgress(^(int progress) {
-            [funcVC showSyncProgress:progress/100.0f];
-        }).addDialTransfer(^(int errorCode,int finishingTime) {
-            strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+        
+        initWatchDialManager().getDialScreenInfo(^(IDOWatchScreenInfoModel * _Nullable model, int errorCode) {
             if (errorCode == 0) {
-                [funcVC showToastWithText:lang(@"transfer dial file success")];
+                IDOWatchScreenInfoModel *model = [IDOWatchScreenInfoModel currentModel];
+                initWatchDialManager().colorFormat = model.colorFormat;
+                initWatchDialManager().blockSize = model.blockSize;
+                initWatchDialManager().addDialProgress(^(int progress) {
+                    [funcVC showSyncProgress:progress/100.0f];
+                }).addDialTransfer(^(int errorCode,int finishingTime) {
+                    strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
+                    if (errorCode == 0) {
+                        [funcVC showToastWithText:lang(@"transfer dial file success")];
+                    }else if (errorCode == 6) {
+                        [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                    }else if (errorCode == 24 || errorCode == 25) {
+                        NSString * str = [NSString stringWithFormat:lang(@"The dial memory is being defragmented, please wait for %ld seconds"),finishingTime];
+                        [funcVC showToastWithText:str dismissHud:finishingTime];
+                    }else {
+                        [funcVC showToastWithText:lang(@"transfer dial file failed")];
+                    }
+                }).filePath = strongSelf.filePath;
+                [IDOWatchDialManager startDialTransfer];
+                
             }else if (errorCode == 6) {
                 [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
             }else {
-                [funcVC showToastWithText:lang(@"transfer dial file failed")];
+                [funcVC showToastWithText:lang(@"get watch screen info failed")];
             }
-        }).filePath = strongSelf.filePath;
-        [IDOWatchDialManager startDialTransfer];
+        });
+        
     };
+}
+
+-(void)startTransferDialFileWithPath:(NSString*)path{
+    
 }
 
 - (void)getTextViewCallback

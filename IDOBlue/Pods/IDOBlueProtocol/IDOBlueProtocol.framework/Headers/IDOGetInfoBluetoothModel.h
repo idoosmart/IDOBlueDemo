@@ -353,11 +353,12 @@ error flag
  0 =>无效 1 =>步数 2 =>心率 3=> 睡眠 4=> 拍照 5=> 闹钟 6=> 音乐 7=> 秒表 8=> 计时器
  9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
  17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示 21=> X屏（gt01pro-X新增）22=> 卡路里 （Doro Watch新增）
- 23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增)
+ 23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增) 25=> renpho health(润丰健康)(IDW12新增) 26=> 指南针 (mp01新增)
+ 27=> 气压高度计(mp01新增)
  0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
  9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
  16=> Last activity 17=> Health data 18=> Blood oxygen 19 => Menu setting 20=> Alexa voice prompt 21=> X screen 22=> Calories
- 23=> Distance 24=> One-key measurement
+ 23=> Distance 24=> One-key measurement  25=> renpho health 26=> compass 27=> barometric_altimeter
 */
 @property (nonatomic,strong) NSArray<NSNumber *> * itemList;
 /**
@@ -366,11 +367,12 @@ error flag
  0 =>无效 1 =>步数 2 =>心率 3=> 睡眠 4=> 拍照 5=> 闹钟 6=> 音乐 7=> 秒表 8=> 计时器
  9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
  17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示 21=> X屏（gt01pro-X新增）22=> 卡路里 （Doro Watch新增）
- 23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增)
+ 23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增)  25=> renpho health(润丰健康)(IDW12新增) 26=> 指南针 (mp01新增)
+ 27=> 气压高度计(mp01新增)
  0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
  9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
  16=> Last activity 17=> Health data 18=> Blood oxygen 19 => Menu setting 20=> Alexa voice prompt 21=> X screen 22=> Calories
- 23=> Distance 24=> One-key measurement
+ 23=> Distance 24=> One-key measurement 25=> renpho health 26=> compass 27=> barometric_altimeter
  */
 @property (nonatomic,strong) NSArray<NSNumber *> * maxItemList;
 /**
@@ -386,6 +388,35 @@ error flag
 + (IDOGetMenuListInfoBluetoothModel *)currentModel;
 
 @end
+
+#pragma mark ==== 获取不可删除的快捷应用列表 model ====
+@interface IDOGetUndeleMenuListInfoBluetoothModel : IDOBluetoothBaseModel
+/**
+ 支持最大个数
+ */
+@property (nonatomic,assign) NSInteger num;
+/**
+ 菜单排序当前显示集合
+ 0 =>无效 1 =>步数 2 =>心率 3=> 睡眠 4=> 拍照 5=> 闹钟 6=> 音乐 7=> 秒表 8=> 计时器
+ 9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
+ 17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示 21=> X屏（gt01pro-X新增）22=> 卡路里 （Doro Watch新增）
+ 23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增) 25=> renpho health(润丰健康)(IDW12新增) 26=> 指南针 (mp01新增)
+ 27=> 气压高度计(mp01新增)
+ 0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
+ 9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
+ 16=> Last activity 17=> Health data 18=> Blood oxygen 19 => Menu setting 20=> Alexa voice prompt 21=> X screen 22=> Calories
+ 23=> Distance 24=> One-key measurement  25=> renpho health 26=> compass 27=> barometric_altimeter
+*/
+@property (nonatomic,strong) NSArray<NSNumber *> * itemList;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetMenuListInfoBluetoothModel
+ */
++ (IDOGetUndeleMenuListInfoBluetoothModel *)currentModel;
+
+@end
+
 
 #pragma mark ====  获取下载语言 model ====
 @interface IDOGetDownLanguageBluetoothModel:IDOBluetoothBaseModel
@@ -1705,6 +1736,17 @@ error flag
  勿扰模式设置获取新增全天勿扰开关和只能开关
  */
 @property (nonatomic,assign) BOOL noDisturbAllDayOnOff;
+
+/** //注：之前的全天勿扰开关与智能勿扰开关使用的同一个功能表noDisturbAllDayOnOff支持,
+    后续为了方便开发,新固件不需要开启前者,转用以下两个功能表去支持 2022-11-7
+ 支持设置全天勿扰开关
+ */
+@property (nonatomic,assign) BOOL v2NoDisturbAllDaySwitch;
+/**
+ 支持设置智能勿扰开关
+ */
+@property (nonatomic,assign) BOOL v2NoDisturbSmartSwitch;
+
 /**
  支持获取固件电池模式
  */
@@ -1734,6 +1776,20 @@ error flag
  支持第二套运动图标功能表    目前仅idw05支持
  */
 @property (nonatomic,assign) BOOL secondSportIcon;
+
+/**
+ 支持v3天气协议下发积雪厚度
+ */
+@property (nonatomic,assign) BOOL v3WeatcherAddSnowDepth;
+/**
+ 支持v3天气协议下发降雪量
+ */
+@property (nonatomic,assign) BOOL v3WeatcherAddSnowfall;
+/**
+ 支持v3天气协议下发大气压强
+ */
+@property (nonatomic,assign) BOOL v3WeatcherAddAtmosphericpressure;
+
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1924,7 +1980,7 @@ error flag
 /**
  支持v3天气协议未来48小时温度详情内发送单个小时的降水概率
  */
-@property (nonatomic,assign) BOOL supportV3HourPrecipitation;
+@property (nonatomic,assign) BOOL supportV3HourPrecipitation DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 /**
  支持app设置目标步数类型为周目标
  */
@@ -1950,6 +2006,16 @@ error flag
  润丰 支持app下发绑定设备列表
  */
 @property (nonatomic,assign) BOOL supportRFBindDeviceTable;
+
+/**
+ gtx02 支持亮度设置日落后开启
+ */
+@property (nonatomic,assign) BOOL supportV2NightTurnOnAfterSunset;
+
+/**
+ 支持v3常用联系人设置回复结构体使用协议版本号0x10
+ */
+@property (nonatomic,assign) BOOL supportV3SetContactVersion;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2003,7 +2069,39 @@ error flag
  *heart rate interval
 */
 @property (nonatomic,assign) BOOL v3SportsType;
- 
+/**
+ *v2支持设置歌曲信息展示开关
+ *Show Music Info Switch
+*/
+@property (nonatomic,assign) BOOL v2SetShowMusicInfoSwitch;
+/**
+ *支持指南针
+ *support Compass
+*/
+@property (nonatomic,assign) BOOL supportCompass;
+/**
+ *支持气压高度计
+ *barometric altimeter
+*/
+@property (nonatomic,assign) BOOL supportBarometricAltimeter;
+/**
+ *支持固件支持app下发详情的最大数量 （常用联系人，日程提醒）
+ *barometric altimeter
+*/
+@property (nonatomic,assign) BOOL supportGetSetMaxItemsNum;
+
+/**
+ *支持v3日程提醒中重复提醒类型设置星期重复 bit1-bit7 周一到周日 bit 0是总开关位（开关）
+ *Support the recurring reminder type setting in v3 agenda reminders. Weekly recurring bit1-bit7.
+ *Monday to Sunday bit 0 is the main switch position (switch)
+*/
+@property (nonatomic,assign) BOOL supportV3RepeatWeekTypeSeting;
+/**
+ *支持获取不可删除的快捷应用列表
+ *Support to obtain the list of non deletable shortcut applications
+*/
+@property (nonatomic,assign) BOOL supportV2GetUnDeleMeun;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -3851,4 +3949,21 @@ error flag
 @end
 
 
+#pragma mark ==== 获取固件支持app下发的详情的最大数量 model ====
+@interface IDOGetSettingMaxItemsNumBluetoothModel : IDOBluetoothBaseModel
+/**
+ 常用联系人 固件支持app下发最大设置数量 0默认10个
+ */
+@property (nonatomic,assign) NSInteger contactMaxSetNum;
+/**
+ 日程提醒 固件支持app下发最大设置数量 预留
+*/
+@property (nonatomic,assign) NSInteger reminderMaxSetNum;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetSettingMaxItemsNumBluetoothModel
+ */
++ (IDOGetSettingMaxItemsNumBluetoothModel *)currentModel;
 
+@end

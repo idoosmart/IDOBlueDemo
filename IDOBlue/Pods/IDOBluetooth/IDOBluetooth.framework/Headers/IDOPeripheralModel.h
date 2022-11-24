@@ -61,4 +61,9 @@
  */
 @property (nonatomic,assign) int deviceType;
 
+/**
+ 0 : 不支持加密 1: 支持加密未加密 2: 支持加密已加密 (realme 定制项目)
+ */
+@property (nonatomic,assign) int encryptionStatus;
+
 @end

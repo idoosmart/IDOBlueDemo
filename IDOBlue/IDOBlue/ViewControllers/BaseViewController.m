@@ -70,10 +70,15 @@
 
 - (void)showToastWithText:(NSString *)message
 {
+    [self showToastWithText:message dismissHud:2];
+}
+
+- (void)showToastWithText:(NSString *)message dismissHud:(int)afterDelayTime
+{
     self.progressHUD.mode = MBProgressHUDModeText;
     self.progressHUD.label.text = message;
     [self.progressHUD showAnimated:YES];
-    [self.progressHUD hideAnimated:YES afterDelay:2];
+    [self.progressHUD hideAnimated:YES afterDelay:afterDelayTime];
 }
 
 - (void)showUpdateProgress:(float)progress

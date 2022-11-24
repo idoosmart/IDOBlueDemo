@@ -22,11 +22,50 @@
 {
     self = [super init];
     if (self) {
+        self.rightButtonTitle = lang(@"Update dial list");
+        self.isRightButton = YES;
+        self.rightButton   = @selector(getDialInfoListAction);
         [self getLabelCallback];
         [self getDelectCellCallback];
         [self getCellModels];
     }
     return self;
+}
+
+- (void)getDialInfoListAction
+{
+    __weak typeof(self) weakSelf = self;
+    FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+    [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"get watch dial list info")] ];
+    if (__IDO_FUNCTABLE__.funcTable35Model.getNewWatchList) {
+        initWatchDialManager().getV3WatchListInfo(^(IDOV3WatchDialInfoModel * _Nullable model, int errorCode) {
+            __strong typeof(self) strongSelf = weakSelf;
+            if (errorCode == 0) {
+               [funcVC showToastWithText:lang(@"get watch dial list info success")];
+                _allDevices = [[IDOV3WatchDialInfoModel currentModel].dialArray mutableCopy];
+                [strongSelf getCellModels];
+                [funcVC reloadData];
+           }else if (errorCode == 6) {
+               [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+           }else {
+               [funcVC showToastWithText:lang(@"get watch dial list info failed")];
+           }
+        });
+    }else {
+        initWatchDialManager().getDialListInfo(^(IDOWatchDialInfoModel * _Nullable model, int errorCode) {
+            __strong typeof(self) strongSelf = weakSelf;
+            if (errorCode == 0) {
+                _allDevices = [[IDOWatchDialInfoModel currentModel].dialArray mutableCopy];
+                [strongSelf getCellModels];
+                [funcVC reloadData];
+               [funcVC showToastWithText:lang(@"get watch dial list info success")];
+           }else if (errorCode == 6) {
+               [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+           }else {
+               [funcVC showToastWithText:lang(@"get watch dial list info failed")];
+           }
+        });
+    }
 }
 
 - (NSMutableArray *)allDevices

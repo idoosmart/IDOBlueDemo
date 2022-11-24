@@ -1500,6 +1500,14 @@
 + (void)getMenuListInfoCommand:(void(^_Nullable)(int errorCode,IDOGetMenuListInfoBluetoothModel * _Nullable data))callback;
 
 /**
+ * @brief  获取不可删除的快捷应用菜单列表  | get undele menu list info
+ * 功能表 Functable:  __IDO_FUNCTABLE__.funcTable28Model.supportV2GetUnDeleMeun
+ * @param callback 执行后回调 data (IDOGetUndeleMenuListInfoBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOGetUndeleMenuListInfoBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+*/
++ (void)getUndeleMenuListInfoCommand:(void(^_Nullable)(int errorCode,IDOGetUndeleMenuListInfoBluetoothModel * _Nullable data))callback;
+
+/**
  * @brief  获取v3闹钟  | get v3 alarms info
  * @param callback 执行后回调 data (IDOSetExtensionAlarmInfoBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * callback data (IDOSetExtensionAlarmInfoBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
@@ -1717,6 +1725,14 @@
  * callback data (IDOGetBeepFileListBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)getBeepFileListCommand:(void (^_Nullable)(int errorCode, IDOGetBeepFileListBluetoothModel * _Nullable data))callback;
+
+/**
+ * @brief 获取固件支持app下发的详情的最大数量 | Obtain the maximum number of details issued by the firmware support app
+ *  * 功能表 | Function Table :   __IDO_FUNCTABLE__.funcTable28Model.supportGetSetMaxItemsNum
+ * @param callback 执行后回调 data (IDOGetSettingMaxItemsNumBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOGetSettingMaxItemsNumBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getSettingMaxItemsNumCommand:(void (^_Nullable)(int errorCode, IDOGetSettingMaxItemsNumBluetoothModel * _Nullable data))callback;
 
 #pragma mark ======= listen Command =======
 

@@ -22,6 +22,7 @@
 @property (nonatomic,strong) UILabel * timerLabel;
 - (void)showLoadingWithMessage:(NSString *)message;
 - (void)showToastWithText:(NSString *)message;
+- (void)showToastWithText:(NSString *)message dismissHud:(int)afterDelayTime;
 - (void)showUpdateProgress:(float)progress;
 - (void)showSyncProgress:(float)progress;
 - (void)startSync;

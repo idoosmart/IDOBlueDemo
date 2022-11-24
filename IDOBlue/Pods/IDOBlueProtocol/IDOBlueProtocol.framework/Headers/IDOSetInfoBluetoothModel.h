@@ -306,7 +306,8 @@
  */
 @property (nonatomic,assign) NSInteger conVersion;
 /**
- 操作 0：无效； 1： 设置， 2：查询
+ 操作 0：无效； 1： 设置常用联系人， 2：查询常用联系人    3:设置紧急联系人 4:查询紧急联系人
+ （3、4操作需要功能表支持:IDOGetFuncTable29BluetoothModel：supportV3SetEmergencyConnact;//支持设置查询紧急联系人）
  */
 @property (nonatomic,assign) NSInteger operat;
 /**
@@ -574,6 +575,21 @@
  未来3日落日出天气集合 ｜3Days  items（V3 Sunrise）
 */
 @property (nonatomic,copy) NSArray <IDOFutureSunriseWeatherDataItems *>* futureSunriseItems;
+/**
+ 积雪厚度 0~100 单位：cm
+ 需要功能表支持：IDOGetFuncTable31BluetoothModel->v3WeatcherAddSnowDepth
+ */
+@property (nonatomic,assign) NSInteger snowDepth;
+/**
+ 降雪量 0~100 单位：mm
+ 需要功能表支持：IDOGetFuncTable31BluetoothModel->v3WeatcherAddSnowfall
+ */
+@property (nonatomic,assign) NSInteger snowfall;
+/**
+ 大气压强 30000~110000 单位：帕
+ 需要功能表支持：IDOGetFuncTable31BluetoothModel->v3WeatcherAddAtmosphericpressure
+ */
+@property (nonatomic,assign) NSInteger atmosphericPressure;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -660,8 +676,9 @@
 @property (nonatomic,assign) NSInteger operate;
 /**
  * 运动类型
+ * 具体参考IDO_SPORT_PAR_TYPE类型
  */
-@property (nonatomic,assign) NSInteger sportType;
+@property (nonatomic,assign) IDO_SPORT_PAR_TYPE sportType;
 /**
  * 已经添加的运动索引
  */
@@ -2858,6 +2875,11 @@
  音乐开关 | Music switch
  */
 @property (nonatomic,assign) BOOL isOpen;
+
+/**
+ 展示歌曲信息开关 | Show music info switch
+ */
+@property (nonatomic,assign) BOOL showInfoStatus;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

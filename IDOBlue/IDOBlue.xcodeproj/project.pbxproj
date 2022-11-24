@@ -1343,20 +1343,20 @@
 		9BBFAAAD28168E8F00DC7671 /* WatchDialViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9BBFAAAE28168E8F00DC7671 /* TranWatchDialViewModel.m */,
 				9BBFAAAF28168E8F00DC7671 /* GetWatchDialListViewModel.h */,
-				9BBFAAB028168E8F00DC7671 /* MainDialViewModel.h */,
-				9BBFAAB128168E8F00DC7671 /* SetWallpaperViewModel.h */,
-				9BBFAAB228168E8F00DC7671 /* GetWatchDialNameViewModel.m */,
-				9BBFAAB328168E8F00DC7671 /* SetWatchDialViewModel.h */,
-				9BBFAAB428168E8F00DC7671 /* GetWatchScreenInfoViewModel.h */,
-				9BBFAAB528168E8F00DC7671 /* MainDialViewModel.m */,
 				9BBFAAB628168E8F00DC7671 /* GetWatchDialListViewModel.m */,
-				9BBFAAB728168E8F00DC7671 /* TranWatchDialViewModel.h */,
-				9BBFAAB828168E8F00DC7671 /* SetWatchDialViewModel.m */,
 				9BBFAAB928168E8F00DC7671 /* GetWatchDialNameViewModel.h */,
-				9BBFAABA28168E8F00DC7671 /* SetWallpaperViewModel.m */,
+				9BBFAAB228168E8F00DC7671 /* GetWatchDialNameViewModel.m */,
+				9BBFAAB428168E8F00DC7671 /* GetWatchScreenInfoViewModel.h */,
 				9BBFAABB28168E8F00DC7671 /* GetWatchScreenInfoViewModel.m */,
+				9BBFAAB028168E8F00DC7671 /* MainDialViewModel.h */,
+				9BBFAAB528168E8F00DC7671 /* MainDialViewModel.m */,
+				9BBFAAB128168E8F00DC7671 /* SetWallpaperViewModel.h */,
+				9BBFAABA28168E8F00DC7671 /* SetWallpaperViewModel.m */,
+				9BBFAAB328168E8F00DC7671 /* SetWatchDialViewModel.h */,
+				9BBFAAB828168E8F00DC7671 /* SetWatchDialViewModel.m */,
+				9BBFAAB728168E8F00DC7671 /* TranWatchDialViewModel.h */,
+				9BBFAAAE28168E8F00DC7671 /* TranWatchDialViewModel.m */,
 			);
 			path = WatchDialViewModel;
 			sourceTree = "<group>";
@@ -1699,7 +1699,7 @@
 				9B437EE621393ADC00DE2FC8 /* Frameworks */,
 				9B437EE721393ADC00DE2FC8 /* Resources */,
 				9BF5C7D52703410100FBA91F /* Embed Frameworks */,
-				42EE6EBA14F2CAD8C58F8F97 /* [CP] Embed Pods Frameworks */,
+				8D4EC73F1BE19D9F88E196CA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1770,7 +1770,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		42EE6EBA14F2CAD8C58F8F97 /* [CP] Embed Pods Frameworks */ = {
+		8D4EC73F1BE19D9F88E196CA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
