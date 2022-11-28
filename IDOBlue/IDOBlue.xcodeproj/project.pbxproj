@@ -230,6 +230,7 @@
 		B051AE2628E6CAFF00F86165 /* sendPeripheralsInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B051AE2528E6CAFF00F86165 /* sendPeripheralsInfoViewModel.m */; };
 		B051AE2928E6CB2000F86165 /* sendBindDeviceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B051AE2828E6CB2000F86165 /* sendBindDeviceViewModel.m */; };
 		B051AE2C28E6CB3800F86165 /* sendScalesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B051AE2B28E6CB3800F86165 /* sendScalesViewModel.m */; };
+		B06377CE2934B47900B86959 /* UpdateFileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B06377CD2934B47900B86959 /* UpdateFileViewModel.m */; };
 		B0C8F990274B3078009BA60D /* IDODemoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F7C3274B3077009BA60D /* IDODemoUtility.m */; };
 		B0C8F991274B3078009BA60D /* UINavigationItem+Button.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F7C5274B3077009BA60D /* UINavigationItem+Button.m */; };
 		B0C8F992274B3078009BA60D /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F7C8274B3077009BA60D /* UIScrollView+Refresh.m */; };
@@ -730,6 +731,8 @@
 		B051AE2828E6CB2000F86165 /* sendBindDeviceViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sendBindDeviceViewModel.m; sourceTree = "<group>"; };
 		B051AE2A28E6CB3800F86165 /* sendScalesViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendScalesViewModel.h; sourceTree = "<group>"; };
 		B051AE2B28E6CB3800F86165 /* sendScalesViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sendScalesViewModel.m; sourceTree = "<group>"; };
+		B06377CC2934B47900B86959 /* UpdateFileViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateFileViewModel.h; sourceTree = "<group>"; };
+		B06377CD2934B47900B86959 /* UpdateFileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateFileViewModel.m; sourceTree = "<group>"; };
 		B0C8F7C2274B3077009BA60D /* IDODemoUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDODemoUtility.h; sourceTree = "<group>"; };
 		B0C8F7C3274B3077009BA60D /* IDODemoUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDODemoUtility.m; sourceTree = "<group>"; };
 		B0C8F7C5274B3077009BA60D /* UINavigationItem+Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Button.m"; sourceTree = "<group>"; };
@@ -1364,26 +1367,28 @@
 		9BBFAABC28168E8F00DC7671 /* UpdateViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9BBFAABD28168E8F00DC7671 /* OtherFileViewModel.h */,
+				B06377CC2934B47900B86959 /* UpdateFileViewModel.h */,
+				B06377CD2934B47900B86959 /* UpdateFileViewModel.m */,
 				9BBFAABE28168E8F00DC7671 /* FileViewModel.h */,
-				9BBFAABF28168E8F00DC7671 /* UpdateSportIconViewModel.h */,
-				9BBFAAC028168E8F00DC7671 /* UpateContactViewModel.h */,
-				9BBFAAC228168E8F00DC7671 /* UpdatePhotoViewModel.h */,
-				9BBFAAC328168E8F00DC7671 /* UpdateAgpsViewModel.h */,
-				9BBFAAC428168E8F00DC7671 /* FirmwareTypeViewModel.m */,
-				9BBFAAC528168E8F00DC7671 /* UpdateFirmwareViewModel.h */,
-				9BBFAAC628168E8F00DC7671 /* UpdateMessageIconViewModel.m */,
-				9BBFAAC828168E8F00DC7671 /* UpdateMainViewModel.h */,
-				9BBFAAC928168E8F00DC7671 /* OtherFileViewModel.m */,
-				9BBFAACB28168E8F00DC7671 /* UpdateSportIconViewModel.m */,
-				9BBFAACC28168E8F00DC7671 /* UpateContactViewModel.m */,
 				9BBFAACD28168E8F00DC7671 /* FileViewModel.m */,
 				9BBFAACE28168E8F00DC7671 /* FirmwareTypeViewModel.h */,
+				9BBFAAC428168E8F00DC7671 /* FirmwareTypeViewModel.m */,
+				9BBFAABD28168E8F00DC7671 /* OtherFileViewModel.h */,
+				9BBFAAC928168E8F00DC7671 /* OtherFileViewModel.m */,
+				9BBFAAC028168E8F00DC7671 /* UpateContactViewModel.h */,
+				9BBFAACC28168E8F00DC7671 /* UpateContactViewModel.m */,
+				9BBFAAC328168E8F00DC7671 /* UpdateAgpsViewModel.h */,
 				9BBFAACF28168E8F00DC7671 /* UpdateAgpsViewModel.m */,
-				9BBFAAD028168E8F00DC7671 /* UpdatePhotoViewModel.m */,
+				9BBFAAC528168E8F00DC7671 /* UpdateFirmwareViewModel.h */,
+				9BBFAAD428168E8F00DC7671 /* UpdateFirmwareViewModel.m */,
+				9BBFAAC828168E8F00DC7671 /* UpdateMainViewModel.h */,
 				9BBFAAD128168E8F00DC7671 /* UpdateMainViewModel.m */,
 				9BBFAAD328168E8F00DC7671 /* UpdateMessageIconViewModel.h */,
-				9BBFAAD428168E8F00DC7671 /* UpdateFirmwareViewModel.m */,
+				9BBFAAC628168E8F00DC7671 /* UpdateMessageIconViewModel.m */,
+				9BBFAAC228168E8F00DC7671 /* UpdatePhotoViewModel.h */,
+				9BBFAAD028168E8F00DC7671 /* UpdatePhotoViewModel.m */,
+				9BBFAABF28168E8F00DC7671 /* UpdateSportIconViewModel.h */,
+				9BBFAACB28168E8F00DC7671 /* UpdateSportIconViewModel.m */,
 			);
 			path = UpdateViewModel;
 			sourceTree = "<group>";
@@ -1860,6 +1865,7 @@
 				9BBFAB7E28168E9000DC7671 /* GetNotifyStateViewModel.m in Sources */,
 				B0C8F9AB274B3078009BA60D /* OneTextViewTableViewCell.m in Sources */,
 				9B9C402B2566693C00809576 /* MASConstraint.m in Sources */,
+				B06377CE2934B47900B86959 /* UpdateFileViewModel.m in Sources */,
 				9BBFAB5F28168E9000DC7671 /* SetOneKeySosViewModel.m in Sources */,
 				9BBFAB9328168E9000DC7671 /* GetActivityViewModel.m in Sources */,
 				9BBFABC628168E9000DC7671 /* ControlRestoreViewModel.m in Sources */,

@@ -11,7 +11,7 @@
 "device suspend scan" = "device suspend scan";
 "manual connect time" = "connect time:";
 "auto connect time" = "connect time:";
-"file update" = "file update:";
+"file update" = "file update";
 "file type" = "file type:";
 "compression type" = "compression type:";
 "transfer complete" = "file transfer complete";

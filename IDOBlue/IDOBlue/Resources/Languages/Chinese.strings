@@ -11,7 +11,7 @@
 "device suspend scan" = "设备暂停扫描";
 "manual connect time" = "手动连接时长:";
 "auto connect time" = "自动连接时长:";
-"file update" = "文件升级:";
+"file update" = "文件升级";
 "file type" = "文件类型:";
 "compression type" = "压缩类型:";
 "transfer complete" = "文件传输完成";
