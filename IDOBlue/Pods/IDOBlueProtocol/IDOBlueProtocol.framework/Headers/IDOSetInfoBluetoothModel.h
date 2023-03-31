@@ -306,8 +306,7 @@
  */
 @property (nonatomic,assign) NSInteger conVersion;
 /**
- 操作 0：无效； 1： 设置常用联系人， 2：查询常用联系人    3:设置紧急联系人 4:查询紧急联系人
- （3、4操作需要功能表支持:IDOGetFuncTable29BluetoothModel：supportV3SetEmergencyConnact;//支持设置查询紧急联系人）
+ 操作 0：无效； 1： 设置常用联系人， 2：查询常用联系人
  */
 @property (nonatomic,assign) NSInteger operat;
 /**
@@ -326,6 +325,35 @@
 + (IDOSetSyncContactModel *)currentModel;
 
 @end
+
+#pragma mark ==== 同步协议蓝牙通话常用联系人 ====
+@interface IDOSetSyncEmergencyContactModel:IDOBluetoothBaseModel
+/**
+ 版本号    version
+ */
+@property (nonatomic,assign) NSInteger conVersion;
+/**
+ 操作 0：无效；  3:设置紧急联系人 4:查询紧急联系人
+ （3、4操作需要功能表支持:IDOGetFuncTable29BluetoothModel：supportV3SetEmergencyConnact;//支持设置查询紧急联系人）
+ */
+@property (nonatomic,assign) NSInteger operat;
+/**
+ items的个数
+ */
+@property (nonatomic,assign) NSInteger itemsNum;
+/**
+联系人集合 ｜ alarm items
+*/
+@property (nonatomic,copy) NSArray <IDOSetContactItemModel *>* items;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetSyncContactModel
+ */
++ (IDOSetSyncEmergencyContactModel *)currentModel;
+
+@end
+
 
 #pragma mark ==== 设置世界时间 ====
 @interface IDOSetV3WorldTimeItemModel:IDOBluetoothBaseModel
@@ -576,10 +604,23 @@
 */
 @property (nonatomic,copy) NSArray <IDOFutureSunriseWeatherDataItems *>* futureSunriseItems;
 /**
- 积雪厚度 0~100 单位：cm
+ 积雪厚度 0~100 单位：cm （snowDepth废弃：使用snowDepthMin和snowDepthMax代替）
  需要功能表支持：IDOGetFuncTable31BluetoothModel->v3WeatcherAddSnowDepth
  */
-@property (nonatomic,assign) NSInteger snowDepth;
+@property (nonatomic,assign) NSInteger snowDepth DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
+
+/**
+ 最小积雪厚度 0~100 单位：cm
+ 需要功能表支持：IDOGetFuncTable31BluetoothModel->v3WeatcherAddSnowDepth
+ */
+@property (nonatomic,assign) NSInteger snowDepthMin;
+
+/**
+ 最大积雪厚度 0~100 单位：cm
+ 需要功能表支持：IDOGetFuncTable31BluetoothModel->v3WeatcherAddSnowDepth
+ */
+@property (nonatomic,assign) NSInteger snowDepthMax;
+
 /**
  降雪量 0~100 单位：mm
  需要功能表支持：IDOGetFuncTable31BluetoothModel->v3WeatcherAddSnowfall
@@ -590,6 +631,33 @@
  需要功能表支持：IDOGetFuncTable31BluetoothModel->v3WeatcherAddAtmosphericpressure
  */
 @property (nonatomic,assign) NSInteger atmosphericPressure;
+
+
+// 需要功能表支持：__IDO_FUNCTABLE__.funcTable31Model.v3WeatcherSendStructVersion04
+
+/**
+ 月相
+ 0x0：无效 0x1：新月(N)  0x2：蛾眉月(WXC)  0x3：上弦月(FQ)
+ 0x4：盈凸月（WXG） 0x5：满月(F)  0x6：亏凸月(WNG)   0x7：下弦月(LQ)
+ 0x8：残月(WNC)）
+ */
+@property (nonatomic,assign) NSInteger moonPhase;
+/**
+ 月出：时
+ */
+@property (nonatomic,assign) NSInteger moonriseHour;
+/**
+ 月出：分
+ */
+@property (nonatomic,assign) NSInteger moonriseMin;
+/**
+ 月落：时
+ */
+@property (nonatomic,assign) NSInteger moonsetHour;
+/**
+ 月落：分
+ */
+@property (nonatomic,assign) NSInteger moonsetMin;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1129,6 +1197,7 @@
 /**
  * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ * Repeat collection [@(0),@(0),,@(0),@(0),,@(0),,@(0),,@(0),]
  */
 @property (nonatomic,copy)NSArray<NSNumber *> * repeat;
 /**
@@ -2183,7 +2252,7 @@
 @property (nonatomic,assign) BOOL isSync;
 
 /**
- 是否删除 | Delete
+ 是否删除 （删除或者显示） | Delete （Delete or display）
  */
 @property (nonatomic,assign) BOOL isDelete;
 
@@ -2191,6 +2260,8 @@
  类型 | Type
  0：起床， 1：睡觉， 2：锻炼， 3：吃药， 4：约会， 5：聚会， 6:会议，7：其他
  8：吃饭， 9：刷牙，10 :休息  11 : 课程  12: 洗澡  13:学习 14: 玩耍  42：自定义名称
+ 0: Get up, 1: Sleep, 2: Exercise, 3: Take medicine, 4: Date, 5: Party, 6: Meeting, 7: Other
+ 8: Eat, 9: Brush your teeth, 10: Rest 11: Lesson 12: Shower 13: Learning 14: Play 42: Custom Name
  */
 @property (nonatomic,assign) NSInteger type;
 /**
@@ -2207,7 +2278,7 @@
  */
 @property (nonatomic,copy)NSArray<NSNumber *> * repeat;
 /**
- 贪睡时长 | Sleepy time
+ 贪睡时长 （使用延时分钟代替） | Sleepy time （Use delay minutes instead）
  */
 @property (nonatomic,assign) NSInteger tsnoozeDuration;
 /**
@@ -2220,7 +2291,8 @@
 @property (nonatomic,copy) NSString * setTimeStamp DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 
 /**
- 重复闹铃次数 重复闹几次
+ 重复闹铃次数 重复闹几次，延时开关,设置成0就是关，设置成数字就是重复几次
+ Repeat the alarm for several times. Set the delay switch to 0 to turn off, and set it to a number to repeat several times
  */
 @property (nonatomic,assign) NSInteger repeatTime;
 
@@ -2230,8 +2302,8 @@
  */
 @property (nonatomic,assign) BOOL shockOnOff;
 /**
- 延时分钟
- delay minute
+ 延时分钟 （贪睡时长也使用这个字段）, 若要关闭，则 repeatTime = 0.
+ delay minutes (this field is also used for snooze duration)，To close, repeatTime=0
  */
 @property (nonatomic,assign) NSInteger delayMinute;
 /**

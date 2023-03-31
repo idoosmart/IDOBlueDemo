@@ -195,6 +195,16 @@
  */
 @property (nonatomic,assign) NSInteger swimVersion;
 
+/**
+ 总游泳时长  (单位:s),  若是0，有可能是固件不支持 | Total swimming time (unit:s) ，If it is 0, it is possible that the firmware does not support it
+ */
+@property (nonatomic,assign) NSInteger totalDuration;
+
+/**
+ 总休息时长 (单位:s) ，若是0，有可能是固件不支持  | Total rest time (unit:s)，If it is 0, it is possible that the firmware does not support it
+ */
+@property (nonatomic,assign) NSInteger totalRestTime;
+
 @end
 
 
@@ -224,6 +234,12 @@
  * @param macAddr  mac地址 | Mac address
  */
 + (NSArray <IDOSyncSwimmingDataInfoBluetoothModel *>*)queryAllSwimDataWithMacAddr:(NSString *)macAddr;
+
+/**
+ * 将json数据转模型数据 | Convert json data to model data
+ * @param jsonString  数据
+ */
++(IDOSyncSwimmingDataInfoBluetoothModel*)swimmingDataJsonStringToObjectModel:(NSString*)jsonString;
 
 @end
 

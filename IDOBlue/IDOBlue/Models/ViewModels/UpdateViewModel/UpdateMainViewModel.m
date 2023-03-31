@@ -18,6 +18,7 @@
 #import "UpateContactViewModel.h"
 #import "ScanViewController.h"
 #import "UpdateFileViewModel.h"
+#import "UpdateEPOViewModel.h"
 
 @interface UpdateMainViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -65,7 +66,7 @@
                           @[lang(@"apollo update")],@[lang(@"word update")],
                           @[lang(@"agps update")],@[lang(@"file update")],@[lang(@"contact update")],
                           @[lang(@"photo update")],@[lang(@"update message icon")],
-                          @[lang(@"update sport icon")]];
+                          @[lang(@"update sport icon")],@[lang(@"EPO update")]];
     }
     return _buttonTitles;
 }
@@ -77,7 +78,7 @@
                          [UpdateFirmwareViewModel class],[UpdateFirmwareViewModel class],
                          [UpdateAgpsViewModel class],[UpdateFileViewModel class],[UpateContactViewModel class],
                          [UpdatePhotoViewModel class],[UpdateMessageIconViewModel class],
-                         [UpdateSportIconViewModel class]];
+                         [UpdateSportIconViewModel class],[UpdateEPOViewModel class]];
     }
     return _modelClasss;
 }

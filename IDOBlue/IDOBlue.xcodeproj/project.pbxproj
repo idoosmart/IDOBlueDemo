@@ -231,6 +231,7 @@
 		B051AE2928E6CB2000F86165 /* sendBindDeviceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B051AE2828E6CB2000F86165 /* sendBindDeviceViewModel.m */; };
 		B051AE2C28E6CB3800F86165 /* sendScalesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B051AE2B28E6CB3800F86165 /* sendScalesViewModel.m */; };
 		B06377CE2934B47900B86959 /* UpdateFileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B06377CD2934B47900B86959 /* UpdateFileViewModel.m */; };
+		B0763FB029D689C800F47B01 /* UpdateEPOViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0763FAE29D689C800F47B01 /* UpdateEPOViewModel.m */; };
 		B0C8F990274B3078009BA60D /* IDODemoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F7C3274B3077009BA60D /* IDODemoUtility.m */; };
 		B0C8F991274B3078009BA60D /* UINavigationItem+Button.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F7C5274B3077009BA60D /* UINavigationItem+Button.m */; };
 		B0C8F992274B3078009BA60D /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F7C8274B3077009BA60D /* UIScrollView+Refresh.m */; };
@@ -733,6 +734,8 @@
 		B051AE2B28E6CB3800F86165 /* sendScalesViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sendScalesViewModel.m; sourceTree = "<group>"; };
 		B06377CC2934B47900B86959 /* UpdateFileViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateFileViewModel.h; sourceTree = "<group>"; };
 		B06377CD2934B47900B86959 /* UpdateFileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateFileViewModel.m; sourceTree = "<group>"; };
+		B0763FAE29D689C800F47B01 /* UpdateEPOViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateEPOViewModel.m; sourceTree = "<group>"; };
+		B0763FAF29D689C800F47B01 /* UpdateEPOViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateEPOViewModel.h; sourceTree = "<group>"; };
 		B0C8F7C2274B3077009BA60D /* IDODemoUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDODemoUtility.h; sourceTree = "<group>"; };
 		B0C8F7C3274B3077009BA60D /* IDODemoUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDODemoUtility.m; sourceTree = "<group>"; };
 		B0C8F7C5274B3077009BA60D /* UINavigationItem+Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Button.m"; sourceTree = "<group>"; };
@@ -1251,10 +1254,10 @@
 		9BBFAA5528168E8F00DC7671 /* SyncViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9BBFAA5728168E8F00DC7671 /* SyncViewModel.m */,
 				9BBFAA5A28168E8F00DC7671 /* SyncAllViewModel.h */,
-				9BBFAA5D28168E8F00DC7671 /* SyncViewModel.h */,
 				9BBFAA5F28168E8F00DC7671 /* SyncAllViewModel.m */,
+				9BBFAA5D28168E8F00DC7671 /* SyncViewModel.h */,
+				9BBFAA5728168E8F00DC7671 /* SyncViewModel.m */,
 			);
 			path = SyncViewModel;
 			sourceTree = "<group>";
@@ -1367,6 +1370,8 @@
 		9BBFAABC28168E8F00DC7671 /* UpdateViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B0763FAF29D689C800F47B01 /* UpdateEPOViewModel.h */,
+				B0763FAE29D689C800F47B01 /* UpdateEPOViewModel.m */,
 				B06377CC2934B47900B86959 /* UpdateFileViewModel.h */,
 				B06377CD2934B47900B86959 /* UpdateFileViewModel.m */,
 				9BBFAABE28168E8F00DC7671 /* FileViewModel.h */,
@@ -2072,6 +2077,7 @@
 				9BBFAB4028168E9000DC7671 /* SetGpsInfoViewModel.m in Sources */,
 				9BBFAB6628168E9000DC7671 /* SetUserNameViewModel.m in Sources */,
 				9B0F6922286AEEF800E8BE11 /* QueryActivityViewModel.m in Sources */,
+				B0763FB029D689C800F47B01 /* UpdateEPOViewModel.m in Sources */,
 				9BBFAB3928168E9000DC7671 /* SetSyncContactViewModel.m in Sources */,
 				9BBFAB4128168E9000DC7671 /* SetV3ScheduleRemindItemViewModel.m in Sources */,
 			);
@@ -2215,7 +2221,7 @@
 				CODE_SIGN_ENTITLEMENTS = IDOBlue/IDOBlue.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T65EE75V48;
+				DEVELOPMENT_TEAM = U9X35LMN5B;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

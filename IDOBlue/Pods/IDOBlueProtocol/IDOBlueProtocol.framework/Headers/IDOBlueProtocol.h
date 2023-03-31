@@ -75,3 +75,5 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOStatisticsManager.h>
 #import <IDOBlueProtocol/IDOSportPlanManager.h>
 #import <IDOBlueProtocol/IDOPeripheralsManager.h>
+
+#import <IDOBlueProtocol/IDOSyncHRVDataModel.h>

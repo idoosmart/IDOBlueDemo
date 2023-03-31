@@ -43,15 +43,16 @@ typedef NS_ENUM(NSInteger,IDO_SPORT_TYPE) {
      */
       IDO_SPORT_TYPE_BADMINTON=7,
      /**
-     *其他
+     *其他（自由锻炼 | Free exercise）
+      __IDO_FUNCTABLE__.funcTable37Model.set100SportSort，若支持一百种运动，使用IDO_SPORT_TYPE_FREE_TRAINING=100,
      */
       IDO_SPORT_TYPE_OTHER=8,
      /**
-     *健身
+     *健身 | workout
      */
       IDO_SPORT_TYPE_FITNESS=9,
      /**
-     *动感单车
+     *动感单车 | Dynamic bicycle
      */
       IDO_SPORT_TYPE_DYNAMIC=10,
      /**
@@ -219,6 +220,7 @@ typedef NS_ENUM(NSInteger,IDO_SPORT_TYPE) {
     //********基础运动*******************
      /**
      *自由训练
+     __IDO_FUNCTABLE__.funcTable37Model.set100SportSort，支持一百种运动，若不支持，则使用IDO_SPORT_TYPE_OTHER=8,
      */
       IDO_SPORT_TYPE_FREE_TRAINING=100,
      /**
@@ -563,6 +565,10 @@ typedef NS_ENUM(NSInteger,IDO_SPORT_TYPE) {
     *山地骑行 | Mountain biking
     */
      IDO_SPORT_TYPE_MOUNTAIN_BIKING=201,
+    /**
+    *沙滩网球 | Beach tennis
+    */
+     IDO_SPORT_TYPE_BEACH_TENNIS=202,
  };
 
 typedef NS_ENUM(NSInteger,IDO_SPORT_PAR_TYPE) {
@@ -894,4 +900,32 @@ typedef NS_ENUM(NSInteger,IDO_LISTEN_TYPE) {
     IDO_LISTEN_TYPE_GPS_ABNORMAL_STARTING_SPORT = 47,
     
 };
+
+//自定义数据类型 | Custom data type
+typedef NS_ENUM(NSInteger,IDO_CUSTOMDATA_TYPE) {
+    IDO_CUSTOMDATA_TYPE_TARGET_STEPS = 0,//目标步数
+    IDO_CUSTOMDATA_TYPE_STEPS   = 1,//步数 | steps
+    IDO_CUSTOMDATA_TYPE_CALORIE = 2,//卡路里 | CALORIE
+    IDO_CUSTOMDATA_TYPE_DISTANCE = 3,//距离 | DISTANCE
+    IDO_CUSTOMDATA_TYPE_ELEC = 7,//电量 | quantity of electricity
+    IDO_CUSTOMDATA_TYPE_TODAY_DURATION = 8,//当天时长 | Duration of today
+    IDO_CUSTOMDATA_TYPE_ACTIVE_DURATION = 9,//活跃时长| Active duration
+    IDO_CUSTOMDATA_TYPE_MOTION_STEPS = 16,//运动中步数 | Number of steps in motion
+    IDO_CUSTOMDATA_TYPE_MOTION_HR = 17,//运动中心率 | Number of HR in motion
+    IDO_CUSTOMDATA_TYPE_MOTION_PACE = 18,//运动中配速 | Number of pace in motion
+    IDO_CUSTOMDATA_TYPE_MOTION_DISTANCE = 19,//运动中距离 | Number of DISTANCE in motion
+    IDO_CUSTOMDATA_TYPE_MOTION_CALORIE = 20,//运动中卡路里 | Number of CALORIE in motion
+    IDO_CUSTOMDATA_TYPE_MOTION_AVG_PACE = 21,//运动中平均配速 | Number of Average pace in motion
+    IDO_CUSTOMDATA_TYPE_DEEP_SLEEP_DURATION = 22,//深度睡眠时长 | Duration of deep sleep
+    IDO_CUSTOMDATA_TYPE_LIGHT_SLEEP_DURATION = 23,//浅度睡眠时长 | Duration of light sleep
+    IDO_CUSTOMDATA_TYPE_AWAKENING_DURATION = 24,//清醒时长 | Duration of Awakening
+    IDO_CUSTOMDATA_TYPE_EYE_MOVE = 25,//快速眼动 | Rapid eye movement
+    IDO_CUSTOMDATA_TYPE_PRESSURE_VALUE_SETTING = 32,//压力值设置 | Pressure value setting
+    IDO_CUSTOMDATA_TYPE_PRESSURE_VALUE_Eixt = 33,//压力值退出 | Pressure value Eixt
+    IDO_CUSTOMDATA_TYPE_PRESSURE_VALUE_TOOHIGH = 34,//压力值退出 | Pressure value too high
+    
+    IDO_CUSTOMDATA_TYPE_START_OPEN = 99,//自定义指令开关（进入页面的时候可以发送一次） | Custom command switch (can be sent once when entering the page)
+
+};
+
 #endif /* IDOSportTypeEnum_h */

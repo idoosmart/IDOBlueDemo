@@ -1565,6 +1565,20 @@ error flag
  通知支持 Yahoo 功能
  */
 @property (nonatomic,assign) BOOL yahoo;
+
+/**
+ 定向越野
+ */
+@property (nonatomic,assign) BOOL orienteering;
+/**
+ 山地骑行
+ */
+@property (nonatomic,assign) BOOL mountainBiking;
+/**
+ 沙滩网球
+ */
+@property (nonatomic,assign) BOOL beachTennis;
+
 /**
  gto1pro 固件支持app获取联系人本地文件修改时间或者上传全部通讯录联系人
  */
@@ -1789,7 +1803,30 @@ error flag
  支持v3天气协议下发大气压强
  */
 @property (nonatomic,assign) BOOL v3WeatcherAddAtmosphericpressure;
+/**
+ 支持v3天气协议下发协议版本0x4版本
+ v3天气包含月相
+ */
+@property (nonatomic,assign) BOOL v3WeatcherSendStructVersion04;
 
+/**
+ 支持多运动数据同步及交互支持获取3d距离、平均3d速度、平均垂直速度数据
+ */
+@property (nonatomic,assign) BOOL supportActivityData3dDistanceSpeed;
+
+/**
+ 支持多运动数据同步及交互支持获取海拔高度相关信息数据
+ */
+@property (nonatomic,assign) BOOL supportActivityDataAltitudeInfo;
+
+/**
+ 支持多运动数据同步及交互支持获取平均坡度数据
+ */
+@property (nonatomic,assign) BOOL supportActivityDataAvgSlope;
+/**
+ 固件支持制作表盘使用lz4压缩
+ */
+@property (nonatomic,assign) BOOL supportDailCompressModelz4;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2016,6 +2053,49 @@ error flag
  支持v3常用联系人设置回复结构体使用协议版本号0x10
  */
 @property (nonatomic,assign) BOOL supportV3SetContactVersion;
+
+/**
+ 支持通话列表
+ */
+@property (nonatomic,assign) BOOL supportCallList;
+/**
+ 支持v3同步睡眠数据睡眠阶段的心率平均值有效
+ */
+@property (nonatomic,assign) BOOL supportV3SleepAvgHr;
+
+/**
+ 同步v3多运动活动数据结束时间原字段(end_month&end_day&end_hour&end_minute)收回,使用时间戳点形式上报app
+ */
+@property (nonatomic,assign) BOOL v3ActivityEndTimeUseUtc;
+
+/**
+ 支持控制设备重启蓝牙
+ */
+@property (nonatomic,assign) BOOL reseDeviceBluetooth;
+
+/**
+ 支持文件传输(d108&d101)中文件类型字段使用新的code对应不同的传输文件
+ */
+@property (nonatomic,assign) BOOL dataTypeUseNewCode;
+/**
+ 功能表开启后,科学睡眠开关默认下发关闭 IDW13-PLUS新增需求
+ */
+@property (nonatomic,assign) BOOL scientificSleepSwitchOffByDefault;
+/**
+ 功能表开启后,心率开关默认下发关闭 IDW13-PLUS新增需求
+ */
+@property (nonatomic,assign) BOOL heartRateOffByDefault;
+
+/**
+ 功能表开启后,女性经期不支持设置排卵日提醒
+ */
+@property (nonatomic,assign) BOOL notSupportSetOvulation;
+
+/**
+ 功能表开启后,室内跑步不支持获取最大摄氧量,app室内跑步不展示此数据
+ */
+@property (nonatomic,assign) BOOL notSupportIndoorRunGetVo2max;
+
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

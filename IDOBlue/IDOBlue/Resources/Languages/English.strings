@@ -1235,3 +1235,33 @@
 "The dial memory is being defragmented, please wait for %ld seconds" = "The dial memory is being defragmented, please wait for %ld seconds";
 "Update dial list" = "Update dial list";
 "Successfully transferred music, updated the latest music list information"=  "Successfully transferred music, updated the latest music list information";
+
+"set enter OTA mode" = "set enter OTA mode (0101)";
+"set enter OTA mode successfully" = "set enter OTA mode (0101) successfully";
+"set enter OTA mode failed" = "set enter OTA mode (0101) failed";
+
+"get level 3 version info" = "get level 3 version info";
+"get level 3 version info successfully" = "get level 3 version info successfully";
+"get level 3 version info failed" = "get level 3 version info failed";
+
+"Select Picture" = "Select Picture";
+"The setting of this location is not supported" = "The setting of this location is not supported";
+"widgets Type" = "widgets Type";
+
+"To use the frequent contacts, you have to obtain the permission to access your phone’s contacts. Go to the phone’s \"Settings > Privacy > Contacts\" to enable the permission." = "To use the frequent contacts, you have to obtain the permission to access your phone’s contacts. Go to the phone’s \"Settings > Privacy > Contacts\" to enable the permission.";
+"The phonebook data has been synchronized" = "The phonebook data has been synchronized";
+"Address book data is empty" = "Address book data is empty";
+
+
+"EPO update" = "EPO update";
+"Un support EPO update" = "Un support EPO update";
+"make EPO file (3->1)" = "make EPO file (3->1)";
+"make EPO successfully" = "make EPO successfully";
+"make EPO failed" = "make EPO failed";
+"downloading" = "downloading...";
+"download successfully" = "download successfully";
+"download failed" = "download failed";
+"download EPO file" = "download EPO file";
+"EPO files cannot be operated during this time period" = "EPO files cannot be operated during this time period";
+"background color" = "background color";
+"get background color" = "get background color";

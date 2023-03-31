@@ -459,5 +459,11 @@
  */
 + (NSArray <IDOSyncSecHrDataInfoBluetoothModel *>*)queryAllContractedSecHearRatesWithMac:(NSString *)macAddr;
 
+/**
+ * 将json数据转模型数据 | Convert json data to model data
+ * @param jsonString  数据
+ */
++(IDOSyncSecHrDataInfoBluetoothModel*)hearRateSecondDataJsonStringToObjectModel:(NSString*)jsonString;
+
 @end
 

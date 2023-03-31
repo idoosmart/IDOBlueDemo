@@ -191,54 +191,72 @@
             [funcVC showToastWithText:lang(@"sync data failed")];
         }).addSyncSwim(^(NSString * jsonStr){
             //this command is only used for debugging
+            IDOSyncSwimmingDataInfoBluetoothModel*swimmodel = [IDOSyncSwimDataModel swimmingDataJsonStringToObjectModel:jsonStr];
+            
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncHeartRate(^(NSString * jsonStr){
             //this command is only used for debugging
+            IDOSyncSecHrDataInfoBluetoothModel *hrDatamodel = [IDOSyncHeartRateDataModel hearRateSecondDataJsonStringToObjectModel:jsonStr];
+
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncBloodOxygen(^(NSString * jsonStr){
             //this command is only used for debugging
+            IDOSyncBloodOxygenDataInfoBluetoothModel*boxmodel = [IDOSyncSpo2DataModel bloodOxygenDataJsonStringToObjectModel:jsonStr];
+            
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncBp(^(NSString * jsonStr){
             //this command is only used for debugging
+            IDOSyncV3BpDataModel*bpmodel = [IDOSyncV3BpDataModel v3BloodbPressureDataJsonStringToObjectModel:jsonStr];
+            
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncSleep(^(NSString * jsonStr){
             //this command is only used for debugging
+            IDOSyncV3SleepDataInfoBluetoothModel*sleepmodel = [IDOSyncV3SleepDataModel v3SleepDataJsonStringToObjectModel:jsonStr];
+            
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncGps(^(NSString * jsonStr){
             //this command is only used for debugging
+            IDOSyncV3GpsDataInfoBluetoothModel*gpsmodel = [IDOSyncV3GpsDataModel v3GpsDataJsonStringToObjectModel:jsonStr];
+
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncSport(^(NSString * jsonStr){
             //this command is only used for debugging
+            IDOSyncV3SportDataInfoBluetoothModel*sportmodel = [IDOSyncV3SportDataModel v3SportDataJsonStringToObjectModel:jsonStr];
+            
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncPressure(^(NSString * jsonStr){
             //this command is only used for debugging
+            IDOSyncPressureDataInfoBluetoothModel*pressuremodel = [IDOSyncPressureDataModel pressureDataJsonStringToObjectModel:jsonStr];
+            
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
         }).addSyncActivity(^(NSString * jsonStr){
             //this command is only used for debugging
+            IDOSyncV3ActivityDataInfoBluetoothModel*activitymodel = [IDOSyncV3ActivityDataModel v3ActivityDataJsonStringToObjectModel:jsonStr];
+            
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
@@ -249,7 +267,7 @@
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
             model.data = @[newLogStr?:@""];
             strongSelf.textView.text = newLogStr;
-        }).mandatorySyncConfig(self.firstBind); //第一次绑定时设置YES,其他时候设置为No
+        }).mandatorySyncConfig(initSyncManager().isNeedSyncConfig); //第一次绑定时设置YES,其他时候设置为No
         [IDOSyncManager startSync];
     };
 }

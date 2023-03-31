@@ -1258,3 +1258,35 @@
 "The dial memory is being defragmented, please wait for %ld seconds" = "表盘内存碎片整理中，请的等待%ld秒";
 "Update dial list" = "更新表盘列表";
 "Successfully transferred music, updated the latest music list information"=  "传输音乐成功，更新最新音乐列表信息";
+
+
+"set enter OTA mode" = "进入OTA模式(0101)";
+"set enter OTA mode successfully" = "进入OTA模式(0101)成功";
+"set enter OTA mode failed" = "进入OTA模式(0101)失败";
+
+"get level 3 version info" = "获取三级版本号";
+"get level 3 version info successfully" = "获取三级版本号成功";
+"get level 3 version info failed" = "获取三级版本号失败";
+
+"Select Picture" = "选择图片";
+"The setting of this location is not supported" = "不支持这个位置的设置";
+
+
+"widgets Type" = "小部件类型";
+"To use the frequent contacts, you have to obtain the permission to access your phone’s contacts. Go to the phone’s \"Settings > Privacy > Contacts\" to enable the permission." = "使用常用联系人功能，需要获取手机通讯录权限前往手机系统“设置>隐私>通讯录”打开权限";
+"The phonebook data has been synchronized" = "电话本数据已经同步过了";
+
+"Address book data is empty" = "通讯录数据为空";
+
+"EPO update" = "EPO升级";
+"Un support EPO update" = "不支持EPO升级";
+"make EPO file (3->1)" = "制作EPO文件 (3合1)";
+"make EPO successfully" = "制作EPO文件成功";
+"make EPO failed" = "制作EPO文件失败";
+"downloading" = "下载中...";
+"download successfully" = "下载成功";
+"download EPO file" = "下载EPO文件";
+"download failed" = "下载失败";
+"EPO files cannot be operated during this time period" = "这个时间段不能操作EPO文件";
+"background color" = "背景颜色";
+"get background color" = "获取背景颜色";

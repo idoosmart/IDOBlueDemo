@@ -350,22 +350,27 @@ typedef NS_ENUM(NSInteger, IDO_WANT_TO_SYNC_ITEM_TYPE)  {
      * 同步配置
      * sync config
      */
-    IDO_WANT_TO_SYNC_CONFIG_ITEM_TYPE = 1 << 0,
+    IDO_WANT_TO_SYNC_CONFIG_ITEM_TYPE = 1 << 0,//value = 1
     /*
      * 同步健康
      * sync health
      */
-    IDO_WANT_TO_SYNC_HEALTH_ITEM_TYPE = 1 << 1,
+    IDO_WANT_TO_SYNC_HEALTH_ITEM_TYPE = 1 << 1,//value = 2
     /*
      * 同步活动
      * sync activity
      */
-    IDO_WANT_TO_SYNC_ACTIVITY_ITEM_TYPE = 1 << 2,
+    IDO_WANT_TO_SYNC_ACTIVITY_ITEM_TYPE = 1 << 2,//value =4
     /*
      * 同步 GPS
      * sync gps
      */
-    IDO_WANT_TO_SYNC_GPS_ITEM_TYPE = 1 << 3
+    IDO_WANT_TO_SYNC_GPS_ITEM_TYPE = 1 << 3,// value = 8
+    /*
+     * 同步全部数据
+     * sync all
+     */
+    IDO_WANT_TO_SYNC_ALL_ITEM_TYPE = 15
 };
 
 #endif /* IDOSyncEnum_h */

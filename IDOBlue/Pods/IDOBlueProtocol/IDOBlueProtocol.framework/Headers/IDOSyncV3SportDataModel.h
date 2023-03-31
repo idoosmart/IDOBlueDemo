@@ -237,5 +237,10 @@
  */
 + (NSArray <IDOSyncV3SportDataInfoBluetoothModel *>*)queryAllV3ContractedSportsWithMac:(NSString *)macAddr;
 
+/**
+ * 将json数据转模型数据 | Convert json data to model data
+ * @param jsonString  数据
+ */
++(IDOSyncV3SportDataInfoBluetoothModel*)v3SportDataJsonStringToObjectModel:(NSString*)jsonString;
 
 @end

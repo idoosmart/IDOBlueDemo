@@ -78,85 +78,112 @@
 /**
  * 同步健康心率数据回调
  * Synchronize healthy heart rate data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncSecHrDataInfoBluetoothModel*hrmodel = [IDOSyncHeartRateDataModel hearRateSecondDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncHeartRate)(void(^ _Nullable heartRateDataCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步健康睡眠数据回调
  * Synchronize healthy sleep data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncV3SleepDataInfoBluetoothModel*sleepmodel = [IDOSyncV3SleepDataModel v3SleepDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncSleep)(void(^ _Nullable sleepDataCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步健康步数数据回调
  * Synchronize health step data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncV3SportDataInfoBluetoothModel*sportmodel = [IDOSyncV3SportDataModel v3SportDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncSport)(void(^ _Nullable sportDataCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步健康血压数据回调
  * Synchronize healthy blood pressure data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncV3BpDataModel*bpmodel = [IDOSyncV3BpDataModel v3BloodbPressureDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncBp)(void(^ _Nullable bpDataCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步活动数据回调
  * Synchronize active data callbacks
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncV3ActivityDataInfoBluetoothModel*activitymodel = [IDOSyncV3ActivityDataModel v3ActivityDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncActivity)(void(^ _Nullable activityDataCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步gps数据回调
  * Synchronize GPS data callbacks
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncV3GpsDataInfoBluetoothModel*gpsmodel = [IDOSyncV3GpsDataModel v3GpsDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncGps)(void(^ _Nullable gpsDataCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步游泳数据回调
  * Synchronize swim data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncSwimmingDataInfoBluetoothModel*swimmodel = [IDOSyncSwimDataModel swimmingDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncSwim)(void(^ _Nullable swimCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步健康血氧数据回调
  * Synchronize healthy blood oxygen data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncBloodOxygenDataInfoBluetoothModel*boxmodel = [IDOSyncSpo2DataModel bloodOxygenDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncBloodOxygen)(void(^ _Nullable bloodOxygenDataCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步健康噪音数据回调
  * Synchronize healthy noise data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncNoiseBluetoothDataModel*noisemodel = [IDOSyncNoiseDataModel noiseDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncNoise)(void(^ _Nullable noiseDataCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步健康体温数据回调
  * Synchronize healthy temperature data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncTemperatureBluetoothDataModel*tempmodel = [IDOSyncTemperatureDataModel temperatureDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncTemperature)(void(^ _Nullable temperatureDataCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步压力数据回调
  * Synchronize pressure data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncPressureDataInfoBluetoothModel*pressuremodel = [IDOSyncPressureDataModel pressureDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncPressure)(void(^ _Nullable pressureCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步呼吸率数据回调
  * Synchronize respir rate data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncBreathRateDataModel*respirmodel = [IDOSyncBreathRateDataModel breathRateDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncRespirRate)(void(^ _Nullable respirRateCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步身体电量数据回调
  * Synchronize body power data callback
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncBodyPowerDataModel*bodypowermodel = [IDOSyncBodyPowerDataModel bodyPowerDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncBodyPower)(void(^ _Nullable bodyPowerCallback)(NSString * _Nullable jsonStr));
 
 /**
  * 同步hrv数据回调
- * Synchronize hrv data callback
  * 功能表 | function Table : __IDO_FUNCTABLE__.funcTable29Model.supportHrv
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncHRVDataModel*hrvDataModel = [IDOSyncHRVDataModel hrvDataJsonStringToObjectModel:jsonStr];
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncHrv)(void(^ _Nullable hrvCallback)(NSString * _Nullable jsonStr));
 

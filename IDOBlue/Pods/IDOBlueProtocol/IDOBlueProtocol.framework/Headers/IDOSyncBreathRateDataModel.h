@@ -108,5 +108,11 @@
  */
 + (NSArray <IDOSyncBreathRateDataModel *>*)queryAllBreathRateWithMac:(NSString *)macAddr;
 
+/**
+ * 将json数据转模型数据 | Convert json data to model data
+ * @param jsonString  数据
+ */
++(IDOSyncBreathRateDataModel*)breathRateDataJsonStringToObjectModel:(NSString*)jsonString;
+
 @end
 

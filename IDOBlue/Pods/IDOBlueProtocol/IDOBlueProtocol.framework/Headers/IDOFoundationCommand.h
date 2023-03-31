@@ -69,6 +69,18 @@
                        callback:(void(^_Nullable)(int errorCode,int state))callback;
 
 /**
+ * 发送自定义数据
+ */
++ (void)sendCustomDataInformation:(NSData*_Nullable)data;
+
+/**
+ * @brief 发送自定义数据
+ * @param dataType 类型
+ * @param value 数值
+ */
++ (void)sendCustomDataInfoType:(IDO_CUSTOMDATA_TYPE)dataType dataValue:(int)value;
+
+/**
  * 发送提示消息 （只用于DH项目中） | Send prompt message （used only for DH）
  */
 + (void)sendPromptInformation:(NSString*_Nullable)info;
@@ -233,10 +245,13 @@
 
 /**
  * @brief 控制设备重启(重启设备后手环会马上断线) | Control device restart （The bracelet disconnects immediately after restarting the device）
+ * @param model | reboot model
  * @param callback 执行后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Post-execution callback (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ * state 0x00:重启成功 0x02: 失败：设备不支持  | 0x00: success; 0x02: Failed: device does not support
  */
-+ (void)setAppRebootCommand:(void(^_Nullable)(int errorCode))callback;
++ (void)setAppRebootCommand:(IDOSetRebootModel*_Nullable)model
+                   callback:(void(^_Nullable)(int state, int errorCode))callback;
 
 /**
  * @brief 控制设备恢复出厂设置  | Control device restore factory
@@ -1205,6 +1220,16 @@
                      callback:(void (^ _Nullable)(int errorCode))callback;
 
 /**
+ * @brief //设置通话紧急联系人
+ * @param contactModel //设置通话紧急联系人
+ * Function table(功能表)：__IDO_FUNCTABLE__.funcTable29Model.supportV3SetEmergencyConnact
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setSyncEmergencyContactCommand:(IDOSetSyncEmergencyContactModel *_Nullable)contactModel
+                     callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
  * @brief //设置通话常用联系人（数据量比较大）
  * @param contactModel //设置通话常用联系人
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
@@ -1644,6 +1669,14 @@
  * callback data (IDOSetSyncContactModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)getContactDataCommand:(void (^_Nullable)(int errorCode, IDOSetSyncContactModel * _Nullable data))callback;
+
+/**
+ * @brief 获取紧急联系人
+ * Function table(功能表)：__IDO_FUNCTABLE__.funcTable29Model.supportV3SetEmergencyConnact
+ * @param callback 执行后回调 data (IDOSetSyncContactModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOSetSyncContactModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getEmergencyContactDataCommand:(void (^_Nullable)(int errorCode, IDOSetSyncEmergencyContactModel * _Nullable data))callback;
 
 /**
  * @brief 获取第三方应用的通知状态

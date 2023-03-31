@@ -538,3 +538,13 @@ Last charging time second
 @property (nonatomic,copy) NSArray <IDOSetAllContactItemModel *>* items;
 
 @end
+
+#pragma mark ==== 重启 ====
+@interface IDOSetRebootModel:IDOBluetoothBaseModel
+/*
+ 0x00:默认 整个设备重启
+ 0x01:设备蓝牙重启 需要功能表支持(__IDO_FUNCTABLE__.funcTable29Model.reseDeviceBluetooth)
+ */
+@property (nonatomic,assign) NSInteger type;
+
+@end

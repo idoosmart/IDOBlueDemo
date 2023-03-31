@@ -116,5 +116,10 @@
  */
 + (BOOL)queryActivityHasCoordinatesWithTimeStr:(NSString *)timeStr
                                        macAddr:(NSString *)macAddr;
+/**
+ * 将json数据转模型数据 | Convert json data to model data
+ * @param jsonString  数据
+ */
++(IDOSyncV3GpsDataInfoBluetoothModel*)v3GpsDataJsonStringToObjectModel:(NSString*)jsonString;
 
 @end

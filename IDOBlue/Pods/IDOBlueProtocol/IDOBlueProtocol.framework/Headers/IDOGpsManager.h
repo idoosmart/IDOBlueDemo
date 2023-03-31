@@ -7,14 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-
+typedef enum : NSUInteger {
+    IDOGpsUpgradeTypeFail,  //失败
+    IDOGpsUpgradeTypeSucc,  //成功
+    IDOGpsUpgradeTypeUnSupport,  //不支持此功能
+} IDOGpsUpgradeType;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOGpsManager : NSObject
 
++ (IDOGpsManager *)shareInstance;
 
 /**
- * 制作GPS文件
+ * 制作EPO文件（AGPS） （三合一）| Make GPS（AGPS） files (three in one)
  * filePath:  素材路径, 也是输出文件的路径
  *
  * 制作成功后的文件名是：EPO.DAT
@@ -24,6 +29,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 + (NSString *)getMakeGpsZipFileWithFilePath:(NSString *)filePath;
+
+/** 功能表（functable）：__IDO_FUNCTABLE__.funcTable34Model.supportAirohaGpsChip
+ * 下载EPO文件 | Download EPO file
+ * @param callback ( status, epoFileFolder )
+ *
+ */
+-(void)downLoadEPOFile:(void (^)(IDOGpsUpgradeType status, NSString* epoFileFolder))callback;
+
+/**
+ * 检查EPO文件是否需要更新 | Check whether the EPO file needs to be updated
+ */
+- (BOOL)startCheckoutOnlineAgpsEPOIsNeedUpdate;
+
+/**
+ * 升级完EPO文件后，需要更新一下升级的时间 | After upgrading the EPO file, you need to update the upgrade time
+ */
+- (void)updateAgpsEPOFileUpdateTimeNow;
 
 @end
 

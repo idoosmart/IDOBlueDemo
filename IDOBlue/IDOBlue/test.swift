@@ -23,7 +23,30 @@ class test: NSObject{
 //            let activity = IDO_WANT_TO_SYNC_ITEM_TYPE(rawValue:4)
 //            let gps = IDO_WANT_TO_SYNC_ITEM_TYPE(rawValue:8)
 //        let all_type = [IDO_WANT_TO_SYNC_ITEM_TYPE.CONFIG_ITEM_TYPE,IDO_WANT_TO_SYNC_ITEM_TYPE.HEALTH_ITEM_TYPE,IDO_WANT_TO_SYNC_ITEM_TYPE.ACTIVITY_ITEM_TYPE,IDO_WANT_TO_SYNC_ITEM_TYPE.GPS_ITEM_TYPE]
-        initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_ITEM_TYPE(rawValue: 15)!
+        initSyncManager().wantToSyncType = IDO_WANT_TO_SYNC_ITEM_TYPE.ALL_ITEM_TYPE
+        
+        initSyncManager().addSyncComplete!{(stateCode)in
+             //Sync complete status
+              if stateCode == .GLOBAL_COMPLETE {
+              //Query the corresponding cached data after synchronization is complete
+              }
+        }.addSyncProgess!{(type,progress)in
+             //Sync item, sync progress (0-1)
+        }.addSyncHrv!{(json)in
+            let model = IDOSyncBodyPowerDataModel.bodyPowerDataJsonString(toObjectModel: json)
+            //Sync item, sync progress (0-1)
+       }.addSyncBloodOxygen!{(json)in
+           let model = IDOSyncSpo2DataModel.bloodOxygenDataJsonString(toObjectModel: json)
+           //Sync item, sync progress (0-1)
+      }.addSyncFailed!{(errorCode)in
+             //sync failed
+        }.addSyncConfigInitData!{(type)in
+             //According to the returned synchronization type, return the initialized data model collection according to the business requirements
+             //Refer to the above objc code execution
+             return [];
+        }.mandatorySyncConfig!(true);// The binding needs to perform synchronization configuration, and subsequent reconnection does not need to perform synchronization configuration
+        
+        IDOSyncManager.startSync()
         
         
     }
