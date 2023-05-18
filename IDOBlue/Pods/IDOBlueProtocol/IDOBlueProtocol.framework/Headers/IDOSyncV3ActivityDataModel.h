@@ -542,8 +542,9 @@ max step stride
 
 /**
  * 将json数据转模型数据 | Convert json data to model data
+ * 功能表：__IDO_FUNCTABLE__.funcTable29Model.v3SyncActivity , 如果为YES，返回IDOBluetoothBaseModel的类型是IDOSyncV3ActivityDataInfoBluetoothModel ，否则返回IDOSyncActivityDataInfoBluetoothModel
  * @param jsonString  数据
  */
-+(IDOSyncV3ActivityDataInfoBluetoothModel*)v3ActivityDataJsonStringToObjectModel:(NSString*)jsonString;
++(IDOBluetoothBaseModel*)v3ActivityDataJsonStringToObjectModel:(NSString*)jsonString;
 
 @end

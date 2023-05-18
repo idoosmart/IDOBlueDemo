@@ -87,7 +87,15 @@
  * 同步健康睡眠数据回调
  * Synchronize healthy sleep data callback
  * 回调的json数据转化成model | Convert the callback json data into model
- * IDOSyncV3SleepDataInfoBluetoothModel*sleepmodel = [IDOSyncV3SleepDataModel v3SleepDataJsonStringToObjectModel:jsonStr];
+ * 功能表：__IDO_FUNCTABLE__.funcTable29Model.v3Sleep , 如果为YES，返回IDOBluetoothBaseModel的类型是IDOSyncV3SleepDataInfoBluetoothModel ，否则返回IDOSyncSleepDataInfoBluetoothModel
+ IDOBluetoothBaseModel*baseModel  = [IDOSyncV3SleepDataModel v3SleepDataJsonStringToObjectModel:jsonStr];
+ if (__IDO_FUNCTABLE__.funcTable29Model.v3Sleep) {
+     IDOSyncV3SleepDataInfoBluetoothModel*sleepmodel = baseModel;
+ }else{
+     IDOSyncSleepDataInfoBluetoothModel*sleepmodel = baseModel;
+ }
+ *
+ * 
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncSleep)(void(^ _Nullable sleepDataCallback)(NSString * _Nullable jsonStr));
 
@@ -95,7 +103,15 @@
  * 同步健康步数数据回调
  * Synchronize health step data callback
  * 回调的json数据转化成model | Convert the callback json data into model
- * IDOSyncV3SportDataInfoBluetoothModel*sportmodel = [IDOSyncV3SportDataModel v3SportDataJsonStringToObjectModel:jsonStr];
+ * 功能表：__IDO_FUNCTABLE__.funcTable30Model.v3Sports , 如果为YES，返回IDOBluetoothBaseModel的类型是IDOSyncV3SportDataInfoBluetoothModel ，否则返回IDOSyncSportDataInfoBluetoothModel
+ IDOBluetoothBaseModel*baseModel = [IDOSyncV3SportDataModel v3SportDataJsonStringToObjectModel:jsonStr];
+ if (__IDO_FUNCTABLE__.funcTable30Model.v3Sports) {
+     IDOSyncV3SportDataInfoBluetoothModel*sportmodel = (IDOSyncV3SportDataInfoBluetoothModel*)baseModel;
+
+ }else{
+     IDOSyncSportDataInfoBluetoothModel*sportmodel = (IDOSyncSportDataInfoBluetoothModel*)baseModel;
+ }
+ *
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncSport)(void(^ _Nullable sportDataCallback)(NSString * _Nullable jsonStr));
 
@@ -111,7 +127,13 @@
  * 同步活动数据回调
  * Synchronize active data callbacks
  * 回调的json数据转化成model | Convert the callback json data into model
- * IDOSyncV3ActivityDataInfoBluetoothModel*activitymodel = [IDOSyncV3ActivityDataModel v3ActivityDataJsonStringToObjectModel:jsonStr];
+ * 功能表：__IDO_FUNCTABLE__.funcTable29Model.v3SyncActivity , 如果为YES，返回IDOBluetoothBaseModel的类型是IDOSyncV3ActivityDataInfoBluetoothModel ，否则返回IDOSyncActivityDataInfoBluetoothModel
+ IDOBluetoothBaseModel*baseModel = [IDOSyncV3ActivityDataModel v3ActivityDataJsonStringToObjectModel:jsonStr];
+ if (__IDO_FUNCTABLE__.funcTable29Model.v3SyncActivity) {
+     IDOSyncV3ActivityDataInfoBluetoothModel*activitymodel = baseModel;
+ }else{
+     IDOSyncActivityDataInfoBluetoothModel*activitymodel = baseModel;
+ }
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncActivity)(void(^ _Nullable activityDataCallback)(NSString * _Nullable jsonStr));
 

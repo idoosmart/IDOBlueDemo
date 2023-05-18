@@ -355,5 +355,26 @@
  */
 @property (nonatomic,assign) NSInteger avgAltitude;
 
+/**
+ 动作完成内容
+ type : 动作类型  1快走；2慢跑; 3中速跑；4快跑
+ heart_con_value : 每个动作心率控制
+ time : 动作完成时间 单位秒
+ goal_time ：动作目标时间
+ */
+@property (nonatomic,strong) NSMutableArray<NSDictionary *> * actionData;
+
+/**
+ 训练的课程日期偏移 从0开始
+ */
+@property (nonatomic,assign) NSInteger trainingOffset;
+
+/**
+ 计划类型：
+ 0x01：跑步计划3km ，0x02：跑步计划5km ，
+ 0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
+ */
+@property (nonatomic,assign) NSInteger planType;
+
 @end
 

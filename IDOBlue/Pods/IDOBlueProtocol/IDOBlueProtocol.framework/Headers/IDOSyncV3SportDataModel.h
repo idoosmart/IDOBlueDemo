@@ -239,8 +239,9 @@
 
 /**
  * 将json数据转模型数据 | Convert json data to model data
+ * 功能表：__IDO_FUNCTABLE__.funcTable30Model.v3Sports , 如果为YES，返回IDOBluetoothBaseModel的类型是IDOSyncV3SportDataInfoBluetoothModel ，否则返回IDOSyncSportDataInfoBluetoothModel
  * @param jsonString  数据
  */
-+(IDOSyncV3SportDataInfoBluetoothModel*)v3SportDataJsonStringToObjectModel:(NSString*)jsonString;
++(IDOBluetoothBaseModel*)v3SportDataJsonStringToObjectModel:(NSString*)jsonString;
 
 @end

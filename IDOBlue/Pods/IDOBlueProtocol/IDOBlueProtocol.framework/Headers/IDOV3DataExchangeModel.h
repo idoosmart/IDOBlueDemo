@@ -326,6 +326,52 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong) NSMutableArray<NSNumber *> * realSpeeds;
 
+
+/**
+ 3d距离 单位m
+ */
+@property (nonatomic,assign) NSInteger distance3d;
+/**
+ 平均3d速度 单位km/h，PS：app收到需要 除于100，保存2位小数点。
+ */
+@property (nonatomic,assign) NSInteger avg3dSpeed;
+/**
+ 平均垂直速度 单位m/h，PS：app收到需要 除于100，保存2位小数点。
+ */
+@property (nonatomic,assign) NSInteger avgVerticalSpeed;
+/**
+ 平均坡度        单位度 0 ~ 90
+ */
+@property (nonatomic,assign) NSInteger avgSlope;
+/**
+ 最高海拔高度 单位米 -500 ~ 9000
+ */
+@property (nonatomic,assign) NSInteger maxAltitude;
+/**
+ 最低海拔高度 单位米 -500 ~ 9000
+ */
+@property (nonatomic,assign) NSInteger minAltitude;
+/**
+ 累计海拔上升 单位米
+ */
+@property (nonatomic,assign) NSInteger cumulativeAltitudeRise;
+/**
+ 累计海拔下降 单位米
+ */
+@property (nonatomic,assign) NSInteger cumulativeAltitudeLoss;
+/**
+ 海拔高度详情个数
+ */
+@property (nonatomic,assign) NSInteger altitudeCount;
+/**
+ 海拔高度数据 30s一组值 单位米 范围-500~9000 最大保存12小时
+ */
+@property (nonatomic,strong) NSArray<NSNumber *> * altitudeItems;
+/**
+ 平均海拔高度 单位米 -500 ~ 9000
+ */
+@property (nonatomic,assign) NSInteger avgAltitude;
+
 @end
 
 NS_ASSUME_NONNULL_END

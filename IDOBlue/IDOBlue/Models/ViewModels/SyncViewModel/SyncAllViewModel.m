@@ -223,7 +223,12 @@
             strongSelf.textView.text = newLogStr;
         }).addSyncSleep(^(NSString * jsonStr){
             //this command is only used for debugging
-            IDOSyncV3SleepDataInfoBluetoothModel*sleepmodel = [IDOSyncV3SleepDataModel v3SleepDataJsonStringToObjectModel:jsonStr];
+            IDOBluetoothBaseModel*baseModel  = [IDOSyncV3SleepDataModel v3SleepDataJsonStringToObjectModel:jsonStr];
+            if (__IDO_FUNCTABLE__.funcTable29Model.v3Sleep) {
+                IDOSyncV3SleepDataInfoBluetoothModel*sleepmodel = baseModel;
+            }else{
+                IDOSyncSleepDataInfoBluetoothModel*sleepmodel = baseModel;
+            }
             
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
@@ -239,7 +244,13 @@
             strongSelf.textView.text = newLogStr;
         }).addSyncSport(^(NSString * jsonStr){
             //this command is only used for debugging
-            IDOSyncV3SportDataInfoBluetoothModel*sportmodel = [IDOSyncV3SportDataModel v3SportDataJsonStringToObjectModel:jsonStr];
+            IDOBluetoothBaseModel*baseModel = [IDOSyncV3SportDataModel v3SportDataJsonStringToObjectModel:jsonStr];
+            if (__IDO_FUNCTABLE__.funcTable30Model.v3Sports) {
+                IDOSyncV3SportDataInfoBluetoothModel*sportmodel = (IDOSyncV3SportDataInfoBluetoothModel*)baseModel;
+
+            }else{
+                IDOSyncSportDataInfoBluetoothModel*sportmodel = (IDOSyncSportDataInfoBluetoothModel*)baseModel;
+            }
             
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];
@@ -255,7 +266,12 @@
             strongSelf.textView.text = newLogStr;
         }).addSyncActivity(^(NSString * jsonStr){
             //this command is only used for debugging
-            IDOSyncV3ActivityDataInfoBluetoothModel*activitymodel = [IDOSyncV3ActivityDataModel v3ActivityDataJsonStringToObjectModel:jsonStr];
+            IDOBluetoothBaseModel*baseModel = [IDOSyncV3ActivityDataModel v3ActivityDataJsonStringToObjectModel:jsonStr];
+            if (__IDO_FUNCTABLE__.funcTable29Model.v3SyncActivity) {
+                IDOSyncV3ActivityDataInfoBluetoothModel*activitymodel = baseModel;
+            }else{
+                IDOSyncActivityDataInfoBluetoothModel*activitymodel = baseModel;
+            }
             
             NSString * newLogStr = [NSString stringWithFormat:@"%@\n\n%@",strongSelf.textView.text,jsonStr];
             TextViewCellModel * model = [strongSelf.cellModels firstObject];

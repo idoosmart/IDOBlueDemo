@@ -2096,6 +2096,15 @@ error flag
  */
 @property (nonatomic,assign) BOOL notSupportIndoorRunGetVo2max;
 
+/**
+ 功能表开启后,v3同步健康游泳数据verison2结构体固件支持返回平均划水频率,app可以展示该数据
+ */
+@property (nonatomic,assign) BOOL syncHealthSwimGetAvgFrequency;
+
+/**
+ 功能表开启后,v3同步健康游泳数据verison2结构体固件支持返回平均划水频率,app可以展示该数据
+ */
+@property (nonatomic,assign) BOOL syncHealthSwimGetAvgSpeed;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
