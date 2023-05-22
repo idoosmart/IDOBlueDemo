@@ -2107,6 +2107,22 @@ error flag
 @property (nonatomic,assign) BOOL syncHealthSwimGetAvgSpeed;
 
 /**
+ 支持v3同步睡眠数据睡眠阶段的血氧平均值有效
+ */
+@property (nonatomic,assign) BOOL syncAddSleepAvgSpo2;
+
+/**
+ 针对DOUIv6版本表盘框架的动画像素进行fastlz压缩,优化固件存储大小
+ */
+@property (nonatomic,assign) BOOL supportDouiv6WatchDialAnimaCompress;
+
+/**
+ 支持v3同步睡眠数据睡眠阶段的呼吸率平均值有效
+ */
+@property (nonatomic,assign) BOOL syncAddSleepAvgRespirRate;
+
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable29BluetoothModel

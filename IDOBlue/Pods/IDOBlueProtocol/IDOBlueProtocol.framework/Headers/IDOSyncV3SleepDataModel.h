@@ -158,6 +158,15 @@
  */
 @property (nonatomic,assign) NSInteger sleepAvgHrValue;
 
+/**
+ 睡眠阶段的血氧平均值  | Mean blood oxygen during sleep
+ */
+@property (nonatomic,assign) NSInteger sleepAvgSpo2Value;
+
+/**
+ 睡眠阶段的呼吸率平均值  | Average respiratory rate during sleep phase
+ */
+@property (nonatomic,assign) NSInteger sleepAvgRespirRateValue;
 
 @end
 

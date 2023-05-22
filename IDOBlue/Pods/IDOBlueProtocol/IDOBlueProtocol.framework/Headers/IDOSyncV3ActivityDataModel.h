@@ -462,6 +462,11 @@ max step stride
  */
 @property (nonatomic,assign) NSInteger endSec;
 
+/**
+ GPS状态 0:无效 1:开启 2:未开启(未开启时展示`距离` 开启则展示`3D距离`)
+ */
+@property (nonatomic,assign) NSInteger gpsStatus;
+
 @end
 
 @interface IDOSyncV3ActivityDataModel : NSObject

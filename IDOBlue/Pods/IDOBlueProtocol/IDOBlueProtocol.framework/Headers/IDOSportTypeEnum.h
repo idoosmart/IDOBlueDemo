@@ -898,7 +898,27 @@ typedef NS_ENUM(NSInteger,IDO_LISTEN_TYPE) {
      | Firmware upgrade GPS successful
     */
     IDO_LISTEN_TYPE_GPS_ABNORMAL_STARTING_SPORT = 47,
-    
+    /**
+    * runpho外设信息更新通知
+     | Runho peripheral information update notification
+    */
+    IDO_LISTEN_TYPE_PERIPHERAL_INFO_UPDATE= 48,
+    /**
+    *固件通知app，取消BT配对
+     | Firmware notification app, cancel BT  pairing
+    */
+    IDO_LISTEN_TYPE_CANCLE_BT_PAIRING = 49,
+    /**
+    *固件通知app，BT配对成功
+     | Firmware notification app, BT pairing successful
+    */
+    IDO_LISTEN_TYPE_BT_PAIRING_SUCCESS = 50,
+    /**
+    *固件设置运动排序，通知app获取运动排序信息，及时更新App UI
+     | Firmware setting for motion sorting, notifying the app to obtain motion sorting information,
+      and updating the app UI in a timely manner
+    */
+    IDO_LISTEN_TYPE_SPORT_MODE_SORT_UPDATE = 51,
 };
 
 //自定义数据类型 | Custom data type
