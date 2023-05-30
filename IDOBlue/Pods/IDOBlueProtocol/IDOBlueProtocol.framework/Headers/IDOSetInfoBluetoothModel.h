@@ -802,11 +802,32 @@
  秒
  */
 @property (nonatomic,assign) NSInteger second;
+
+
 /**
- * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * 若支持功能表 __IDO_FUNCTABLE__.funcTable28Model.supportV3RepeatWeekTypeSeting，
+ * 则 repeat表示的是 -> 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ * example ---》[@(1),@(1),@(0),@(0),@(0),@(0),@(0)]
+ * Indicates that repeated reminders will be turned on on Monday and Tuesday, and will be turned off at other times
+ *
+ *
+ * 若支持功能表 __IDO_FUNCTABLE__.funcTable29Model.supportV3RepScheduleReminder，
+ * 则 repeat表示的是 -> (0:无效 1:仅一次 2:每天 3:每周 4:每月 5:每年）
+ * 仅一次  1 ：repeat --》 [@(1),@(0),@(0),@(0),@(0),@(0),@(0)]
+ * 每天      2 ：repeat  --》 [@(0),@(1),@(0),@(0),@(0),@(0),@(0)]
+ * 每周      3 ：repeat  --》 [@(1),@(1),@(0),@(0),@(0),@(0),@(0)]
+ * 每月      4 ：repeat  --》 [@(0),@(0),@(1),@(0),@(0),@(0),@(0)]
+ * 每年      5 ：repeat  --》 [@(1),@(0),@(1),@(0),@(0),@(0),@(0)]
+ * Then repeat represents ->(0: invalid 1: only once 2: daily 3: weekly 4: monthly 5: annually)
+ * Only once: repeat -- "[@ (1), @ (0), @ (0), @ (0), @ (0), @ (0), @ (0), @ (0)]
+ * Daily 2: repeat -- "[@ (0), @ (1), @ (0), @ (0), @ (0), @ (0), @ (0), @ (0)]
+ * Weekly 3: repeat -- "[@ (1), @ (1), @ (0), @ (0), @ (0), @ (0), @ (0), @ (0)]
+ * Monthly 4: repeat -- "[@ (0), @ (0), @ (1), @ (0), @ (0), @ (0), @ (0), @ (0)]
+ * Every year at 5: repeat - "[@ (1), @ (0), @ (1), @ (0), @ (0), @ (0), @ (0)]
  */
 @property (nonatomic,copy) NSArray<NSNumber *> * repeat;
+
 /**
  * 提醒类型 0:不提醒 2:准时 4:提前5分钟 8:提前10分钟 16:提前30分钟 32:提前1小时 64:提前1天
  */
