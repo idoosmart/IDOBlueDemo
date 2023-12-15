@@ -1350,6 +1350,25 @@
 + (void)setBodyPowerSwitchCommand:(IDOSetBodyPowerSwitchModel *_Nullable)switchModel
                          callback:(void (^ _Nullable)(int errorCode))callback;
 
+/**
+ * @brief //设置语音助手开关
+ * @param switchModel 设置语音助手开关模型
+ * 功能表： __IDO_FUNCTABLE__.funcTable35Model.supportSetVoiceAssistantStatus
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setVoiceAssistantStatusCommand:(IDOSetVoiceAssistantStatusModel *_Nullable)switchModel
+                         callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+ * @brief //APP下发alexa功能开关
+ * @param alexaAoiceFunctionStatusModel alexa功能开关
+ * 功能表： __IDO_FUNCTABLE__.funcTable39Model.supportSetAlexaFunctionOnOff
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setAlexaVoiceFunctionCommand:(IDOSetAlexaAoiceFunctionStatusModel *_Nullable)alexaAoiceFunctionStatusModel
+                            callback:(void (^_Nullable)(int errorCode))callback;
 
 #pragma mark ======= get Command =======
 
@@ -1767,6 +1786,15 @@
  */
 + (void)getSettingMaxItemsNumCommand:(void (^_Nullable)(int errorCode, IDOGetSettingMaxItemsNumBluetoothModel * _Nullable data))callback;
 
+
+/**
+ * @brief 获取到固件的算法版本号详情 | Obtain the algorithm version number details of the firmware
+ *  * 功能表 | Function Table :   __IDO_FUNCTABLE__.funcTable29Model.getV3DeviceAlgorithmVersion
+ * @param callback 执行后回调 data (IDOGetAlgVersionBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOGetAlgVersionBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getAlgVersionCommand:(void (^_Nullable)(int errorCode, IDOGetAlgVersionBluetoothModel * _Nullable data))callback;
+
 #pragma mark ======= listen Command =======
 
 /**
@@ -1977,7 +2005,7 @@
 + (void)listenStateChangeCommand:(void(^_Nullable)(int errorCode,IDOControlDataUpdateModel *_Nullable model))callback;
 
 /**
- * @brief Alexa手环状态改变 | Alexa Bracelet state change
+ * @brief Alexa手环音量变化 | Alexa Bracelet state change
  * @param callback 监听回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Listening callback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
 */

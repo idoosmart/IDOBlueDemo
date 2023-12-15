@@ -312,7 +312,7 @@
     }
     
     [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"file update")]];
-    initTransferManager().transferType = IDO_DATA_FILE_TRAN_AGPS_TYPE;
+    initTransferManager().transferType = IDO_DATA_FILE_TRAN_DIAL_TYPE;
     initTransferManager().compressionType = IDO_DATA_TRAN_COMPRESSION_NO_USE_TYPE;
     initTransferManager().fileName = @"EPO.DAT";
     initTransferManager().isSetConnectParam = YES;

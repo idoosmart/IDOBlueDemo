@@ -467,6 +467,105 @@ max step stride
  */
 @property (nonatomic,assign) NSInteger gpsStatus;
 
+
+//--------------- version=0x40新增字段 ---------------
+/**
+ 无氧训练效果 单位：无 范围： 1.0 - 5.0（扩大10倍传输）
+ */
+@property (nonatomic,assign) NSInteger anaerobicTrainingEffect;
+/**
+ 负荷 无单位
+ */
+@property (nonatomic,assign) NSInteger load;
+/**
+ 跑力指数 一位小数 x10传输
+ */
+@property (nonatomic,assign) NSInteger runningEconomy;
+/**
+ 最大跑步功率 单位瓦 0-1500W
+ */
+@property (nonatomic,assign) NSInteger maxRunningPower;
+/**
+ 最小跑步功率 单位瓦 0-1500W
+ */
+@property (nonatomic,assign) NSInteger minRunningPower;
+/**
+ 平均跑步功率 单位瓦 0-1500W
+ */
+@property (nonatomic,assign) NSInteger avgRunningPower;
+/**
+ 跑步功率详情个数
+ */
+@property (nonatomic,assign) NSInteger runningPowerCount;
+/**
+ 实时体力RTPE(real-time physical exertion)详情个数
+ */
+@property (nonatomic,assign) NSInteger rtpeCount;
+/**
+ 最大实时摄氧量
+ */
+@property (nonatomic,assign) NSInteger maxRtoc;
+/**
+ 最小实时摄氧量
+ */
+@property (nonatomic,assign) NSInteger minRtoc;
+/**
+ 平均实时摄氧量
+ */
+@property (nonatomic,assign) NSInteger avgRtoc;
+/**
+ 实时摄氧量RTOC(real-time oxygen consumption)详情个数
+ */
+@property (nonatomic,assign) NSInteger rtocCount;
+/**
+ 最快跳绳频率
+ */
+@property (nonatomic,assign) NSInteger maxRopeFrequency;
+/**
+ 最慢跳绳频率
+ */
+@property (nonatomic,assign) NSInteger minRopeFrequency;
+/**
+ 平均跳绳频率
+ */
+@property (nonatomic,assign) NSInteger avgRopeFrequency;
+/**
+ 最多跳绳连跳次数
+ */
+@property (nonatomic,assign) NSInteger maxRopeSkipCount;
+/**
+ 绊绳次数
+ */
+@property (nonatomic,assign) NSInteger ropeTripCount;
+/**
+ 总跳绳次数
+ */
+@property (nonatomic,assign) NSInteger totalRopeCount;
+/**
+ 跳绳详情个数
+ */
+@property (nonatomic,assign) NSInteger ropeItemCount;
+
+/**
+ 跑步功率详情 单位瓦 0-1500W
+ */
+@property (nonatomic,strong) NSArray<NSNumber *> * runningPowerItems;
+/**
+ 实时体力RTPE(real-time physical exertion)详情 0-100百分比
+ */
+@property (nonatomic,strong) NSArray<NSNumber *> * rtpeItems;
+/**
+ 实时摄氧量RTOC(real-time oxygen consumption)详情 0-9999 单位ml/min
+ */
+@property (nonatomic,strong) NSArray<NSNumber *> * rtocItems;
+/**
+ 跳绳详情
+ 每次连跳次数:  rope_skip_count;
+ 时长 单位秒: duration;
+ */
+@property (nonatomic,strong) NSArray<NSDictionary *> * ropeItems;
+
+
 @end
 
 @interface IDOSyncV3ActivityDataModel : NSObject

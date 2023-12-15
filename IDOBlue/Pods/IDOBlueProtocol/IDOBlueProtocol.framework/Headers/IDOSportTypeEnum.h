@@ -919,6 +919,21 @@ typedef NS_ENUM(NSInteger,IDO_LISTEN_TYPE) {
       and updating the app UI in a timely manner
     */
     IDO_LISTEN_TYPE_SPORT_MODE_SORT_UPDATE = 51,
+    /**
+    *固件全天步数目标参数有更改,通知app获取全天步数目标
+     | The firmware all day step target parameter has been changed, notify the app to obtain the all day step target
+    */
+    IDO_LISTEN_TYPE_All_DAY_STEP_TARGET_UPDATE = 52,
+    /**
+    *固件通知app固件进入血压校准界面
+     | Firmware notification app firmware enters the blood pressure calibration interface
+    */
+    IDO_LISTEN_TYPE_NEED_ENTER_BLOOD_PRESSURE_CALIBRATION = 53,
+    /**
+    *固件自动识别开关状态更新,通知app获取运动自动识别开关状态
+     | Firmware automatic recognition switch status update, notify app to obtain motion automatic recognition switch status
+    */
+    IDO_LISTEN_TYPE_AUTO_RECOGNITION_SWITCH_UPDATE = 54,
 };
 
 //自定义数据类型 | Custom data type

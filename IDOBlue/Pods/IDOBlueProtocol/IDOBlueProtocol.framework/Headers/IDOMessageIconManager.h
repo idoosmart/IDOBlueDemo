@@ -9,6 +9,18 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+typedef NS_ENUM(NSInteger, IDO_GETTING_APPPACKNAME_TYPE) {
+    /**
+     * 获取包名结束
+     * End of obtaining package name
+     */
+    IDO_GETTING_APPPACKNAME_END = 0,
+    /**
+     * 获取包名开始
+     * Get Package Name Start
+     */
+    IDO_GETTING_APPPACKNAME_START,
+};
 
 @protocol IDOMessageIconManagerDelegate <NSObject>
 
@@ -21,6 +33,11 @@ NS_ASSUME_NONNULL_BEGIN
  处理完成应用图标和名字回调
  */
 - (void)handleIconAndNameComplete;
+
+/**
+ 处理获取包名回调
+ */
+- (void)handleGettingAppPackNameMessage:(IDO_GETTING_APPPACKNAME_TYPE)gettingAppPackNameType;
 
 @end
 
@@ -38,11 +55,20 @@ NS_ASSUME_NONNULL_BEGIN
 //当前本地缓存的第三方应用信息，每次读取本地数据库
 @property (nonatomic,strong) IDOGetAppPackNameModel * currentModel;
 
+//是否在获取包名
+@property (nonatomic,assign) BOOL isGettingAppPackName;
+
 //初始化消息通知图标和名字更新
 + (instancetype)listenForUpdate;
 
 //主动获取图标和名字
 - (BOOL)getAppIconAndName;
+
+//是否需要获取包名
+- (BOOL)isNeetGetAppIconAndName;
+
+//解绑后，sdk会主动清除获取的包名数据
+-(void)unbindAfterCleanCacheAppName;
 
 @end
 

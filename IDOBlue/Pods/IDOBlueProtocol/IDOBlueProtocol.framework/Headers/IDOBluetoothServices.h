@@ -76,6 +76,11 @@ extern NSString * _Nonnull IDOBluetoothDeviceVersionNotifyName;
 //object -》NSNumber: 0 （disconnect），1 (connect)
 extern NSString * _Nonnull IDOBluetoothDeviceBTStateNotifyName;
 
+// 蓝牙设备主动发送各种状态数值的通知名字 | Bluetooth devices actively send notification names for various status values
+//object -》IDOControlDataUpdateModel
+extern NSString * _Nonnull IDOBluetoothControlDataUpdateNotifyName;
+
+
 @interface IDOBluetoothServices : NSObject
 
 /*

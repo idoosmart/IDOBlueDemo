@@ -339,6 +339,11 @@ typedef NS_ENUM(NSInteger, IDO_SYNC_CONFIG_DATA_TYPE) {
      * set heart rate mode smart
      */
     IDO_SYNC_SET_HEART_RATE_MODE_SMART = 42,
+    /*
+     * 身体电量
+     * set body power
+     */
+    IDO_SYNC_SET_BODY_POWER_TYPE = 43,
 };
 
 /**

@@ -61,6 +61,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)didWriteValueForCharacteristic:(CBCharacteristic *)characteristic
                                  error:(NSError *)error;
+
+//兼容快速配置的超时问题
++(void)compatibleFastSyncConfigComplete;
+
 @end
 
 NS_ASSUME_NONNULL_END

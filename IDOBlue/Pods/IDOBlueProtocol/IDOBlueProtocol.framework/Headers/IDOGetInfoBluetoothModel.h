@@ -11,6 +11,28 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ==== 获取消息通知包名信息的状态 ====
+@interface IDOGetAppPackNameStateModel:IDOBluetoothBaseModel
+/**
+ * 收到 07 40 0C , 固件包名需要更新
+ */
+@property (nonatomic,assign) BOOL isDeviceNeedUpdate;
+
+/**
+ * 失败次数
+ */
+@property (nonatomic,assign) int failTimes;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetAppPackNameStateModel
+ */
++ (IDOGetAppPackNameStateModel *)currentModel;
+
+@end
+
+
 #pragma mark ==== 获取消息通知包名信息 ====
 @interface IDOGetAppPackNameListItemModel:IDOBluetoothBaseModel
 /**
@@ -867,6 +889,45 @@ error flag
 
 @end
 
+#pragma mark ==== 获取第39个功能表model ====
+
+@interface IDOGetFuncTable39BluetoothModel : IDOBluetoothBaseModel
+
+/**
+ 运动自识别暂停开关不展示，设置开关状态0xff
+ */
+@property (nonatomic,assign) BOOL autoActivityPauseSwitchNotDisplay;
+/**
+ 运动自识别结束开关不展示，设置开关状态0xff
+ */
+@property (nonatomic,assign) BOOL autoActivityEndSwitchNotDisplay;
+
+/**
+ 运动自识别获取和设置指令使用新的版本与固件交互，重定义开关字段
+ */
+@property (nonatomic,assign) BOOL autoActivitySetGetUseNewStructExchange;
+/**
+ GTX03/05定制，hamaAPP，功能表开启后，运动列表不支持增删，支持排序
+ */
+@property (nonatomic,assign) BOOL notSupportDeleteAddSportSort;
+/**
+ ks02，标准化APP，功能表开启后，支持获取sn信息，预留位
+ */
+@property (nonatomic,assign) BOOL supportGetSnInfo;
+/**
+ 支持设置关闭alexa功能，MP02定制需求
+ */
+@property (nonatomic,assign) BOOL supportSetAlexaFunctionOnOff;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable37BluetoothModel
+ */
++ (IDOGetFuncTable39BluetoothModel *)currentModel;
+
+@end
+
 #pragma mark ==== 获取第38个功能表model ====
 
 @interface IDOGetFuncTable38BluetoothModel : IDOBluetoothBaseModel
@@ -977,6 +1038,31 @@ error flag
  realme wear  默认为显示，有此功能表就不支持支持来电提醒页面的“延迟三秒”开关设置项显示
  */
 @property (nonatomic,assign) BOOL notSurportCalling3SDelay;
+
+/**
+ alexa跳转运动界面支持100种运动类型字段
+ */
+@property (nonatomic,assign) BOOL uiControllSports;
+
+/**
+ gt01_pro app新增需求 未读信息红点提示开关
+ */
+@property (nonatomic,assign) BOOL v2SetUnreadAppReminder;
+
+/**
+ 以快速模式开始启动同步配置/同步健康数据
+ */
+@property (nonatomic,assign) BOOL supportSetFastModeWhenSyncConfig;
+
+/**
+ app新增需求 运动模式自动识别开关设置获取 新增类型骑行
+ */
+@property (nonatomic,assign) BOOL supportActivitySwitchAddBicycle;
+
+/**
+ 功能表开启后，同步v3睡眠数据中不对睡眠类型进行限制，使用固件回复的睡眠类型直接上报SDK
+ */
+@property (nonatomic,assign) BOOL supportV3HealthSleepDataTypeNotLimit;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1284,6 +1370,24 @@ error flag
  泰坦定制 支持app被禁用、开启权限通知固件
  */
 @property (nonatomic,assign) BOOL permissionsState;
+
+/**
+ 沃尔新增 亮度设置支持夜间亮度等级设置
+ */
+@property (nonatomic,assign) BOOL supportAddNightLevel;
+/**
+ 沃尔新增 亮度设置支持夜间亮度等级设置
+ */
+@property (nonatomic,assign) BOOL supportSmartCompetitor;
+/**
+ GTX0305&MP02定制 支持设置经期开关
+ */
+@property (nonatomic,assign) BOOL supportSetMenstrualOnOff;
+/**
+ 泰坦10定制 支持下发语音助手开关状态
+ */
+@property (nonatomic,assign) BOOL supportSetVoiceAssistantStatus;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1580,6 +1684,11 @@ error flag
 @property (nonatomic,assign) BOOL beachTennis;
 
 /**
+ 智能跳绳
+ */
+@property (nonatomic,assign) BOOL smartRope;
+
+/**
  gto1pro 固件支持app获取联系人本地文件修改时间或者上传全部通讯录联系人
  */
 @property (nonatomic,assign) BOOL v2SupportGetAllContact;
@@ -1827,6 +1936,42 @@ error flag
  固件支持制作表盘使用lz4压缩
  */
 @property (nonatomic,assign) BOOL supportDailCompressModelz4;
+
+/**
+ 支持同步数据及多运动交互获取负荷
+ */
+@property (nonatomic,assign) BOOL supportSyncActivityGetLoad;
+/**
+ 支持同步数据及多运动交互获取无氧训练效果
+ */
+@property (nonatomic,assign) BOOL supportSyncActivityGetAnaerobicTrainingEffect;
+/**
+ 支持同步数据及多运动交互获取跑步功率及跑力指数
+ */
+@property (nonatomic,assign) BOOL supportSyncActivityGetRunningPowerInfo;
+/**
+ 支持同步数据及多运动交互获取实时体力
+ */
+@property (nonatomic,assign) BOOL supportSyncActivityGetRealTimePhysicalExertion;
+/**
+ 支持同步数据及多运动交互获取实时摄氧量
+ */
+@property (nonatomic,assign) BOOL supportSyncActivityGetRealTimeOxygenConsumption;
+
+/**
+ 支持固件快速定位，APP下发GPS权限及经纬度给固件
+ */
+@property (nonatomic,assign) BOOL supportSendGpsLongitudeAndLatitude;
+
+/**
+ 支持APP多运动交互中，获取海拔上升海拔下降指标
+ */
+@property (nonatomic,assign) BOOL supportExchangeActivityGetAltitudeRiseLoss;
+
+/**
+ 支持APP多运动交互中，获取GPS状态指标
+ */
+@property (nonatomic,assign) BOOL supportExchangeActivityGetGpsStatus;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2121,6 +2266,83 @@ error flag
  */
 @property (nonatomic,assign) BOOL syncAddSleepAvgRespirRate;
 
+/**
+ 支持获取v3固件算法版本号信息
+ */
+@property (nonatomic,assign) BOOL getV3DeviceAlgorithmVersion;
+
+/**
+ 通知支持Fastrack Reflex World
+ */
+@property (nonatomic,assign) BOOL supportFastrackReflexWorld;
+/**
+ 通知支持Hama Fit Move
+ */
+@property (nonatomic,assign) BOOL supportHamaFitMove;
+
+/**
+ 通知支持淘宝
+ */
+@property (nonatomic,assign) BOOL supportTaobao;
+/**
+ 通知支持钉钉
+ */
+@property (nonatomic,assign) BOOL supportDingtalk;
+/**
+ 通知支持支付宝
+ */
+@property (nonatomic,assign) BOOL supportAlipay;
+/**
+ 支持今日头条
+ */
+@property (nonatomic,assign) BOOL supportToutiao;
+
+/**
+ 通知支持天猫的功能表
+ */
+@property (nonatomic,assign) BOOL supportTmail;
+/**
+ 通知支持京东
+ */
+@property (nonatomic,assign) BOOL supportJD;
+/**
+ 通知支持拼多多
+ */
+@property (nonatomic,assign) BOOL supportPinduoduo;
+/**
+ 通知支持百度
+ */
+@property (nonatomic,assign) BOOL supportBaidu;
+/**
+ 通知支持美团
+ */
+@property (nonatomic,assign) BOOL supportMeituan;
+/**
+ 通知支持饿了么
+ */
+@property (nonatomic,assign) BOOL supportEleme;
+/**
+ 设备支持喇叭
+ */
+@property (nonatomic,assign) BOOL supportLoudspeaker;
+/**
+ app新增需求 运动模式自动识别开关设置获取 新增类型智能跳绳
+ */
+@property (nonatomic,assign) BOOL autoActivitySwitchAddSmartRope;
+/**
+ app新增需求 运动模式自动识别开关设置获取 新增类型智能跳绳
+ */
+@property (nonatomic,assign) BOOL supportSyncActivityGetRopeInfo;
+
+/**
+ 通知支持抖音国内版
+ */
+@property (nonatomic,assign) BOOL supportDouyin;
+
+/**
+ 通知支持新浪微博国内版
+ */
+@property (nonatomic,assign) BOOL supportHomeWeibo;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2274,6 +2496,17 @@ error flag
  norwegian
  */
 @property (nonatomic,assign) BOOL norwegian;
+/**
+ 马来语
+ norwegian
+ */
+@property (nonatomic,assign) BOOL malay;
+/**
+ 巴西葡语
+ norwegian
+ */
+@property (nonatomic,assign) BOOL brazilianPortuguese;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -3833,6 +4066,12 @@ error flag
  38功能列表 weather sun time | 38 func table
  */
 @property (nonatomic,strong) IDOGetFuncTable38BluetoothModel      * funcTable38Model;
+
+/**
+ 39功能列表 weather sun time | 39 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable39BluetoothModel      * funcTable39Model;
+
 /**
  是否支持版本信息 | version information is supported
  */
@@ -4070,5 +4309,57 @@ error flag
  * @return IDOGetSettingMaxItemsNumBluetoothModel
  */
 + (IDOGetSettingMaxItemsNumBluetoothModel *)currentModel;
+
+@end
+
+
+#pragma mark ==== 获取算法版本 model ====
+@interface IDOGetAlgVersionItemBluetoothModel : IDOBluetoothBaseModel
+/**
+ 算法版本类型 0:睡眠 1:计步 2:心率 3:全天心率 4:血氧 5:卡路里 6:距离 7:GPS 8:手势识别 9:游泳 10:运动自识别
+ */
+@property (nonatomic,assign) NSInteger type;
+/**
+ 版本号级别 默认三级版本 字段预留方便扩展
+*/
+@property (nonatomic,assign) NSInteger versionLevel;
+
+/**
+ 三级版本号拼接:version1.version2.version3
+*/
+@property (nonatomic,assign) NSInteger version1;
+
+/**
+ 三级版本号拼接:version1.version2.version3
+*/
+@property (nonatomic,assign) NSInteger version2;
+
+/**
+ 三级版本号拼接:version1.version2.version3
+*/
+@property (nonatomic,assign) NSInteger version3;
+
+@end
+
+@interface IDOGetAlgVersionBluetoothModel : IDOBluetoothBaseModel
+/**
+ 协议版本 默认0
+ */
+@property (nonatomic,assign) NSInteger algVersion;
+/**
+ 算法版本详情个数
+*/
+@property (nonatomic,assign) NSInteger itemNum;
+/**
+ 算法版本详情
+ */
+@property (nonatomic,strong) NSArray<IDOGetAlgVersionItemBluetoothModel *> * item;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetAlgVersionBluetoothModel
+ */
++ (IDOGetAlgVersionBluetoothModel *)currentModel;
 
 @end

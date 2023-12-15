@@ -810,23 +810,17 @@
  * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
  * example ---》[@(1),@(1),@(0),@(0),@(0),@(0),@(0)]
  * Indicates that repeated reminders will be turned on on Monday and Tuesday, and will be turned off at other times
- *
- *
- * 若支持功能表 __IDO_FUNCTABLE__.funcTable29Model.supportV3RepScheduleReminder，
- * 则 repeat表示的是 -> (0:无效 1:仅一次 2:每天 3:每周 4:每月 5:每年）
- * 仅一次  1 ：repeat --》 [@(1),@(0),@(0),@(0),@(0),@(0),@(0)]
- * 每天      2 ：repeat  --》 [@(0),@(1),@(0),@(0),@(0),@(0),@(0)]
- * 每周      3 ：repeat  --》 [@(1),@(1),@(0),@(0),@(0),@(0),@(0)]
- * 每月      4 ：repeat  --》 [@(0),@(0),@(1),@(0),@(0),@(0),@(0)]
- * 每年      5 ：repeat  --》 [@(1),@(0),@(1),@(0),@(0),@(0),@(0)]
- * Then repeat represents ->(0: invalid 1: only once 2: daily 3: weekly 4: monthly 5: annually)
- * Only once: repeat -- "[@ (1), @ (0), @ (0), @ (0), @ (0), @ (0), @ (0), @ (0)]
- * Daily 2: repeat -- "[@ (0), @ (1), @ (0), @ (0), @ (0), @ (0), @ (0), @ (0)]
- * Weekly 3: repeat -- "[@ (1), @ (1), @ (0), @ (0), @ (0), @ (0), @ (0), @ (0)]
- * Monthly 4: repeat -- "[@ (0), @ (0), @ (1), @ (0), @ (0), @ (0), @ (0), @ (0)]
- * Every year at 5: repeat - "[@ (1), @ (0), @ (1), @ (0), @ (0), @ (0), @ (0)]
+ * ps:  repeatDateValue 和 repeat 只会同时只支持一种
  */
 @property (nonatomic,copy) NSArray<NSNumber *> * repeat;
+
+/**
+ * 若支持功能表 __IDO_FUNCTABLE__.funcTable29Model.supportV3RepScheduleReminder，
+ * 则 repeatValue表示的是 -> (0:无效 1:仅一次 2:每天 3:每周 4:每月 5:每年）
+ * Then repeat represents ->(0: invalid 1: only once 2: daily 3: weekly 4: monthly 5: annually)
+ * ps:  repeatDateValue 和 repeat 只会同时只支持一种
+ */
+@property (nonatomic,assign) NSInteger repeatDateValue;
 
 /**
  * 提醒类型 0:不提醒 2:准时 4:提前5分钟 8:提前10分钟 16:提前30分钟 32:提前1小时 64:提前1天
@@ -1227,6 +1221,32 @@
  */
 @property (nonatomic,assign) NSInteger notifyFlag;
 
+
+/** 支持走动提醒设置/获取免提醒时间段
+ __IDO_FUNCTABLE__.funcTable29Model.supportSetWalkNoReminder
+ */
+/**
+ 支持走动提醒设置/获取免提醒时间段 | doNotDisturbOnOff
+ */
+@property (nonatomic,assign) BOOL doNotDisturbOnOff;
+/**
+ 开始时间 （时） | start time (hour)
+ */
+@property (nonatomic,assign) NSInteger noDisturbStartHour;
+/**
+ 开始时间 （分） | start time (minutes)
+ */
+@property (nonatomic,assign) NSInteger noDisturbStartMinute;
+/**
+ 结束时间 （时） | end time (hour)
+ */
+@property (nonatomic,assign) NSInteger noDisturbEndHour;
+/**
+ 结束时间 （分） | end time (minutes)
+ */
+@property (nonatomic,assign) NSInteger noDisturbEndMinute;
+
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1477,6 +1497,33 @@
  */
 @property (nonatomic,assign) NSInteger notifyFlag;
 
+
+/** 支持喝水提醒设置免提醒时间段
+ __IDO_FUNCTABLE__.funcTable29Model.supportSetDrinkNoReminder
+ */
+/**
+ 支持喝水提醒设置免提醒时间段开关 | doNotDisturbOnOff
+ */
+@property (nonatomic,assign) BOOL doNotDisturbOnOff;
+/**
+ 开始时间 （时） | start time (hour)
+ */
+@property (nonatomic,assign) NSInteger noDisturbStartHour;
+/**
+ 开始时间 （分） | start time (minutes)
+ */
+@property (nonatomic,assign) NSInteger noDisturbStartMinute;
+/**
+ 结束时间 （时） | end time (hour)
+ */
+@property (nonatomic,assign) NSInteger noDisturbEndHour;
+/**
+ 结束时间 （分） | end time (minutes)
+ */
+@property (nonatomic,assign) NSInteger noDisturbEndMinute;
+
+
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1567,6 +1614,14 @@
  __IDO_FUNCTABLE__.funcTable35Model.menstrualNotifyFlag 功能表支持才有效
  */
 @property (nonatomic,assign) NSInteger notifyFlag;
+
+/**
+  经期提醒开关
+ __IDO_FUNCTABLE__.funcTable35Model.supportSetMenstrualOnOff 功能表支持才有效
+ */
+@property (nonatomic,assign) BOOL menstrualOnOff;
+
+
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2554,11 +2609,12 @@
  * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,
  * 韩语:21,印地语:22,葡萄牙语:23,土耳其:24,泰国语:25,越南语:26,缅甸语:27,
  * 菲律宾语:28,繁体中文:29,希腊语:30,阿拉伯语:31,瑞典语:32,芬兰语:33,波斯语:34,挪威语:35
+ * 马来语: 36, 巴西葡语:37
  * Language unit Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
  * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
  * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19,Indonesian: 20,korean:21,hindi:22
  * portuguese:23,turkish:24,thai:25,vietnamese:26,burmese:27,filipino:28,traditional Chinese:29,greek:30,arabic:31,sweden:32
- * finland:33,persia:34,norwegian:35
+ * finland:33,persia:34,norwegian:35，malay:36, brazilian_portuguese:37
  */
 @property (nonatomic,assign) NSInteger languageUnit;
 
@@ -2856,7 +2912,7 @@
 @property (nonatomic,assign) BOOL isHasTimeRange;
 
 /**
- 显示时长 3～10 秒 | Display time 3～10 second
+ 最小显示时长 3秒 | Minimum display time of 3 seconds
  */
 @property (nonatomic,assign) NSInteger  showSecond;
 
@@ -3114,7 +3170,7 @@
 @property (nonatomic,assign) BOOL isOnQq;
 
 /**
- 微博提醒 | Weibo reminder
+ (国际)微博提醒 | Weibo reminder
  */
 @property (nonatomic,assign) BOOL isOnWeibo;
 
@@ -3457,6 +3513,67 @@
 @property (nonatomic,assign) BOOL isOnAlibabaemail;
 
 /**
+ 通知支持Calendario(谷歌日历)
+ */
+@property (nonatomic,assign) BOOL isOnCalendario;
+/**
+ 通知支持Fastrack Reflex World
+ */
+@property (nonatomic,assign) BOOL isOnFastrackReflexWorld;
+/**
+ 通知支持Hama Fit Move
+ */
+@property (nonatomic,assign) BOOL isOnHamaFitMove;
+/**
+ 通知支持淘宝
+ */
+@property (nonatomic,assign) BOOL isOnTaobao;
+/**
+ 通知支持钉钉
+ */
+@property (nonatomic,assign) BOOL isOnDingtalk;
+/**
+ 通知支持支付宝
+ */
+@property (nonatomic,assign) BOOL isOnAlipay;
+/**
+ 通知支持今日头条
+ */
+@property (nonatomic,assign) BOOL isOnToutiao;
+
+/**
+ 通知支持天猫的功能表
+ */
+@property (nonatomic,assign) BOOL isOnTmail;
+/**
+ 通知支持京东
+ */
+@property (nonatomic,assign) BOOL isOnJD;
+/**
+ 通知支持拼多多
+ */
+@property (nonatomic,assign) BOOL isOnPinduoduo;
+/**
+ 通知支持百度
+ */
+@property (nonatomic,assign) BOOL isOnBaidu;
+/**
+ 通知支持美团
+ */
+@property (nonatomic,assign) BOOL isOnMeituan;
+/**
+ 通知支持饿了么
+ */
+@property (nonatomic,assign) BOOL isOnEleme;
+/**
+ 通知国内抖音
+ */
+@property (nonatomic,assign) BOOL isOnDouyin;
+/**
+ 通知国内微博
+ */
+@property (nonatomic,assign) BOOL isOnHomeWeibo;
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetNoticeInfoBuletoothModel
@@ -3590,5 +3707,64 @@
  * @return IDOSetBreathRateSwitchModel
  */
 + (IDOSetCalorieDistanceDateGoalModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置语音助手开关 model ====
+@interface IDOSetVoiceAssistantStatusModel : IDOBluetoothBaseModel
+/**
+ 开关状态
+ */
+@property (nonatomic,assign) BOOL onOff;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetBreathRateSwitchModel
+ */
++ (IDOSetVoiceAssistantStatusModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置APP下发alexa功能开关 model ====
+@interface IDOSetAlexaAoiceFunctionStatusModel : IDOBluetoothBaseModel
+/**
+ 开关状态
+ */
+@property (nonatomic,assign) BOOL onOff;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetAlexaAoiceFunctionStatusModel
+ */
++ (IDOSetAlexaAoiceFunctionStatusModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置Geolocation model ====
+@interface IDOSetGeolocationModel : IDOBluetoothBaseModel
+/**
+ 定位权限是否打开
+ */
+@property (nonatomic,assign) BOOL access;
+
+/**
+ 纬度
+ */
+@property (nonatomic,assign) float latitudeInDegrees;
+/**
+ 经度
+ */
+@property (nonatomic,assign) float longitudeInDegrees;
+
+/**
+ 精度
+ */
+@property (nonatomic,assign) int accuracyInMeters;
+
+/**
+ 时间戳
+ */
+@property (nonatomic,copy) NSString* timestamp;
+
 
 @end
