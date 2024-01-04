@@ -141,6 +141,18 @@
     }
     return _tempArray;
 }
+- (NSArray *)tempV3Array
+{
+    if (!_tempV3Array) {
+        NSMutableArray * tempArray = [NSMutableArray array];
+        for (int i = 50; i <= 160; i ++) {
+            [tempArray addObject:@(i)];
+        }
+        _tempV3Array = tempArray;
+    }
+    return _tempV3Array;
+}
+
 
 - (NSArray *)screenModeArray
 {

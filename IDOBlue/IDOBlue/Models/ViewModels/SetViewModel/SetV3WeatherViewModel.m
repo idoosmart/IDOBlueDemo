@@ -48,21 +48,102 @@
 {
     if (!_weatherDataModel) {
          _weatherDataModel = [IDOSetV3WeatherDataModel currentModel];
-        //test code
-        IDOSetTimeInfoBluetoothModel * time = [IDOSetTimeInfoBluetoothModel new];
-        _weatherDataModel.month = time.month;
-        _weatherDataModel.day = time.day;
-        _weatherDataModel.min = time.minute;
-        _weatherDataModel.sec = time.second;
-        _weatherDataModel.week = time.weekDay;
+
+        
         _weatherDataModel.weatherType = 1;
-        _weatherDataModel.todayTmp = 16;
-        _weatherDataModel.todayMaxTemp = 20;
-        _weatherDataModel.todayMinTemp = 5;
-        _weatherDataModel.sunriseHour = 6;
-        _weatherDataModel.sunriseMin = 0;
-        _weatherDataModel.sunsetHour = 18;
-        _weatherDataModel.sunsetMin = 0;
+        _weatherDataModel.todayUvIntensity=4;
+        _weatherDataModel.sunsetMin= 39;
+        _weatherDataModel.pk= 0;
+        _weatherDataModel.humidity= 53;
+        _weatherDataModel.cityName= @"Shenzhen";
+        _weatherDataModel.sunriseHour=6;
+        _weatherDataModel.snowDepthMin= 0;
+        _weatherDataModel.windSpeed= 0;
+        _weatherDataModel.moonriseHour= 0;
+        _weatherDataModel.moonPhase= 0;
+        _weatherDataModel.snowDepth= 0;
+        _weatherDataModel.moonsetHour= 0;
+        _weatherDataModel.cityNameLen= 9;
+        _weatherDataModel.airQuality= 56;
+        _weatherDataModel.atmosphericPressure= 0;
+        _weatherDataModel.precipitationProbability= 7;
+        _weatherDataModel.sunriseMin= 40;
+        _weatherDataModel.moonriseMin= 0;
+        _weatherDataModel.snowDepthMax= 0;
+        _weatherDataModel.migrationState= 0;
+        _weatherDataModel.airGradeInfo=@"中等";
+        _weatherDataModel.snowfall= 0;
+        _weatherDataModel.weatherVersion= 1;
+        _weatherDataModel.moonsetMin=0;
+        _weatherDataModel.sunsetHour = 17;
+        
+        IDOSetTimeInfoBluetoothModel*timeModel = [IDOSetTimeInfoBluetoothModel currentModel];
+        _weatherDataModel.month= timeModel.month;
+        _weatherDataModel.day= timeModel.day;
+        _weatherDataModel.hour= timeModel.hour;
+        _weatherDataModel.min= timeModel.minute;
+        _weatherDataModel.sec= timeModel.second;
+        _weatherDataModel.week= timeModel.weekDay;
+        
+        NSInteger todayTmp = 100+24;//Temperature value = current temperature + 100 (compatible with devices)
+        NSInteger todayMinTemp = 100+18;//Temperature value = current temperature + 100 (compatible with devices)
+        NSInteger todayMaxTemp = 100+27;//Temperature value = current temperature + 100 (compatible with devices)
+        _weatherDataModel.todayTmp = todayTmp;
+        _weatherDataModel.todayMinTemp = todayMinTemp;
+        _weatherDataModel.todayMaxTemp = todayMaxTemp;
+        
+        // 24、48 小时天气 模拟数据 | 24/48 hour weather simulation data
+        NSMutableArray * hourWeaArray = [NSMutableArray arrayWithCapacity:0];
+        for (int i = 0; i < 48; i ++)
+        {
+            IDOFuture24HourWeatherModel * wModel = [[IDOFuture24HourWeatherModel alloc] init];
+            wModel.weatherType = 1;
+            wModel.pk = 0;
+            if (i == 0) {
+                wModel.temperature = todayTmp;
+            }else{
+                wModel.temperature = 100+i;// 温度赋值 = 当前温度 + 100 |  Temperature value = current temperature + 100 (compatible with devices)
+            }
+           
+            wModel.probability = 7;
+            wModel.migrationState = 0;
+            [hourWeaArray addObject:wModel];
+        }
+        self.weatherDataModel.future24HoursItems = hourWeaArray;
+        
+        // 未来7天的天气 模拟数据 | Weather simulation data for the next 7 days
+        NSMutableArray * futureWeaArray = [NSMutableArray arrayWithCapacity:0];
+        for (int i = 0; i < 7; i ++)
+        {
+            IDOFuture7DayWeatherDataModel * fModel = [[IDOFuture7DayWeatherDataModel alloc] init];
+            fModel.weatherType = 1;
+            // 温度赋值 = 当前温度 + 100 |  Temperature value = current temperature + 100 (compatible with devices)
+            fModel.maxTemp = 100+(20+i);
+            // 温度赋值 = 当前温度 + 100 |  Temperature value = current temperature + 100 (compatible with devices)
+            fModel.minTemp = 100+(10+i);
+            fModel.pk = 0;
+            fModel.migrationState = 0;
+            [futureWeaArray addObject:fModel];
+        }
+        self.weatherDataModel.future7DaysItems = futureWeaArray;
+        
+        // 未来三天日出日落 模拟数据
+        NSMutableArray * futureSunriseArray = [NSMutableArray arrayWithCapacity:0];
+        for (int i = 0; i < 4; i ++)
+        {
+            IDOFutureSunriseWeatherDataItems * model = [[IDOFutureSunriseWeatherDataItems alloc] init];
+            model.sunriseHour = 6;
+            model.sunriseMin = i+1;
+            model.sunsetHour = 17;
+            model.sunsetMin = 39;
+            model.pk = 0;
+            model.migrationState = 0;
+            [futureSunriseArray addObject:model];
+        }
+        
+        self.weatherDataModel.futureSunriseItems = futureSunriseArray;
+
+        
     }
     return _weatherDataModel;
 }
@@ -91,9 +172,9 @@
     if (!_titleArray)
     {
         _titleArray = @[lang(@"weather type"),
-                        lang(@"current weather"),
-                        lang(@"max weather"),
-                        lang(@"min weather"),
+                        lang(@"current v3 weather"),
+                        lang(@"max v3 weather"),
+                        lang(@"min v3 weather"),
                         lang(@"air quality"),
                         lang(@"Precipitation probability"),
                         lang(@"humidity"),
@@ -210,41 +291,7 @@
     model7.buttconCallback = self.buttconCallback;
     [cellModels addObject:model7];
     
-    // 24、48 小时天气 模拟数据
-    NSMutableArray * hourWeaArray = [NSMutableArray arrayWithCapacity:0];
-    for (int i = 0; i < 24; i ++)
-    {
-        IDOFuture24HourWeatherModel * wModel = [[IDOFuture24HourWeatherModel alloc] init];
-        wModel.weatherType = i+1;
-        wModel.temperature = 20;
-        wModel.probability = 50;
-        [hourWeaArray addObject:wModel];
-    }
-    self.weatherDataModel.future24HoursItems = hourWeaArray;
     
-    // 未来7天的天气 模拟数据
-    NSMutableArray * futureWeaArray = [NSMutableArray arrayWithCapacity:0];
-    for (int i = 0; i < 7; i ++)
-    {
-        IDOFuture7DayWeatherDataModel * fModel = [[IDOFuture7DayWeatherDataModel alloc] init];
-        fModel.weatherType = 1;
-        fModel.maxTemp = 30;
-        fModel.minTemp = 20;
-        [futureWeaArray addObject:fModel];
-    }
-    self.weatherDataModel.future7DaysItems = futureWeaArray;
-    
-    // 未来三天日出日落 模拟数据
-    NSMutableArray * futureSunriseArray = [NSMutableArray arrayWithCapacity:0];
-    for (int i = 0; i < 3; i ++)
-    {
-        IDOFutureSunriseWeatherDataItems * model = [[IDOFutureSunriseWeatherDataItems alloc] init];
-        model.sunriseHour = 6;
-        model.sunriseMin = 0;
-        model.sunsetHour = 18;
-        model.sunsetMin = 18;
-        [futureSunriseArray addObject:model];
-    }
     self.cellModels = cellModels;
 }
 
@@ -257,18 +304,22 @@
 
         [funcVC showLoadingWithMessage:lang(@"set weather forecast data...")];
         
-        strongSelf.weatherDataModel.cityName = strongSelf.textField.text;
-        strongSelf.weatherDataModel.cityNameLen = [strongSelf convertToInt:strongSelf.textField.text];
-        strongSelf.weatherDataModel.airGradeInfo = @"今天的天气真好呀!";
+        IDOSetWeatherSwitchInfoBluetoothModel*switchInfoBluetoothModel = [IDOSetWeatherSwitchInfoBluetoothModel currentModel];
+        switchInfoBluetoothModel.isOpen = YES;
         
-        [IDOFoundationCommand setV3WeatcherDataCommand:strongSelf.weatherDataModel callback:^(int errorCode) {
-            if(errorCode == 0) {
-                [funcVC showToastWithText:lang(@"set weather data success")];
-            }else if (errorCode == 6) {
-                [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
-            }else {
-                [funcVC showToastWithText:lang(@"set weather data failed")];
+        [IDOFoundationCommand setWeatherCommand:switchInfoBluetoothModel callback:^(int errorCode) {
+            if (errorCode == 0) {
+                [IDOFoundationCommand setV3WeatcherDataCommand:strongSelf.weatherDataModel callback:^(int errorCode) {
+                    if(errorCode == 0) {
+                        [funcVC showToastWithText:lang(@"set weather data success")];
+                    }else if (errorCode == 6) {
+                        [funcVC showToastWithText:lang(@"feature is not supported on the current device")];
+                    }else {
+                        [funcVC showToastWithText:lang(@"set weather data failed")];
+                    }
+                }];
             }
+            
         }];
         
     };
@@ -291,7 +342,7 @@
             if(textFieldModel.index == 0) {
                 dataArray = strongSelf.pickerDataModel.weatherArray;
             }else if (textFieldModel.index <= 3 && textFieldModel.index > 0) {
-                dataArray = strongSelf.pickerDataModel.tempArray;
+                dataArray = strongSelf.pickerDataModel.tempV3Array;
             }else if (textFieldModel.index == 9){
                 dataArray = strongSelf.pickerDataModel.weekArray;
             }else {

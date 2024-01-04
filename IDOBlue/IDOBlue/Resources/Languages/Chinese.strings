@@ -1139,6 +1139,11 @@
 "current weather" = "当前的温度";
 "max weather"="最大温度";
 "min weather"="最小温度";
+
+"current v3 weather" = "当前温度(当前温度+100)";
+"max v3 weather"="最大温度(最大温度+100)";
+"min v3 weather"="最小温度(最小温度+100)";
+
 "air quality"="空气质量";
 "Precipitation probability"="降水概率";
 "humidity"="湿度";

@@ -30,6 +30,7 @@
 @property (nonatomic,strong) NSArray * monthArray;
 @property (nonatomic,strong) NSArray * dayArray;
 @property (nonatomic,strong) NSArray * tempArray;
+@property (nonatomic,strong) NSArray * tempV3Array;
 @property (nonatomic,strong) NSArray * screenModeArray;
 @property (nonatomic,strong) NSArray * weatherArray;
 @property (nonatomic,strong) NSArray * weatherTitleArray;

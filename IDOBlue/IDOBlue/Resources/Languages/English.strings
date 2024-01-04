@@ -1121,6 +1121,11 @@
 "current weather" = "current weather";
 "max weather"="max weather";
 "min weather"="min weather";
+
+"current v3 weather" = "current v3 temperature (current temperature+100)";
+"max v3 weather"="maximum v3 temperature(maximum temperature+100)";
+"min v3 weather"="minimum v3 temperature(Minimum temperature+100)";
+
 "air quality"="air quality";
 "Precipitation probability"="Precipitation probability";
 "humidity"="humidity";
