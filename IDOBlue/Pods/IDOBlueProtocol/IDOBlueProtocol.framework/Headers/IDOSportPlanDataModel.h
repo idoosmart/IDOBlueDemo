@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface IDOSportActionDataModel : IDOBluetoothBaseModel
-//动作类型  1快走；2慢跑；3中速跑；4快跑
+//动作类型  1快走；2慢跑；3中速跑；4快跑  |  Action type 1: Quick walk; 2. Jogging; 3 medium speed running; 4 Quick Run
 @property (nonatomic,assign) NSInteger type;
 //目标时间  单位秒
 @property (nonatomic,assign) NSInteger time;

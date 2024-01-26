@@ -441,7 +441,7 @@ max step stride
  */
 @property (nonatomic,assign) NSInteger altitudeCount;
 /**
- 海拔高度数据 30s一组值 单位米 范围-500~9000 最大保存12小时
+ 海拔高度数据 30s(MP01), 一组值 单位米 范围-500~9000 最大保存12小时
  */
 @property (nonatomic,strong) NSArray* altitudeItems;
 
@@ -565,6 +565,36 @@ max step stride
  */
 @property (nonatomic,strong) NSArray<NSDictionary *> * ropeItems;
 
+//--------------- 智能陪跑 ---------------
+
+/**
+  0:无效 1:非智能陪跑运动 2:智能陪跑运动
+  0: Invalid 1: Non intelligent running sports 2: Intelligent running sports
+ */
+@property (nonatomic,assign) NSInteger smartCompetitor;
+/**
+ ai形象ID
+ AI Image ID
+ */
+@property (nonatomic,assign) NSInteger aiImageId;
+
+/**
+ 用户形象ID
+ user image id
+ */
+@property (nonatomic,assign) NSInteger userImageId;
+
+/**
+ 背景形象ID
+ bg image id
+ */
+@property (nonatomic,assign) NSInteger bgImageId;
+
+/**
+ 智能陪跑对手配速
+ Intelligent companion running at opponent's pace
+ */
+@property (nonatomic,assign) NSInteger smartCompetitorPace;
 
 @end
 

@@ -676,6 +676,7 @@
 @property (nonatomic,assign) NSInteger evtType;
 /**
  通知状态  允许通知：1，静默通知 ：2， 关闭通知：3
+ | Notification Status Allow Notification: 1, Silent Notification: 2, Turn Off Notification: 3
  */
 @property (nonatomic,assign) NSInteger notifyState;
 /**
@@ -1382,6 +1383,11 @@
 @property (nonatomic,assign) BOOL sportSwimOnOff;
 
 /**
+ 自动识别智能跳绳开关 | sport_smart_rope
+ */
+@property (nonatomic,assign) BOOL sportSmartRope;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetActivitySwitchBluetoothModel
@@ -1498,11 +1504,11 @@
 @property (nonatomic,assign) NSInteger notifyFlag;
 
 
-/** 支持喝水提醒设置免提醒时间段
- __IDO_FUNCTABLE__.funcTable29Model.supportSetDrinkNoReminder
+/** 支持走动提醒设置免提醒时间段
+ __IDO_FUNCTABLE__.funcTable29Model.supportSetWalkNoReminder
  */
 /**
- 支持喝水提醒设置免提醒时间段开关 | doNotDisturbOnOff
+ 支持走动提醒设置免提醒时间段开关 | doNotDisturbOnOff
  */
 @property (nonatomic,assign) BOOL doNotDisturbOnOff;
 /**
@@ -2560,7 +2566,7 @@
 @property (nonatomic,assign) NSInteger weekDay;
 
 /**
- 时区(1-24)｜time zone (1-24)
+ 时区(1-24)｜time zone (1-24)  -- 用24时区的，手机端的获取时区是整数，0-12东，13-24西
  功能表第36表中 =>timeZoneFloat 如果支持 时区*100 例如：8.10*100 = 810
  */
 @property (nonatomic,assign) NSInteger timeZone;
@@ -2587,36 +2593,24 @@
 
 #pragma mark ==== 设置单位model ====
 @interface IDOSetUnitInfoBluetoothModel:IDOBluetoothBaseModel
-
 /**
  距离单位 0x00:无效， 0x01:km，0x02:mi | Distance unit 0x00: Invalid, 0x01:km, 0x02:mi
  */
 @property (nonatomic,assign) NSInteger distanceUnit;
-
 /**
  重量单位 0x00: 无效，0x01:kg， 0x02:lb， 0x03: 英石 | Weight Unit 0x00: Invalid, 0x01:kg, 0x02:lb, 0x03: Stone
  */
 @property (nonatomic,assign) NSInteger weightUnit;
-
 /**
  温度单位 0x00:无效， 0x01:°C， 0x02:°F | Temperature unit 0x00: Invalid, 0x01: °C, 0x02: °F
  */
 @property (nonatomic,assign) NSInteger tempUnit;
 
 /**
- * 语言单位 无效:0,中文:1,英文:2,法语:3,德语:4,意大利语:5,西班牙语:6,日语:7,
- * 波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
- * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,
- * 韩语:21,印地语:22,葡萄牙语:23,土耳其:24,泰国语:25,越南语:26,缅甸语:27,
- * 菲律宾语:28,繁体中文:29,希腊语:30,阿拉伯语:31,瑞典语:32,芬兰语:33,波斯语:34,挪威语:35
- * 马来语: 36, 巴西葡语:37
- * Language unit Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
- * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
- * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19,Indonesian: 20,korean:21,hindi:22
- * portuguese:23,turkish:24,thai:25,vietnamese:26,burmese:27,filipino:28,traditional Chinese:29,greek:30,arabic:31,sweden:32
- * finland:33,persia:34,norwegian:35，malay:36, brazilian_portuguese:37
+ * 语言单位 , 具体类型查看 IDO_LANGUAGE_TYPE
+ * Language units, specific types can be found in IDO_ LANGUAGE_ TYPE
  */
-@property (nonatomic,assign) NSInteger languageUnit;
+@property (nonatomic,assign) IDO_LANGUAGE_TYPE languageUnit;
 
 /**
  * 走路步伐 根据男性换算 默认值 72 （单位 ：cm）
@@ -3574,6 +3568,24 @@
  */
 @property (nonatomic,assign) BOOL isOnHomeWeibo;
 /**
+ Titan Smart World定制
+ */
+@property (nonatomic,assign) BOOL isOnTitanSmartWorld;
+/**
+ RYZE定制
+ */
+@property (nonatomic,assign) BOOL isOnRyzeConnect;
+/**
+ LoopsFit定制
+ */
+@property (nonatomic,assign) BOOL isOnLoopsFit;
+
+/**
+ TasSmart定制
+ */
+@property (nonatomic,assign) BOOL isOnTasSmart;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetNoticeInfoBuletoothModel
@@ -3740,31 +3752,34 @@
 
 @end
 
-#pragma mark ====  设置Geolocation model ====
-@interface IDOSetGeolocationModel : IDOBluetoothBaseModel
+#pragma mark ====  设置快捷来电回复开关 model ====
+@interface IDOSetCallQuickStatusModel : IDOBluetoothBaseModel
 /**
- 定位权限是否打开
+ 开关状态
  */
-@property (nonatomic,assign) BOOL access;
+@property (nonatomic,assign) BOOL onOff;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetCallQuickStatusModel
+ */
++ (IDOSetCallQuickStatusModel *)currentModel;
 
-/**
- 纬度
- */
-@property (nonatomic,assign) float latitudeInDegrees;
-/**
- 经度
- */
-@property (nonatomic,assign) float longitudeInDegrees;
+@end
 
+#pragma mark ====  APP控制固件屏蔽功能 VP model ====
+@interface IDOSetCloseDeviceFunctionModel : IDOBluetoothBaseModel
 /**
- 精度
+ 开关状态| switch status
+ true：不开启屏蔽功能 | Do not enable Shielding function
+ false：开启屏蔽功能  | Enable Shielding function
  */
-@property (nonatomic,assign) int accuracyInMeters;
-
+@property (nonatomic,assign) BOOL onOff;
 /**
- 时间戳
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetCloseDeviceFunctionModel
  */
-@property (nonatomic,copy) NSString* timestamp;
-
++ (IDOSetCloseDeviceFunctionModel *)currentModel;
 
 @end

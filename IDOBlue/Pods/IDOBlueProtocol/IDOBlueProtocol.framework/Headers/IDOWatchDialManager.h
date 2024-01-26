@@ -13,6 +13,12 @@ typedef void(^_Nullable setComplete)(int errorCode);
 @interface IDOWatchDialManager : NSObject
 
 /**
+ * 表盘唯一id （ 如果不赋值，表盘id默认为表盘包的名字 ）
+ * unique id （ If not assigned, the dial id defaults to the name of the dial pack ）
+ */
+@property (nonatomic,copy,nullable) NSString * uniqueId;
+
+/**
  * 表盘文件传输路径 (zip)
  * Transfer file path
  */

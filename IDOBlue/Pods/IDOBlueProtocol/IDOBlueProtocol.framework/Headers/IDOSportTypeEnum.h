@@ -569,6 +569,10 @@ typedef NS_ENUM(NSInteger,IDO_SPORT_TYPE) {
     *沙滩网球 | Beach tennis
     */
      IDO_SPORT_TYPE_BEACH_TENNIS=202,
+    /**
+    *匹克球 | Pickleball
+    */
+     IDO_SPORT_TYPE_PICKLEBALL=204,
  };
 
 typedef NS_ENUM(NSInteger,IDO_SPORT_PAR_TYPE) {
@@ -934,6 +938,46 @@ typedef NS_ENUM(NSInteger,IDO_LISTEN_TYPE) {
      | Firmware automatic recognition switch status update, notify app to obtain motion automatic recognition switch status
     */
     IDO_LISTEN_TYPE_AUTO_RECOGNITION_SWITCH_UPDATE = 54,
+    /**
+    *固件慢速模式切换慢速模式
+     | Firmware fast mode switching to slow mode
+    */
+    IDO_LISTEN_TYPE_FIRMWARE_SLOW_MODE = 55,
+    /**
+    *固件慢速模式切换快速模式
+     | Firmware fast mode switching to fast mode
+    */
+    IDO_LISTEN_TYPE_FIRMWARE_FAST_MODE = 56,
+    /**
+    *固件更新mtu，APP下发获取mtu更新本地记录的mtu
+     | Firmware update MTU, APP issue to obtain MTU update local record MTU
+    */
+    IDO_LISTEN_TYPE_FIRMWARE_UPDATE_MTU = 57,
+    /**
+    *固件电量变化，APP下发获取电量信息
+     | Firmware power changes, APP issues to obtain power information
+    */
+    IDO_LISTEN_TYPE_FIRMWARE_POWER_CHANGES = 58,
+    /**
+    *当前处于DFU模式(思澈平台)
+     | Currently in DFU mode (Siche platform)
+    */
+    IDO_LISTEN_TYPE_FIRMWARE_SICHE_IN_DFU = 59,
+    /**
+    *APP收到固件通知，获取固件单位
+     | APP receives firmware notification and obtains firmware units
+    */
+    IDO_LISTEN_TYPE_OBTAIN_FIRMWARE_UNITS = 60,
+    /**
+    *固件修改菜单列表(快捷列表)，通知APP获取(02A8)
+     | Firmware modification menu list (shortcut list), notify APP to obtain (02A8)
+    */
+    IDO_LISTEN_TYPE_FIRMWARE_MENU_LIST_CHANGES = 61,
+    /**
+    *固件修改本地语言，通知APP获取(0222)
+     | Firmware modification local language, notify APP to obtain (0222)
+    */
+    IDO_LISTEN_TYPE_FIRMWARE_LOCAL_LANGUAGE_CHANGES = 62,
 };
 
 //自定义数据类型 | Custom data type
@@ -960,6 +1004,163 @@ typedef NS_ENUM(NSInteger,IDO_CUSTOMDATA_TYPE) {
     IDO_CUSTOMDATA_TYPE_PRESSURE_VALUE_TOOHIGH = 34,//压力值退出 | Pressure value too high
     
     IDO_CUSTOMDATA_TYPE_START_OPEN = 99,//自定义指令开关（进入页面的时候可以发送一次） | Custom command switch (can be sent once when entering the page)
+
+};
+
+//语言类型 | Language Type
+typedef NS_ENUM(NSInteger,IDO_LANGUAGE_TYPE) {
+    /**
+    *无效类型 | Invalid type
+    */
+    IDO_LANGUAGE_TYPE_INVALID = 0,
+    /**
+    *中文 | Chinese
+    */
+    IDO_LANGUAGE_TYPE_CHINESE = 1,
+    /**
+    *英文 | English
+    */
+    IDO_LANGUAGE_TYPE_ENGLISH = 2,
+    /**
+    *法语 | French
+    */
+    IDO_LANGUAGE_TYPE_FRENCH = 3,
+    /**
+    *德语 | German
+    */
+    IDO_LANGUAGE_TYPE_GERMAN = 4,
+    /**
+    *意大利语 | Italian
+    */
+    IDO_LANGUAGE_TYPE_ITALIAN = 5,
+    /**
+    *西班牙语 | Spanish
+    */
+    IDO_LANGUAGE_TYPE_SPANISH = 6,
+    /**
+    *日语 | Japanese
+    */
+    IDO_LANGUAGE_TYPE_JAPANESE = 7,
+    /**
+    *波兰语 | Polish
+    */
+    IDO_LANGUAGE_TYPE_POLISH = 8,
+    /**
+    *捷克语 | Czech
+    */
+    IDO_LANGUAGE_TYPE_CZECH = 9,
+    /**
+    *罗马尼亚 | Romania
+    */
+    IDO_LANGUAGE_TYPE_ROMANIA = 10,
+    /**
+    *立陶宛语 | Lithuanian
+    */
+    IDO_LANGUAGE_TYPE_LITHUANIAN = 11,
+    /**
+    *荷兰语 | Dutch
+    */
+    IDO_LANGUAGE_TYPE_DUTCH = 12,
+    /**
+    *斯洛文尼亚 | Slovenia
+    */
+    IDO_LANGUAGE_TYPE_SLOVENIA = 13,
+    /**
+    *匈牙利语 | Hungarian
+    */
+    IDO_LANGUAGE_TYPE_HUNGARIAN = 14,
+    /**
+    *俄罗斯语 | Russian
+    */
+    IDO_LANGUAGE_TYPE_RUSSIAN = 15,
+    /**
+    *乌克兰语 | Ukrainian
+    */
+    IDO_LANGUAGE_TYPE_UKRAINIAN = 16,
+    /**
+    *斯洛伐克语 | Slovak
+    */
+    IDO_LANGUAGE_TYPE_SLOVAK = 17,
+    /**
+    *丹麦语 | Danish
+    */
+    IDO_LANGUAGE_TYPE_DANISH = 18,
+    /**
+    *克罗地亚 | Croatia
+    */
+    IDO_LANGUAGE_TYPE_CROATIA = 19,
+    /**
+    *印尼语 | Indonesian
+    */
+    IDO_LANGUAGE_TYPE_INDONESIAN = 20,
+    /**
+    *韩语 | korean
+    */
+    IDO_LANGUAGE_TYPE_KOREAN = 21,
+    /**
+    *印地语 | hindi
+    */
+    IDO_LANGUAGE_TYPE_HINDI = 22,
+    /**
+    *葡萄牙语 | portuguese
+    */
+    IDO_LANGUAGE_TYPE_PORTUGUESE = 23,
+    /**
+    *土耳其 | turkish
+    */
+    IDO_LANGUAGE_TYPE_TURKISH = 24,
+    /**
+    *泰国语 | thai
+    */
+    IDO_LANGUAGE_TYPE_THAI = 25,
+    /**
+    *越南语 | vietnamese
+    */
+    IDO_LANGUAGE_TYPE_VIETNAMESE = 26,
+    /**
+    *缅甸语 | burmese
+    */
+    IDO_LANGUAGE_TYPE_BURMESE = 27,
+    /**
+    *菲律宾语 | filipino
+    */
+    IDO_LANGUAGE_TYPE_FILIPINO = 28,
+    /**
+    *繁体中文 | traditional Chinese
+    */
+    IDO_LANGUAGE_TYPE_TRADITIONAL_CHINESE = 29,
+    /**
+    *希腊语 | greek
+    */
+    IDO_LANGUAGE_TYPE_GREEK = 30,
+    /**
+    *阿拉伯语 | arabic
+    */
+    IDO_LANGUAGE_TYPE_ARABIC = 31,
+    /**
+    *瑞典语 | sweden
+    */
+    IDO_LANGUAGE_TYPE_SWEDEN = 32,
+    /**
+    *芬兰语 | finland
+    */
+    IDO_LANGUAGE_TYPE_FINLAND = 33,
+    /**
+    *波斯语 | persia
+    */
+    IDO_LANGUAGE_TYPE_PERSIA = 34,
+    /**
+    *挪威语 | norwegian
+    */
+    IDO_LANGUAGE_TYPE_NORWEGIAN = 35,
+    /**
+    *马来语 | malay
+    */
+    IDO_LANGUAGE_TYPE_MALAY = 36,
+    /**
+    *巴西葡语 | brazilian_portuguese
+    */
+    IDO_LANGUAGE_TYPE_BRAZILIAN_PORTUGUESE = 37,
 
 };
 

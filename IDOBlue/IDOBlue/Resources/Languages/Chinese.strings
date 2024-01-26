@@ -1295,3 +1295,15 @@
 "EPO files cannot be operated during this time period" = "这个时间段不能操作EPO文件";
 "background color" = "背景颜色";
 "get background color" = "获取背景颜色";
+
+"custom wallpaper cloud dial" = "自定义壁纸表盘";
+"Make wallpaper cloud dial file" = "制作壁纸表盘文件";
+"Extract and read the json dial file" = "提取并读取json表盘文件";
+
+"Please first operate the button to extract and read the JSON dial file" = "请先操作提取并读取json表盘文件按钮";
+
+
+"widgets location" = "小部件位置";
+"widgets bgcolor" = "小部件颜色";
+
+"Editing of widgets is not supported" = "小部件编辑功能不支持";

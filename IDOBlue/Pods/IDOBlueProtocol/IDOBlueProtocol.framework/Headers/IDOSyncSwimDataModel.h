@@ -153,7 +153,7 @@
 @property (nonatomic,assign) NSInteger swimmingPosture;
 
 /**
- 泳池距离 (单位:cm) | pool distance (unit:cm)
+ 泳池距离 (单位:m) | pool distance (unit:m)
  */
 @property (nonatomic,assign) NSInteger poolDistance;
 
@@ -204,6 +204,11 @@
  总休息时长 (单位:s) ，若是0，有可能是固件不支持  | Total rest time (unit:s)，If it is 0, it is possible that the firmware does not support it
  */
 @property (nonatomic,assign) NSInteger totalRestTime;
+
+/**
+ 泳池距离 (单位:m), 小数点（放大10000倍） | Swimming pool distance (in meters), decimal point (magnified by 10000 times)
+ */
+@property (nonatomic,assign) NSInteger poolDistanceDecimal;
 
 @end
 

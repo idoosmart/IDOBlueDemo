@@ -232,10 +232,11 @@
  */
 @property (nonatomic,assign) NSInteger langVersion;
 /**
-   当前使用的语言
-   use lang
+ * 当前使用的语言 | use lang
+ * 语言单位 , 具体类型查看 IDO_LANGUAGE_TYPE
+ * Language units, specific types can be found in IDO_ LANGUAGE_ TYPE
  */
-@property (nonatomic,assign) NSInteger useLang;
+@property (nonatomic,assign) IDO_LANGUAGE_TYPE useLang;
 /**
    默认的语言
    default lang
@@ -376,11 +377,11 @@ error flag
  9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
  17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示 21=> X屏（gt01pro-X新增）22=> 卡路里 （Doro Watch新增）
  23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增) 25=> renpho health(润丰健康)(IDW12新增) 26=> 指南针 (mp01新增)
- 27=> 气压高度计(mp01新增)
+ 27=> 气压高度计(mp01新增)   28=> 通话列表(蓝牙通话)(IDW13新增)
  0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
  9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
  16=> Last activity 17=> Health data 18=> Blood oxygen 19 => Menu setting 20=> Alexa voice prompt 21=> X screen 22=> Calories
- 23=> Distance 24=> One-key measurement  25=> renpho health 26=> compass 27=> barometric_altimeter
+ 23=> Distance 24=> One-key measurement  25=> renpho health 26=> compass 27=> barometric_altimeter  28=>Call list
 */
 @property (nonatomic,strong) NSArray<NSNumber *> * itemList;
 /**
@@ -390,11 +391,11 @@ error flag
  9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
  17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示 21=> X屏（gt01pro-X新增）22=> 卡路里 （Doro Watch新增）
  23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增)  25=> renpho health(润丰健康)(IDW12新增) 26=> 指南针 (mp01新增)
- 27=> 气压高度计(mp01新增)
+ 27=> 气压高度计(mp01新增)   28=> 通话列表(蓝牙通话)(IDW13新增)
  0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
  9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
  16=> Last activity 17=> Health data 18=> Blood oxygen 19 => Menu setting 20=> Alexa voice prompt 21=> X screen 22=> Calories
- 23=> Distance 24=> One-key measurement 25=> renpho health 26=> compass 27=> barometric_altimeter
+ 23=> Distance 24=> One-key measurement 25=> renpho health 26=> compass 27=> barometric_altimeter  28=>Call list
  */
 @property (nonatomic,strong) NSArray<NSNumber *> * maxItemList;
 /**
@@ -444,17 +445,10 @@ error flag
 @interface IDOGetDownLanguageBluetoothModel:IDOBluetoothBaseModel
 /**
  * 当前使用的语言 | use lang
- * 语言单位 无效:0,中文:1,英文:2,法语:3,德语:4,意大利语:5,西班牙语:6,日语:7,
- * 波兰语:8,捷克语:9,罗马尼亚:10,立陶宛语:11,荷兰语:12,斯洛文尼亚:13,
- * 匈牙利语:14,俄罗斯语:15,乌克兰语:16,斯洛伐克语:17,丹麦语:18,克罗地亚:19,印尼语:20,
- * 韩语:21,印地语:22,葡萄牙语:23,土耳其:24,泰国语:25,越南语:26,缅甸语:27,
- * 菲律宾语:28,繁体中文:29,希腊语:30,阿拉伯语:31
- * Language unit Invalid: 0, Chinese: 1, English: 2, French: 3, German: 4, Italian: 5, Spanish: 6, Japanese: 7,
- * Polish: 8, Czech: 9, Romania: 10, Lithuanian: 11, Dutch: 12, Slovenia: 13,
- * Hungarian: 14, Russian: 15, Ukrainian: 16, Slovak: 17, Danish: 18, Croatia: 19,Indonesian: 20,korean:21,hindi:22
- * portuguese:23,turkish:24,thai:25,vietnamese:26,burmese:27,filipino:28,traditional Chinese:29,greek:30,arabic:31
+ * 语言单位 , 具体类型查看 IDO_LANGUAGE_TYPE
+ * Language units, specific types can be found in IDO_ LANGUAGE_ TYPE
  */
-@property (nonatomic,assign) NSInteger useLang;
+@property (nonatomic,assign) IDO_LANGUAGE_TYPE useLang;
 /**
  * 默认语言 | default lang
  */
@@ -918,6 +912,49 @@ error flag
  支持设置关闭alexa功能，MP02定制需求
  */
 @property (nonatomic,assign) BOOL supportSetAlexaFunctionOnOff;
+/**
+ 经期历史数据下发使用version2版本下发
+ */
+@property (nonatomic,assign) BOOL supportSetHistoricalMenstruationUseV2;
+/**
+ 支持泰坦定制，通知支持Titan Smart World，type：0x61，titan16，gtx08
+ */
+@property (nonatomic,assign) BOOL supporTitanSmartWorld;
+/**
+ 泰坦定制，固件不开放APP下发跑步计划的功能，app屏蔽跑步计划入口，gtx06
+ */
+@property (nonatomic,assign) BOOL notSupportAppSendRunPlan;
+
+/**
+ ks02，标准化APP，功能表开启后，V3设置获取消息应用状态使用version0x20版本下发
+ */
+@property (nonatomic,assign) BOOL supportSetNoticeMessageStateUseVersion0x20;
+/**
+ 支持获取单位
+ */
+@property (nonatomic,assign) BOOL supportGetUnit;
+/**
+ 支持设置来电快捷回复开关
+ */
+@property (nonatomic,assign) BOOL supportSetCallQuickReplyOnOff;
+/**
+ RYZE定制新增, 消息应用类型
+ */
+@property (nonatomic,assign) BOOL supportRyzeConnect;
+
+/**
+ 通知支持LOOPS FIT
+ */
+@property (nonatomic,assign) BOOL supportLoopsFit;
+/**
+ 通知支持LOOPS FIT
+ */
+@property (nonatomic,assign) BOOL supportTasSmart;
+
+/**
+ 支持血压模型文件更新
+ */
+@property (nonatomic,assign) BOOL supportBpModelFileUpdate;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1063,6 +1100,27 @@ error flag
  功能表开启后，同步v3睡眠数据中不对睡眠类型进行限制，使用固件回复的睡眠类型直接上报SDK
  */
 @property (nonatomic,assign) BOOL supportV3HealthSleepDataTypeNotLimit;
+
+/**
+ 固件支持使用表盘框架使用argb6666/abrg6666 编码格式
+ */
+@property (nonatomic,assign) BOOL supportDialFrameEncodeFormatArgb6666;
+/**
+ 固件管理切换快/慢速模式，APP不下发设置链接参数(快慢速）
+ */
+@property (nonatomic,assign) BOOL supportDeviceControlFastModeAlone;
+/**
+ 固件支持app下发手机操作系统信息
+ */
+@property (nonatomic,assign) BOOL supportAppSendPhoneSystemInfo;
+/**
+ 设备支持一键双连，区分配对时APP展示引导页还是直接下发配对指令
+ */
+@property (nonatomic,assign) BOOL supportOnekeyDoubleContact;
+/**
+ 表盘框架douivv5&v6使用偶数对齐(奇数宽度的图片会宽度+1)
+ */
+@property (nonatomic,assign) BOOL supportdialFrameEncodeWidthUseEvenNumberAligning;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1278,7 +1336,10 @@ error flag
  支持身体电量数据同步
  */
 @property (nonatomic,assign) BOOL v3BodyPower;
- 
+/**
+ v3天气设置增加下发48小时天气数据
+ */
+@property (nonatomic,assign) BOOL supportSetV3Add48HourWeatherData;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -2345,6 +2406,10 @@ error flag
 @property (nonatomic,assign) BOOL supportHomeWeibo;
 
 /**
+ v3天气设置支持各item指针项动态配置，app会按照所有项目最大数量下发，项目根据需要取前面的item项。
+ */
+@property (nonatomic,assign) BOOL supportSetV3WeatherDynamicConfig;
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable29BluetoothModel
@@ -3077,6 +3142,16 @@ error flag
  深蹲
  */
 @property (nonatomic,assign) BOOL squat;
+
+/**
+ 匹克球
+ */
+@property (nonatomic,assign) BOOL pickleball;
+
+/**
+ 有氧健身操
+ */
+@property (nonatomic,assign) BOOL aerobicsBodybuildingExercise;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -4167,7 +4242,7 @@ error flag
 /**
  * 手环的平台 | platform for bracelet
  * 0:nordic,10:realtek 8762x ,20:cypress psoc6,30:Apollo3,40:汇顶,50:nordic+泰凌微,
- * 60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340;90:炬心
+ * 60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340;90:炬心; 99:思澈
  */
 @property (nonatomic,assign) NSInteger platform;
 
@@ -4361,5 +4436,27 @@ error flag
  * @return IDOGetAlgVersionBluetoothModel
  */
 + (IDOGetAlgVersionBluetoothModel *)currentModel;
+
+@end
+
+
+#pragma mark ==== 获取全天目标步数 | Get the daily target steps model  ====
+@interface IDOGetStepGoalBluetoothModel : IDOBluetoothBaseModel
+/**
+ 全天日目标步数
+ Full day target steps
+ */
+@property (nonatomic,assign) NSInteger stepDayGoal;
+/**
+ 全天周目标步数
+ Full week target steps
+ */
+@property (nonatomic,assign) NSInteger stepWeekGoal;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetStepGoalBluetoothModel
+ */
++ (IDOGetStepGoalBluetoothModel *)currentModel;
 
 @end

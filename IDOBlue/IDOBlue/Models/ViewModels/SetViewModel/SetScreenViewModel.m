@@ -42,6 +42,24 @@
 {
     if (!_screenModel) {
         _screenModel = [IDOSetScreenBrightnessInfoBluetoothModel currentModel];
+        
+        // deviceId ： 391是 K6默认亮度等级 5
+        if (__IDO_FUNCTABLE__.funcTable23Model.screenBrightness5Level
+            && [IDO_BLUE_ENGINE.peripheralEngine.deviceId integerValue] == 391) {
+            _screenModel.levelValue = 100;
+        }else if(__IDO_FUNCTABLE__.funcTable23Model.screenBrightness5Level
+                 && [IDO_BLUE_ENGINE.peripheralEngine.deviceId integerValue] == 7653) { //  [207 7653] 亮度等级默认2级，10s
+            _screenModel.levelValue = 40;
+            _screenModel.showInterval = 10;
+        } else {
+            _screenModel.levelValue = 60;
+        }
+        
+        _screenModel.autoAdjustNight = 1;
+        _screenModel.startHour = 19;
+        _screenModel.startMinute = 0;
+        _screenModel.endHour = 6;
+        _screenModel.endMinute = 0;
     }
     return _screenModel;
 }

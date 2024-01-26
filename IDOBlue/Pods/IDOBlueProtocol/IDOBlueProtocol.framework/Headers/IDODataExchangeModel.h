@@ -54,7 +54,7 @@
  */
 @property (nonatomic,assign) NSInteger retCode;
 /**
- * 0x01:请求app打开gps   0x02：发起运动开始请求
+ * 0x01:请求app打开gps   0x02：发起运动开始请求 0x03:发起运动开始后台联动请求
  */
 @property (nonatomic,assign) NSInteger operate;
 /**
@@ -475,6 +475,36 @@
  时长 单位秒: duration;
  */
 @property (nonatomic,strong) NSMutableArray<NSDictionary *> * ropeItems;
+
+/**
+  0:无效 1:非智能陪跑运动 2:智能陪跑运动
+  0: Invalid 1: Non intelligent running sports 2: Intelligent running sports
+ */
+@property (nonatomic,assign) NSInteger smartCompetitor;
+
+/**
+ ai形象ID
+ AI Image ID
+ */
+@property (nonatomic,assign) NSInteger aiImageId;
+
+/**
+ 用户形象ID
+ user image id
+ */
+@property (nonatomic,assign) NSInteger userImageId;
+
+/**
+ 背景形象ID
+ bg image id
+ */
+@property (nonatomic,assign) NSInteger bgImageId;
+
+/**
+ 智能陪跑对手配速
+ Intelligent companion running at opponent's pace
+ */
+@property (nonatomic,assign) NSInteger smartCompetitorPace;
 
 @end
 

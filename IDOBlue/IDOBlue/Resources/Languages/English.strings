@@ -1270,3 +1270,11 @@
 "EPO files cannot be operated during this time period" = "EPO files cannot be operated during this time period";
 "background color" = "background color";
 "get background color" = "get background color";
+
+"custom wallpaper cloud dial" = "custom wallpaper cloud dial";
+"Make wallpaper cloud dial file" = "Make wallpaper cloud dial file";
+"Extract and read the json dial file" = "Extract and read the json dial file";
+"widgets location" = "widgets location";
+"widgets bgcolor" = "widgets bgcolor";
+"Editing of widgets is not supported" = "Editing of widgets is not supported";
+"Please first operate the button to extract and read the JSON dial file" = "Please first operate the button to extract and read the JSON dial file";

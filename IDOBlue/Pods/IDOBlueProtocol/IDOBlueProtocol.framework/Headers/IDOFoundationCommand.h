@@ -19,7 +19,10 @@
 @interface IDOFoundationCommand : NSObject
 
 #pragma mark ======= control Command =======
-
+/**
+ * @brief 初始化第三方应用的消息通知状态
+ */
++ (void)initMessageNoticeStateCommand:(IDOSetV3NotifyStateModel *_Nullable)notifyStateModel;
 /**
  设备进入ota模式通知 |  Notification of device enter ota mode
  */
@@ -758,7 +761,7 @@
                 callback:(void(^_Nullable)(int errorCode))callback;
 
 /**
- * @brief 设置防打扰模式 | Set the anti-disturb mode
+ * @brief 设置勿扰模式 | Set the anti-disturb mode
  * @param noDisturbModeModel 防打扰模式 model (IDOSetNoDisturbModeInfoBluetoothModel)
  * Anti-disturbance mode model (IDOSetNoDisturbModeInfoBluetoothModel)
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
@@ -1291,6 +1294,8 @@
 
 /**
  * @brief //设置经期历史数据
+ * 功能表： __IDO_FUNCTABLE__.funcTable39Model.supportSetHistoricalMenstruationUseV2
+ * 若功能表支持，则支持排卵期相关字段的设置
  * @param historyModel 经期历史数据模型
  * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
@@ -1369,6 +1374,31 @@
  */
 + (void)setAlexaVoiceFunctionCommand:(IDOSetAlexaAoiceFunctionStatusModel *_Nullable)alexaAoiceFunctionStatusModel
                             callback:(void (^_Nullable)(int errorCode))callback;
+
+/**
+ * @brief //手机操作系统设置
+ * 功能表： __IDO_FUNCTABLE__.funcTable38Model.supportAppSendPhoneSystemInfo
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setPhoneSystemInfoCommand:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+ * @brief //设置来电快捷回复
+ * 功能表： __IDO_FUNCTABLE__.funcTable39Model.supportSetCallQuickReplyOnOff
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setCallQuickStatusCommand:(IDOSetCallQuickStatusModel *_Nullable)callQuickStatusModel
+                         callback:(void (^_Nullable)(int errorCode))callback;
+
+/**
+ * @brief APP控制固件屏蔽功能 VP
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setCloseDeviceFunctionCommand:(IDOSetCloseDeviceFunctionModel *_Nullable)closeDeviceFunctionModel
+                         callback:(void (^_Nullable)(int errorCode))callback;
 
 #pragma mark ======= get Command =======
 
@@ -1662,6 +1692,13 @@
                                  callback:(void (^ _Nullable)(int errorCode))callback;
 
 /**
+ * @brief 获取全天目标步数 | Get the daily target steps
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)getStepGoalCommand:(void (^_Nullable)(int errorCode, IDOGetStepGoalBluetoothModel * _Nullable data))callback;
+
+/**
  * @brief 获取走动提醒
  * @param callback 执行后回调 data (IDOSetWalkReminderBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * callback data (IDOSetWalkReminderBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
@@ -1698,7 +1735,7 @@
 + (void)getEmergencyContactDataCommand:(void (^_Nullable)(int errorCode, IDOSetSyncEmergencyContactModel * _Nullable data))callback;
 
 /**
- * @brief 获取第三方应用的通知状态
+ * @brief 获取第三方应用的消息通知状态
  * @param callback 执行后回调 data (IDOSetV3NotifyStateModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * callback data (IDOSetV3NotifyStateModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
@@ -1794,6 +1831,22 @@
  * callback data (IDOGetAlgVersionBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)getAlgVersionCommand:(void (^_Nullable)(int errorCode, IDOGetAlgVersionBluetoothModel * _Nullable data))callback;
+
+
+/**
+ * @brief  获取设备语言配置，已经适配v2和v3  | get device language list
+ * @param callback 执行后回调 data (IDOGetV3LangLibListModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOGetV3LangLibListModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+*/
++ (void)getDeviceLanguageCommand:(void(^_Nullable)(int errorCode,IDOGetV3LangLibListModel * _Nullable data))callback;
+
+/**
+ * @brief 获取单位  ( APP收到固件通知 type = 60 ， 固件单位切换, 获取固件单位 ) | get unit
+ *  * 功能表 | Function Table :  __IDO_FUNCTABLE__.funcTable39Model.supportGetUnit
+ * @param callback 执行后回调 data (IDOSetUnitInfoBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOSetUnitInfoBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getUnitCommand:(void(^_Nullable)(int errorCode,IDOSetUnitInfoBluetoothModel * _Nullable unitModel))callback;
 
 #pragma mark ======= listen Command =======
 

@@ -93,6 +93,22 @@
  */
 @property (nonatomic,assign) NSInteger cycleDay;
 
+/** 以下字段，该功能表支持才有用
+ 功能表：__IDO_FUNCTABLE__.funcTable39Model.supportSetHistoricalMenstruationUseV2
+ */
+/**
+ 从下一个经期开始前到排卵日的间隔,一般为14天 | ovulation interval day
+ */
+@property (nonatomic,assign) NSInteger ovulationIntervalDay;
+/**
+ 排卵日之前易孕期的天数,一般为5 | The day before the menstrual period
+ */
+@property (nonatomic,assign) NSInteger ovulationBeforeDay;
+/**
+ 排卵日之后易孕期的天数,一般为5  |  One day after menstruation
+ */
+@property (nonatomic,assign) NSInteger ovulationAfterDay;
+
 @end
 
 #pragma mark ==== 设置经期历史数据 model ====

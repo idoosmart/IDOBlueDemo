@@ -16,6 +16,7 @@
 #import "SetWatchDialViewModel.h"
 #import "SetWallpaperViewModel.h"
 #import "GetWatchDialNameViewModel.h"
+#import "SetWallpaperCloudViewModel.h"
 
 @interface MainDialViewModel ()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -38,7 +39,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"get watch screen info")],@[lang(@"get watch dial list info")],@[lang(@"set current dial info")],@[lang(@"transfer dial file")],@[lang(@"custom wallpaper dial")],@[lang(@"get watch dial name")]];
+        _buttonTitles = @[@[lang(@"get watch screen info")],@[lang(@"get watch dial list info")],@[lang(@"set current dial info")],@[lang(@"transfer dial file")],@[lang(@"custom wallpaper dial")],@[lang(@"get watch dial name")],@[lang(@"custom wallpaper cloud dial")]];
     }
     return _buttonTitles;
 }
@@ -46,7 +47,7 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[GetWatchScreenInfoViewModel class],[GetWatchDialListViewModel class],[SetWatchDialViewModel class],[TranWatchDialViewModel class],[SetWallpaperViewModel class],[GetWatchDialNameViewModel class]];
+        _modelClasss = @[[GetWatchScreenInfoViewModel class],[GetWatchDialListViewModel class],[SetWatchDialViewModel class],[TranWatchDialViewModel class],[SetWallpaperViewModel class],[GetWatchDialNameViewModel class],[SetWallpaperCloudViewModel class]];
     }
     return _modelClasss;
 }

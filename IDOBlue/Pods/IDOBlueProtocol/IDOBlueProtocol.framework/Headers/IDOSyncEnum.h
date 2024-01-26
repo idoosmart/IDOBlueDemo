@@ -344,6 +344,12 @@ typedef NS_ENUM(NSInteger, IDO_SYNC_CONFIG_DATA_TYPE) {
      * set body power
      */
     IDO_SYNC_SET_BODY_POWER_TYPE = 43,
+    /**
+     * 设置语音助手开关
+     * set Voice Assistant Status
+     */
+    IDO_SYNC_SET_VOICE_ASSISTANT_STATUS = 44,
+
 };
 
 /**
