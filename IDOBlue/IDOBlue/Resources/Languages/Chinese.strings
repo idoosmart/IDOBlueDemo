@@ -1296,7 +1296,7 @@
 "background color" = "背景颜色";
 "get background color" = "获取背景颜色";
 
-"custom wallpaper cloud dial" = "自定义壁纸表盘";
+"custom wallpaper cloud dial" = "自定义本地壁纸云表盘";
 "Make wallpaper cloud dial file" = "制作壁纸表盘文件";
 "Extract and read the json dial file" = "提取并读取json表盘文件";
 
