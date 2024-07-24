@@ -1,0 +1,33 @@
+{
+  "originHash" : "5cc23c697fa405ba779c693afb127e0a419eb67abd8cd0b75e8c9c1c58137a83",
+  "pins" : [
+    {
+      "identity" : "swiftyjson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyJSON/SwiftyJSON",
+      "state" : {
+        "revision" : "af76cf3ef710b6ca5f8c05f3a31307d44a3c5828",
+        "version" : "5.0.2"
+      }
+    },
+    {
+      "identity" : "tocropviewcontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TimOliver/TOCropViewController.git",
+      "state" : {
+        "revision" : "a634cb7cdfd580006e79a6e74e64417fe9e9783b",
+        "version" : "2.7.4"
+      }
+    },
+    {
+      "identity" : "zip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marmelroy/Zip.git",
+      "state" : {
+        "revision" : "67fa55813b9e7b3b9acee9c0ae501def28746d76",
+        "version" : "2.1.2"
+      }
+    }
+  ],
+  "version" : 3
+}

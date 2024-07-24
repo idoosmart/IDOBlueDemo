@@ -74,10 +74,14 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOMusicFileManager.h>
 #import <IDOBlueProtocol/IDOStatisticsManager.h>
 #import <IDOBlueProtocol/IDOSportPlanManager.h>
+#import <IDOBlueProtocol/IDOSleepPlanDataModel.h>
+#import <IDOBlueProtocol/IDOSleepPlanManager.h>
 #import <IDOBlueProtocol/IDOPeripheralsManager.h>
+#import <IDOBlueProtocol/IDOAiVoiceManager.h>
 
 #import <IDOBlueProtocol/IDOWallpaperCloudLibManager.h>
 #import <IDOBlueProtocol/IDOWallpaperFileLibManager.h>
 #import <IDOBlueProtocol/IDOWallpaperCloudLibModel.h>
 #import <IDOBlueProtocol/SmartCompetitorManager.h>
 #import <IDOBlueProtocol/IDOSyncHRVDataModel.h>
+#import <IDOBlueProtocol/IDOScManager.h>

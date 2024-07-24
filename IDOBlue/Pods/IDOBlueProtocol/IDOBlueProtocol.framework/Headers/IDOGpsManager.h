@@ -11,37 +11,41 @@ typedef enum : NSUInteger {
     IDOGpsUpgradeTypeFail,  //失败
     IDOGpsUpgradeTypeSucc,  //成功
     IDOGpsUpgradeTypeUnSupport,  //不支持此功能
+    IDOGpsUpgradeTypeUpdating,  //更新中
 } IDOGpsUpgradeType;
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol IDOGpsManagerDelegate <NSObject>
+/**
+ 设置热启动参数
+ Setting hot start parameters
+ */
+- (IDOGetHotStartParamBluetoothModel*)setHotStartParam;
+
+@end
+
 @interface IDOGpsManager : NSObject
 
-/**
- * EPO限制升级时间，一般是24小时，updateTime的单位是小事，默认 updateTime = 24hour，可以不使用
-   | EPO limits the upgrade time, usually 24 hours. The unit of update time is a small matter, and the default update time is 24 hours, which can be omitted
- *
- */
-@property (nonatomic,assign) int updateTime;
+//gps操作代理对象 | gps operation proxy object
+@property (nonatomic,weak)id<IDOGpsManagerDelegate> delegate;
 
 
 + (IDOGpsManager *)shareInstance;
 
 /**
- * 制作GPS文件  |  Creating GPS files
- * filePath:  素材路径, 也是输出文件的路径  |  The material path is also the path to the output file
+ * 制作GPS文件
+ * filePath:  素材路径, 也是输出文件的路径
  *
- * 制作成功后的文件名是：EPO.DAT  |  The file name after successful production is: EPO DAT
- * 取模图片的格式 为1024 | The format of the template image is 1024
- * @return 制作成功后文件的路径（文件名是EPO.DAT），若失败，则返回为nil；| The path to the file after successful creation (file name is EPO. DAT), if unsuccessful, returns nil;
+ * 制作成功后的文件名是：EPO.DAT
+ * 取模图片的格式 为1024
+ * @return 制作成功后文件的路径（文件名是EPO.DAT），若失败，则返回为nil；
  *
  */
-
 + (NSString *)getMakeGpsZipFileWithFilePath:(NSString *)filePath;
 
 /**
  * 下载EPO文件 | Download EPO file
- *  功能表：__IDO_FUNCTABLE__.funcTable34Model.supportAirohaGpsChip
  * @param callback ( status, epoFileFolder )
  *
  */
@@ -56,6 +60,11 @@ NS_ASSUME_NONNULL_BEGIN
  * 升级完EPO文件后，需要更新一下升级的时间 | After upgrading the EPO file, you need to update the upgrade time
  */
 - (void)updateAgpsEPOFileUpdateTimeNow;
+
+/**
+ * epo 更新时间复位
+ */
+- (void)resetEPOFileUpdateTime;
 
 @end
 

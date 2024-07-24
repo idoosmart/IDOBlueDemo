@@ -30,7 +30,7 @@ typedef void(^PGQVoiceInputHiddenBlock)(PQVoiceInputView * _Nullable view,NSStri
  *
  *  @return PGQVoiceInputView
  */
-+ (__kindof PQVoiceInputView * _Nonnull)pgq_reateVoiceViewWithRect:(CGRect)frame voiceColor:(UIColor* _Nullable)lineColor volumeColor:(UIColor* _Nullable)colidColor title:(NSString * _Nullable)title showType:(VOICEINPUTTYPE)type hidden:(PGQVoiceInputHiddenBlock _Nullable)block;
++ (PQVoiceInputView * _Nonnull)pgq_reateVoiceViewWithRect:(CGRect)frame voiceColor:(UIColor* _Nullable)lineColor volumeColor:(UIColor* _Nullable)colidColor title:(NSString * _Nullable)title showType:(VOICEINPUTTYPE)type hidden:(PGQVoiceInputHiddenBlock _Nullable)block;
 /**
  *  更新UI 根据音量大小 0.0 - 1.0
  *

@@ -47,7 +47,7 @@
 - (IDOSetWalkReminderBluetoothModel *)walkReminderModel
 {
     if (!_walkReminderModel) {
-        _walkReminderModel = [IDOSetWalkReminderBluetoothModel currentModel];
+         _walkReminderModel = [IDOSetWalkReminderBluetoothModel currentModel];
     }
     return _walkReminderModel;
 }
@@ -77,6 +77,17 @@
     model2.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model2];
     
+    TextFieldCellModel * model10 = [[TextFieldCellModel alloc]init];
+    model10.typeStr = @"oneTextField";
+    model10.titleStr = lang(@"set a target time");
+    model10.data = @[@(self.walkReminderModel.goalTime)];
+    model10.cellHeight = 70.0f;
+    model10.cellClass = [OneTextFieldTableViewCell class];
+    model10.modelClass = [NSNull class];
+    model10.isShowLine = YES;
+    model10.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model10];
+
     TextFieldCellModel * model3 = [[TextFieldCellModel alloc]init];
     model3.typeStr = @"twoTextField";
     model3.titleStr = lang(@"set start time");
@@ -99,6 +110,19 @@
     model4.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model4];
     
+    if (__IDO_FUNCTABLE__.funcTable38Model.walkReminderAddNotify) {
+        TextFieldCellModel * model8 = [[TextFieldCellModel alloc]init];
+        model8.typeStr = @"oneTextField";
+        model8.titleStr = lang(@"notify flag:");
+        model8.data = @[@(self.walkReminderModel.notifyFlag)];
+        model8.cellHeight = 70.0f;
+        model8.cellClass = [OneTextFieldTableViewCell class];
+        model8.modelClass = [NSNull class];
+        model8.isShowLine = YES;
+        model8.textFeildCallback = self.textFeildCallback;
+        [cellModels addObject:model8];
+    }
+        
     EmpltyCellModel * model5 = [[EmpltyCellModel alloc]init];
     model5.typeStr = @"empty";
     model5.cellHeight = 30.0f;
@@ -120,18 +144,6 @@
         model.isSelected = [self.walkReminderModel.repeat[i] boolValue];
         [cellModels addObject:model];
     }
-    
-    TextFieldCellModel * model10 = [[TextFieldCellModel alloc]init];
-    model10.typeStr = @"oneTextField";
-    model10.titleStr = @"设置目标时间";
-    model10.data = @[@(self.walkReminderModel.goalTime)];
-    model10.cellHeight = 70.0f;
-    model10.cellClass = [OneTextFieldTableViewCell class];
-    model10.modelClass = [NSNull class];
-    model10.isShowLine = YES;
-    model10.textFeildCallback = self.textFeildCallback;
-    [cellModels addObject:model10];
-    
     
     EmpltyCellModel * model6 = [[EmpltyCellModel alloc]init];
     model6.typeStr = @"empty";
@@ -159,6 +171,10 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        if (!__IDO_FUNCTABLE__.funcTable23Model.walkReminder) {
+            [funcVC showToastWithText:@"feature is not supported on the current device"];
+            return;
+        }
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set walk reminder")]];
         [IDOFoundationCommand setWalkReminderCommand:strongSelf.walkReminderModel callback:^(int errorCode) {
             if(errorCode == 0) {
@@ -221,6 +237,18 @@
                 strongSelf.walkReminderModel.goalStep  = [selectStr integerValue];
             };
         }else if (indexPath.row == 2) {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.tenArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.tenArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.tenArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.walkReminderModel.goalTime  = [selectStr integerValue];
+            };
+        }else if (indexPath.row == 3) {
             TwoTextFieldTableViewCell * twoCell = (TwoTextFieldTableViewCell *)tableViewCell;
             TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
             NSArray * pickerArray = twoCell.textField1 == textField ? strongSelf.pickerDataModel.hourArray : strongSelf.pickerDataModel.minuteArray;
@@ -237,7 +265,7 @@
                 textFieldModel.data = @[@(strongSelf.walkReminderModel.startHour),@(strongSelf.walkReminderModel.startMinute)];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             };
-        }else if (indexPath.row == 3) {
+        }else if (indexPath.row == 4) {
             TwoTextFieldTableViewCell * twoCell = (TwoTextFieldTableViewCell *)tableViewCell;
             TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
             NSArray * pickerArray = twoCell.textField1 == textField ? strongSelf.pickerDataModel.hourArray : strongSelf.pickerDataModel.minuteArray;
@@ -254,19 +282,20 @@
                 textFieldModel.data = @[@(strongSelf.walkReminderModel.endHour),@(strongSelf.walkReminderModel.endMinute)];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             };
-        }
-        else if (indexPath.row == 12)
-        {
+        }else {
             TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
-            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.hundredArray;
-            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.hundredArray containsObject:@([textField.text intValue])] ?
-            [strongSelf.pickerDataModel.hundredArray indexOfObject:@([textField.text intValue])] : 0 ;
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.tenArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.tenArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.tenArray indexOfObject:@([textField.text intValue])] : 0 ;
             [funcVC.pickerView show];
             funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                if ([selectStr integerValue] > 3) {
+                    return;
+                }
                 textField.text = selectStr;
                 textFieldModel.data = @[@([selectStr integerValue])];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                strongSelf.walkReminderModel.goalTime  = [selectStr integerValue];
+                strongSelf.walkReminderModel.notifyFlag  = [selectStr integerValue];
             };
         }
     };

@@ -1,0 +1,47 @@
+{
+	"project": 13,
+	"version": 1,
+	"name": "custom1",
+	"id":1000, 
+	"dial_data":[
+		{
+			"user": 1,
+			"wtype": 1,
+			"xdata": 1,
+			"dtype": 0,
+			"x": 0,
+			"y": 0,
+			"file": "preview.bin"
+		},{
+			"user": 1,
+			"wtype": 2,
+			"xdata": 1,
+			"dtype": 0,
+			"x": 0,
+			"y": 0,
+			"file": "background.bin"
+		},{
+			"user": 1,
+			"wtype": 9,
+			"xdata": 0,
+			"dtype": 42,
+			"x": 30,
+			"y": 15,
+			"font_size": 6,
+			"r": 255,
+			"g": 0,
+			"b": 0
+		},{
+			"user": 1,
+			"wtype": 9,
+			"xdata": 0,
+			"dtype": 12,
+			"x": 28,
+			"y": 45,
+			"font_size": 6,
+			"r": 255,
+			"g": 255,
+			"b": 255
+		}
+	]
+}

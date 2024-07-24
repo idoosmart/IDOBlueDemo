@@ -1,7 +1,7 @@
 framework module IDOBlueUpdate {
   umbrella header "IDOBlueUpdate.h"
-
   export *
+
   module * { export * }
 }
 

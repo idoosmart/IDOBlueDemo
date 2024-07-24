@@ -18,4 +18,7 @@ FOUNDATION_EXPORT const unsigned char IDOBlueUpdateVersionString[];
 
 #import <IDOBlueUpdate/IDOUpdateEnum.h>
 #import <IDOBlueUpdate/IDOUpdateFirmwareManager.h>
+#import <IDOBlueUpdate/IDOUpdateSFManager.h>
+#import <IDOBlueUpdate/IDOJLDialModel.h>
+#import <IDOBlueUpdate/IDOUpdateJLManager.h>
 

@@ -61,6 +61,9 @@ typedef NS_ENUM(NSInteger, IDO_GETTING_APPPACKNAME_TYPE) {
 //初始化消息通知图标和名字更新
 + (instancetype)listenForUpdate;
 
+//消息图标存储目录地址
++ (NSString *)iconPath;
+
 //主动获取图标和名字
 - (BOOL)getAppIconAndName;
 

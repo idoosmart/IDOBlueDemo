@@ -99,6 +99,10 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        if (!__IDO_FUNCTABLE__.funcTable23Model.activitySwitch) {
+            [funcVC showToastWithText:@"feature is not supported on the current device"];
+            return;
+        }
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set sport identify switch")]];
         [IDOFoundationCommand setActivitySwitchCommand:strongSelf.sportModel callback:^(int errorCode) {
             if(errorCode == 0) {

@@ -17,6 +17,8 @@
 #import "OneButtonTableViewCell.h"
 #import "OneTextFieldTableViewCell.h"
 #import "FuncViewController.h"
+#import "LabelCellModel.h"
+#import "OneLabelTableViewCell.h"
 
 @interface SetFitnessGuidanceViewModel ()
 
@@ -24,7 +26,7 @@
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^switchCallback)(UIViewController * viewController,UISwitch * onSwitch,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^textFeildCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
-
+@property (nonatomic,copy)void(^labelSelectCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 
 @end
 
@@ -37,6 +39,7 @@
         [self getTextFieldCallback];
         [self getSwitchCallback];
         [self getButtonCallback];
+        [self getLabelCallback];
         [self getCellModels];
     }
     return self;
@@ -46,7 +49,7 @@
 - (IDOSetFitnessGuidanceModel *)fitnessGuidanceModel
 {
     if (!_fitnessGuidanceModel) {
-        _fitnessGuidanceModel = [IDOSetFitnessGuidanceModel currentModel];
+         _fitnessGuidanceModel = [IDOSetFitnessGuidanceModel currentModel];
     }
     return _fitnessGuidanceModel;
 }
@@ -106,6 +109,18 @@
                 strongSelf.fitnessGuidanceModel.notifyFlag  = [strongSelf.pickerDataModel.notifyFlagArray containsObject:selectStr] ?
                 [strongSelf.pickerDataModel.notifyFlagArray indexOfObject:selectStr] : 0 ;
             };
+        }else if (indexPath.row == 4) {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.tenThousandArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.tenThousandArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.tenThousandArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                textFieldModel.data = @[@([selectStr integerValue])];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.fitnessGuidanceModel.targetSteps  = [selectStr integerValue];
+            };
         }
         
     };
@@ -148,6 +163,22 @@
     };
 }
 
+- (void)getLabelCallback
+{
+    __weak typeof(self) weakSelf = self;
+    self.labelSelectCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
+        __strong typeof(self) strongSelf = weakSelf;
+        FuncViewController * funcVC = (FuncViewController *)viewController;
+        NSIndexPath * indexPath = [funcVC.tableView indexPathForCell:tableViewCell];
+        LabelCellModel * labelModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+        if (labelModel.isMultiSelect)labelModel.isSelected = !labelModel.isSelected;
+        NSMutableArray * repeatArray = [NSMutableArray arrayWithArray:strongSelf.fitnessGuidanceModel.repeat];
+        [repeatArray replaceObjectAtIndex:labelModel.index withObject:@(labelModel.isSelected)];
+        strongSelf.fitnessGuidanceModel.repeat = repeatArray;
+        [funcVC.tableView reloadData];
+    };
+}
+
 - (void)getCellModels
 {
     NSMutableArray * cellModels = [NSMutableArray array];
@@ -184,7 +215,6 @@
     model5.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model5];
     
-    //通知类型 ： 0无效 ； 1：允许通知； 2：静默通知； 3：关闭通知
     TextFieldCellModel * model6 = [[TextFieldCellModel alloc]init];
     model6.typeStr = @"oneTextField";
     model6.titleStr = lang(@"notify flag");
@@ -196,7 +226,32 @@
     model6.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model6];
     
-   
+    TextFieldCellModel * model8 = [[TextFieldCellModel alloc]init];
+    model8.typeStr = @"oneTextField";
+    model8.titleStr = lang(@"set target step");
+    model8.data = @[@(self.fitnessGuidanceModel.targetSteps)];
+    model8.cellHeight = 70.0f;
+    model8.cellClass = [OneTextFieldTableViewCell class];
+    model8.modelClass = [NSNull class];
+    model8.isShowLine = YES;
+    model8.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model8];
+    
+    for (int i = 0; i < self.pickerDataModel.weekArray.count; i++) {
+        LabelCellModel * model = [[LabelCellModel alloc]init];
+        model.typeStr = @"oneLabel";
+        model.data = @[self.pickerDataModel.weekArray[i]];
+        model.cellHeight = 40.0f;
+        model.cellClass = [OneLabelTableViewCell class];
+        model.modelClass = [NSNull class];
+        model.labelSelectCallback = self.labelSelectCallback;
+        model.isShowLine = YES;
+        model.index = i;
+        model.isMultiSelect = YES;
+        model.isSelected = [self.fitnessGuidanceModel.repeat[i] boolValue];
+        [cellModels addObject:model];
+    }
+       
     EmpltyCellModel * model12 = [[EmpltyCellModel alloc]init];
     model12.typeStr = @"empty";
     model12.cellHeight = 30.0f;
@@ -206,7 +261,7 @@
     
     FuncCellModel * model7 = [[FuncCellModel alloc]init];
     model7.typeStr = @"oneButton";
-    model7.data = @[@"setup"];
+    model7.data = @[lang(@"setup")];
     model7.cellHeight = 70.0f;
     model7.cellClass = [OneButtonTableViewCell class];
     model7.modelClass = [NSNull class];

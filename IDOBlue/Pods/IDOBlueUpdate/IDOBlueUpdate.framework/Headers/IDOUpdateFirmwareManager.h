@@ -102,11 +102,26 @@
 - (IDO_DATA_TRAN_COMPRESSION_TYPE)fileTranCompressionTypeUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager;
 
 /**
+ * @brief 返回传输文件当前累计文件大小 只适合 Apollo
+ * @param manager 升级管理中心对象 | Upgrade Management Center Objects
+ * @return 文件传输类型 | file transfer type
+ */
+- (long long)fileTranCumulativeSizeUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager;
+
+/**
  * @brief 返设置传输文件包文个数 只适合 Apollo
  * @param manager 升级管理中心对象 | Upgrade Management Center Objects
  * @return 传输文件包文个数 |  number of transfer file packet
  */
 - (NSInteger)setTransferNumberPacketsUpdateManager:(IDOUpdateFirmwareManager *_Nullable)manager;
+
+/**
+ * @brief 升级状态的log 只适合 sifli设备 | Upgrade status Only suitable for Sifli devices
+ * @param manager 升级管理中心对象 | Upgrade Management Center Objects
+ * @param desc 日志信息返回 | Log information
+ */
+- (void)updateManager:(IDOUpdateFirmwareManager *_Nullable)manager
+           updateDesc:(NSString*_Nullable)desc;
 
 @end
 
@@ -134,6 +149,11 @@
 @property (nonatomic,assign,readonly) IDO_UPDATE_STATE state;
 
 /**
+ 所有文件大小
+ */
+@property (nonatomic,assign) long long allFileSize;
+
+/**
  升级类型 | Upgrade type
  */
 @property (nonatomic,assign) IDO_UPDATE_PLATFORM_TYPE updateType;
@@ -144,6 +164,11 @@
   监听代理回调状态码 IDO_APOLLO_UPDATE_STOP
  */
 @property (nonatomic,assign) BOOL transferredFileing;
+
+/**
+ 设备的uuid （sifli平台需要传值） | Uuid of the device (sifli platform requires value transfer)
+ */
+@property (nonatomic,copy,nullable) NSString * deviceUUID;
 
 /**
  * @brief 初始化升级管理中心对象 | Initialize the Upgrade Management Center object

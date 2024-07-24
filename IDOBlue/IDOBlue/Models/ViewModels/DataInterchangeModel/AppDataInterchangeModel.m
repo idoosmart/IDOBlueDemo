@@ -326,6 +326,7 @@
             strongSelf.dataModel.calories  = arc4random()%1000;
             strongSelf.dataModel.distance  = arc4random()%50000;
             strongSelf.dataModel.status    = 0;
+            strongSelf.dataModel.signalFlag = 1;
             [IDOFoundationCommand appIngSportCommand:strongSelf.dataModel
                                       appIngCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
                 __strong typeof(self) strongSelf = weakSelf;
@@ -362,6 +363,8 @@
                               appBleEndCallback:^(IDODataExchangeModel * _Nullable model, int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf addMessageText:[NSString stringWithFormat:@"%@:\n%@\n\n",lang(@"bracelet stop activity"),model.dicFromObject]];
+        FuncViewController * funcVC = (FuncViewController *)[IDODemoUtility getCurrentVC];
+        [funcVC showToastWithText:lang(@"app stop activity success")];
     }];
     
 }

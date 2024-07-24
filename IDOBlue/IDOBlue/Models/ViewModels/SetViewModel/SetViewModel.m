@@ -64,6 +64,8 @@
 #import "SetSyncContactViewModel.h"
 #import "SetV3NoticeMessageViewModel.h"
 #import "AllWorldTimeViewModel.h"
+#import "AllTakeMedicineViewModel.h"
+#import "SetEnterOTAViewModel.h"
 
 @interface SetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -144,6 +146,8 @@
                           @[lang(@"set main interface sort")],
                           @[lang(@"set bule contact")],
                           @[lang(@"set app notify status")],
+                          @[lang(@"设置服药记录")],
+                          @[lang(@"set enter OTA mode")],
                         ];
     }
     return _buttonTitles;
@@ -205,6 +209,9 @@
                          [SetMainUISortViewModel class],
                          [SetSyncContactViewModel class],
                          [SetV3NoticeMessageViewModel class],
+                         [AllTakeMedicineViewModel class],
+                         [SetEnterOTAViewModel class],
+                         
                         ];
     }
     return _modelClasss;

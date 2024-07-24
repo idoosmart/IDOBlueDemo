@@ -16,7 +16,9 @@
 #import "SetWatchDialViewModel.h"
 #import "SetWallpaperViewModel.h"
 #import "GetWatchDialNameViewModel.h"
-#import "SetWallpaperCloudViewModel.h"
+#import "IDOBlue-Swift.h"
+
+
 
 @interface MainDialViewModel ()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -39,7 +41,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"get watch screen info")],@[lang(@"get watch dial list info")],@[lang(@"set current dial info")],@[lang(@"transfer dial file")],@[lang(@"custom wallpaper dial")],@[lang(@"get watch dial name")],@[lang(@"custom wallpaper cloud dial")]];
+        _buttonTitles = @[@[lang(@"get watch screen info")],@[lang(@"get watch dial list info")],@[lang(@"set current dial info")],@[lang(@"transfer dial file")],@[lang(@"custom wallpaper dial")],@[lang(@"get watch dial name")], @[lang(@"SiChe photo cloud dial")], @[lang(@"JieLi wallpaper dial")]];
     }
     return _buttonTitles;
 }
@@ -47,7 +49,7 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[GetWatchScreenInfoViewModel class],[GetWatchDialListViewModel class],[SetWatchDialViewModel class],[TranWatchDialViewModel class],[SetWallpaperViewModel class],[GetWatchDialNameViewModel class],[SetWallpaperCloudViewModel class]];
+        _modelClasss = @[[GetWatchScreenInfoViewModel class],[GetWatchDialListViewModel class],[SetWatchDialViewModel class],[TranWatchDialViewModel class],[SetWallpaperViewModel class],[GetWatchDialNameViewModel class], [GetWatchDialNameViewModel class], [GetWatchDialNameViewModel class]];
     }
     return _modelClasss;
 }
@@ -78,6 +80,15 @@
         NSIndexPath * indexPath = [funcVc.tableView indexPathForCell:tableViewCell];
         BaseCellModel * model = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if ([NSStringFromClass(model.modelClass)isEqualToString:@"NSNull"])return;
+        if ([[model.data firstObject]  isEqual: lang(@"SiChe photo cloud dial")]) {
+            UIViewController * vc = [SiCeDailViewController new];
+            [funcVc.navigationController pushViewController: vc animated:true];
+            return;
+        } else if ([[model.data firstObject]  isEqual: lang(@"JieLi wallpaper dial")]) {
+            UIViewController * vc = [RWDailViewController new];
+            [funcVc.navigationController pushViewController: vc animated:true];
+            return;
+        }
         FuncViewController * newFuncVc = [FuncViewController new];
         newFuncVc.model = [model.modelClass new];
         newFuncVc.title = [model.data firstObject];

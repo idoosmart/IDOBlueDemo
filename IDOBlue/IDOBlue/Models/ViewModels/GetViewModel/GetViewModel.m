@@ -29,6 +29,8 @@
 #import "GetErrorLogViewModel.h"
 #import "GetV3AlarmsViewModel.h"
 #import "GetV3HearRateViewModel.h"
+#import "GetV2HearRateViewModel.h"
+
 #import "GetMtuInfoViewModel.h"
 #import "GetOverHeatLogViewModel.h"
 #import "GetNoDisturbViewModel.h"
@@ -41,7 +43,8 @@
 #import "GetScheduleRemindViewModel.h"
 #import "GetV3NotifyStateViewModel.h"
 #import "GetSportSortViewModel.h"
-
+#import "GetV3LevelModel.h"
+#import "GetAlgVersionViewModel.h"
 @interface GetViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
 @property (nonatomic,strong) NSArray * modelClasss;
@@ -81,6 +84,7 @@
                           @[lang(@"get error log state")],
                           @[lang(@"get v3 alarms info")],
                           @[lang(@"get v3 heart rate mode")],
+                          @[lang(@"get v2 heart rate mode")],
                           @[lang(@"get blue mtu info")],
                           @[lang(@"get over heat log")],
                           @[lang(@"get device battery log")],
@@ -92,7 +96,9 @@
                           @[lang(@"get main ui sort")],
                           @[lang(@"get schedule reminder")],
                           @[lang(@"get V3 notification status")], //"get V3 notification status"
-                          @[lang(@"get sport sort")]
+                          @[lang(@"get sport sort")],
+                          @[lang(@"get level 3 version info")],
+                          @[lang(@"get alg version")]
                         ];
     }
     return _buttonTitles;
@@ -120,6 +126,7 @@
                          [GetErrorLogViewModel class],
                          [GetV3AlarmsViewModel class],
                          [GetV3HearRateViewModel class],
+                         [GetV2HearRateViewModel class],
                          [GetMtuInfoViewModel class],
                          [GetOverHeatLogViewModel class],
                          [GetBatteryLogViewModel class],
@@ -131,7 +138,9 @@
                          [GetMainUiSortViewModel class],
                          [GetScheduleRemindViewModel class],
                          [GetV3NotifyStateViewModel class],
-                         [GetSportSortViewModel class]
+                         [GetSportSortViewModel class],
+                         [GetV3LevelModel class],
+                         [GetAlgVersionViewModel class],
                         ];
     }
     return _modelClasss;

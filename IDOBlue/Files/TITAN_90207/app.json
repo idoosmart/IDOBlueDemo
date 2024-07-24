@@ -1,0 +1,34 @@
+{
+    "app": {
+        "name": "app", 
+        "bpp": 4, 
+        "format": "bmp"
+    }, 
+    "select": {
+		"timeFuncLocation":3,
+		"timeColorIndex":2,
+		"funcColorIndex":2,
+		"function":[3]
+    },
+    "locations":[
+		{
+			"type":2,
+			"time": [150,80,226,74],
+			"day": [287,43,36,26],
+			"week":[203,42,70,26]
+		},{
+			"type":5,
+			"time": [150,207,226,74],
+			"day": [287,169,36,26],
+			"week":[203,168,70,30]
+		},{
+			"type":8,
+			"time": [150,350,226,74],
+			"day": [287,311,36,26],
+			"week":[203,310,70,26]
+		}
+	],
+	"version":1,
+	"function_support":0,
+         "previewRadius":233
+}

@@ -36,7 +36,7 @@
 
 @implementation PQVoiceView
 
-+ (__kindof PQVoiceView * _Nonnull)pgq_reateVoiceTopViewWithRect:(CGRect)frame voiceColor:(UIColor* _Nullable)fColor volumeColor:(UIColor* _Nullable)vColor isColid:(BOOL)isColid lineWidth:(CGFloat)lineWidth{
++ (PQVoiceView * _Nonnull)pgq_reateVoiceTopViewWithRect:(CGRect)frame voiceColor:(UIColor* _Nullable)fColor volumeColor:(UIColor* _Nullable)vColor isColid:(BOOL)isColid lineWidth:(CGFloat)lineWidth{
     PQVoiceView * vtv = [[PQVoiceView alloc]initWithFrame:frame];
     
     //初始化参数

@@ -59,6 +59,11 @@
 {
     FuncViewController * vc = [[FuncViewController alloc]init];
     FileViewModel * fileModel = [FileViewModel new];
+    if (self.platformType == 4) {
+        fileModel.isCanSelectDir = YES;
+    }else {
+        fileModel.isCanSelectDir = NO;
+    }
     fileModel.type = 0;
     vc.model = fileModel;
     vc.title = lang(@"selected firmware");
@@ -89,6 +94,8 @@
         [IDOUpdateFirmwareManager shareInstance].updateType = IDO_APOLLO_PLATFORM_TYPE;
     }else if (self.platformType == 3) {
         [IDOUpdateFirmwareManager shareInstance].updateType = IDO_APOLLO_PLATFORM_TYPE;
+    }else if (self.platformType == 4) {
+        [IDOUpdateFirmwareManager shareInstance].updateType = IDO_SIFLI_PLATFORM_TYPE;
     }
     
     /*
@@ -204,7 +211,12 @@
             [funcVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             [IDOBluetoothManager startScan];
         }else if (index == 2) {
-            [IDOUpdateFirmwareManager startUpdate];
+            if (self.platformType == 4) {
+                [IDOUpdateFirmwareManager shareInstance].deviceUUID = IDO_BLUE_ENGINE.peripheralEngine.uuidStr;
+                [IDOUpdateFirmwareManager startUpdate];
+            }else {
+                [IDOUpdateFirmwareManager startUpdate];
+            }
             [strongSelf startTimer];
         }
     };
@@ -284,6 +296,9 @@
         lastPathComponent = [[path componentsSeparatedByString:@"/"] lastObject]?:@"";
     }else {
         lastPathComponent = url.lastPathComponent;
+    }
+    if (self.platformType == 4) {
+        return @"siche platform file update";
     }
     NSData * data = [NSData dataWithContentsOfFile:self.filePath];
     NSString * dataSize = [NSString stringWithFormat:@"%ld bytes",(long)data.length];

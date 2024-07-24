@@ -47,12 +47,10 @@
 - (IDOSetV3NoiseSwitchModel *)v3NoiseModel
 {
     if (!_v3NoiseModel) {
-        _v3NoiseModel = [IDOSetV3NoiseSwitchModel currentModel];
+         _v3NoiseModel = [IDOSetV3NoiseSwitchModel currentModel];
     }
     return _v3NoiseModel;
 }
-
-
 
 - (void)getTextFieldCallback
 {

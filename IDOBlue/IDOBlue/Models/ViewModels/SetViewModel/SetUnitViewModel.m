@@ -39,7 +39,7 @@
 - (IDOSetUnitInfoBluetoothModel *)unitMode
 {
     if (!_unitMode) {
-        _unitMode = [IDOSetUnitInfoBluetoothModel currentModel];
+         _unitMode = [IDOSetUnitInfoBluetoothModel currentModel];
     }
     return _unitMode;
 }

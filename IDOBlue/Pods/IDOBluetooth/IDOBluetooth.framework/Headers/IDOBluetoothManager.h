@@ -107,10 +107,21 @@
 @property (nonatomic,assign) BOOL isDetectionAuthCode;
 
 /**
+ * 是否连接系统列表设备获取MAC地址 默认 YES
+ */
+@property (nonatomic,assign) BOOL isGetSystemListDeviceMacAddress;
+
+/**
  * 设置扫描间隔时长 默认 10秒 如果不启动超时间隔扫描，则无效
  * Set the scan interval to 10 seconds by default.if timeout interval scanning is not started, it is not valid.
  */
 @property (nonatomic,assign) NSInteger autoScanInterval;
+
+/**
+ * 每次都打印扫描mac地址,默认NO，如果设置为YES，打印的log相对比较多
+ * Print and scan the mac address every time. The default is NO. If it is set to YES, the number of logs printed is relatively large
+ */
+@property (nonatomic,assign) BOOL isPrintScanMacAddressEveryTime;
 
 /**
  蓝牙扫描设备模式 | Bluetooth Scanning Device Mode

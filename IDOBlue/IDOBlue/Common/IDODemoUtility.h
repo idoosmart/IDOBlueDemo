@@ -113,4 +113,9 @@
                              andMonth:(NSInteger)month
                                andDay:(NSInteger)day;
 
+/**
+ 根据时区获取距离零时区时长
+ */
++ (NSInteger)getZeroTimeWithZone:(NSString *)timeZoneName;
+
 @end

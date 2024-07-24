@@ -16,6 +16,7 @@
 #import "FuncCellModel.h"
 #import "OneButtonTableViewCell.h"
 #import "FuncViewController.h"
+#import "OneTextFieldTableViewCell.h"
 
 @interface SetV3TemperatureViewModel()
 
@@ -45,7 +46,7 @@
 - (IDOSetV3TemperatureModel *)v3TemperatureModel
 {
     if (!_v3TemperatureModel) {
-        _v3TemperatureModel = [IDOSetV3TemperatureModel currentModel];
+         _v3TemperatureModel = [IDOSetV3TemperatureModel currentModel];
     }
     return _v3TemperatureModel;
 }
@@ -90,6 +91,18 @@
                 }
                 textFieldModel.data = @[@(strongSelf.v3TemperatureModel.endHour),@(strongSelf.v3TemperatureModel.endMinute)];
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            };
+        }else if (indexPath.row == 3) {
+            TextFieldCellModel * textFieldModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
+            funcVC.pickerView.pickerArray = strongSelf.pickerDataModel.tempUnitArray;
+            funcVC.pickerView.currentIndex = [strongSelf.pickerDataModel.tempUnitArray containsObject:@([textField.text intValue])] ?
+            [strongSelf.pickerDataModel.tempUnitArray indexOfObject:@([textField.text intValue])] : 0 ;
+            [funcVC.pickerView show];
+            funcVC.pickerView.pickerViewCallback = ^(NSString *selectStr) {
+                textField.text = selectStr;
+                textFieldModel.data = @[selectStr];
+                [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                strongSelf.v3TemperatureModel.unit = selectStr == lang(@"°F") ? 16 : (selectStr == lang(@"°C") ?  1 : 0);
             };
         }
     };
@@ -167,6 +180,18 @@
     model5.isShowLine = YES;
     model5.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model5];
+    
+    TextFieldCellModel * model8 = [[TextFieldCellModel alloc]init];
+    model8.typeStr = @"oneTextField";
+    model8.titleStr = lang(@"temperature unit:");
+    NSInteger index = self.v3TemperatureModel.unit == 16 ? 2 : self.v3TemperatureModel.unit;
+    model8.data = @[self.pickerDataModel.tempUnitArray[index]];
+    model8.cellHeight = 70.0f;
+    model8.cellClass = [OneTextFieldTableViewCell class];
+    model8.modelClass = [NSNull class];
+    model8.isShowLine = YES;
+    model8.textFeildCallback = self.textFeildCallback;
+    [cellModels addObject:model8];
     
     EmpltyCellModel * model6 = [[EmpltyCellModel alloc]init];
     model6.typeStr = @"empty";

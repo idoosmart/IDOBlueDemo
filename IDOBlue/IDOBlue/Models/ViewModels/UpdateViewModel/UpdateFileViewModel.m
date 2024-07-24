@@ -231,22 +231,19 @@
 
 - (void)updateAgpsWithVc:(FuncViewController *)funcVC
 {
-    [self startTimer];
+//    [self startTimer];
     
     NSString * fileType = [self.filePath lastPathComponent];
-    NSString*names = [NSString stringWithFormat:@".%@",[fileType pathExtension]];
-    
-    if (names.length <= 0) {
-        [funcVC showToastWithText:lang(@"selected agps file")];
-    }
+    NSString * fileName = [NSString stringWithFormat:@".%@",[fileType pathExtension]];
+        
     [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"file update")]];
     initTransferManager().transferType = IDO_DATA_FILE_TRAN_DIAL_TYPE;
     initTransferManager().compressionType = IDO_DATA_TRAN_COMPRESSION_NO_USE_TYPE;
     initTransferManager().isSetConnectParam = YES;
     initTransferManager().isQueryWriteState = YES;
-    initTransferManager().fileName = names;
+    initTransferManager().fileName = fileName;
     initTransferManager().filePath = self.filePath;
-    
+            
     __weak typeof(self) weakSelf = self;
     initTransferManager().addDetection(^(int errorCode) {
         __strong typeof(self) strongSelf = weakSelf;

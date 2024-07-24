@@ -210,6 +210,13 @@
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncHrv)(void(^ _Nullable hrvCallback)(NSString * _Nullable jsonStr));
 
 /**
+ * 同步喝水计划数据回调
+ * 功能表 | function Table : __IDO_FUNCTABLE__.funcTable39Model.supportDrinkPlan
+ * 回调的json数据转化成model | Convert the callback json data into model
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncDrinkPlan)(void(^ _Nullable drinkCallback)(NSString * _Nullable jsonStr));
+
+/**
  * 同步统一进度回调
  * Synchronize unified progress callback
  */

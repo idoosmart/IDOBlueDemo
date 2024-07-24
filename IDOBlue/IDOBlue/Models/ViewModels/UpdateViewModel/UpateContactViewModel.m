@@ -19,6 +19,7 @@
 #import "OneButtonTableViewCell.h"
 #import "OneTextViewTableViewCell.h"
 #import "OneTextFieldTableViewCell.h"
+#import <Contacts/Contacts.h>
 
 @interface UpateContactViewModel()
 @property (nonatomic,copy) NSString * logStr;
@@ -28,6 +29,9 @@
 @property (nonatomic,copy)void(^textViewCallback)(UITextView * textView);
 @property (nonatomic,copy)void(^buttconCallback)(UIViewController * viewController,UITableViewCell * tableViewCell);
 @property (nonatomic,copy)void(^textFeildCallback)(UIViewController * viewController,UITextField * textField,UITableViewCell * tableViewCell);
+@property (nonatomic,strong)NSMutableDictionary * contactDic;
+@property (nonatomic,copy) NSArray <IDOSetAllContactItemModel *>* items;
+
 @end
 
 @implementation UpateContactViewModel
@@ -125,7 +129,7 @@
             path = [path stringByAppendingPathComponent: fileName];
         }
     }
-    self.filePath = path;
+    
     NSURL * url = [NSURL URLWithString:path];
     NSString * lastPathComponent = @"";
     if (!url) {
@@ -165,25 +169,34 @@
             return;
         }
         
-        NSMutableArray * items = [NSMutableArray array];
-        IDOSetTimeInfoBluetoothModel * time = [[IDOSetTimeInfoBluetoothModel alloc]init];
-        IDOSetSyncAllContactModel * model = [[IDOSetSyncAllContactModel alloc]init];
-        model.year  = time.year;
-        model.month = time.month;
-        model.day   = time.day;
-        model.hour  = time.hour;
-        model.minute = time.minute;
-        model.second = time.second;
-        model.contactItemNum = 500;
-        for (int i = 0; i < 500; i++) {
-            IDOSetAllContactItemModel * item = [[IDOSetAllContactItemModel alloc]init];
-            item.name = [NSString stringWithFormat:@"person %d",i];
-            item.phone = [NSString stringWithFormat:@"1234567890%d",i];
-            [items addObject:item];
+        CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+        if (status == CNAuthorizationStatusNotDetermined) {
+            [strongSelf requestContactAuthAfterhLaunch];
+            return;
+        }else if(status != CNAuthorizationStatusAuthorized){
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:lang(@"tip") message:lang(@"To use the frequent contacts, you have to obtain the permission to access your phone’s contacts. Go to the phone’s \"Settings > Privacy > Contacts\" to enable the permission.") preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:lang(@"ok") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            [alertController addAction:cancelAction];
+            [funcVC presentViewController:alertController animated:YES completion:nil];
+            
+            return;
         }
-        model.items = items;
+        
+        IDOSetSyncAllContactModel * model = [strongSelf configContactData];
+        if (!model) {
+            [funcVC showToastWithText:lang(@"The phonebook data has been synchronized")];
+            return;
+        }else if (model.items.count <= 0){
+            [funcVC showToastWithText:lang(@"Address book data is empty")];
+            return;
+            
+        }
+        
         [IDOFoundationCommand setSyncAllContactCommand:model
                                               callback:^(int errorCode, NSString * _Nullable path) {
+            strongSelf.filePath = path;
             NSString * logStr = [strongSelf selectedFileWithFilePath:path];
             [strongSelf addMessageText:logStr];
             [strongSelf updateWordwithVc:funcVC];
@@ -214,6 +227,11 @@
         [NSObject cancelPreviousPerformRequestsWithTarget:strongSelf selector:@selector(startTimer) object:nil];
         strongSelf.textView.text = [NSString stringWithFormat:@"%@\n%@\n\n",strongSelf.textView.text,[IDOErrorCodeToStr errorCodeToStr:errorCode]];
         [funcVC showToastWithText:lang(@"transfer complete")];
+        if (errorCode == 0) {
+            //缓存通讯录字典
+            [[NSUserDefaults standardUserDefaults]setObject:weakSelf.contactDic forKey:[weakSelf cacheKey]];
+
+        }
     });
     [IDOTransferFileManager startTransfer];
 }
@@ -226,6 +244,132 @@
         strongSelf.textView = textView;
     };
 }
+
+
+///通讯录获取权限
+///Access to address book
+-(void)requestContactAuthAfterhLaunch{
+    CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+    if (status == CNAuthorizationStatusNotDetermined) {
+           CNContactStore *store = [[CNContactStore alloc] init];
+           [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError*  _Nullable error) {
+               if (!granted) {
+                   NSLog(@"请求通讯录权限:%d,error:%@",granted,error.localizedDescription);
+               }
+           }];
+    }
+    
+}
+
+///通讯录获取
+///Address book acquisition
+-(IDOSetSyncAllContactModel*)configContactData{
+    // 获取指定的字段
+    NSArray *keysToFetch = @[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactMiddleNameKey, CNContactPhoneNumbersKey, CNContactNicknameKey];
+    CNContactFetchRequest *fetchRequest = [[CNContactFetchRequest alloc] initWithKeysToFetch:keysToFetch];
+    CNContactStore *contactStore = [[CNContactStore alloc] init];
+    
+    NSMutableArray * items = [NSMutableArray new];
+    
+    [contactStore enumerateContactsWithFetchRequest:fetchRequest error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
+      
+        //拼接姓名
+        NSString *nameStr = [NSString stringWithFormat:@"%@%@%@",contact.familyName, contact.middleName, contact.givenName];
+        NSString *phone = @"";
+        NSArray *phoneNumbers = contact.phoneNumbers;
+        
+        for (CNLabeledValue *labelValue in phoneNumbers) {
+            
+            CNPhoneNumber *phoneNumber = labelValue.value;
+            NSString *string = phoneNumber.stringValue;
+            string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+            if (string.length) {
+                phone = string;
+                break;
+            }
+        }
+        
+        IDOSetAllContactItemModel *model = [[IDOSetAllContactItemModel alloc] init];
+        model.name = nameStr;
+        model.phone = phone;
+        
+        if([model.name length] == 0 && [model.phone length] > 0){
+            model.name = model.phone;
+        }
+        
+        if (model.phone && [model.phone length] > 0&&[self isEnglishStart:model.name]){
+            
+            [self.contactDic setObject:model.name?model.name:@""  forKey:model.phone];
+           // NSLog(@"model.name = %@,model.phone = %@",model.name,model.phone);
+            
+            [items addObject:model];
+        }
+
+    }];
+        
+    NSDictionary * dic = [[NSUserDefaults standardUserDefaults]objectForKey:[self cacheKey]];
+    
+    BOOL isSyncAllContact = NO;
+    if (!dic) {
+        //本地缓存通讯录没数据，发一次
+        isSyncAllContact = YES;
+    }else if (dic&&[dic isKindOfClass:[NSDictionary class]]&&![dic isEqual:self.contactDic.copy]){
+        //本地缓存通讯录变更发一次
+        isSyncAllContact = YES;
+    }
+   
+    if (isSyncAllContact) {
+        IDOSetSyncAllContactModel * syncAllContactModel = [[IDOSetSyncAllContactModel alloc]init];    //
+        
+        IDOSetTimeInfoBluetoothModel * timeInfo =[IDOSetTimeInfoBluetoothModel currentModel];
+        
+        syncAllContactModel.year = timeInfo.year;
+        syncAllContactModel.month = timeInfo.month;
+        syncAllContactModel.day = timeInfo.day;
+        syncAllContactModel.hour = timeInfo.hour;
+        syncAllContactModel.minute = timeInfo.minute;
+        syncAllContactModel.second  = timeInfo.second;
+        
+        syncAllContactModel.items = items;
+        syncAllContactModel.contactItemNum = items.count;
+        return syncAllContactModel;
+    }
+    
+    return nil;
+    
+}
+
+-(NSString*)cacheKey{
+    return [NSString stringWithFormat:@"k_all_contact_%@",__IDO_MAC_ADDR__];
+}
+
+/// 判断是否英文字符开头，主要为了临时解决传了中英文通讯录到固件，固件不显示英文名称问题
+/// @param name 电话
+- (BOOL)isEnglishStart:(NSString*)name{
+    if(!name||name.length == 0){
+        return NO;
+    }
+    unichar  str = [name characterAtIndex:0];
+
+    if (str >= 'a' && str <= 'z') {
+        return YES;
+    }else  if (str >= 'A' && str <= 'Z') {
+        return YES;
+    }else if (name.integerValue>0){
+      //带数字开头的也要
+      return YES;
+        
+    }
+    return NO;
+}
+
+- (NSMutableDictionary *)contactDic {
+    if (!_contactDic) {
+        _contactDic = NSMutableDictionary.new;
+    }
+    return _contactDic;
+}
+  
 
 @end
 

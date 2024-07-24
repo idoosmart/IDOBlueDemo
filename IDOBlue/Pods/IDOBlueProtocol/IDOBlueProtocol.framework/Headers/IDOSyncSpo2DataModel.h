@@ -34,6 +34,11 @@
  */
 @property (nonatomic,assign) NSInteger  serialNumber;
 
+/**
+ 本地设置数据，区分手环同步的数据 | Locally set data to distinguish the data of the bracelet synchronization
+ */
+@property (nonatomic,assign) BOOL isLocal;
+
 @end
 
 @interface IDOSyncBloodOxygenDataInfoBluetoothModel : IDOBluetoothBaseModel
@@ -93,6 +98,11 @@
  */
 @property (nonatomic,assign) NSInteger grade DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 
+/**
+ 本地设置数据，区分手环同步的数据 | Locally set data to distinguish the data of the bracelet synchronization
+ */
+@property (nonatomic,assign) BOOL isLocal;
+
 @end
 
 
@@ -108,8 +118,8 @@
  * Blood oxygen data collection for 12 months a year, where the IDOSyncBloodOxygenDataInfoBluetoothModel object is the total blood oxygen data model for the day
  */
 + (NSArray <NSArray<IDOSyncBloodOxygenDataInfoBluetoothModel *>*> *)queryOneYearBloodOxygenWithYear:(NSInteger)year
-                                                                                         macAddr:(NSString *)macAddr
-                                                                                    isQueryItems:(BOOL)isQuery;
+                                                                                            macAddr:(NSString *)macAddr
+                                                                                       isQueryItems:(BOOL)isQuery;
 
 /**
  * @brief 查询当前设备某月份的所有数据 (如果查询当天无数据,会创建空的数据对象,大于当天的数据不累加)

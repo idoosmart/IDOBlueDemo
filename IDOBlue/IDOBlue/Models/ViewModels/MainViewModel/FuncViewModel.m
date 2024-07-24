@@ -26,6 +26,8 @@
 #import "ScanViewController.h"
 #import "MusicViewModel.h"
 #import "PeripheralViewModel.h"
+#import "AiVoiceViewModel.h"
+#import "RunPlanViewModel.h"
 
 @interface FuncViewModel()
 @property (nonatomic,strong) NSArray * buttonTitles;
@@ -94,11 +96,24 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"device unbind")],@[lang(@"set function")],@[lang(@"get function")],
-                          @[lang(@"control function")],@[lang(@"sync function")],
-                          @[lang(@"data interchange")],@[lang(@"device update")],@[lang(@"data query")],
-                          @[lang(@"log query")],@[lang(@"data migration")],@[lang(@"measure data")],@[lang(@"watch dial function")],@[lang(@"music fucntion")],@[lang(@"Peripherals Function")]
-                          ];
+        _buttonTitles = @[
+        @[lang(@"device unbind")],
+        @[lang(@"set function")],
+        @[lang(@"get function")],
+        @[lang(@"control function")],
+        @[lang(@"sync function")],
+        @[lang(@"data interchange")],
+        @[lang(@"device update")],
+        @[lang(@"data query")],
+        @[lang(@"log query")],
+        @[lang(@"data migration")],
+        @[lang(@"measure data")],
+        @[lang(@"watch dial function")],
+        @[lang(@"music fucntion")],
+        @[lang(@"Peripherals Function")],
+        @[@"ai"],
+        @[lang(@"Runing plan")]
+        ];
     }
     return _buttonTitles;
 }
@@ -106,9 +121,23 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[UnbindingViewModel class],[SetViewModel class],[GetViewModel class],[ControlViewModel class],
-                         [SyncViewModel class],[DataInterchangeModel class],[UpdateMainViewModel class],[QueryViewModel class],
-                         [LogViewModel class],[DataMigrationViewModel class],[MainMeasureViewModel class],[MainDialViewModel class],[MusicViewModel class],[PeripheralViewModel class]];
+        _modelClasss = @[[UnbindingViewModel class],
+                         [SetViewModel class],
+                         [GetViewModel class],
+                         [ControlViewModel class],
+                         [SyncViewModel class],
+                         [DataInterchangeModel class],
+                         [UpdateMainViewModel class],
+                         [QueryViewModel class],
+                         [LogViewModel class],
+                         [DataMigrationViewModel class],
+                         [MainMeasureViewModel class],
+                         [MainDialViewModel class],
+                         [MusicViewModel class],
+                         [PeripheralViewModel class],
+                         [AiVoiceViewModel class],
+                         [RunPlanViewModel class]
+        ];
     }
     return _modelClasss;
 }

@@ -11,7 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOScManager : NSObject
-+ (IDOScManager *)shareInstance;
 /**
  * 制作思澈表盘文件
  * filePath:  传入素材路径, 制作成功后文件的路径为传入的filePath
@@ -19,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 + (int)getMakeSiFliWatchDialWithFilePath:(NSString *)filePath;
+
 @end
 
 NS_ASSUME_NONNULL_END

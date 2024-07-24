@@ -84,7 +84,7 @@
 - (void)showUpdateProgress:(float)progress
 {
     self.progressHUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
-    self.progressHUD.label.text = [NSString stringWithFormat:@"%@:%.2f%@",lang(@"file update"),progress*100.0f,@"%"];
+    self.progressHUD.label.text = [NSString stringWithFormat:@"%@%.2f%@",lang(@"file update"),progress*100.0f,@"%"];
     self.progressHUD.progress = progress;
     [self.progressHUD showAnimated:YES];
 }

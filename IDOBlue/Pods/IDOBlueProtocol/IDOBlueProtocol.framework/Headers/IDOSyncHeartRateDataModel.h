@@ -34,6 +34,11 @@
  */
 @property (nonatomic,assign) NSInteger  serialNumber;
 
+/**
+ 本地设置数据，区分手环同步的数据 | Locally set data to distinguish the data of the bracelet synchronization
+ */
+@property (nonatomic,assign) BOOL isLocal;
+
 @end
 
 @interface IDOSyncHrDataInfoBluetoothModel : IDOBluetoothBaseModel
@@ -134,6 +139,11 @@
  时间戳 精确到日期 date interval since 1970 (如:1444361933) | Timestamp date interval since 1970 (eg: 14443361933)
  */
 @property (nonatomic,copy) NSString * dateStr;
+
+/**
+ 本地设置数据，区分手环同步的数据 | Locally set data to distinguish the data of the bracelet synchronization
+ */
+@property (nonatomic,assign) BOOL isLocal;
 
 @end
 

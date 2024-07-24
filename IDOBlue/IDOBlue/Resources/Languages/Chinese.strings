@@ -11,7 +11,7 @@
 "device suspend scan" = "设备暂停扫描";
 "manual connect time" = "手动连接时长:";
 "auto connect time" = "自动连接时长:";
-"file update" = "文件升级";
+"file update" = "文件升级:";
 "file type" = "文件类型:";
 "compression type" = "压缩类型:";
 "transfer complete" = "文件传输完成";
@@ -32,6 +32,7 @@
 "mandatory unbind" = "强制解绑";
 "device unbind" = "解绑设备";
 "device switch" = "切换设备";
+"device data unbind" = "解绑设备数据";
 "device unbinding" = "设备解绑...";
 "device update" = "设备升级";
 "function list" = "功能列表";
@@ -543,6 +544,8 @@
 "auto rowing machine switch" ="自动识别划船机开关:";
 "auto swimming switch" ="自动识别游泳开关:";
 "set spo2 switch" = "设置血氧开关";
+"low blood oxygen switch" = "血氧过低开关";
+"low blood oxygen threshold" = "血氧过低阈值";
 "set spo2 switch success" = "设置血氧开关成功";
 "set spo2 switch failed" = "设置血氧开关失败";
 "set breathe train" = "设置呼吸训练";
@@ -550,9 +553,11 @@
 "set breathe train failed" = "设置呼吸训练失败";
 "set walk reminder" = "设置走动提醒";
 "set walk reminder target" = "设置提醒步数目标";
+"set a target time" = "设置目标时间";
 "set walk reminder success" = "设置走动提醒成功";
 "set walk reminder failed" = "设置走动提醒失败";
 "set pressure switch" = "设置压力开关";
+"high pressure threshold" = "压力过高阈值";
 "set pressure switch success" = "设置压力开关成功";
 "set pressure switch failed" = "设置压力开关失败";
 "set pressure reminder switch" = "设置压力提醒开关";
@@ -770,6 +775,15 @@
 "get v3 heart rate mode" = "获取v3心率模式";
 "get v3 heart rate mode success" = "获取v3心率模式成功";
 "get v3 heart rate mode failed" = "获取v3心率模式失败";
+"get v2 heart rate mode" = "获取v2心率模式";
+"get v2 heart rate mode success" = "获取v2心率模式成功";
+"get v2 heart rate mode failed" = "获取v2心率模式失败";
+
+"get alg version" = "获取固件算法版本";
+"get alg version success" = "获取固件算法版本成功";
+"get alg version failed" = "获取固件算法版本失败";
+
+
 "get blue mtu info" = "获取mtu信息";
 "get blue mtu info success" = "获取mtu信息成功";
 "get blue mtu info failed" = "获取mtu信息失败";
@@ -810,6 +824,11 @@
 "pressure" = "压力";
 "data tricycle" = "数据三环";
 "time interface" = "时间界面";
+"last activity" = "最近一次活动";
+"health data" = "健康数据";
+"blood oxygen" = "血氧";
+"menu settings" = "菜单设置";
+"alexa voice prompt" = "alexa语音提示";
 "on" = "开";
 "previous" = "上一曲";
 "next" = "下一曲";
@@ -1038,6 +1057,7 @@
 "nordic update" = "nordic升级";
 "realtk update" = "realtk升级";
 "apollo update" = "apollo升级";
+"file update" = "文件升级";
 "word update" = "字库升级";
 "agps update" = "agps升级";
 "agps update type" = "agps升级类型";
@@ -1105,6 +1125,10 @@
  */
 "set smart heart rate" = "设置智能心率";
 "smart heart rate model" = "智能心率模式";
+"high heart rate reminder switch" = "心率过高提醒开关";
+"high heart rate alert threshold" = "心率过高提醒阈值";
+"low heart rate reminder switch" = "心率过低提醒开关";
+"low heart rate alert threshold" = "心率过低提醒阈值";
 "notify flag" = "通知类型";
 "notify flag unknow" = "无效";
 "allow notify flag" = "允许通知";
@@ -1139,11 +1163,6 @@
 "current weather" = "当前的温度";
 "max weather"="最大温度";
 "min weather"="最小温度";
-
-"current v3 weather" = "当前温度(当前温度+100)";
-"max v3 weather"="最大温度(最大温度+100)";
-"min v3 weather"="最小温度(最小温度+100)";
-
 "air quality"="空气质量";
 "Precipitation probability"="降水概率";
 "humidity"="湿度";
@@ -1199,9 +1218,9 @@
 "get target info" = "获取目标设置值";
 "get target info success" = "获取目标信息成功";
 "get target info failed" = "获取目标信息失败";
-"get walk reminder" = "设置走动提醒";
-"get walk reminder success" = "设置走动提醒成功";
-"get walk reminder failed" = "设置走动提醒失败";
+"get walk reminder" = "获取走动提醒";
+"get walk reminder success" = "获取走动提醒成功";
+"get walk reminder failed" = "获取走动提醒失败";
 "get health switch state" = "获取健康监测开关";
 "get health switch state success" = "获取健康监测开关成功";
 "get health switch state failed" = "获取健康监测开关失败";
@@ -1259,11 +1278,11 @@
 
 "Data sent successfully" = "数据发送成功";
 "Data sending failed" = "数据发送失败";
+"Data sending failed" = "数据发送失败";
 
 "The dial memory is being defragmented, please wait for %ld seconds" = "表盘内存碎片整理中，请的等待%ld秒";
 "Update dial list" = "更新表盘列表";
 "Successfully transferred music, updated the latest music list information"=  "传输音乐成功，更新最新音乐列表信息";
-
 
 "set enter OTA mode" = "进入OTA模式(0101)";
 "set enter OTA mode successfully" = "进入OTA模式(0101)成功";
@@ -1283,27 +1302,17 @@
 
 "Address book data is empty" = "通讯录数据为空";
 
-"EPO update" = "EPO升级";
-"Un support EPO update" = "不支持EPO升级";
-"make EPO file (3->1)" = "制作EPO文件 (3合1)";
-"make EPO successfully" = "制作EPO文件成功";
-"make EPO failed" = "制作EPO文件失败";
-"downloading" = "下载中...";
-"download successfully" = "下载成功";
-"download EPO file" = "下载EPO文件";
-"download failed" = "下载失败";
-"EPO files cannot be operated during this time period" = "这个时间段不能操作EPO文件";
-"background color" = "背景颜色";
-"get background color" = "获取背景颜色";
+"JieLi wallpaper dial" = "杰理壁纸表盘";
+"Generate the watch face and transfer it" = "生成表盘";
+"JieLi wallpaper watch face updated" = "杰理壁纸表盘更新";
 
-"custom wallpaper cloud dial" = "自定义本地壁纸云表盘";
-"Make wallpaper cloud dial file" = "制作壁纸表盘文件";
-"Extract and read the json dial file" = "提取并读取json表盘文件";
-
-"Please first operate the button to extract and read the JSON dial file" = "请先操作提取并读取json表盘文件按钮";
+"SiChe photo cloud dial" = "思澈照片云表盘";
+"Watch face update" = "表盘更新";
+"Generate" = "生成";
 
 
-"widgets location" = "小部件位置";
-"widgets bgcolor" = "小部件颜色";
-
-"Editing of widgets is not supported" = "小部件编辑功能不支持";
+"get token" = "获取token";
+"Runing plan" = "跑步计划";
+"Acquisition failed" = "获取失败";
+"Successfully obtained" = "获取成功";
+"Please obtain the Token first" = "请先获取Token";

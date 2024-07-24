@@ -113,6 +113,10 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
+        if (!__IDO_FUNCTABLE__.funcTable20Model.spo2Data) {
+            [funcVC showToastWithText:@"feature is not supported on the current device"];
+            return;
+        }
         [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"set spo2 switch")]];
         [IDOFoundationCommand setSpo2SwitchCommand:strongSelf.spo2Model callback:^(int errorCode) {
             if(errorCode == 0) {
@@ -182,10 +186,9 @@
     model5.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model5];
     
-    
     SwitchCellModel * model10 = [[SwitchCellModel alloc]init];
     model10.typeStr = @"oneSwitch";
-    model10.titleStr = [NSString stringWithFormat:@"%@ :",@"血氧过低开关"];
+    model10.titleStr = [NSString stringWithFormat:@"%@ :",lang(@"low blood oxygen switch")];
     model10.data = @[@(self.spo2Model.lowOnOff)];
     model10.cellHeight = 70.0f;
     model10.cellClass = [OneSwitchTableViewCell class];
@@ -194,10 +197,9 @@
     model10.switchCallback = self.switchCallback;
     [cellModels addObject:model10];
     
-    
     TextFieldCellModel * model11 = [[TextFieldCellModel alloc]init];
     model11.typeStr = @"oneTextField";
-    model11.titleStr = @"血氧过低阈值";
+    model11.titleStr = lang(@"low blood oxygen threshold");
     model11.data = @[@(self.spo2Model.lowValue)];
     model11.cellHeight = 70.0f;
     model11.cellClass = [OneTextFieldTableViewCell class];
@@ -205,8 +207,6 @@
     model11.isShowLine = YES;
     model11.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model11];
-    
-    
     
     EmpltyCellModel * model6 = [[EmpltyCellModel alloc]init];
     model6.typeStr = @"empty";

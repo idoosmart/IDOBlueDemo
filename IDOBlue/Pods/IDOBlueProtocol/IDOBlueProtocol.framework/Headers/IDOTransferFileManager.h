@@ -86,19 +86,19 @@
 @property (nonatomic,assign) BOOL isSetSlowState;
 
 /**
- * 检测文件回调
+ * 检测文件回调 new
  * Detect file callback
  */
 @property (nonatomic,copy,nullable) IDOTransferFileManager *_Nonnull(^addDetection)(void(^ _Nullable detectionCallback)(int errorCode));
 
 /**
- * 文件传输进度回调 (0-100)
+ * 文件传输进度回调 (0-100) new
  * file transfer progress (0-100)
  */
 @property (nonatomic,copy,nullable) IDOTransferFileManager *_Nonnull(^addProgress)(void(^ _Nullable progressCallback)(int progress));
 
 /**
- * 其他文件传输完成回调
+ * 其他文件传输完成回调 new
  * File transfer complete callback
  * (errorCode + 0) ///< Successful command
  (errorCode + 1) ///< SVC handler is missing

@@ -11,9 +11,17 @@
 #import "TableViewFootView.h"
 #import "FileViewModel.h"
 #import "FuncViewModel.h"
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import <ExternalAccessory/ExternalAccessory.h>
+#import <CoreLocation/CoreLocation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+#import <GameKit/GameKit.h>
+#import <AVFoundation/AVFoundation.h>
+
 
 @interface FuncViewController ()
 @property (nonatomic,strong) TableViewFootView * footButton;
+
 @end
 
 @implementation FuncViewController
@@ -64,6 +72,7 @@
     [headView addSubview:self.timerLabel];
     self.tableView.tableHeaderView = headView;
     if (self.model.isFootButton)self.tableView.tableFooterView = self.footButton;
+    
     
 }
 

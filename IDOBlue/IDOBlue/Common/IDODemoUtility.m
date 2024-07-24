@@ -213,4 +213,19 @@
     return [NSString stringWithFormat:@"%lld",(long long)[date timeIntervalSince1970]];
 }
 
+
++ (NSInteger)getZeroTimeWithZone:(NSString *)timeZoneName
+{
+    // 本地时区
+    NSDate *date = [NSDate date];
+    // 本地系统时区
+    NSTimeZone *localZone = [NSTimeZone localTimeZone];
+    // 目标时区
+    NSTimeZone *zone = [NSTimeZone timeZoneWithName:timeZoneName];
+    NSInteger linterval = [localZone secondsFromGMTForDate:date];
+    NSInteger dinterval = [zone secondsFromGMTForDate: date];
+    NSInteger interval = dinterval - linterval;
+    return interval;
+}
+
 @end

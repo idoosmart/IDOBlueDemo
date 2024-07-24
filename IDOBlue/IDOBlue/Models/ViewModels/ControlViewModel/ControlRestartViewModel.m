@@ -51,9 +51,10 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         FuncViewController * funcVC = (FuncViewController *)viewController;
         [funcVC showLoadingWithMessage:lang(@"reboot device...")];
-        IDOSetRebootModel*model = [IDOSetRebootModel new];
-        model.type = 0;
-        [IDOFoundationCommand setAppRebootCommand:model callback:^(int state, int errorCode) {
+        
+        IDOSetRebootModel*modle = [IDOSetRebootModel new];
+        modle.type = 0;
+        [IDOFoundationCommand setAppRebootCommand:modle callback:^(int state, int errorCode) {
             __strong typeof(self) strongSelf = weakSelf;
             if (errorCode == 0) {
                 [funcVC showToastWithText:lang(@"successful restart of equipment")];
@@ -64,6 +65,7 @@
                 [funcVC showToastWithText:lang(@"failure to restart equipment")];
             }
         }];
+        
     };
 }
 

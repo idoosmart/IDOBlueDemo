@@ -11,10 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SetWorldTimeViewModel : BaseViewModel
-
-@property (nonatomic,strong,nullable) IDOSetV3WorldTimeItemModel * timeItemModel;
-@property (nonatomic,copy) void(^addWorldTimeComplete)(BOOL isSuccess,IDOSetV3WorldTimeItemModel * itemModel);
-
+@property (nonatomic,copy) void(^addWorldTimeComplete)(BOOL isSuccess,NSArray<IDOSetV3WorldTimeItemModel *> * items);
 @end
 
 NS_ASSUME_NONNULL_END

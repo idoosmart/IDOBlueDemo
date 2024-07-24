@@ -17,6 +17,7 @@
 #import "OneButtonTableViewCell.h"
 #import "FuncViewController.h"
 
+
 @interface Setv3ScientificSleepViewModel()
 
 @property (nonatomic,strong)IDOSetV3ScientificSleepModel * sleepModel;
@@ -45,7 +46,7 @@
 - (IDOSetV3ScientificSleepModel *)sleepModel
 {
     if (!_sleepModel) {
-        _sleepModel = [IDOSetV3ScientificSleepModel currentModel];
+         _sleepModel = [IDOSetV3ScientificSleepModel currentModel];
     }
     return _sleepModel;
 }
@@ -165,7 +166,7 @@
     model5.isShowLine = YES;
     model5.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model5];
-    
+
     EmpltyCellModel * model6 = [[EmpltyCellModel alloc]init];
     model6.typeStr = @"empty";
     model6.cellHeight = 30.0f;

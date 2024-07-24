@@ -573,6 +573,10 @@ typedef NS_ENUM(NSInteger,IDO_SPORT_TYPE) {
     *匹克球 | Pickleball
     */
      IDO_SPORT_TYPE_PICKLEBALL=204,
+    /**
+    *轮椅运动 | wheelchair sport
+    */
+     IDO_SPORT_TYPE_WHEELCHAIR =205,
  };
 
 typedef NS_ENUM(NSInteger,IDO_SPORT_PAR_TYPE) {
@@ -978,6 +982,16 @@ typedef NS_ENUM(NSInteger,IDO_LISTEN_TYPE) {
      | Firmware modification local language, notify APP to obtain (0222)
     */
     IDO_LISTEN_TYPE_FIRMWARE_LOCAL_LANGUAGE_CHANGES = 62,
+    /**
+    *固件修改当前表盘，通知APP获取固件修改当前表盘，通知APP获取
+     | Firmware modification of current dial, notify APP to obtain
+    */
+    IDO_LISTEN_TYPE_FIRMWARE_CURRENT_DIAL_CHANGES = 63,
+    /**
+    *固件测量完成后，通知APP获取（0606）
+     | After the firmware measurement is completed, notify the APP to obtain it
+    */
+    IDO_LISTEN_TYPE_FIRMWARE_MEASUREMENT_COMPLETE = 64, 
 };
 
 //自定义数据类型 | Custom data type
@@ -1161,6 +1175,14 @@ typedef NS_ENUM(NSInteger,IDO_LANGUAGE_TYPE) {
     *巴西葡语 | brazilian_portuguese
     */
     IDO_LANGUAGE_TYPE_BRAZILIAN_PORTUGUESE = 37,
+    /**
+    *孟加拉语 | bengali
+    */
+    IDO_LANGUAGE_TYPE_BENGALI = 38,
+    /**
+    *高棉语 | khmer
+    */
+    IDO_LANGUAGE_TYPE_KHMER = 39,
 
 };
 

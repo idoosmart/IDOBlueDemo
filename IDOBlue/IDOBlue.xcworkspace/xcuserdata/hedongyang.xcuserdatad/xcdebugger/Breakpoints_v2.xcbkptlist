@@ -98,6 +98,36 @@
             endingLineNumber = "358"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DFAA2B45-4CB7-4087-BED3-115DFD15822E - ab8ff4f286f3e0ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__76-[UpdatePhotoViewModel imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke"
+                  moduleName = "IDOBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hedongyang/Desktop/code/gitHub/IDOBlueDemo/IDOBlue/IDOBlue/Models/ViewModels/UpdateViewModel/UpdatePhotoViewModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "358"
+                  endingLineNumber = "358">
+               </Location>
+               <Location
+                  uuid = "DFAA2B45-4CB7-4087-BED3-115DFD15822E - e72c3910513065b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__76-[UpdatePhotoViewModel imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke_2"
+                  moduleName = "IDOBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hedongyang/Desktop/code/gitHub/IDOBlueDemo/IDOBlue/IDOBlue/Models/ViewModels/UpdateViewModel/UpdatePhotoViewModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "359"
+                  endingLineNumber = "359">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

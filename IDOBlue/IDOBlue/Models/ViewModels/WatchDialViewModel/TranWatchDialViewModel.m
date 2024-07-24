@@ -98,10 +98,8 @@
         NSString * mainPath = [NSBundle mainBundle].bundlePath;
         path = [mainPath stringByAppendingPathComponent:@"Files"];
         NSURL * fileUrl = [NSURL URLWithString:filePath];
-        if (fileUrl.lastPathComponent) {
-            fileName = fileUrl.lastPathComponent;
-            path = [path stringByAppendingPathComponent:fileName];
-        }
+        fileName = fileUrl.lastPathComponent;
+        path = [path stringByAppendingPathComponent:fileName];
     }else { // sandbox
         path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
         NSRange range = [filePath rangeOfString:@"Documents"];
@@ -111,6 +109,8 @@
         }
     }
     self.filePath = path;
+    [self setDialRealSizeToHeaderView:path];
+    
     NSData * data = [NSData dataWithContentsOfFile:self.filePath];
     NSString * dataSize = [NSString stringWithFormat:@"%ld bytes",(long)data.length];
     NSString * nameStr = [@"Name : "stringByAppendingString:fileName];
@@ -118,6 +118,35 @@
     NSString * typeStr = [@"Type : "stringByAppendingString:@"watch dial File"];
     NSString * fileStr = [NSString stringWithFormat:@"%@\n%@\n%@",nameStr,sizeStr,typeStr];
     return fileStr;
+}
+
+- (void)setDialRealSizeToHeaderView:(NSString *)zipPath{
+    
+    IDOWatchScreenInfoModel *screenModel = [IDOWatchScreenInfoModel currentModel];
+
+    if (screenModel.colorFormat == 0) {
+        initWatchDialManager().getDialScreenInfo(^(IDOWatchScreenInfoModel * _Nullable model, int errorCode) {
+            IDOWatchScreenInfoModel *currentScreenModel = [IDOWatchScreenInfoModel currentModel];
+            NSString *iwfPath;
+            unsigned long long fileSize;
+            BOOL res = [IDOWatchDialManager makeIwfFile:zipPath colorFormat:currentScreenModel.colorFormat iwfPath:&iwfPath fileSize:&fileSize];
+            NSString*watchSize = @"";
+            if (res && fileSize > 0) {
+                watchSize = [NSString stringWithFormat:@"%llukb",fileSize / 1024];
+            }
+            NSLog(@"watchSize--->%@",watchSize);
+        });
+    }else{
+            NSString *iwfPath;
+            unsigned long long fileSize;
+            BOOL res = [IDOWatchDialManager makeIwfFile:zipPath colorFormat:screenModel.colorFormat iwfPath:&iwfPath fileSize:&fileSize];
+            NSString*watchSize = @"";
+            if (res && fileSize > 0) {
+                watchSize = [NSString stringWithFormat:@"%llukb",fileSize / 1024];
+            }
+            NSLog(@"watchSize--->%@",watchSize);
+    }
+    
 }
 
 - (void)addMessageText:(NSString *)message

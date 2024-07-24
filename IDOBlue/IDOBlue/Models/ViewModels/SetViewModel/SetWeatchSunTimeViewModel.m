@@ -45,7 +45,7 @@
 {
     if (!_weatherSunTimeModel)
     {
-        _weatherSunTimeModel = [IDOSetWeatherSunTimeModel currentModel];
+         _weatherSunTimeModel = [IDOSetWeatherSunTimeModel currentModel];
     }
     return  _weatherSunTimeModel;
 }
@@ -96,9 +96,6 @@
                 [[(FuncViewController *)viewController tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             };
         }
-        
-        
-        
     };
 }
 
@@ -108,7 +105,7 @@
     self.buttconCallback = ^(UIViewController *viewController, UITableViewCell *tableViewCell) {
         __strong typeof(self) strongSelf = weakSelf;
         FuncViewController * funcVC = (FuncViewController *)viewController;
-        [funcVC showLoadingWithMessage:lang(@"set data...")];
+        [funcVC showLoadingWithMessage:[NSString stringWithFormat:@"%@...",lang(@"setup")]];
         [IDOFoundationCommand setWeatherSunTimeCommand:strongSelf.weatherSunTimeModel
                                            callback:^(int errorCode) {
             if(errorCode == 0) {
@@ -149,15 +146,12 @@
     model3.textFeildCallback = self.textFeildCallback;
     [cellModels addObject:model3];
     
-   
-
     EmpltyCellModel * model8 = [[EmpltyCellModel alloc]init];
     model8.typeStr = @"empty";
     model8.cellHeight = 30.0f;
     model8.isShowLine = YES;
     model8.cellClass  = [EmptyTableViewCell class];
     [cellModels addObject:model8];
-    
     
     FuncCellModel * model9 = [[FuncCellModel alloc]init];
     model9.typeStr = @"oneButton";

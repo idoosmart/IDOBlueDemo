@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
-// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name IDOBlueUpdate
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name IDOBlueUpdate
 import Compression
 import CoreBluetooth
 import CoreFoundation
@@ -10,6 +9,7 @@ import Foundation
 import Swift
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 @objc public enum DFUFirmwareType : Swift.UInt8 {
   case softdevice = 1
   case bootloader = 2
@@ -51,10 +51,10 @@ extension Foundation.URL {
   public func isContained(in parentDirectoryURL: Foundation.URL) -> Swift.Bool
 }
 @objc public class DFUServiceInitiator : ObjectiveC.NSObject {
-  @objc weak public var delegate: IDOBlueUpdate.DFUServiceDelegate?
-  @objc weak public var progressDelegate: IDOBlueUpdate.DFUProgressDelegate?
-  @objc weak public var logger: IDOBlueUpdate.LoggerDelegate?
-  @objc public var peripheralSelector: IDOBlueUpdate.DFUPeripheralSelectorDelegate
+  @objc weak public var delegate: (any IDOBlueUpdate.DFUServiceDelegate)?
+  @objc weak public var progressDelegate: (any IDOBlueUpdate.DFUProgressDelegate)?
+  @objc weak public var logger: (any IDOBlueUpdate.LoggerDelegate)?
+  @objc public var peripheralSelector: any IDOBlueUpdate.DFUPeripheralSelectorDelegate
   @objc public var packetReceiptNotificationParameter: Swift.UInt16
   @objc public var forceDfu: Swift.Bool
   @objc public var alternativeAdvertisingNameEnabled: Swift.Bool

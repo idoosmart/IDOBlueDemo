@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * state : 0 =>空闲 1=> 开始 2=> 停止 3=>超时 4=>断线 5=>登录状态
- * 6=>开始 7=>app发起开始失败 8=>停止状态 9=>app发起结束失败
+ * 6=>开始 7=>app发起开始失败 8=>app停止状态 9=>app发起结束失败
  * 10 =>按钮退出到主界面 11=>固件修改alexa设置的闹钟
  */
 - (void)voiceOperationState:(int)state;
@@ -72,11 +72,8 @@ NS_ASSUME_NONNULL_BEGIN
 //mp3 转 pcm 文件
 - (BOOL)mp3AudioToPcmWithData:(NSData *)data;
 
-//开始传输音频
+//开始传输音频到设备
 - (void)startTransferAudioFile;
-
-//结束音频
-- (void)stopTransferAudioFile;
 
 //测试pcm=>opus
 - (void)testOpusFromPcm:(NSString *)pcmPath

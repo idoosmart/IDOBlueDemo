@@ -11,6 +11,49 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ====  设置游戏时间 model ====
+@interface IDOSetGameTimeReminder : IDOBluetoothBaseModel
+//游戏显示开关
+@property (nonatomic,assign) BOOL gameShow;
+//定时禁止开关
+@property (nonatomic,assign) BOOL timeBan;
+//开始 时
+@property (nonatomic,assign) NSInteger startHour;
+//开始 分
+@property (nonatomic,assign) NSInteger startMinute;
+//结束 时
+@property (nonatomic,assign) NSInteger endHour;
+//结束 分
+@property (nonatomic,assign) NSInteger endMinute;
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,copy)NSArray<NSNumber *> * repeat;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetGameTimeReminder
+ */
++ (IDOSetGameTimeReminder *)currentModel;
+@end
+
+#pragma mark ====  设置喝水计划 model ====
+@interface IDOSetDrinkPlanDataModel : IDOBluetoothBaseModel
+//杯子容量1
+@property (nonatomic,assign) NSInteger cupCapacity1;
+//杯子容量2
+@property (nonatomic,assign) NSInteger cupCapacity2;
+//喝水目标 单位ml/天
+@property (nonatomic,assign) NSInteger drinkTarget;
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetDrinkPlanDataModel
+ */
++ (IDOSetDrinkPlanDataModel *)currentModel;
+@end
+
 #pragma mark ====  设置呼吸率开关 model ====
 @interface IDOSetBreathRateSwitchModel : IDOBluetoothBaseModel
 /**
@@ -228,6 +271,11 @@
 @property (nonatomic,assign) NSInteger highNoiseValue;
 
 /**
+ 通知类型 0无效 1:允许通知 2:静默通知 3:关闭通知
+ */
+@property (nonatomic,assign) NSInteger notify;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetV3NoiseSwitchModel
@@ -420,7 +468,7 @@
  */
 @property (nonatomic,assign) NSInteger itemsNum;
 /**
-闹钟集合 ｜ alarm items
+时钟集合 ｜ time items
 */
 @property (nonatomic,copy) NSArray <IDOSetV3WorldTimeItemModel *>* items;
 
@@ -1744,6 +1792,63 @@
  * @return IDOSetBpMeasureInfoBluetoothModel
  */
 + (IDOSetBpMeasureInfoBluetoothModel *)currentModel;
+@end
+
+#pragma mark ==== 设置心率测量指令model ====
+@interface IDOSetHrMeasureInfoBluetoothModel:IDOBluetoothBaseModel
+
+/**
+ * 参数标志 0x01:开始测量，0x02:结束测量，0x03:获得数据
+ * Parameter flag 0x01: Start measurement, 0x02: End measurement, 0x03: Obtain data
+ */
+@property (nonatomic,assign) NSInteger flag;
+
+/**
+ * 返回状态 0x00:不支持，0x01:正在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式
+ * Return status 0x00: Not supported, 0x01: Positive measurement, 0x02: Measurement success 0x03: Measurement failure 0x04: Device is in motion mode
+ */
+@property (nonatomic,assign) NSInteger status;
+
+/**
+ 测量数据值  | Heart rate value
+ */
+@property (nonatomic,assign) NSInteger value;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetHrMeasureInfoBluetoothModel
+ */
++ (IDOSetHrMeasureInfoBluetoothModel *)currentModel;
+
+@end
+
+#pragma mark ==== 设置血氧测量指令model ====
+@interface IDOSetSpo2MeasureInfoBluetoothModel:IDOBluetoothBaseModel
+
+/**
+ * 参数标志 0x01:开始测量，0x02:结束测量，0x03:获得数据
+ * Parameter flag 0x01: Start measurement, 0x02: End measurement, 0x03: Obtain data
+ */
+@property (nonatomic,assign) NSInteger flag;
+
+/**
+ * 返回状态 0x00:不支持，0x01:正在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式
+ * Return status 0x00: Not supported, 0x01: Positive measurement, 0x02: Measurement success 0x03: Measurement failure 0x04: Device is in motion mode
+ */
+@property (nonatomic,assign) NSInteger status;
+
+/**
+ 测量数据值  | spo2 value
+ */
+@property (nonatomic,assign) NSInteger value;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetSpo2MeasureInfoBluetoothModel
+ */
++ (IDOSetSpo2MeasureInfoBluetoothModel *)currentModel;
 @end
 
 #pragma mark ==== 设置表盘参数model ====
@@ -3133,8 +3238,8 @@
 @property (nonatomic,assign) NSInteger  callDelay;
 
 /**
- * 是否开启子开关 (只对智能提醒有效,对来电提醒无效)
- * Whether to enable the sub-switch (only valid for smart reminders, invalid for incoming call reminders)
+ * 智能提醒总开关 (只对智能提醒有效,对来电提醒无效)
+ * smart reminder switch (only valid for smart reminder, not for incoming call reminder)
  */
 @property (nonatomic,assign) BOOL isOnChild;
 
@@ -3470,28 +3575,28 @@
 /**
  Instantemail 提醒 | 支持Instantemail的功能表
  */
-@property (nonatomic,assign) BOOL isOnInstantemail;
+@property (nonatomic,assign) BOOL isOnInstantemail DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 
 /**
  nhnemail 提醒 | 支持NAVER邮件的功能表
  */
-@property (nonatomic,assign) BOOL isOnNhnemail;
+@property (nonatomic,assign) BOOL isOnNhnemail DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 /**
  zohoemail 提醒 | 支持ZoHo邮箱的功能表
  */
-@property (nonatomic,assign) BOOL isOnZohoemail;
+@property (nonatomic,assign) BOOL isOnZohoemail DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 /**
  Exchangeemail 提醒 | 支持Exchange+ Mail Client 交换邮件的功能表
  */
-@property (nonatomic,assign) BOOL isOnExchangeemail;
+@property (nonatomic,assign) BOOL isOnExchangeemail DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 /**
  189email 提醒 | 支持189邮件的功能表
  */
-@property (nonatomic,assign) BOOL isOn189email;
+@property (nonatomic,assign) BOOL isOn189email DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 /**
  googleGmail 提醒 | 支持谷歌邮箱的功能表
  */
-@property (nonatomic,assign) BOOL isOnGoogleGmail;
+@property (nonatomic,assign) BOOL isOnGoogleGmail DEPRECATED_MSG_ATTRIBUTE("this attribute is discarded");
 /**
  Veryfit 提醒 的功能表 0x4F
  */
@@ -3579,11 +3684,74 @@
  LoopsFit定制
  */
 @property (nonatomic,assign) BOOL isOnLoopsFit;
-
 /**
  TasSmart定制
  */
 @property (nonatomic,assign) BOOL isOnTasSmart;
+/**
+ IDW20-T定制  Facebook messenger
+ */
+@property (nonatomic,assign) BOOL isOnFacebookMessenger;
+/**
+ Nubank
+ */
+@property (nonatomic,assign) BOOL isOnNubank;
+/**
+ Bradesco
+ */
+@property (nonatomic,assign) BOOL isOnBradesco;
+/**
+ Itaú
+ */
+@property (nonatomic,assign) BOOL isOnItaú;
+/**
+ Banco do brasil
+ */
+@property (nonatomic,assign) BOOL isOnBancoDoBrasil;
+/**
+ Correios
+ */
+@property (nonatomic,assign) BOOL isOnCorreios;
+/**
+ Banco inter
+ */
+@property (nonatomic,assign) BOOL isOnBancoInter;
+/**
+ Caixa economica
+ */
+@property (nonatomic,assign) BOOL isOnCaixaEconomica;
+/**
+ Neon
+ */
+@property (nonatomic,assign) BOOL isOnNeon;
+/**
+ Santander
+ */
+@property (nonatomic,assign) BOOL isOnSantander;
+/**
+ Next
+ */
+@property (nonatomic,assign) BOOL isOnNext;
+/**
+ Shein
+ */
+@property (nonatomic,assign) BOOL isOnShein;
+/**
+ GoogleTask
+ */
+@property (nonatomic,assign) BOOL isOnGoogleTask;
+/**
+ Microsoft to do
+ */
+@property (nonatomic,assign) BOOL isOnMicrosoftToDo;
+/**
+ TickTick
+ */
+@property (nonatomic,assign) BOOL isOnTickTick;
+/**
+ Todoist
+ */
+@property (nonatomic,assign) BOOL isOnTodoist;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -3688,6 +3856,11 @@
  绑定状态 | Binding status
  */
 @property (nonatomic,assign) NSInteger bindState;
+
+/**
+ 全天步数目标达成提醒开关
+ */
+@property (nonatomic,assign) BOOL achievedRemindOnOff;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

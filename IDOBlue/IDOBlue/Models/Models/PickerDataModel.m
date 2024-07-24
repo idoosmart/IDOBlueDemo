@@ -141,18 +141,6 @@
     }
     return _tempArray;
 }
-- (NSArray *)tempV3Array
-{
-    if (!_tempV3Array) {
-        NSMutableArray * tempArray = [NSMutableArray array];
-        for (int i = 50; i <= 160; i ++) {
-            [tempArray addObject:@(i)];
-        }
-        _tempV3Array = tempArray;
-    }
-    return _tempV3Array;
-}
-
 
 - (NSArray *)screenModeArray
 {
@@ -561,7 +549,7 @@
     if (!_menuListTypes) {
         _menuListTypes = @[lang(@"steps"),lang(@"heart rate"),lang(@"sleep"),lang(@"picture"),lang(@"alarm clock"),
                            lang(@"music"),lang(@"stopwatch"),lang(@"timer"),lang(@"exercise mode"),lang(@"weather"),
-        lang(@"breathing exercise"),lang(@"find mobile phone"),lang(@"pressure"),lang(@"data tricycle"),lang(@"time interface"),lang(@"最近一次活动"),lang(@"健康数据"),lang(@"血氧"),lang(@"菜单设置"),lang(@"alexa语音提示")];
+        lang(@"breathing exercise"),lang(@"find mobile phone"),lang(@"pressure"),lang(@"data tricycle"),lang(@"time interface"),lang(@"last activity"),lang(@"health data"),lang(@"blood oxygen"),lang(@"menu settings"),lang(@"alexa voice prompt")];
     }
     return _menuListTypes;
 }

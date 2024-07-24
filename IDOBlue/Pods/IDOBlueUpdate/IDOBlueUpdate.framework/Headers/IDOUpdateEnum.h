@@ -215,7 +215,11 @@ typedef NS_ENUM(NSInteger, IDO_UPDATE_PLATFORM_TYPE)  {
      * realtk bluetooth update
      */
     IDO_APOLLO_PLATFORM_TYPE,
+    /**
+     * Sifli 蓝牙升级
+     * Sifli bluetooth update
+     */
+    IDO_SIFLI_PLATFORM_TYPE,
 };
-
 
 #endif /* IDOUpdateEnum_h */

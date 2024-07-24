@@ -203,7 +203,7 @@
 {
     if (!_allMenuLists) {
         _allMenuLists = [NSMutableArray array];
-        for (int i = 1; i <= 15; i++) {
+        for (int i = 1; i <= 20; i++) {
             NSDictionary * dic = @{@"type":@(i),@"isSelected":@(0),@"index":@(0)};
             [_allMenuLists addObject:dic];
         }

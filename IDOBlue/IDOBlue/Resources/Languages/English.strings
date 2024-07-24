@@ -11,7 +11,7 @@
 "device suspend scan" = "device suspend scan";
 "manual connect time" = "connect time:";
 "auto connect time" = "connect time:";
-"file update" = "file update";
+"file update" = "file update:";
 "file type" = "file type:";
 "compression type" = "compression type:";
 "transfer complete" = "file transfer complete";
@@ -32,6 +32,7 @@
 "mandatory unbind" = "unbind";
 "device unbind" = "device unbind";
 "device switch" = "device switch";
+"device data unbind" = "device data unbind";
 "device unbinding" = "device unbinding";
 "device update" = "device update";
 "function list" = "function list";
@@ -534,6 +535,8 @@
 "auto rowing machine switch" ="auto rowing machine switch:";
 "auto swimming switch" ="auto swimming switch:";
 "set spo2 switch" = "set spo2 switch";
+"low blood oxygen switch" = "low blood oxygen switch";
+"low blood oxygen threshold" = "low blood oxygen threshold";
 "set spo2 switch success" = "set spo2 switch success";
 "set spo2 switch failed" = "set spo2 switch failed";
 "set breathe train" = "set breathe train";
@@ -541,9 +544,11 @@
 "set breathe train failed" = "set breathe train failed";
 "set walk reminder" = "set walk reminder";
 "set walk reminder target" = "set walk reminder target";
+"set a target time" = "set a target time";
 "set walk reminder success" = "set walk reminder success";
 "set walk reminder failed" = "set walk reminder failed";
 "set pressure switch" = "set pressure switch";
+"high pressure threshold" = "high pressure threshold";
 "set pressure switch success" = "set pressure switch success";
 "set pressure switch failed" = "set pressure switch failed";
 "set pressure reminder switch" = "set pressure reminder switch";
@@ -758,6 +763,15 @@
 "get v3 heart rate mode" = "get v3 heart rate mode";
 "get v3 heart rate mode success" = "get v3 heart rate mode success";
 "get v3 heart rate mode failed" = "get v3 heart rate mode failed";
+"get v2 heart rate mode" = "get v2 heart rate mode";
+"get v2 heart rate mode success" = "get v2 heart rate mode success";
+"get v2 heart rate mode failed" = "get v2 heart rate mode failed";
+
+"get alg version" = "get alg version";
+"get alg version success" = "get alg version success";
+"get alg version failed" = "get alg version failed";
+
+
 "get blue mtu info" = "get blue mtu info";
 "get blue mtu info success" = "get blue mtu info success";
 "get blue mtu info failed" = "get blue mtu info failed";
@@ -798,6 +812,11 @@
 "pressure" = "pressure";
 "data tricycle" = "data tricycle";
 "time interface" = "time interface";
+"last activity" = "last activity";
+"health data" = "health data";
+"blood oxygen" = "blood oxygen";
+"menu settings" = "menu settings";
+"alexa voice prompt" = "alexa voice prompt";
 
 /*******/
 "data to json" = "data to json";
@@ -1019,6 +1038,8 @@
 "nordic update" = "nordic update";
 "realtk update" = "realtk update";
 "apollo update" = "apollo update";
+"file update" = "file update";
+
 "word update" = "word update";
 "agps update" = "agps update";
 "agps update type" = "agps update type";
@@ -1039,7 +1060,7 @@
 "update..." = "update...";
 "update success" = "update success";
 "update failed" = "update failed";
-"selected agps file" = "files";
+"selected agps file" = "selected files";
 "file ready for transfer..." = "file ready for transfer...";
 "file does not exist" = "file does not exist";
 "file write..." = "file write...";
@@ -1087,6 +1108,10 @@
  */
 "set smart heart rate" = "set smart heart rate";
 "smart heart rate model" = "smart heart rate model";
+"high heart rate reminder switch" = "high heart rate reminder switch";
+"high heart rate alert threshold" = "high heart rate alert threshold";
+"low heart rate reminder switch" = "low heart rate reminder switch";
+"low heart rate alert threshold" = "low heart rate alert threshold";
 "notify flag" = "notify flag";
 "notify flag unknow" = "notify flag unknow";
 "allow notify flag" = "allow notify flag";
@@ -1121,11 +1146,6 @@
 "current weather" = "current weather";
 "max weather"="max weather";
 "min weather"="min weather";
-
-"current v3 weather" = "current v3 temperature (current temperature+100)";
-"max v3 weather"="maximum v3 temperature(maximum temperature+100)";
-"min v3 weather"="minimum v3 temperature(Minimum temperature+100)";
-
 "air quality"="air quality";
 "Precipitation probability"="Precipitation probability";
 "humidity"="humidity";
@@ -1256,25 +1276,16 @@
 "To use the frequent contacts, you have to obtain the permission to access your phone’s contacts. Go to the phone’s \"Settings > Privacy > Contacts\" to enable the permission." = "To use the frequent contacts, you have to obtain the permission to access your phone’s contacts. Go to the phone’s \"Settings > Privacy > Contacts\" to enable the permission.";
 "The phonebook data has been synchronized" = "The phonebook data has been synchronized";
 "Address book data is empty" = "Address book data is empty";
+"JieLi wallpaper dial" = "JieLi wallpaper dial";
+"Generate the watch face and transfer it" = "Generate";
+"JieLi wallpaper watch face updated" = "JieLi wallpaper watch face updated";
 
+"SiChe photo cloud dial" = "SiChe photo cloud dial";
+"Watch face update" = "Watch face update";
+"Generate" = "Generate";
 
-"EPO update" = "EPO update";
-"Un support EPO update" = "Un support EPO update";
-"make EPO file (3->1)" = "make EPO file (3->1)";
-"make EPO successfully" = "make EPO successfully";
-"make EPO failed" = "make EPO failed";
-"downloading" = "downloading...";
-"download successfully" = "download successfully";
-"download failed" = "download failed";
-"download EPO file" = "download EPO file";
-"EPO files cannot be operated during this time period" = "EPO files cannot be operated during this time period";
-"background color" = "background color";
-"get background color" = "get background color";
-
-"custom wallpaper cloud dial" = "custom wallpaper cloud dial";
-"Make wallpaper cloud dial file" = "Make wallpaper cloud dial file";
-"Extract and read the json dial file" = "Extract and read the json dial file";
-"widgets location" = "widgets location";
-"widgets bgcolor" = "widgets bgcolor";
-"Editing of widgets is not supported" = "Editing of widgets is not supported";
-"Please first operate the button to extract and read the JSON dial file" = "Please first operate the button to extract and read the JSON dial file";
+"get token" = "Get token";
+"Runing plan" = "Runing plan";
+"Acquisition failed" = "Acquisition failed";
+"Successfully obtained" = "Successfully obtained";
+"Please obtain the Token first" = "Please obtain the Token first";

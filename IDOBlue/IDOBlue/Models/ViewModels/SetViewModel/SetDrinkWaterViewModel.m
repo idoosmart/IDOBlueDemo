@@ -197,7 +197,11 @@
         LabelCellModel * labelModel = [strongSelf.cellModels objectAtIndex:indexPath.row];
         if (labelModel.isMultiSelect)labelModel.isSelected = !labelModel.isSelected;
         NSMutableArray * repeatArray = [NSMutableArray arrayWithArray:strongSelf.drinkReminderModel.repeat];
-        [repeatArray replaceObjectAtIndex:labelModel.index withObject:@(labelModel.isSelected)];
+        NSInteger boolSec = 0;
+        if (labelModel.isSelected) {
+            boolSec = 1;
+        }
+        [repeatArray replaceObjectAtIndex:labelModel.index withObject:@(boolSec)];
         strongSelf.drinkReminderModel.repeat = repeatArray;
         [funcVC.tableView reloadData];
     };

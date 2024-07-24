@@ -119,8 +119,8 @@
     NSString * typeStr = [@"Type : "stringByAppendingString:@"music File"];
     NSString * fileStr = [NSString stringWithFormat:@"%@\n%@\n%@",nameStr,sizeStr,typeStr];
     
-    self.textField1.text = [fileName copy];;
     
+    self.textField1.text = [fileName copy];;
     self.currentMusicModel.fileName = [fileName copy];
     self.currentMusicModel.filePath = [path copy];
     self.currentMusicModel.musicName  = [fileName copy];

@@ -66,4 +66,15 @@
  */
 @property (nonatomic,assign) int encryptionStatus;
 
+/**
+ 升级标志（
+ 1：强制升级，上次升级中断
+ 其他：非升级状态）
+ */
+@property (nonatomic,assign) int forceOtaStatus;
+/**
+ 平台类型：99、98思澈
+ */
+@property (nonatomic,assign) int platform;
+
 @end

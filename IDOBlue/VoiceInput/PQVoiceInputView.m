@@ -101,7 +101,7 @@
     
 }
 
-+ (__kindof PQVoiceInputView * _Nonnull)pgq_reateVoiceViewWithRect:(CGRect)frame voiceColor:(UIColor* _Nullable)lineColor volumeColor:(UIColor* _Nullable)colidColor title:(NSString * _Nullable)title showType:(VOICEINPUTTYPE)type hidden:(PGQVoiceInputHiddenBlock _Nullable)block{
++ (PQVoiceInputView * _Nonnull)pgq_reateVoiceViewWithRect:(CGRect)frame voiceColor:(UIColor* _Nullable)lineColor volumeColor:(UIColor* _Nullable)colidColor title:(NSString * _Nullable)title showType:(VOICEINPUTTYPE)type hidden:(PGQVoiceInputHiddenBlock _Nullable)block{
     
     PQVoiceInputView * viv = [[PQVoiceInputView alloc]initWithFrame:frame];
     //添加手势

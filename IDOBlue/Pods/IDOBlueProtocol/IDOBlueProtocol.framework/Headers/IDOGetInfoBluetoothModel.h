@@ -957,6 +957,46 @@ error flag
 @property (nonatomic,assign) BOOL supportBpModelFileUpdate;
 
 /**
+ 支持app游戏时间设置
+ */
+@property (nonatomic,assign) BOOL supportGameTimeReminder;
+
+/**
+ 踏步机运动新增展示步数的功能表
+ */
+@property (nonatomic,assign) BOOL supportActivityTypeTreadmillsShowStep;
+
+/**
+ 支持全天步数目标达成提醒开关
+ */
+@property (nonatomic,assign) BOOL supportAchievedRemindOnOff;
+
+/**
+ 支持喝水计划
+ */
+@property (nonatomic,assign) BOOL supportDrinkPlan;
+
+/**
+ 支持睡眠计划
+ */
+@property (nonatomic,assign) BOOL supportSleepPlan;
+
+/**
+ 支持获取运动是否自动暂停结束
+ */
+@property (nonatomic,assign) BOOL supportSportGetAutoPauseEnd;
+
+/**
+ 环境音量支持设置通知类型
+ */
+@property (nonatomic,assign) BOOL supportSetNoiseNotify;
+
+/**
+ 环境音量支持设置过高提醒
+ */
+@property (nonatomic,assign) BOOL supportSetNoiseOverwarning;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable37BluetoothModel
@@ -1340,6 +1380,15 @@ error flag
  v3天气设置增加下发48小时天气数据
  */
 @property (nonatomic,assign) BOOL supportSetV3Add48HourWeatherData;
+/**
+ 支持ai表盘
+ */
+@property (nonatomic,assign) BOOL aiWatchDial;
+/**
+ 支持ai语音
+ */
+@property (nonatomic,assign) BOOL aiVoice;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -2571,6 +2620,16 @@ error flag
  norwegian
  */
 @property (nonatomic,assign) BOOL brazilianPortuguese;
+/**
+ 孟加拉语
+ bengali
+ */
+@property (nonatomic,assign) BOOL bengali;
+/**
+ 高棉语
+ khmer
+ */
+@property (nonatomic,assign) BOOL khmer;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -4242,7 +4301,7 @@ error flag
 /**
  * 手环的平台 | platform for bracelet
  * 0:nordic,10:realtek 8762x ,20:cypress psoc6,30:Apollo3,40:汇顶,50:nordic+泰凌微,
- * 60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340;90:炬心; 99:思澈
+ * 60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340;90:炬心; 99:思澈; 98:思澈(芯语物)
  */
 @property (nonatomic,assign) NSInteger platform;
 
@@ -4288,7 +4347,6 @@ error flag
  */
 @property (nonatomic,assign) NSInteger showBindChoiceUi;
 
-
 /**
  * nodic平台固件版本
  * nodic bootloadVersion
@@ -4303,6 +4361,15 @@ error flag
  设备bt名字
  */
 @property (nonatomic,copy) NSString * deviceBtName;
+
+/**
+ GPS芯片平台
+   0：无效
+   1：索尼 sony
+   2：洛达 Airoh
+   3：芯与物 icoe
+ */
+@property (nonatomic,assign) NSInteger gpsPlatform;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -4458,5 +4525,31 @@ error flag
  * @return IDOGetStepGoalBluetoothModel
  */
 + (IDOGetStepGoalBluetoothModel *)currentModel;
+
+@end
+
+
+@interface IDOGetBpVersionBluetoothModel : IDOBluetoothBaseModel
+
+/**
+ 固件血压算法版本version1
+ */
+@property (nonatomic,assign) NSInteger bpVersion1;
+/**
+ 固件血压算法版本version2
+ */
+@property (nonatomic,assign) NSInteger bpVersion2;
+/**
+ 固件血压算法版本version3
+ */
+@property (nonatomic,assign) NSInteger bpVersion3;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetBpVersionBluetoothModel
+ */
++ (IDOGetBpVersionBluetoothModel *)currentModel;
+
 
 @end

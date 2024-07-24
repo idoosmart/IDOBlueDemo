@@ -1,0 +1,5222 @@
+
+[{
+    "city_id": "0",
+    "ch_area": "阿比让",
+    "ch_nation": "象牙海岸",
+    "en_area": "Abidjan",
+    "en_nation": "Ivory Coast",
+    "latitude": "5.3599517",
+    "longitude": "-4.0082563",
+    "timeZone": "Africa/Bamako"
+}, {
+    "city_id": "1",
+    "ch_area": "阿布扎比",
+    "ch_nation": "阿拉伯联合大公国",
+    "en_area": "Abu Dhabi",
+    "en_nation": "U.A.E.",
+    "latitude": "24.453884",
+    "longitude": "54.3773438",
+    "timeZone": "Asia/Dubai"
+}, {
+    "city_id": "5",
+    "ch_area": "阿德莱德",
+    "ch_nation": "澳大利亚",
+    "en_area": "Adelaide",
+    "en_nation": "Australia",
+    "latitude": "-34.9284989",
+    "longitude": "138.6007456",
+    "timeZone": "Australia/Adelaide"
+}, {
+    "city_id": "423",
+    "ch_area": "阿蒂科肯",
+    "ch_nation": "加拿大",
+    "en_area": "Atikokan",
+    "en_nation": "Canada",
+    "latitude": "48.7575098",
+    "longitude": "-91.6218292",
+    "timeZone": "America/Atikokan"
+}, {
+    "city_id": "6",
+    "ch_area": "阿尔伯克基",
+    "ch_nation": "美国",
+    "en_area": "Albuquerque, NM",
+    "en_nation": "U.S.A.",
+    "latitude": "35.0843859",
+    "longitude": "-106.650422",
+    "timeZone": "US/Mountain"
+}, {
+    "city_id": "7",
+    "ch_area": "阿尔及尔",
+    "ch_nation": "阿尔及利亚",
+    "en_area": "Algiers",
+    "en_nation": "Algeria",
+    "latitude": "36.753768",
+    "longitude": "3.0587561",
+    "timeZone": "Africa/Algiers"
+}, {
+    "city_id": "562",
+    "ch_area": "阿瓜斯卡连特斯",
+    "ch_nation": "墨西哥",
+    "en_area": "Aguascalientes",
+    "en_nation": "Mexico",
+    "latitude": "21.8852562",
+    "longitude": "-102.2915677",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "561",
+    "ch_area": "阿卡普尔科",
+    "ch_nation": "墨西哥",
+    "en_area": "Acapulco",
+    "en_nation": "Mexico",
+    "latitude": "16.8531086",
+    "longitude": "-99.8236533",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "337",
+    "ch_area": "阿克顿",
+    "ch_nation": "美国",
+    "en_area": "Acton, Massachusetts",
+    "en_nation": "U.S.A.",
+    "latitude": "42.4850931",
+    "longitude": "-71.43284",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "2",
+    "ch_area": "阿克拉",
+    "ch_nation": "加纳",
+    "en_area": "Accra",
+    "en_nation": "Ghana",
+    "latitude": "5.6037168",
+    "longitude": "-0.1869644",
+    "timeZone": "Africa/Accra"
+}, {
+    "city_id": "888",
+    "ch_area": "阿克套",
+    "ch_nation": "哈萨克斯坦",
+    "en_area": "Aktau",
+    "en_nation": "Kazakhstan",
+    "latitude": "43.6588079",
+    "longitude": "51.1974563",
+    "timeZone": "Asia/Aqtobe"
+}, {
+    "city_id": "478",
+    "ch_area": "阿克托别",
+    "ch_nation": "哈萨克斯坦",
+    "en_area": "Aqtobe",
+    "en_nation": "Kazakhstan",
+    "latitude": "50.2839339",
+    "longitude": "57.166978",
+    "timeZone": "Asia/Aqtobe"
+}, {
+    "city_id": "404",
+    "ch_area": "阿拉瓜伊纳",
+    "ch_nation": "巴西",
+    "en_area": "Araguaina",
+    "en_nation": "Brazil",
+    "latitude": "-7.1915633",
+    "longitude": "-48.2094801",
+    "timeZone": "America/Araguaina"
+}, {
+    "city_id": "501",
+    "ch_area": "阿洛菲",
+    "ch_nation": "纽埃岛",
+    "en_area": "Alofi",
+    "en_nation": "Niue",
+    "latitude": "-19.0553711",
+    "longitude": "-169.9178709",
+    "timeZone": "Pacific/Niue"
+}, {
+    "city_id": "370",
+    "ch_area": "阿蒙森 - 斯科特站",
+    "ch_nation": "南极洲",
+    "en_area": "Amundsen-Scott Station",
+    "en_nation": "Antarctica",
+    "latitude": "42.0566295",
+    "longitude": "-87.6750834",
+    "timeZone": "Antarctica/South_Pole"
+}, {
+    "city_id": "9",
+    "ch_area": "阿姆斯特丹",
+    "ch_nation": "荷兰",
+    "en_area": "Amsterdam",
+    "en_nation": "the Netherlands",
+    "latitude": "52.3675734",
+    "longitude": "4.9041389",
+    "timeZone": "Europe/Amsterdam"
+}, {
+    "city_id": "10",
+    "ch_area": "阿纳德尔",
+    "ch_nation": "俄罗斯",
+    "en_area": "Anadyr",
+    "en_nation": "Russia",
+    "latitude": "64.7336613",
+    "longitude": "177.4968265",
+    "timeZone": "Asia/Anadyr"
+}, {
+    "city_id": "365",
+    "ch_area": "阿皮亚",
+    "ch_nation": "萨摩亚",
+    "en_area": "Apia",
+    "en_nation": "Samoa",
+    "latitude": "-13.8506958",
+    "longitude": "-171.7513551",
+    "timeZone": "Pacific/Apia"
+}, {
+    "city_id": "14",
+    "ch_area": "阿什喀巴德",
+    "ch_nation": "土库曼斯坦",
+    "en_area": "Ashgabat",
+    "en_nation": "Turkmenistan",
+    "latitude": "37.9600766",
+    "longitude": "58.3260629",
+    "timeZone": "Asia/Ashgabat"
+}, {
+    "city_id": "15",
+    "ch_area": "阿斯马拉",
+    "ch_nation": "厄立特里亚",
+    "en_area": "Asmera",
+    "en_nation": "Eritrea",
+    "latitude": "15.3228767",
+    "longitude": "38.9250517",
+    "timeZone": "Africa/Asmara"
+}, {
+    "city_id": "16",
+    "ch_area": "阿斯塔纳",
+    "ch_nation": "哈萨克斯坦",
+    "en_area": "Astana",
+    "en_nation": "Kazakhstan",
+    "latitude": "51.1605227",
+    "longitude": "71.4703558",
+    "timeZone": "Asia/Almaty"
+}, {
+    "city_id": "479",
+    "ch_area": "阿特劳",
+    "ch_nation": "哈萨克斯坦",
+    "en_area": "Atyrau",
+    "en_nation": "Kazakhstan",
+    "latitude": "47.0944959",
+    "longitude": "51.9238373",
+    "timeZone": "Asia/Aqtobe"
+}, {
+    "city_id": "446",
+    "ch_area": "阿尤恩",
+    "ch_nation": "西撒哈拉",
+    "en_area": "El-Aaiun",
+    "en_nation": "Western Sahara",
+    "latitude": "27.1500384",
+    "longitude": "-13.1990758",
+    "timeZone": "Africa/El_Aaiun"
+}, {
+    "city_id": "427",
+    "ch_area": "埃德蒙顿",
+    "ch_nation": "加拿大",
+    "en_area": "Edmonton",
+    "en_nation": "Canada",
+    "latitude": "53.5461245",
+    "longitude": "-113.4938229",
+    "timeZone": "America/Edmonton"
+}, {
+    "city_id": "94",
+    "ch_area": "埃尔帕索",
+    "ch_nation": "美国",
+    "en_area": "El Paso, TX",
+    "en_nation": "U.S.A.",
+    "latitude": "31.7618778",
+    "longitude": "-106.4850217",
+    "timeZone": "US/Mountain"
+}, {
+    "city_id": "550",
+    "ch_area": "埃法特岛",
+    "ch_nation": "瓦努阿图",
+    "en_area": "Efate",
+    "en_nation": "Vanuatu",
+    "latitude": "-17.6577479",
+    "longitude": "168.4297187",
+    "timeZone": "Pacific/Efate"
+}, {
+    "city_id": "322",
+    "ch_area": "埃里温",
+    "ch_nation": "亚美尼亚",
+    "en_area": "Yerevan",
+    "en_nation": "Armenia",
+    "latitude": "40.1872023",
+    "longitude": "44.515209",
+    "timeZone": "Asia/Yerevan"
+}, {
+    "city_id": "495",
+    "ch_area": "埃莫西约",
+    "ch_nation": "墨西哥",
+    "en_area": "Hermosillo",
+    "en_nation": "Mexico",
+    "latitude": "29.0729673",
+    "longitude": "-110.9559192",
+    "timeZone": "America/Hermosillo"
+}, {
+    "city_id": "3",
+    "ch_area": "艾德克岛",
+    "ch_nation": "美国",
+    "en_area": "Adak",
+    "en_nation": "U.S.A.",
+    "latitude": "51.88",
+    "longitude": "-176.6580556",
+    "timeZone": "America/Adak"
+}, {
+    "city_id": "412",
+    "ch_area": "艾鲁内佩",
+    "ch_nation": "巴西",
+    "en_area": "Eirunepe",
+    "en_nation": "Brazil",
+    "latitude": "-6.6623703",
+    "longitude": "-69.8674302",
+    "timeZone": "America/Eirunepe"
+}, {
+    "city_id": "93",
+    "ch_area": "爱丁堡",
+    "ch_nation": "苏格兰",
+    "en_area": "Edinburgh",
+    "en_nation": "Scotland U.K.",
+    "latitude": "55.953252",
+    "longitude": "-3.188267",
+    "timeZone": "Europe/London"
+}, {
+    "city_id": "331",
+    "ch_area": "安道尔城",
+    "ch_nation": "安道尔",
+    "en_area": "Andorra la Vella",
+    "en_nation": "Andorra",
+    "latitude": "42.5063174",
+    "longitude": "1.5218355",
+    "timeZone": "Europe/Andorra"
+}, {
+    "city_id": "13",
+    "ch_area": "安卡拉",
+    "ch_nation": "土耳其",
+    "en_area": "Ankara",
+    "en_nation": "Turkey",
+    "latitude": "39.9333635",
+    "longitude": "32.8597419",
+    "timeZone": "Europe/Istanbul"
+}, {
+    "city_id": "12",
+    "ch_area": "安克雷奇",
+    "ch_nation": "美国",
+    "en_area": "Anchorage",
+    "en_nation": "U.S.A.",
+    "latitude": "61.2180556",
+    "longitude": "-149.9002778",
+    "timeZone": "America/Anchorage"
+}, {
+    "city_id": "8",
+    "ch_area": "安曼",
+    "ch_nation": "约旦",
+    "en_area": "Amman",
+    "en_nation": "Jordan",
+    "latitude": "31.9539494",
+    "longitude": "35.910635",
+    "timeZone": "Asia/Amman"
+}, {
+    "city_id": "11",
+    "ch_area": "安塔那那利佛",
+    "ch_nation": "马达加斯加",
+    "en_area": "Antananarivo",
+    "en_nation": "Madagascar",
+    "latitude": "-18.8791902",
+    "longitude": "47.5079055",
+    "timeZone": "Indian/Antananarivo"
+}, {
+    "city_id": "357",
+    "ch_area": "安特卫普",
+    "ch_nation": "比利时",
+    "en_area": "Antwerp",
+    "en_nation": "Belgium",
+    "latitude": "51.2194475",
+    "longitude": "4.4024643",
+    "timeZone": "Europe/Brussels"
+}, {
+    "city_id": "574",
+    "ch_area": "敖德萨",
+    "ch_nation": "乌克兰",
+    "en_area": "Odessa",
+    "en_nation": "Ukraine",
+    "latitude": "46.482526",
+    "longitude": "30.7233095",
+    "timeZone": "Europe/Kiev"
+}, {
+    "city_id": "20",
+    "ch_area": "奥克兰",
+    "ch_nation": "新西兰",
+    "en_area": "Auckland",
+    "en_nation": "New Zealand",
+    "latitude": "-36.8508827",
+    "longitude": "174.7644881",
+    "timeZone": "Pacific/Auckland"
+}, {
+    "city_id": "205",
+    "ch_area": "奥克兰",
+    "ch_nation": "美国",
+    "en_area": "Oakland",
+    "en_nation": "U.S.A.",
+    "latitude": "37.8043514",
+    "longitude": "-122.2711639",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "396",
+    "ch_area": "奥拉涅斯塔德",
+    "ch_nation": "阿鲁巴",
+    "en_area": "Oranjestad",
+    "en_nation": "Aruba",
+    "latitude": "12.5092044",
+    "longitude": "-70.0086306",
+    "timeZone": "America/Aruba"
+}, {
+    "city_id": "207",
+    "ch_area": "奥马哈",
+    "ch_nation": "美国",
+    "en_area": "Omaha, NE",
+    "en_nation": "U.S.A.",
+    "latitude": "41.2565369",
+    "longitude": "-95.9345034",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "210",
+    "ch_area": "奥斯陆",
+    "ch_nation": "挪威",
+    "en_area": "Oslo",
+    "en_nation": "Norway",
+    "latitude": "59.9138688",
+    "longitude": "10.7522454",
+    "timeZone": "Europe/Oslo"
+}, {
+    "city_id": "21",
+    "ch_area": "奥斯汀",
+    "ch_nation": "美国",
+    "en_area": "Austin, TX",
+    "en_nation": "U.S.A.",
+    "latitude": "30.267153",
+    "longitude": "-97.7430608",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "345",
+    "ch_area": "奥希纳加",
+    "ch_nation": "墨西哥",
+    "en_area": "Ojinaga",
+    "en_nation": "Mexico",
+    "latitude": "29.5458844",
+    "longitude": "-104.4082908",
+    "timeZone": "America/Ojinaga"
+}, {
+    "city_id": "156",
+    "ch_area": "澳门特别行政区",
+    "ch_nation": "中国",
+    "en_area": "Macao",
+    "en_nation": "China",
+    "latitude": "22.198745",
+    "longitude": "113.543873",
+    "timeZone": "Asia/Macau"
+}, {
+    "city_id": "24",
+    "ch_area": "巴尔的摩",
+    "ch_nation": "美国",
+    "en_area": "Baltimore, MD",
+    "en_nation": "U.S.A.",
+    "latitude": "39.2903848",
+    "longitude": "-76.6121893",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "22",
+    "ch_area": "巴格达",
+    "ch_nation": "伊拉克",
+    "en_area": "Baghdad",
+    "en_nation": "Iraq",
+    "latitude": "33.315241",
+    "longitude": "44.3660671",
+    "timeZone": "Asia/Baghdad"
+}, {
+    "city_id": "23",
+    "ch_area": "巴库",
+    "ch_nation": "阿塞拜疆",
+    "en_area": "Baku",
+    "en_nation": "Azerbaijan",
+    "latitude": "40.4092617",
+    "longitude": "49.8670924",
+    "timeZone": "Asia/Baku"
+}, {
+    "city_id": "215",
+    "ch_area": "巴勒莫",
+    "ch_nation": "意大利",
+    "en_area": "Palermo",
+    "en_nation": "Italy",
+    "latitude": "38.11569",
+    "longitude": "13.3614868",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "221",
+    "ch_area": "巴黎",
+    "ch_nation": "法国",
+    "en_area": "Paris",
+    "en_nation": "France",
+    "latitude": "48.856614",
+    "longitude": "2.3522219",
+    "timeZone": "Europe/Paris"
+}, {
+    "city_id": "29",
+    "ch_area": "巴里",
+    "ch_nation": "意大利",
+    "en_area": "Bari",
+    "en_nation": "Italy",
+    "latitude": "41.1171432",
+    "longitude": "16.8718715",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "25",
+    "ch_area": "巴马科",
+    "ch_nation": "马里",
+    "en_area": "Bamako",
+    "en_nation": "Mali",
+    "latitude": "12.6392316",
+    "longitude": "-8.0028892",
+    "timeZone": "Africa/Bamako"
+}, {
+    "city_id": "217",
+    "ch_area": "巴拿马城",
+    "ch_nation": "巴拿马",
+    "en_area": "Panama City",
+    "en_nation": "Panama",
+    "latitude": "30.1588129",
+    "longitude": "-85.6602058",
+    "timeZone": "America/Panama"
+}, {
+    "city_id": "28",
+    "ch_area": "巴塞罗那",
+    "ch_nation": "西班牙",
+    "en_area": "Barcelona",
+    "en_nation": "Spain",
+    "latitude": "41.3850639",
+    "longitude": "2.1734035",
+    "timeZone": "Europe/Madrid"
+}, {
+    "city_id": "30",
+    "ch_area": "巴斯特尔",
+    "ch_nation": "瓜德罗普岛",
+    "en_area": "Basse-Terre",
+    "en_nation": "Guadeloupe",
+    "latitude": "15.9965761",
+    "longitude": "-61.731699",
+    "timeZone": "America/Guadeloupe"
+}, {
+    "city_id": "475",
+    "ch_area": "巴斯特尔",
+    "ch_nation": "圣基茨和尼维斯",
+    "en_area": "Basseterre",
+    "en_nation": "France",
+    "latitude": "17.3026058",
+    "longitude": "-62.7176924",
+    "timeZone": "America/St_Kitts"
+}, {
+    "city_id": "46",
+    "ch_area": "巴西利亚",
+    "ch_nation": "巴西",
+    "en_area": "Brasília",
+    "en_nation": "Brazil",
+    "latitude": "-15.7975174",
+    "longitude": "-47.8918881",
+    "timeZone": "America/Sao_Paulo"
+}, {
+    "city_id": "497",
+    "ch_area": "巴亚尔塔港",
+    "ch_nation": "墨西哥",
+    "en_area": "Puerto Vallarta",
+    "en_nation": "Mexico",
+    "latitude": "20.653407",
+    "longitude": "-105.2253316",
+    "timeZone": "America/Bahia_Banderas"
+}, {
+    "city_id": "37",
+    "ch_area": "柏林",
+    "ch_nation": "德国",
+    "en_area": "Berlin",
+    "en_nation": "Germany",
+    "latitude": "52.5200066",
+    "longitude": "13.404954",
+    "timeZone": "Europe/Berlin"
+}, {
+    "city_id": "27",
+    "ch_area": "班吉",
+    "ch_nation": "中非共和国",
+    "en_area": "Bangui",
+    "en_nation": "Central African Republic",
+    "latitude": "4.3946735",
+    "longitude": "18.5581899",
+    "timeZone": "Africa/Bangui"
+}, {
+    "city_id": "434",
+    "ch_area": "班坦村",
+    "ch_nation": "科科斯（基林）群岛",
+    "en_area": "Bantam Village",
+    "en_nation": "Cocos (Keeling) Islands",
+    "latitude": "-12.116787",
+    "longitude": "96.8965765",
+    "timeZone": "Indian/Cocos"
+}, {
+    "city_id": "466",
+    "ch_area": "班珠尔",
+    "ch_nation": "冈比亚",
+    "en_area": "Banjul",
+    "en_nation": "Gambia",
+    "latitude": "13.454375",
+    "longitude": "-16.5753186",
+    "timeZone": "Africa/Banjul"
+}, {
+    "city_id": "31",
+    "ch_area": "北京",
+    "ch_nation": "中国",
+    "en_area": "Beijing",
+    "en_nation": "China",
+    "latitude": "39.9041999",
+    "longitude": "116.4073963",
+    "timeZone": "Asia/Shanghai"
+}, {
+    "city_id": "33",
+    "ch_area": "贝尔格莱德",
+    "ch_nation": "塞尔维亚",
+    "en_area": "Belgrade",
+    "en_nation": "Serbia",
+    "latitude": "44.8125449",
+    "longitude": "20.4612299",
+    "timeZone": "Europe/Belgrade"
+}, {
+    "city_id": "32",
+    "ch_area": "贝鲁特",
+    "ch_nation": "黎巴嫩",
+    "en_area": "Beirut",
+    "en_nation": "Lebanon",
+    "latitude": "33.8937913",
+    "longitude": "35.5017767",
+    "timeZone": "Asia/Beirut"
+}, {
+    "city_id": "402",
+    "ch_area": "贝伦",
+    "ch_nation": "巴西",
+    "en_area": "Belem",
+    "en_nation": "Brazil",
+    "latitude": "-1.4563073",
+    "longitude": "-48.5012804",
+    "timeZone": "America/Belem"
+}, {
+    "city_id": "35",
+    "ch_area": "贝尼西亚",
+    "ch_nation": "美国",
+    "en_area": "Benicia",
+    "en_nation": "U.S.A.",
+    "latitude": "38.049365",
+    "longitude": "-122.1585777",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "40",
+    "ch_area": "比绍",
+    "ch_nation": "几内亚比绍",
+    "en_area": "Bissau",
+    "en_nation": "Guinea-Bissau",
+    "latitude": "11.8632196",
+    "longitude": "-15.5843227",
+    "timeZone": "Africa/Bissau"
+}, {
+    "city_id": "39",
+    "ch_area": "比什凯克",
+    "ch_nation": "吉尔吉斯斯坦",
+    "en_area": "Bishkek",
+    "en_nation": "Kyrgyzstan",
+    "latitude": "42.8746212",
+    "longitude": "74.5697617",
+    "timeZone": "Asia/Bishkek"
+}, {
+    "city_id": "537",
+    "ch_area": "比尤拉",
+    "ch_nation": "美国",
+    "en_area": "Beulah",
+    "en_nation": "U.S.A.",
+    "latitude": "47.2633403",
+    "longitude": "-101.7779462",
+    "timeZone": "America/North_Dakota/Beulah"
+}, {
+    "city_id": "531",
+    "ch_area": "彼得斯堡",
+    "ch_nation": "美国",
+    "en_area": "Petersburg",
+    "en_nation": "U.S.A.",
+    "latitude": "59.9310584",
+    "longitude": "30.3609096",
+    "timeZone": "America/Indiana/Petersburg"
+}, {
+    "city_id": "222",
+    "ch_area": "彼尔姆",
+    "ch_nation": "俄罗斯",
+    "en_area": "Perm",
+    "en_nation": "Russia",
+    "latitude": "36.1128817",
+    "longitude": "-95.9754497",
+    "timeZone": "Asia/Yekaterinburg"
+}, {
+    "city_id": "230",
+    "ch_area": "波德戈里察",
+    "ch_nation": "黑山",
+    "en_area": "Podgorica",
+    "en_nation": "Montenegro",
+    "latitude": "42.4304196",
+    "longitude": "19.2593642",
+    "timeZone": "Europe/Podgorica"
+}, {
+    "city_id": "399",
+    "ch_area": "波多诺伏",
+    "ch_nation": "贝宁",
+    "en_area": "Porto-Novo",
+    "en_nation": "Benin",
+    "latitude": "6.4968574",
+    "longitude": "2.6288523",
+    "timeZone": "Africa/Porto-Novo"
+}, {
+    "city_id": "409",
+    "ch_area": "波多韦柳",
+    "ch_nation": "巴西",
+    "en_area": "Porto Velho",
+    "en_nation": "Brazil",
+    "latitude": "-8.7635576",
+    "longitude": "-63.8971704",
+    "timeZone": "America/Porto_Velho"
+}, {
+    "city_id": "42",
+    "ch_area": "波哥大",
+    "ch_nation": "哥伦比亚",
+    "en_area": "Bogotá",
+    "en_nation": "Colombia",
+    "latitude": "4.7109886",
+    "longitude": "-74.072092",
+    "timeZone": "America/Bogota"
+}, {
+    "city_id": "450",
+    "ch_area": "波纳佩",
+    "ch_nation": "密克罗尼西亚",
+    "en_area": "Pohnpei",
+    "en_nation": "Micronesia",
+    "latitude": "6.8541254",
+    "longitude": "158.2623822",
+    "timeZone": "Pacific/Pohnpei"
+}, {
+    "city_id": "44",
+    "ch_area": "波士顿",
+    "ch_nation": "美国",
+    "en_area": "Boston, MA",
+    "en_nation": "U.S.A.",
+    "latitude": "42.3600825",
+    "longitude": "-71.0588801",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "234",
+    "ch_area": "波特兰",
+    "ch_nation": "美国",
+    "en_area": "Portland, OR",
+    "en_nation": "U.S.A.",
+    "latitude": "45.5051064",
+    "longitude": "-122.6750261",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "38",
+    "ch_area": "伯尔尼",
+    "ch_nation": "瑞士",
+    "en_area": "Bern",
+    "en_nation": "Switzerland",
+    "latitude": "46.9479739",
+    "longitude": "7.4474468",
+    "timeZone": "Europe/Zurich"
+}, {
+    "city_id": "36",
+    "ch_area": "伯克利",
+    "ch_nation": "美国",
+    "en_area": "Berkeley",
+    "en_nation": "U.S.A.",
+    "latitude": "37.8715226",
+    "longitude": "-122.273042",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "336",
+    "ch_area": "伯克利高地",
+    "ch_nation": "美国",
+    "en_area": "Berkeley Heights",
+    "en_nation": "U.S.A.",
+    "latitude": "40.6808726",
+    "longitude": "-74.4310524",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "34",
+    "ch_area": "伯利兹城",
+    "ch_nation": "伯利兹",
+    "en_area": "Belize City",
+    "en_nation": "Belize",
+    "latitude": "17.5045661",
+    "longitude": "-88.1962133",
+    "timeZone": "America/Belize"
+}, {
+    "city_id": "53",
+    "ch_area": "伯灵格姆",
+    "ch_nation": "美国",
+    "en_area": "Burlingame",
+    "en_nation": "U.S.A.",
+    "latitude": "37.5778696",
+    "longitude": "-122.34809",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "410",
+    "ch_area": "博阿维斯塔",
+    "ch_nation": "巴西",
+    "en_area": "Boa Vista",
+    "en_nation": "Brazil",
+    "latitude": "16.0950108",
+    "longitude": "-22.8078335",
+    "timeZone": "America/Boa_Vista"
+}, {
+    "city_id": "43",
+    "ch_area": "博洛尼亚",
+    "ch_nation": "意大利",
+    "en_area": "Bologna",
+    "en_nation": "Italy",
+    "latitude": "44.494887",
+    "longitude": "11.3426162",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "401",
+    "ch_area": "博内尔",
+    "ch_nation": "博内尔",
+    "en_area": "Kralendijk",
+    "en_nation": "Bonaire",
+    "latitude": "12.1443491",
+    "longitude": "-68.2655456",
+    "timeZone": "America/Kralendijk"
+}, {
+    "city_id": "538",
+    "ch_area": "博伊西",
+    "ch_nation": "美国",
+    "en_area": "Boise",
+    "en_nation": "U.S.A.",
+    "latitude": "43.6150186",
+    "longitude": "-116.2023137",
+    "timeZone": "America/Boise"
+}, {
+    "city_id": "51",
+    "ch_area": "布达佩斯",
+    "ch_nation": "匈牙利",
+    "en_area": "Budapest",
+    "en_nation": "Hungary",
+    "latitude": "47.497912",
+    "longitude": "19.040235",
+    "timeZone": "Europe/Budapest"
+}, {
+    "city_id": "50",
+    "ch_area": "布加勒斯特",
+    "ch_nation": "罗马尼亚",
+    "en_area": "Bucharest",
+    "en_nation": "Romania",
+    "latitude": "44.4267674",
+    "longitude": "26.1025384",
+    "timeZone": "Europe/Bucharest"
+}, {
+    "city_id": "328",
+    "ch_area": "布拉柴维尔",
+    "ch_nation": "刚果",
+    "en_area": "Brazzaville",
+    "en_nation": "Congo",
+    "latitude": "-4.2633597",
+    "longitude": "15.2428853",
+    "timeZone": "Africa/Ndjamena"
+}, {
+    "city_id": "45",
+    "ch_area": "布拉迪斯拉瓦",
+    "ch_nation": "斯洛伐克",
+    "en_area": "Bratislava",
+    "en_nation": "Slovakia",
+    "latitude": "48.1485965",
+    "longitude": "17.1077478",
+    "timeZone": "Europe/Bratislava"
+}, {
+    "city_id": "235",
+    "ch_area": "布拉格",
+    "ch_nation": "捷克共和国",
+    "en_area": "Prague",
+    "en_nation": "Czech Republic",
+    "latitude": "50.0755381",
+    "longitude": "14.4378005",
+    "timeZone": "Europe/Prague"
+}, {
+    "city_id": "41",
+    "ch_area": "布莱克斯堡",
+    "ch_nation": "美国",
+    "en_area": "Blacksburg",
+    "en_nation": "U.S.A.",
+    "latitude": "37.2295733",
+    "longitude": "-80.4139393",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "489",
+    "ch_area": "布兰太尔",
+    "ch_nation": "马拉维",
+    "en_area": "Blantyre",
+    "en_nation": "Malawi",
+    "latitude": "42.3360623",
+    "longitude": "-73.2588767",
+    "timeZone": "Africa/Blantyre"
+}, {
+    "city_id": "417",
+    "ch_area": "布朗-萨布隆",
+    "ch_nation": "加拿大",
+    "en_area": "Blanc-Sablon",
+    "en_nation": "Canada",
+    "latitude": "51.4264451",
+    "longitude": "-57.1313148",
+    "timeZone": "America/Blanc-Sablon"
+}, {
+    "city_id": "47",
+    "ch_area": "布里奇顿",
+    "ch_nation": "巴巴多斯岛",
+    "en_area": "Bridgetown",
+    "en_nation": "Barbados",
+    "latitude": "13.1059816",
+    "longitude": "-59.6131741",
+    "timeZone": "America/Barbados"
+}, {
+    "city_id": "48",
+    "ch_area": "布里斯班",
+    "ch_nation": "澳大利亚",
+    "en_area": "Brisbane",
+    "en_nation": "Australia",
+    "latitude": "-27.4704528",
+    "longitude": "153.0260341",
+    "timeZone": "Australia/Brisbane"
+}, {
+    "city_id": "49",
+    "ch_area": "布鲁塞尔",
+    "ch_nation": "比利时",
+    "en_area": "Brussels",
+    "en_nation": "Belgium",
+    "latitude": "50.8503396",
+    "longitude": "4.3517103",
+    "timeZone": "Europe/Brussels"
+}, {
+    "city_id": "393",
+    "ch_area": "布洛肯希尔",
+    "ch_nation": "澳大利亚",
+    "en_area": "Broken Hill",
+    "en_nation": "Australia",
+    "latitude": "-31.9595859",
+    "longitude": "141.4608138",
+    "timeZone": "Australia/Broken_Hill"
+}, {
+    "city_id": "398",
+    "ch_area": "布琼布拉",
+    "ch_nation": "布隆迪",
+    "en_area": "Bujumbura",
+    "en_nation": "Burundi",
+    "latitude": "-3.361378",
+    "longitude": "29.3598782",
+    "timeZone": "Africa/Bujumbura"
+}, {
+    "city_id": "52",
+    "ch_area": "布宜诺斯艾利斯",
+    "ch_nation": "阿根廷",
+    "en_area": "Buenos Aires",
+    "en_nation": "Argentina",
+    "latitude": "-34.6036844",
+    "longitude": "-58.3815591",
+    "timeZone": "America/Buenos_Aires"
+}, {
+    "city_id": "502",
+    "ch_area": "查塔姆岛",
+    "ch_nation": "新西兰",
+    "en_area": "Chatham Island",
+    "en_nation": "New Zealand",
+    "latitude": "-44.0057523",
+    "longitude": "-176.5400674",
+    "timeZone": "Pacific/Chatham"
+}, {
+    "city_id": "356",
+    "ch_area": "查亚普拉",
+    "ch_nation": "印度尼西亚",
+    "en_area": "Jayapura",
+    "en_nation": "Indonesia",
+    "latitude": "-2.5916025",
+    "longitude": "140.6689995",
+    "timeZone": "Asia/Jayapura"
+}, {
+    "city_id": "462",
+    "ch_area": "沈阳",
+    "ch_nation": "中国",
+    "en_area": "Shenyang",
+    "en_nation": "China",
+    "latitude": "41.805699",
+    "longitude": "123.431472",
+    "timeZone": "Asia/Harbin"
+}, {
+    "city_id": "66",
+    "ch_area": "陈奈",
+    "ch_nation": "印度",
+    "en_area": "Chennai",
+    "en_nation": "India",
+    "latitude": "13.0826802",
+    "longitude": "80.2707184",
+    "timeZone": "Asia/Kolkata"
+}, {
+    "city_id": "456",
+    "ch_area": "成都",
+    "ch_nation": "中国",
+    "en_area": "Chengdu",
+    "en_nation": "China",
+    "latitude": "30.572815",
+    "longitude": "104.066801",
+    "timeZone": "Asia/Chongqing"
+}, {
+    "city_id": "69",
+    "ch_area": "赤塔",
+    "ch_nation": "俄罗斯",
+    "en_area": "Chita",
+    "en_nation": "Russia",
+    "latitude": "52.0515032",
+    "longitude": "113.4711906",
+    "timeZone": "Asia/Yakutsk"
+}, {
+    "city_id": "449",
+    "ch_area": "楚克",
+    "ch_nation": "密克罗尼西亚",
+    "en_area": "Chuuk",
+    "en_nation": "Micronesia",
+    "latitude": "7.1386759",
+    "longitude": "151.5593065",
+    "timeZone": "Pacific/Chuuk"
+}, {
+    "city_id": "539",
+    "ch_area": "船岩峰",
+    "ch_nation": "美国",
+    "en_area": "Shiprock",
+    "en_nation": "U.S.A.",
+    "latitude": "36.6866691",
+    "longitude": "-108.8364343",
+    "timeZone": "America/Shiprock"
+}, {
+    "city_id": "84",
+    "ch_area": "达尔文",
+    "ch_nation": "澳大利亚",
+    "en_area": "Darwin",
+    "en_nation": "Australia",
+    "latitude": "37.0929586",
+    "longitude": "-95.5828336",
+    "timeZone": "Australia/Darwin"
+}, {
+    "city_id": "79",
+    "ch_area": "达喀尔",
+    "ch_nation": "塞内加尔",
+    "en_area": "Dakar",
+    "en_nation": "Senegal",
+    "latitude": "14.716677",
+    "longitude": "-17.4676861",
+    "timeZone": "Africa/Dakar"
+}, {
+    "city_id": "78",
+    "ch_area": "达卡",
+    "ch_nation": "孟加拉国",
+    "en_area": "Dhaka",
+    "en_nation": "Bangladesh",
+    "latitude": "23.810332",
+    "longitude": "90.4125181",
+    "timeZone": "Asia/Dhaka"
+}, {
+    "city_id": "80",
+    "ch_area": "达拉斯",
+    "ch_nation": "美国",
+    "en_area": "Dallas, TX",
+    "en_nation": "U.S.A.",
+    "latitude": "32.7766642",
+    "longitude": "-96.7969879",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "83",
+    "ch_area": "达累斯萨拉姆",
+    "ch_nation": "坦桑尼亚",
+    "en_area": "Dar es Salaam",
+    "en_nation": "Tanzania",
+    "latitude": "-6.792354",
+    "longitude": "39.2083284",
+    "timeZone": "Africa/Dar_es_Salaam"
+}, {
+    "city_id": "81",
+    "ch_area": "达利城",
+    "ch_nation": "美国",
+    "en_area": "Daly City",
+    "en_nation": "U.S.A.",
+    "latitude": "37.6879241",
+    "longitude": "-122.4702079",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "209",
+    "ch_area": "大阪",
+    "ch_nation": "日本",
+    "en_area": "Osaka",
+    "en_nation": "Japan",
+    "latitude": "34.6937249",
+    "longitude": "135.5022535",
+    "timeZone": "Asia/Tokyo"
+}, {
+    "city_id": "406",
+    "ch_area": "大坎普",
+    "ch_nation": "巴西",
+    "en_area": "Campo Grande",
+    "en_nation": "Brazil",
+    "latitude": "-20.4648517",
+    "longitude": "-54.6218477",
+    "timeZone": "America/Campo_Grande"
+}, {
+    "city_id": "457",
+    "ch_area": "大连",
+    "ch_nation": "中国",
+    "en_area": "Dalian",
+    "en_nation": "China",
+    "latitude": "38.914003",
+    "longitude": "121.614682",
+    "timeZone": "Asia/Shanghai"
+}, {
+    "city_id": "82",
+    "ch_area": "大马士革",
+    "ch_nation": "叙利亚",
+    "en_area": "Damascus",
+    "en_nation": "Syria",
+    "latitude": "33.5138073",
+    "longitude": "36.2765279",
+    "timeZone": "Asia/Damascus"
+}, {
+    "city_id": "374",
+    "ch_area": "戴维斯站",
+    "ch_nation": "南极洲",
+    "en_area": "Davis Station",
+    "en_nation": "Antarctica",
+    "latitude": "-68.5762466",
+    "longitude": "77.9696243",
+    "timeZone": "Antarctica/Davis"
+}, {
+    "city_id": "85",
+    "ch_area": "丹佛",
+    "ch_nation": "美国",
+    "en_area": "Denver, CO",
+    "en_nation": "U.S.A.",
+    "latitude": "39.7392358",
+    "longitude": "-104.990251",
+    "timeZone": "America/Denver"
+}, {
+    "city_id": "463",
+    "ch_area": "丹马沙文",
+    "ch_nation": "格陵兰",
+    "en_area": "Danmarkshavn",
+    "en_nation": "Greenland",
+    "latitude": "76.8142001",
+    "longitude": "-19.0050866",
+    "timeZone": "America/Danmarkshavn"
+}, {
+    "city_id": "468",
+    "ch_area": "道格拉斯",
+    "ch_nation": "马恩岛",
+    "en_area": "Douglas",
+    "en_nation": "Isle of Man",
+    "latitude": "36.1837061",
+    "longitude": "-95.8808246",
+    "timeZone": "Europe/Isle_of_Man"
+}, {
+    "city_id": "433",
+    "ch_area": "道森城",
+    "ch_nation": "加拿大",
+    "en_area": "Dawson City",
+    "en_nation": "Canada",
+    "latitude": "64.0600696",
+    "longitude": "-139.4320347",
+    "timeZone": "America/Dawson"
+}, {
+    "city_id": "431",
+    "ch_area": "道森克里克",
+    "ch_nation": "加拿大",
+    "en_area": "Dawson Creek",
+    "en_nation": "Canada",
+    "latitude": "55.7596274",
+    "longitude": "-120.2376623",
+    "timeZone": "America/Dawson_Creek"
+}, {
+    "city_id": "292",
+    "ch_area": "德黑兰",
+    "ch_nation": "伊朗",
+    "en_area": "Tehran",
+    "en_nation": "Iran",
+    "latitude": "35.6891975",
+    "longitude": "51.3889736",
+    "timeZone": "Asia/Tehran"
+}, {
+    "city_id": "362",
+    "ch_area": "地拉那",
+    "ch_nation": "阿尔巴尼亚",
+    "en_area": "Tirana",
+    "en_nation": "Albania",
+    "latitude": "41.3275459",
+    "longitude": "19.8186982",
+    "timeZone": "Europe/Tirane"
+}, {
+    "city_id": "298",
+    "ch_area": "的黎波里",
+    "ch_nation": "利比亚",
+    "en_area": "Tripoli",
+    "en_nation": "Libya",
+    "latitude": "32.8872094",
+    "longitude": "13.1913383",
+    "timeZone": "Africa/Tripoli"
+}, {
+    "city_id": "90",
+    "ch_area": "迪拜",
+    "ch_nation": "阿拉伯联合大公国",
+    "en_area": "Dubai",
+    "en_nation": "U.A.E.",
+    "latitude": "25.2048493",
+    "longitude": "55.2707828",
+    "timeZone": "Asia/Dubai"
+}, {
+    "city_id": "469",
+    "ch_area": "迪戈加西亚岛",
+    "ch_nation": "查戈斯群岛",
+    "en_area": "Diego Garcia",
+    "en_nation": "British Indian Ocean Territory",
+    "latitude": "-7.3195005",
+    "longitude": "72.4228556",
+    "timeZone": "Indian/Chagos"
+}, {
+    "city_id": "325",
+    "ch_area": "迪凯特",
+    "ch_nation": "美国",
+    "en_area": "Decatur",
+    "en_nation": "U.S.A.",
+    "latitude": "33.7748275",
+    "longitude": "-84.2963123",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "377",
+    "ch_area": "迪蒙迪维尔站",
+    "ch_nation": "南极洲",
+    "en_area": "Dumont-d'Urville Station",
+    "en_nation": "Antarctica",
+    "latitude": "-66.663045",
+    "longitude": "140.0019472",
+    "timeZone": "Antarctica/DumontDUrville"
+}, {
+    "city_id": "86",
+    "ch_area": "底特律",
+    "ch_nation": "美国",
+    "en_area": "Detroit, MI",
+    "en_nation": "U.S.A.",
+    "latitude": "42.331427",
+    "longitude": "-83.0457538",
+    "timeZone": "America/Detroit"
+}, {
+    "city_id": "528",
+    "ch_area": "帝力",
+    "ch_nation": "东帝汶",
+    "en_area": "Dili",
+    "en_nation": "East Timor",
+    "latitude": "-8.5568557",
+    "longitude": "125.5603143",
+    "timeZone": "Asia/Dili"
+}, {
+    "city_id": "351",
+    "ch_area": "第比利斯",
+    "ch_nation": "格鲁吉亚",
+    "en_area": "Tbilisi",
+    "en_nation": "Georgia",
+    "latitude": "41.7151377",
+    "longitude": "44.827096",
+    "timeZone": "Asia/Tbilisi"
+}, {
+    "city_id": "496",
+    "ch_area": "蒂华纳",
+    "ch_nation": "墨西哥",
+    "en_area": "Tijuana",
+    "en_nation": "Mexico",
+    "latitude": "32.5149469",
+    "longitude": "-117.0382471",
+    "timeZone": "America/Tijuana"
+}, {
+    "city_id": "295",
+    "ch_area": "东京",
+    "ch_nation": "日本",
+    "en_area": "Tokyo",
+    "en_nation": "Japan",
+    "latitude": "35.6761919",
+    "longitude": "139.6503106",
+    "timeZone": "Asia/Tokyo"
+}, {
+    "city_id": "91",
+    "ch_area": "都柏林",
+    "ch_nation": "爱尔兰",
+    "en_area": "Dublin",
+    "en_nation": "Ireland",
+    "latitude": "53.3498053",
+    "longitude": "-6.2603097",
+    "timeZone": "Europe/Dublin"
+}, {
+    "city_id": "300",
+    "ch_area": "都灵",
+    "ch_nation": "意大利",
+    "en_area": "Torino",
+    "en_nation": "Italy",
+    "latitude": "45.0703393",
+    "longitude": "7.686864",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "89",
+    "ch_area": "杜阿拉",
+    "ch_nation": "喀麦隆",
+    "en_area": "Douala",
+    "en_nation": "Cameroon",
+    "latitude": "4.0510564",
+    "longitude": "9.7678687",
+    "timeZone": "Africa/Douala"
+}, {
+    "city_id": "92",
+    "ch_area": "杜尚别",
+    "ch_nation": "塔吉克斯坦",
+    "en_area": "Dushanbe",
+    "en_nation": "Tajikistan",
+    "latitude": "38.5597722",
+    "longitude": "68.7870384",
+    "timeZone": "Asia/Dushanbe"
+}, {
+    "city_id": "575",
+    "ch_area": "顿涅茨克",
+    "ch_nation": "乌克兰",
+    "en_area": "Donetsk",
+    "en_nation": "Ukraine",
+    "latitude": "48.015883",
+    "longitude": "37.80285",
+    "timeZone": "Europe/Kiev"
+}, {
+    "city_id": "88",
+    "ch_area": "多哈",
+    "ch_nation": "卡塔尔",
+    "en_area": "Doha",
+    "en_nation": "Qatar",
+    "latitude": "25.2854473",
+    "longitude": "51.5310398",
+    "timeZone": "Asia/Qatar"
+}, {
+    "city_id": "296",
+    "ch_area": "多伦多",
+    "ch_nation": "加拿大",
+    "en_area": "Toronto",
+    "en_nation": "Canada",
+    "latitude": "43.653226",
+    "longitude": "-79.3831843",
+    "timeZone": "America/Toronto"
+}, {
+    "city_id": "206",
+    "ch_area": "俄克拉荷马城",
+    "ch_nation": "美国",
+    "en_area": "Oklahoma City, OK",
+    "en_nation": "U.S.A.",
+    "latitude": "35.4675602",
+    "longitude": "-97.5164276",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "208",
+    "ch_area": "鄂木斯克",
+    "ch_nation": "俄罗斯",
+    "en_area": "Omsk",
+    "en_nation": "Russia",
+    "latitude": "54.9913545",
+    "longitude": "73.3645204",
+    "timeZone": "Asia/Omsk"
+}, {
+    "city_id": "194",
+    "ch_area": "恩贾梅纳",
+    "ch_nation": "乍得",
+    "en_area": "Ndjamena",
+    "en_nation": "Chad",
+    "latitude": "12.1348457",
+    "longitude": "15.0557415",
+    "timeZone": "Africa/Ndjamena"
+}, {
+    "city_id": "341",
+    "ch_area": "法兰克福",
+    "ch_nation": "德国",
+    "en_area": "Frankfurt",
+    "en_nation": "Germany",
+    "latitude": "50.1109221",
+    "longitude": "8.6821267",
+    "timeZone": "Europe/Berlin"
+}, {
+    "city_id": "97",
+    "ch_area": "法兰西堡",
+    "ch_nation": "马提尼克",
+    "en_area": "Fort-de-France",
+    "en_nation": "Martinique",
+    "latitude": "14.6160647",
+    "longitude": "-61.0587804",
+    "timeZone": "America/Martinique"
+}, {
+    "city_id": "526",
+    "ch_area": "法兰西港",
+    "ch_nation": "法国南部和南极地区",
+    "en_area": "Port-aux-Français",
+    "en_nation": "French Southern & Antarctic Lands",
+    "latitude": "-49.3496422",
+    "longitude": "70.218004",
+    "timeZone": "Indian/Kerguelen"
+}, {
+    "city_id": "527",
+    "ch_area": "法勒",
+    "ch_nation": "托克劳",
+    "en_area": "Fale",
+    "en_nation": "Tokelau",
+    "latitude": "42.287204",
+    "longitude": "-71.425426",
+    "timeZone": "Pacific/Fakaofo"
+}, {
+    "city_id": "1805",
+    "ch_area": "法马古斯塔",
+    "ch_nation": "塞浦路斯",
+    "en_area": "Famagusta",
+    "en_nation": "Cyprus",
+    "latitude": "35.1149116",
+    "longitude": "33.919245",
+    "timeZone": "Asia/Famagusta"
+}, {
+    "city_id": "546",
+    "ch_area": "梵蒂冈",
+    "ch_nation": "梵蒂冈",
+    "en_area": "Vatican",
+    "en_nation": "Vatican",
+    "latitude": "41.902916",
+    "longitude": "12.453389",
+    "timeZone": "Europe/Vatican"
+}, {
+    "city_id": "227",
+    "ch_area": "菲尼克斯",
+    "ch_nation": "美国",
+    "en_area": "Phoenix, AZ",
+    "en_nation": "U.S.A.",
+    "latitude": "33.4483771",
+    "longitude": "-112.0740373",
+    "timeZone": "America/Phoenix"
+}, {
+    "city_id": "225",
+    "ch_area": "费城",
+    "ch_nation": "美国",
+    "en_area": "Philadelphia, PA",
+    "en_nation": "U.S.A.",
+    "latitude": "39.9525839",
+    "longitude": "-75.1652215",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "333",
+    "ch_area": "费尔南多德诺罗尼亚",
+    "ch_nation": "巴西",
+    "en_area": "Fernando de Noronha",
+    "en_nation": "Brazil",
+    "latitude": "-3.8566736",
+    "longitude": "-32.4295165",
+    "timeZone": "America/Noronha"
+}, {
+    "city_id": "511",
+    "ch_area": "丰沙尔",
+    "ch_nation": "马德拉",
+    "en_area": "Funchal",
+    "en_nation": "Madeira",
+    "latitude": "32.6669328",
+    "longitude": "-16.9240554",
+    "timeZone": "Atlantic/Madeira"
+}, {
+    "city_id": "99",
+    "ch_area": "弗里敦",
+    "ch_nation": "塞拉利昂",
+    "en_area": "Freetown",
+    "en_nation": "Sierra Leone",
+    "latitude": "41.7619708",
+    "longitude": "-71.014118",
+    "timeZone": "Africa/Freetown"
+}, {
+    "city_id": "96",
+    "ch_area": "弗里蒙特",
+    "ch_nation": "美国",
+    "en_area": "Fremont",
+    "en_nation": "U.S.A.",
+    "latitude": "37.5485396",
+    "longitude": "-121.988583",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "312",
+    "ch_area": "伏尔加格勒",
+    "ch_nation": "俄罗斯",
+    "en_area": "Volgograd",
+    "en_nation": "Russia",
+    "latitude": "48.708048",
+    "longitude": "44.5133035",
+    "timeZone": "Europe/Moscow"
+}, {
+    "city_id": "95",
+    "ch_area": "佛罗伦萨",
+    "ch_nation": "意大利",
+    "en_area": "Florence",
+    "en_nation": "Italy",
+    "latitude": "43.7695604",
+    "longitude": "11.2558136",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "311",
+    "ch_area": "符拉迪沃斯托克",
+    "ch_nation": "俄罗斯",
+    "en_area": "Vladivostok",
+    "en_nation": "Russia",
+    "latitude": "43.1332484",
+    "longitude": "131.9112975",
+    "timeZone": "Asia/Vladivostok"
+}, {
+    "city_id": "98",
+    "ch_area": "福斯特城",
+    "ch_nation": "美国",
+    "en_area": "Foster City",
+    "en_nation": "U.S.A.",
+    "latitude": "37.5570725",
+    "longitude": "-122.2702091",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "403",
+    "ch_area": "福塔莱萨",
+    "ch_nation": "巴西",
+    "en_area": "Fortaleza",
+    "en_nation": "Brazil",
+    "latitude": "-3.7327203",
+    "longitude": "-38.5270134",
+    "timeZone": "America/Fortaleza"
+}, {
+    "city_id": "111",
+    "ch_area": "复活岛",
+    "ch_nation": "智利",
+    "en_area": "Easter Island",
+    "en_nation": "Chile",
+    "latitude": "-27.112723",
+    "longitude": "-109.3496865",
+    "timeZone": "Pacific/Easter"
+}, {
+    "city_id": "74",
+    "ch_area": "哥本哈根",
+    "ch_nation": "丹麦",
+    "en_area": "Copenhagen",
+    "en_nation": "Denmark",
+    "latitude": "55.6760968",
+    "longitude": "12.5683372",
+    "timeZone": "Europe/Copenhagen"
+}, {
+    "city_id": "554",
+    "ch_area": "哥德堡",
+    "ch_nation": "瑞典",
+    "en_area": "Gothenburg",
+    "en_nation": "Sweden",
+    "latitude": "57.70887",
+    "longitude": "11.97456",
+    "timeZone": "Europe/Stockholm"
+}, {
+    "city_id": "72",
+    "ch_area": "哥伦布",
+    "ch_nation": "美国",
+    "en_area": "Columbus, Ohio",
+    "en_nation": "U.S.A.",
+    "latitude": "39.9611755",
+    "longitude": "-82.9987942",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "414",
+    "ch_area": "格莱斯贝",
+    "ch_nation": "加拿大",
+    "en_area": "Glace Bay",
+    "en_nation": "Canada",
+    "latitude": "46.1969191",
+    "longitude": "-59.9570044",
+    "timeZone": "America/Glace_Bay"
+}, {
+    "city_id": "560",
+    "ch_area": "格林湾",
+    "ch_nation": "美国",
+    "en_area": "Green Bay",
+    "en_nation": "U.S.A.",
+    "latitude": "44.5133188",
+    "longitude": "-88.0132958",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "105",
+    "ch_area": "葛利特维根",
+    "ch_nation": "南乔治亚岛",
+    "en_area": "Grytviken",
+    "en_nation": "South Georgia",
+    "latitude": "-54.281149",
+    "longitude": "-36.5087385",
+    "timeZone": "Atlantic/South_Georgia"
+}, {
+    "city_id": "498",
+    "ch_area": "古晋",
+    "ch_nation": "马来西亚",
+    "en_area": "Kuching",
+    "en_nation": "Malaysia",
+    "latitude": "1.553504",
+    "longitude": "110.3592927",
+    "timeZone": "Asia/Kuching"
+}, {
+    "city_id": "108",
+    "ch_area": "古斯塔维亚",
+    "ch_nation": "圣巴泰勒米岛",
+    "en_area": "Gustavia",
+    "en_nation": "Saint Barthelemy",
+    "latitude": "17.8964345",
+    "longitude": "-62.852201",
+    "timeZone": "America/St_Barthelemy"
+}, {
+    "city_id": "565",
+    "ch_area": "瓜达拉哈拉",
+    "ch_nation": "墨西哥",
+    "en_area": "Guadalajara",
+    "en_nation": "Mexico",
+    "latitude": "20.6596988",
+    "longitude": "-103.3496092",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "566",
+    "ch_area": "瓜纳华托",
+    "ch_nation": "墨西哥",
+    "en_area": "Guanajuato",
+    "en_nation": "Mexico",
+    "latitude": "21.0190145",
+    "longitude": "-101.2573586",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "445",
+    "ch_area": "瓜亚基尔",
+    "ch_nation": "厄瓜多尔",
+    "en_area": "Guayaquil",
+    "en_nation": "Ecuador",
+    "latitude": "-2.1894128",
+    "longitude": "-79.8890662",
+    "timeZone": "America/Guayaquil"
+}, {
+    "city_id": "106",
+    "ch_area": "关岛",
+    "ch_nation": "关岛",
+    "en_area": "Guam",
+    "en_nation": "Guam",
+    "latitude": "13.444304",
+    "longitude": "144.793731",
+    "timeZone": "Pacific/Guam"
+}, {
+    "city_id": "58",
+    "ch_area": "广州",
+    "ch_nation": "中国",
+    "en_area": "Canton",
+    "en_nation": "China",
+    "latitude": "44.5956163",
+    "longitude": "-75.1690942",
+    "timeZone": "Asia/Shanghai"
+}, {
+    "city_id": "100",
+    "ch_area": "哈博罗内",
+    "ch_nation": "博茨瓦纳",
+    "en_area": "Gaborone",
+    "en_nation": "Botswana",
+    "latitude": "-24.6282079",
+    "longitude": "25.9231471",
+    "timeZone": "Africa/Gaborone"
+}, {
+    "city_id": "437",
+    "ch_area": "哈尔滨",
+    "ch_nation": "中国",
+    "en_area": "Harbin",
+    "en_nation": "China",
+    "latitude": "45.803775",
+    "longitude": "126.534967",
+    "timeZone": "Asia/Harbin"
+}, {
+    "city_id": "113",
+    "ch_area": "哈拉雷",
+    "ch_nation": "津巴布韦",
+    "en_area": "Harare",
+    "en_nation": "Zimbabwe",
+    "latitude": "-17.8216288",
+    "longitude": "31.0492259",
+    "timeZone": "Africa/Harare"
+}, {
+    "city_id": "109",
+    "ch_area": "哈利法克斯",
+    "ch_nation": "加拿大",
+    "en_area": "Halifax",
+    "en_nation": "Canada",
+    "latitude": "44.6487635",
+    "longitude": "-63.5752387",
+    "timeZone": "America/Halifax"
+}, {
+    "city_id": "114",
+    "ch_area": "哈瓦那",
+    "ch_nation": "古巴",
+    "en_area": "Havana",
+    "en_nation": "Cuba",
+    "latitude": "23.1135925",
+    "longitude": "-82.3665956",
+    "timeZone": "America/Havana"
+}, {
+    "city_id": "110",
+    "ch_area": "汉堡",
+    "ch_nation": "德国",
+    "en_area": "Hamburg",
+    "en_nation": "Germany",
+    "latitude": "53.5510846",
+    "longitude": "9.9936819",
+    "timeZone": "Europe/Berlin"
+}, {
+    "city_id": "360",
+    "ch_area": "汉密尔顿",
+    "ch_nation": "百慕大",
+    "en_area": "Hamilton",
+    "en_nation": "Bermuda",
+    "latitude": "37.1929578",
+    "longitude": "-95.7175467",
+    "timeZone": "Atlantic/Bermuda"
+}, {
+    "city_id": "391",
+    "ch_area": "豪勋爵岛",
+    "ch_nation": "澳大利亚",
+    "en_area": "Lord Howe Island",
+    "en_nation": "Australia",
+    "latitude": "-31.5553263",
+    "longitude": "159.0821211",
+    "timeZone": "Australia/Lord_Howe"
+}, {
+    "city_id": "458",
+    "ch_area": "合肥",
+    "ch_nation": "中国",
+    "en_area": "Hefei",
+    "en_nation": "China",
+    "latitude": "31.820591",
+    "longitude": "117.227219",
+    "timeZone": "Asia/Shanghai"
+}, {
+    "city_id": "112",
+    "ch_area": "河内",
+    "ch_nation": "越南",
+    "en_area": "Hanoi",
+    "en_nation": "Vietnam",
+    "latitude": "21.0277644",
+    "longitude": "105.8341598",
+    "timeZone": "Asia/Saigon"
+}, {
+    "city_id": "116",
+    "ch_area": "赫尔辛基",
+    "ch_nation": "芬兰",
+    "en_area": "Helsinki",
+    "en_nation": "Finland",
+    "latitude": "60.1698557",
+    "longitude": "24.9383791",
+    "timeZone": "Europe/Helsinki"
+}, {
+    "city_id": "241",
+    "ch_area": "红木城",
+    "ch_nation": "美国",
+    "en_area": "Redwood City",
+    "en_nation": "U.S.A.",
+    "latitude": "37.4847955",
+    "longitude": "-122.228141",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "293",
+    "ch_area": "胡志明市",
+    "ch_nation": "越南",
+    "en_area": "Ho Chi Minh City",
+    "en_nation": "Vietnam",
+    "latitude": "10.746903",
+    "longitude": "106.676292",
+    "timeZone": "Asia/Saigon"
+}, {
+    "city_id": "563",
+    "ch_area": "华雷斯城",
+    "ch_nation": "墨西哥",
+    "en_area": "Ciudad Juárez",
+    "en_nation": "Mexico",
+    "latitude": "31.6903638",
+    "longitude": "-106.4245478",
+    "timeZone": "America/Chihuahua"
+}, {
+    "city_id": "314",
+    "ch_area": "华沙",
+    "ch_nation": "波兰",
+    "en_area": "Warsaw",
+    "en_nation": "Poland",
+    "latitude": "52.2296756",
+    "longitude": "21.0122287",
+    "timeZone": "Europe/Warsaw"
+}, {
+    "city_id": "315",
+    "ch_area": "华盛顿特区",
+    "ch_nation": "美国",
+    "en_area": "Washington, D.C.",
+    "en_nation": "U.S.A.",
+    "latitude": "38.9071923",
+    "longitude": "-77.0368707",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "354",
+    "ch_area": "怀唐伊",
+    "ch_nation": "新西兰",
+    "en_area": "Waitangi",
+    "en_nation": "New Zealand",
+    "latitude": "-35.2683273",
+    "longitude": "174.0801182",
+    "timeZone": "Pacific/Chatham"
+}, {
+    "city_id": "432",
+    "ch_area": "怀特霍斯",
+    "ch_nation": "加拿大",
+    "en_area": "Whitehorse",
+    "en_nation": "Canada",
+    "latitude": "60.7211871",
+    "longitude": "-135.0568448",
+    "timeZone": "America/Whitehorse"
+}, {
+    "city_id": "316",
+    "ch_area": "惠灵顿",
+    "ch_nation": "新西兰",
+    "en_area": "Wellington",
+    "en_nation": "New Zealand",
+    "latitude": "37.2653004",
+    "longitude": "-97.3717118",
+    "timeZone": "Pacific/Auckland"
+}, {
+    "city_id": "117",
+    "ch_area": "霍巴特",
+    "ch_nation": "澳大利亚",
+    "en_area": "Hobart",
+    "en_nation": "Australia",
+    "latitude": "37.6055325",
+    "longitude": "-97.3222068",
+    "timeZone": "Australia/Hobart"
+}, {
+    "city_id": "519",
+    "ch_area": "霍尼亚拉",
+    "ch_nation": "所罗门群岛",
+    "en_area": "Honiara",
+    "en_nation": "Solomon Islands",
+    "latitude": "-9.4456381",
+    "longitude": "159.9728999",
+    "timeZone": "Pacific/Guadalcanal"
+}, {
+    "city_id": "237",
+    "ch_area": "基多",
+    "ch_nation": "厄瓜多尔",
+    "en_area": "Quito",
+    "en_nation": "Ecuador",
+    "latitude": "-0.1806532",
+    "longitude": "-78.4678382",
+    "timeZone": "America/Guayaquil"
+}, {
+    "city_id": "133",
+    "ch_area": "基辅",
+    "ch_nation": "乌克兰",
+    "en_area": "Kiev",
+    "en_nation": "Ukraine",
+    "latitude": "50.4501",
+    "longitude": "30.5234",
+    "timeZone": "Europe/Kiev"
+}, {
+    "city_id": "518",
+    "ch_area": "基加利",
+    "ch_nation": "卢旺达",
+    "en_area": "Kigali",
+    "en_nation": "Rwanda",
+    "latitude": "-1.9440727",
+    "longitude": "30.0618851",
+    "timeZone": "Africa/Kigali"
+}, {
+    "city_id": "68",
+    "ch_area": "基希纳乌",
+    "ch_nation": "摩尔多瓦",
+    "en_area": "Chisinau",
+    "en_nation": "Moldova",
+    "latitude": "47.0104529",
+    "longitude": "28.8638102",
+    "timeZone": "Europe/Chisinau"
+}, {
+    "city_id": "87",
+    "ch_area": "吉布提",
+    "ch_nation": "吉布提",
+    "en_area": "Djibouti",
+    "en_nation": "Djibouti",
+    "latitude": "11.5720765",
+    "longitude": "43.1456475",
+    "timeZone": "Africa/Djibouti"
+}, {
+    "city_id": "139",
+    "ch_area": "吉隆坡",
+    "ch_nation": "马来西亚",
+    "en_area": "Kuala Lumpur",
+    "en_nation": "Malaysia",
+    "latitude": "3.139003",
+    "longitude": "101.686855",
+    "timeZone": "Asia/Kuala_Lumpur"
+}, {
+    "city_id": "131",
+    "ch_area": "加德满都",
+    "ch_nation": "尼泊尔",
+    "en_area": "Kathmandu",
+    "en_nation": "Nepal",
+    "latitude": "27.7172453",
+    "longitude": "85.3239605",
+    "timeZone": "Asia/Katmandu"
+}, {
+    "city_id": "61",
+    "ch_area": "加的夫",
+    "ch_nation": "威尔士",
+    "en_area": "Cardiff",
+    "en_nation": "Wales U.K.",
+    "latitude": "51.481581",
+    "longitude": "-3.17909",
+    "timeZone": "Europe/London"
+}, {
+    "city_id": "137",
+    "ch_area": "加尔各答",
+    "ch_nation": "印度",
+    "en_area": "Kolkata",
+    "en_nation": "India",
+    "latitude": "22.572646",
+    "longitude": "88.363895",
+    "timeZone": "Asia/Kolkata"
+}, {
+    "city_id": "60",
+    "ch_area": "加拉加斯",
+    "ch_nation": "委内瑞拉",
+    "en_area": "Caracas",
+    "en_nation": "Venezuela",
+    "latitude": "10.4805937",
+    "longitude": "-66.9036063",
+    "timeZone": "America/Caracas"
+}, {
+    "city_id": "101",
+    "ch_area": "加拉帕戈斯群岛",
+    "ch_nation": "厄瓜多尔",
+    "en_area": "Galápagos Islands",
+    "en_nation": "Ecuador",
+    "latitude": "-0.383106",
+    "longitude": "-90.4233344",
+    "timeZone": "Pacific/Galapagos"
+}, {
+    "city_id": "129",
+    "ch_area": "加里宁格勒",
+    "ch_nation": "俄罗斯",
+    "en_area": "Kaliningrad",
+    "en_nation": "Russia",
+    "latitude": "54.7104264",
+    "longitude": "20.4522144",
+    "timeZone": "Europe/Kaliningrad"
+}, {
+    "city_id": "56",
+    "ch_area": "加那利群岛",
+    "ch_nation": "西班牙",
+    "en_area": "Canary Islands",
+    "en_nation": "Spain",
+    "latitude": "28.2915637",
+    "longitude": "-16.6291304",
+    "timeZone": "Atlantic/Canary"
+}, {
+    "city_id": "509",
+    "ch_area": "加沙",
+    "ch_nation": "巴勒斯坦领土",
+    "en_area": "Gaza",
+    "en_nation": "Palestinian Territories",
+    "latitude": "31.3546763",
+    "longitude": "34.3088255",
+    "timeZone": "Asia/Gaza"
+}, {
+    "city_id": "428",
+    "ch_area": "剑桥湾",
+    "ch_nation": "加拿大",
+    "en_area": "Cambridge Bay",
+    "en_nation": "Canada",
+    "latitude": "69.1168641",
+    "longitude": "-105.0596814",
+    "timeZone": "America/Cambridge_Bay"
+}, {
+    "city_id": "226",
+    "ch_area": "金边",
+    "ch_nation": "柬埔寨",
+    "en_area": "Phnom Penh",
+    "en_nation": "Cambodia",
+    "latitude": "11.5563738",
+    "longitude": "104.9282099",
+    "timeZone": "Asia/Phnom_Penh"
+}, {
+    "city_id": "135",
+    "ch_area": "金沙萨",
+    "ch_nation": "刚果民主共和国",
+    "en_area": "Kinshasa",
+    "en_nation": "Democratic Republic of the Congo",
+    "latitude": "-4.4419311",
+    "longitude": "15.2662931",
+    "timeZone": "Africa/Kinshasa"
+}, {
+    "city_id": "547",
+    "ch_area": "金斯敦",
+    "ch_nation": "圣文森特和格林纳丁斯",
+    "en_area": "Kingstown",
+    "en_nation": "Saint Vincent and the Grenadines",
+    "latitude": "13.1600249",
+    "longitude": "-61.2248157",
+    "timeZone": "America/St_Vincent"
+}, {
+    "city_id": "134",
+    "ch_area": "金斯顿",
+    "ch_nation": "牙买加",
+    "en_area": "Kingston",
+    "en_nation": "Jamaica",
+    "latitude": "35.8809084",
+    "longitude": "-84.5085447",
+    "timeZone": "America/Jamaica"
+}, {
+    "city_id": "499",
+    "ch_area": "金斯顿",
+    "ch_nation": "诺福克岛",
+    "en_area": "Kingston",
+    "en_nation": "Norfolk Island",
+    "latitude": "35.8809084",
+    "longitude": "-84.5085447",
+    "timeZone": "Pacific/Norfolk"
+}, {
+    "city_id": "255",
+    "ch_area": "旧金山",
+    "ch_nation": "美国",
+    "en_area": "San Francisco, CA",
+    "en_nation": "U.S.A.",
+    "latitude": "37.7749295",
+    "longitude": "-122.4194155",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "128",
+    "ch_area": "喀布尔",
+    "ch_nation": "阿富汗",
+    "en_area": "Kabul",
+    "en_nation": "Afghanistan",
+    "latitude": "34.5553494",
+    "longitude": "69.207486",
+    "timeZone": "Asia/Kabul"
+}, {
+    "city_id": "440",
+    "ch_area": "喀什",
+    "ch_nation": "中国",
+    "en_area": "Kashgar",
+    "en_nation": "China",
+    "latitude": "39.467685",
+    "longitude": "75.99379",
+    "timeZone": "Asia/Kashgar"
+}, {
+    "city_id": "132",
+    "ch_area": "喀土穆",
+    "ch_nation": "苏丹",
+    "en_area": "Khartoum",
+    "en_nation": "Sudan",
+    "latitude": "15.5006544",
+    "longitude": "32.5598994",
+    "timeZone": "Africa/Khartoum"
+}, {
+    "city_id": "55",
+    "ch_area": "卡尔加里",
+    "ch_nation": "加拿大",
+    "en_area": "Calgary",
+    "en_nation": "Canada",
+    "latitude": "51.0447331",
+    "longitude": "-114.0718831",
+    "timeZone": "America/Edmonton"
+}, {
+    "city_id": "506",
+    "ch_area": "卡拉奇",
+    "ch_nation": "巴基斯坦",
+    "en_area": "Karachi",
+    "en_nation": "Pakistan",
+    "latitude": "24.8607343",
+    "longitude": "67.0011364",
+    "timeZone": "Asia/Karachi"
+}, {
+    "city_id": "576",
+    "ch_area": "卡萨布兰卡",
+    "ch_nation": "摩洛哥",
+    "en_area": "Casablanca",
+    "en_nation": "Morocco",
+    "latitude": "35.1359166",
+    "longitude": "-78.9690787",
+    "timeZone": "Africa/Casablanca"
+}, {
+    "city_id": "481",
+    "ch_area": "卡斯特里",
+    "ch_nation": "圣卢西亚",
+    "en_area": "Castries",
+    "en_nation": "Saint Lucia",
+    "latitude": "14.0101094",
+    "longitude": "-60.9874687",
+    "timeZone": "America/St_Lucia"
+}, {
+    "city_id": "384",
+    "ch_area": "卡塔马卡",
+    "ch_nation": "阿根廷",
+    "en_area": "Catamarca",
+    "en_nation": "Argentina",
+    "latitude": "-28.469581",
+    "longitude": "-65.7795441",
+    "timeZone": "America/Argentina/Catamarca"
+}, {
+    "city_id": "62",
+    "ch_area": "卡坦扎罗",
+    "ch_nation": "意大利",
+    "en_area": "Catanzaro",
+    "en_nation": "Italy",
+    "latitude": "38.9097919",
+    "longitude": "16.5876516",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "63",
+    "ch_area": "卡宴",
+    "ch_nation": "法属圭亚那",
+    "en_area": "Cayenne",
+    "en_nation": "French Guiana",
+    "latitude": "33.5171553",
+    "longitude": "-86.7883313",
+    "timeZone": "America/Cayenne"
+}, {
+    "city_id": "54",
+    "ch_area": "开罗",
+    "ch_nation": "埃及",
+    "en_area": "Cairo",
+    "en_nation": "Egypt",
+    "latitude": "30.0444196",
+    "longitude": "31.2357116",
+    "timeZone": "Africa/Cairo"
+}, {
+    "city_id": "59",
+    "ch_area": "开普敦",
+    "ch_nation": "南非",
+    "en_area": "Cape Town",
+    "en_nation": "South Africa",
+    "latitude": "-33.9248685",
+    "longitude": "18.4240553",
+    "timeZone": "Africa/Johannesburg"
+}, {
+    "city_id": "375",
+    "ch_area": "凯西站",
+    "ch_nation": "南极洲",
+    "en_area": "Casey Station",
+    "en_nation": "Antarctica",
+    "latitude": "-66.2821342",
+    "longitude": "110.5285466",
+    "timeZone": "Antarctica/Casey"
+}, {
+    "city_id": "516",
+    "ch_area": "堪察加彼得罗巴甫洛夫斯克",
+    "ch_nation": "俄罗斯",
+    "en_area": "Petropavlovsk-Kamchatsky",
+    "en_nation": "Russia",
+    "latitude": "53.0583997",
+    "longitude": "158.6320734",
+    "timeZone": "Asia/Kamchatka"
+}, {
+    "city_id": "57",
+    "ch_area": "堪培拉",
+    "ch_nation": "澳大利亚",
+    "en_area": "Canberra",
+    "en_nation": "Australia",
+    "latitude": "-35.2809368",
+    "longitude": "149.1300092",
+    "timeZone": "Australia/Canberra"
+}, {
+    "city_id": "472",
+    "ch_area": "坎顿岛",
+    "ch_nation": "基里巴斯",
+    "en_area": "Kanton Island",
+    "en_nation": "Kiribati",
+    "latitude": "-2.8039843",
+    "longitude": "-171.6432353",
+    "timeZone": "Pacific/Enderbury"
+}, {
+    "city_id": "490",
+    "ch_area": "坎昆",
+    "ch_nation": "墨西哥",
+    "en_area": "Cancun",
+    "en_nation": "Mexico",
+    "latitude": "21.161908",
+    "longitude": "-86.8515279",
+    "timeZone": "America/Cancun"
+}, {
+    "city_id": "130",
+    "ch_area": "坎帕拉",
+    "ch_nation": "乌干达",
+    "en_area": "Kampala",
+    "en_nation": "Uganda",
+    "latitude": "0.3475964",
+    "longitude": "32.5825197",
+    "timeZone": "Africa/Kampala"
+}, {
+    "city_id": "392",
+    "ch_area": "柯里",
+    "ch_nation": "澳大利亚",
+    "en_area": "Currie",
+    "en_nation": "Australia",
+    "latitude": "30.4331529",
+    "longitude": "-91.1137724",
+    "timeZone": "Australia/Currie"
+}, {
+    "city_id": "525",
+    "ch_area": "科伯恩城",
+    "ch_nation": "特克斯和凯科斯群岛",
+    "en_area": "Cockburn Town",
+    "en_nation": "Turks and Caicos Islands",
+    "latitude": "21.4674584",
+    "longitude": "-71.1389101",
+    "timeZone": "America/Grand_Turk"
+}, {
+    "city_id": "485",
+    "ch_area": "科布多",
+    "ch_nation": "蒙古",
+    "en_area": "Hovd",
+    "en_nation": "Mongolia",
+    "latitude": "47.9795218",
+    "longitude": "91.634756",
+    "timeZone": "Asia/Hovd"
+}, {
+    "city_id": "380",
+    "ch_area": "科尔多瓦",
+    "ch_nation": "阿根廷",
+    "en_area": "Cordoba",
+    "en_nation": "Argentina",
+    "latitude": "37.8881751",
+    "longitude": "-4.7793835",
+    "timeZone": "America/Argentina/Cordoba"
+}, {
+    "city_id": "76",
+    "ch_area": "科克",
+    "ch_nation": "爱尔兰",
+    "en_area": "Cork",
+    "en_nation": "Ireland",
+    "latitude": "38.9418991",
+    "longitude": "-95.2564118",
+    "timeZone": "Europe/Dublin"
+}, {
+    "city_id": "71",
+    "ch_area": "科伦坡",
+    "ch_nation": "斯里兰卡",
+    "en_area": "Colombo",
+    "en_nation": "Sri Lanka",
+    "latitude": "6.9270786",
+    "longitude": "79.861243",
+    "timeZone": "Asia/Colombo"
+}, {
+    "city_id": "513",
+    "ch_area": "科罗尔",
+    "ch_nation": "帕劳",
+    "en_area": "Koror",
+    "en_nation": "Palau",
+    "latitude": "7.3410628",
+    "longitude": "134.4771596",
+    "timeZone": "Pacific/Palau"
+}, {
+    "city_id": "73",
+    "ch_area": "科纳克里",
+    "ch_nation": "几内亚",
+    "en_area": "Conakry",
+    "en_nation": "Guinea",
+    "latitude": "9.6411855",
+    "longitude": "-13.5784012",
+    "timeZone": "Africa/Conakry"
+}, {
+    "city_id": "451",
+    "ch_area": "科斯雷",
+    "ch_nation": "密克罗尼西亚",
+    "en_area": "Kosrae",
+    "en_nation": "Micronesia",
+    "latitude": "5.2991829",
+    "longitude": "162.9696779",
+    "timeZone": "Pacific/Kosrae"
+}, {
+    "city_id": "140",
+    "ch_area": "科威特",
+    "ch_nation": "科威特",
+    "en_area": "Kuwait",
+    "en_nation": "Kuwait",
+    "latitude": "29.31166",
+    "longitude": "47.481766",
+    "timeZone": "Asia/Kuwait"
+}, {
+    "city_id": "361",
+    "ch_area": "克拉科夫",
+    "ch_nation": "波兰",
+    "en_area": "Kraków",
+    "en_nation": "Poland",
+    "latitude": "50.0646501",
+    "longitude": "19.9449799",
+    "timeZone": "Europe/Warsaw"
+}, {
+    "city_id": "138",
+    "ch_area": "克拉斯诺亚尔斯克",
+    "ch_nation": "俄罗斯",
+    "en_area": "Krasnoyarsk",
+    "en_nation": "Russia",
+    "latitude": "56.0152834",
+    "longitude": "92.8932476",
+    "timeZone": "Asia/Krasnoyarsk"
+}, {
+    "city_id": "557",
+    "ch_area": "克雷斯顿",
+    "ch_nation": "加拿大",
+    "en_area": "Creston",
+    "en_nation": "Canada",
+    "latitude": "41.0586002",
+    "longitude": "-94.3613474",
+    "timeZone": "America/Creston"
+}, {
+    "city_id": "570",
+    "ch_area": "克雷塔罗",
+    "ch_nation": "墨西哥",
+    "en_area": "Querétaro",
+    "en_nation": "Mexico",
+    "latitude": "20.5887932",
+    "longitude": "-100.3898881",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "549",
+    "ch_area": "克里斯琴斯特德",
+    "ch_nation": "美属维尔京群岛",
+    "en_area": "Christiansted",
+    "en_nation": "U.S. Virgin Islands",
+    "latitude": "17.7466397",
+    "longitude": "-64.7031977",
+    "timeZone": "America/Virgin"
+}, {
+    "city_id": "70",
+    "ch_area": "克利夫兰",
+    "ch_nation": "美国",
+    "en_area": "Cleveland",
+    "en_nation": "U.S.A.",
+    "latitude": "41.49932",
+    "longitude": "-81.6943605",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "77",
+    "ch_area": "克罗托内",
+    "ch_nation": "意大利",
+    "en_area": "Crotone",
+    "en_nation": "Italy",
+    "latitude": "39.0807932",
+    "longitude": "17.1271102",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "477",
+    "ch_area": "克孜勒奥尔达",
+    "ch_nation": "哈萨克斯坦",
+    "en_area": "Kyzylorda",
+    "en_nation": "Kazakhstan",
+    "latitude": "44.8488314",
+    "longitude": "65.4822686",
+    "timeZone": "Asia/Qyzylorda"
+}, {
+    "city_id": "564",
+    "ch_area": "库埃纳瓦卡",
+    "ch_nation": "墨西哥",
+    "en_area": "Cuernavaca",
+    "en_nation": "Mexico",
+    "latitude": "18.9242095",
+    "longitude": "-99.2215659",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "75",
+    "ch_area": "库比提诺",
+    "ch_nation": "美国",
+    "en_area": "Cupertino, California",
+    "en_nation": "U.S.A.",
+    "latitude": "37.3229978",
+    "longitude": "-122.0321823",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "407",
+    "ch_area": "库亚巴",
+    "ch_nation": "巴西",
+    "en_area": "Cuiaba",
+    "en_nation": "Brazil",
+    "latitude": "-15.5954142",
+    "longitude": "-56.0925824",
+    "timeZone": "America/Cuiaba"
+}, {
+    "city_id": "484",
+    "ch_area": "夸贾林环礁",
+    "ch_nation": "马绍尔群岛",
+    "en_area": "Kwajalein Atoll",
+    "en_nation": "Marshall Islands",
+    "latitude": "8.716667",
+    "longitude": "167.733333",
+    "timeZone": "Pacific/Kwajalein"
+}, {
+    "city_id": "416",
+    "ch_area": "快乐谷 - 鹅湾",
+    "ch_nation": "加拿大",
+    "en_area": "Happy Valley-Goose Bay",
+    "en_nation": "Canada",
+    "latitude": "53.3016826",
+    "longitude": "-60.3260842",
+    "timeZone": "America/Goose_Bay"
+}, {
+    "city_id": "558",
+    "ch_area": "魁北克市",
+    "ch_nation": "加拿大",
+    "en_area": "Quebec City",
+    "en_nation": "Canada",
+    "latitude": "46.8138783",
+    "longitude": "-71.2079809",
+    "timeZone": "America/Montreal"
+}, {
+    "city_id": "467",
+    "ch_area": "坤甸",
+    "ch_nation": "印度尼西亚",
+    "en_area": "Pontianak",
+    "en_nation": "Indonesia",
+    "latitude": "-0.0263303",
+    "longitude": "109.3425039",
+    "timeZone": "Asia/Pontianak"
+}, {
+    "city_id": "141",
+    "ch_area": "拉巴斯",
+    "ch_nation": "玻利维亚",
+    "en_area": "La Paz",
+    "en_nation": "Bolivia",
+    "latitude": "-16.489689",
+    "longitude": "-68.1192936",
+    "timeZone": "America/La_Paz"
+}, {
+    "city_id": "238",
+    "ch_area": "拉巴特",
+    "ch_nation": "摩洛哥",
+    "en_area": "Rabat",
+    "en_nation": "Morocco",
+    "latitude": "33.9715904",
+    "longitude": "-6.8498129",
+    "timeZone": "Africa/Casablanca"
+}, {
+    "city_id": "142",
+    "ch_area": "拉各斯",
+    "ch_nation": "尼日利亚",
+    "en_area": "Lagos",
+    "en_nation": "Nigeria",
+    "latitude": "6.5243793",
+    "longitude": "3.3792057",
+    "timeZone": "Africa/Lagos"
+}, {
+    "city_id": "385",
+    "ch_area": "拉里奥哈",
+    "ch_nation": "阿根廷",
+    "en_area": "La Rioja",
+    "en_nation": "Argentina",
+    "latitude": "42.2870733",
+    "longitude": "-2.539603",
+    "timeZone": "America/Argentina/La_Rioja"
+}, {
+    "city_id": "436",
+    "ch_area": "拉罗汤加岛",
+    "ch_nation": "库克群岛",
+    "en_area": "Rarotonga",
+    "en_nation": "Cook Islands",
+    "latitude": "-21.2292371",
+    "longitude": "-159.7763491",
+    "timeZone": "Pacific/Rarotonga"
+}, {
+    "city_id": "459",
+    "ch_area": "拉萨",
+    "ch_nation": "中国",
+    "en_area": "Lhasa",
+    "en_nation": "China",
+    "latitude": "29.654838",
+    "longitude": "91.140552",
+    "timeZone": "Asia/Chongqing"
+}, {
+    "city_id": "143",
+    "ch_area": "拉斯维加斯",
+    "ch_nation": "美国",
+    "en_area": "Las Vegas, NV",
+    "en_nation": "U.S.A.",
+    "latitude": "36.1699412",
+    "longitude": "-115.1398296",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "567",
+    "ch_area": "莱昂",
+    "ch_nation": "墨西哥",
+    "en_area": "León",
+    "en_nation": "Mexico",
+    "latitude": "42.5987263",
+    "longitude": "-5.5670959",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "424",
+    "ch_area": "兰金因雷特",
+    "ch_nation": "加拿大",
+    "en_area": "Rankin Inlet",
+    "en_nation": "Canada",
+    "latitude": "62.808375",
+    "longitude": "-92.0852853",
+    "timeZone": "America/Rankin_Inlet"
+}, {
+    "city_id": "521",
+    "ch_area": "朗伊尔城",
+    "ch_nation": "挪威",
+    "en_area": "Longyearbyen",
+    "en_nation": "Norway",
+    "latitude": "78.2231722",
+    "longitude": "15.6267229",
+    "timeZone": "Arctic/Longyearbyen"
+}, {
+    "city_id": "243",
+    "ch_area": "雷克雅未克",
+    "ch_nation": "冰岛",
+    "en_area": "Reykjavik",
+    "en_nation": "Iceland",
+    "latitude": "64.146582",
+    "longitude": "-21.9426354",
+    "timeZone": "Atlantic/Reykjavik"
+}, {
+    "city_id": "422",
+    "ch_area": "雷索卢特",
+    "ch_nation": "加拿大",
+    "en_area": "Resolute",
+    "en_nation": "Canada",
+    "latitude": "39.5845123",
+    "longitude": "-104.8848008",
+    "timeZone": "America/Resolute"
+}, {
+    "city_id": "240",
+    "ch_area": "累西腓",
+    "ch_nation": "巴西",
+    "en_area": "Recife",
+    "en_nation": "Brazil",
+    "latitude": "-8.0577401",
+    "longitude": "-34.8829629",
+    "timeZone": "America/Recife"
+}, {
+    "city_id": "349",
+    "ch_area": "里昂",
+    "ch_nation": "法国",
+    "en_area": "Lyon",
+    "en_nation": "France",
+    "latitude": "45.764043",
+    "longitude": "4.835659",
+    "timeZone": "Europe/Paris"
+}, {
+    "city_id": "332",
+    "ch_area": "里奥布朗库",
+    "ch_nation": "巴西",
+    "en_area": "Rio Branco",
+    "en_nation": "Brazil",
+    "latitude": "-9.9740282",
+    "longitude": "-67.8098124",
+    "timeZone": "America/La_Paz"
+}, {
+    "city_id": "389",
+    "ch_area": "里奥加耶戈斯",
+    "ch_nation": "阿根廷",
+    "en_area": "Rio Gallegos",
+    "en_nation": "Argentina",
+    "latitude": "-51.6230485",
+    "longitude": "-69.2168291",
+    "timeZone": "America/Argentina/Rio_Gallegos"
+}, {
+    "city_id": "504",
+    "ch_area": "里基提亚",
+    "ch_nation": "法属波利尼西亚",
+    "en_area": "Rikitea",
+    "en_nation": "French Polynesia",
+    "latitude": "-23.1223034",
+    "longitude": "-134.9691543",
+    "timeZone": "Pacific/Gambier"
+}, {
+    "city_id": "244",
+    "ch_area": "里加",
+    "ch_nation": "拉脱维亚",
+    "en_area": "Riga",
+    "en_nation": "Latvia",
+    "latitude": "56.9496487",
+    "longitude": "24.1051865",
+    "timeZone": "Europe/Riga"
+}, {
+    "city_id": "242",
+    "ch_area": "里贾纳",
+    "ch_nation": "加拿大",
+    "en_area": "Regina",
+    "en_nation": "Canada",
+    "latitude": "50.4452112",
+    "longitude": "-104.6188943",
+    "timeZone": "America/Regina"
+}, {
+    "city_id": "145",
+    "ch_area": "里斯本",
+    "ch_nation": "葡萄牙",
+    "en_area": "Lisbon",
+    "en_nation": "Portugal",
+    "latitude": "38.7222524",
+    "longitude": "-9.1393366",
+    "timeZone": "Europe/Lisbon"
+}, {
+    "city_id": "245",
+    "ch_area": "里约热内卢",
+    "ch_nation": "巴西",
+    "en_area": "Rio de Janeiro",
+    "en_nation": "Brazil",
+    "latitude": "-22.9068467",
+    "longitude": "-43.1728965",
+    "timeZone": "America/Sao_Paulo"
+}, {
+    "city_id": "452",
+    "ch_area": "利伯维尔",
+    "ch_nation": "加蓬",
+    "en_area": "Libreville",
+    "en_nation": "Gabon",
+    "latitude": "0.4161976",
+    "longitude": "9.4672676",
+    "timeZone": "Africa/Libreville"
+}, {
+    "city_id": "144",
+    "ch_area": "利马",
+    "ch_nation": "秘鲁",
+    "en_area": "Lima",
+    "en_nation": "Peru",
+    "latitude": "-12.0463731",
+    "longitude": "-77.042754",
+    "timeZone": "America/Lima"
+}, {
+    "city_id": "246",
+    "ch_area": "利雅得",
+    "ch_nation": "沙特阿拉伯",
+    "en_area": "Riyadh",
+    "en_nation": "Saudi Arabia",
+    "latitude": "24.7135517",
+    "longitude": "46.6752957",
+    "timeZone": "Asia/Riyadh"
+}, {
+    "city_id": "394",
+    "ch_area": "林德曼岛",
+    "ch_nation": "澳大利亚",
+    "en_area": "Lindeman Island",
+    "en_nation": "Australia",
+    "latitude": "-20.4447841",
+    "longitude": "149.0410504",
+    "timeZone": "Australia/Lindeman"
+}, {
+    "city_id": "435",
+    "ch_area": "卢本巴希",
+    "ch_nation": "刚果民主共和国",
+    "en_area": "Lubumbashi",
+    "en_nation": "Democratic Republic of the Congo",
+    "latitude": "-11.6876026",
+    "longitude": "27.5026174",
+    "timeZone": "Africa/Lubumbashi"
+}, {
+    "city_id": "147",
+    "ch_area": "卢布尔雅那",
+    "ch_nation": "斯洛文尼亚",
+    "en_area": "Ljubljana",
+    "en_nation": "Slovenia",
+    "latitude": "46.0569465",
+    "longitude": "14.5057515",
+    "timeZone": "Europe/Ljubljana"
+}, {
+    "city_id": "154",
+    "ch_area": "卢萨卡",
+    "ch_nation": "赞比亚",
+    "en_area": "Lusaka",
+    "en_nation": "Zambia",
+    "latitude": "-15.3875259",
+    "longitude": "28.3228165",
+    "timeZone": "Africa/Lusaka"
+}, {
+    "city_id": "155",
+    "ch_area": "卢森堡",
+    "ch_nation": "卢森堡",
+    "en_area": "Luxembourg",
+    "en_nation": "Luxembourg",
+    "latitude": "49.815273",
+    "longitude": "6.129583",
+    "timeZone": "Europe/Luxembourg"
+}, {
+    "city_id": "232",
+    "ch_area": "路易港",
+    "ch_nation": "毛里求斯",
+    "en_area": "Port Louis",
+    "en_nation": "Mauritius",
+    "latitude": "-20.1608912",
+    "longitude": "57.5012222",
+    "timeZone": "Indian/Mauritius"
+}, {
+    "city_id": "152",
+    "ch_area": "路易斯维尔",
+    "ch_nation": "美国",
+    "en_area": "Louisville, KY",
+    "en_nation": "U.S.A.",
+    "latitude": "38.2526647",
+    "longitude": "-85.7584557",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "148",
+    "ch_area": "伦敦",
+    "ch_nation": "英国",
+    "en_area": "London",
+    "en_nation": "England U.K.",
+    "latitude": "51.5073509",
+    "longitude": "-0.1277583",
+    "timeZone": "Europe/London"
+}, {
+    "city_id": "153",
+    "ch_area": "罗安达",
+    "ch_nation": "安哥拉",
+    "en_area": "Luanda",
+    "en_nation": "Angola",
+    "latitude": "-8.8146556",
+    "longitude": "13.2301756",
+    "timeZone": "Africa/Luanda"
+}, {
+    "city_id": "548",
+    "ch_area": "罗德城",
+    "ch_nation": "英属维尔京群岛",
+    "en_area": "Road Town",
+    "en_nation": "British Virgin Islands",
+    "latitude": "18.4286115",
+    "longitude": "-64.6184657",
+    "timeZone": "America/Tortola"
+}, {
+    "city_id": "247",
+    "ch_area": "罗马",
+    "ch_nation": "意大利",
+    "en_area": "Rome",
+    "en_nation": "Italy",
+    "latitude": "41.9027835",
+    "longitude": "12.4963655",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "371",
+    "ch_area": "罗瑟拉研究站",
+    "ch_nation": "南极洲",
+    "en_area": "Rothera Station",
+    "en_nation": "Antarctica",
+    "latitude": "-75.5674124",
+    "longitude": "-25.5165286",
+    "timeZone": "Antarctica/Rothera"
+}, {
+    "city_id": "444",
+    "ch_area": "罗佐",
+    "ch_nation": "多米尼克",
+    "en_area": "Roseau",
+    "en_nation": "Dominica",
+    "latitude": "48.8460926",
+    "longitude": "-95.762766",
+    "timeZone": "America/Dominica"
+}, {
+    "city_id": "327",
+    "ch_area": "洛美",
+    "ch_nation": "多哥",
+    "en_area": "Lomé",
+    "en_nation": "Togo",
+    "latitude": "6.1256261",
+    "longitude": "1.2254183",
+    "timeZone": "Africa/Accra"
+}, {
+    "city_id": "150",
+    "ch_area": "洛杉矶",
+    "ch_nation": "美国",
+    "en_area": "Los Angeles, CA",
+    "en_nation": "U.S.A.",
+    "latitude": "34.0522342",
+    "longitude": "-118.2436849",
+    "timeZone": "America/Los_Angeles"
+}, {
+    "city_id": "149",
+    "ch_area": "洛斯阿尔托斯",
+    "ch_nation": "美国",
+    "en_area": "Los Altos",
+    "en_nation": "U.S.A.",
+    "latitude": "37.3852183",
+    "longitude": "-122.1141298",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "151",
+    "ch_area": "洛斯加托斯",
+    "ch_nation": "美国",
+    "en_area": "Los Gatos",
+    "en_nation": "U.S.A.",
+    "latitude": "37.2358078",
+    "longitude": "-121.9623751",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "158",
+    "ch_area": "马德里",
+    "ch_nation": "西班牙",
+    "en_area": "Madrid",
+    "en_nation": "Spain",
+    "latitude": "40.4167754",
+    "longitude": "-3.7037902",
+    "timeZone": "Europe/Madrid"
+}, {
+    "city_id": "555",
+    "ch_area": "马尔默",
+    "ch_nation": "瑞典",
+    "en_area": "Malmö",
+    "en_nation": "Sweden",
+    "latitude": "55.604981",
+    "longitude": "13.003822",
+    "timeZone": "Europe/Stockholm"
+}, {
+    "city_id": "178",
+    "ch_area": "马加丹",
+    "ch_nation": "俄罗斯",
+    "en_area": "Magadan",
+    "en_nation": "Russia",
+    "latitude": "59.5594397",
+    "longitude": "150.8127537",
+    "timeZone": "Asia/Magadan"
+}, {
+    "city_id": "355",
+    "ch_area": "马卡萨",
+    "ch_nation": "印度尼西亚",
+    "en_area": "Makassar",
+    "en_nation": "Indonesia",
+    "latitude": "-5.1476651",
+    "longitude": "119.4327314",
+    "timeZone": "Asia/Makassar"
+}, {
+    "city_id": "159",
+    "ch_area": "马拉博",
+    "ch_nation": "赤道几内亚",
+    "en_area": "Malabo",
+    "en_nation": "Equatorial Guinea",
+    "latitude": "3.7549606",
+    "longitude": "8.7821344",
+    "timeZone": "Africa/Malabo"
+}, {
+    "city_id": "577",
+    "ch_area": "马拉喀什",
+    "ch_nation": "摩洛哥",
+    "en_area": "Marrakesh",
+    "en_nation": "Morocco",
+    "latitude": "31.6294723",
+    "longitude": "-7.9810845",
+    "timeZone": "Africa/Casablanca"
+}, {
+    "city_id": "160",
+    "ch_area": "马累",
+    "ch_nation": "马尔代夫",
+    "en_area": "Male",
+    "en_nation": "Maldives",
+    "latitude": "4.1754959",
+    "longitude": "73.5093474",
+    "timeZone": "Indian/Maldives"
+}, {
+    "city_id": "163",
+    "ch_area": "马里戈特",
+    "ch_nation": "圣马丁",
+    "en_area": "Marigot",
+    "en_nation": "Saint Martin",
+    "latitude": "18.0675189",
+    "longitude": "-63.0824656",
+    "timeZone": "America/Marigot"
+}, {
+    "city_id": "530",
+    "ch_area": "马伦戈",
+    "ch_nation": "美国",
+    "en_area": "Marengo",
+    "en_nation": "U.S.A.",
+    "latitude": "41.7927817",
+    "longitude": "-92.0696253",
+    "timeZone": "America/Indiana/Marengo"
+}, {
+    "city_id": "553",
+    "ch_area": "马穆楚",
+    "ch_nation": "马约特岛",
+    "en_area": "Mamoudzou",
+    "en_nation": "Mayotte",
+    "latitude": "-12.7809488",
+    "longitude": "45.227872",
+    "timeZone": "Indian/Mayotte"
+}, {
+    "city_id": "161",
+    "ch_area": "马那瓜",
+    "ch_nation": "尼加拉瓜",
+    "en_area": "Managua",
+    "en_nation": "Nicaragua",
+    "latitude": "12.1149926",
+    "longitude": "-86.2361744",
+    "timeZone": "America/Managua"
+}, {
+    "city_id": "411",
+    "ch_area": "马瑙斯",
+    "ch_nation": "巴西",
+    "en_area": "Manaus",
+    "en_nation": "Brazil",
+    "latitude": "-3.1190275",
+    "longitude": "-60.0217314",
+    "timeZone": "America/Manaus"
+}, {
+    "city_id": "164",
+    "ch_area": "马尼拉",
+    "ch_nation": "菲律宾",
+    "en_area": "Manila",
+    "en_nation": "the Philippines",
+    "latitude": "14.5995124",
+    "longitude": "120.9842195",
+    "timeZone": "Asia/Manila"
+}, {
+    "city_id": "165",
+    "ch_area": "马普托",
+    "ch_nation": "莫桑比克",
+    "en_area": "Maputo",
+    "en_nation": "Mozambique",
+    "latitude": "-25.969248",
+    "longitude": "32.5731746",
+    "timeZone": "Africa/Maputo"
+}, {
+    "city_id": "493",
+    "ch_area": "马萨特兰",
+    "ch_nation": "墨西哥",
+    "en_area": "Mazatlán",
+    "en_nation": "Mexico",
+    "latitude": "23.2494148",
+    "longitude": "-106.4111425",
+    "timeZone": "America/Mazatlan"
+}, {
+    "city_id": "330",
+    "ch_area": "马塞卢",
+    "ch_nation": "莱索托",
+    "en_area": "Maseru",
+    "en_nation": "Lesotho",
+    "latitude": "-29.3150767",
+    "longitude": "27.4869229",
+    "timeZone": "Africa/Maseru"
+}, {
+    "city_id": "405",
+    "ch_area": "马塞约",
+    "ch_nation": "巴西",
+    "en_area": "Maceio",
+    "en_nation": "Brazil",
+    "latitude": "-9.6660417",
+    "longitude": "-35.7352167",
+    "timeZone": "America/Maceio"
+}, {
+    "city_id": "350",
+    "ch_area": "马赛",
+    "ch_nation": "法国",
+    "en_area": "Marseille",
+    "en_nation": "France",
+    "latitude": "43.296482",
+    "longitude": "5.36978",
+    "timeZone": "Europe/Paris"
+}, {
+    "city_id": "189",
+    "ch_area": "马斯喀特",
+    "ch_nation": "阿曼",
+    "en_area": "Muscat",
+    "en_nation": "Oman",
+    "latitude": "23.5880307",
+    "longitude": "58.3828717",
+    "timeZone": "Asia/Muscat"
+}, {
+    "city_id": "344",
+    "ch_area": "马塔莫罗斯",
+    "ch_nation": "墨西哥",
+    "en_area": "Matamoros",
+    "en_nation": "Mexico",
+    "latitude": "25.8690294",
+    "longitude": "-97.5027376",
+    "timeZone": "America/Matamoros"
+}, {
+    "city_id": "551",
+    "ch_area": "马塔乌图",
+    "ch_nation": "瓦利斯和富图纳群岛",
+    "en_area": "Mata-Utu",
+    "en_nation": "Wallis and Futuna",
+    "latitude": "-13.2825091",
+    "longitude": "-176.1764475",
+    "timeZone": "Pacific/Wallis"
+}, {
+    "city_id": "483",
+    "ch_area": "马朱罗",
+    "ch_nation": "马绍尔群岛",
+    "en_area": "Majuro",
+    "en_nation": "Marshall Islands",
+    "latitude": "7.066667",
+    "longitude": "171.266667",
+    "timeZone": "Pacific/Majuro"
+}, {
+    "city_id": "397",
+    "ch_area": "玛丽港",
+    "ch_nation": "奥兰群岛",
+    "en_area": "Mariehamn",
+    "en_nation": "Åland Islands",
+    "latitude": "60.0970945",
+    "longitude": "19.9348339",
+    "timeZone": "Europe/Mariehamn"
+}, {
+    "city_id": "172",
+    "ch_area": "迈阿密",
+    "ch_nation": "美国",
+    "en_area": "Miami, FL",
+    "en_nation": "U.S.A.",
+    "latitude": "25.7616798",
+    "longitude": "-80.1917902",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "157",
+    "ch_area": "麦迪逊",
+    "ch_nation": "美国",
+    "en_area": "Madison",
+    "en_nation": "U.S.A.",
+    "latitude": "43.0730517",
+    "longitude": "-89.4012302",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "166",
+    "ch_area": "麦加",
+    "ch_nation": "沙特阿拉伯",
+    "en_area": "Mecca",
+    "en_nation": "Saudi Arabia",
+    "latitude": "21.3890824",
+    "longitude": "39.8579118",
+    "timeZone": "Asia/Riyadh"
+}, {
+    "city_id": "369",
+    "ch_area": "麦克默多站",
+    "ch_nation": "南极洲",
+    "en_area": "McMurdo Station",
+    "en_nation": "Antarctica",
+    "latitude": "35.8546135",
+    "longitude": "-78.7126469",
+    "timeZone": "Antarctica/McMurdo"
+}, {
+    "city_id": "379",
+    "ch_area": "麦夸理岛站",
+    "ch_nation": "南极洲",
+    "en_area": "Macquarie Island Station",
+    "en_nation": "Antarctica",
+    "latitude": "-54.4997485",
+    "longitude": "158.9364023",
+    "timeZone": "Antarctica/Macquarie"
+}, {
+    "city_id": "162",
+    "ch_area": "麦纳麦",
+    "ch_nation": "巴林",
+    "en_area": "Manama",
+    "en_nation": "Bahrain",
+    "latitude": "26.2235305",
+    "longitude": "50.5875935",
+    "timeZone": "Asia/Bahrain"
+}, {
+    "city_id": "26",
+    "ch_area": "曼谷",
+    "ch_nation": "泰国",
+    "en_area": "Bangkok",
+    "en_nation": "Thailand",
+    "latitude": "13.7563309",
+    "longitude": "100.5017651",
+    "timeZone": "Asia/Bangkok"
+}, {
+    "city_id": "491",
+    "ch_area": "梅里达",
+    "ch_nation": "墨西哥",
+    "en_area": "Mérida",
+    "en_nation": "Mexico",
+    "latitude": "42.3444552",
+    "longitude": "-71.0310225",
+    "timeZone": "America/Merida"
+}, {
+    "city_id": "535",
+    "ch_area": "梅诺米尼",
+    "ch_nation": "美国",
+    "en_area": "Menominee",
+    "en_nation": "U.S.A.",
+    "latitude": "45.1077627",
+    "longitude": "-87.6142737",
+    "timeZone": "America/Menominee"
+}, {
+    "city_id": "544",
+    "ch_area": "梅特拉卡特拉",
+    "ch_nation": "美国",
+    "en_area": "Metlakatla",
+    "en_nation": "U.S.A.",
+    "latitude": "55.1291667",
+    "longitude": "-131.5722222",
+    "timeZone": "America/Metlakatla"
+}, {
+    "city_id": "387",
+    "ch_area": "门多萨",
+    "ch_nation": "阿根廷",
+    "en_area": "Mendoza",
+    "en_nation": "Argentina",
+    "latitude": "-32.8894587",
+    "longitude": "-68.8458386",
+    "timeZone": "America/Argentina/Mendoza"
+}, {
+    "city_id": "169",
+    "ch_area": "门洛帕克",
+    "ch_nation": "美国",
+    "en_area": "Menlo Park",
+    "en_nation": "U.S.A.",
+    "latitude": "37.4529598",
+    "longitude": "-122.1817252",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "182",
+    "ch_area": "蒙彼利埃",
+    "ch_nation": "美国",
+    "en_area": "Montpelier",
+    "en_nation": "U.S.A.",
+    "latitude": "44.2600593",
+    "longitude": "-72.5753869",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "181",
+    "ch_area": "蒙得维的亚",
+    "ch_nation": "乌拉圭",
+    "en_area": "Montevideo",
+    "en_nation": "Uruguay",
+    "latitude": "-34.9011127",
+    "longitude": "-56.1645314",
+    "timeZone": "America/Montevideo"
+}, {
+    "city_id": "517",
+    "ch_area": "蒙蒂塞洛",
+    "ch_nation": "美国",
+    "en_area": "Monticello",
+    "en_nation": "U.S.A.",
+    "latitude": "38.0086043",
+    "longitude": "-78.4531994",
+    "timeZone": "America/Kentucky/Monticello"
+}, {
+    "city_id": "415",
+    "ch_area": "蒙克顿",
+    "ch_nation": "加拿大",
+    "en_area": "Moncton",
+    "en_nation": "Canada",
+    "latitude": "46.0878165",
+    "longitude": "-64.7782313",
+    "timeZone": "America/Moncton"
+}, {
+    "city_id": "180",
+    "ch_area": "蒙罗维亚",
+    "ch_nation": "利比里亚",
+    "en_area": "Monrovia",
+    "en_nation": "Liberia",
+    "latitude": "34.1442616",
+    "longitude": "-118.0019482",
+    "timeZone": "Africa/Monrovia"
+}, {
+    "city_id": "492",
+    "ch_area": "蒙特雷",
+    "ch_nation": "墨西哥",
+    "en_area": "Monterrey",
+    "en_nation": "Mexico",
+    "latitude": "25.6866142",
+    "longitude": "-100.3161126",
+    "timeZone": "America/Monterrey"
+}, {
+    "city_id": "185",
+    "ch_area": "蒙特里",
+    "ch_nation": "美国",
+    "en_area": "Monterey",
+    "en_nation": "U.S.A.",
+    "latitude": "36.6002378",
+    "longitude": "-121.8946761",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "183",
+    "ch_area": "蒙特利尔",
+    "ch_nation": "加拿大",
+    "en_area": "Montreal",
+    "en_nation": "Canada",
+    "latitude": "45.5016889",
+    "longitude": "-73.567256",
+    "timeZone": "America/Montreal"
+}, {
+    "city_id": "168",
+    "ch_area": "孟斐斯",
+    "ch_nation": "美国",
+    "en_area": "Memphis, TN",
+    "en_nation": "U.S.A.",
+    "latitude": "35.1495343",
+    "longitude": "-90.0489801",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "187",
+    "ch_area": "孟买",
+    "ch_nation": "印度",
+    "en_area": "Mumbai",
+    "en_nation": "India",
+    "latitude": "19.0759837",
+    "longitude": "72.8776559",
+    "timeZone": "Asia/Kolkata"
+}, {
+    "city_id": "174",
+    "ch_area": "米尔班克",
+    "ch_nation": "美国",
+    "en_area": "Milbank",
+    "en_nation": "U.S.A.",
+    "latitude": "39.137916",
+    "longitude": "-94.52244",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "173",
+    "ch_area": "米兰",
+    "ch_nation": "意大利",
+    "en_area": "Milano",
+    "en_nation": "Italy",
+    "latitude": "29.5968704",
+    "longitude": "-90.7228164",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "175",
+    "ch_area": "密尔沃基",
+    "ch_nation": "美国",
+    "en_area": "Milwaukee, WI",
+    "en_nation": "U.S.A.",
+    "latitude": "43.0389025",
+    "longitude": "-87.9064736",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "176",
+    "ch_area": "明尼阿波利斯",
+    "ch_nation": "美国",
+    "en_area": "Minneapolis",
+    "en_nation": "U.S.A.",
+    "latitude": "44.977753",
+    "longitude": "-93.2650108",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "177",
+    "ch_area": "明斯克",
+    "ch_nation": "白俄罗斯",
+    "en_area": "Minsk",
+    "en_nation": "Belarus",
+    "latitude": "53.9006011",
+    "longitude": "27.558972",
+    "timeZone": "Europe/Minsk"
+}, {
+    "city_id": "179",
+    "ch_area": "摩加迪沙",
+    "ch_nation": "索马里",
+    "en_area": "Mogadishu",
+    "en_nation": "Somalia",
+    "latitude": "2.0469343",
+    "longitude": "45.3181623",
+    "timeZone": "Africa/Mogadishu"
+}, {
+    "city_id": "482",
+    "ch_area": "摩纳哥",
+    "ch_nation": "摩纳哥",
+    "en_area": "Monaco",
+    "en_nation": "Monaco",
+    "latitude": "43.7384176",
+    "longitude": "7.4246158",
+    "timeZone": "Europe/Monaco"
+}, {
+    "city_id": "505",
+    "ch_area": "莫尔兹比港",
+    "ch_nation": "巴布亚新几内亚",
+    "en_area": "Port Moresby",
+    "en_nation": "Papua New Guinea",
+    "latitude": "-9.4438004",
+    "longitude": "147.1802671",
+    "timeZone": "Pacific/Port_Moresby"
+}, {
+    "city_id": "474",
+    "ch_area": "莫罗尼",
+    "ch_nation": "科摩罗",
+    "en_area": "Moroni",
+    "en_nation": "Comoros",
+    "latitude": "39.5249615",
+    "longitude": "-111.5904725",
+    "timeZone": "Indian/Comoro"
+}, {
+    "city_id": "373",
+    "ch_area": "莫森站",
+    "ch_nation": "南极洲",
+    "en_area": "Mawson Station",
+    "en_nation": "Antarctica",
+    "latitude": "-67.6032742",
+    "longitude": "62.8741649",
+    "timeZone": "Antarctica/Mawson"
+}, {
+    "city_id": "184",
+    "ch_area": "莫斯科",
+    "ch_nation": "俄罗斯",
+    "en_area": "Moscow",
+    "en_nation": "Russia",
+    "latitude": "55.755826",
+    "longitude": "37.6172999",
+    "timeZone": "Europe/Moscow"
+}, {
+    "city_id": "167",
+    "ch_area": "墨尔本",
+    "ch_nation": "澳大利亚",
+    "en_area": "Melbourne",
+    "en_nation": "Australia",
+    "latitude": "-37.8136276",
+    "longitude": "144.9630576",
+    "timeZone": "Australia/Melbourne"
+}, {
+    "city_id": "171",
+    "ch_area": "墨西哥城",
+    "ch_nation": "墨西哥",
+    "en_area": "Mexico City",
+    "en_nation": "Mexico",
+    "latitude": "19.4326077",
+    "longitude": "-99.133208",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "568",
+    "ch_area": "墨西卡利",
+    "ch_nation": "墨西哥",
+    "en_area": "Mexicali",
+    "en_nation": "Mexico",
+    "latitude": "32.6245389",
+    "longitude": "-115.4522623",
+    "timeZone": "America/Tijuana"
+}, {
+    "city_id": "170",
+    "ch_area": "墨西拿",
+    "ch_nation": "意大利",
+    "en_area": "Messina",
+    "en_nation": "Italy",
+    "latitude": "38.1937335",
+    "longitude": "15.5542057",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "329",
+    "ch_area": "姆巴巴内",
+    "ch_nation": "斯威士兰",
+    "en_area": "Mbabane",
+    "en_nation": "Eswatini",
+    "latitude": "-26.3054482",
+    "longitude": "31.1366715",
+    "timeZone": "Africa/Mbabane"
+}, {
+    "city_id": "188",
+    "ch_area": "慕尼黑",
+    "ch_nation": "德国",
+    "en_area": "Munich",
+    "en_nation": "Germany",
+    "latitude": "48.1351253",
+    "longitude": "11.5819805",
+    "timeZone": "Europe/Berlin"
+}, {
+    "city_id": "413",
+    "ch_area": "拿骚",
+    "ch_nation": "巴哈马",
+    "en_area": "Nassau",
+    "en_nation": "Bahamas",
+    "latitude": "25.0443312",
+    "longitude": "-77.3503609",
+    "timeZone": "America/Nassau"
+}, {
+    "city_id": "191",
+    "ch_area": "那不勒斯",
+    "ch_nation": "意大利",
+    "en_area": "Napoli",
+    "en_nation": "Italy",
+    "latitude": "34.0325366",
+    "longitude": "-84.1851525",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "190",
+    "ch_area": "纳帕",
+    "ch_nation": "美国",
+    "en_area": "Napa",
+    "en_nation": "U.S.A.",
+    "latitude": "38.2975381",
+    "longitude": "-122.286865",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "559",
+    "ch_area": "纳什维尔",
+    "ch_nation": "美国",
+    "en_area": "Nashville, TN",
+    "en_nation": "U.S.A.",
+    "latitude": "36.1626638",
+    "longitude": "-86.7816016",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "193",
+    "ch_area": "纳特尔斯",
+    "ch_nation": "瑞士",
+    "en_area": "Naters",
+    "en_nation": "Switzerland",
+    "latitude": "46.3239282",
+    "longitude": "7.9916569",
+    "timeZone": "Europe/Zurich"
+}, {
+    "city_id": "460",
+    "ch_area": "南京",
+    "ch_nation": "中国",
+    "en_area": "Nanjing",
+    "en_nation": "China",
+    "latitude": "32.060255",
+    "longitude": "118.796877",
+    "timeZone": "Asia/Shanghai"
+}, {
+    "city_id": "515",
+    "ch_area": "南萨哈林斯克",
+    "ch_nation": "俄罗斯",
+    "en_area": "Yuzhno-Sakhalinsk",
+    "en_nation": "Russia",
+    "latitude": "46.9640949",
+    "longitude": "142.7284716",
+    "timeZone": "Asia/Sakhalin"
+}, {
+    "city_id": "500",
+    "ch_area": "瑙鲁",
+    "ch_nation": "密克罗尼西亚",
+    "en_area": "Nauru",
+    "en_nation": "Micronesia",
+    "latitude": "-0.522778",
+    "longitude": "166.931503",
+    "timeZone": "Pacific/Nauru"
+}, {
+    "city_id": "192",
+    "ch_area": "内罗毕",
+    "ch_nation": "肯尼亚",
+    "en_area": "Nairobi",
+    "en_nation": "Kenya",
+    "latitude": "-1.2920659",
+    "longitude": "36.8219462",
+    "timeZone": "Africa/Nairobi"
+}, {
+    "city_id": "364",
+    "ch_area": "尼科西亚",
+    "ch_nation": "塞浦路斯",
+    "en_area": "Nicosia",
+    "en_nation": "Cyprus",
+    "latitude": "35.1855659",
+    "longitude": "33.3822764",
+    "timeZone": "Asia/Nicosia"
+}, {
+    "city_id": "418",
+    "ch_area": "尼皮贡",
+    "ch_nation": "加拿大",
+    "en_area": "Nipigon",
+    "en_nation": "Canada",
+    "latitude": "49.0125155",
+    "longitude": "-88.2632805",
+    "timeZone": "America/Nipigon"
+}, {
+    "city_id": "198",
+    "ch_area": "尼亚美",
+    "ch_nation": "尼日尔",
+    "en_area": "Niamey",
+    "en_nation": "Niger",
+    "latitude": "13.5115963",
+    "longitude": "2.1253854",
+    "timeZone": "Africa/Niamey"
+}, {
+    "city_id": "197",
+    "ch_area": "纽约",
+    "ch_nation": "美国",
+    "en_area": "New York",
+    "en_nation": "U.S.A.",
+    "latitude": "40.7127753",
+    "longitude": "-74.0059728",
+    "timeZone": "America/New_York"
+}, {
+    "city_id": "204",
+    "ch_area": "努克",
+    "ch_nation": "格陵兰",
+    "en_area": "Nuuk",
+    "en_nation": "Greenland",
+    "latitude": "64.1814099",
+    "longitude": "-51.6941381",
+    "timeZone": "America/Godthab"
+}, {
+    "city_id": "203",
+    "ch_area": "努库阿洛法",
+    "ch_nation": "汤加",
+    "en_area": "Nukuʻalofa",
+    "en_nation": "Tonga",
+    "latitude": "-21.1393418",
+    "longitude": "-175.204947",
+    "timeZone": "Pacific/Tongatapu"
+}, {
+    "city_id": "200",
+    "ch_area": "努美阿",
+    "ch_nation": "新喀里多尼亚",
+    "en_area": "Noumea",
+    "en_nation": "New Caledonia",
+    "latitude": "-22.2734912",
+    "longitude": "166.4480887",
+    "timeZone": "Pacific/Noumea"
+}, {
+    "city_id": "199",
+    "ch_area": "努瓦克肖特",
+    "ch_nation": "毛里塔尼亚",
+    "en_area": "Nouakchott",
+    "en_nation": "Mauritania",
+    "latitude": "18.0735299",
+    "longitude": "-15.9582372",
+    "timeZone": "Africa/Nouakchott"
+}, {
+    "city_id": "514",
+    "ch_area": "诺弗库兹尼特斯克",
+    "ch_nation": "俄罗斯",
+    "en_area": "Novokuznetsk",
+    "en_nation": "Russia",
+    "latitude": "53.7595935",
+    "longitude": "87.1215705",
+    "timeZone": "Asia/Novokuznetsk"
+}, {
+    "city_id": "534",
+    "ch_area": "诺克斯",
+    "ch_nation": "美国",
+    "en_area": "Knox",
+    "en_nation": "U.S.A.",
+    "latitude": "40.9433331",
+    "longitude": "-90.3704499",
+    "timeZone": "America/Indiana/Knox"
+}, {
+    "city_id": "136",
+    "ch_area": "诺克斯维尔",
+    "ch_nation": "美国",
+    "en_area": "Knoxville",
+    "en_nation": "U.S.A.",
+    "latitude": "35.9606384",
+    "longitude": "-83.9207392",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "543",
+    "ch_area": "诺姆",
+    "ch_nation": "美国",
+    "en_area": "Nome",
+    "en_nation": "U.S.A.",
+    "latitude": "64.5011111",
+    "longitude": "-165.4063889",
+    "timeZone": "America/Nome"
+}, {
+    "city_id": "201",
+    "ch_area": "诺瓦托",
+    "ch_nation": "美国",
+    "en_area": "Novato",
+    "en_nation": "U.S.A.",
+    "latitude": "38.1074198",
+    "longitude": "-122.5697032",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "480",
+    "ch_area": "欧罗尔",
+    "ch_nation": "哈萨克斯坦",
+    "en_area": "Oral",
+    "en_nation": "Kazakhstan",
+    "latitude": "37.7098505",
+    "longitude": "-97.442637",
+    "timeZone": "Asia/Oral"
+}, {
+    "city_id": "372",
+    "ch_area": "帕尔默站",
+    "ch_nation": "南极洲",
+    "en_area": "Palmer Station",
+    "en_nation": "Antarctica",
+    "latitude": "-64.7742513",
+    "longitude": "-64.0538299",
+    "timeZone": "Antarctica/Palmer"
+}, {
+    "city_id": "214",
+    "ch_area": "帕果帕果",
+    "ch_nation": "美属萨摩亚群岛",
+    "en_area": "Pago Pago",
+    "en_nation": "American Samoa",
+    "latitude": "-14.2756319",
+    "longitude": "-170.7020359",
+    "timeZone": "Pacific/Pago_Pago"
+}, {
+    "city_id": "220",
+    "ch_area": "帕拉马里博",
+    "ch_nation": "苏里南",
+    "en_area": "Paramaribo",
+    "en_nation": "Surinam",
+    "latitude": "5.8520355",
+    "longitude": "-55.2038278",
+    "timeZone": "America/Paramaribo"
+}, {
+    "city_id": "216",
+    "ch_area": "帕洛阿尔托",
+    "ch_nation": "美国",
+    "en_area": "Palo Alto",
+    "en_nation": "U.S.A.",
+    "latitude": "37.4418834",
+    "longitude": "-122.1430195",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "213",
+    "ch_area": "帕西非卡",
+    "ch_nation": "美国",
+    "en_area": "Pacifica",
+    "en_nation": "U.S.A.",
+    "latitude": "36.9770252",
+    "longitude": "-120.073758",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "421",
+    "ch_area": "潘尼尔东",
+    "ch_nation": "加拿大",
+    "en_area": "Pangnirtung",
+    "en_nation": "Canada",
+    "latitude": "66.1465578",
+    "longitude": "-65.7012182",
+    "timeZone": "America/Pangnirtung"
+}, {
+    "city_id": "224",
+    "ch_area": "佩塔卢马",
+    "ch_nation": "美国",
+    "en_area": "Petaluma",
+    "en_nation": "U.S.A.",
+    "latitude": "38.232417",
+    "longitude": "-122.6366524",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "578",
+    "ch_area": "蓬塔阿雷纳斯",
+    "ch_nation": "智利",
+    "en_area": "Punta Arenas",
+    "en_nation": "Chile",
+    "latitude": "-53.1638329",
+    "longitude": "-70.9170683",
+    "timeZone": "America/Punta_Arenas"
+}, {
+    "city_id": "231",
+    "ch_area": "蓬塔德尔加达",
+    "ch_nation": "葡萄牙",
+    "en_area": "Ponta Delgada",
+    "en_nation": "Portugal",
+    "latitude": "37.7394207",
+    "longitude": "-25.6686725",
+    "timeZone": "Atlantic/Azores"
+}, {
+    "city_id": "228",
+    "ch_area": "匹兹堡",
+    "ch_nation": "美国",
+    "en_area": "Pittsburgh",
+    "en_nation": "U.S.A.",
+    "latitude": "40.4406248",
+    "longitude": "-79.9958864",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "236",
+    "ch_area": "平壤",
+    "ch_nation": "朝鲜",
+    "en_area": "Pyongyang",
+    "en_nation": "North Korea",
+    "latitude": "39.0392193",
+    "longitude": "125.7625241",
+    "timeZone": "Asia/Pyongyang"
+}, {
+    "city_id": "223",
+    "ch_area": "珀斯",
+    "ch_nation": "澳大利亚",
+    "en_area": "Perth",
+    "en_nation": "Australia",
+    "latitude": "-31.9523123",
+    "longitude": "115.861309",
+    "timeZone": "Australia/Perth"
+}, {
+    "city_id": "569",
+    "ch_area": "普埃布拉",
+    "ch_nation": "墨西哥",
+    "en_area": "Puebla",
+    "en_nation": "Mexico",
+    "latitude": "19.0414398",
+    "longitude": "-98.2062727",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "441",
+    "ch_area": "普拉亚",
+    "ch_nation": "佛得角",
+    "en_area": "Praia",
+    "en_nation": "Cape Verde",
+    "latitude": "14.93305",
+    "longitude": "-23.5133267",
+    "timeZone": "Atlantic/Cape_Verde"
+}, {
+    "city_id": "229",
+    "ch_area": "普莱森顿",
+    "ch_nation": "美国",
+    "en_area": "Pleasanton",
+    "en_nation": "U.S.A.",
+    "latitude": "37.6604484",
+    "longitude": "-121.8757968",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "334",
+    "ch_area": "普里什蒂纳",
+    "ch_nation": "科索沃",
+    "en_area": "Pristina",
+    "en_nation": "Kosovo",
+    "latitude": "42.6629138",
+    "longitude": "21.1655028",
+    "timeZone": "Europe/Belgrade"
+}, {
+    "city_id": "488",
+    "ch_area": "普利茅斯",
+    "ch_nation": "蒙特塞拉特",
+    "en_area": "Plymouth",
+    "en_nation": "Montserrat",
+    "latitude": "41.9584457",
+    "longitude": "-70.6672621",
+    "timeZone": "America/Montserrat"
+}, {
+    "city_id": "494",
+    "ch_area": "奇瓦瓦",
+    "ch_nation": "墨西哥",
+    "en_area": "Chihuahua",
+    "en_nation": "Mexico",
+    "latitude": "28.6329957",
+    "longitude": "-106.0691004",
+    "timeZone": "America/Chihuahua"
+}, {
+    "city_id": "486",
+    "ch_area": "乔巴山",
+    "ch_nation": "蒙古",
+    "en_area": "Choibalsan",
+    "en_nation": "Mongolia",
+    "latitude": "48.0951271",
+    "longitude": "114.5356247",
+    "timeZone": "Asia/Choibalsan"
+}, {
+    "city_id": "476",
+    "ch_area": "乔治城",
+    "ch_nation": "开曼群岛",
+    "en_area": "George Town",
+    "en_nation": "Cayman Islands",
+    "latitude": "38.9097057",
+    "longitude": "-77.0653565",
+    "timeZone": "America/Cayman"
+}, {
+    "city_id": "104",
+    "ch_area": "乔治敦",
+    "ch_nation": "圭亚那",
+    "en_area": "Georgetown",
+    "en_nation": "Guyana",
+    "latitude": "41.4818543",
+    "longitude": "-81.8263727",
+    "timeZone": "America/Guyana"
+}, {
+    "city_id": "461",
+    "ch_area": "青岛",
+    "ch_nation": "中国",
+    "en_area": "Qingdao",
+    "en_nation": "China",
+    "latitude": "36.067108",
+    "longitude": "120.382609",
+    "timeZone": "Asia/Shanghai"
+}, {
+    "city_id": "359",
+    "ch_area": "清迈",
+    "ch_nation": "泰国",
+    "en_area": "Chiang Mai",
+    "en_nation": "Thailand",
+    "latitude": "18.7883439",
+    "longitude": "98.9853008",
+    "timeZone": "Asia/Bangkok"
+}, {
+    "city_id": "103",
+    "ch_area": "热那亚",
+    "ch_nation": "意大利",
+    "en_area": "Genoa",
+    "en_nation": "Italy",
+    "latitude": "44.4056499",
+    "longitude": "8.946256",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "102",
+    "ch_area": "日内瓦",
+    "ch_nation": "瑞士",
+    "en_area": "Geneva",
+    "en_nation": "Switzerland",
+    "latitude": "46.2043907",
+    "longitude": "6.1431577",
+    "timeZone": "Europe/Zurich"
+}, {
+    "city_id": "545",
+    "ch_area": "撒马尔罕",
+    "ch_nation": "乌兹别克斯坦",
+    "en_area": "Samarkand",
+    "en_nation": "Uzbekistan",
+    "latitude": "39.627012",
+    "longitude": "66.9749731",
+    "timeZone": "Asia/Samarkand"
+}, {
+    "city_id": "381",
+    "ch_area": "萨尔塔",
+    "ch_nation": "阿根廷",
+    "en_area": "Salta",
+    "en_nation": "Argentina",
+    "latitude": "-24.7821269",
+    "longitude": "-65.4231976",
+    "timeZone": "America/Argentina/Jujuy"
+}, {
+    "city_id": "366",
+    "ch_area": "萨尔瓦多",
+    "ch_nation": "巴西",
+    "en_area": "Salvador",
+    "en_nation": "Brazil",
+    "latitude": "13.794185",
+    "longitude": "-88.89653",
+    "timeZone": "America/Bahia"
+}, {
+    "city_id": "348",
+    "ch_area": "萨尔兹堡",
+    "ch_nation": "奥地利",
+    "en_area": "Salzburg",
+    "en_nation": "Austria",
+    "latitude": "47.80949",
+    "longitude": "13.05501",
+    "timeZone": "Europe/Vienna"
+}, {
+    "city_id": "323",
+    "ch_area": "萨格勒布",
+    "ch_nation": "克罗地亚",
+    "en_area": "Zagreb",
+    "en_nation": "Croatia",
+    "latitude": "45.8150108",
+    "longitude": "15.9819189",
+    "timeZone": "Europe/Zagreb"
+}, {
+    "city_id": "347",
+    "ch_area": "萨拉热窝",
+    "ch_nation": "波斯尼亚和黑塞哥维那",
+    "en_area": "Sarajevo",
+    "en_nation": "Bosnia and Herzegovina",
+    "latitude": "43.8562586",
+    "longitude": "18.4130763",
+    "timeZone": "Europe/Sarajevo"
+}, {
+    "city_id": "1941",
+    "ch_area": "萨拉托夫",
+    "ch_nation": "俄罗斯",
+    "en_area": "Saratov",
+    "en_nation": "Russia",
+    "latitude": "51.5461754",
+    "longitude": "46.0154123",
+    "timeZone": "Europe/Saratov"
+}, {
+    "city_id": "250",
+    "ch_area": "萨马拉",
+    "ch_nation": "俄罗斯",
+    "en_area": "Samara",
+    "en_nation": "Russia",
+    "latitude": "53.203772",
+    "longitude": "50.1606382",
+    "timeZone": "Europe/Samara"
+}, {
+    "city_id": "268",
+    "ch_area": "萨那",
+    "ch_nation": "也门",
+    "en_area": "Sanaa",
+    "en_nation": "Yemen",
+    "latitude": "15.3694451",
+    "longitude": "44.1910066",
+    "timeZone": "Asia/Aden"
+}, {
+    "city_id": "352",
+    "ch_area": "萨斯卡通",
+    "ch_nation": "加拿大",
+    "en_area": "Saskatoon",
+    "en_nation": "Canada",
+    "latitude": "52.157902",
+    "longitude": "-106.6701577",
+    "timeZone": "America/Regina"
+}, {
+    "city_id": "487",
+    "ch_area": "塞班",
+    "ch_nation": "北马里亚纳群岛",
+    "en_area": "Saipan",
+    "en_nation": "Northern Mariana Islands",
+    "latitude": "15.1850483",
+    "longitude": "145.7467259",
+    "timeZone": "Pacific/Saipan"
+}, {
+    "city_id": "338",
+    "ch_area": "塞萨洛尼基",
+    "ch_nation": "希腊",
+    "en_area": "Thessaloniki",
+    "en_nation": "Greece",
+    "latitude": "40.6400629",
+    "longitude": "22.9444191",
+    "timeZone": "Europe/Athens"
+}, {
+    "city_id": "419",
+    "ch_area": "桑德贝",
+    "ch_nation": "加拿大",
+    "en_area": "Thunder Bay",
+    "en_nation": "Canada",
+    "latitude": "48.3808951",
+    "longitude": "-89.2476823",
+    "timeZone": "America/Thunder_Bay"
+}, {
+    "city_id": "284",
+    "ch_area": "桑尼维尔",
+    "ch_nation": "美国",
+    "en_area": "Sunnyvale",
+    "en_nation": "U.S.A.",
+    "latitude": "37.36883",
+    "longitude": "-122.0363496",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "368",
+    "ch_area": "山谷",
+    "ch_nation": "安圭拉",
+    "en_area": "The Valley",
+    "en_nation": "Anguilla",
+    "latitude": "34.0875122",
+    "longitude": "-117.3107634",
+    "timeZone": "America/Anguilla"
+}, {
+    "city_id": "186",
+    "ch_area": "山景城",
+    "ch_nation": "美国",
+    "en_area": "Mountain View",
+    "en_nation": "U.S.A.",
+    "latitude": "35.3266274",
+    "longitude": "-106.5871328",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "274",
+    "ch_area": "上海",
+    "ch_nation": "中国",
+    "en_area": "Shanghai",
+    "en_nation": "China",
+    "latitude": "31.230416",
+    "longitude": "121.473701",
+    "timeZone": "Asia/Shanghai"
+}, {
+    "city_id": "536",
+    "ch_area": "申特城",
+    "ch_nation": "美国",
+    "en_area": "Center",
+    "en_nation": "U.S.A.",
+    "latitude": "37.094575",
+    "longitude": "-95.7099047",
+    "timeZone": "America/North_Dakota/Center"
+}, {
+    "city_id": "276",
+    "ch_area": "深圳",
+    "ch_nation": "中国",
+    "en_area": "Shenzhen",
+    "en_nation": "China",
+    "latitude": "22.543096",
+    "longitude": "114.057865",
+    "timeZone": "Asia/Shanghai"
+}, {
+    "city_id": "252",
+    "ch_area": "圣安东尼奥",
+    "ch_nation": "美国",
+    "en_area": "San Antonio, TX",
+    "en_nation": "U.S.A.",
+    "latitude": "29.4241219",
+    "longitude": "-98.4936282",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "263",
+    "ch_area": "圣巴勃罗",
+    "ch_nation": "美国",
+    "en_area": "San Pablo",
+    "en_nation": "U.S.A.",
+    "latitude": "37.9621457",
+    "longitude": "-122.3455263",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "271",
+    "ch_area": "圣保罗",
+    "ch_nation": "巴西",
+    "en_area": "São Paulo",
+    "en_nation": "Brazil",
+    "latitude": "-21.2922457",
+    "longitude": "-50.3428431",
+    "timeZone": "America/Sao_Paulo"
+}, {
+    "city_id": "283",
+    "ch_area": "圣彼得堡",
+    "ch_nation": "俄罗斯",
+    "en_area": "St. Petersburg",
+    "en_nation": "Russia",
+    "latitude": "27.7676008",
+    "longitude": "-82.6402915",
+    "timeZone": "Europe/Moscow"
+}, {
+    "city_id": "454",
+    "ch_area": "圣彼得港",
+    "ch_nation": "格恩西岛",
+    "en_area": "Saint Peter Port",
+    "en_nation": "Guernsey",
+    "latitude": "49.4541677",
+    "longitude": "-2.5497069",
+    "timeZone": "Europe/Guernsey"
+}, {
+    "city_id": "253",
+    "ch_area": "圣布鲁诺",
+    "ch_nation": "美国",
+    "en_area": "San Bruno",
+    "en_nation": "U.S.A.",
+    "latitude": "37.6304904",
+    "longitude": "-122.4110835",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "248",
+    "ch_area": "圣但尼",
+    "ch_nation": "留尼汪",
+    "en_area": "Saint-Denis",
+    "en_nation": "Reunion Island",
+    "latitude": "48.936181",
+    "longitude": "2.357443",
+    "timeZone": "Indian/Reunion"
+}, {
+    "city_id": "473",
+    "ch_area": "圣诞岛",
+    "ch_nation": "基里巴斯",
+    "en_area": "Kiritimati",
+    "en_nation": "Kiribati",
+    "latitude": "1.8721347",
+    "longitude": "-157.4278119",
+    "timeZone": "Pacific/Kiritimati"
+}, {
+    "city_id": "251",
+    "ch_area": "圣地亚哥",
+    "ch_nation": "美国",
+    "en_area": "San Diego, CA",
+    "en_nation": "U.S.A.",
+    "latitude": "32.715738",
+    "longitude": "-117.1610838",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "269",
+    "ch_area": "圣地亚哥",
+    "ch_nation": "智利",
+    "en_area": "Santiago",
+    "en_nation": "Chile",
+    "latitude": "-33.4488897",
+    "longitude": "-70.6692655",
+    "timeZone": "America/Santiago"
+}, {
+    "city_id": "523",
+    "ch_area": "圣多美",
+    "ch_nation": "圣多美和普林西比",
+    "en_area": "São Tomé",
+    "en_nation": "São Tomé and Príncipe",
+    "latitude": "0.3301924",
+    "longitude": "6.733343",
+    "timeZone": "Africa/Sao_Tome"
+}, {
+    "city_id": "270",
+    "ch_area": "圣多明各",
+    "ch_nation": "多米尼加共和国",
+    "en_area": "Santo Domingo",
+    "en_nation": "Dominican Republic",
+    "latitude": "18.4860575",
+    "longitude": "-69.9312117",
+    "timeZone": "America/Santo_Domingo"
+}, {
+    "city_id": "256",
+    "ch_area": "圣何塞",
+    "ch_nation": "美国",
+    "en_area": "San Jose, CA",
+    "en_nation": "U.S.A.",
+    "latitude": "37.3382082",
+    "longitude": "-121.8863286",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "257",
+    "ch_area": "圣何塞",
+    "ch_nation": "哥斯达黎加",
+    "en_area": "San José",
+    "en_nation": "Costa Rica",
+    "latitude": "37.3382082",
+    "longitude": "-121.8863286",
+    "timeZone": "America/Costa_Rica"
+}, {
+    "city_id": "470",
+    "ch_area": "圣赫利尔",
+    "ch_nation": "泽西行政区",
+    "en_area": "St. Helier",
+    "en_nation": "Bailiwick of Jersey",
+    "latitude": "49.1805019",
+    "longitude": "-2.103233",
+    "timeZone": "Europe/Jersey"
+}, {
+    "city_id": "258",
+    "ch_area": "圣胡安",
+    "ch_nation": "波多黎各",
+    "en_area": "San Juan",
+    "en_nation": "Puerto Rico",
+    "latitude": "18.4655394",
+    "longitude": "-66.1057355",
+    "timeZone": "America/Puerto_Rico"
+}, {
+    "city_id": "386",
+    "ch_area": "圣胡安",
+    "ch_nation": "阿根廷",
+    "en_area": "San Juan",
+    "en_nation": "Argentina",
+    "latitude": "18.4655394",
+    "longitude": "-66.1057355",
+    "timeZone": "America/Argentina/San_Juan"
+}, {
+    "city_id": "254",
+    "ch_area": "圣卡洛斯",
+    "ch_nation": "美国",
+    "en_area": "San Carlos",
+    "en_nation": "U.S.A.",
+    "latitude": "37.5071591",
+    "longitude": "-122.2605222",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "266",
+    "ch_area": "圣克拉拉",
+    "ch_nation": "美国",
+    "en_area": "Santa Clara",
+    "en_nation": "U.S.A.",
+    "latitude": "37.3541079",
+    "longitude": "-121.9552356",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "267",
+    "ch_area": "圣克鲁斯",
+    "ch_nation": "美国",
+    "en_area": "Santa Cruz",
+    "en_nation": "U.S.A.",
+    "latitude": "36.9741171",
+    "longitude": "-122.0307963",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "264",
+    "ch_area": "圣拉菲尔",
+    "ch_nation": "美国",
+    "en_area": "San Rafael",
+    "en_nation": "U.S.A.",
+    "latitude": "37.9735346",
+    "longitude": "-122.5310874",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "265",
+    "ch_area": "圣拉蒙",
+    "ch_nation": "美国",
+    "en_area": "San Ramon",
+    "en_nation": "U.S.A.",
+    "latitude": "37.7643595",
+    "longitude": "-121.9539616",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "259",
+    "ch_area": "圣莱安德罗",
+    "ch_nation": "美国",
+    "en_area": "San Leandro",
+    "en_nation": "U.S.A.",
+    "latitude": "37.7257663",
+    "longitude": "-122.1568554",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "282",
+    "ch_area": "圣路易斯",
+    "ch_nation": "美国",
+    "en_area": "St. Louis",
+    "en_nation": "U.S.A.",
+    "latitude": "38.6270025",
+    "longitude": "-90.1994042",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "388",
+    "ch_area": "圣路易斯",
+    "ch_nation": "阿根廷",
+    "en_area": "San Luis",
+    "en_nation": "Argentina",
+    "latitude": "29.2725405",
+    "longitude": "-94.8182391",
+    "timeZone": "America/Argentina/San_Luis"
+}, {
+    "city_id": "571",
+    "ch_area": "圣路易斯波托西",
+    "ch_nation": "墨西哥",
+    "en_area": "San Luis Potosí",
+    "en_nation": "Mexico",
+    "latitude": "22.1564699",
+    "longitude": "-100.9855409",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "261",
+    "ch_area": "圣马力诺",
+    "ch_nation": "意大利",
+    "en_area": "San Marino",
+    "en_nation": "San Marino",
+    "latitude": "43.94236",
+    "longitude": "12.457777",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "262",
+    "ch_area": "圣马特奥",
+    "ch_nation": "美国",
+    "en_area": "San Mateo",
+    "en_nation": "U.S.A.",
+    "latitude": "37.5629917",
+    "longitude": "-122.3255254",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "507",
+    "ch_area": "圣皮埃尔",
+    "ch_nation": "圣皮埃尔和密克隆",
+    "en_area": "Saint-Pierre",
+    "en_nation": "Saint Pierre and Miquelon",
+    "latitude": "46.7758459",
+    "longitude": "-56.1806363",
+    "timeZone": "America/Miquelon"
+}, {
+    "city_id": "453",
+    "ch_area": "圣乔治",
+    "ch_nation": "格林纳达",
+    "en_area": "St. Georges",
+    "en_nation": "Grenada",
+    "latitude": "36.1197257",
+    "longitude": "-86.8531678",
+    "timeZone": "America/Grenada"
+}, {
+    "city_id": "260",
+    "ch_area": "圣萨尔瓦多",
+    "ch_nation": "萨尔瓦多",
+    "en_area": "San Salvador",
+    "en_nation": "El Salvador",
+    "latitude": "13.6929403",
+    "longitude": "-89.2181911",
+    "timeZone": "America/El_Salvador"
+}, {
+    "city_id": "382",
+    "ch_area": "圣萨尔瓦多德胡胡伊",
+    "ch_nation": "阿根廷",
+    "en_area": "San Salvador de Jujuy",
+    "en_nation": "Argentina",
+    "latitude": "-24.1857864",
+    "longitude": "-65.2994767",
+    "timeZone": "America/Argentina/Jujuy"
+}, {
+    "city_id": "408",
+    "ch_area": "圣塔伦",
+    "ch_nation": "巴西",
+    "en_area": "Santarém",
+    "en_nation": "Brazil",
+    "latitude": "39.2366618",
+    "longitude": "-8.6860119",
+    "timeZone": "America/Santarem"
+}, {
+    "city_id": "346",
+    "ch_area": "圣伊萨贝尔",
+    "ch_nation": "墨西哥",
+    "en_area": "Santa Isabel",
+    "en_nation": "Mexico",
+    "latitude": "32.6326872",
+    "longitude": "-115.5774649",
+    "timeZone": "America/Santa_Isabel"
+}, {
+    "city_id": "342",
+    "ch_area": "圣约翰堡",
+    "ch_nation": "加拿大",
+    "en_area": "Fort St. John",
+    "en_nation": "Canada",
+    "latitude": "56.252423",
+    "longitude": "-120.846409",
+    "timeZone": "America/Dawson_Creek"
+}, {
+    "city_id": "281",
+    "ch_area": "圣约翰斯",
+    "ch_nation": "加拿大",
+    "en_area": "St. John's",
+    "en_nation": "Canada",
+    "latitude": "47.5615096",
+    "longitude": "-52.7125768",
+    "timeZone": "America/St_Johns"
+}, {
+    "city_id": "367",
+    "ch_area": "圣约翰斯",
+    "ch_nation": "安提瓜和巴布达",
+    "en_area": "St. John's",
+    "en_nation": "Antigua and Barbuda",
+    "latitude": "47.5615096",
+    "longitude": "-52.7125768",
+    "timeZone": "America/Antigua"
+}, {
+    "city_id": "302",
+    "ch_area": "世界标准时间",
+    "ch_nation": "",
+    "en_area": "UTC",
+    "en_nation": "",
+    "latitude": "",
+    "longitude": "",
+    "timeZone": "UTC"
+}, {
+    "city_id": "273",
+    "ch_area": "首尔",
+    "ch_nation": "韩国",
+    "en_area": "Seoul",
+    "en_nation": "South Korea",
+    "latitude": "37.566535",
+    "longitude": "126.9779692",
+    "timeZone": "Asia/Seoul"
+}, {
+    "city_id": "285",
+    "ch_area": "斯德哥尔摩",
+    "ch_nation": "瑞典",
+    "en_area": "Stockholm",
+    "en_nation": "Sweden",
+    "latitude": "59.3293235",
+    "longitude": "18.0685808",
+    "timeZone": "Europe/Stockholm"
+}, {
+    "city_id": "279",
+    "ch_area": "斯科里普",
+    "ch_nation": "北马其顿",
+    "en_area": "Skopje",
+    "en_nation": "Macedonia",
+    "latitude": "41.9981294",
+    "longitude": "21.4254355",
+    "timeZone": "Europe/Skopje"
+}, {
+    "city_id": "400",
+    "ch_area": "斯里巴加湾",
+    "ch_nation": "文莱",
+    "en_area": "Bandar Seri Begawan",
+    "en_nation": "Brunei",
+    "latitude": "4.9030522",
+    "longitude": "114.939821",
+    "timeZone": "Asia/Brunei"
+}, {
+    "city_id": "448",
+    "ch_area": "斯坦利",
+    "ch_nation": "福克兰群岛",
+    "en_area": "Stanley",
+    "en_nation": "Falkland Islands",
+    "latitude": "36.1304285",
+    "longitude": "-95.9654332",
+    "timeZone": "Atlantic/Stanley"
+}, {
+    "city_id": "426",
+    "ch_area": "斯威夫特卡伦特",
+    "ch_nation": "加拿大",
+    "en_area": "Swift Current",
+    "en_nation": "Canada",
+    "latitude": "50.285069",
+    "longitude": "-107.7971722",
+    "timeZone": "America/Swift_Current"
+}, {
+    "city_id": "278",
+    "ch_area": "苏福尔斯",
+    "ch_nation": "美国",
+    "en_area": "Sioux Falls",
+    "en_nation": "U.S.A.",
+    "latitude": "43.5460223",
+    "longitude": "-96.731265",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "324",
+    "ch_area": "苏黎世",
+    "ch_nation": "瑞士",
+    "en_area": "Zurich",
+    "en_nation": "Switzerland",
+    "latitude": "38.924251",
+    "longitude": "-94.665666",
+    "timeZone": "Europe/Zurich"
+}, {
+    "city_id": "286",
+    "ch_area": "苏瓦",
+    "ch_nation": "斐济",
+    "en_area": "Suva",
+    "en_nation": "Fiji",
+    "latitude": "-18.1405049",
+    "longitude": "178.4232507",
+    "timeZone": "Pacific/Fiji"
+}, {
+    "city_id": "280",
+    "ch_area": "索菲亚",
+    "ch_nation": "保加利亚",
+    "en_area": "Sofia",
+    "en_nation": "Bulgaria",
+    "latitude": "42.6977082",
+    "longitude": "23.3218675",
+    "timeZone": "Europe/Sofia"
+}, {
+    "city_id": "471",
+    "ch_area": "塔拉瓦",
+    "ch_nation": "基里巴斯",
+    "en_area": "Tarawa",
+    "en_nation": "Kiribati",
+    "latitude": "1.4518171",
+    "longitude": "172.9716617",
+    "timeZone": "Pacific/Tarawa"
+}, {
+    "city_id": "289",
+    "ch_area": "塔林",
+    "ch_nation": "爱沙尼亚",
+    "en_area": "Tallinn",
+    "en_nation": "Estonia",
+    "latitude": "59.4369608",
+    "longitude": "24.7535747",
+    "timeZone": "Europe/Tallinn"
+}, {
+    "city_id": "290",
+    "ch_area": "塔什干",
+    "ch_nation": "乌兹别克斯坦",
+    "en_area": "Tashkent",
+    "en_nation": "Uzbekistan",
+    "latitude": "41.2994958",
+    "longitude": "69.2400734",
+    "timeZone": "Asia/Tashkent"
+}, {
+    "city_id": "219",
+    "ch_area": "塔希提岛",
+    "ch_nation": "法属波利尼西亚",
+    "en_area": "Tahiti",
+    "en_nation": "French Polynesia",
+    "latitude": "-17.6509195",
+    "longitude": "-149.4260421",
+    "timeZone": "Pacific/Tahiti"
+}, {
+    "city_id": "503",
+    "ch_area": "塔伊奥哈",
+    "ch_nation": "法属波利尼西亚",
+    "en_area": "Taiohae",
+    "en_nation": "French Polynesia",
+    "latitude": "-8.9118982",
+    "longitude": "-140.098379",
+    "timeZone": "Pacific/Marquesas"
+}, {
+    "city_id": "288",
+    "ch_area": "台湾台北",
+    "ch_nation": "中国",
+    "en_area": "Taipei",
+    "en_nation": "China",
+    "latitude": "25.0329636",
+    "longitude": "121.5654268",
+    "timeZone": "Asia/Taipei"
+}, {
+    "city_id": "233",
+    "ch_area": "太子港",
+    "ch_nation": "海地",
+    "en_area": "Port-au-Prince",
+    "en_nation": "Haiti",
+    "latitude": "18.594395",
+    "longitude": "-72.3074326",
+    "timeZone": "America/Port-au-Prince"
+}, {
+    "city_id": "119",
+    "ch_area": "檀香山",
+    "ch_nation": "美国",
+    "en_area": "Honolulu",
+    "en_nation": "U.S.A.",
+    "latitude": "21.3069444",
+    "longitude": "-157.8583333",
+    "timeZone": "Pacific/Honolulu"
+}, {
+    "city_id": "533",
+    "ch_area": "特尔城",
+    "ch_nation": "美国",
+    "en_area": "Tell City",
+    "en_nation": "U.S.A.",
+    "latitude": "37.9514447",
+    "longitude": "-86.7677663",
+    "timeZone": "America/Indiana/Tell_City"
+}, {
+    "city_id": "291",
+    "ch_area": "特古西加尔巴",
+    "ch_nation": "洪都拉斯",
+    "en_area": "Tegucigalpa",
+    "en_nation": "Honduras",
+    "latitude": "14.065049",
+    "longitude": "-87.1715002",
+    "timeZone": "America/Tegucigalpa"
+}, {
+    "city_id": "340",
+    "ch_area": "特拉维夫",
+    "ch_nation": "以色列",
+    "en_area": "Tel Aviv",
+    "en_nation": "Israel",
+    "latitude": "32.0852999",
+    "longitude": "34.7817676",
+    "timeZone": "Asia/Jerusalem"
+}, {
+    "city_id": "297",
+    "ch_area": "特雷埃",
+    "ch_nation": "法国",
+    "en_area": "Tréhet",
+    "en_nation": "France",
+    "latitude": "47.733106",
+    "longitude": "0.622018",
+    "timeZone": "Europe/Paris"
+}, {
+    "city_id": "294",
+    "ch_area": "天津",
+    "ch_nation": "中国",
+    "en_area": "Tianjin",
+    "en_nation": "China",
+    "latitude": "42.439344",
+    "longitude": "-76.49695",
+    "timeZone": "Asia/Shanghai"
+}, {
+    "city_id": "335",
+    "ch_area": "廷布",
+    "ch_nation": "不丹",
+    "en_area": "Thimphu",
+    "en_nation": "Bhutan",
+    "latitude": "27.4712216",
+    "longitude": "89.6339041",
+    "timeZone": "Asia/Dhaka"
+}, {
+    "city_id": "299",
+    "ch_area": "突尼斯",
+    "ch_nation": "突尼斯",
+    "en_area": "Tunis",
+    "en_nation": "Tunisia",
+    "latitude": "36.8064948",
+    "longitude": "10.1815316",
+    "timeZone": "Africa/Tunis"
+}, {
+    "city_id": "383",
+    "ch_area": "图库曼",
+    "ch_nation": "阿根廷",
+    "en_area": "Tucaman",
+    "en_nation": "Argentina",
+    "latitude": "-26.8382241",
+    "longitude": "-65.1678039",
+    "timeZone": "America/Argentina/Tucuman"
+}, {
+    "city_id": "465",
+    "ch_area": "图勒",
+    "ch_nation": "格陵兰",
+    "en_area": "Qaanaaq, Thule",
+    "en_nation": "Greenland",
+    "latitude": "77.4670434",
+    "longitude": "-69.2284827",
+    "timeZone": "America/Thule"
+}, {
+    "city_id": "353",
+    "ch_area": "托尔斯港",
+    "ch_nation": "法罗群岛",
+    "en_area": "Tórshavn",
+    "en_nation": "Faroe Islands",
+    "latitude": "62.0107248",
+    "longitude": "-6.7740852",
+    "timeZone": "Atlantic/Faroe"
+}, {
+    "city_id": "573",
+    "ch_area": "托雷翁",
+    "ch_nation": "墨西哥",
+    "en_area": "Torreón",
+    "en_nation": "Mexico",
+    "latitude": "25.5428443",
+    "longitude": "-103.4067861",
+    "timeZone": "America/Monterrey"
+}, {
+    "city_id": "572",
+    "ch_area": "托卢卡",
+    "ch_nation": "墨西哥",
+    "en_area": "Toluca",
+    "en_nation": "Mexico",
+    "latitude": "19.2826098",
+    "longitude": "-99.6556653",
+    "timeZone": "America/Mexico_City"
+}, {
+    "city_id": "303",
+    "ch_area": "瓦杜兹",
+    "ch_nation": "列支敦士登",
+    "en_area": "Vaduz",
+    "en_nation": "Liechtenstein",
+    "latitude": "47.1410303",
+    "longitude": "9.5209277",
+    "timeZone": "Europe/Vaduz"
+}, {
+    "city_id": "212",
+    "ch_area": "瓦加杜古",
+    "ch_nation": "布基纳法索",
+    "en_area": "Ouagadougou",
+    "en_nation": "Burkina Faso",
+    "latitude": "12.3714277",
+    "longitude": "-1.5196603",
+    "timeZone": "Africa/Ouagadougou"
+}, {
+    "city_id": "305",
+    "ch_area": "瓦莱塔",
+    "ch_nation": "马耳他",
+    "en_area": "Valletta",
+    "en_nation": "Malta",
+    "latitude": "35.8989085",
+    "longitude": "14.5145528",
+    "timeZone": "Europe/Malta"
+}, {
+    "city_id": "304",
+    "ch_area": "瓦列霍",
+    "ch_nation": "美国",
+    "en_area": "Vallejo",
+    "en_nation": "U.S.A.",
+    "latitude": "38.1040864",
+    "longitude": "-122.2566367",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "326",
+    "ch_area": "万象",
+    "ch_nation": "老挝",
+    "en_area": "Vientiane",
+    "en_nation": "Laos",
+    "latitude": "17.9757058",
+    "longitude": "102.6331035",
+    "timeZone": "Asia/Bangkok"
+}, {
+    "city_id": "107",
+    "ch_area": "危地马拉城",
+    "ch_nation": "危地马拉",
+    "en_area": "Guatemala City",
+    "en_nation": "Guatemala",
+    "latitude": "14.6349149",
+    "longitude": "-90.5068824",
+    "timeZone": "America/Guatemala"
+}, {
+    "city_id": "442",
+    "ch_area": "威廉斯塔德",
+    "ch_nation": "库拉索",
+    "en_area": "Willemstad",
+    "en_nation": "Curacao",
+    "latitude": "12.1224221",
+    "longitude": "-68.8824233",
+    "timeZone": "America/Curacao"
+}, {
+    "city_id": "529",
+    "ch_area": "威纳马克",
+    "ch_nation": "美国",
+    "en_area": "Winamac",
+    "en_nation": "U.S.A.",
+    "latitude": "41.0514299",
+    "longitude": "-86.6030648",
+    "timeZone": "America/Indiana/Winamac"
+}, {
+    "city_id": "532",
+    "ch_area": "韦韦",
+    "ch_nation": "美国",
+    "en_area": "Vevay",
+    "en_nation": "U.S.A.",
+    "latitude": "38.7478401",
+    "longitude": "-85.0671725",
+    "timeZone": "America/Indiana/Vevay"
+}, {
+    "city_id": "308",
+    "ch_area": "维多利亚",
+    "ch_nation": "塞舌尔",
+    "en_area": "Victoria",
+    "en_nation": "Seychelles",
+    "latitude": "-36.9847807",
+    "longitude": "143.3906074",
+    "timeZone": "Indian/Mahe"
+}, {
+    "city_id": "310",
+    "ch_area": "维尔纽斯",
+    "ch_nation": "立陶宛",
+    "en_area": "Vilnius",
+    "en_nation": "Lithuania",
+    "latitude": "54.6871555",
+    "longitude": "25.2796514",
+    "timeZone": "Europe/Vilnius"
+}, {
+    "city_id": "307",
+    "ch_area": "维罗纳",
+    "ch_nation": "意大利",
+    "en_area": "Verona",
+    "en_nation": "Italy",
+    "latitude": "45.4383842",
+    "longitude": "10.9916215",
+    "timeZone": "Europe/Rome"
+}, {
+    "city_id": "309",
+    "ch_area": "维也纳",
+    "ch_nation": "奥地利",
+    "en_area": "Vienna",
+    "en_nation": "Austria",
+    "latitude": "48.2081743",
+    "longitude": "16.3738189",
+    "timeZone": "Europe/Vienna"
+}, {
+    "city_id": "363",
+    "ch_area": "温得和克",
+    "ch_nation": "纳米比亚",
+    "en_area": "Windhoek",
+    "en_nation": "Namibia",
+    "latitude": "-22.5608807",
+    "longitude": "17.0657549",
+    "timeZone": "Africa/Windhoek"
+}, {
+    "city_id": "306",
+    "ch_area": "温哥华",
+    "ch_nation": "加拿大",
+    "en_area": "Vancouver",
+    "en_nation": "Canada",
+    "latitude": "49.2827291",
+    "longitude": "-123.1207375",
+    "timeZone": "America/Vancouver"
+}, {
+    "city_id": "317",
+    "ch_area": "温尼伯",
+    "ch_nation": "加拿大",
+    "en_area": "Winnipeg",
+    "en_nation": "Canada",
+    "latitude": "49.895136",
+    "longitude": "-97.1383744",
+    "timeZone": "America/Winnipeg"
+}, {
+    "city_id": "512",
+    "ch_area": "温森斯",
+    "ch_nation": "美国",
+    "en_area": "Vincennes",
+    "en_nation": "U.S.A.",
+    "latitude": "38.677269",
+    "longitude": "-87.5286325",
+    "timeZone": "America/Indiana/Vincennes"
+}, {
+    "city_id": "313",
+    "ch_area": "沃尔纳特克里克",
+    "ch_nation": "美国",
+    "en_area": "Walnut Creek",
+    "en_nation": "U.S.A.",
+    "latitude": "37.9100783",
+    "longitude": "-122.0651819",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "376",
+    "ch_area": "沃斯托站",
+    "ch_nation": "南极洲",
+    "en_area": "Vostok Station",
+    "en_nation": "Antarctica",
+    "latitude": "-78.4644829",
+    "longitude": "106.83392",
+    "timeZone": "Antarctica/Vostok"
+}, {
+    "city_id": "211",
+    "ch_area": "渥太华",
+    "ch_nation": "加拿大",
+    "en_area": "Ottawa",
+    "en_nation": "Canada",
+    "latitude": "45.4215296",
+    "longitude": "-75.6971931",
+    "timeZone": "America/Toronto"
+}, {
+    "city_id": "301",
+    "ch_area": "乌兰巴托",
+    "ch_nation": "蒙古",
+    "en_area": "Ulaanbaatar",
+    "en_nation": "Mongolia",
+    "latitude": "47.8863988",
+    "longitude": "106.9057439",
+    "timeZone": "Asia/Ulaanbaatar"
+}, {
+    "city_id": "439",
+    "ch_area": "乌鲁木齐",
+    "ch_nation": "中国",
+    "en_area": "Urumqi",
+    "en_nation": "China",
+    "latitude": "43.825592",
+    "longitude": "87.616848",
+    "timeZone": "Asia/Urumqi"
+}, {
+    "city_id": "390",
+    "ch_area": "乌斯怀亚",
+    "ch_nation": "阿根廷",
+    "en_area": "Ushuaia",
+    "en_nation": "Argentina",
+    "latitude": "-54.8019121",
+    "longitude": "-68.3029511",
+    "timeZone": "America/Argentina/Ushuaia"
+}, {
+    "city_id": "272",
+    "ch_area": "西雅图",
+    "ch_nation": "美国",
+    "en_area": "Seattle, WA",
+    "en_nation": "U.S.A.",
+    "latitude": "47.6062095",
+    "longitude": "-122.3320708",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "510",
+    "ch_area": "希伯伦",
+    "ch_nation": "巴勒斯坦领土",
+    "en_area": "Hebron",
+    "en_nation": "Palestinian Territories",
+    "latitude": "31.532569",
+    "longitude": "35.099826",
+    "timeZone": "Asia/Hebron"
+}, {
+    "city_id": "115",
+    "ch_area": "希尔兹堡",
+    "ch_nation": "美国",
+    "en_area": "Healdsburg",
+    "en_nation": "U.S.A.",
+    "latitude": "38.6104658",
+    "longitude": "-122.8691609",
+    "timeZone": "US/Pacific"
+}, {
+    "city_id": "287",
+    "ch_area": "悉尼",
+    "ch_nation": "澳大利亚",
+    "en_area": "Sydney",
+    "en_nation": "Australia",
+    "latitude": "-33.8688197",
+    "longitude": "151.2092955",
+    "timeZone": "Australia/Sydney"
+}, {
+    "city_id": "541",
+    "ch_area": "锡特卡",
+    "ch_nation": "美国",
+    "en_area": "Sitka",
+    "en_nation": "U.S.A.",
+    "latitude": "57.0530556",
+    "longitude": "-135.33",
+    "timeZone": "America/Sitka"
+}, {
+    "city_id": "524",
+    "ch_area": "下太子区",
+    "ch_nation": "荷属圣马丁",
+    "en_area": "Lower Prince's Quarter",
+    "en_nation": "Sint Maarten",
+    "latitude": "18.0513455",
+    "longitude": "-63.0471371",
+    "timeZone": "America/Lower_Princes"
+}, {
+    "city_id": "64",
+    "ch_area": "夏洛特",
+    "ch_nation": "美国",
+    "en_area": "Charlotte, NC",
+    "en_nation": "U.S.A.",
+    "latitude": "35.2270869",
+    "longitude": "-80.8431267",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "65",
+    "ch_area": "夏洛特阿马利亚",
+    "ch_nation": "美属维尔京群岛",
+    "en_area": "Charlotte Amalie",
+    "en_nation": "U.S. Virgin Islands",
+    "latitude": "18.3419004",
+    "longitude": "-64.9307007",
+    "timeZone": "America/St_Thomas"
+}, {
+    "city_id": "118",
+    "ch_area": "香港特别行政区",
+    "ch_nation": "中国",
+    "en_area": "Hong Kong",
+    "en_nation": "China",
+    "latitude": "22.3193039",
+    "longitude": "114.1693611",
+    "timeZone": "Asia/Hong_Kong"
+}, {
+    "city_id": "146",
+    "ch_area": "小石城",
+    "ch_nation": "美国",
+    "en_area": "Little Rock",
+    "en_nation": "U.S.A.",
+    "latitude": "34.7464809",
+    "longitude": "-92.2895948",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "196",
+    "ch_area": "新奥尔良",
+    "ch_nation": "美国",
+    "en_area": "New Orleans",
+    "en_nation": "U.S.A.",
+    "latitude": "29.9510658",
+    "longitude": "-90.0715323",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "443",
+    "ch_area": "新村",
+    "ch_nation": "圣诞岛",
+    "en_area": "Flying Fish Cove",
+    "en_nation": "Christmas Island",
+    "latitude": "-10.4318725",
+    "longitude": "105.6735131",
+    "timeZone": "Indian/Christmas"
+}, {
+    "city_id": "195",
+    "ch_area": "新德里",
+    "ch_nation": "印度",
+    "en_area": "New Delhi",
+    "en_nation": "India",
+    "latitude": "28.6139391",
+    "longitude": "77.2090212",
+    "timeZone": "Asia/Kolkata"
+}, {
+    "city_id": "277",
+    "ch_area": "新加坡",
+    "ch_nation": "新加坡",
+    "en_area": "Singapore",
+    "en_nation": "Singapore",
+    "latitude": "1.352083",
+    "longitude": "103.819836",
+    "timeZone": "Asia/Singapore"
+}, {
+    "city_id": "556",
+    "ch_area": "新塞勒姆",
+    "ch_nation": "美国",
+    "en_area": "New Salem",
+    "en_nation": "U.S.A.",
+    "latitude": "39.7075473",
+    "longitude": "-90.8476304",
+    "timeZone": "America/North_Dakota/New_Salem"
+}, {
+    "city_id": "202",
+    "ch_area": "新西伯利亚",
+    "ch_nation": "俄罗斯",
+    "en_area": "Novosibirsk",
+    "en_nation": "Russia",
+    "latitude": "54.9832693",
+    "longitude": "82.8963831",
+    "timeZone": "Asia/Novosibirsk"
+}, {
+    "city_id": "447",
+    "ch_area": "休达",
+    "ch_nation": "西班牙",
+    "en_area": "Ceuta",
+    "en_nation": "Spain",
+    "latitude": "35.8893874",
+    "longitude": "-5.3213455",
+    "timeZone": "Africa/Ceuta"
+}, {
+    "city_id": "120",
+    "ch_area": "休斯顿",
+    "ch_nation": "美国",
+    "en_area": "Houston, TX",
+    "en_nation": "U.S.A.",
+    "latitude": "29.7604267",
+    "longitude": "-95.3698028",
+    "timeZone": "US/Central"
+}, {
+    "city_id": "18",
+    "ch_area": "雅典",
+    "ch_nation": "希腊",
+    "en_area": "Athens",
+    "en_nation": "Greece",
+    "latitude": "37.9838096",
+    "longitude": "23.7275388",
+    "timeZone": "Europe/Athens"
+}, {
+    "city_id": "125",
+    "ch_area": "雅加达",
+    "ch_nation": "印度尼西亚",
+    "en_area": "Jakarta",
+    "en_nation": "Indonesia",
+    "latitude": "-6.2087634",
+    "longitude": "106.845599",
+    "timeZone": "Asia/Jakarta"
+}, {
+    "city_id": "318",
+    "ch_area": "雅库茨克",
+    "ch_nation": "俄罗斯",
+    "en_area": "Yakutsk",
+    "en_nation": "Russia",
+    "latitude": "62.0396912",
+    "longitude": "129.7422192",
+    "timeZone": "Asia/Yakutsk"
+}, {
+    "city_id": "542",
+    "ch_area": "雅库塔特",
+    "ch_nation": "美国",
+    "en_area": "Yakutat",
+    "en_nation": "U.S.A.",
+    "latitude": "59.5469878",
+    "longitude": "-139.7272808",
+    "timeZone": "America/Yakutat"
+}, {
+    "city_id": "320",
+    "ch_area": "雅温得",
+    "ch_nation": "喀麦隆",
+    "en_area": "Yaoundé",
+    "en_nation": "Cameroon",
+    "latitude": "3.8480325",
+    "longitude": "11.5020752",
+    "timeZone": "Africa/Douala"
+}, {
+    "city_id": "508",
+    "ch_area": "亚当斯敦",
+    "ch_nation": "皮特凯恩群岛",
+    "en_area": "Adamstown",
+    "en_nation": "Pitcairn Islands",
+    "latitude": "-25.0662897",
+    "longitude": "-130.1004636",
+    "timeZone": "Pacific/Pitcairn"
+}, {
+    "city_id": "4",
+    "ch_area": "亚的斯亚贝巴",
+    "ch_nation": "埃塞俄比亚",
+    "en_area": "Addis Ababa",
+    "en_nation": "Ethiopia",
+    "latitude": "8.9806034",
+    "longitude": "38.7577605",
+    "timeZone": "Africa/Addis_Ababa"
+}, {
+    "city_id": "552",
+    "ch_area": "亚丁",
+    "ch_nation": "也门",
+    "en_area": "Aden",
+    "en_nation": "Yemen",
+    "latitude": "12.7854969",
+    "longitude": "45.0186548",
+    "timeZone": "Asia/Aden"
+}, {
+    "city_id": "358",
+    "ch_area": "亚历山大",
+    "ch_nation": "埃及",
+    "en_area": "Alexandria",
+    "en_nation": "Egypt",
+    "latitude": "38.8048355",
+    "longitude": "-77.0469214",
+    "timeZone": "Africa/Cairo"
+}, {
+    "city_id": "319",
+    "ch_area": "亚穆苏克罗",
+    "ch_nation": "科特迪瓦",
+    "en_area": "Yamoussoukro",
+    "en_nation": "Ivory Coast",
+    "latitude": "6.8276228",
+    "longitude": "-5.2893433",
+    "timeZone": "Africa/Abidjan"
+}, {
+    "city_id": "17",
+    "ch_area": "亚松森",
+    "ch_nation": "巴拉圭",
+    "en_area": "Asunción",
+    "en_nation": "Paraguay",
+    "latitude": "-25.2637399",
+    "longitude": "-57.575926",
+    "timeZone": "America/Asuncion"
+}, {
+    "city_id": "19",
+    "ch_area": "亚特兰大",
+    "ch_nation": "美国",
+    "en_area": "Atlanta, GA",
+    "en_nation": "U.S.A.",
+    "latitude": "33.7489954",
+    "longitude": "-84.3879824",
+    "timeZone": "US/Eastern"
+}, {
+    "city_id": "249",
+    "ch_area": "盐湖城",
+    "ch_nation": "美国",
+    "en_area": "Salt Lake City",
+    "en_nation": "U.S.A.",
+    "latitude": "40.7607793",
+    "longitude": "-111.8910474",
+    "timeZone": "US/Mountain"
+}, {
+    "city_id": "239",
+    "ch_area": "仰光",
+    "ch_nation": "缅甸",
+    "en_area": "Rangoon",
+    "en_nation": "Burma",
+    "latitude": "16.840939",
+    "longitude": "96.173526",
+    "timeZone": "Asia/Rangoon"
+}, {
+    "city_id": "343",
+    "ch_area": "仰光",
+    "ch_nation": "缅甸",
+    "en_area": "Yangon",
+    "en_nation": "Burma",
+    "latitude": "16.840939",
+    "longitude": "96.173526",
+    "timeZone": "Asia/Rangoon"
+}, {
+    "city_id": "126",
+    "ch_area": "耶路撒冷",
+    "ch_nation": "以色列",
+    "en_area": "Jerusalem",
+    "en_nation": "Israel",
+    "latitude": "31.768319",
+    "longitude": "35.21371",
+    "timeZone": "Asia/Jerusalem"
+}, {
+    "city_id": "429",
+    "ch_area": "耶洛奈夫",
+    "ch_nation": "加拿大",
+    "en_area": "Yellowknife",
+    "en_nation": "Canada",
+    "latitude": "62.4539717",
+    "longitude": "-114.3717887",
+    "timeZone": "America/Yellowknife"
+}, {
+    "city_id": "321",
+    "ch_area": "叶卡捷琳堡",
+    "ch_nation": "俄罗斯",
+    "en_area": "Yekaterinburg",
+    "en_nation": "Russia",
+    "latitude": "56.8430993",
+    "longitude": "60.6454086",
+    "timeZone": "Asia/Yekaterinburg"
+}, {
+    "city_id": "122",
+    "ch_area": "伊尔库茨克",
+    "ch_nation": "俄罗斯",
+    "en_area": "Irkutsk",
+    "en_nation": "Russia",
+    "latitude": "52.2854834",
+    "longitude": "104.2890222",
+    "timeZone": "Asia/Irkutsk"
+}, {
+    "city_id": "420",
+    "ch_area": "伊凯鲁特",
+    "ch_nation": "加拿大",
+    "en_area": "Iqaluit",
+    "en_nation": "Canada",
+    "latitude": "63.746693",
+    "longitude": "-68.5169669",
+    "timeZone": "America/Iqaluit"
+}, {
+    "city_id": "339",
+    "ch_area": "伊拉克利翁",
+    "ch_nation": "希腊",
+    "en_area": "Heraklion",
+    "en_nation": "Greece",
+    "latitude": "35.3387352",
+    "longitude": "25.1442126",
+    "timeZone": "Europe/Athens"
+}, {
+    "city_id": "430",
+    "ch_area": "伊努维克",
+    "ch_nation": "加拿大",
+    "en_area": "Inuvik",
+    "en_nation": "Canada",
+    "latitude": "68.3607437",
+    "longitude": "-133.7230178",
+    "timeZone": "America/Inuvik"
+}, {
+    "city_id": "123",
+    "ch_area": "伊斯兰堡",
+    "ch_nation": "巴基斯坦",
+    "en_area": "Islamabad",
+    "en_nation": "Pakistan",
+    "latitude": "33.6844202",
+    "longitude": "73.0478848",
+    "timeZone": "Asia/Karachi"
+}, {
+    "city_id": "124",
+    "ch_area": "伊斯坦布尔",
+    "ch_nation": "土耳其",
+    "en_area": "Istanbul",
+    "en_nation": "Turkey",
+    "latitude": "41.0082376",
+    "longitude": "28.9783589",
+    "timeZone": "Europe/Istanbul"
+}, {
+    "city_id": "464",
+    "ch_area": "依托克托洛米特",
+    "ch_nation": "格陵兰",
+    "en_area": "Ittoqqortoormiit",
+    "en_nation": "Greenland",
+    "latitude": "70.4855691",
+    "longitude": "-21.9628757",
+    "timeZone": "America/Scoresbysund"
+}, {
+    "city_id": "121",
+    "ch_area": "印第安纳波利斯",
+    "ch_nation": "美国",
+    "en_area": "Indianapolis, IN",
+    "en_nation": "U.S.A.",
+    "latitude": "39.768403",
+    "longitude": "-86.158068",
+    "timeZone": "America/Indianapolis"
+}, {
+    "city_id": "395",
+    "ch_area": "尤克拉",
+    "ch_nation": "澳大利亚",
+    "en_area": "Eucla",
+    "en_nation": "Australia",
+    "latitude": "-31.6761605",
+    "longitude": "128.8891311",
+    "timeZone": "Australia/Eucla"
+}, {
+    "city_id": "425",
+    "ch_area": "雨河",
+    "ch_nation": "加拿大",
+    "en_area": "Rainy River",
+    "en_nation": "Canada",
+    "latitude": "48.7216623",
+    "longitude": "-94.5695247",
+    "timeZone": "America/Rainy_River"
+}, {
+    "city_id": "127",
+    "ch_area": "约翰内斯堡",
+    "ch_nation": "南非",
+    "en_area": "Johannesburg",
+    "en_nation": "South Africa",
+    "latitude": "-26.2041028",
+    "longitude": "28.0473051",
+    "timeZone": "Africa/Johannesburg"
+}, {
+    "city_id": "520",
+    "ch_area": "詹姆斯敦",
+    "ch_nation": "圣赫勒拿、阿森松和特里斯坦-达库尼亚",
+    "en_area": "Jamestown",
+    "en_nation": "Saint Helena, Ascension and Tristan da Cunha",
+    "latitude": "37.2116383",
+    "longitude": "-76.7752102",
+    "timeZone": "Atlantic/St_Helena"
+}, {
+    "city_id": "378",
+    "ch_area": "昭和站",
+    "ch_nation": "南极洲",
+    "en_area": "Syowa Station",
+    "en_nation": "Antarctica",
+    "latitude": "39.8607264",
+    "longitude": "-75.3000876",
+    "timeZone": "Antarctica/Syowa"
+}, {
+    "city_id": "67",
+    "ch_area": "芝加哥",
+    "ch_nation": "美国",
+    "en_area": "Chicago, IL",
+    "en_nation": "U.S.A.",
+    "latitude": "41.8781136",
+    "longitude": "-87.6297982",
+    "timeZone": "America/Chicago"
+}, {
+    "city_id": "455",
+    "ch_area": "直布罗陀",
+    "ch_nation": "直布罗陀",
+    "en_area": "Gibraltar",
+    "en_nation": "Gibraltar",
+    "latitude": "36.140751",
+    "longitude": "-5.353585",
+    "timeZone": "Europe/Gibraltar"
+}, {
+    "city_id": "438",
+    "ch_area": "重庆",
+    "ch_nation": "中国",
+    "en_area": "Chongqing",
+    "en_nation": "China",
+    "latitude": "29.4315861",
+    "longitude": "106.912251",
+    "timeZone": "Asia/Chongqing"
+}, {
+    "city_id": "522",
+    "ch_area": "朱巴",
+    "ch_nation": "南苏丹",
+    "en_area": "Juba",
+    "en_nation": "South Sudan",
+    "latitude": "4.859363",
+    "longitude": "31.57125",
+    "timeZone": "Africa/Juba"
+}, {
+    "city_id": "540",
+    "ch_area": "朱诺",
+    "ch_nation": "美国",
+    "en_area": "Juneau",
+    "en_nation": "U.S.A.",
+    "latitude": "58.3019444",
+    "longitude": "-134.4197221",
+    "timeZone": "America/Juneau"
+}]

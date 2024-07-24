@@ -34,7 +34,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"device unbind")],@[lang(@"mandatory unbind")],@[lang(@"device switch")]];
+        _buttonTitles = @[@[lang(@"device unbind")],@[lang(@"device switch")],@[lang(@"device data unbind")]];
     }
     return _buttonTitles;
 }
@@ -78,28 +78,21 @@
                     [funcVc showToastWithText:lang(@"unbind failed")];
                 }
             }];
-        }else if(indexPath.row == 1){
-            [funcVc showLoadingWithMessage:lang(@"device unbinding")];
-            [IDOFoundationCommand mandatoryUnbindingCommand:^(int errorCode, NSString * _Nullable undindMacAddr) {
-                if (errorCode == 0) {
-                    [funcVc showToastWithText:lang(@"unbind success")];
-                    IDOGetDeviceInfoBluetoothModel * model = [IDOGetDeviceInfoBluetoothModel currentModel];
-                    if (!model.bindState) {
-                        ScanViewController * scanVC  = [[ScanViewController alloc]init];
-                        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
-                        [UIApplication sharedApplication].delegate.window.rootViewController = nav;
-                    }else {
-                       //if the current device is in a bound state, an automatic scan connection is started without any additional action
-                    }
-                }else {
-                    [funcVc showToastWithText:lang(@"unbind failed")];
-                }
-            }];
         }else if (indexPath.row == 2) {
             FuncViewController * newFuncVc = [FuncViewController new];
             newFuncVc.model = [SwitchDeviceViewModel new];
             newFuncVc.title = lang(@"device switch");
             [funcVc.navigationController pushViewController:newFuncVc animated:YES];
+        }else if (indexPath.row == 3) {
+            [funcVc showLoadingWithMessage:lang(@"device data unbind")];
+            IDOGetDeviceInfoBluetoothModel * model = [IDOGetDeviceInfoBluetoothModel currentModel];
+            [IDOFoundationCommand unbindCorrespondDeviceWithMacAddr:model.macAddr];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [funcVc showToastWithText:lang(@"device data unbind")];
+                ScanViewController * scanVC  = [[ScanViewController alloc]init];
+                UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:scanVC];
+                [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+            });
         }
     };
 }

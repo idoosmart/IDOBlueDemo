@@ -104,6 +104,12 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      * Synchronized Health Heart Rate
      */
     IDO_SYNC_HEALTH_HR_LOG,
+    
+    /**
+     * 同步喝水计划
+     */
+    IDO_SYNC_HEALTH_DRINK_PLAN_LOG,
+    
     /**
      * 同步健康 血压
      * Synchronized Health Blood Pressure
