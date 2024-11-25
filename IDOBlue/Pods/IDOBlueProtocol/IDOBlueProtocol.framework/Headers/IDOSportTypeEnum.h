@@ -213,7 +213,12 @@ typedef NS_ENUM(NSInteger,IDO_SPORT_TYPE) {
      */
       IDO_SPORT_TYPE_HIIT=58,
      /**
-     *板球运动cricket
+      *踏步测试
+      */
+      IDO_SPORT_TYPE_STEP_TEST=59,
+      
+     /**
+      *板球运动cricket
      */
       IDO_SPORT_TYPE_CRICKET=75,
     
@@ -577,6 +582,26 @@ typedef NS_ENUM(NSInteger,IDO_SPORT_TYPE) {
     *轮椅运动 | wheelchair sport
     */
      IDO_SPORT_TYPE_WHEELCHAIR =205,
+    
+    /**
+     团体操 0xD0 | Group gymnastics
+     */
+     IDO_SPORT_TYPE_GROUP_GYMNASTICS=208,
+    
+    /**
+     其他舞蹈 0xE0 | Other Dances
+     */
+    IDO_SPORT_TYPE_OTHER_DANCES=224,
+    
+    /**
+     长曲棍球 0xFE | lacrosse
+     */
+    IDO_SPORT_TYPE_LACROSSE=254,
+    
+    /**
+     美式橄榄球 0xFF | American football
+     */
+    IDO_SPORT_TYPE_AMERICAN_FOOTBALL=255,
  };
 
 typedef NS_ENUM(NSInteger,IDO_SPORT_PAR_TYPE) {
@@ -992,6 +1017,25 @@ typedef NS_ENUM(NSInteger,IDO_LISTEN_TYPE) {
      | After the firmware measurement is completed, notify the APP to obtain it
     */
     IDO_LISTEN_TYPE_FIRMWARE_MEASUREMENT_COMPLETE = 64, 
+    
+    /**
+     固件经期历史数据修改，同步APP获取
+     / Firmware menstrual history data modification, synchronous APP acquisition
+     */
+
+    IDO_LISTEN_TYPE_MENSTRUAL_HISTORY = 79,
+    
+    /**
+     固件进入来电提醒
+      / Firmware incoming call notification
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_ENTER_CALL_ALERT = 80,
+    
+    /**
+     固件退出电提醒
+     / Firmware quit electric reminder
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_EXIT_CALL_ALERT= 81,
 };
 
 //自定义数据类型 | Custom data type

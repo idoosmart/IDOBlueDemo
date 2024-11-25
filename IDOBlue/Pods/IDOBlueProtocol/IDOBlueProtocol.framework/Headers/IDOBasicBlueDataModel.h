@@ -111,7 +111,66 @@
 
 @end
 
-#pragma mark ==== 设置经期历史数据 model ====
+
+@interface IDOMenstrualHistoryVersion3GradeModel : IDOBluetoothBaseModel
+/**
+ 痛经等级 0-3
+ */
+@property (nonatomic,assign) NSInteger dysGrade;;
+/**
+ 流量等级 0-3
+ */
+@property (nonatomic,assign) NSInteger mfGrade;;
+
+@end
+
+
+@interface IDOMenstrualHistoryDataVersion3ItemModel : IDOBluetoothBaseModel
+
+/**
+ 索引 从0开始 唯一标识
+ */
+@property (nonatomic,assign) NSInteger index;
+
+/**
+ 经期开始的年
+ */
+@property (nonatomic,assign) NSInteger year;
+
+/**
+ 经期开始的月
+ */
+@property (nonatomic,assign) NSInteger month;
+
+/**
+ 经期开始的天
+ */
+@property (nonatomic,assign) NSInteger day;
+
+/**
+ 经期长度 单位天 默认最大14天 通过协议02f4可获取固件支持的最大字节
+ */
+@property (nonatomic,assign) NSInteger menstrualDay;
+
+/**
+ 周期长度 单位天
+ */
+@property (nonatomic,assign) NSInteger cycleDay;
+
+/**
+ 最后一次修改的时间
+ */
+@property (nonatomic,assign) NSUInteger lastChangeTime;
+
+/**
+ 经期内每天的痛经和流量等级 长度等于经期长度
+ */
+@property (nonatomic,copy) NSArray<IDOMenstrualHistoryVersion3GradeModel*> *grade;
+
+
+@end
+
+
 @interface IDOMenstrualHistoryDataModel : IDOBluetoothBaseModel
 /**
  平均经期长度
@@ -129,6 +188,152 @@
  经期的历史数据集合
  */
 @property (nonatomic,copy) NSArray <IDOMenstrualHistoryDataItemModel *>* items;
+
+@end
+
+#pragma mark ==== 设置V3经期历史数据 model ====
+
+@interface IDOMenstrualHistoryDataVesion3Model : IDOBluetoothBaseModel
+
+/**
+  操作 0：无效；1：设置 2：查询 (3：修改 4：增加 5：删 每次操作一条记录)    
+ */
+@property (nonatomic,assign) NSInteger operat;
+
+/**
+ 总的items的个数 经期历史个数最多200个
+ */
+@property (nonatomic,assign) NSInteger allItemsNum;
+
+/**
+ 已经发送/接收的items的个数
+ */
+@property (nonatomic,assign) NSInteger finishItemsNum;
+
+/**
+ 当前包items的个数 经期长度14天默认一个指令最多发40个 只有查询有效
+ */
+@property (nonatomic,assign) NSInteger curItemsNum;
+
+/**
+ 最后一次修改时间
+ */
+@property (nonatomic,assign) NSInteger lastChangeTime;
+
+/**
+ 支持设置的最大经期历史数据内容个数
+ */
+@property (nonatomic,assign) NSInteger supportSetMaxMenstruationNum;
+
+/**
+ 经期长度14天默认一个指令最多发40个 只有查询有效
+ */
+@property (nonatomic,copy) NSArray<IDOMenstrualHistoryDataVersion3ItemModel *> *items;
+
++ (IDOMenstrualHistoryDataVesion3Model *)currentModel;
+
+@end
+
+#pragma mark === 设置获取V3经期配置  ===
+@interface IDOSetV3MenstruationConfigModel :IDOBluetoothBaseModel
+
+/**
+ 开关 YES: 开  NO: 关闭
+ */
+@property (nonatomic,assign) BOOL onOff;
+
+/**
+ 经期提醒开关  YES: 开 NO: 关闭
+ */
+@property (nonatomic,assign) BOOL menstrualReminderOnOff;
+
+/**
+ 经期长度
+ */
+@property (nonatomic,assign) NSInteger menstrualLength;
+
+/**
+ 经期周期
+ */
+@property (nonatomic,assign) NSInteger menstrualCycle;
+
+/**
+ 最近一次经期开始时间
+ */
+@property (nonatomic,assign) NSInteger lastMenstrualYear;
+
+
+/**
+ 从排卵日到下一个经期开始前的间隔,包括排卵日,一般为14天
+ */
+@property (nonatomic,assign) NSInteger lastMenstrualMonth;
+
+/**
+ 排卵日之前易孕期的天数,一般为5
+ */
+@property (nonatomic,assign) NSInteger lastMenstrualDay;
+
+/**
+ 从排卵日到下一个经期开始前的间隔,包括排卵日,一般为14天
+ */
+@property (nonatomic,assign) NSInteger ovulationIntervalDay;
+
+
+/**
+ 排卵日之前易孕期的天数,一般为5
+ */
+@property (nonatomic,assign) NSInteger ovulationBeforeDay;
+
+/**
+ 排卵日之后易孕期的天数,一般为4
+ */
+@property (nonatomic,assign) NSInteger ovulationAfterDay;
+
+/**
+ 通知类型 0无效 1允许通知 2静默通知 3关闭通知
+ */
+@property (nonatomic,assign) NSInteger notifyFlag;
+
+/**
+ 开始日提醒 提前天数
+ */
+@property (nonatomic,assign) NSInteger startDay;
+
+/**
+ */
+@property (nonatomic,assign) NSInteger ovulationDay;
+
+/**
+ 提醒时间 时
+ */
+@property (nonatomic,assign) NSInteger hour;
+
+/**
+ 提醒时间 分
+ */
+@property (nonatomic,assign) NSInteger minute;
+
+/**
+ 易孕期 开始的时候 提前多少天提醒
+ */
+@property (nonatomic,assign) NSInteger pregnancyDayBeforeRemind;
+
+/**
+ 易孕期 结束的时候 提前多少天提醒
+ */
+@property (nonatomic,assign) NSInteger pregnancyDayEndRemind;
+
+/**
+ 经期结束 提前多少天提醒
+ */
+@property (nonatomic,assign) NSInteger menstrualDayEndRemind;
+
+/**
+ 0:无效 1:设置 2:查询
+ */
+@property (nonatomic,assign) NSInteger operate;
+
++ (IDOSetV3MenstruationConfigModel *)currentModel;
 
 @end
 
@@ -258,7 +463,7 @@
 @property (nonatomic,assign) NSInteger receiveMtu;
 @end
 
-#pragma mark ==== 手环控制状态 model ====
+#pragma mark ==== 设备控制状态 model ====
 @interface IDOControlDataUpdateModel : IDOBluetoothBaseModel
 /**
  解绑状态  0=> 无效 1 => 手环已经解绑

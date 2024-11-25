@@ -377,11 +377,54 @@ error flag
  9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
  17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示 21=> X屏（gt01pro-X新增）22=> 卡路里 （Doro Watch新增）
  23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增) 25=> renpho health(润丰健康)(IDW12新增) 26=> 指南针 (mp01新增)
- 27=> 气压高度计(mp01新增)   28=> 通话列表(蓝牙通话)(IDW13新增)
+ 27=> 气压高度计(mp01新增)   28=> 通话列表(蓝牙通话)(IDW13新增) 29=> 事项提醒
  0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
  9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
  16=> Last activity 17=> Health data 18=> Blood oxygen 19 => Menu setting 20=> Alexa voice prompt 21=> X screen 22=> Calories
  23=> Distance 24=> One-key measurement  25=> renpho health 26=> compass 27=> barometric_altimeter  28=>Call list
+ 
+ 无排序情况,有值则显示,无值则不现实
+ 有排序情况,需要按照数组从0开始依次显示
+ * 0x00 无效
+ * 0x01 步数
+ * 0x02 心率
+ * 0x03 睡眠
+ * 0x04 拍照
+ * 0x05 闹钟
+ * 0x06 音乐
+ * 0x07 秒表
+ * 0x08 计时器
+ * 0x09 运动模式
+ * 0x0A 天气
+ * 0x0B 呼吸锻炼
+ * 0x0C 查找手机
+ * 0x0D 压力
+ * 0x0E 数据三环
+ * 0x0F 时间界面
+ * 0x10 最近一次活动
+ * 0x11 健康数据
+ * 0x12 血氧
+ * 0x13 菜单设置
+ * 0x14 (20)aleax语音依次显示
+ * 0x15 X屏（gt01pro-X新增）
+ * 0x16 卡路里 （Doro Watch新增）
+ * 0x17 距离   （Doro Watch新增）
+ * 0x18 一键测量 (IDW05新增)
+ * 0x19 renpho health(润丰健康)(IDW12新增)
+ * 0x1A 指南针 (mp01新增)
+ * 0x1B 气压高度计(mp01新增)
+ * 0x1C    通话列表(蓝牙通话)(IDW13新增) //功能表：table32.support_call_list
+ * 0x1D    事项提醒
+ * 0x1E ICE(紧急联系人咨询)
+ * 0x1F 最大摄氧量
+ * 0x20 恢复时间
+ * 0x21 有氧训练效果
+ * 0x22 海拔高度
+ * 0x23 身体电量
+ * 0x24 世界时钟
+ * 0x25 语音助手
+ * 0x26 AI语音助手
+ * 0x27 支付宝
 */
 @property (nonatomic,strong) NSArray<NSNumber *> * itemList;
 /**
@@ -883,6 +926,168 @@ error flag
 
 @end
 
+#pragma mark ==== 获取第42个功能表model ====
+@interface IDOGetFuncTable42BluetoothModel : IDOBluetoothBaseModel
+/**
+ 通知支持Facebook Messenger，type：0x65
+ */
+@property (nonatomic,assign) BOOL supportFacebookMssenger;
+
+/**
+ 通知支持Nubank，type：0x66
+ */
+@property (nonatomic,assign) BOOL supportNubank;
+
+/**
+ 通知支持Bradesco，type：0x67
+ */
+@property (nonatomic,assign) BOOL supportBradesco;
+
+/**
+ 通知支持Prime vídeo，type：0x75
+ */
+@property (nonatomic,assign) BOOL supportPrimeVideo;
+
+/**
+ 支持拍照预览功能
+ 
+ */
+@property (nonatomic,assign) BOOL supportPhotoPreviewFunction;
+
+/**
+ 支持来电快捷回复 VeryFit APP 使用
+ */
+@property (nonatomic,assign) BOOL supportFastCallingQuickVF;
+
+/**
+ 经期历史数据支持交互
+ */
+@property (nonatomic,assign) BOOL supportHistoricalMenstruationExchange;
+
+/**
+ 支持设置获取经期配置，使用v3长包指令
+ */
+@property (nonatomic,assign) BOOL supportProtocolV3MemstruationConfig;
+
+/**
+ 支持关爱提醒  
+ */
+
+@property (nonatomic, assign) BOOL supportFamilyCareReminder;
+
+/**
+ 不显示板球运动的步数
+ */
+@property (nonatomic, assign) BOOL supportCricketNotDisplayStepCount;
+
+/**
+ 是否支持支付宝认证
+ */
+@property (nonatomic, assign) BOOL supportAlipayAuth;
+
+/**
+ 支持不显示平均速度，【户外跑步、室内跑步、徒步、跑步计划、跑步课程】这些运动不支持
+ */
+@property (nonatomic, assign) BOOL supportSportAverageSpeedNotDisplay;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable37BluetoothModel
+ */
++ (IDOGetFuncTable42BluetoothModel *)currentModel;
+
+@end
+
+#pragma mark ==== 获取第41个功能表model ====
+@interface IDOGetFuncTable41BluetoothModel : IDOBluetoothBaseModel
+
+/**
+ 通知支持neon，type：0x6D
+ */
+@property (nonatomic,assign) BOOL supportNeon;
+
+/**
+ 通知支持Santander，type：0x6E
+ */
+@property (nonatomic,assign) BOOL supportSantander;
+
+/**
+ 通知支持Next，type：0x6F
+ */
+@property (nonatomic,assign) BOOL supportNext;
+
+/**
+ 通知支持Shein，type：0x70
+ */
+@property (nonatomic,assign) BOOL supportShein;
+
+/**
+ 通知支持Google task，type：0x71
+ */
+@property (nonatomic,assign) BOOL supportGoogleTask;
+
+/**
+ 通知支持Microsoft to do，type：0x72
+ */
+@property (nonatomic,assign) BOOL supportMicrosoftToDo;
+
+/**
+ 通知支持TickTick，type：0x73
+ */
+@property (nonatomic,assign) BOOL supportTickTick;
+
+/**
+ 通知支持Todoist，type：0x74
+ */
+@property (nonatomic,assign) BOOL supportTodoist;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable37BluetoothModel
+ */
++ (IDOGetFuncTable41BluetoothModel *)currentModel;
+
+@end
+
+
+#pragma mark ==== 获取第40个功能表model ====
+@interface IDOGetFuncTable40BluetoothModel : IDOBluetoothBaseModel
+
+/**
+ 通知支持itaú，type：0x68
+ */
+@property (nonatomic,assign) BOOL supportItau;
+
+/**
+ 通知支持banco do brasil，type：0x69
+ */
+@property (nonatomic,assign) BOOL supportBancoDoBrasil;
+
+/**
+ 通知支持correios，type：0x6A
+ */
+@property (nonatomic,assign) BOOL supportCorreios;
+
+/**
+ 通知支持banco inter，type：0x6B
+ */
+@property (nonatomic,assign) BOOL supportBancoInter;
+
+/**
+ 通知支持Caixa economica，type：0x6C
+ */
+@property (nonatomic,assign) BOOL supportCaixaEconomica;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable37BluetoothModel
+ */
++ (IDOGetFuncTable40BluetoothModel *)currentModel;
+
+@end
 #pragma mark ==== 获取第39个功能表model ====
 
 @interface IDOGetFuncTable39BluetoothModel : IDOBluetoothBaseModel
@@ -995,6 +1200,16 @@ error flag
  环境音量支持设置过高提醒
  */
 @property (nonatomic,assign) BOOL supportSetNoiseOverwarning;
+
+/**
+ 支持设置应用列表壁纸
+ */
+@property (nonatomic, assign) BOOL supportOperateApplistWallpaper;
+
+/**
+ 支持显示V3运动记录展示配置
+ */
+@property (nonatomic, assign) BOOL supportV3SportRecordShowConfig;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -1285,6 +1500,7 @@ error flag
  固件支持解绑不清除设备上的数据
  */
 @property (nonatomic,assign) BOOL newRetainData;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -4207,6 +4423,23 @@ error flag
 @property (nonatomic,strong) IDOGetFuncTable39BluetoothModel      * funcTable39Model;
 
 /**
+ 40功能列表 weather sun time | 40 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable40BluetoothModel      * funcTable40Model;
+
+
+/**
+ 41功能列表 weather sun time | 41 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable41BluetoothModel      * funcTable41Model;
+
+/**
+ 42功能列表 weather sun time | 42 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable42BluetoothModel      * funcTable42Model;
+
+
+/**
  是否支持版本信息 | version information is supported
  */
 @property (nonatomic,assign) BOOL versionInfo;
@@ -4445,6 +4678,32 @@ error flag
  日程提醒 固件支持app下发最大设置数量 预留
 */
 @property (nonatomic,assign) NSInteger reminderMaxSetNum;
+
+/**
+ 最小经期长度 0默认1天
+ */
+@property (nonatomic,assign) NSInteger menstrualLengthMinDay;
+
+/**
+ 最大经期长度 0默认14天
+ */
+@property (nonatomic,assign) NSInteger menstrualLengthMaxDay;
+
+/**
+ 最小经期周期 0默认20天
+ */
+@property (nonatomic,assign) NSInteger menstrualCycleMinDay;
+/**
+ 最大经期周期 0默认90天
+ */
+      
+@property (nonatomic,assign) NSInteger menstrualCycleMaxDay;
+
+/**
+  ble获取prn最大值，ble传输有效，其他无效，无效值0x00,最大值0x32
+ */
+@property (nonatomic,assign) NSInteger bleGetMaxPrn;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -4551,5 +4810,5 @@ error flag
  */
 + (IDOGetBpVersionBluetoothModel *)currentModel;
 
-
 @end
+

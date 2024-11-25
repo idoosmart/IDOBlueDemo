@@ -61,6 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 //停止传输
 - (BOOL)stopTransfer;
 
++(NSString*)subTextPathString:(NSString*)str byteLen:(NSInteger)len;
 @end
 
 NS_ASSUME_NONNULL_END

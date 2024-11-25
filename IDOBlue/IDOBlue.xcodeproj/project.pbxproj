@@ -273,10 +273,6 @@
 		9B15BC802C4FDDED0012977E /* SiCeDailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15BC722C4FDDED0012977E /* SiCeDailViewController.swift */; };
 		9B15BC812C4FDDED0012977E /* UIColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15BC732C4FDDED0012977E /* UIColor++.swift */; };
 		9B15BC822C4FDDED0012977E /* UIImage++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15BC742C4FDDED0012977E /* UIImage++.swift */; };
-		9B15BC872C4FE2A80012977E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9B15BC862C4FE2A80012977E /* SwiftyJSON */; };
-		9B15BC8A2C4FE2CE0012977E /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 9B15BC892C4FE2CE0012977E /* Zip */; };
-		9B15BC8D2C4FE2E80012977E /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 9B15BC8C2C4FE2E80012977E /* CropViewController */; };
-		9B15BC8F2C4FE2E80012977E /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 9B15BC8E2C4FE2E80012977E /* TOCropViewController */; };
 		9B41B6D72445C87F00BE04A4 /* lib_lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41B6D62445C86D00BE04A4 /* lib_lame.a */; };
 		9B437EEE21393ADC00DE2FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B437EED21393ADC00DE2FC8 /* AppDelegate.m */; };
 		9B437EF621393ADC00DE2FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B437EF521393ADC00DE2FC8 /* Assets.xcassets */; };
@@ -343,6 +339,10 @@
 		B0C8F9B6274B3078009BA60D /* ThreeButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F814274B3077009BA60D /* ThreeButtonTableViewCell.m */; };
 		B0C8F9B8274B3078009BA60D /* OneTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F819274B3077009BA60D /* OneTextFieldTableViewCell.m */; };
 		B0C8F9B9274B3078009BA60D /* EmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F81A274B3077009BA60D /* EmptyTableViewCell.m */; };
+		D5FC150F2CF45A0B00CA0E4A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = D5FC150E2CF45A0B00CA0E4A /* SwiftyJSON */; };
+		D5FC15112CF45A2B00CA0E4A /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D5FC15102CF45A2B00CA0E4A /* CropViewController */; };
+		D5FC15132CF45A2B00CA0E4A /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D5FC15122CF45A2B00CA0E4A /* TOCropViewController */; };
+		D5FC15152CF45A4100CA0E4A /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = D5FC15142CF45A4100CA0E4A /* Zip */; };
 		E2F7B0756879C6A62CCC589D /* Pods_IDOBlue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FFA1193E14B5840110953D /* Pods_IDOBlue.framework */; };
 /* End PBXBuildFile section */
 
@@ -1025,14 +1025,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BF5C7D32703410100FBA91F /* IDOAlexaClient.framework in Frameworks */,
-				9B15BC872C4FE2A80012977E /* SwiftyJSON in Frameworks */,
-				9B15BC8D2C4FE2E80012977E /* CropViewController in Frameworks */,
+				D5FC15132CF45A2B00CA0E4A /* TOCropViewController in Frameworks */,
+				D5FC150F2CF45A0B00CA0E4A /* SwiftyJSON in Frameworks */,
 				9B41B6D72445C87F00BE04A4 /* lib_lame.a in Frameworks */,
+				D5FC15152CF45A4100CA0E4A /* Zip in Frameworks */,
 				9BBAF49B21F96D7A001BD3F9 /* libsqlite3.0.tbd in Frameworks */,
 				9B9F51AF2501F309007F9E32 /* AudioToolbox.framework in Frameworks */,
-				9B15BC8F2C4FE2E80012977E /* TOCropViewController in Frameworks */,
+				D5FC15112CF45A2B00CA0E4A /* CropViewController in Frameworks */,
 				9B6629FA23BB3D9A001EED9D /* libc++.tbd in Frameworks */,
-				9B15BC8A2C4FE2CE0012977E /* Zip in Frameworks */,
 				E2F7B0756879C6A62CCC589D /* Pods_IDOBlue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2171,10 +2171,10 @@
 			);
 			name = IDOBlue;
 			packageProductDependencies = (
-				9B15BC862C4FE2A80012977E /* SwiftyJSON */,
-				9B15BC892C4FE2CE0012977E /* Zip */,
-				9B15BC8C2C4FE2E80012977E /* CropViewController */,
-				9B15BC8E2C4FE2E80012977E /* TOCropViewController */,
+				D5FC150E2CF45A0B00CA0E4A /* SwiftyJSON */,
+				D5FC15102CF45A2B00CA0E4A /* CropViewController */,
+				D5FC15122CF45A2B00CA0E4A /* TOCropViewController */,
+				D5FC15142CF45A4100CA0E4A /* Zip */,
 			);
 			productName = IDOBluetoothDemo;
 			productReference = 9B437EE921393ADC00DE2FC8 /* IDOBlue.app */;
@@ -2751,10 +2751,8 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_ENTITLEMENTS = IDOBlue/IDOBlue.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U9X35LMN5B;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U9X35LMN5B;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2775,7 +2773,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.idoosdk.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.idoosdk.*";
 				SWIFT_OBJC_BRIDGING_HEADER = "IDOBlue/IDOBlue-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2871,25 +2868,22 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9B15BC862C4FE2A80012977E /* SwiftyJSON */ = {
+		D5FC150E2CF45A0B00CA0E4A /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9B15BC852C4FE2A80012977E /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
-		9B15BC892C4FE2CE0012977E /* Zip */ = {
+		D5FC15102CF45A2B00CA0E4A /* CropViewController */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9B15BC882C4FE2CE0012977E /* XCRemoteSwiftPackageReference "Zip" */;
-			productName = Zip;
-		};
-		9B15BC8C2C4FE2E80012977E /* CropViewController */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9B15BC8B2C4FE2E80012977E /* XCRemoteSwiftPackageReference "TOCropViewController" */;
 			productName = CropViewController;
 		};
-		9B15BC8E2C4FE2E80012977E /* TOCropViewController */ = {
+		D5FC15122CF45A2B00CA0E4A /* TOCropViewController */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9B15BC8B2C4FE2E80012977E /* XCRemoteSwiftPackageReference "TOCropViewController" */;
 			productName = TOCropViewController;
+		};
+		D5FC15142CF45A4100CA0E4A /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

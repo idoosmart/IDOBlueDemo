@@ -58,11 +58,21 @@
 
 /**
  * @brief 开始记录手环flash日志 （在设备连接ota模式下不能使用获取设备重启日志）
- * Start record bracelet flash log
+ *
  * @param callback 日志信息获取完成回调 | Log information acquisition completion callback
  */
 + (void)getFlashLogRecordWithType:(IDO_FLASH_LOG_TYPE)type
                          callback:(void(^_Nullable)(int errorCode))callback;
+
+
+/// @brief 开始记录手环flash日志 （在设备连接ota模式下不能使用获取设备重启日志）| Start record bracelet flash log
+/// @param type flash 日志类型 | flash log types
+/// @param timeoutMode 获取日志超时方式 0:默认整体一分钟超时 1:收到固件日志数据间隔超过5s即超时 | Timeout mode for obtaining logs 0: The default timeout period is 1 minute. 1: The interval for receiving firmware logs exceeds 5 seconds
+/// @param callback 日志信息获取完成回调 | Log information acquisition completion callback
++ (void)getFlashLogRecordWithType:(IDO_FLASH_LOG_TYPE)type
+                      timeoutMode:(int)timeoutMode
+                         callback:(void (^_Nullable)(int))callback;
+
 
 /**
  * @brief 记录协议库外的蓝牙日志 （内部使用）

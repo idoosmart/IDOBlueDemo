@@ -283,6 +283,16 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      *心跳日志
      */
     IDO_DB_DATA_HEARTBEAT_LOG,
+    
+    /**
+     事件监听
+     */
+    IDO_LISTEN_COMMAD_LOG,
+    
+    /**
+     同步经期历史数据
+     */
+    IDO_SYNC_HISTORICAL_MENSTRUATION_LOG
 };
 
 typedef NS_ENUM(NSInteger, IDO_FLASH_LOG_TYPE)  {
@@ -311,6 +321,8 @@ typedef NS_ENUM(NSInteger, IDO_FLASH_LOG_TYPE)  {
      *restart log
      */
     IDO_FLASH_LOG_RESTART_TYPE   =   4,
+    
+  
     
 };
 

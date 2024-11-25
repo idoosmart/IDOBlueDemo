@@ -960,6 +960,13 @@
                   callback:(void (^ _Nullable)(int errorCode))callback;
 
 
+/// 设置应用列表壁纸  Setting the app list wallpapers
+/// @param callback app list wallpapers model (IDOSetApplicationListWallpaperModel)
+/// @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
++ (void)setAppListWallpaperCommand:(IDOSetAppListWallpaperModel * _Nullable)wallpaperModel
+                                  callback:(void (^ _Nullable)(int errorCode))callback;
+
+
 /**
  * @brief 设置血压测量参数 | Setting blood pressure measurement parameters
  * @param bpMeasureModel 血压测量参数 model (IDOSetBpMeasureInfoBluetoothModel)
@@ -1325,6 +1332,7 @@
 + (void)setMenstrualHistoryDataCommand:(IDOMenstrualHistoryDataModel *_Nullable)historyModel
                               callback:(void (^ _Nullable)(int errorCode))callback;
 
+
 /**
  * @brief //设置未读APP提醒(应用通知红点提醒)
  * @param reminderModel 设置未读APP提醒数据模型
@@ -1437,6 +1445,29 @@
  */
 + (void)setGameTimeCommand:(IDOSetGameTimeReminder *_Nullable)gameTimeModel
                   callback:(void (^_Nullable)(int errorCode))callback;
+
+
+/**
+ * @brief APP 主动发送开始拍照预览指令
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)appSendPhotoPreviewStartCommand:(void (^_Nullable)(int))callback;
+
+/**
+ * @brief APP 主动发送拍照预览暂停指令
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)appSendPhotoPreviewPauseCommand:(void (^_Nullable)(int))callback;
+
+/**
+ * @brief APP 主动发送拍照预览退出指令
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)appSendPhotoPreviewExitCommand:(void (^_Nullable)(int))callback;
+
 
 
 #pragma mark ======= get Command =======
@@ -1897,7 +1928,44 @@
 + (void)getBpVersionCommand:(void(^_Nullable)(int errorCode,IDOGetBpVersionBluetoothModel * _Nullable data))callback;
 
 
+/// 查询应用列表壁纸 | Example Query wallpaper in the application list
+/// @param wallpaperModel wallpaperModel
+/// @param callback IDOSetAppListWallpaperResModel (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
++ (void)getAppListWallpaperCommand:(IDOSetAppListWallpaperModel * _Nullable)wallpaperModel
+                          callback:(void (^ _Nullable)(int errorCode,IDOSetAppListWallpaperResModel* _Nullable model))callback;
+
+/**
+ * @brief 获取运动记录显示配置项  | Get Motion records display configuration items
+ *  * 功能表 | Function Table :  __IDO_FUNCTABLE__.funcTable39Model.supportV3SportRecordShowConfig
+ * @param callback 执行后回调 data (IDOSetV3SportRecordShowConfigModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOSetV3SportRecordShowConfigModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getV3SportRecordShowConfigCommad:(void (^ _Nullable)(int errorCode,IDOSetV3SportRecordShowConfigModel* _Nullable model))callback;
+
+
 #pragma mark ======= listen Command =======
+
+/**
+ * @brief 打开APP相机，进入拍照预览功能 | Open the APP camera and enter the photo preview function
+ * @param callback 监听回调 (errorCode : 0：成功 1：失败 2：失败，进入拍照预览失败，APP在后台 3：失败，进入拍照预览失败，APP没有拍照权限 )
+ * Listening callback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)listenOpenAppPhotoInfoPreviewStartCommand:(void(^_Nullable)(int errorCode))callback;
+
+/**
+ * @brief 暂停拍照预览，停止传输照片流| Pause App Photo Preview ，Stop transferring photo streams
+ * @param callback 监听回调 (errorCode : 0：成功 1：失败 2：失败，进入拍照预览失败，APP在后台 3：失败，进入拍照预览失败，APP没有拍照权限 )
+ * Listening callback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)listenAppPhotoPreviewPauseCommand:(void(^_Nullable)(int errorCode))callback;
+
+/**
+ * @brief 关闭APP相机，退出拍照预览功能| Close App Photo Exit Preview
+ * @param callback 监听回调 (errorCode : 0：成功 1：失败 2：失败，进入拍照预览失败，APP在后台 3：失败，进入拍照预览失败，APP没有拍照权限 )
+ * Listening callback (errorCode : 0 is successful, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)listenAppPhotoPreviewCloseCommand:(void(^_Nullable)(int errorCode))callback;
+
 
 /**
  * @brief 音乐开始 | Music begins

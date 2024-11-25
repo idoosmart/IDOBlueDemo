@@ -85,3 +85,6 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/SmartCompetitorManager.h>
 #import <IDOBlueProtocol/IDOSyncHRVDataModel.h>
 #import <IDOBlueProtocol/IDOScManager.h>
+#import <IDOBlueProtocol/IDOHistoricalMenstruationManager.h>
+#import <IDOBlueProtocol/IDOCareReminderManager.h>
+#import <IDOBlueProtocol/IODAlipayAuthManager.h>

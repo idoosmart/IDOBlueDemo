@@ -168,6 +168,30 @@
  */
 @property (nonatomic,assign) NSInteger sleepAvgRespirRateValue;
 
+/**
+ 是否支持拼接
+ Whether splicing is supported
+ */
+@property (nonatomic,assign) BOOL isSupportSplice;
+
+/**
+ 小睡拼接时间间隔 单位分钟 小睡片段小于等于这个值需要拼接
+ Nap splicing interval Unit minute nap fragments are less than or equal to this value
+ */
+@property (nonatomic,assign) NSInteger napSleepSpliceInterval;
+
+/**
+ 长睡拼接时间间隔 单位分钟 长睡片段小于等于这个值需要拼接
+ Long sleep splicing interval Unit minute Long sleep fragments are less than or equal to this value
+ */
+@property (nonatomic,assign) NSInteger longSleepSpliceInterval;
+
+/**
+ 标识状态 0x00:无效 0x01:关机 （设备检测期间存在关机异常）
+ Id Status 0x00: Invalid 0x01: Off (A shutdown exception occurred during device detection)
+ */
+@property (nonatomic,assign) NSInteger identificationStatus;
+
 @end
 
 @interface IDOSyncV3SleepDataModel : NSObject
@@ -254,7 +278,9 @@
 
 /**
  * 将json数据转模型数据 | Convert json data to model data
- * 功能表：__IDO_FUNCTABLE__.funcTable29Model.v3Sleep , 如果为YES，返回IDOBluetoothBaseModel的类型是IDOSyncV3SleepDataInfoBluetoothModel ，否则返回IDOSyncSleepDataInfoBluetoothModel
+ * 功能表：__IDO_FUNCTABLE__.funcTable29Model.v3Sleep , 如果为YES，
+ * 返回IDOBluetoothBaseModel的类型是IDOSyncV3SleepDataInfoBluetoothModel ，
+ * 否则返回IDOSyncSleepDataInfoBluetoothModel
  * @param jsonString  数据
  */
 +(IDOBluetoothBaseModel*)v3SleepDataJsonStringToObjectModel:(NSString*)jsonString;

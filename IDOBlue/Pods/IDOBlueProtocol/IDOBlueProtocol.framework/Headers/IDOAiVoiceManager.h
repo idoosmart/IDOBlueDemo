@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IDOAiVoiceToText : NSObject
 /**
- 语音识别结果 0：成功，1：失败，2：失败，敏感词汇 ..
+ 语音识别结果 0：成功，1：失败，2：失败，敏感词汇,3：失败，账户禁用
  */
 @property (nonatomic,assign) NSInteger errorCode;
 /**
@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
  文本内容 长度不超过1000字节
  */
 @property (nonatomic,strong) NSString * textContent;
+
+/**
+ 解禁时间 UTC时间 0时区 单位秒
+ */
+@property (nonatomic,assign) NSInteger utcTime;
 
 @end
 
@@ -62,6 +67,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)aiVoiceToTextConfirmComplete:(int)type
                            sureState:(int)sure;
 
+/**
+ APP通知设备AI助手回复文本转语音结果响应
+ */
+- (void)aiVoiceSendTextTranVoiceInfoReply;
+
+/**
+ APP下发ai文本响应
+ errorCode : 0:成功，接收完成 1:失败
+ */
+- (void)aiVoiceSendTextInfoReply:(int)errorCode;
+
 @end
 
 @interface IDOAiVoiceManager : NSObject
@@ -96,6 +112,20 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)replyAiVoiceApp:(int)state;
 
 /**
+ state
+ 回复APP状态
+ 0:成功
+ 1:失败
+ 2:失败，表盘空间不足
+ 3:失败，操作频繁
+ 4:失败，账户禁用
+ 5:失败，数据同步中
+ 6:失败，无网络
+ time 解禁时间戳 UTC时间 单位秒
+ */
++ (BOOL)replyAiVoiceApp:(int)state
+                release:(int)time;
+/**
  停止ai语音
  */
 + (void)stopAiVoice;
@@ -105,6 +135,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (BOOL)sendAiVoiceText:(IDOAiVoiceToText *)model;
 
+
+/**
+ APP通知设备AI助手回复文本转语音结果
+ result : 0:成功 1:转换语音失败
+ length :  语音时长 单位秒
+ */
++ (BOOL)sendAiVoiceTran:(int)result
+                   time:(int)length;
 
 @end
 
