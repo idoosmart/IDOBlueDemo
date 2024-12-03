@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/IDOBlueProtocol.h</key>
 		<data>
-		a1o7W+KCP7JVT2ybdMGKsfeoE08=
+		vyBUzJmEfrdBkUoBMb+ew7i5x90=
 		</data>
 		<key>Headers/IDOBluetoothBaseModel.h</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Headers/IDOGetInfoBluetoothModel.h</key>
 		<data>
-		NeNJ8jPIgI5Cp2DUPh6n0WDuLmw=
+		vYS10VrsfErmncI/TzCnMo6z8Ok=
 		</data>
 		<key>Headers/IDOGpsManager.h</key>
 		<data>
@@ -124,9 +124,13 @@
 		<data>
 		VHNLZoU0mzinbL9NKGuXC/p3qck=
 		</data>
+		<key>Headers/IDOPhotoDialManager.h</key>
+		<data>
+		RyrU5DWa3BH4a2YECo03vl9NLqY=
+		</data>
 		<key>Headers/IDORecordDeviceLog.h</key>
 		<data>
-		MDKr1Rf2tRK35d3JUB7qViTYR8o=
+		9twvVM2k7SLxgJLBNWbGrg2bb6o=
 		</data>
 		<key>Headers/IDOScManager.h</key>
 		<data>
@@ -134,7 +138,7 @@
 		</data>
 		<key>Headers/IDOSetInfoBluetoothModel.h</key>
 		<data>
-		oNA0xVYZpC5IwwIusY6cGX6dVFs=
+		lTLpqUSJACO4p0bQs9H2g5lFchk=
 		</data>
 		<key>Headers/IDOSleepPlanDataModel.h</key>
 		<data>
@@ -258,7 +262,7 @@
 		</data>
 		<key>Headers/IDOTranEnum.h</key>
 		<data>
-		OsASbvXbCWZIytf2dYFQB/ybZuI=
+		8F5Uix4UHjBbUTrGLhrx3wX2hCQ=
 		</data>
 		<key>Headers/IDOTransferFileManager.h</key>
 		<data>
@@ -272,13 +276,17 @@
 		<data>
 		+N4cxNrw8OIHpWpnReBApI+w3jI=
 		</data>
+		<key>Headers/IDOV3MenuListManager.h</key>
+		<data>
+		3tmRhR7LAtAdqxlzs46flSaKnyg=
+		</data>
 		<key>Headers/IDOWallpaperCloudLibManager.h</key>
 		<data>
-		1SlTh/Zc6XH1iwN1F9II643D3X0=
+		yjzP0UFJo9Nc5EjIeS+EVWGGsZM=
 		</data>
 		<key>Headers/IDOWallpaperCloudLibModel.h</key>
 		<data>
-		JSW6HW9NffT+++uAst0h6njTo4w=
+		8iZyHfM8PY32Z7WzINkz0oCW4B4=
 		</data>
 		<key>Headers/IDOWallpaperFileLibManager.h</key>
 		<data>
@@ -306,7 +314,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		As8qGUbYlhSY4Ic2InLU+ugUdfg=
+		juLmf8vdbkTyoZCiLZFucQDjpec=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -361,7 +369,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7fFEwn6nii9qSJ77QsZ9/1kkDgl7Q3GWMkrEMa/AGTA=
+			06C18FgkmGRObTny4cxTO3qS000BGIx7p2b4E+trZSo=
 			</data>
 		</dict>
 		<key>Headers/IDOBluetoothBaseModel.h</key>
@@ -445,7 +453,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E5eAw6xFUQXdUvh2EWgTQ+OS/np++zfaofZsh8M1JN4=
+			6PUkluMubCHdJlblHxrVOqR3kPQHHDKxHa3GG47Rv7c=
 			</data>
 		</dict>
 		<key>Headers/IDOGpsManager.h</key>
@@ -525,11 +533,18 @@
 			VgJugyHqp9G1FtuDfCdssVzAGgcSBmMVfWeLw1W8iZE=
 			</data>
 		</dict>
+		<key>Headers/IDOPhotoDialManager.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UrqPQyeBGJx0eH3EUJuzgTwmpLb7aN0ih0mLuTJdx34=
+			</data>
+		</dict>
 		<key>Headers/IDORecordDeviceLog.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VRpWmib4AjZKqcc7nvhC8rd+t1192dbwUMwBOKTt1YI=
+			8PiaqdP5En8xHtMbxHayZC+k4iibHK79KdxBdWSWDmg=
 			</data>
 		</dict>
 		<key>Headers/IDOScManager.h</key>
@@ -543,7 +558,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NRWXnE/ac3eteqGuks2jvxU+VysXPZJw59AD5BCW4ME=
+			eKHEPcqs4EHdQwOj85KerF9VJ7Tk8qw4xeYocDPnb14=
 			</data>
 		</dict>
 		<key>Headers/IDOSleepPlanDataModel.h</key>
@@ -760,7 +775,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VBT251J4rz0nMrJKNloAjXigf37pmksSBfShrVXY0mE=
+			E55egQW0dMUPgzufo1yT7G3ad6CNBqKJAtn+6m0iYsc=
 			</data>
 		</dict>
 		<key>Headers/IDOTransferFileManager.h</key>
@@ -784,18 +799,25 @@
 			E5UVobyurd1qiqOsqe+rgu6M78Mt3eUap7JKeiJqN8I=
 			</data>
 		</dict>
+		<key>Headers/IDOV3MenuListManager.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ykrBDCRQWQMAo8Qjp9ok6569xNbUKg/m3aoq4Fw4pb0=
+			</data>
+		</dict>
 		<key>Headers/IDOWallpaperCloudLibManager.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7bNCCIjtjhw/g997VyYIkKftd6dJQRyDsYHLVVaUvDg=
+			Ha6yvN3ue0qgffYCkxXV8E6vcG66ztyU4z69M427PbM=
 			</data>
 		</dict>
 		<key>Headers/IDOWallpaperCloudLibModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			r2v/jqO4v+EsKfxTmEDhjrtZPbeMGykUMLIRXRlsahQ=
+			PBY0tWFkxLAsVcLjLRCtCNl44Jk5qd5kQddUzplI5sQ=
 			</data>
 		</dict>
 		<key>Headers/IDOWallpaperFileLibManager.h</key>

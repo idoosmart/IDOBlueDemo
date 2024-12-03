@@ -339,6 +339,7 @@
 		B0C8F9B6274B3078009BA60D /* ThreeButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F814274B3077009BA60D /* ThreeButtonTableViewCell.m */; };
 		B0C8F9B8274B3078009BA60D /* OneTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F819274B3077009BA60D /* OneTextFieldTableViewCell.m */; };
 		B0C8F9B9274B3078009BA60D /* EmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F81A274B3077009BA60D /* EmptyTableViewCell.m */; };
+		D550A8B82CFEEF6D003075CB /* SetWallpaperCloudViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D550A8B72CFEEF6D003075CB /* SetWallpaperCloudViewModel.m */; };
 		D5FC150F2CF45A0B00CA0E4A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = D5FC150E2CF45A0B00CA0E4A /* SwiftyJSON */; };
 		D5FC15112CF45A2B00CA0E4A /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D5FC15102CF45A2B00CA0E4A /* CropViewController */; };
 		D5FC15132CF45A2B00CA0E4A /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D5FC15122CF45A2B00CA0E4A /* TOCropViewController */; };
@@ -1017,6 +1018,8 @@
 		B0C8F81A274B3077009BA60D /* EmptyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyTableViewCell.m; sourceTree = "<group>"; };
 		B0C8F81B274B3077009BA60D /* ScanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanTableViewCell.h; sourceTree = "<group>"; };
 		CDE4E5AB3D79972A141D0263 /* Pods-IDOBlue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDOBlue.debug.xcconfig"; path = "Target Support Files/Pods-IDOBlue/Pods-IDOBlue.debug.xcconfig"; sourceTree = "<group>"; };
+		D550A8B62CFEEF6D003075CB /* SetWallpaperCloudViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetWallpaperCloudViewModel.h; sourceTree = "<group>"; };
+		D550A8B72CFEEF6D003075CB /* SetWallpaperCloudViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetWallpaperCloudViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1686,6 +1689,8 @@
 		9B15BB032C4FDADC0012977E /* WatchDialViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D550A8B62CFEEF6D003075CB /* SetWallpaperCloudViewModel.h */,
+				D550A8B72CFEEF6D003075CB /* SetWallpaperCloudViewModel.m */,
 				9B15BAF52C4FDADC0012977E /* GetWatchDialListViewModel.h */,
 				9B15BAF62C4FDADC0012977E /* GetWatchDialListViewModel.m */,
 				9B15BAF72C4FDADC0012977E /* GetWatchDialNameViewModel.h */,
@@ -2406,6 +2411,7 @@
 				9B15BB3A2C4FDADD0012977E /* ControlResetViewModel.m in Sources */,
 				9B15BBF42C4FDADD0012977E /* SyncAllViewModel.m in Sources */,
 				9B15BB8D2C4FDADD0012977E /* QuerySwimViewModel.m in Sources */,
+				D550A8B82CFEEF6D003075CB /* SetWallpaperCloudViewModel.m in Sources */,
 				9B15BB332C4FDADD0012977E /* TextViewCellModel.m in Sources */,
 				9B15BBAA2C4FDADD0012977E /* IDOSportTypesModel.m in Sources */,
 				9B9C402E2566693C00809576 /* MASViewAttribute.m in Sources */,

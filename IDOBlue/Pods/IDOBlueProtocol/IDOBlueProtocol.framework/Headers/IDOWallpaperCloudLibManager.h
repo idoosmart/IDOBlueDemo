@@ -11,11 +11,11 @@
 
 typedef enum : NSUInteger {
     IDOWallpaperWCInstallFaceLogUnknown = 0,  //未知
-    IDOWallpaperWCInstallFaceLogDownLoad,     //1 下载
-    IDOWallpaperWCInstallFaceLogEnterUpgrade, //2 进入升级模式
-    IDOWallpaperWCInstallFaceLogUpgradIng,    //3 进入进度大于0的升级界面
-    IDOWallpaperWCInstallFaceLogUpgradeSucc,  //4 升级成功
-    IDOWallpaperWCInstallFaceLogUpgradeFail,  //5 失败
+    IDOWallpaperWCInstallFaceLogDownLoad,     //1 下载 ｜ Download dial
+    IDOWallpaperWCInstallFaceLogEnterUpgrade, //2 进入升级模式 ｜ The dial is installed in upgrade mode
+    IDOWallpaperWCInstallFaceLogUpgradIng,    //3 进入进度大于0的升级界面 ｜ The dial is being installed
+    IDOWallpaperWCInstallFaceLogUpgradeSucc,  //4 升级成功 ｜ The dial is installed successfully
+    IDOWallpaperWCInstallFaceLogUpgradeFail,  //5 失败 ｜ Dial installation failed
     IDOWallpaperWCInstallFaceLogUpgradeFail_IrregularImageSize,  //6 图片尺寸不合规
 } IDOWallpaperWCInstallFaceLog;
 NS_ASSUME_NONNULL_BEGIN
@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
      withPreviewSetImage:(UIImage *)previewSetImage
      withFirmwareName:(NSString *)firmwareName
           withZipName:(NSString *)dialName
-             callback:(void (^)(IDOWallpaperWCInstallFaceLog status, NSString* wallpaperZipPath))callback;
+             callback:(void (^)(IDOWallpaperWCInstallFaceLog status, NSString* wallpaperZipPath,int progress))callback;
 
 @end
 

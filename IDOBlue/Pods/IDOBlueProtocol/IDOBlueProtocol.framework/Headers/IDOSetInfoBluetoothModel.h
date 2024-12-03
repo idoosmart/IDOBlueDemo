@@ -4290,3 +4290,72 @@
 + (IDOSetCareReminderModel *)currentModel;
 
 @end
+
+@interface IDOSetV3MenuListModel: IDOBluetoothBaseModel
+
+/**
+ 菜单排序当前显示集合
+ 0 =>无效 1 =>步数 2 =>心率 3=> 睡眠 4=> 拍照 5=> 闹钟 6=> 音乐 7=> 秒表 8=> 计时器
+ 9=> 运动模式 10=> 天气 11=> 呼吸锻炼 12=> 查找手机 13=> 压力 14=> 数据三环 15=> 时间界面 16=> 最近一次活动
+ 17=> 健康数据 18=> 血氧 19 =>菜单设置 20=>alexa语音提示 21=> X屏（gt01pro-X新增）22=> 卡路里 （Doro Watch新增）
+ 23=>距离（Doro Watch新增）24=> 一键测量 (IDW05新增) 25=> renpho health(润丰健康)(IDW12新增) 26=> 指南针 (mp01新增)
+ 27=> 气压高度计(mp01新增)   28=> 通话列表(蓝牙通话)(IDW13新增) 29=> 事项提醒
+ 0 => invalid 1 => steps 2 => heart rate 3=> sleep 4=> picture 5=> alarm clock 6=> music 7=> stopwatch 8=> timer
+ 9=> exercise mode 10=> weather 11=> breathing exercise 12=> find mobile phone 13=> pressure 14=> data tricycle 15=> time interface
+ 16=> Last activity 17=> Health data 18=> Blood oxygen 19 => Menu setting 20=> Alexa voice prompt 21=> X screen 22=> Calories
+ 23=> Distance 24=> One-key measurement  25=> renpho health 26=> compass 27=> barometric_altimeter  28=>Call list
+ 
+ 无排序情况,有值则显示,无值则不现实
+ 有排序情况,需要按照数组从0开始依次显示
+ * 0x00 无效
+ * 0x01 步数
+ * 0x02 心率
+ * 0x03 睡眠
+ * 0x04 拍照
+ * 0x05 闹钟
+ * 0x06 音乐
+ * 0x07 秒表
+ * 0x08 计时器
+ * 0x09 运动模式
+ * 0x0A 天气
+ * 0x0B 呼吸锻炼
+ * 0x0C 查找手机
+ * 0x0D 压力
+ * 0x0E 数据三环
+ * 0x0F 时间界面
+ * 0x10 最近一次活动
+ * 0x11 健康数据
+ * 0x12 血氧
+ * 0x13 菜单设置
+ * 0x14 (20)aleax语音依次显示
+ * 0x15 X屏（gt01pro-X新增）
+ * 0x16 卡路里 （Doro Watch新增）
+ * 0x17 距离   （Doro Watch新增）
+ * 0x18 一键测量 (IDW05新增)
+ * 0x19 renpho health(润丰健康)(IDW12新增)
+ * 0x1A 指南针 (mp01新增)
+ * 0x1B 气压高度计(mp01新增)
+ * 0x1C    通话列表(蓝牙通话)(IDW13新增) //功能表：table32.support_call_list
+ * 0x1D    事项提醒
+ * 0x1E ICE(紧急联系人咨询)
+ * 0x1F 最大摄氧量
+ * 0x20 恢复时间
+ * 0x21 有氧训练效果
+ * 0x22 海拔高度
+ * 0x23 身体电量
+ * 0x24 世界时钟
+ * 0x25 语音助手
+ * 0x26 AI语音助手
+ * 0x27 支付宝
+*/
+@property (nonatomic,strong) NSArray<NSNumber *> * itemList;
+
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetCloseDeviceFunctionModel
+ */
++ (IDOSetV3MenuListModel *)currentModel;
+
+@end

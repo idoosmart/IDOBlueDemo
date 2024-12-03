@@ -96,6 +96,20 @@
 ///2.2.0 添加 壁纸云表盘的配置
 @property (nonatomic,strong)IDONewDialWallpaperLibModel *cloudWallpaper;
 
+@property (nonatomic,assign) CGFloat previewRadius; ;// GTX12 新增
+
+///是否允许圆角
+@property (nonatomic,assign) BOOL previewIsNeedBorder;
+
+///边框颜色
+@property (nonatomic,strong) NSString *previewBorderColor;
+
+///边框线宽
+@property (nonatomic,assign) CGFloat previewBorderWidth;
+
+///圆角大小
+@property (nonatomic,assign) CGFloat previewBorderRadius;
+
 ///获取所有的功能表
 - (NSArray<IDONewDialJsonFuncListLibModel *> *)getAllFunction:(NSInteger)funcIndex;
 
