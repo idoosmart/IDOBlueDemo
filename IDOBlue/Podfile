@@ -4,6 +4,6 @@ source 'https://github.com/idoosmart/IDOSmartSpec.git'
 platform :ios, '13.0'
 target 'IDOBlue' do
    pod 'IDOBluetooth', '3.13.31'
-   pod 'IDOBlueProtocol', '3.40.47'
+   pod 'IDOBlueProtocol', '3.40.48'
    pod 'IDOBlueUpdate', '3.6.24'
 end
