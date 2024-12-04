@@ -1317,6 +1317,6 @@
 "Successfully obtained" = "获取成功";
 "Please obtain the Token first" = "请先获取Token";
 
-"custom wallpaper cloud dial" = "自定义本地壁纸云表盘";
+"custom photo cloud dial" = "自定义本地照片云表盘";
 "Extract and read the json dial file" = "解压表盘包和读取表盘json文件";
 "Make And Install wallpaper cloud dial file" = "制作和安装表盘";

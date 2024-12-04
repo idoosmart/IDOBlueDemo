@@ -508,7 +508,7 @@
 
     [funcVc showToastWithText:tip];
     
-    [IDOPhotoDialManager makeAndInstallTheDialWtith:self.wallpaperCloudModel bgImage:select previewSetImage:previewImage firmwareName:self.fileName zipName:self.fileName callback:^(IDOWallpaperWCInstallFaceLog status, NSString * _Nonnull wallpaperZipPath,int progress) {
+    [IDOPhotoDialManager makeAndInstallTheDialWtith:self.wallpaperCloudManager bgImage:select previewSetImage:previewImage firmwareName:self.fileName zipName:self.fileName callback:^(IDOWallpaperWCInstallFaceLog status, NSString * _Nonnull wallpaperZipPath,int progress) {
         __strong typeof(self) strongSelf = weakSelf;
         if (status == IDOWallpaperWCInstallFaceLogUpgradeSucc) {
             strongSelf.wallpaperZipPath = wallpaperZipPath;

@@ -42,7 +42,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"get watch screen info")],@[lang(@"get watch dial list info")],@[lang(@"set current dial info")],@[lang(@"transfer dial file")],@[lang(@"custom wallpaper dial")],@[lang(@"get watch dial name")], @[lang(@"SiChe photo cloud dial")], @[lang(@"JieLi wallpaper dial")],@[lang(@"custom wallpaper cloud dial")]];
+        _buttonTitles = @[@[lang(@"get watch screen info")],@[lang(@"get watch dial list info")],@[lang(@"set current dial info")],@[lang(@"transfer dial file")],@[lang(@"custom wallpaper dial")],@[lang(@"get watch dial name")], @[lang(@"SiChe photo cloud dial")], @[lang(@"JieLi wallpaper dial")],@[lang(@"custom photo cloud dial")]];
     }
     return _buttonTitles;
 }

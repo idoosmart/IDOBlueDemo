@@ -26,13 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 制作照片表盘和安装表盘 ｜ Make photo dial and install dial
 /// - Parameters:
-///   - wallpaperCloudModel: wallpaperCloudModel
+///   - wallpaperCloudLibManager: IDOWallpaperCloudLibManager
 ///   - bgImage: 背景图 ｜ background image
 ///   - previewSetImage: 预览图 ｜ preview Image
 ///   - firmwareName: 制作的表盘包目录名称,跟表盘zip压缩包文件名一致 ｜ The name of the dial package directory must be the same as the name of the dial zip package
 ///   - zipName: 表盘zip压缩包文件名 ｜ Dial zip file name
 ///   - callback: 返回 表盘安装状态：IDOWallpaperWCInstallFaceLog, 制作的表盘包路径：wallpaperZipPath， 安装进度：progress   ｜ callback description   Dial dial install state: IDOWallpaperWCInstallFaceLog, Make the dial package path: wallpaperZipPath, Dial installation progress: progress
-+ (void)makeAndInstallTheDialWtith:(IDOWallpaperCloudLibModel *)wallpaperCloudModel
++ (void)makeAndInstallTheDialWtith:(IDOWallpaperCloudLibManager *)wallpaperCloudLibManager
                            bgImage:(UIImage *)bgImage
                    previewSetImage:(UIImage *)previewSetImage
                       firmwareName:(NSString *)firmwareName
