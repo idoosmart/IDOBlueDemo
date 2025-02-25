@@ -1,12 +1,12 @@
 //
-//  SetWallpaperCloudViewModel.m
+//  SetWallpaperCloudView2Model.m
 //  IDOBlue
 //
-//  Created by huangkunhe on 2023/2/8.
-//  Copyright © 2023 hedongyang. All rights reserved.
+//  Created by cyf on 2025/2/25.
+//  Copyright © 2025 hedongyang. All rights reserved.
 //
 
-#import "SetWallpaperCloudViewModel.h"
+#import "SetWallpaperCloudView2Model.h"
 #import "TextFieldCellModel.h"
 #import "UpdatePhotoViewModel.h"
 #import "OneTextFieldTableViewCell.h"
@@ -19,8 +19,16 @@
 #import "FileViewModel.h"
 #import "LabelCellModel.h"
 #import "OneLabelTableViewCell.h"
+#import "PhotoDialManager.h"
+#import "WallpaperCloudLibModel.h"
+#import "WallpaperCloudLibManager.h"
+#import "NewDialJsonSelectedLibModel.h"
+#import "NewDialJsonFunctionListLibModel.h"
+#import "NewDialJsonFunctionCoordinateLibModel.h"
+#import "NewDialJsonLocationLibModel.h"
 
-@interface SetWallpaperCloudViewModel ()
+@interface SetWallpaperCloudView2Model()
+
 @property (nonatomic,strong) IDOV3WallpaperDialInfoModel * wallpaperModel;
 @property (nonatomic,strong) NSArray * titleArray;
 @property (nonatomic,strong) NSArray * dataArray;
@@ -39,8 +47,8 @@
 
 @property (nonatomic,strong) NSString * wallpaperZipPath;
 
-@property (nonatomic,strong) IDOWallpaperCloudLibModel* wallpaperCloudModel;
-@property (nonatomic,strong) IDOWallpaperCloudLibManager* wallpaperCloudManager;
+@property (nonatomic,strong) WallpaperCloudLibModel* wallpaperCloudModel;
+@property (nonatomic,strong) WallpaperCloudLibManager* wallpaperCloudManager;
 
 ///照片表盘的时间颜色
 @property (nonatomic, assign) BOOL timeColorNotSelect;
@@ -51,7 +59,8 @@
 
 @end
 
-@implementation SetWallpaperCloudViewModel
+@implementation SetWallpaperCloudView2Model
+
 
 - (instancetype)init
 {
@@ -77,9 +86,9 @@
     return self;
 }
 
--(IDOWallpaperCloudLibManager *)wallpaperCloudManager{
+-(WallpaperCloudLibManager *)wallpaperCloudManager{
     if (!_wallpaperCloudManager) {
-        _wallpaperCloudManager = [IDOWallpaperCloudLibManager new];
+        _wallpaperCloudManager = [WallpaperCloudLibManager new];
     }
     return _wallpaperCloudManager;
 }
@@ -360,7 +369,7 @@
                 
                 [[fuu tableView] reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
                 
-                for (IDONewDialJsonFunctionListLibModel *itemModel in strongSelf.wallpaperCloudModel.function_list) {
+                for (NewDialJsonFunctionListLibModel *itemModel in strongSelf.wallpaperCloudModel.function_list) {
                     if ([selectStr isEqualToString:itemModel.name]) {
                         //功能
                         weakSelf.wallpaperCloudModel.select.function = @[[NSString stringWithFormat:@"%d",itemModel.function]];
@@ -419,9 +428,9 @@
             
             //List of all supported widgets location
             NSMutableArray*AllTitleItems = [NSMutableArray array];
-            for (IDONewDialJsonLocationLibModel *itemModel in strongSelf.wallpaperCloudModel.locations) {
+            for (NewDialJsonLocationLibModel *itemModel in strongSelf.wallpaperCloudModel.locations) {
                 BOOL isSupport = NO;
-                for (IDONewDialJsonFunctionCoordinateLibModel *locitemModel in itemModel.function_coordinate) {
+                for (NewDialJsonFunctionCoordinateLibModel *locitemModel in itemModel.function_coordinate) {
                     if (widgetsType == locitemModel.function) {
                         isSupport = YES;
                     }
@@ -464,14 +473,12 @@
     [funcVc showToastWithText:tip];
     __weak typeof(self) weakSelf = self;
     
-    [IDOPhotoDialManager readAppJsonFileWithDialPackageZipFilePath:self.filePath fileName:self.fileName callback:^(IDOWallpaperCloudLibModel * _Nullable wallpaperCloudModel) {
+    [PhotoDialManager readAppJsonFileWithDialPackageZipFilePath:self.filePath fileName:self.fileName callback:^(WallpaperCloudLibModel * _Nullable wallpaperCloudModel) {
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.wallpaperCloudModel = wallpaperCloudModel;
         strongSelf.wallpaperCloudManager.dialJsonObj = wallpaperCloudModel;
 
     }];
-    
-   
     
 }
 
@@ -509,7 +516,7 @@
 
     [funcVc showToastWithText:tip];
     
-    [IDOPhotoDialManager makeAndInstallTheDialWtith:self.wallpaperCloudManager bgImage:select previewSetImage:previewImage firmwareName:self.fileName zipName:self.fileName callback:^(IDOWallpaperWCInstallFaceLog status, NSString * _Nonnull wallpaperZipPath,int progress) {
+    [PhotoDialManager makeAndInstallTheDialWtith:self.wallpaperCloudManager bgImage:select previewSetImage:previewImage firmwareName:self.fileName zipName:self.fileName callback:^(WallpaperWCInstallFaceLog status, NSString * _Nonnull wallpaperZipPath,int progress) {
         __strong typeof(self) strongSelf = weakSelf;
         if (status == IDOWallpaperWCInstallFaceLogUpgradeSucc) {
             strongSelf.wallpaperZipPath = wallpaperZipPath;
@@ -544,7 +551,7 @@
 
     initWatchDialManager().getDialScreenInfo(^(IDOWatchScreenInfoModel * _Nullable model, int errorCode) {
         
-        [SetWallpaperCloudViewModel deleteDial:uniquefileNameId block:^(NSInteger errorCode) {
+        [SetWallpaperCloudView2Model deleteDial:uniquefileNameId block:^(NSInteger errorCode) {
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 IDOWatchScreenInfoModel *modelScreen = [IDOWatchScreenInfoModel currentModel];
@@ -557,7 +564,7 @@
                         //成功
                         NSLog(@"照片云表盘安装成功: name = %@",uniquefileNameId);
                         //设为当前表盘
-                        [SetWallpaperCloudViewModel setCurrentDial:self.fileName block:^(NSInteger errorCode) {
+                        [SetWallpaperCloudView2Model setCurrentDial:self.fileName block:^(NSInteger errorCode) {
                             NSLog(@"设为当前表盘结果：%@", [IDOErrorCodeToStr errorCodeToStr:errorCode]);
                             [[NSNotificationCenter defaultCenter] postNotificationName:@"sucSettingDial" object:nil];
                         }];
@@ -709,6 +716,5 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
-
 
 @end

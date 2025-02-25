@@ -340,6 +340,35 @@
 		B0C8F9B8274B3078009BA60D /* OneTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F819274B3077009BA60D /* OneTextFieldTableViewCell.m */; };
 		B0C8F9B9274B3078009BA60D /* EmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C8F81A274B3077009BA60D /* EmptyTableViewCell.m */; };
 		D550A8B82CFEEF6D003075CB /* SetWallpaperCloudViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D550A8B72CFEEF6D003075CB /* SetWallpaperCloudViewModel.m */; };
+		D5EBF6D92D6D626B001CB447 /* WallpaperFileLibManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6802D6D626B001CB447 /* WallpaperFileLibManager.m */; };
+		D5EBF6DA2D6D626B001CB447 /* WallpaperCloudLibManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6812D6D626B001CB447 /* WallpaperCloudLibManager.m */; };
+		D5EBF6DB2D6D626B001CB447 /* PhotoDialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6822D6D626B001CB447 /* PhotoDialManager.m */; };
+		D5EBF6DC2D6D626B001CB447 /* WallpaperCloudLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6892D6D626B001CB447 /* WallpaperCloudLibModel.m */; };
+		D5EBF6DD2D6D626B001CB447 /* DialJsonTimeListLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF68D2D6D626B001CB447 /* DialJsonTimeListLibModel.m */; };
+		D5EBF6DE2D6D626B001CB447 /* NewDialJsonFuncLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF68E2D6D626B001CB447 /* NewDialJsonFuncLibModel.m */; };
+		D5EBF6DF2D6D626B001CB447 /* NewDialJsonFunctionItemLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF68F2D6D626B001CB447 /* NewDialJsonFunctionItemLibModel.m */; };
+		D5EBF6E02D6D626B001CB447 /* NewDialWallpaperLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6922D6D626B001CB447 /* NewDialWallpaperLibModel.m */; };
+		D5EBF6E12D6D626B001CB447 /* NewDialJsonSelectedLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6932D6D626B001CB447 /* NewDialJsonSelectedLibModel.m */; };
+		D5EBF6E22D6D626B001CB447 /* NewDialJsonBackgroundLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6942D6D626B001CB447 /* NewDialJsonBackgroundLibModel.m */; };
+		D5EBF6E32D6D626B001CB447 /* NewDialJsonClockLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6952D6D626B001CB447 /* NewDialJsonClockLibModel.m */; };
+		D5EBF6E42D6D626B001CB447 /* NewDialJsonFunctionListLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6962D6D626B001CB447 /* NewDialJsonFunctionListLibModel.m */; };
+		D5EBF6E52D6D626B001CB447 /* DialJsonTimeWidgetLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6982D6D626B001CB447 /* DialJsonTimeWidgetLibModel.m */; };
+		D5EBF6E62D6D626B001CB447 /* NewDialJsonStylesFuncsLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF69C2D6D626B001CB447 /* NewDialJsonStylesFuncsLibModel.m */; };
+		D5EBF6E72D6D626B001CB447 /* NewDialJsonAppLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF69D2D6D626B001CB447 /* NewDialJsonAppLibModel.m */; };
+		D5EBF6E82D6D626B001CB447 /* NewDialJsonCountTimerLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF69F2D6D626B001CB447 /* NewDialJsonCountTimerLibModel.m */; };
+		D5EBF6E92D6D626B001CB447 /* NewDialInstallLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6A32D6D626B001CB447 /* NewDialInstallLibModel.m */; };
+		D5EBF6EA2D6D626B001CB447 /* NewDialJsonFuncListItemLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6A42D6D626B001CB447 /* NewDialJsonFuncListItemLibModel.m */; };
+		D5EBF6EB2D6D626B001CB447 /* NewDialJsonFuncListLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6A82D6D626B001CB447 /* NewDialJsonFuncListLibModel.m */; };
+		D5EBF6EC2D6D626B001CB447 /* NewDialJsonFunctionCoordinateLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6A92D6D626B001CB447 /* NewDialJsonFunctionCoordinateLibModel.m */; };
+		D5EBF6ED2D6D626B001CB447 /* NewDialJsonStylesListLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6AA2D6D626B001CB447 /* NewDialJsonStylesListLibModel.m */; };
+		D5EBF6EE2D6D626B001CB447 /* NewDialJsonPaletteLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6AB2D6D626B001CB447 /* NewDialJsonPaletteLibModel.m */; };
+		D5EBF6EF2D6D626B001CB447 /* NewDialJsonLocationLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6AC2D6D626B001CB447 /* NewDialJsonLocationLibModel.m */; };
+		D5EBF6F02D6D626B001CB447 /* NewDialJsonFunctionListItemLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6AF2D6D626B001CB447 /* NewDialJsonFunctionListItemLibModel.m */; };
+		D5EBF6F12D6D626B001CB447 /* UIImage+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6B32D6D626B001CB447 /* UIImage+Add.m */; };
+		D5EBF6F22D6D626B001CB447 /* UIColor+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF6B52D6D626B001CB447 /* UIColor+Add.m */; };
+		D5EBF7FE2D6D7090001CB447 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF7FD2D6D7090001CB447 /* SSZipArchive.m */; };
+		D5EBF8002D6D7303001CB447 /* ZipHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF7FF2D6D7303001CB447 /* ZipHelper.swift */; };
+		D5EBF8032D6D9795001CB447 /* SetWallpaperCloudView2Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBF8022D6D9795001CB447 /* SetWallpaperCloudView2Model.m */; };
 		D5FC150F2CF45A0B00CA0E4A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = D5FC150E2CF45A0B00CA0E4A /* SwiftyJSON */; };
 		D5FC15112CF45A2B00CA0E4A /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D5FC15102CF45A2B00CA0E4A /* CropViewController */; };
 		D5FC15132CF45A2B00CA0E4A /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D5FC15122CF45A2B00CA0E4A /* TOCropViewController */; };
@@ -1020,6 +1049,63 @@
 		CDE4E5AB3D79972A141D0263 /* Pods-IDOBlue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDOBlue.debug.xcconfig"; path = "Target Support Files/Pods-IDOBlue/Pods-IDOBlue.debug.xcconfig"; sourceTree = "<group>"; };
 		D550A8B62CFEEF6D003075CB /* SetWallpaperCloudViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetWallpaperCloudViewModel.h; sourceTree = "<group>"; };
 		D550A8B72CFEEF6D003075CB /* SetWallpaperCloudViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetWallpaperCloudViewModel.m; sourceTree = "<group>"; };
+		D5EBF6802D6D626B001CB447 /* WallpaperFileLibManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallpaperFileLibManager.m; sourceTree = "<group>"; };
+		D5EBF6812D6D626B001CB447 /* WallpaperCloudLibManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallpaperCloudLibManager.m; sourceTree = "<group>"; };
+		D5EBF6822D6D626B001CB447 /* PhotoDialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDialManager.m; sourceTree = "<group>"; };
+		D5EBF6832D6D626B001CB447 /* PhotoDialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDialManager.h; sourceTree = "<group>"; };
+		D5EBF6842D6D626B001CB447 /* WallpaperCloudLibManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallpaperCloudLibManager.h; sourceTree = "<group>"; };
+		D5EBF6852D6D626B001CB447 /* WallpaperFileLibManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallpaperFileLibManager.h; sourceTree = "<group>"; };
+		D5EBF6872D6D626B001CB447 /* NewDialJsonCountTimerLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonCountTimerLibModel.h; sourceTree = "<group>"; };
+		D5EBF6882D6D626B001CB447 /* NewDialJsonAppLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonAppLibModel.h; sourceTree = "<group>"; };
+		D5EBF6892D6D626B001CB447 /* WallpaperCloudLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallpaperCloudLibModel.m; sourceTree = "<group>"; };
+		D5EBF68A2D6D626B001CB447 /* NewDialJsonStylesFuncsLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonStylesFuncsLibModel.h; sourceTree = "<group>"; };
+		D5EBF68B2D6D626B001CB447 /* NewDialJsonFuncListItemLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonFuncListItemLibModel.h; sourceTree = "<group>"; };
+		D5EBF68C2D6D626B001CB447 /* NewDialInstallLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialInstallLibModel.h; sourceTree = "<group>"; };
+		D5EBF68D2D6D626B001CB447 /* DialJsonTimeListLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialJsonTimeListLibModel.m; sourceTree = "<group>"; };
+		D5EBF68E2D6D626B001CB447 /* NewDialJsonFuncLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonFuncLibModel.m; sourceTree = "<group>"; };
+		D5EBF68F2D6D626B001CB447 /* NewDialJsonFunctionItemLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonFunctionItemLibModel.m; sourceTree = "<group>"; };
+		D5EBF6902D6D626B001CB447 /* NewDialJsonFunctionCoordinateLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonFunctionCoordinateLibModel.h; sourceTree = "<group>"; };
+		D5EBF6912D6D626B001CB447 /* NewDialJsonFuncListLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonFuncListLibModel.h; sourceTree = "<group>"; };
+		D5EBF6922D6D626B001CB447 /* NewDialWallpaperLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialWallpaperLibModel.m; sourceTree = "<group>"; };
+		D5EBF6932D6D626B001CB447 /* NewDialJsonSelectedLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonSelectedLibModel.m; sourceTree = "<group>"; };
+		D5EBF6942D6D626B001CB447 /* NewDialJsonBackgroundLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonBackgroundLibModel.m; sourceTree = "<group>"; };
+		D5EBF6952D6D626B001CB447 /* NewDialJsonClockLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonClockLibModel.m; sourceTree = "<group>"; };
+		D5EBF6962D6D626B001CB447 /* NewDialJsonFunctionListLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonFunctionListLibModel.m; sourceTree = "<group>"; };
+		D5EBF6972D6D626B001CB447 /* NewDialJsonFunctionListItemLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonFunctionListItemLibModel.h; sourceTree = "<group>"; };
+		D5EBF6982D6D626B001CB447 /* DialJsonTimeWidgetLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialJsonTimeWidgetLibModel.m; sourceTree = "<group>"; };
+		D5EBF6992D6D626B001CB447 /* NewDialJsonLocationLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonLocationLibModel.h; sourceTree = "<group>"; };
+		D5EBF69A2D6D626B001CB447 /* NewDialJsonPaletteLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonPaletteLibModel.h; sourceTree = "<group>"; };
+		D5EBF69B2D6D626B001CB447 /* NewDialJsonStylesListLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonStylesListLibModel.h; sourceTree = "<group>"; };
+		D5EBF69C2D6D626B001CB447 /* NewDialJsonStylesFuncsLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonStylesFuncsLibModel.m; sourceTree = "<group>"; };
+		D5EBF69D2D6D626B001CB447 /* NewDialJsonAppLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonAppLibModel.m; sourceTree = "<group>"; };
+		D5EBF69E2D6D626B001CB447 /* WallpaperCloudLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallpaperCloudLibModel.h; sourceTree = "<group>"; };
+		D5EBF69F2D6D626B001CB447 /* NewDialJsonCountTimerLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonCountTimerLibModel.m; sourceTree = "<group>"; };
+		D5EBF6A02D6D626B001CB447 /* NewDialJsonFunctionItemLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonFunctionItemLibModel.h; sourceTree = "<group>"; };
+		D5EBF6A12D6D626B001CB447 /* NewDialJsonFuncLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonFuncLibModel.h; sourceTree = "<group>"; };
+		D5EBF6A22D6D626B001CB447 /* DialJsonTimeListLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialJsonTimeListLibModel.h; sourceTree = "<group>"; };
+		D5EBF6A32D6D626B001CB447 /* NewDialInstallLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialInstallLibModel.m; sourceTree = "<group>"; };
+		D5EBF6A42D6D626B001CB447 /* NewDialJsonFuncListItemLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonFuncListItemLibModel.m; sourceTree = "<group>"; };
+		D5EBF6A52D6D626B001CB447 /* NewDialJsonBackgroundLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonBackgroundLibModel.h; sourceTree = "<group>"; };
+		D5EBF6A62D6D626B001CB447 /* NewDialJsonSelectedLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonSelectedLibModel.h; sourceTree = "<group>"; };
+		D5EBF6A72D6D626B001CB447 /* NewDialWallpaperLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialWallpaperLibModel.h; sourceTree = "<group>"; };
+		D5EBF6A82D6D626B001CB447 /* NewDialJsonFuncListLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonFuncListLibModel.m; sourceTree = "<group>"; };
+		D5EBF6A92D6D626B001CB447 /* NewDialJsonFunctionCoordinateLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonFunctionCoordinateLibModel.m; sourceTree = "<group>"; };
+		D5EBF6AA2D6D626B001CB447 /* NewDialJsonStylesListLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonStylesListLibModel.m; sourceTree = "<group>"; };
+		D5EBF6AB2D6D626B001CB447 /* NewDialJsonPaletteLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonPaletteLibModel.m; sourceTree = "<group>"; };
+		D5EBF6AC2D6D626B001CB447 /* NewDialJsonLocationLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonLocationLibModel.m; sourceTree = "<group>"; };
+		D5EBF6AD2D6D626B001CB447 /* DialJsonTimeWidgetLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialJsonTimeWidgetLibModel.h; sourceTree = "<group>"; };
+		D5EBF6AE2D6D626B001CB447 /* NewDialJsonFunctionListLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonFunctionListLibModel.h; sourceTree = "<group>"; };
+		D5EBF6AF2D6D626B001CB447 /* NewDialJsonFunctionListItemLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDialJsonFunctionListItemLibModel.m; sourceTree = "<group>"; };
+		D5EBF6B02D6D626B001CB447 /* NewDialJsonClockLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDialJsonClockLibModel.h; sourceTree = "<group>"; };
+		D5EBF6B22D6D626B001CB447 /* UIColor+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Add.h"; sourceTree = "<group>"; };
+		D5EBF6B32D6D626B001CB447 /* UIImage+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Add.m"; sourceTree = "<group>"; };
+		D5EBF6B42D6D626B001CB447 /* UIImage+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Add.h"; sourceTree = "<group>"; };
+		D5EBF6B52D6D626B001CB447 /* UIColor+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Add.m"; sourceTree = "<group>"; };
+		D5EBF7FC2D6D708F001CB447 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
+		D5EBF7FD2D6D7090001CB447 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		D5EBF7FF2D6D7303001CB447 /* ZipHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipHelper.swift; sourceTree = "<group>"; };
+		D5EBF8012D6D9795001CB447 /* SetWallpaperCloudView2Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetWallpaperCloudView2Model.h; sourceTree = "<group>"; };
+		D5EBF8022D6D9795001CB447 /* SetWallpaperCloudView2Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetWallpaperCloudView2Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1705,6 +1791,8 @@
 				9B15BB002C4FDADC0012977E /* SetWatchDialViewModel.m */,
 				9B15BB012C4FDADC0012977E /* TranWatchDialViewModel.h */,
 				9B15BB022C4FDADC0012977E /* TranWatchDialViewModel.m */,
+				D5EBF8012D6D9795001CB447 /* SetWallpaperCloudView2Model.h */,
+				D5EBF8022D6D9795001CB447 /* SetWallpaperCloudView2Model.m */,
 			);
 			path = WatchDialViewModel;
 			sourceTree = "<group>";
@@ -1925,6 +2013,7 @@
 		9B437EEB21393ADC00DE2FC8 /* IDOBlue */ = {
 			isa = PBXGroup;
 			children = (
+				D5EBF67F2D6D626B001CB447 /* PhotoDialManager */,
 				9B15BC772C4FDDED0012977E /* ViewControllers */,
 				9B15BB052C4FDADC0012977E /* Models */,
 				9B15BB1C2C4FDADD0012977E /* Resources */,
@@ -2156,6 +2245,84 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		D5EBF67F2D6D626B001CB447 /* PhotoDialManager */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBF6B12D6D626B001CB447 /* Extention */,
+				D5EBF6862D6D626B001CB447 /* Model */,
+				D5EBF6832D6D626B001CB447 /* PhotoDialManager.h */,
+				D5EBF6822D6D626B001CB447 /* PhotoDialManager.m */,
+				D5EBF6842D6D626B001CB447 /* WallpaperCloudLibManager.h */,
+				D5EBF6812D6D626B001CB447 /* WallpaperCloudLibManager.m */,
+				D5EBF6852D6D626B001CB447 /* WallpaperFileLibManager.h */,
+				D5EBF6802D6D626B001CB447 /* WallpaperFileLibManager.m */,
+				D5EBF7FC2D6D708F001CB447 /* SSZipArchive.h */,
+				D5EBF7FD2D6D7090001CB447 /* SSZipArchive.m */,
+				D5EBF7FF2D6D7303001CB447 /* ZipHelper.swift */,
+			);
+			path = PhotoDialManager;
+			sourceTree = "<group>";
+		};
+		D5EBF6862D6D626B001CB447 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBF6872D6D626B001CB447 /* NewDialJsonCountTimerLibModel.h */,
+				D5EBF6882D6D626B001CB447 /* NewDialJsonAppLibModel.h */,
+				D5EBF6892D6D626B001CB447 /* WallpaperCloudLibModel.m */,
+				D5EBF68A2D6D626B001CB447 /* NewDialJsonStylesFuncsLibModel.h */,
+				D5EBF68B2D6D626B001CB447 /* NewDialJsonFuncListItemLibModel.h */,
+				D5EBF68C2D6D626B001CB447 /* NewDialInstallLibModel.h */,
+				D5EBF68D2D6D626B001CB447 /* DialJsonTimeListLibModel.m */,
+				D5EBF68E2D6D626B001CB447 /* NewDialJsonFuncLibModel.m */,
+				D5EBF68F2D6D626B001CB447 /* NewDialJsonFunctionItemLibModel.m */,
+				D5EBF6902D6D626B001CB447 /* NewDialJsonFunctionCoordinateLibModel.h */,
+				D5EBF6912D6D626B001CB447 /* NewDialJsonFuncListLibModel.h */,
+				D5EBF6922D6D626B001CB447 /* NewDialWallpaperLibModel.m */,
+				D5EBF6932D6D626B001CB447 /* NewDialJsonSelectedLibModel.m */,
+				D5EBF6942D6D626B001CB447 /* NewDialJsonBackgroundLibModel.m */,
+				D5EBF6952D6D626B001CB447 /* NewDialJsonClockLibModel.m */,
+				D5EBF6962D6D626B001CB447 /* NewDialJsonFunctionListLibModel.m */,
+				D5EBF6972D6D626B001CB447 /* NewDialJsonFunctionListItemLibModel.h */,
+				D5EBF6982D6D626B001CB447 /* DialJsonTimeWidgetLibModel.m */,
+				D5EBF6992D6D626B001CB447 /* NewDialJsonLocationLibModel.h */,
+				D5EBF69A2D6D626B001CB447 /* NewDialJsonPaletteLibModel.h */,
+				D5EBF69B2D6D626B001CB447 /* NewDialJsonStylesListLibModel.h */,
+				D5EBF69C2D6D626B001CB447 /* NewDialJsonStylesFuncsLibModel.m */,
+				D5EBF69D2D6D626B001CB447 /* NewDialJsonAppLibModel.m */,
+				D5EBF69E2D6D626B001CB447 /* WallpaperCloudLibModel.h */,
+				D5EBF69F2D6D626B001CB447 /* NewDialJsonCountTimerLibModel.m */,
+				D5EBF6A02D6D626B001CB447 /* NewDialJsonFunctionItemLibModel.h */,
+				D5EBF6A12D6D626B001CB447 /* NewDialJsonFuncLibModel.h */,
+				D5EBF6A22D6D626B001CB447 /* DialJsonTimeListLibModel.h */,
+				D5EBF6A32D6D626B001CB447 /* NewDialInstallLibModel.m */,
+				D5EBF6A42D6D626B001CB447 /* NewDialJsonFuncListItemLibModel.m */,
+				D5EBF6A52D6D626B001CB447 /* NewDialJsonBackgroundLibModel.h */,
+				D5EBF6A62D6D626B001CB447 /* NewDialJsonSelectedLibModel.h */,
+				D5EBF6A72D6D626B001CB447 /* NewDialWallpaperLibModel.h */,
+				D5EBF6A82D6D626B001CB447 /* NewDialJsonFuncListLibModel.m */,
+				D5EBF6A92D6D626B001CB447 /* NewDialJsonFunctionCoordinateLibModel.m */,
+				D5EBF6AA2D6D626B001CB447 /* NewDialJsonStylesListLibModel.m */,
+				D5EBF6AB2D6D626B001CB447 /* NewDialJsonPaletteLibModel.m */,
+				D5EBF6AC2D6D626B001CB447 /* NewDialJsonLocationLibModel.m */,
+				D5EBF6AD2D6D626B001CB447 /* DialJsonTimeWidgetLibModel.h */,
+				D5EBF6AE2D6D626B001CB447 /* NewDialJsonFunctionListLibModel.h */,
+				D5EBF6AF2D6D626B001CB447 /* NewDialJsonFunctionListItemLibModel.m */,
+				D5EBF6B02D6D626B001CB447 /* NewDialJsonClockLibModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D5EBF6B12D6D626B001CB447 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				D5EBF6B22D6D626B001CB447 /* UIColor+Add.h */,
+				D5EBF6B32D6D626B001CB447 /* UIImage+Add.m */,
+				D5EBF6B42D6D626B001CB447 /* UIImage+Add.h */,
+				D5EBF6B52D6D626B001CB447 /* UIColor+Add.m */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2331,13 +2498,16 @@
 				9B15BBFE2C4FDADD0012977E /* UpdateMainViewModel.m in Sources */,
 				9B15BBA72C4FDADD0012977E /* IDOSportRunModel.m in Sources */,
 				9B15BB982C4FDADD0012977E /* IDOVFLoadDataBaseManager.m in Sources */,
+				D5EBF6EE2D6D626B001CB447 /* NewDialJsonPaletteLibModel.m in Sources */,
 				9B15BBE52C4FDADD0012977E /* SetUserNumberViewModel.m in Sources */,
 				9B15BB352C4FDADD0012977E /* BlockGetViewModel.m in Sources */,
 				9B15BBE32C4FDADD0012977E /* SetUserInfoViewModel.m in Sources */,
+				D5EBF6E52D6D626B001CB447 /* DialJsonTimeWidgetLibModel.m in Sources */,
 				9B15BBD02C4FDADD0012977E /* SetNotfityViewModel.m in Sources */,
 				9B15BB8C2C4FDADD0012977E /* QuerySportsViewModel.m in Sources */,
 				9B15BC502C4FDB030012977E /* AFURLRequestSerialization.m in Sources */,
 				9B15BB6A2C4FDADD0012977E /* LogViewModel.m in Sources */,
+				D5EBF6D92D6D626B001CB447 /* WallpaperFileLibManager.m in Sources */,
 				9B437EFC21393ADC00DE2FC8 /* main.m in Sources */,
 				9B9C40322566693C00809576 /* View+MASAdditions.m in Sources */,
 				9B15BB6B2C4FDADD0012977E /* RestartLogViewModel.m in Sources */,
@@ -2351,6 +2521,7 @@
 				B0C8F9AB274B3078009BA60D /* OneTextViewTableViewCell.m in Sources */,
 				9B15BBE82C4FDADD0012977E /* SetV3ScheduleReminderViewModel.m in Sources */,
 				9B15BB962C4FDADD0012977E /* IDOHomeDataLoadStateView.m in Sources */,
+				D5EBF6E12D6D626B001CB447 /* NewDialJsonSelectedLibModel.m in Sources */,
 				9B15BB742C4FDADD0012977E /* FolderInfoViewModel.m in Sources */,
 				9B15BBE12C4FDADD0012977E /* SetTimeViewModel.m in Sources */,
 				9B9C402B2566693C00809576 /* MASConstraint.m in Sources */,
@@ -2361,6 +2532,7 @@
 				9B15BBB52C4FDADD0012977E /* SetBreatheViewModel.m in Sources */,
 				9B15BBB82C4FDADD0012977E /* SetContentViewModel.m in Sources */,
 				9B15BB8A2C4FDADD0012977E /* QueryPressureViewModel.m in Sources */,
+				D5EBF6ED2D6D626B001CB447 /* NewDialJsonStylesListLibModel.m in Sources */,
 				9BC479A4244E9A5900455A6E /* PQVoiceTopView.m in Sources */,
 				9B9C400E2566693900809576 /* ScanDemoViewController.m in Sources */,
 				9B15BB582C4FDADD0012977E /* GetOtaAuthInfoViewModel.m in Sources */,
@@ -2369,6 +2541,7 @@
 				9B15BB4F2C4FDADD0012977E /* GetFuncTableViewModel.m in Sources */,
 				9B15BC082C4FDADD0012977E /* SetWatchDialViewModel.m in Sources */,
 				9B15BB672C4FDADD0012977E /* ComLogViewModel.m in Sources */,
+				D5EBF6DF2D6D626B001CB447 /* NewDialJsonFunctionItemLibModel.m in Sources */,
 				9B15BB602C4FDADD0012977E /* GetV3AlarmsViewModel.m in Sources */,
 				9B15BBAD2C4FDADD0012977E /* RunPlanViewModel.m in Sources */,
 				9B15BB612C4FDADD0012977E /* GetV3HearRateViewModel.m in Sources */,
@@ -2384,6 +2557,7 @@
 				9B15BBC52C4FDADD0012977E /* SetHrSwitchViewModel.m in Sources */,
 				9B15BBA42C4FDADD0012977E /* IDOCoreSportRecordModel.m in Sources */,
 				9B15BC7C2C4FDDED0012977E /* Langue.swift in Sources */,
+				D5EBF6E02D6D626B001CB447 /* NewDialWallpaperLibModel.m in Sources */,
 				9B9C40312566693C00809576 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				9B15BC052C4FDADD0012977E /* GetWatchScreenInfoViewModel.m in Sources */,
 				9B9C40332566693C00809576 /* ViewController+MASAdditions.m in Sources */,
@@ -2404,6 +2578,7 @@
 				9B15BC602C4FDB030012977E /* FBKVOController.m in Sources */,
 				9B15BB952C4FDADD0012977E /* IDOHomeDataLoadingStateView.m in Sources */,
 				9B15BBEF2C4FDADD0012977E /* SetWashHandReminderViewModel.m in Sources */,
+				D5EBF6F12D6D626B001CB447 /* UIImage+Add.m in Sources */,
 				9B15BBF82C4FDADD0012977E /* FirmwareTypeViewModel.m in Sources */,
 				9B15BBA62C4FDADD0012977E /* IDOSportRunLocationManager.m in Sources */,
 				9B15BBF32C4FDADD0012977E /* SwitchDeviceViewModel.m in Sources */,
@@ -2415,24 +2590,34 @@
 				9B15BB332C4FDADD0012977E /* TextViewCellModel.m in Sources */,
 				9B15BBAA2C4FDADD0012977E /* IDOSportTypesModel.m in Sources */,
 				9B9C402E2566693C00809576 /* MASViewAttribute.m in Sources */,
+				D5EBF6E22D6D626B001CB447 /* NewDialJsonBackgroundLibModel.m in Sources */,
 				B0C8F9B2274B3078009BA60D /* BirthdayTableViewCell.m in Sources */,
+				D5EBF6EA2D6D626B001CB447 /* NewDialJsonFuncListItemLibModel.m in Sources */,
 				9B437F3721393DDD00DE2FC8 /* MBProgressHUD.m in Sources */,
 				9B15BC5E2C4FDB030012977E /* NSObject+YYModel.m in Sources */,
 				9B15BBB22C4FDADD0012977E /* SetAlarmViewModel.m in Sources */,
+				D5EBF6E82D6D626B001CB447 /* NewDialJsonCountTimerLibModel.m in Sources */,
 				9B15BC0B2C4FDADD0012977E /* BaseDatePickerView.m in Sources */,
 				9B15BB992C4FDADD0012977E /* IDOCenter.m in Sources */,
 				9B15BB532C4FDADD0012977E /* GetMainUiSortViewModel.m in Sources */,
+				D5EBF6DC2D6D626B001CB447 /* WallpaperCloudLibModel.m in Sources */,
+				D5EBF6EF2D6D626B001CB447 /* NewDialJsonLocationLibModel.m in Sources */,
 				9B15BB5B2C4FDADD0012977E /* GetScheduleRemindViewModel.m in Sources */,
 				B0C8F9AC274B3078009BA60D /* TwoTextFieldTableViewCell.m in Sources */,
 				B0C8F99D274B3078009BA60D /* RecordAudio.m in Sources */,
 				B0C8F9AD274B3078009BA60D /* SexTableViewCell.m in Sources */,
 				9B15BB362C4FDADD0012977E /* BlockMainViewModel.m in Sources */,
 				9B15BBA92C4FDADD0012977E /* IDOSportTypeModel.m in Sources */,
+				D5EBF6EC2D6D626B001CB447 /* NewDialJsonFunctionCoordinateLibModel.m in Sources */,
 				9B15BB5D2C4FDADD0012977E /* GetStartCountViewModel.m in Sources */,
 				9B15BB7C2C4FDADD0012977E /* PeripheralViewModel.m in Sources */,
+				D5EBF6DB2D6D626B001CB447 /* PhotoDialManager.m in Sources */,
 				9B15BB572C4FDADD0012977E /* GetNotifyStateViewModel.m in Sources */,
 				9B15BB9C2C4FDADD0012977E /* IDORequest.m in Sources */,
+				D5EBF6E92D6D626B001CB447 /* NewDialInstallLibModel.m in Sources */,
 				9B15BB7F2C4FDADD0012977E /* sendScalesViewModel.m in Sources */,
+				D5EBF6DD2D6D626B001CB447 /* DialJsonTimeListLibModel.m in Sources */,
+				D5EBF6DE2D6D626B001CB447 /* NewDialJsonFuncLibModel.m in Sources */,
 				9B15BB5A2C4FDADD0012977E /* GetRealTimeViewModel.m in Sources */,
 				9B15BBED2C4FDADD0012977E /* SetViewModel.m in Sources */,
 				9B15BB6E2C4FDADD0012977E /* ModeSelectViewModel.m in Sources */,
@@ -2486,6 +2671,7 @@
 				9B15BB3C2C4FDADD0012977E /* ControlRestoreViewModel.m in Sources */,
 				9B15BBAB2C4FDADD0012977E /* IDOSRailModel.m in Sources */,
 				9B15BB8F2C4FDADD0012977E /* QueryViewModel.m in Sources */,
+				D5EBF6F22D6D626B001CB447 /* UIColor+Add.m in Sources */,
 				B0C8F9B0274B3078009BA60D /* SliderTableViewCell.m in Sources */,
 				9B15BB782C4FDADD0012977E /* SetFolderInfoViewModel.m in Sources */,
 				9B15BC7B2C4FDDED0012977E /* FuncViewController.m in Sources */,
@@ -2493,9 +2679,12 @@
 				B0C8F990274B3078009BA60D /* IDODemoUtility.m in Sources */,
 				9B15BBF22C4FDADD0012977E /* SetWorldTimeViewModel.m in Sources */,
 				9B15BC522C4FDB030012977E /* AFURLSessionManager.m in Sources */,
+				D5EBF8002D6D7303001CB447 /* ZipHelper.swift in Sources */,
+				D5EBF6E62D6D626B001CB447 /* NewDialJsonStylesFuncsLibModel.m in Sources */,
 				9B15BC5F2C4FDB030012977E /* YYClassInfo.m in Sources */,
 				9B15BC5A2C4FDB030012977E /* UIRefreshControl+AFNetworking.m in Sources */,
 				9B9C402A2566693C00809576 /* MASCompositeConstraint.m in Sources */,
+				D5EBF6DA2D6D626B001CB447 /* WallpaperCloudLibManager.m in Sources */,
 				9B15BC4D2C4FDB030012977E /* AFHTTPSessionManager.m in Sources */,
 				9B15BB762C4FDADD0012977E /* MusicInfoViewModel.m in Sources */,
 				B0C8F9AF274B3078009BA60D /* TwoButtonTableViewCell.m in Sources */,
@@ -2503,12 +2692,14 @@
 				9B15BBF72C4FDADD0012977E /* FileViewModel.m in Sources */,
 				9B15BBBC2C4FDADD0012977E /* SetDrinkWaterViewModel.m in Sources */,
 				9B15BB892C4FDADD0012977E /* QueryNoiseViewModel.m in Sources */,
+				D5EBF6F02D6D626B001CB447 /* NewDialJsonFunctionListItemLibModel.m in Sources */,
 				B0C8F996274B3078009BA60D /* NSObject+ObjectToJsonStr.m in Sources */,
 				9B15BB472C4FDADD0012977E /* GetBatteryLogViewModel.m in Sources */,
 				9B15BB4C2C4FDADD0012977E /* GetEncryptionCodeViewModel.m in Sources */,
 				9B15BBBA2C4FDADD0012977E /* SetDialParamViewModel.m in Sources */,
 				9B15BB9A2C4FDADD0012977E /* IDOEngine.m in Sources */,
 				9B15BBD72C4FDADD0012977E /* SetSmartHeartRateModeViewModel.m in Sources */,
+				D5EBF7FE2D6D7090001CB447 /* SSZipArchive.m in Sources */,
 				9B15BB7D2C4FDADD0012977E /* sendBindDeviceViewModel.m in Sources */,
 				9B15BB302C4FDADD0012977E /* SwitchCellModel.m in Sources */,
 				9B15BBE42C4FDADD0012977E /* SetUserNameViewModel.m in Sources */,
@@ -2535,8 +2726,10 @@
 				9B15BBF92C4FDADD0012977E /* OtherFileViewModel.m in Sources */,
 				9B15BB452C4FDADD0012977E /* GetAlgVersionViewModel.m in Sources */,
 				9BC4799F244E9A5900455A6E /* PQTopArcAnimationView.m in Sources */,
+				D5EBF8032D6D9795001CB447 /* SetWallpaperCloudView2Model.m in Sources */,
 				9B15BB7B2C4FDADD0012977E /* GetPeripheralsInfoViewModel.m in Sources */,
 				9B15BC552C4FDB030012977E /* AFNetworkActivityIndicatorManager.m in Sources */,
+				D5EBF6E42D6D626B001CB447 /* NewDialJsonFunctionListLibModel.m in Sources */,
 				9B15BB4D2C4FDADD0012977E /* GetErrorLogViewModel.m in Sources */,
 				9B15BBDA2C4FDADD0012977E /* SetSportParamSortViewModel.m in Sources */,
 				9B15BC612C4FDB030012977E /* NSObject+FBKVOController.m in Sources */,
@@ -2575,6 +2768,7 @@
 				9B15BBDF2C4FDADD0012977E /* SetTakeMedicineViewModel.m in Sources */,
 				9B15BB932C4FDADD0012977E /* IDOH5Manager.m in Sources */,
 				9B15BB592C4FDADD0012977E /* GetOverHeatLogViewModel.m in Sources */,
+				D5EBF6E32D6D626B001CB447 /* NewDialJsonClockLibModel.m in Sources */,
 				9B15BBD82C4FDADD0012977E /* SetSpo2SwitchViewModel.m in Sources */,
 				9B15BB512C4FDADD0012977E /* GetHealthSwitchViewModel.m in Sources */,
 				9BC4799E244E9A5900455A6E /* PQCircleAnimationView.m in Sources */,
@@ -2597,8 +2791,10 @@
 				9B15BC7E2C4FDDED0012977E /* ScanViewController.m in Sources */,
 				9B15BC4E2C4FDB030012977E /* AFNetworkReachabilityManager.m in Sources */,
 				9B15BBCA2C4FDADD0012977E /* SetMainUISortViewModel.m in Sources */,
+				D5EBF6EB2D6D626B001CB447 /* NewDialJsonFuncListLibModel.m in Sources */,
 				9B15BC0E2C4FDADD0012977E /* FuncTableView.m in Sources */,
 				9B15BBFC2C4FDADD0012977E /* UpdateFileViewModel.m in Sources */,
+				D5EBF6E72D6D626B001CB447 /* NewDialJsonAppLibModel.m in Sources */,
 				9B15BC642C4FDC0F0012977E /* IDOPGSun.m in Sources */,
 				9B15BB972C4FDADD0012977E /* IDOHomeHealthManager.m in Sources */,
 				9B15BBA22C4FDADD0012977E /* IDOVFNewRunPlanNetModel.m in Sources */,

@@ -17,6 +17,8 @@
 #import "SetWallpaperViewModel.h"
 #import "GetWatchDialNameViewModel.h"
 #import "SetWallpaperCloudViewModel.h"
+#import "SetWallpaperCloudView2Model.h"
+
 #import "IDOBlue-Swift.h"
 
 
@@ -42,7 +44,7 @@
 - (NSArray *)buttonTitles
 {
     if (!_buttonTitles) {
-        _buttonTitles = @[@[lang(@"get watch screen info")],@[lang(@"get watch dial list info")],@[lang(@"set current dial info")],@[lang(@"transfer dial file")],@[lang(@"custom wallpaper dial")],@[lang(@"get watch dial name")], @[lang(@"SiChe photo cloud dial")], @[lang(@"JieLi wallpaper dial")],@[lang(@"custom photo cloud dial")]];
+        _buttonTitles = @[@[lang(@"get watch screen info")],@[lang(@"get watch dial list info")],@[lang(@"set current dial info")],@[lang(@"transfer dial file")],@[lang(@"custom wallpaper dial")],@[lang(@"get watch dial name")], @[lang(@"SiChe photo cloud dial")], @[lang(@"JieLi wallpaper dial")],@[lang(@"custom photo cloud dial")],@[lang(@"Actions custom photo cloud dial")]];
     }
     return _buttonTitles;
 }
@@ -50,7 +52,7 @@
 - (NSArray *)modelClasss
 {
     if (!_modelClasss) {
-        _modelClasss = @[[GetWatchScreenInfoViewModel class],[GetWatchDialListViewModel class],[SetWatchDialViewModel class],[TranWatchDialViewModel class],[SetWallpaperViewModel class],[GetWatchDialNameViewModel class], [GetWatchDialNameViewModel class], [GetWatchDialNameViewModel class],[SetWallpaperCloudViewModel class]];
+        _modelClasss = @[[GetWatchScreenInfoViewModel class],[GetWatchDialListViewModel class],[SetWatchDialViewModel class],[TranWatchDialViewModel class],[SetWallpaperViewModel class],[GetWatchDialNameViewModel class], [GetWatchDialNameViewModel class], [GetWatchDialNameViewModel class],[SetWallpaperCloudViewModel class],[SetWallpaperCloudView2Model class]];
     }
     return _modelClasss;
 }
