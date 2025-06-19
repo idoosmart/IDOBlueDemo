@@ -176,14 +176,14 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${PODS_ROOT}/IDOBlueProtocol/IDOBlueProtocol.framework"
-  install_framework "${PODS_ROOT}/IDOBlueUpdate/IDOBlueUpdate.framework"
-  install_framework "${PODS_ROOT}/IDOBluetooth/IDOBluetooth.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBlueProtocol/IDOBlueProtocol.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBlueUpdate/IDOBlueUpdate.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBluetooth/IDOBluetooth.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${PODS_ROOT}/IDOBlueProtocol/IDOBlueProtocol.framework"
-  install_framework "${PODS_ROOT}/IDOBlueUpdate/IDOBlueUpdate.framework"
-  install_framework "${PODS_ROOT}/IDOBluetooth/IDOBluetooth.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBlueProtocol/IDOBlueProtocol.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBlueUpdate/IDOBlueUpdate.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBluetooth/IDOBluetooth.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

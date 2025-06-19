@@ -1,6 +1,6 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/IDOBlueUpdate
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/IDOBlueProtocol" "${PODS_ROOT}/IDOBlueUpdate"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/IDOBlueProtocol" "${PODS_ROOT}/IDOBlueUpdate" "${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBlueProtocol" "${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBlueUpdate"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LIBRARY_SEARCH_PATHS = $(inherited) "${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" /usr/lib/swift
 OTHER_LDFLAGS = $(inherited) -framework "CoreBluetooth" -framework "Foundation" -framework "IDOBlueProtocol" -framework "Security" -framework "UIKit"

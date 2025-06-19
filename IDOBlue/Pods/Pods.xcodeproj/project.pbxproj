@@ -9,8 +9,9 @@
 /* Begin PBXAggregateTarget section */
 		1470A35463C56EA6B82BFB6076FF02B5 /* IDOBlueProtocol */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = E7FA4B665526E0559A4C4737AE4699EC /* Build configuration list for PBXAggregateTarget "IDOBlueProtocol" */;
+			buildConfigurationList = 07894E518F240BEAD8AB3735398FA22A /* Build configuration list for PBXAggregateTarget "IDOBlueProtocol" */;
 			buildPhases = (
+				5D5F7A898C9ECB068622576E6DA9C5A5 /* [CP] Copy XCFrameworks */,
 			);
 			dependencies = (
 			);
@@ -18,21 +19,23 @@
 		};
 		9F0B1C4EAD78EA7E9A28A2F002DDD446 /* IDOBlueUpdate */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = D5CDC1514F70A0C9EC0080BB7BC605F7 /* Build configuration list for PBXAggregateTarget "IDOBlueUpdate" */;
+			buildConfigurationList = 06E3080F868295ADBA613B374C8FB6E1 /* Build configuration list for PBXAggregateTarget "IDOBlueUpdate" */;
 			buildPhases = (
+				04BE2C3C0EA6DEA5EA98EE4DE7D793FC /* [CP] Copy XCFrameworks */,
 			);
 			dependencies = (
-				481C93A680CAFA05AE3ED4040781DE2B /* PBXTargetDependency */,
+				180134CF5084D4749438ED590C31F8DD /* PBXTargetDependency */,
 			);
 			name = IDOBlueUpdate;
 		};
 		D08A032977CC88740693EDD46D90D8D4 /* IDOBluetooth */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 6FCFF496FB52AAAB28DD28782638022E /* Build configuration list for PBXAggregateTarget "IDOBluetooth" */;
+			buildConfigurationList = 893964C792ABCCB2C81853C15FE8AD7C /* Build configuration list for PBXAggregateTarget "IDOBluetooth" */;
 			buildPhases = (
+				BBB7B48E177DDB961A1AB3C14AFD426C /* [CP] Copy XCFrameworks */,
 			);
 			dependencies = (
-				56F36B2ECB6885F3F87CF29725A7A3D3 /* PBXTargetDependency */,
+				5FC7F03CDF49E515C698ED28148C962B /* PBXTargetDependency */,
 			);
 			name = IDOBluetooth;
 		};
@@ -45,33 +48,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		05CA96C4007B31E2B4C1A66B07624E76 /* PBXContainerItemProxy */ = {
+		4246C058C4ACADAF198844F5AFCE867D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D08A032977CC88740693EDD46D90D8D4;
 			remoteInfo = IDOBluetooth;
 		};
-		0DF3058CA0902A75C560DD3A758AAA51 /* PBXContainerItemProxy */ = {
+		848292F0BEE26B622A0558003773D3AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1470A35463C56EA6B82BFB6076FF02B5;
+			remoteInfo = IDOBlueProtocol;
+		};
+		8CBEAFED1237AE6596D559CAF38FAE88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1470A35463C56EA6B82BFB6076FF02B5;
+			remoteInfo = IDOBlueProtocol;
+		};
+		A68C49CA18D3D503F4F3A45465E34635 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9F0B1C4EAD78EA7E9A28A2F002DDD446;
 			remoteInfo = IDOBlueUpdate;
-		};
-		632478C92F14B52F69BCE701E515A55B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1470A35463C56EA6B82BFB6076FF02B5;
-			remoteInfo = IDOBlueProtocol;
-		};
-		7F564092802AA6981DA6AAFDC7E3ACC8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1470A35463C56EA6B82BFB6076FF02B5;
-			remoteInfo = IDOBlueProtocol;
 		};
 		C479D15AEF7A20A3D5B787E58969193B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -83,27 +86,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		16FDC354609712EEEA11CBE9B17E9132 /* IDOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDOBluetooth.framework; sourceTree = "<group>"; };
+		0B8E53E9FC08BB8CADE635371D7D1795 /* IDOBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBluetooth.debug.xcconfig; sourceTree = "<group>"; };
 		1F130A62FA12CCC0432411E82EF048FF /* Pods-IDOBlue-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-IDOBlue-acknowledgements.markdown"; sourceTree = "<group>"; };
 		22FF246D9E7945E7985FAFC651DA589D /* Pods-IDOBlue.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-IDOBlue.modulemap"; sourceTree = "<group>"; };
 		252314ECABA651F8284C25379923A676 /* Pods-IDOBlue */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-IDOBlue"; path = Pods_IDOBlue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BD8A1B1A8AEA23045A7344EFFA92809 /* IDOBlueProtocol.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = IDOBlueProtocol.xcframework; sourceTree = "<group>"; };
 		2E43BD9D6FD05BA01CE821AEC62D8CBC /* Pods-IDOBlue-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-IDOBlue-frameworks.sh"; sourceTree = "<group>"; };
-		32C511768430E2BC16E29E047F07E0A3 /* IDOBlueUpdate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueUpdate.debug.xcconfig; sourceTree = "<group>"; };
-		3EBF20FE50E944213BCE8D96C0DDC5D8 /* IDOBlueProtocol.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDOBlueProtocol.framework; sourceTree = "<group>"; };
-		442B44E08D5ABA7995802D98B8363ED0 /* IDOBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBluetooth.release.xcconfig; sourceTree = "<group>"; };
 		4EA82D2648081A856F63313D6A8163E4 /* Pods-IDOBlue-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-IDOBlue-umbrella.h"; sourceTree = "<group>"; };
+		520456E4BF9CE2C2008240DB8C8BBB66 /* IDOBluetooth.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = IDOBluetooth.xcframework; sourceTree = "<group>"; };
 		5D7479B4D8291AA8F65E7439C5F52A52 /* Pods-IDOBlue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IDOBlue.debug.xcconfig"; sourceTree = "<group>"; };
 		6E465154C9977AA88E7CC19850F25CFB /* Pods-IDOBlue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IDOBlue.release.xcconfig"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		94EB6BF622215C74B21C9CFA31CEED92 /* Pods-IDOBlue-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-IDOBlue-dummy.m"; sourceTree = "<group>"; };
 		98F33ED9EDE729DBC14041457C5661AD /* Pods-IDOBlue-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-IDOBlue-Info.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B07D58377320234553DD2F75A11330C3 /* IDOBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBluetooth.debug.xcconfig; sourceTree = "<group>"; };
-		B84C6E1DBA64CD531BE067E04383A3DD /* IDOBlueProtocol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueProtocol.release.xcconfig; sourceTree = "<group>"; };
-		CE0660B60000C72C9FEB766992FF7CE0 /* IDOBlueProtocol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueProtocol.debug.xcconfig; sourceTree = "<group>"; };
+		B786763B17F1430DE016803C9CEF0901 /* IDOBlueProtocol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueProtocol.debug.xcconfig; sourceTree = "<group>"; };
+		BD02AA879A0DCA29B11A6BC84553A7D2 /* IDOBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBluetooth.release.xcconfig; sourceTree = "<group>"; };
+		BFBD5C7507A284BE096C658251384670 /* IDOBlueUpdate.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = IDOBlueUpdate.xcframework; sourceTree = "<group>"; };
+		C5BE0B58CD0647CA5B21156752065942 /* IDOBlueUpdate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueUpdate.release.xcconfig; sourceTree = "<group>"; };
+		CAD79D6783D99C595F2EC4F60BC17085 /* IDOBlueProtocol-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "IDOBlueProtocol-xcframeworks.sh"; sourceTree = "<group>"; };
+		CCFA40A295B0252CB0147C5FF81FB2AC /* IDOBlueUpdate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueUpdate.debug.xcconfig; sourceTree = "<group>"; };
+		D0C6D824577624D857B17CBBB4167C2E /* IDOBlueProtocol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueProtocol.release.xcconfig; sourceTree = "<group>"; };
 		D33D0BA6B3D1BF5084B78FAE79F16E8D /* Pods-IDOBlue-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-IDOBlue-acknowledgements.plist"; sourceTree = "<group>"; };
-		ECB4F207ED28037FD7498D091EF18B51 /* IDOBlueUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDOBlueUpdate.framework; sourceTree = "<group>"; };
-		ED74E418ED2492FB3188B29253C87E1B /* IDOBlueUpdate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IDOBlueUpdate.release.xcconfig; sourceTree = "<group>"; };
+		D616C4BFA828F1787F157A6B5446004D /* IDOBlueUpdate-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "IDOBlueUpdate-xcframeworks.sh"; sourceTree = "<group>"; };
+		F86C82B399D9377606D14A6219DB5D2A /* IDOBluetooth-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "IDOBluetooth-xcframeworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,12 +124,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		544C093584BA9B55FAD51AA80F0A1F37 /* Frameworks */ = {
+		178720071FBB80CD402BBD4A582E4FAE /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				ECB4F207ED28037FD7498D091EF18B51 /* IDOBlueUpdate.framework */,
+				D616C4BFA828F1787F157A6B5446004D /* IDOBlueUpdate-xcframeworks.sh */,
+				CCFA40A295B0252CB0147C5FF81FB2AC /* IDOBlueUpdate.debug.xcconfig */,
+				C5BE0B58CD0647CA5B21156752065942 /* IDOBlueUpdate.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IDOBlueUpdate";
+			sourceTree = "<group>";
+		};
+		19F552D255F7116E91FD52406A046BFC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CAD79D6783D99C595F2EC4F60BC17085 /* IDOBlueProtocol-xcframeworks.sh */,
+				B786763B17F1430DE016803C9CEF0901 /* IDOBlueProtocol.debug.xcconfig */,
+				D0C6D824577624D857B17CBBB4167C2E /* IDOBlueProtocol.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IDOBlueProtocol";
+			sourceTree = "<group>";
+		};
+		1A33AB9B6E33FDFA9B8B5DB5978F34E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				520456E4BF9CE2C2008240DB8C8BBB66 /* IDOBluetooth.xcframework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3DA181C8DA1DC0FC84E3BDC5F441A12B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2BD8A1B1A8AEA23045A7344EFFA92809 /* IDOBlueProtocol.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		490DB02D28AE59C434439610B0735CDB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F86C82B399D9377606D14A6219DB5D2A /* IDOBluetooth-xcframeworks.sh */,
+				0B8E53E9FC08BB8CADE635371D7D1795 /* IDOBluetooth.debug.xcconfig */,
+				BD02AA879A0DCA29B11A6BC84553A7D2 /* IDOBluetooth.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IDOBluetooth";
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -134,60 +181,12 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		5C6C0BFFC263B1AD6A497A4719D7B46B /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CE0660B60000C72C9FEB766992FF7CE0 /* IDOBlueProtocol.debug.xcconfig */,
-				B84C6E1DBA64CD531BE067E04383A3DD /* IDOBlueProtocol.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/IDOBlueProtocol";
-			sourceTree = "<group>";
-		};
-		5F3C763C4C8E0155B1DA7273062FDD39 /* IDOBlueProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				9F8D624170B904CB92F5CEA15C202298 /* Frameworks */,
-				5C6C0BFFC263B1AD6A497A4719D7B46B /* Support Files */,
-			);
-			name = IDOBlueProtocol;
-			path = IDOBlueProtocol;
-			sourceTree = "<group>";
-		};
 		614116DA540396E23D91B54E512E5829 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				B74C704AD685CD5B830C035F52FF001B /* Pods-IDOBlue */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		67BDB75C5085145860AAD42BBC4589C7 /* IDOBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				8358DAF0D3F08AB1046E358C14D9B166 /* Frameworks */,
-				6FE0C9C41CD9ADC2BA8E7849FE195D9E /* Support Files */,
-			);
-			name = IDOBluetooth;
-			path = IDOBluetooth;
-			sourceTree = "<group>";
-		};
-		6FE0C9C41CD9ADC2BA8E7849FE195D9E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B07D58377320234553DD2F75A11330C3 /* IDOBluetooth.debug.xcconfig */,
-				442B44E08D5ABA7995802D98B8363ED0 /* IDOBluetooth.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/IDOBluetooth";
-			sourceTree = "<group>";
-		};
-		8358DAF0D3F08AB1046E358C14D9B166 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				16FDC354609712EEEA11CBE9B17E9132 /* IDOBluetooth.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		856A671A62A631A1BD973BBA37FDB5DE /* Products */ = {
@@ -198,12 +197,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9F8D624170B904CB92F5CEA15C202298 /* Frameworks */ = {
+		B163ED929C2B7C902F1981B3327C45A4 /* IDOBlueUpdate */ = {
 			isa = PBXGroup;
 			children = (
-				3EBF20FE50E944213BCE8D96C0DDC5D8 /* IDOBlueProtocol.framework */,
+				E9BFDF7284A194BB2ED187192039A294 /* Frameworks */,
+				178720071FBB80CD402BBD4A582E4FAE /* Support Files */,
 			);
-			name = Frameworks;
+			name = IDOBlueUpdate;
+			path = IDOBlueUpdate;
 			sourceTree = "<group>";
 		};
 		B74C704AD685CD5B830C035F52FF001B /* Pods-IDOBlue */ = {
@@ -223,6 +224,16 @@
 			path = "Target Support Files/Pods-IDOBlue";
 			sourceTree = "<group>";
 		};
+		C2C476FA894E92524359707D14ADBE90 /* IDOBlueProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				3DA181C8DA1DC0FC84E3BDC5F441A12B /* Frameworks */,
+				19F552D255F7116E91FD52406A046BFC /* Support Files */,
+			);
+			name = IDOBlueProtocol;
+			path = IDOBlueProtocol;
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +245,16 @@
 			);
 			sourceTree = "<group>";
 		};
+		D0C21CA62C33F093FA0FF47C824712E9 /* IDOBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				1A33AB9B6E33FDFA9B8B5DB5978F34E8 /* Frameworks */,
+				490DB02D28AE59C434439610B0735CDB /* Support Files */,
+			);
+			name = IDOBluetooth;
+			path = IDOBluetooth;
+			sourceTree = "<group>";
+		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,34 +263,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EFA2289522EDCC8A06BC13F58FC588E7 /* IDOBlueUpdate */ = {
+		E9BFDF7284A194BB2ED187192039A294 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				544C093584BA9B55FAD51AA80F0A1F37 /* Frameworks */,
-				FD019EEDCFB302BEC5185C3DC112F988 /* Support Files */,
+				BFBD5C7507A284BE096C658251384670 /* IDOBlueUpdate.xcframework */,
 			);
-			name = IDOBlueUpdate;
-			path = IDOBlueUpdate;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FAF3851F87B5EC68CB57E358FBF9B7EA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5F3C763C4C8E0155B1DA7273062FDD39 /* IDOBlueProtocol */,
-				67BDB75C5085145860AAD42BBC4589C7 /* IDOBluetooth */,
-				EFA2289522EDCC8A06BC13F58FC588E7 /* IDOBlueUpdate */,
+				C2C476FA894E92524359707D14ADBE90 /* IDOBlueProtocol */,
+				D0C21CA62C33F093FA0FF47C824712E9 /* IDOBluetooth */,
+				B163ED929C2B7C902F1981B3327C45A4 /* IDOBlueUpdate */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		FD019EEDCFB302BEC5185C3DC112F988 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				32C511768430E2BC16E29E047F07E0A3 /* IDOBlueUpdate.debug.xcconfig */,
-				ED74E418ED2492FB3188B29253C87E1B /* IDOBlueUpdate.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/IDOBlueUpdate";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,8 +308,8 @@
 			);
 			dependencies = (
 				3DE19E57AC9BEA1734B9B18B66A21E66 /* PBXTargetDependency */,
-				2F2531B73A7AE2AB426868C66B093828 /* PBXTargetDependency */,
-				729421DAEFEE4DFC74ECA3DD97F8C7C0 /* PBXTargetDependency */,
+				ECC07DE381299F1A6C8A4AC4F7912104 /* PBXTargetDependency */,
+				7788586390F088CFDAB8A4E428841F39 /* PBXTargetDependency */,
 			);
 			name = "Pods-IDOBlue";
 			productName = Pods_IDOBlue;
@@ -347,6 +356,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		04BE2C3C0EA6DEA5EA98EE4DE7D793FC /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/IDOBlueUpdate/IDOBlueUpdate-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/IDOBlueUpdate/IDOBlueUpdate-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/IDOBlueUpdate/IDOBlueUpdate-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D5F7A898C9ECB068622576E6DA9C5A5 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/IDOBlueProtocol/IDOBlueProtocol-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/IDOBlueProtocol/IDOBlueProtocol-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/IDOBlueProtocol/IDOBlueProtocol-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBB7B48E177DDB961A1AB3C14AFD426C /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/IDOBluetooth/IDOBluetooth-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/IDOBluetooth/IDOBluetooth-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/IDOBluetooth/IDOBluetooth-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C5EA8C3BE59D86050AB675F24CF11083 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -359,11 +422,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2F2531B73A7AE2AB426868C66B093828 /* PBXTargetDependency */ = {
+		180134CF5084D4749438ED590C31F8DD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = IDOBlueUpdate;
-			target = 9F0B1C4EAD78EA7E9A28A2F002DDD446 /* IDOBlueUpdate */;
-			targetProxy = 0DF3058CA0902A75C560DD3A758AAA51 /* PBXContainerItemProxy */;
+			name = IDOBlueProtocol;
+			target = 1470A35463C56EA6B82BFB6076FF02B5 /* IDOBlueProtocol */;
+			targetProxy = 8CBEAFED1237AE6596D559CAF38FAE88 /* PBXContainerItemProxy */;
 		};
 		3DE19E57AC9BEA1734B9B18B66A21E66 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -371,30 +434,30 @@
 			target = 1470A35463C56EA6B82BFB6076FF02B5 /* IDOBlueProtocol */;
 			targetProxy = C479D15AEF7A20A3D5B787E58969193B /* PBXContainerItemProxy */;
 		};
-		481C93A680CAFA05AE3ED4040781DE2B /* PBXTargetDependency */ = {
+		5FC7F03CDF49E515C698ED28148C962B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IDOBlueProtocol;
 			target = 1470A35463C56EA6B82BFB6076FF02B5 /* IDOBlueProtocol */;
-			targetProxy = 7F564092802AA6981DA6AAFDC7E3ACC8 /* PBXContainerItemProxy */;
+			targetProxy = 848292F0BEE26B622A0558003773D3AF /* PBXContainerItemProxy */;
 		};
-		56F36B2ECB6885F3F87CF29725A7A3D3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = IDOBlueProtocol;
-			target = 1470A35463C56EA6B82BFB6076FF02B5 /* IDOBlueProtocol */;
-			targetProxy = 632478C92F14B52F69BCE701E515A55B /* PBXContainerItemProxy */;
-		};
-		729421DAEFEE4DFC74ECA3DD97F8C7C0 /* PBXTargetDependency */ = {
+		7788586390F088CFDAB8A4E428841F39 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IDOBluetooth;
 			target = D08A032977CC88740693EDD46D90D8D4 /* IDOBluetooth */;
-			targetProxy = 05CA96C4007B31E2B4C1A66B07624E76 /* PBXContainerItemProxy */;
+			targetProxy = 4246C058C4ACADAF198844F5AFCE867D /* PBXContainerItemProxy */;
+		};
+		ECC07DE381299F1A6C8A4AC4F7912104 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IDOBlueUpdate;
+			target = 9F0B1C4EAD78EA7E9A28A2F002DDD446 /* IDOBlueUpdate */;
+			targetProxy = A68C49CA18D3D503F4F3A45465E34635 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		06004077EC27391D51D6451E5D527151 /* Release */ = {
+		53CAFF2F866B8529EDB288752C20AAB0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED74E418ED2492FB3188B29253C87E1B /* IDOBlueUpdate.release.xcconfig */;
+			baseConfigurationReference = D0C6D824577624D857B17CBBB4167C2E /* IDOBlueProtocol.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -410,9 +473,9 @@
 			};
 			name = Release;
 		};
-		590A51F9CD77054FD975D7A13F96A6D0 /* Release */ = {
+		5991BE036382A0B8C498C9F9A9847E9C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 442B44E08D5ABA7995802D98B8363ED0 /* IDOBluetooth.release.xcconfig */;
+			baseConfigurationReference = C5BE0B58CD0647CA5B21156752065942 /* IDOBlueUpdate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -428,26 +491,9 @@
 			};
 			name = Release;
 		};
-		5B07524FC538BAAC29236EBD4952C5F3 /* Debug */ = {
+		7AC5F3C3B709CEF4353EE73644F62F60 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE0660B60000C72C9FEB766992FF7CE0 /* IDOBlueProtocol.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		5C0A66B810982CA4CBD8D53D1EAA39B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B84C6E1DBA64CD531BE067E04383A3DD /* IDOBlueProtocol.release.xcconfig */;
+			baseConfigurationReference = BD02AA879A0DCA29B11A6BC84553A7D2 /* IDOBluetooth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -567,6 +613,23 @@
 			};
 			name = Debug;
 		};
+		9A357326CD06A500D37B6F26010883B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B786763B17F1430DE016803C9CEF0901 /* IDOBlueProtocol.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		9E406C6AAF85E580207CD97B0044DEAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -666,9 +729,9 @@
 			};
 			name = Debug;
 		};
-		B1CC914263CDF275F970F1BFD7E519A4 /* Debug */ = {
+		BB5D9DEF7F86423B64EBC088970FCA18 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32C511768430E2BC16E29E047F07E0A3 /* IDOBlueUpdate.debug.xcconfig */;
+			baseConfigurationReference = 0B8E53E9FC08BB8CADE635371D7D1795 /* IDOBluetooth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -683,9 +746,9 @@
 			};
 			name = Debug;
 		};
-		E35238C8ADAE2724E751D26503AA099D /* Debug */ = {
+		F0C11E0089E729FE7A74D089118ECC3D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B07D58377320234553DD2F75A11330C3 /* IDOBluetooth.debug.xcconfig */;
+			baseConfigurationReference = CCFA40A295B0252CB0147C5FF81FB2AC /* IDOBlueUpdate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -703,6 +766,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		06E3080F868295ADBA613B374C8FB6E1 /* Build configuration list for PBXAggregateTarget "IDOBlueUpdate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0C11E0089E729FE7A74D089118ECC3D /* Debug */,
+				5991BE036382A0B8C498C9F9A9847E9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07894E518F240BEAD8AB3735398FA22A /* Build configuration list for PBXAggregateTarget "IDOBlueProtocol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A357326CD06A500D37B6F26010883B6 /* Debug */,
+				53CAFF2F866B8529EDB288752C20AAB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -712,11 +793,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FCFF496FB52AAAB28DD28782638022E /* Build configuration list for PBXAggregateTarget "IDOBluetooth" */ = {
+		893964C792ABCCB2C81853C15FE8AD7C /* Build configuration list for PBXAggregateTarget "IDOBluetooth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E35238C8ADAE2724E751D26503AA099D /* Debug */,
-				590A51F9CD77054FD975D7A13F96A6D0 /* Release */,
+				BB5D9DEF7F86423B64EBC088970FCA18 /* Debug */,
+				7AC5F3C3B709CEF4353EE73644F62F60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -726,24 +807,6 @@
 			buildConfigurations = (
 				AC7FE913A9B6ACE3B38DCE5616F85CD5 /* Debug */,
 				896577F89874057454522EA05077E13F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D5CDC1514F70A0C9EC0080BB7BC605F7 /* Build configuration list for PBXAggregateTarget "IDOBlueUpdate" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B1CC914263CDF275F970F1BFD7E519A4 /* Debug */,
-				06004077EC27391D51D6451E5D527151 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E7FA4B665526E0559A4C4737AE4699EC /* Build configuration list for PBXAggregateTarget "IDOBlueProtocol" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5B07524FC538BAAC29236EBD4952C5F3 /* Debug */,
-				5C0A66B810982CA4CBD8D53D1EAA39B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

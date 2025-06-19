@@ -1,6 +1,6 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/IDOBlueProtocol
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/IDOBlueProtocol"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/IDOBlueProtocol" "${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBlueProtocol"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 OTHER_LDFLAGS = $(inherited) -l"sqlite3.0" -framework "CoreBluetooth" -framework "Foundation" -framework "Security" -framework "UIKit"
 PODS_BUILD_DIR = ${BUILD_DIR}

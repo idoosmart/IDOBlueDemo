@@ -58,6 +58,8 @@
             _v3NoticeMsgStateModel.operat = 1;
         }
         
+        _v3NoticeMsgStateModel.operat = 2;
+
     }
     return _v3NoticeMsgStateModel;
 }
@@ -144,6 +146,7 @@
         strongSelf.v3NoticeMsgStateModel.itemsNum = strongSelf.items.count;
         strongSelf.v3NoticeMsgStateModel.nowSendIndex = strongSelf.items.count;
         strongSelf.v3NoticeMsgStateModel.allSendNum = strongSelf.items.count;
+        strongSelf.v3NoticeMsgStateModel.allOnOff = YES;
         [IDOFoundationCommand setMessageNoticeStateCommand:strongSelf.v3NoticeMsgStateModel
                                           callback:^(int errorCode) {
             if(errorCode == 0) {

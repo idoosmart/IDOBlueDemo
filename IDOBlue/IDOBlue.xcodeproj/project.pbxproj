@@ -2335,7 +2335,7 @@
 				9B437EE621393ADC00DE2FC8 /* Frameworks */,
 				9B437EE721393ADC00DE2FC8 /* Resources */,
 				9BF5C7D52703410100FBA91F /* Embed Frameworks */,
-				8D4EC73F1BE19D9F88E196CA /* [CP] Embed Pods Frameworks */,
+				2C1B9F1C314C5BD48AA628FF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2419,16 +2419,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8D4EC73F1BE19D9F88E196CA /* [CP] Embed Pods Frameworks */ = {
+		2C1B9F1C314C5BD48AA628FF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-IDOBlue/Pods-IDOBlue-frameworks.sh",
-				"${PODS_ROOT}/IDOBlueProtocol/IDOBlueProtocol.framework",
-				"${PODS_ROOT}/IDOBlueUpdate/IDOBlueUpdate.framework",
-				"${PODS_ROOT}/IDOBluetooth/IDOBluetooth.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBlueProtocol/IDOBlueProtocol.framework/IDOBlueProtocol",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBlueUpdate/IDOBlueUpdate.framework/IDOBlueUpdate",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/IDOBluetooth/IDOBluetooth.framework/IDOBluetooth",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
